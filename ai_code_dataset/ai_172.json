@@ -1,0 +1,7 @@
+{
+    "code": "def solve_sudoku(board):\n    def find_empty(bo):\n        for i in range(9):\n            for j in range(9):\n                if bo[i][j] == 0:\n                    return i, j\n        return None, None\n    \n    def is_valid(bo, num, pos):\n        # Check row\n        for i in range(9):\n            if bo[pos[0]][i] == num and pos[1] != i:\n                return False\n        \n        # Check column\n        for i in range(9):\n            if bo[i][pos[1]] == num and pos[0] != i:\n                return False\n        \n        # Check box\n        box_x = pos[1] // 3\n        box_y = pos[0] // 3\n        \n        for i in range(box_y*3, box_y*3 + 3):\n            for j in range(box_x * 3, box_x*3 + 3):\n                if bo[i][j] == num and (i,j) != pos:\n                    return False\n        \n        return True\n    \n    def solve(bo):\n        find = find_empty(bo)\n        if find[0] is None:\n            return True\n        \n        row, col = find\n        \n        for i in range(1,10):\n            if is_valid(bo, i, (row, col)):\n                bo[row][col] = i\n                \n                if solve(bo):\n                    return True\n                \n                bo[row][col] = 0\n        \n        return False\n    \n    solve(board)\n    return board",
+    "source": "test-data-ai",
+    "prompt": "Sudoku solver backtracking algoritması yaz.",
+    "license": "MIT",
+    "language": "python"
+}

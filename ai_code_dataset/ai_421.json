@@ -1,0 +1,7 @@
+{
+    "code": "class TreeNode:\n    def __init__(self, val=0, left=None, right=None):\n        self.val = val\n        self.left = left\n        self.right = right\n        \ndef sumOfLeftLeaves(root):\n    if not root:\n        return 0\n    if root.left and not root.left.left and not root.left.right:\n        return root.left.val + sumOfLeftLeaves(root.right)\n    return sumOfLeftLeaves(root.left) + sumOfLeftLeaves(root.right)",
+    "source": "test-data-ai",
+    "prompt": "Sum of left leaves yaz.",
+    "license": "MIT",
+    "language": "python"
+}

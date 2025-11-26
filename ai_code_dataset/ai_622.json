@@ -1,0 +1,7 @@
+{
+    "code": "from fastapi import FastAPI, HTTPException, Depends, Security\nfrom fastapi.security import OAuth2PasswordBearer\n\napp = FastAPI()\n\napi_key_scheme = OAuth2PasswordBearer(tokenUrl=\"token\")\n\n@app.get(\"/protected-route\")\nasync def protected\\_route(api\\_key: str = Security(api\\_key\\_scheme)):\nif api\\_key != \"my-secret-api-key\":\nraise HTTPException(status\\_code=400, detail=\"Invalid API key\")\nreturn {\"message\": \"This is a protected route\"}",
+    "source": "test-data-ai",
+    "prompt": "FastAPI ile API key authentication yaz.",
+    "license": "MIT",
+    "language": "python"
+}

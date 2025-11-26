@@ -1,0 +1,7 @@
+{
+    "code": "import heapq\n\ndef schedule_jobs(jobs):\n    jobs.sort(key=lambda x: x[1])\n    heap = []\n    total_lateness = 0\n    for deadline, duration in jobs:\n        if heap and deadline < heap[0][0]:\n            lateness = heap[0][0] - deadline\n            total_lateness += lateness\n            heapq.heappushpop(heap, (heap[0][0] + duration, heap[0][1]))\n        else:\n            heapq.heappush(heap, (deadline + duration, duration))\n    return total_lateness",
+    "source": "test-data-ai",
+    "prompt": "Minimize maximum lateness scheduling yaz.",
+    "license": "MIT",
+    "language": "python"
+}

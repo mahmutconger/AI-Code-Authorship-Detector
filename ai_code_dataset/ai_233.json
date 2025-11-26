@@ -1,0 +1,7 @@
+{
+    "code": "def next_power_of_2(num):\n    return 1 << (num - 1).bit_length() if num > 0 else 1\n\nnum = 10\nresult = next_power_of_2(num)\nprint(result)",
+    "source": "test-data-ai",
+    "prompt": "Next power of 2 bul.",
+    "license": "MIT",
+    "language": "python"
+}

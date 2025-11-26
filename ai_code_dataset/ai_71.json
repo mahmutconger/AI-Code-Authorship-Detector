@@ -1,0 +1,7 @@
+{
+    "code": "import heapq\n\ndef heuristic(a, b):\n    return abs(b[0] - a[0]) + abs(b[1] - a[1])\n\ndef astar(grid, start, end):\n    queue = []\n    heapq.heappush(queue, (0, start))\n    came_from = {start: None}\n    cost_so_far = {start: 0}\n    while queue:\n        _, current = heapq.heappop(queue)\n        if current == end:\n            break\n        for dx, dy in [(1, 0), (-1, 0), (0, 1), (0, -1)]:\n            next = current[0] + dx, current[1] + dy\n            if 0 <= next[0] < len(grid) and 0 <= next[1] < len(grid[0]) and grid[next[0]][next[1]]!= 1:\n                new_cost = cost_so_far[current] + 1\n                if next not in cost_so_far or new_cost < cost_so_far[next]:\n                    cost_so_far[next] = new_cost\n                    priority = new_cost + heuristic(end, next)\n                    heapq.heappush(queue, (priority, next))\n                    came_from[next] = current\n    if end not in came_from:\n        return None\n    current = end\n    path = []\n    while current!= start:\n        path.append(current)\n        current = came_from[current]\n    path.append(start)\n    return path[::-1]",
+    "source": "test-data-ai",
+    "prompt": "A* pathfinding algoritmasını heuristic ile yaz.",
+    "license": "MIT",
+    "language": "python"
+}

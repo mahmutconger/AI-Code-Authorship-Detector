@@ -1,0 +1,7 @@
+{
+    "code": "import json\n\ndef json_to_dict(json_file):\n with open(json_file, 'r') as f:\n data = json.load(f)\n return data",
+    "source": "test-data-ai",
+    "prompt": "JSON dosyası okuyup Python dictionary'ye çeviren fonksiyon yaz.",
+    "license": "MIT",
+    "language": "python"
+}

@@ -1,0 +1,7 @@
+{
+    "code": "def patience_sort(deck):\n    if len(deck) <= 1:\n        return deck\n    else:\n        piles = [[deck[0]]]\n        for card in deck[1:]:\n            if card > piles[-1][-1]:\n                piles[-1].append(card)\n            else:\n                for i, pile in enumerate(piles):\n                    if card <= pile[-1]:\n                        piles[i].append(card)\n                        break\n                else:\n                    piles.append([card])\n        return [card for pile in piles for card in pile]\n\nprint(patience_sort([5, 2, 9, 1, 7, 6, 3, 8, 4]))",
+    "source": "test-data-ai",
+    "prompt": "Patience Sort algoritmasını uygula.",
+    "license": "MIT",
+    "language": "python"
+}

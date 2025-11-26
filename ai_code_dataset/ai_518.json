@@ -1,0 +1,7 @@
+{
+    "code": "try:\n    import yaz\nexcept ImportError:\n    import yazpp as yaz\n\ndef add_edge(graph, node1, node2):\n    graph.add_edge(yaz.Zint(node1), yaz.Zint(node2))",
+    "source": "test-data-ai",
+    "prompt": "Add edge to graph yaz.",
+    "license": "MIT",
+    "language": "python"
+}

@@ -1,0 +1,7 @@
+{
+    "code": "class TreeNode:\n    def __init__(self, val=0, left=None, right=None):\n        self.val = val\n        self.left = left\n        self.right = right\n\ndef serialize(root):\n    if not root:\n        return 'None'\n    return str(root.val) + ',' + serialize(root.left) + ',' + serialize(root.right)\n\ndef deserialize(data):\n    def buildTree(nodes):\n        val = next(nodes)\n        if val == 'None':\n            return None\n        node = TreeNode(int(val))\n        node.left = buildTree(nodes)\n        node.right = buildTree(nodes)\n        return node\n    \n    nodes = iter(data.split(','))\n    return buildTree(nodes)",
+    "source": "test-data-ai",
+    "prompt": "Serialize and deserialize binary tree yaz.",
+    "license": "MIT",
+    "language": "python"
+}

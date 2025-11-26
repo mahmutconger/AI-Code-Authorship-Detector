@@ -1,0 +1,7 @@
+{
+    "code": "def find_max_events(events):\n    events.sort(key=lambda x: x[1])\n    dp = [0] * len(events)\n    max_val = 0\n    for i in range(len(events)):\n        dp[i] = 1\n        for j in range(i):\n            if events[j][1] <= events[i][1] and dp[j] + 1 > dp[i]:\n                dp[i] = dp[j] + 1\n        max_val = max(max_val, dp[i])\n    return max_val\n\nevents = [(1, 4), (3, 5), (0, 6), (5, 7), (3, 8), (5, 9), (6, 10), (8, 11), (8, 12), (2, 13), (12, 14)]\nprint(find_max_events(events))",
+    "source": "test-data-ai",
+    "prompt": "Interval scheduling maximization yaz.",
+    "license": "MIT",
+    "language": "python"
+}

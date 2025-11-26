@@ -1,0 +1,7 @@
+{
+    "code": "def generate_subsets(nums):\n    n = len(nums)\n    subsets = []\n    for i in range(2**n):\n        subset = []\n        for j in range(n):\n            if (i >> j) & 1:\n                subset.append(nums[j])\n        subsets.append(subset)\n    return subsets\n\n# Example\nnums = [1, 2, 3]\nprint(generate_subsets(nums))",
+    "source": "test-data-ai",
+    "prompt": "Generate all possible subsets using bits yaz.",
+    "license": "MIT",
+    "language": "python"
+}

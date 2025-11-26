@@ -1,0 +1,7 @@
+{
+    "code": "from functools import wraps\nfrom flask import request, g\nfrom flask_debugtoolbar import get_flashed_messages\n\nlimit = 10  # maximum number of requests per minute\nmax_age = 60  # maximum age of request in seconds\n\ndef limit_rate(f):\n    @wraps(f)\n    def decorated(*args, **kwargs):\n        ip = request.remote_addr\n        last_request_time = g.get('last_request_time', 0)\n        if (datetime.datetime.now() - datetime.timedelta(seconds=max_age)).timestamp() > last_request_time:\n            g.last_request_time = datetime.datetime.now().timestamp()\n            return f(*args, **kwargs)\n        elif ip in g.request_limits:\n            data = {'error': 'Too many requests'}\n            return jsonify(data), 429\n        else:\n            g.request_limits[ip] = []\n            return f(*args, **kwargs)\n    return decorated",
+    "source": "test-data-ai",
+    "prompt": "Flask ile rate limiting decorator yaz.",
+    "license": "MIT",
+    "language": "python"
+}

@@ -1,0 +1,7 @@
+{
+    "code": "import heapq\n\ndef yaz(n):\n    heap = []\n    for i in range(n):\n        heapq.heappush(heap, i)\n    while len(heap) > 1:\n        a = heapq.heappop(heap)\n        b = heapq.heappop(heap)\n        heapq.heappush(heap, a + b)\n    return heap[0]",
+    "source": "test-data-ai",
+    "prompt": "Single threaded CPU using heap yaz.",
+    "license": "MIT",
+    "language": "python"
+}

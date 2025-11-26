@@ -1,0 +1,7 @@
+{
+    "code": "import zipfile\nimport tarfile\nimport os\n\ndef create_archive(file_path, archive_path, format='zip'):\n    if format == 'zip':\n        with zipfile.ZipFile(archive_path, 'w') as zip_file:\n            zip_file.write(file_path)\n    elif format == 'tar':\n        with tarfile.TarFile(archive_path, 'w:gz') as tar_file:\n            tar_file.add(file_path)\n    else:\n        print(\"Geçersiz arşiv formatı\")\n        return\n\ncreate_archive('dosya.txt', 'archive.zip')",
+    "source": "test-data-ai",
+    "prompt": "Archive (zip/tar) oluşturan fonksiyon yaz.",
+    "license": "MIT",
+    "language": "python"
+}

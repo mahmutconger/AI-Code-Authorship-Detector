@@ -1,0 +1,7 @@
+{
+    "code": "def first_unique_char(s):\n    char_count = {}\n    for char in s:\n        if char in char_count:\n            char_count[char] += 1\n        else:\n            char_count[char] = 1\n    for char in s:\n        if char_count[char] == 1:\n            return char\n    return None",
+    "source": "test-data-ai",
+    "prompt": "First unique character using hash map yaz.",
+    "license": "MIT",
+    "language": "python"
+}

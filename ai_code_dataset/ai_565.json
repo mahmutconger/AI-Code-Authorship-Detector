@@ -1,0 +1,7 @@
+{
+    "code": "import requests\n\ndef delete_resource(url):\n    response = requests.delete(url)\n    return response.status_code\n\n# Example Usage\n# resource_url = 'https://api.example.com/resource/1'\n# status_code = delete_resource(resource_url)\n# print(status_code)",
+    "source": "test-data-ai",
+    "prompt": "DELETE request ile kaynak silen fonksiyon yaz.",
+    "license": "MIT",
+    "language": "python"
+}

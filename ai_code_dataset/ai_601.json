@@ -1,0 +1,7 @@
+{
+    "code": "from flask import Flask, Blueprint\n\napp = Flask(__name__)\n\nauth = Blueprint('auth', __name__)\nadmin = Blueprint('admin', __name__)\n\n@app.route('/')\ndef index():\n    return 'Hello World!'\n\n@auth.route('/login')\ndef login():\n    return 'Login Page'\n\n@admin.route('/dashboard')\ndef dashboard():\n    return 'Admin Dashboard'\n\napp.register_blueprint(auth, url_prefix='/auth')\napp.register_blueprint(admin, url_prefix='/admin')\n\nif __name__ == '__main__':\n    app.run()",
+    "source": "test-data-ai",
+    "prompt": "Flask blueprint kullanarak modular yapı oluştur.",
+    "license": "MIT",
+    "language": "python"
+}

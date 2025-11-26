@@ -1,0 +1,7 @@
+{
+    "code": "from itertools import product\ndef letter_combinations(digits):\n    letters = {'2': 'abc', '3': 'def', '4': 'ghi', '5': 'jkl', '6': 'mno',\n               '7': 'pqrs', '8': 'tuv', '9': 'wxyz'}\n    return [''.join(p) for p in product(*[letters[d] for d in digits])]",
+    "source": "test-data-ai",
+    "prompt": "Letter combinations of phone number yaz.",
+    "license": "MIT",
+    "language": "python"
+}

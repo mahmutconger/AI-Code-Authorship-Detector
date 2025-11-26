@@ -1,0 +1,7 @@
+{
+    "code": "def sort_stack(stack):\n    if len(stack) > 0:\n        temp = stack.pop()\n        sort_stack(stack)\n        sorted_insert(stack, temp)\n\ndef sorted_insert(stack, val):\n    if len(stack) == 0 or val > stack[-1]:\n        stack.append(val)\n    else:\n        temp = stack.pop()\n        sorted_insert(stack, val)\n        stack.append(temp)",
+    "source": "test-data-ai",
+    "prompt": "Sort a stack using recursion yaz.",
+    "license": "MIT",
+    "language": "python"
+}

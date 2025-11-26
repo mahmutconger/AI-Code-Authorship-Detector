@@ -1,0 +1,7 @@
+{
+    "code": "import logging\n\ndef request_response_logging_middleware(get_response):\n    logger = logging.getLogger(__name__)\n    def middleware(request):\n        logger.info(f'Received request: {request.method} {request.path}')\n        response = get_response(request)\n        logger.info(f'Sent response: {response.status_code}')\n        return response\n    return middleware",
+    "source": "test-data-ai",
+    "prompt": "Request/response logging middleware yaz.",
+    "license": "MIT",
+    "language": "python"
+}

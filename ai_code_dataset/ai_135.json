@@ -1,0 +1,7 @@
+{
+    "code": "def trap(height):\n    if not height:\n        return 0\n    water = 0\n    left = 0\n    right = len(height) - 1\n    max_left = 0\n    max_right = 0\n    while left <= right:\n        if height[left] < height[right]:\n            if height[left] >= max_left:\n                max_left = height[left]\n            else:\n                water += max_left - height[left]\n            left += 1\n        else:\n            if height[right] >= max_right:\n                max_right = height[right]\n            else:\n                water += max_right - height[right]\n            right -= 1\n    return water",
+    "source": "test-data-ai",
+    "prompt": "Trapping rain water problemini yaz.",
+    "license": "MIT",
+    "language": "python"
+}

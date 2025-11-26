@@ -1,0 +1,7 @@
+{
+    "code": "def insert(root, key):\n    if root is None:\n        return TreeNode(key)\n    if key < root.val:\n        root.left = insert(root.left, key)\n    else:\n        root.right = insert(root.right, key)\n    return root\n\nclass TreeNode:\n    def __init__(self, x):\n        self.val = x\n        self.left = None\n        self.right = None",
+    "source": "test-data-ai",
+    "prompt": "Insert into BST yaz.",
+    "license": "MIT",
+    "language": "python"
+}

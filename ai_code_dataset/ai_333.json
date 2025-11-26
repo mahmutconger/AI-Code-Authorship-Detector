@@ -1,0 +1,7 @@
+{
+    "code": "from queue import PriorityQueue\n\nclass ListNode:\n    def __init__(self, val=0, next=None):\n        self.val = val\n        self.next = next\n\ndef mergeKLists(lists):\n    head = point = ListNode(0)\n    q = PriorityQueue()\n    for l in lists:\n        if l:\n            q.put((l.val, l))\n    while not q.empty():\n        val, node = q.get()\n        point.next = ListNode(val)\n        point = point.next\n        node = node.next\n        if node:\n            q.put((node.val, node))\n    return head.next",
+    "source": "test-data-ai",
+    "prompt": "Merge k sorted linked lists yaz.",
+    "license": "MIT",
+    "language": "python"
+}

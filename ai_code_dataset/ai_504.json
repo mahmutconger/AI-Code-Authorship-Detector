@@ -1,0 +1,7 @@
+{
+    "code": "class TrieNode:\n    def __init__(self):\n        self.children = {}\n        self.is_end_of_word = False\n\ndef insert(root, word):\n    node = root\n    for char in word:\n        if char not in node.children:\n            node.children[char] = TrieNode()\n        node = node.children[char]\n    node.is_end_of_word = True\n\ndef search_prefix(root, prefix):\n    node = root\n    for char in prefix:\n        if char not in node.children:\n            return False\n        node = node.children[char]\n    return True\n\nroot = TrieNode()\ninsert(root, \"yaz\")\nprint(search_prefix(root, \"yaz\"))",
+    "source": "test-data-ai",
+    "prompt": "Search prefix in trie yaz.",
+    "license": "MIT",
+    "language": "python"
+}

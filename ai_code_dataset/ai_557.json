@@ -1,0 +1,7 @@
+{
+    "code": "import requests\n\ndef get_json_response(url):\n    response = requests.get(url)\n    return response.json()",
+    "source": "test-data-ai",
+    "prompt": "GET request yapan ve JSON response döndüren fonksiyon yaz.",
+    "license": "MIT",
+    "language": "python"
+}

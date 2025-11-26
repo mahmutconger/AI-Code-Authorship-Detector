@@ -1,0 +1,7 @@
+{
+    "code": "class UnionFind:\n    def __init__(self, n):\n        self.parent = list(range(n))\n        self.rank = [0]*n\n\n    def find(self, x):\n        if self.parent[x] != x:\n            self.parent[x] = self.find(self.parent[x])\n        return self.parent[x]\n\n    def union(self, x, y):\n        rootX = self.find(x)\n        rootY = self.find(y)\n        if rootX == rootY:\n            return\n        if self.rank[rootX] > self.rank[rootY]:\n            self.parent[rootY] = rootX\n        elif self.rank[rootX] < self.rank[rootY]:\n            self.parent[rootX] = rootY\n        else:\n            self.parent[rootY] = rootX\n            self.rank[rootX] += 1\n\ndef solution(land, height):\n    n = len(land)\n    uf = UnionFind(n*n)\n    for i in range(n):\n        for j in range(n):\n            if i < n-1 and abs(land[i][j] - land[i+1][j]) <= height:\n                uf.union(i*n+j, (i+1)*n+j)\n            if j < n-1 and abs(land[i][j] - land[i][j+1]) <= height:\n                uf.union(i*n+j, i*n+j+1)\n    provinces = set()\n    for i in range(n):\n        for j in range(n):\n            provinces.add(uf.find(i*n+j))\n    return len(provinces)\n\nland = [[1,2,2,3,5],[3,4,3,4,6],[5,6,7,8,9],[8,9,10,11,12],[15,16,17,18,19]]\nheight = 2\nprint(solution(land, height))",
+    "source": "test-data-ai",
+    "prompt": "Number of provinces using union find yaz.",
+    "license": "MIT",
+    "language": "python"
+}

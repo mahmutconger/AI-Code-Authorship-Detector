@@ -1,0 +1,7 @@
+{
+    "code": "def karatsuba(x, y):\n    if x < 10 or y < 10:\n        return x * y\n    else:\n        x_bit_length = len(str(x))\n        y_bit_length = len(str(y))\n        bit_length = max(x_bit_length, y_bit_length)\n        n = bit_length // 2\n\n        a = x // (10**n)\n        b = x % (10**n)\n        c = y // (10**n)\n        d = y % (10**n)\n\n        ac = karatsuba(a, c)\n        bd = karatsuba(b, d)\n        ad_bc = karatsuba(a+b, c+d) - ac - bd\n\n        return (ac * (10**(2*n))) + (ad_bc * (10**n)) + bd",
+    "source": "test-data-ai",
+    "prompt": "Karatsuba multiplication algoritmasını yaz.",
+    "license": "MIT",
+    "language": "python"
+}

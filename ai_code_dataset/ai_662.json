@@ -1,0 +1,7 @@
+{
+    "code": "import hashlib\n\ndef calculate\\_hash(algorithm, file\\_path):\nfile\\_hash = hashlib.new(algorithm)\nwith open(file\\_path, 'rb') as file:\nbuffer = file.read(65536)\nwhile len(buffer) > 0:\nfile\\_hash.update(buffer)\nbuffer = file.read(65536)\nreturn file\\_hash.hexdigest()\n\nprint(calculate\\_hash('md5', 'test.txt'))\nprint(calculate\\_hash('sha256', 'test.txt'))",
+    "source": "test-data-ai",
+    "prompt": "Dosya hash (MD5/SHA256) hesaplayan fonksiyon yaz.",
+    "license": "MIT",
+    "language": "python"
+}

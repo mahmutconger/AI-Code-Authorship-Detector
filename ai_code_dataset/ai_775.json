@@ -1,0 +1,7 @@
+{
+    "code": "list1 = [1, 2, 3]\nlist2 = [4, 5, 6]\nprint(list1 + list2)",
+    "source": "test-data-ai",
+    "prompt": "İki listeyi tek bir listeye birleştiren tek satırlık bir kod yaz.",
+    "license": "MIT",
+    "language": "python"
+}

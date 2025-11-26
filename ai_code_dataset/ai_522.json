@@ -1,0 +1,7 @@
+{
+    "code": "from collections import defaultdict, deque\n\ndef bfs(node, graph):\n    component = []\n    visited = set()\n    queue = deque([node])\n\n    while queue:\n        vertex = queue.popleft()\n        if vertex not in visited:\n            visited.add(vertex)\n            component.append(vertex)\n            queue.extend(graph[vertex] - visited)\n\n    return component\n\ndef count_connected_components(graph):\n    components = []\n    visited = set()\n\n    for node in graph:\n        if node not in visited:\n            component = bfs(node, graph)\n            components.append(component)\n            visited.update(component)\n\n    return len(components)\n\ngraph = {\n    'a': {'b', 'c'},\n    'b': {'a', 'd', 'e'},\n    'c': {'a', 'f'},\n    'd': {'b'},\n    'e': {'b', 'f'},\n    'f': {'c', 'e'},\n}\n\nprint(count_connected_components(graph))",
+    "source": "test-data-ai",
+    "prompt": "Count connected components yaz.",
+    "license": "MIT",
+    "language": "python"
+}

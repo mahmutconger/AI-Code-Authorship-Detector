@@ -1,0 +1,7 @@
+{
+    "code": "from flask import Flask, render_template\n\napp = Flask(__name__)\n\n@app.route('/user/<name>')\ndef user(name):\n    return render_template('index.html', name=name)\n\nif __name__ == '__main__':\n    app.run(debug=True)",
+    "source": "test-data-ai",
+    "prompt": "Flask kullanarak, bir URL parametresi (/user/<name>) kabul eden basit bir rotayı (route) tanımla.",
+    "license": "MIT",
+    "language": "python"
+}

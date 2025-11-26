@@ -1,0 +1,7 @@
+{
+    "code": "from operator import itemgetter\n\ndef radix_pass(SA, text, rank, num_buckets):\n    bucket_size = 1 << rank\n    buckets = [[] for _ in range(num_buckets)]\n    for i in range(len(SA)):\n        buckets[ ( SA[i] + bucket_size ) % num_buckets ].append(i)\n    return buckets\n\ndef ms_suffix_array(text):\n    alphabet_size = 256\n    num_buckets = alphabet_size\n    rank = [0 for _ in range(len(text))]\n    SA = [0 for _ in range(len(text))]\n    for i in range(len(text)):\n        SA[i] = i\n    for r in range(16):\n        buckets = radix_pass(SA, text, r, num_buckets)\n        new_SA = [0 for _ in range(len(text))]\n        next_rank = 0\n        for b in range(num_buckets):\n            for i in buckets[b]:\n                prev = SA[i] - (1 << r)\n                if 0 <= prev and prev < len(text) and rank[prev] >= r:\n                    next_rank += 1\n                new_SA[next_rank - 1] = prev\n        num_buckets = next_rank\n        rank = sorted(range(len(text)), key=itemgetter(1), reverse=True) + [0 for _ in range(next_rank)]\n        SA = new_SA\n    return SA\n\nif __name__ == '__main__':\n    text = \"banana$\"\n    print(\"Text : \", text)\n    SA = ms_suffix_array(text.encode())\n    print(\"Suffix array : \", SA)",
+    "source": "test-data-ai",
+    "prompt": "Suffix array construction yaz.",
+    "license": "MIT",
+    "language": "python"
+}

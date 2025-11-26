@@ -1,0 +1,7 @@
+{
+    "code": "def fibonacci(n, memo={}):\n    if n in memo:\n        return memo[n]\n    if n <= 1:\n        return n\n    memo[n] = fibonacci(n-1, memo) + fibonacci(n-2, memo)\n    return memo[n]",
+    "source": "test-data-ai",
+    "prompt": "Recursive function to find nth Fibonacci using memoization yaz.",
+    "license": "MIT",
+    "language": "python"
+}

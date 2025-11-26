@@ -1,0 +1,7 @@
+{
+    "code": "def coin_change_min(coin_types, total):\n    ways = [0] * (total + 1)\n    ways[0] = 1\n    for coin in coin_types:\n        for j in range(coin, total + 1):\n            ways[j] += ways[j - coin]\n    return ways[total]\n\ncoin_types = [1, 5, 10, 25]\ntotal = 63\nprint(coin_change_min(coin_types, total))",
+    "source": "test-data-ai",
+    "prompt": "Coin change problemini minimum coin count için çöz.",
+    "license": "MIT",
+    "language": "python"
+}

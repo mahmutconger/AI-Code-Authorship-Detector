@@ -1,0 +1,7 @@
+{
+    "code": "def is_sparse(n):\n    bin_n = bin(n)[2:]\n    for i in range(len(bin_n)-1):\n        if bin_n[i] == '1' and bin_n[i+1] == '1':\n            return False\n    return True",
+    "source": "test-data-ai",
+    "prompt": "Check if a number is sparse (no consecutive 1s) yaz.",
+    "license": "MIT",
+    "language": "python"
+}

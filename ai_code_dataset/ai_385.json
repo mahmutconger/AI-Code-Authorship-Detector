@@ -1,0 +1,7 @@
+{
+    "code": "class Queue:\n    def __init__(self):\n        self.stack1 = []\n        self.stack2 = []\n\n    def enqueue(self, value):\n        self.stack1.append(value)\n\n    def dequeue(self):\n        if not self.stack2:\n            if not self.stack1:\n                return None\n            while self.stack1:\n                self.stack2.append(self.stack1.pop())\n        return self.stack2.pop()",
+    "source": "test-data-ai",
+    "prompt": "Queue using two stacks yaz.",
+    "license": "MIT",
+    "language": "python"
+}

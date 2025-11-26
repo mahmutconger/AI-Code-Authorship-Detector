@@ -1,0 +1,7 @@
+{
+    "code": "def kth_smallest(a, b, k):\n    return sorted(a + b)[k - 1]\n\ndef find_kth_smallest(sorted_list1, sorted_list2, k):\n    return sorted(sorted_list1 + sorted_list2)[k - 1]\n\ndef find_kth_smallest_iterative(sorted_list1, sorted_list2, k):\n    merged = []\n    i = j = 0\n    while i < len(sorted_list1) and j < len(sorted_list2):\n        if sorted_list1[i] < sorted_list2[j]:\n            merged.append(sorted_list1[i])\n            i += 1\n        else:\n            merged.append(sorted_list2[j])\n            j += 1\n    merged += sorted_list1[i:]\n    merged += sorted_list2[j:]\n    return merged[k - 1]\n\n# tests\nprint(find_kth_smallest([1, 3, 5], [2, 4, 6], 3))  # should print 3\nprint(find_kth_smallest_iterative([1, 3, 5], [2, 4, 6], 3))  # should print 3",
+    "source": "test-data-ai",
+    "prompt": "Find kth smallest in union of two sorted arrays yaz.",
+    "license": "MIT",
+    "language": "python"
+}

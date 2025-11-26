@@ -1,0 +1,7 @@
+{
+    "code": "def sanitize_input(input_data):\n    sanitized_data = {}\n    for key, value in input_data.items():\n        if key in [\"username\", \"password\"]:\n            sanitized_data[key] = \"*\" * len(value)\n        elif key == \"email\":\n            sanitized_data[key] = value\n        else:\n            sanitized_data[key] = value.strip().replace(\" \", \"\")\n    return sanitized_data",
+    "source": "test-data-ai",
+    "prompt": "Input sanitization fonksiyonu yaz.",
+    "license": "MIT",
+    "language": "python"
+}

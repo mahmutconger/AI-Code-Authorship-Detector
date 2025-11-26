@@ -1,0 +1,7 @@
+{
+    "code": "from collections import Counter\nimport heapq\n\ndef topKFrequent(nums, k):\n    count = Counter(nums)\n    return [num for num, freq in heapq.nlargest(k, count.items(), key=lambda x: x[1])]\n\nprint(topKFrequent([1,1,1,2,2,3], 2))",
+    "source": "test-data-ai",
+    "prompt": "Top k frequent elements using heap yaz.",
+    "license": "MIT",
+    "language": "python"
+}

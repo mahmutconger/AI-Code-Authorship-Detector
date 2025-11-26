@@ -1,0 +1,7 @@
+{
+    "code": "from fastapi import FastAPI, WebSocket\n\napp = FastAPI()\n\n@app.websocket(\"/ws\")\nasync def websocket_endpoint(websocket: WebSocket):\n    await websocket.accept()\n    while True:\n        data = await websocket.receive_text()\n        await websocket.send_text(f\"Message text was: {data}\")",
+    "source": "test-data-ai",
+    "prompt": "FastAPI ile WebSocket endpoint yaz.",
+    "license": "MIT",
+    "language": "python"
+}

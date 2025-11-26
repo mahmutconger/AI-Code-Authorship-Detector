@@ -1,0 +1,7 @@
+{
+    "code": "class Stack:\n    def __init__(self):\n        self.items = []\n\n    def is_empty(self):\n        return not bool(self.items)\n\n    def push(self, item):\n        self.items.append(item)\n\n    def pop(self):\n        return self.items.pop()\n\n    def peek(self):\n        return self.items[-1]\n\n    def size(self):\n        return len(self.items)\n\n\ndef is_matched(expression):\n    s = Stack()\n    openings = \"([{\"\n    closings = \")]}\"\n\n    for p in expression:\n        if p in openings:\n            s.push(p)\n        elif p in closings:\n            if s.is_empty():\n                return False\n            elif openings[closings.index(p)] != s.pop():\n                return False\n    return s.is_empty()\n\n\nprint(is_matched(\"()[]{}\"))  # True\nprint(is_matched(\"(]\"))  # False\nprint(is_matched(\"([)]\"))  # False\nprint(is_matched(\"{[]}\"))  # True",
+    "source": "test-data-ai",
+    "prompt": "Score of parentheses using stack yaz.",
+    "license": "MIT",
+    "language": "python"
+}

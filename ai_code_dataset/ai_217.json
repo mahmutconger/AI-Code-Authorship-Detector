@@ -1,0 +1,7 @@
+{
+    "code": "import numpy as np\n\ndef beautiful_array(n):\n    if n == 1:\n        return [1]\n    \n    odd = beautiful_array((n+1)//2)\n    even = beautiful_array(n//2)\n    \n    return [2*x - 1 for x in odd] + [2*x for x in even]\n\nn = 5\nbeautiful_array(n)",
+    "source": "test-data-ai",
+    "prompt": "Beautiful array generation yaz.",
+    "license": "MIT",
+    "language": "python"
+}

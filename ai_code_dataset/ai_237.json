@@ -1,0 +1,7 @@
+{
+    "code": "def countSetBits(n): \n    i = 0\n    while (1 << i) <= n: \n        i += 1\n    i -= 1\n    return i * (1 << (i - 1)) + (n - (1 << i) + 1) + countSetBits(n - (1 << i)) if n != 0 else 0 \n\nn = 10\ntotal_set_bits = countSetBits(n)\nprint(total_set_bits)",
+    "source": "test-data-ai",
+    "prompt": "Count total set bits in all numbers from 1 to n yaz.",
+    "license": "MIT",
+    "language": "python"
+}

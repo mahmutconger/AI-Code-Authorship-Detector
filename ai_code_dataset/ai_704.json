@@ -1,0 +1,7 @@
+{
+    "code": "import flask\nfrom flask import Flask, jsonify\n\napp = Flask(__name__)\n\n@app.route('/health', methods=['GET'])\ndef health_check():\n    return jsonify({'status': 'OK'}), 200\n\nif __name__ == '__main__':\n    app.run(debug=True)",
+    "source": "test-data-ai",
+    "prompt": "Health check endpoint implementation yaz.",
+    "license": "MIT",
+    "language": "python"
+}

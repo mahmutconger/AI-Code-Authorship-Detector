@@ -1,0 +1,7 @@
+{
+    "code": "from flask import Flask, request, abort, make\\_response, render\\_template\n\napp = Flask(\\_\\_name\\_)\n\n@app.route('/items')\ndef items():\nper\\_page = int(request.args.get('per\\_page', 10))\npage = int(request.args.get('page', 1))\n\nif per\\_page > 50 or per\\_page < 1:\nabort(400)\n\nitems = [x for x in range(100)]\n\nstart = (page - 1) \\* per\\_page\nend = start + per\\_page\n\npaginated\\_items = items[start:end]\n\nresponse = make\\_response(render\\_template('items.html', items=paginated\\_items, per\\_page=per\\_page, page=page))\nresponse.headers['X-Total-Count'] = str(len(items))\nreturn response\n\nif **name** == '**main**':\napp.run(debug=True)",
+    "source": "test-data-ai",
+    "prompt": "Flask ile pagination yapan endpoint yaz.",
+    "license": "MIT",
+    "language": "python"
+}

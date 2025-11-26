@@ -1,0 +1,7 @@
+{
+    "code": "import requests\n\ndef bearer\\_token\\_auth(url, token):\nheaders = {\"Authorization\": \"Bearer \" + token}\nresponse = requests.get(url, headers=headers)\nreturn response.json()",
+    "source": "test-data-ai",
+    "prompt": "Bearer token authentication kullanarak request yapan fonksiyon yaz.",
+    "license": "MIT",
+    "language": "python"
+}

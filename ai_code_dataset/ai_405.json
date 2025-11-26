@@ -1,0 +1,7 @@
+{
+    "code": "from queue import Queue\n\nclass TaskScheduler:\n    def __init__(self):\n        self.q = Queue()\n\n    def add_task(self, task):\n        self.q.put(task)\n\n    def run_tasks(self):\n        while not self.q.empty():\n            task = self.q.get()\n            task()\n\n# Example usage:\ndef task1():\n    print(\"Task 1 executed\")\n\ndef task2():\n    print(\"Task 2 executed\")\n\ndef task3():\n    print(\"Task 3 executed\")\n\nscheduler = TaskScheduler()\nscheduler.add_task(task1)\nscheduler.add_task(task2)\nscheduler.add_task(task3)\n\nscheduler.run_tasks()",
+    "source": "test-data-ai",
+    "prompt": "Task scheduler using queue yaz.",
+    "license": "MIT",
+    "language": "python"
+}

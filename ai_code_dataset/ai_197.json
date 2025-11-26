@@ -1,0 +1,7 @@
+{
+    "code": "from itertools import product\n\ndef optimize_offers(product_prices, offers):\n    min_price = float('inf')\n    \n    for offer in product(*offers):\n        price = sum([product_prices[i] * offer[i] for i in range(len(offer)) if offer[i] > 0])\n        min_price = min(min_price, price)\n        \n    return min_price\n\nproduct_prices = [10, 20, 30]\noffers = [[1, 0, 0], [0, 1, 0], [0, 0, 1], [1, 1, 1]]\nresult = optimize_offers(product_prices, offers)\nprint(result)",
+    "source": "test-data-ai",
+    "prompt": "Shopping offers optimization yaz.",
+    "license": "MIT",
+    "language": "python"
+}

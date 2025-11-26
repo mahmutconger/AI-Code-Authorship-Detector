@@ -1,0 +1,7 @@
+{
+    "code": "class Node:\n    def __init__(self, data):\n        self.data = data\n        self.next = None\n\ndef strandSort(head):\n    if not head or not head.next:\n        return head\n    \n    sorted_lists = []\n    current = head\n    while current:\n        new_list = [current.data]\n        next_node = current.next\n        while next_node and next_node.data >= new_list[-1]:\n            new_list.append(next_node.data)\n            next_node = next_node.next\n        current.next = next_node\n        sorted_lists.append(Node(new_list[0]))\n        for i in range(1, len(new_list)):\n            sorted_lists[-1].next = Node(new_list[i])\n            sorted_lists[-1] = sorted_lists[-1].next\n        current = next_node\n    \n    merged_list = sorted_lists[0] if sorted_lists else None\n    for i in range(1, len(sorted_lists)):\n        temp = merged_list\n        while temp.next:\n            temp = temp.next\n        temp.next = sorted_lists[i]\n    \n    return merged_list",
+    "source": "test-data-ai",
+    "prompt": "Strand Sort algoritmasını linked list için yaz.",
+    "license": "MIT",
+    "language": "python"
+}

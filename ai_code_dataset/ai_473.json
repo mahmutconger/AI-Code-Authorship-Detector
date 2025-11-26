@@ -1,0 +1,7 @@
+{
+    "code": "def two_sum(nums, target):\n    seen = {}\n    for i, num in enumerate(nums):\n        if target - num in seen:\n            return [seen[target - num], i]\n        seen[num] = i\n\nnums = [2, 7, 11, 15]\ntarget = 9\nprint(two_sum(nums, target))",
+    "source": "test-data-ai",
+    "prompt": "Two sum problem using hash map yaz.",
+    "license": "MIT",
+    "language": "python"
+}

@@ -1,0 +1,7 @@
+{
+    "code": "class Trie:\n    def __init__(self):\n        self.children = {}\n        self.is\\_word = False\n\n    def insert(self, word):\n        node = self\n        for char in word:\n            if char not in node.children:\n                node.children[char] = Trie()\n            node = node.children[char]\n        node.is\\_word = True\n\n    def search(self, word):\n        node = self\n        for char in word:\n            if char not in node.children:\n                return False\n            node = node.children[char]\n        return node.is\\_word\n\n\ndef longest\\_word\\_length(dictionary):\n    trie = Trie()\n    for word in dictionary:\n        trie.insert(word)\n    longest\\_word = \"\"\n    for word in dictionary:\n        if trie.search(word) and len(word) > len(longest\\_word):\n            longest\\_word = word\n    return len(longest\\_word)\n\n\nprint(longest\\_word\\_length([\"my\", \"name\", \"is\", \"anna\", \"y\", \"is\", \"short\"]))",
+    "source": "test-data-ai",
+    "prompt": "Longest word in dictionary using trie yaz.",
+    "license": "MIT",
+    "language": "python"
+}

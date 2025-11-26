@@ -1,0 +1,7 @@
+{
+    "code": "import heapq\n\ndef kth\\_largest(arr, k):\nheapq.heapify(arr)\nfor i in range(k-1):\nheapq.heappop(arr)\nreturn heapq.heappop(arr)",
+    "source": "test-data-ai",
+    "prompt": "Kth largest element using heap yaz.",
+    "license": "MIT",
+    "language": "python"
+}

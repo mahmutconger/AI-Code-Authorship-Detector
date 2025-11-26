@@ -1,0 +1,7 @@
+{
+    "code": "from collections import defaultdict, deque\n\n\nclass Solution:\n    def canFinish(self, numCourses: int, prerequisites: List[List[int]]) -> bool:\n        indegrees = defaultdict(int)\n        graph = defaultdict(list)\n\n        for v, u in prerequisites:\n            graph[u].append(v)\n            indegrees[v] += 1\n\n        queue = deque([v for v in indegrees if indegrees[v] == 0])\n        res = []\n\n        while queue:\n            cur = queue.popleft()\n            res.append(cur)\n            for next_node in graph[cur]:\n                indegrees[next_node] -= 1\n                if indegrees[next_node] == 0:\n                    queue.append(next_node)\n\n        return len(res) == numCourses",
+    "source": "test-data-ai",
+    "prompt": "Course schedule using topological sort yaz.",
+    "license": "MIT",
+    "language": "python"
+}

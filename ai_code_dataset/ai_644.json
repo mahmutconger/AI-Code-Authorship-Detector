@@ -1,0 +1,7 @@
+{
+    "code": "import yaml\n\ndef parse_yaml(file_path):\n    with open(file_path, 'r') as file:\n        data = yaml.load(file, Loader=yaml.FullLoader)\n    return data",
+    "source": "test-data-ai",
+    "prompt": "YAML dosyası parse eden fonksiyon yaz.",
+    "license": "MIT",
+    "language": "python"
+}

@@ -1,0 +1,7 @@
+{
+    "code": "def compare_files(file1, file2, block_size=1024):\n    with open(file1, 'rb') as f1, open(file2, 'rb') as f2:\n        while True:\n            block1 = f1.read(block_size)\n            block2 = f2.read(block_size)\n            if not block1 or not block2:\n                return block1 == block2\n            if block1 != block2:\n                return False",
+    "source": "test-data-ai",
+    "prompt": "Memory-efficient file comparison fonksiyonu yaz.",
+    "license": "MIT",
+    "language": "python"
+}

@@ -1,0 +1,7 @@
+{
+    "code": "class ListNode:\n    def __init__(self, val=0, next=None):\n        self.val = val\n        self.next = next\n\ndef detectCycle(head):\n    slow = fast = head\n    while fast and fast.next:\n        slow = slow.next\n        fast = fast.next.next\n        if slow == fast:\n            slow = head\n            while slow != fast:\n                slow = slow.next\n                fast = fast.next\n            return slow",
+    "source": "test-data-ai",
+    "prompt": "Linked list cycle II (find start of cycle) yaz.",
+    "license": "MIT",
+    "language": "python"
+}

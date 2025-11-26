@@ -1,0 +1,7 @@
+{
+    "code": "class TrieNode:\n    def __init__(self):\n        self.children = {}\n        self.is_end = False\n\nclass Trie:\n    def __init__(self):\n        self.root = TrieNode()\n\n    def insert(self, word):\n        node = self.root\n        for char in word:\n            if char not in node.children:\n                node.children[char] = TrieNode()\n            node = node.children[char]\n        node.is_end = True\n\n    def search(self, word):\n        node = self.root\n        for char in word:\n            if char not in node.children:\n                return False\n            node = node.children[char]\n        return node.is_end\n\ntrie = Trie()\nwords = [\"apple\", \"banana\", \"orange\", \"app\"]\nfor word in words:\n    trie.insert(word)\n\nprint(trie.search(\"apple\"))  # True\nprint(trie.search(\"banana\"))  # True\nprint(trie.search(\"orange\"))  # True\nprint(trie.search(\"app\"))  # True\nprint(trie.search(\"grape\"))  # False",
+    "source": "test-data-ai",
+    "prompt": "Search word in trie yaz.",
+    "license": "MIT",
+    "language": "python"
+}

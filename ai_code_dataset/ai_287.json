@@ -1,0 +1,7 @@
+{
+    "code": "def longest_common_prefix(arr):\n    if not arr:\n        return []\n\n    prefix = arr[0]\n    for suffix in arr[1:]:\n        while not suffix.startswith(prefix):\n            prefix = prefix[:-1]\n            if not prefix:\n                return []\n\n    return list(prefix)",
+    "source": "test-data-ai",
+    "prompt": "Longest common prefix array construction yaz.",
+    "license": "MIT",
+    "language": "python"
+}

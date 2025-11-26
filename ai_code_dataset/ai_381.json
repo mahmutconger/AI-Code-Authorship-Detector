@@ -1,0 +1,7 @@
+{
+    "code": "class Queue:\n    def __init__(self):\n        self.items = []\n\n    def enqueue(self, item):\n        self.items.insert(0, item)\n\n    def dequeue(self):\n        if not self.is_empty():\n            return self.items.pop()\n\n    def is_empty(self):\n        return len(self.items) == 0\n\n    def size(self):\n        return len(self.items)",
+    "source": "test-data-ai",
+    "prompt": "Python'da bir kuyruk (Queue) veri yapısını temsil eden, `enqueue` ve `dequeue` metodlarına sahip bir sınıf oluştur.",
+    "license": "MIT",
+    "language": "python"
+}

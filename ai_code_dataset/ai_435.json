@@ -1,0 +1,7 @@
+{
+    "code": "class TreeNode:\n    def __init__(self, x):\n        self.val = x\n        self.left = None\n        self.right = None\n\ndef buildTree(preorder, inorder):\n    if not preorder or not inorder:\n        return None\n    root = TreeNode(preorder[0])\n    mid = inorder.index(preorder[0])\n    root.left = buildTree(preorder[1:mid+1], inorder[:mid])\n    root.right = buildTree(preorder[mid+1:], inorder[mid+1:])\n    return root",
+    "source": "test-data-ai",
+    "prompt": "Construct binary tree from preorder and inorder yaz.",
+    "license": "MIT",
+    "language": "python"
+}

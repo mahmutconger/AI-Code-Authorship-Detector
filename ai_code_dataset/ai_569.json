@@ -1,0 +1,7 @@
+{
+    "code": "def patch_request(url, data):\n    headers = {'Content-Type': 'application/json'}\n    response = requests.patch(url, headers=headers, data=json.dumps(data))\n    return response.text",
+    "source": "test-data-ai",
+    "prompt": "PATCH request ile partial update yapan fonksiyon yaz.",
+    "license": "MIT",
+    "language": "python"
+}

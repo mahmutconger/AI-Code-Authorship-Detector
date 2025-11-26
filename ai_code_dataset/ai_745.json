@@ -1,0 +1,7 @@
+{
+    "code": "import time\n\nclass Timer:\n    def __enter__(self):\n        self.start_time = time.time()\n        return self\n    \n    def __exit__(self, exc_type, exc_value, traceback):\n        elapsed_time = time.time() - self.start_time\n        print(f\"Elapsed time: {elapsed_time} seconds\")\n\n# Example usage:\nwith Timer():\n    time.sleep(2)",
+    "source": "test-data-ai",
+    "prompt": "Context manager for timer yaz.",
+    "license": "MIT",
+    "language": "python"
+}

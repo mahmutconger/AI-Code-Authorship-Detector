@@ -1,0 +1,7 @@
+{
+    "code": "def min_window(s, t):\n    need, missing = dict(), len(t)\n    for c in t: need[c] = need.get(c, 0) + 1\n\n    i, ans_start, ans_len = 0, 0, float('inf')\n    for j, c in enumerate(s):\n        if c in need:\n            need[c] -= 1\n            if need[c] >= 0:\n                missing -= 1\n        while missing == 0:\n            if j - i + 1 < ans_len:\n                ans_start, ans_len = i, j - i + 1\n            if s[i] in need:\n                need[s[i]] += 1\n                if need[s[i]] > 0:\n                    missing += 1\n            i += 1\n    return s[ans_start:ans_start + ans_len]",
+    "source": "test-data-ai",
+    "prompt": "Minimum window substring yaz.",
+    "license": "MIT",
+    "language": "python"
+}

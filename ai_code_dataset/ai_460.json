@@ -1,0 +1,7 @@
+{
+    "code": "import heapq\n\nclass Task:\n    def __init__(self, name, priority):\n        self.name = name\n        self.priority = priority\n\n    def __lt__(self, other):\n        return self.priority < other.priority\n\nclass TaskScheduler:\n    def __init__(self):\n        self.tasks = []\n\n    def add_task(self, task):\n        heapq.heappush(self.tasks, task)\n\n    def execute_tasks(self):\n        while self.tasks:\n            task = heapq.heappop(self.tasks)\n            print(f\"Executing task: {task.name}\")\n\nscheduler = TaskScheduler()\nscheduler.add_task(Task(\"Task A\", 3))\nscheduler.add_task(Task(\"Task B\", 1))\nscheduler.add_task(Task(\"Task C\", 2))\nscheduler.execute_tasks()",
+    "source": "test-data-ai",
+    "prompt": "Task scheduler using heap yaz.",
+    "license": "MIT",
+    "language": "python"
+}

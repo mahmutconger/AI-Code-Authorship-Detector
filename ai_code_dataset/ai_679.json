@@ -1,0 +1,7 @@
+{
+    "code": "import base64\n\ndef base64_encode(data):\n    return base64.b64encode(data).decode()\n\ndef base64_decode(data):\n    return base64.b64decode(data).decode()",
+    "source": "test-data-ai",
+    "prompt": "Base64 encoding/decoding fonksiyonu yaz.",
+    "license": "MIT",
+    "language": "python"
+}

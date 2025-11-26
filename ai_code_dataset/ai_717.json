@@ -1,0 +1,7 @@
+{
+    "code": "import re\n\ndef validate_mac_address(mac_address):\n    pattern = re.compile(\"^([0-9A-Fa-f]{2}[:-]){5}([0-9A-Fa-f]{2})$\")\n    return True if pattern.match(mac_address) else False",
+    "source": "test-data-ai",
+    "prompt": "MAC address validation fonksiyonu yaz.",
+    "license": "MIT",
+    "language": "python"
+}

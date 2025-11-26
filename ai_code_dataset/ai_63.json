@@ -1,0 +1,7 @@
+{
+    "code": "def dfs_recursive(graph, start):\n    visited = set()\n    dfs_helper(graph, start, visited)\n\ndef dfs_helper(graph, node, visited):\n    visited.add(node)\n    print(node, end=\" \")\n    for neighbor in graph[node]:\n        if neighbor not in visited:\n            dfs_helper(graph, neighbor, visited)\n\ndef dfs_iterative(graph, start):\n    visited = set()\n    stack = [start]\n    while stack:\n        node = stack.pop()\n        if node not in visited:\n            visited.add(node)\n            print(node, end=\" \")\n            for neighbor in graph[node]:\n                if neighbor not in visited:\n                    stack.append(neighbor)\n\ngraph = {\n    'A': ['B', 'C'],\n    'B': ['A', 'D', 'E'],\n    'C': ['A', 'F'],\n    'D': ['B'],\n    'E': ['B', 'F'],\n    'F': ['C', 'E']\n}\n\nprint(\"Recursive DFS:\")\ndfs_recursive(graph, 'A')\nprint()\n\nprint(\"Iterative DFS:\")\ndfs_iterative(graph, 'A')",
+    "source": "test-data-ai",
+    "prompt": "Depth-First Search (DFS) algoritmasını recursive ve iterative yaz.",
+    "license": "MIT",
+    "language": "python"
+}

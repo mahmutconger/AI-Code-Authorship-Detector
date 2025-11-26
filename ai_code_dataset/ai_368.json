@@ -1,0 +1,7 @@
+{
+    "code": "def validateStackSequences(pushed, popped):\n    stack = []\n    j = 0\n    for i in range(len(pushed)):\n        stack.append(pushed[i])\n        while stack and j < len(popped) and stack[-1] == popped[j]:\n            stack.pop()\n            j += 1\n    return not stack",
+    "source": "test-data-ai",
+    "prompt": "Validate stack sequences yaz.",
+    "license": "MIT",
+    "language": "python"
+}

@@ -1,0 +1,7 @@
+{
+    "code": "def minRemoveToMakeValid(s):\n    stack=[]\n    s=list(s)\n    for i in range(len(s)):\n        if s[i]=='(':\n            stack.append(i)\n        elif s[i]==')':\n            if stack:\n                stack.pop()\n            else:\n                s[i]='#'\n    while stack:\n        s[stack.pop()]='#'\n    return ''.join(c for c in s if c!='#')",
+    "source": "test-data-ai",
+    "prompt": "Minimum remove to make valid parentheses yaz.",
+    "license": "MIT",
+    "language": "python"
+}

@@ -1,0 +1,7 @@
+{
+    "code": "from fastapi import FastAPI, File, UploadFile\nfrom pydantic import BaseModel\n\napp = FastAPI()\n\nclass Item(BaseModel):\n    file: UploadFile\n\n@app.post(\"/uploadfile/\")\nasync def create_item(file: Item):\n    contents = await file.read()\n    return {\"file_size\": len(contents)}",
+    "source": "test-data-ai",
+    "prompt": "FastAPI ile file upload endpoint yaz.",
+    "license": "MIT",
+    "language": "python"
+}

@@ -1,0 +1,7 @@
+{
+    "code": "import heapq\n\ndef furthest_building(floor_heights, bricks, ladders):\n    pq = []\n    for i in range(len(floor_heights) - 1):\n        diff = floor_heights[i + 1] - floor_heights[i]\n        if diff > 0:\n            heapq.heappush(pq, diff)\n        if len(pq) > ladders:\n            bricks -= heapq.heappop(pq)\n        if bricks < 0:\n            return i\n    return len(floor_heights) - 1\n\n# Example usage:\nprint(furthest_building([4, 2, 7, 6, 5, 9, 4, 3, 11], 5, 3))  # Output: 7",
+    "source": "test-data-ai",
+    "prompt": "Furthest building you can reach using heap yaz.",
+    "license": "MIT",
+    "language": "python"
+}

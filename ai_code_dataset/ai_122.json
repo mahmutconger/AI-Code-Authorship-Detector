@@ -1,0 +1,7 @@
+{
+    "code": "def word_break(s, word_dict):\n    if not s:\n        return True\n    for i in range(1, len(s)+1):\n        if s[:i] in word_dict and word_break(s[i:], word_dict):\n            return True\n    return False\n\nword_dict = {\"leet\", \"code\"}\ns = \"leetcode\"\nprint(word_break(s, word_dict))",
+    "source": "test-data-ai",
+    "prompt": "Word break problem çözümü yaz.",
+    "license": "MIT",
+    "language": "python"
+}

@@ -1,0 +1,7 @@
+{
+    "code": "from fastapi import FastAPI, Depends\n\napp = FastAPI()\n\ndef get_db():\n    db = \"Fake database connection\"\n    return db\n\ndef get_current_user(db: str = Depends(get_db)):\n    user = \"Current user\"\n    return user\n\n@app.get(\"/users/me\")\nasync def read_users_me(current_user: str = Depends(get_current_user)):\n    return {\"username\": current_user}",
+    "source": "test-data-ai",
+    "prompt": "FastAPI ile dependency injection örneği yaz.",
+    "license": "MIT",
+    "language": "python"
+}

@@ -1,0 +1,7 @@
+{
+    "code": "def luhn_check(card_number):\n    digits = [int(d) for d in str(card_number)]\n    sum = 0\n    for i, digit in enumerate(digits):\n        if i % 2 == 0:\n            sum += digit\n        else:\n            digit *= 2\n            if digit > 9:\n                digit -= 9\n            sum += digit\n    return sum % 10 == 0",
+    "source": "test-data-ai",
+    "prompt": "Credit card number Luhn algorithm ile validate eden fonksiyon yaz.",
+    "license": "MIT",
+    "language": "python"
+}

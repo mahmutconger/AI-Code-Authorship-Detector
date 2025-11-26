@@ -1,0 +1,7 @@
+{
+    "code": "import requests\nimport time\n\ndef timeout_request(url, timeout=5):\n    start_time = time.time()\n    try:\n        response = requests.get(url, timeout=timeout)\n        end_time = time.time()\n        return response, end_time - start_time\n    except requests.Timeout:\n        end_time = time.time()\n        return None, end_time - start_time",
+    "source": "test-data-ai",
+    "prompt": "Timeout parametreli HTTP request yapan fonksiyon yaz.",
+    "license": "MIT",
+    "language": "python"
+}

@@ -1,0 +1,7 @@
+{
+    "code": "import requests\n\ndef send\\_graphql\\_query(query: str) -> dict:\n headers = {\n \"Content-Type\": \"application/json\",\n \"User-Agent\": \"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.110 Safari/537.3\"\n }\n\n body = {\n \"query\": query\n }\n\n url = \"https://api.github.com/graphql\"\n\n response = requests.post(url, json=body, headers=headers)\n\n if response.status\\_code == 200:\n return response.json()\n else:\n return {\"error\": f\"Error {response.status\\_code}: {response.text}\"}",
+    "source": "test-data-ai",
+    "prompt": "GraphQL query gönderen fonksiyon yaz.",
+    "license": "MIT",
+    "language": "python"
+}

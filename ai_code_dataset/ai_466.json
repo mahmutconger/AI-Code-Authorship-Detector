@@ -1,0 +1,7 @@
+{
+    "code": "import heapq\n\ndef k\\_weakest\\_rows(mat, k):\n    nRows, nCols = len(mat), len(mat[0])\n    rowSums = [[r, sum(mat[r])] for r in range(nRows)]\n    heapq.heapify(rowSums)\n    weakestRows = []\n    for _ in range(k):\n        r, s = heapq.heappop(rowSums)\n        weakestRows.append(mat[r][:])\n    return weakestRows",
+    "source": "test-data-ai",
+    "prompt": "K weakest rows using heap yaz.",
+    "license": "MIT",
+    "language": "python"
+}

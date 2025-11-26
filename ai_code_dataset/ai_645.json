@@ -1,0 +1,7 @@
+{
+    "code": "def read_ini_file(file_path):\n    config = {}\n    with open(file_path, 'r') as file:\n        for line in file:\n            if '=' in line:\n                key, value = line.strip().split('=')\n                config[key.strip()] = value.strip()\n    return config",
+    "source": "test-data-ai",
+    "prompt": "INI configuration dosyası okuyan fonksiyon yaz.",
+    "license": "MIT",
+    "language": "python"
+}

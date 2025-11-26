@@ -1,0 +1,7 @@
+{
+    "code": "class Queue:\n    def __init__(self):\n        self.stack1 = []\n        self.stack2 = []\n\n    def enqueue(self, item):\n        self.stack1.append(item)\n\n    def dequeue(self):\n        if not self.stack2:\n            while self.stack1:\n                self.stack2.append(self.stack1.pop())\n        return self.stack2.pop() if self.stack2 else None\n\n    def is_empty(self):\n        return not self.stack1 and not self.stack2",
+    "source": "test-data-ai",
+    "prompt": "İki stack kullanarak queue implementation yaz.",
+    "license": "MIT",
+    "language": "python"
+}

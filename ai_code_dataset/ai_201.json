@@ -1,0 +1,7 @@
+{
+    "code": "def mergeSort(arr):\n    if len(arr) > 1:\n        inv_count = 0\n        mid = len(arr) // 2\n        L = arr[:mid]\n        R = arr[mid:]\n\n        inv_count += mergeSort(L)\n        inv_count += mergeSort(R)\n\n        i = j = k = 0\n\n        while i < len(L) and j < len(R):\n            if L[i] <= R[j]:\n                arr[k] = L[i]\n                i += 1\n            else:\n                arr[k] = R[j]\n                j += 1\n                inv_count += (len(L) - i)\n            k += 1\n\n        while i < len(L):\n            arr[k] = L[i]\n            i += 1\n            k += 1\n\n        while j < len(R):\n            arr[k] = R[j]\n            j += 1\n            k += 1\n\n        return inv_count\n\narr = [1, 20, 6, 4, 5]\nn = len(arr)\nresult = mergeSort(arr)\nprint(\"Inversion count is\", result)",
+    "source": "test-data-ai",
+    "prompt": "Merge sort kullanarak inversion count yaz.",
+    "license": "MIT",
+    "language": "python"
+}

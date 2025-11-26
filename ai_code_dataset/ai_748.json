@@ -1,0 +1,7 @@
+{
+    "code": "def debounce(func, delay=0.5):\n    def wrapper(*args, **kwargs):\n        import time\n        def inner():\n            return func(*args, **kwargs)\n        wrapper.timer = time.time()\n        if not hasattr(wrapper, 'timer') or time.time() - wrapper.timer >= delay:\n            wrapper.timer = time.time()\n            return inner()\n    return wrapper",
+    "source": "test-data-ai",
+    "prompt": "Debounce decorator yaz.",
+    "license": "MIT",
+    "language": "python"
+}

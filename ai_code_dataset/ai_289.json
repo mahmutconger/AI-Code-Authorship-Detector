@@ -1,0 +1,7 @@
+{
+    "code": "from itertools import groupby\n\ndef run_length_encoding(input_string):\n    return [(key, len(list(group))) for key, group in groupby(input_string)]\n\ninput_string = \"AAAABBBCCDAA\"\nprint(run_length_encoding(input_string))",
+    "source": "test-data-ai",
+    "prompt": "Run-length encoding implementation yaz.",
+    "license": "MIT",
+    "language": "python"
+}

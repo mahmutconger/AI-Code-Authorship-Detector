@@ -1,0 +1,7 @@
+{
+    "code": "import heapq\n\ndef cheapest_flights(n, flights, src, dst, k):\n    graph = [[] for _ in range(n + 1)]\n    for u, v, w in flights:\n        graph[u].append((v, w))\n\n    pq = [(0, src, k + 1)]\n    seen = {src: 0}\n    while pq:\n        price, node, stops = heapq.heappop(pq)\n        if node == dst:\n            return price\n        if stops > k + 1 or price > seen.get(node, float('inf')):\n            continue\n        for nei, weight in graph[node]:\n            new_price = price + weight\n            if nei not in seen or new_price < seen[nei]:\n                seen[nei] = new_price\n                heapq.heappush(pq, (new_price, nei, stops + 1))\n    return -1",
+    "source": "test-data-ai",
+    "prompt": "Cheapest flights within k stops using heap yaz.",
+    "license": "MIT",
+    "language": "python"
+}

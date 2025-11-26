@@ -1,0 +1,7 @@
+{
+    "code": "from collections import deque\n\nclass Deque:\n    def __init__(self):\n        self.items = deque()\n\n    def add_front(self, item):\n        self.items.appendleft(item)\n\n    def add_rear(self, item):\n        self.items.append(item)\n\n    def remove_front(self):\n        if not self.is_empty():\n            return self.items.popleft()\n        else:\n            return None\n\n    def remove_rear(self):\n        if not self.is_empty():\n            return self.items.pop()\n        else:\n            return None\n\n    def is_empty(self):\n        return len(self.items) == 0\n\n    def size(self):\n        return len(self.items)",
+    "source": "test-data-ai",
+    "prompt": "Deque (double-ended queue) implementation yaz.",
+    "license": "MIT",
+    "language": "python"
+}

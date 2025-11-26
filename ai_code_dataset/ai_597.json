@@ -1,0 +1,7 @@
+{
+    "code": "from flask import Flask, jsonify\n\napp = Flask(__name__)\n\n@app.route('/json', methods=['GET'])\ndef get_json():\n    data = {'key': 'value'}\n    return jsonify(data)\n\nif __name__ == '__main__':\n    app.run(debug=True)",
+    "source": "test-data-ai",
+    "prompt": "Flask ile JSON response döndüren endpoint yaz.",
+    "license": "MIT",
+    "language": "python"
+}

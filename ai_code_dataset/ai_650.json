@@ -1,0 +1,7 @@
+{
+    "code": "import os\n\ndef find\\_files(directory):\nfor item in os.listdir(directory):\npath = os.path.join(directory, item)\nif os.path.isfile(path):\nyield path\nelse:\nfor file in find\\_files(path):\nyield file",
+    "source": "test-data-ai",
+    "prompt": "Recursive olarak subdirectory'lerdeki dosyaları bulan fonksiyon yaz.",
+    "license": "MIT",
+    "language": "python"
+}

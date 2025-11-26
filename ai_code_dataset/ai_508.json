@@ -1,0 +1,7 @@
+{
+    "code": "class TrieNode:\n    def __init__(self):\n        self.children = {}\n        self.is_end_of_word = False\n        self.sum_pairs = []\n\ndef insert(root, word):\n    node = root\n    for char in word:\n        if char not in node.children:\n            node.children[char] = TrieNode()\n        node = node.children[char]\n    node.is_end_of_word = True\n\ndef map_sum_pairs(root, prefix):\n    node = root\n    for char in prefix:\n        if char not in node.children:\n            return\n        node = node.children[char]\n    dfs(node, prefix, node.sum_pairs)\n\ndef dfs(node, prefix, pairs):\n    if node.is_end_of_word:\n        pairs.append(prefix)\n    for char, child in node.children.items():\n        dfs(child, prefix + char, pairs)\n\ndef add(root, key, value):\n    node = root\n    for char in key:\n        if char not in node.children:\n            node.children[char] = TrieNode()\n        node = node.children[char]\n    node.is_end_of_word = True\n    node.sum_pairs.append(value)",
+    "source": "test-data-ai",
+    "prompt": "Map sum pairs using trie yaz.",
+    "license": "MIT",
+    "language": "python"
+}

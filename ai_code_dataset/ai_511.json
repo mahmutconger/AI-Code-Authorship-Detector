@@ -1,0 +1,7 @@
+{
+    "code": "class TrieNode:\n    def __init__(self):\n        self.children = {}\n        self.is_word = False\n\nclass MagicDictionary:\n    def __init__(self):\n        self.root = TrieNode()\n\n    def buildDict(self, words):\n        for word in words:\n            node = self.root\n            for char in word:\n                if char not in node.children:\n                    node.children[char] = TrieNode()\n                node = node.children[char]\n            node.is_word = True\n\n    def search(self, query):\n        return self._search(self.root, query, False)\n\n    def _search(self, node, query, mismatch):\n        if not node:\n            return False\n        if query == '':\n            return node.is_word\n        if query[0] not in node.children:\n            return mismatch\n        result = False\n        for child in node.children.values():\n            result = result or self._search(child, query[1:], mismatch or child.is_word)\n        return result",
+    "source": "test-data-ai",
+    "prompt": "Implement magic dictionary using trie yaz.",
+    "license": "MIT",
+    "language": "python"
+}

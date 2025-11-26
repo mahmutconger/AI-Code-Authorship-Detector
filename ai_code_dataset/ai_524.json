@@ -1,0 +1,7 @@
+{
+    "code": "from collections import defaultdict\n\ndef detect_cycle(graph):\n    visited = set()\n    visiting = set()\n    for node in graph:\n        if node not in visited and dfs(graph, node, visited, visiting):\n            return True\n    return False\n\ndef dfs(graph, node, visited, visiting):\n    visited.add(node)\n    visiting.add(node)\n    for neighbor in graph[node]:\n        if neighbor not in visited and dfs(graph, neighbor, visited, visiting):\n            return True\n        elif neighbor in visiting:\n            return True\n    visiting.remove(node)\n    return False\n\ngraph = defaultdict(list)\ngraph[1].append(2)\ngraph[2].append(3)\ngraph[3].append(1)\n\nprint(detect_cycle(graph))",
+    "source": "test-data-ai",
+    "prompt": "Detect cycle in directed graph yaz.",
+    "license": "MIT",
+    "language": "python"
+}

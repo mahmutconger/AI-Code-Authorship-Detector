@@ -1,0 +1,7 @@
+{
+    "code": "from fastapi import FastAPI, Request\nfrom fastapi.responses import JSONResponse\n\napp = FastAPI()\n\n@app.middleware(\"http\")\nasync def log_request(request: Request, call_next):\n    print(f\"Received request: {request.method} - {request.url}\")\n    response = await call_next(request)\n    return response\n\n@app.middleware(\"http\")\nasync def log_response(request: Request, call_next):\n    response = await call_next(request)\n    print(f\"Sent response: {response.status_code}\")\n    return response\n\n@app.get(\"/\")\nasync def read_root():\n    return {\"Hello\": \"World\"}",
+    "source": "test-data-ai",
+    "prompt": "FastAPI ile request/response middleware yaz.",
+    "license": "MIT",
+    "language": "python"
+}

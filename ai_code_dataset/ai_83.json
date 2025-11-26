@@ -1,0 +1,7 @@
+{
+    "code": "def is_hamiltonian_path(graph, path, visited):\n    if len(path) == len(graph):\n        return True\n    for i in range(len(graph)):\n        if not visited[i] and graph[path[-1]][i]:\n            visited[i] = True\n            if is_hamiltonian_path(graph, path + [i], visited):\n                return True\n            visited[i] = False\n    return False\n\ndef hamiltonian_path(graph):\n    for i in range(len(graph)):\n        if is_hamiltonian_path(graph, [i], [False]*len(graph)):\n            return True\n    return False\n\ngraph = [[0, 1, 1, 0, 0],\n         [1, 0, 1, 0, 1],\n         [1, 1, 0, 1, 0],\n         [0, 0, 1, 0, 1],\n         [0, 1, 0, 1, 0]]\n\nprint(hamiltonian_path(graph))  # True",
+    "source": "test-data-ai",
+    "prompt": "Hamiltonian path bulan backtracking algoritması yaz.",
+    "license": "MIT",
+    "language": "python"
+}

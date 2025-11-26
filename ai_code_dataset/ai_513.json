@@ -1,0 +1,7 @@
+{
+    "code": "class TrieNode:\n    def __init__(self):\n        self.children = {}\n        self.is_end_word = False\n\nclass Trie:\n    def __init__(self):\n        self.root = TrieNode()\n\n    def insert(self, word):\n        node = self.root\n        for char in word:\n            if char not in node.children:\n                node.children[char] = TrieNode()\n            node = node.children[char]\n        node.is_end_word = True\n\n    def search(self, word):\n        node = self.root\n        for char in word:\n            if char not in node.children:\n                return False\n            node = node.children[char]\n        return node.is_end_word\n\ndef findAllConcatenatedWords(words):\n    trie = Trie()\n\n    for word in words:\n        if word:\n            trie.insert(word)\n\n    def search_word(word, start_index):\n        if start_index == len(word):\n            return True\n\n        node = trie.root\n        for i in range(start_index, len(word)):\n            char = word[i]\n            if char not in node.children:\n                return False\n            node = node.children[char]\n            if node.is_end_word and search_word(word, i + 1):\n                return True\n\n        return False\n\n    concatenated_words = []\n    for word in words:\n        if word and search_word(word, 0):\n            concatenated_words.append(word)\n\n    return concatenated_words",
+    "source": "test-data-ai",
+    "prompt": "Concatenated words using trie yaz.",
+    "license": "MIT",
+    "language": "python"
+}

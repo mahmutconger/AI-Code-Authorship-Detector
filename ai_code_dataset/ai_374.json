@@ -1,0 +1,7 @@
+{
+    "code": "from collections import deque\n\ndef online_stock_span(stock_prices):\n    span = []\n    s = deque()\n    for price in stock_prices:\n        while s and stock_prices[s[-1]] <= price:\n            s.pop()\n        span.append(len(s) + 1) if s else span.append(1)\n        s.append(len(stock_prices) - len(span))\n    return span",
+    "source": "test-data-ai",
+    "prompt": "Online stock span yaz.",
+    "license": "MIT",
+    "language": "python"
+}

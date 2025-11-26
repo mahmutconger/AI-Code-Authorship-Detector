@@ -1,0 +1,7 @@
+{
+    "code": "class UnionFind:\n    def __init__(self, n):\n        self.parent = list(range(n))\n        self.rank = [0] * n\n    def find(self, x):\n        if self.parent[x] != x:\n            self.parent[x] = self.find(self.parent[x])\n        return self.parent[x]\n    def union(self, x, y):\n        xroot = self.find(x)\n        yroot = self.find(y)\n        if xroot == yroot:\n            return False\n        if self.rank[xroot] < self.rank[yroot]:\n            self.parent[xroot] = yroot\n        elif self.rank[xroot] > self.rank[yroot]:\n            self.parent[yroot] = xroot\n        else:\n            self.parent[yroot] = xroot\n            self.rank[xroot] += 1\n        return True\ndef findRedundantConnection(edges):\n    n = len(edges)\n    uf = UnionFind(n+1)\n    for u, v in edges:\n        if not uf.union(u, v):\n            return [u, v]\n    return []",
+    "source": "test-data-ai",
+    "prompt": "Redundant connection using union find yaz.",
+    "license": "MIT",
+    "language": "python"
+}

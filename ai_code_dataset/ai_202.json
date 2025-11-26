@@ -1,0 +1,7 @@
+{
+    "code": "def kadane(numbers):\n    max_so_far = max_ending_here = numbers[0]\n    for num in numbers[1:]:\n        max_ending_here = max(num, max_ending_here + num)\n        max_so_far = max(max_so_far, max_ending_here)\n    return max_so_far",
+    "source": "test-data-ai",
+    "prompt": "Maximum subarray sum (Kadane's algorithm) yaz.",
+    "license": "MIT",
+    "language": "python"
+}

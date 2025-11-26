@@ -1,0 +1,7 @@
+{
+    "code": "import re\n\ndef url_validation(url):\n    pattern = re.compile(r'http[s]?://(?:[a-zA-Z]|[0-9]|[$-_@.&+]|[!*\\\\(\\\\),]|(?:%[0-9a-fA-F][0-9a-fA-F]))+')\n    if pattern.match(url):\n        return True\n    else:\n        return False",
+    "source": "test-data-ai",
+    "prompt": "URL validation fonksiyonu yaz.",
+    "license": "MIT",
+    "language": "python"
+}

@@ -1,0 +1,7 @@
+{
+    "code": "def pollard\\_rho(n):\nif n == 1:\nreturn []\nx, y, d, i = 2, 2, 1, 0\nwhile d == 1:\ni += 1\nx, y = (x \\* x - 1) % n, (x \\* x - 1) % n, gcd(abs(x - y), n)\nif y == 0 or y == 1 or y == n - 1:\ncontinue\nwhile y != 1:\ny = (y \\* y - 1) % n\nd = gcd(abs(x - y), n)\nif d > 1:\nreturn pollard\\_rho(d) + [n // d]\nreturn [n]\n\nprint(pollard\\_rho(315))",
+    "source": "test-data-ai",
+    "prompt": "Prime factorization using Pollard's rho algoritması yaz.",
+    "license": "MIT",
+    "language": "python"
+}

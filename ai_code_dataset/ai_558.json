@@ -1,0 +1,7 @@
+{
+    "code": "import requests\nfrom requests.auth import HTTPBasicAuth\n\ndef send\\_request(api\\_url, username, password):\nresponse = requests.get(api\\_url, auth=HTTPBasicAuth(username, password))\nreturn response.json()",
+    "source": "test-data-ai",
+    "prompt": "API'ye authentication header ile istek gönderen fonksiyon yaz.",
+    "license": "MIT",
+    "language": "python"
+}

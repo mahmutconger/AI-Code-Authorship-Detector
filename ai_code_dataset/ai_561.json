@@ -1,0 +1,7 @@
+{
+    "code": "import requests\nimport concurrent.futures\n\ndef send_parallel_requests(endpoints):\n    def fetch_data(url):\n        response = requests.get(url)\n        return response.json()\n    \n    with concurrent.futures.ThreadPoolExecutor() as executor:\n        results = executor.map(fetch_data, endpoints)\n    \n    return list(results)",
+    "source": "test-data-ai",
+    "prompt": "Multiple endpoints'e parallel request gönderen fonksiyon yaz.",
+    "license": "MIT",
+    "language": "python"
+}

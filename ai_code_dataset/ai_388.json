@@ -1,0 +1,7 @@
+{
+    "code": "from collections import deque\n\ndef first_non_repeating_char(stream):\n    queue = deque()\n    count = {}\n    for char in stream:\n        if char not in count:\n            count[char] = 1\n            queue.append(char)\n        else:\n            count[char] += 1\n        while queue and count[queue[0]] > 1:\n            queue.popleft()\n        if queue:\n            print(queue[0])\n        else:\n            print(-1)",
+    "source": "test-data-ai",
+    "prompt": "First non-repeating character in stream using queue yaz.",
+    "license": "MIT",
+    "language": "python"
+}

@@ -1,0 +1,7 @@
+{
+    "code": "def rod_cutting(n, prices):\n    dp = [0] * (n+1)\n    for i in range(1, n+1):\n        max_val = float('-inf')\n        for j in range(1, i+1):\n            max_val = max(max_val, prices[j-1] + dp[i-j])\n        dp[i] = max_val\n    return dp[n]\n\nn = 8\nprices = [1, 5, 8, 9, 10, 17, 17, 20]\nprint(rod_cutting(n, prices))",
+    "source": "test-data-ai",
+    "prompt": "Rod cutting problem için maksimum kar hesapla.",
+    "license": "MIT",
+    "language": "python"
+}

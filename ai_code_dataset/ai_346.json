@@ -1,0 +1,7 @@
+{
+    "code": "class Node:\n    def __init__(self, key):\n        self.data = key\n        self.next = None\n\ndef findTriplet( head, n, x):\n    if n<3:\n        return False\n    s = set()\n    curr = head\n    while curr!=None:\n        rem = x-curr.data\n        if rem in s:\n            return True\n        s.add(curr.data)\n        curr = curr.next\n    return False",
+    "source": "test-data-ai",
+    "prompt": "Find triplet with given sum in linked list yaz.",
+    "license": "MIT",
+    "language": "python"
+}

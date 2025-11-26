@@ -1,0 +1,7 @@
+{
+    "code": "class Solution:\n    def zigzagLevelOrder(self, root: 'TreeNode') -> 'List[List[int]]':\n        if not root:\n            return []\n\n        result = []\n        isReverse = False\n\n        def dfs(node, level):\n            if len(result) <= level:\n                result.append([])\n            result[level].extend([node.val])\n            if level > 0 and not isReverse:\n                isReverse = True\n            elif level > 0 and isReverse:\n                isReverse = False\n            if node.left:\n                dfs(node.left, level + 1)\n            if node.right:\n                dfs(node.right, level + 1)\n\n        dfs(root, 0)\n        return [row for row in result]",
+    "source": "test-data-ai",
+    "prompt": "Zigzag level order traversal yaz.",
+    "license": "MIT",
+    "language": "python"
+}

@@ -1,0 +1,7 @@
+{
+    "code": "def meta_binary_search(arr, target):\n    left = 0\n    right = len(arr) - 1\n    while left <= right:\n        mid = (left + right) // 2\n        if arr[mid] == target:\n            return mid\n        elif arr[mid] < target:\n            left = mid + 1\n        else:\n            right = mid - 1\n    return -1",
+    "source": "test-data-ai",
+    "prompt": "Meta binary search (one-sided binary search) yaz.",
+    "license": "MIT",
+    "language": "python"
+}

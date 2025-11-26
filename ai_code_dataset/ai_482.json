@@ -1,0 +1,7 @@
+{
+    "code": "def containsDuplicate(nums):\n    seen = {}\n    for num in nums:\n        if num in seen:\n            return True\n        seen[num] = True\n    return False",
+    "source": "test-data-ai",
+    "prompt": "Contains duplicate II using hash map yaz.",
+    "license": "MIT",
+    "language": "python"
+}

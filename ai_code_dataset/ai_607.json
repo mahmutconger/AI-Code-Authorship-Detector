@@ -1,0 +1,7 @@
+{
+    "code": "from flask import Flask, request\n\napp = Flask(__name__)\n\n@app.route('/endpoint', methods=['GET'])\ndef endpoint():\n    param1 = request.args.get('param1')\n    param2 = request.args.get('param2')\n    if param1 and param2:\n        return f'Param1: {param1}, Param2: {param2}'\n    return 'Invalid parameters'\n\nif __name__ == '__main__':\n    app.run(debug=True)",
+    "source": "test-data-ai",
+    "prompt": "Flask ile query parameters alan endpoint yaz.",
+    "license": "MIT",
+    "language": "python"
+}

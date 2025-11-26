@@ -1,0 +1,7 @@
+{
+    "code": "import requests\nimport time\n\ndef api_request(url, max_retries=5, retry_delay=5):\n    retries = 0\n    while retries < max_retries:\n        try:\n            response = requests.get(url)\n            response.raise_for_status()\n            return response.json()\n        except requests.exceptions.RequestException as e:\n            retries += 1\n            print(f\"API request failed. Retrying in {retry_delay} seconds... (Attempt {retries}/{max_retries})\")\n            time.sleep(retry_delay)\n    raise Exception(\"Maximum number of retries reached. Unable to complete API request.\")",
+    "source": "test-data-ai",
+    "prompt": "Retry mekanizması olan API request fonksiyonu yaz.",
+    "license": "MIT",
+    "language": "python"
+}

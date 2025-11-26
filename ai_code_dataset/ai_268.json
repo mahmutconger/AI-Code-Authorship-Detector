@@ -1,0 +1,7 @@
+{
+    "code": "def factorial(n):\n    if n == 0:\n        return 1\n    else:\n        return n * factorial(n-1)\n\ndef count_trailing_zeros(n):\n    fact = factorial(n)\n    count = 0\n    while fact % 10 == 0:\n        count += 1\n        fact //= 10\n    return count",
+    "source": "test-data-ai",
+    "prompt": "Count number of trailing zeros in factorial yaz.",
+    "license": "MIT",
+    "language": "python"
+}

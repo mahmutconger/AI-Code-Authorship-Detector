@@ -1,0 +1,7 @@
+{
+    "code": "def smoothsort(arr):\n    def adjust(arr, i, w):\n        while i * 2 + 1 < len(arr):\n            min_index = i * 2 + 1\n            if i * 2 + 2 < len(arr) and arr[i * 2 + 2][1] < arr[min_index][1]:\n                min_index = i * 2 + 2\n            if arr[min_index][1] >= arr[i][1]:\n                break\n            arr[i], arr[min_index] = arr[min_index], arr[i]\n            i = min_index\n\n    n = len(arr)\n    if n <= 1:\n        return arr\n\n    pq = [(arr[i], i) for i in range(n)]\n    w = 2\n    while 1 << (w - 1) < n:\n        w += 1\n\n    i = n // (2 ** (w - 1))\n    while i < len(pq):\n        adjust(pq, i, w)\n        i += 1\n\n    i = len(pq) - 1\n    while i >= 0:\n        arr[pq[0][1]], arr[i] = arr[i], arr[pq[0][1]]\n        adjust(pq, 0, 1)\n        i -= 1\n\nsmoothsort([12, 3, 5, 7, 19, 3, 2, 6, 9, 1])",
+    "source": "test-data-ai",
+    "prompt": "Smoothsort algoritmasının basitleştirilmiş versiyonunu yaz.",
+    "license": "MIT",
+    "language": "python"
+}

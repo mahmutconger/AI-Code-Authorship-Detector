@@ -1,0 +1,7 @@
+{
+    "code": "def validate_file_type(file_name, allowed_types):\n    file_type = file_name.split('.')[-1]\n    if file_type in allowed_types:\n        return True\n    else:\n        return False",
+    "source": "test-data-ai",
+    "prompt": "File type validation fonksiyonu yaz.",
+    "license": "MIT",
+    "language": "python"
+}

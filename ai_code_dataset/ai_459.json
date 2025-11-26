@@ -1,0 +1,7 @@
+{
+    "code": "import heapq\n\ndef distant_barcodes(barcode, distance):\n    n = len(barcode)\n    heap = [(0, i) for i in range(n)]\n    heapq.heapify(heap)\n    res = [-1]*n\n    while heap:\n        d, i = heapq.heappop(heap)\n        if res[i] == -1:\n            res[i] = d\n            for j in range(n):\n                if barcode[j]!= barcode[i]:\n                    heapq.heappush(heap, (d+distance, j))\n    return res",
+    "source": "test-data-ai",
+    "prompt": "Distant barcodes using heap yaz.",
+    "license": "MIT",
+    "language": "python"
+}

@@ -1,0 +1,7 @@
+{
+    "code": "import numpy as np\n\ndef strassen(A, B):\n    n = len(A)\n    if n <= 2:\n        return np.dot(A, B)\n    else:\n        A11, A12, A21, A22 = A[:n//2, :n//2], A[:n//2, n//2:], A[n//2:, :n//2], A[n//2:, n//2:]\n        B11, B12, B21, B22 = B[:n//2, :n//2], B[:n//2, n//2:], B[n//2:, :n//2], B[n//2:, n//2:]\n        \n        M1 = strassen(A11 + A22, B11 + B22)\n        M2 = strassen(A21 + A22, B11)\n        M3 = strassen(A11, B12 - B22)\n        M4 = strassen(A22, B21 - B11)\n        M5 = strassen(A11 + A12, B22)\n        M6 = strassen(A21 - A11, B11 + B12)\n        M7 = strassen(A12 - A22, B21 + B22)\n        \n        C11 = M1 + M4 - M5 + M7\n        C12 = M3 + M5\n        C21 = M2 + M4\n        C22 = M1 - M2 + M3 + M6\n        \n        C = np.block([[C11, C12], [C21, C22]])\n        return C",
+    "source": "test-data-ai",
+    "prompt": "Strassen's matrix multiplication yaz.",
+    "license": "MIT",
+    "language": "python"
+}

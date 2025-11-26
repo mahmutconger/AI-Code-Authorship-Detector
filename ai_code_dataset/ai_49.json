@@ -1,0 +1,7 @@
+{
+    "code": "def first_bad_version(n):\n    left = 1\n    right = n\n    \n    while left < right:\n        mid = left + (right - left) // 2\n        if isBadVersion(mid):\n            right = mid\n        else:\n            left = mid + 1\n            \n    return left",
+    "source": "test-data-ai",
+    "prompt": "First bad version bulan binary search varyasyonu yaz.",
+    "license": "MIT",
+    "language": "python"
+}

@@ -1,0 +1,7 @@
+{
+    "code": "def is132pattern(arr):\n    stack = []\n    max_val = float('-inf')\n    for i in arr:\n        if i < max_val:\n            return False\n        while stack and stack[-1] < i:\n            max_val = stack.pop()\n        stack.append(i)\n    return True",
+    "source": "test-data-ai",
+    "prompt": "132 pattern using stack yaz.",
+    "license": "MIT",
+    "language": "python"
+}

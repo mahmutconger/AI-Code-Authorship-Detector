@@ -1,0 +1,7 @@
+{
+    "code": "class Node:\n    def __init__(self, data):\n        self.data = data\n        self.next = None\n\nclass LinkedList:\n    def __init__(self):\n        self.head = None\n\n    def insert_at_beginning(self, data):\n        new_node = Node(data)\n        new_node.next = self.head\n        self.head = new_node",
+    "source": "test-data-ai",
+    "prompt": "Linked list'e başa eleman ekleme fonksiyonu yaz.",
+    "license": "MIT",
+    "language": "python"
+}

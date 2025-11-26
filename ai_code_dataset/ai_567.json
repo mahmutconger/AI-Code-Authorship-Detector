@@ -1,0 +1,7 @@
+{
+    "code": "import requests\n\ndef post_request(url, data):\n    try:\n        response = requests.post(url, json=data)\n        return response.json()\n    except requests.exceptions.RequestException as e:\n        print(f\"Hata: {e}\")\n        return None",
+    "source": "test-data-ai",
+    "prompt": "Form data POST request yapan fonksiyon yaz.",
+    "license": "MIT",
+    "language": "python"
+}

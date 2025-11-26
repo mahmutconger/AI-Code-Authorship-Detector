@@ -1,0 +1,7 @@
+{
+    "code": "from itertools import combinations\n\ndef get_cliques(nodes, edges):\n    cliques = []\n    for i in range(2, len(nodes) + 1):\n        for comb in combinations(nodes, i):\n            if is_clique(comb, edges):\n                cliques.append(list(comb))\n    return cliques\n\ndef is_clique(nodes, edges):\n    for node in nodes:\n        for edge in combinations(nodes, 2):\n            if edge not in edges and node not in edge:\n                return False\n    return True\n\nnodes = [1, 2, 3, 4]\nedges = {(1, 2), (2, 3), (3, 4), (1, 4)}\nprint(get_cliques(nodes, edges))",
+    "source": "test-data-ai",
+    "prompt": "Clique detection algoritması yaz.",
+    "license": "MIT",
+    "language": "python"
+}

@@ -1,0 +1,7 @@
+{
+    "code": "class Solution:\n    def generateTrees(self, n):\n        if not n: return []\n        def generate(start, end):\n            if start > end: return [None]\n            trees = []\n            for i in range(start, end + 1):\n                left = generate(start, i - 1)\n                right = generate(i + 1, end)\n                for l in left:\n                    for r in right:\n                        trees.append(TreeNode(i, l, r))\n            return trees\n        return generate(1, n)",
+    "source": "test-data-ai",
+    "prompt": "Unique BST generation yaz.",
+    "license": "MIT",
+    "language": "python"
+}

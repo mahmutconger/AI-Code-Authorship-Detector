@@ -1,0 +1,7 @@
+{
+    "code": "import sys\n\ndef tsp(graph, start):\n    n = len(graph)\n    all_points = set(range(n))\n    dp = [[None] * n for _ in range(1 << n)]\n\n    def solve(curr, remaining):\n        if remaining == 0:\n            return graph[curr][start]\n        \n        if dp[curr][remaining] is not None:\n            return dp[curr][remaining]\n        \n        ans = sys.maxsize\n        for next_point in all_points - set([start, curr]):\n            if remaining & (1 << next_point):\n                ans = min(ans, graph[curr][next_point] + solve(next_point, remaining & ~(1 << next_point)))\n        \n        dp[curr][remaining] = ans\n        return ans\n\n    return solve(start, (1 << n) - 1)\n\n# Example usage\ngraph = [[0, 10, 15, 20],\n         [10, 0, 35, 25],\n         [15, 35, 0, 30],\n         [20, 25, 30, 0]]\n\nstart_point = 0\nprint(tsp(graph, start_point))",
+    "source": "test-data-ai",
+    "prompt": "TSP için dynamic programming çözümü yaz.",
+    "license": "MIT",
+    "language": "python"
+}

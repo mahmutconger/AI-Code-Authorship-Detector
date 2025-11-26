@@ -1,0 +1,7 @@
+{
+    "code": "def is_bipartite(graph):\n    color = {}\n    queue = []\n\n    for node in graph:\n        if node not in color:\n            color[node] = 1\n            queue.append(node)\n\n            while queue:\n                current_node = queue.pop(0)\n\n                for neighbor in graph[current_node]:\n                    if neighbor not in color:\n                        color[neighbor] = 1 - color[current_node]\n                        queue.append(neighbor)\n                    elif color[neighbor] == color[current_node]:\n                        return False\n\n    return True",
+    "source": "test-data-ai",
+    "prompt": "Bipartite graph kontrol eden algoritma yaz.",
+    "license": "MIT",
+    "language": "python"
+}

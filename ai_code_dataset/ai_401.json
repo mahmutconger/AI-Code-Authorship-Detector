@@ -1,0 +1,7 @@
+{
+    "code": "from collections import deque\n\ndef max_eq(arr, k):\n    n = len(arr)\n    dq = deque()\n\n    for i in range(n):\n        while dq and dq[-1][1] <= i - k:\n            dq.pop()\n\n        while dq and dq[0][0] <= arr[i]:\n            dq.popleft()\n\n        dq.append((arr[i], i))\n\n        if i >= k - 1:\n            print(dq[0][0], end=\" \")\n\narr = [10, 5, 2, 7, 8, 7]\nk = 3\n\nmax_eq(arr, k)",
+    "source": "test-data-ai",
+    "prompt": "Max value of equation using deque yaz.",
+    "license": "MIT",
+    "language": "python"
+}

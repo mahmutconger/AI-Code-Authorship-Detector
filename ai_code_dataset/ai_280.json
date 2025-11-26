@@ -1,0 +1,7 @@
+{
+    "code": "def josephus(n, k):\n    people = list(range(1, n+1))\n    current = 0\n    while len(people) > 1:\n        current = (current + k - 1) % len(people)\n        people.pop(current)\n    return people[0]",
+    "source": "test-data-ai",
+    "prompt": "Josephus problem solution yaz.",
+    "license": "MIT",
+    "language": "python"
+}

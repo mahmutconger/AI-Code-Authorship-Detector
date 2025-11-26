@@ -1,0 +1,7 @@
+{
+    "code": "from collections import deque\n\ndef orangesRotting(grid):\n    if not grid:\n        return -1\n\n    m, n = len(grid), len(grid[0])\n    fresh = 0\n    queue = deque()\n\n    for i in range(m):\n        for j in range(n):\n            if grid[i][j] == 2:\n                queue.append((i, j, 0))\n            elif grid[i][j] == 1:\n                fresh += 1\n\n    while queue:\n        i, j, time = queue.popleft()\n        if i-1 >= 0 and grid[i-1][j] == 1:\n            grid[i-1][j] = 2\n            queue.append((i-1, j, time+1))\n            fresh -= 1\n        if i+1 < m and grid[i+1][j] == 1:\n            grid[i+1][j] = 2\n            queue.append((i+1, j, time+1))\n            fresh -= 1\n        if j-1 >= 0 and grid[i][j-1] == 1:\n            grid[i][j-1] = 2\n            queue.append((i, j-1, time+1))\n            fresh -= 1\n        if j+1 < n and grid[i][j+1] == 1:\n            grid[i][j+1] = 2\n            queue.append((i, j+1, time+1))\n            fresh -= 1\n\n    return time if fresh == 0 else -1",
+    "source": "test-data-ai",
+    "prompt": "Rotting oranges BFS using queue yaz.",
+    "license": "MIT",
+    "language": "python"
+}

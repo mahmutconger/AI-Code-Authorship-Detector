@@ -1,0 +1,7 @@
+{
+    "code": "def majorityElement(nums):\n    count1, count2, candidate1, candidate2 = 0, 0, None, None\n    \n    for num in nums:\n        if num == candidate1:\n            count1 += 1\n        elif num == candidate2:\n            count2 += 1\n        elif count1 == 0:\n            candidate1 = num\n            count1 = 1\n        elif count2 == 0:\n            candidate2 = num\n            count2 = 1\n        else:\n            count1 -= 1\n            count2 -= 1\n    \n    count1 = count2 = 0\n    for num in nums:\n        if num == candidate1:\n            count1 += 1\n        elif num == candidate2:\n            count2 += 1\n    \n    n = len(nums)\n    result = []\n    if count1 > n//3:\n        result.append(candidate1)\n    if count2 > n//3:\n        result.append(candidate2)\n    \n    return result\n\n# Example usage\nnums = [3, 2, 3]\nprint(majorityElement(nums))",
+    "source": "test-data-ai",
+    "prompt": "Majority element II (elements appearing > n/3 times) yaz.",
+    "license": "MIT",
+    "language": "python"
+}

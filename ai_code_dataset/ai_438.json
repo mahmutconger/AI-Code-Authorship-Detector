@@ -1,0 +1,7 @@
+{
+    "code": "class TreeNode:\n    def __init__(self, x, left=None, right=None):\n        self.val = x\n        self.left = left\n        self.right = right\n\ndef flatten(root: TreeNode) -> None:\n    if not root:\n        return None\n\n    left_tail = root.left\n    while left_tail.right:\n        left_tail = left_tail.right\n\n    if root.left:\n        left_tail.right = root.right\n        root.right = root.left\n        root.left = None\n\n    flatten(root.right)",
+    "source": "test-data-ai",
+    "prompt": "Flatten binary tree to linked list yaz.",
+    "license": "MIT",
+    "language": "python"
+}

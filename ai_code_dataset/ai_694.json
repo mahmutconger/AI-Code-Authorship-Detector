@@ -1,0 +1,7 @@
+{
+    "code": "import logging\n\nclass CustomFormatter(logging.Formatter):\n    grey = \"\\x1b[38;21m\"\n    yellow = \"\\x1b[33;21m\"\n    red = \"\\x1b[31;21m\"\n    bold_red = \"\\x1b[31;1m\"\n    reset = \"\\x1b[0m\"\n    \n    format = grey + \"{name:<10.10} {levelname:<8.8} {message}\" + reset\n    \n    FORMATS = {\n        logging.DEBUG: format,\n        logging.INFO: format,\n        logging.WARNING: format,\n        logging.ERROR: red + format + reset,\n        logging.CRITICAL: bold_red + format + reset\n    }\n    \n    def format(self, record):\n        log_fmt = self.FORMATS.get(record.levelno)\n        formatter = logging.Formatter(log_fmt)\n        return formatter.format(record)",
+    "source": "test-data-ai",
+    "prompt": "Custom log formatter yaz.",
+    "license": "MIT",
+    "language": "python"
+}

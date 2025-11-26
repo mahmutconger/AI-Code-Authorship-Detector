@@ -1,0 +1,7 @@
+{
+    "code": "class Solution:\n    def scheduleCourse(self, courses):\n        courses.sort(key=lambda x: x[1])\n        heap = []\n        time = 0\n        for duration, end in courses:\n            if duration + time <= end:\n                heappush(heap, -duration)\n                time += duration\n            elif heap and -heap[0] > duration:\n                time -= -heappop(heap)\n                heappush(heap, -duration)\n                time += duration\n        return len(heap)",
+    "source": "test-data-ai",
+    "prompt": "Course schedule II yaz.",
+    "license": "MIT",
+    "language": "python"
+}

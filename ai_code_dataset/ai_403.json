@@ -1,0 +1,7 @@
+{
+    "code": "from collections import deque\n\ndef maxSlidingWindow(nums, k):\n    if not nums:\n        return []\n    \n    n = len(nums)\n    res = []\n    dq = deque()\n\n    for i in range(n):\n        if dq and dq[0] < i - k + 1:\n            dq.popleft()\n        while dq and nums[dq[-1]] < nums[i]:\n            dq.pop()\n        dq.append(i)\n        \n        if i >= k - 1:\n            res.append(nums[dq[0]])\n\n    return res",
+    "source": "test-data-ai",
+    "prompt": "Continuous subarrays using deque yaz.",
+    "license": "MIT",
+    "language": "python"
+}

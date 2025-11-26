@@ -1,0 +1,7 @@
+{
+    "code": "def coinChange(coins, amount):\n    dp = [float('inf')] * (amount + 1)\n    dp[0] = 0\n    for coin in coins:\n        for i in range(coin, amount + 1):\n            dp[i] = min(dp[i], dp[i - coin] + 1)\n    return dp[amount] if dp[amount] != float('inf') else -1\n\nprint(coins([1, 2, 5], 11))  # Output: 3",
+    "source": "test-data-ai",
+    "prompt": "Coin change problemini kaç farklı yolla yapılabileceğini bul.",
+    "license": "MIT",
+    "language": "python"
+}

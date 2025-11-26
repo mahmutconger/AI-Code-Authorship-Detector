@@ -1,0 +1,7 @@
+{
+    "code": "def selection_sort(arr):\n    for i in range(len(arr)):\n        min_index = i\n        for j in range(i+1, len(arr)):\n            if arr[min_index] > arr[j]:\n                min_index = j\n        arr[i], arr[min_index] = arr[min_index], arr[i]\n    return arr\n\nprint(selection_sort([5, 3, 8, 4, 6]))",
+    "source": "test-data-ai",
+    "prompt": "Selection Sort algoritmasını küçükten büyüğe sıralama için yaz.",
+    "license": "MIT",
+    "language": "python"
+}

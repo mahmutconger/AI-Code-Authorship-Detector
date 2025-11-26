@@ -1,0 +1,7 @@
+{
+    "code": "import csv\n\ndef read_csv_file(file_path):\n    data = []\n    with open(file_path, 'r') as file:\n        csv_reader = csv.reader(file)\n        for row in csv_reader:\n            data.append(row)\n    return data",
+    "source": "test-data-ai",
+    "prompt": "CSV dosyasını okuyan ve tüm verileri satır satır bir liste içinde döndüren bir fonksiyon oluştur.",
+    "license": "MIT",
+    "language": "python"
+}

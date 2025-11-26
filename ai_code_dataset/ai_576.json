@@ -1,0 +1,7 @@
+{
+    "code": "import requests\nimport json\nimport time\n\ndef listen_sse():\n    url = \"https://example.com/sse\"\n    headers = {\"Accept\": \"text/event-stream\"}\n    while True:\n        try:\n            response = requests.get(url, headers=headers, stream=True)\n            if response.status_code == 200:\n                for line in response.iter_lines():\n                    if line:\n                        event_data = json.loads(line.decode())\n                        print(event_data)\n            else:\n                print(f\"Error: {response.status_code}\")\n        except requests.exceptions.RequestException as e:\n            print(f\"Error: {e}\")\n        time.sleep(5)\n\nlisten_sse()",
+    "source": "test-data-ai",
+    "prompt": "Server-sent events dinleyen fonksiyon yaz.",
+    "license": "MIT",
+    "language": "python"
+}

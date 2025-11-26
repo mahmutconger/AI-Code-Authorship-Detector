@@ -1,0 +1,7 @@
+{
+    "code": "def convert\\_to\\_upper\\_file(input\\_file, output\\_file):\nwith open(input\\_file, 'r') as f:\nlines = f.readlines()\n\nwith open(output\\_file, 'w') as f:\nfor line in lines:\nf.write(line.upper())\n\nconvert\\_to\\_upper\\_file('input.txt', 'output.txt')",
+    "source": "test-data-ai",
+    "prompt": "Bir metin dosyasını satır satır okuyan ve her satırı büyük harfe çevirerek yeni bir dosyaya yazan bir işlev yaz.",
+    "license": "MIT",
+    "language": "python"
+}

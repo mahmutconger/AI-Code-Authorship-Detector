@@ -1,0 +1,7 @@
+{
+    "code": "def ternary_search_max(arr, left, right):\n    if right >= left:\n        mid1 = left + (right - left) // 3\n        mid2 = right - (right - left) // 3\n\n        if arr[mid1] < arr[mid2]:\n            return ternary_search_max(arr, mid1 + 1, right)\n        else:\n            return ternary_search_max(arr, left, mid2 - 1)\n    else:\n        return arr[left]\n\ndef ternary_search_min(arr, left, right):\n    if right >= left:\n        mid1 = left + (right - left) // 3\n        mid2 = right - (right - left) // 3\n\n        if arr[mid1] > arr[mid2]:\n            return ternary_search_min(arr, mid1 + 1, right)\n        else:\n            return ternary_search_min(arr, left, mid2 - 1)\n    else:\n        return arr[left]",
+    "source": "test-data-ai",
+    "prompt": "Ternary Search'ü maksimum/minimum bulma için yaz.",
+    "license": "MIT",
+    "language": "python"
+}

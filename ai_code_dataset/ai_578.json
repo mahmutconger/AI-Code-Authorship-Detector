@@ -1,0 +1,7 @@
+{
+    "code": "import requests, cookiecutter\n\ndef request_with_cookies(url, cookies_file='cookies.txt'):\ncookies = cookiecutter.load(cookies_file)\nresponse = requests.get(url, cookies=cookies)\nreturn response\n\ncookies_jar = requests.cookies.RequestsCookieJar()\ncookies_jar.set('session_id', 'session_value', domain='example.com')\n\nresponse = request_with_cookies('https://example.com', cookies_file='cookies.txt')",
+    "source": "test-data-ai",
+    "prompt": "Cookies yöneten request fonksiyonu yaz.",
+    "license": "MIT",
+    "language": "python"
+}

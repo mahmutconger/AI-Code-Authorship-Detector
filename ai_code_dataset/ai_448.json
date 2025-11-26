@@ -1,0 +1,7 @@
+{
+    "code": "import heapq\n\ndef heapify(arr):\n    heapq.heapify(arr)",
+    "source": "test-data-ai",
+    "prompt": "Heapify process yaz.",
+    "license": "MIT",
+    "language": "python"
+}

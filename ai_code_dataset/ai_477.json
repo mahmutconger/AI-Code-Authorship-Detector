@@ -1,0 +1,7 @@
+{
+    "code": "def longest_substring(s):\n    start = 0\n    max_length = 0\n    char_index_map = {}\n\n    for end in range(len(s)):\n        if s[end] in char_index_map:\n            start = max(start, char_index_map[s[end]] + 1)\n        char_index_map[s[end]] = end\n        max_length = max(max_length, end - start + 1)\n\n    return max_length\n\n# Example usage\ns = \"abcabcbb\"\nprint(longest_substring(s))",
+    "source": "test-data-ai",
+    "prompt": "Longest substring without repeating chars using hash map yaz.",
+    "license": "MIT",
+    "language": "python"
+}

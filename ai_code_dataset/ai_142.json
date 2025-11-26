@@ -1,0 +1,7 @@
+{
+    "code": "items = [(1, 4), (2, 3), (3, 5), (4, 6)]\ncapacity = 10\n\nitems.sort(key=lambda x: x[1]/x[0], reverse=True)\n\nprofit = 0\nfor item in items:\n    if item[0] <= capacity:\n        profit += item[1]\n        capacity -= item[0]\n    else:\n        profit += capacity * (item[1]/item[0])\n        break\n\nprint(profit)",
+    "source": "test-data-ai",
+    "prompt": "Fractional knapsack problemini greedy ile yaz.",
+    "license": "MIT",
+    "language": "python"
+}

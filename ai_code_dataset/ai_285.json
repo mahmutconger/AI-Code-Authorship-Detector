@@ -1,0 +1,7 @@
+{
+    "code": "from collections import deque\n\nclass AhoNode:\n    def __init__(self):\n        self.goto = {}\n        self.fail = None\n        self.output = []\n\ndef aho_corasick(patterns, text):\n    root = AhoNode()\n    \n    for pattern in patterns:\n        node = root\n        for char in pattern:\n            node = node.goto.setdefault(char, AhoNode())\n        node.output.append(pattern)\n    \n    queue = deque()\n    for node in root.goto.values():\n        queue.append(node)\n        node.fail = root\n    \n    while queue:\n        rnode = queue.popleft()\n        for key, unode in rnode.goto.items():\n            queue.append(unode)\n            fnode = rnode.fail\n            while fnode is not None and key not in fnode.goto:\n                fnode = fnode.fail\n            unode.fail = fnode.goto[key] if fnode else root\n            unode.output.extend(unode.fail.output)\n    \n    node = root\n    matches = []\n    for i, char in enumerate(text):\n        while node is not None and char not in node.goto:\n            node = node.fail\n        if node is None:\n            node = root\n            continue\n        node = node.goto[char]\n        matches.extend((i - len(pattern) + 1, pattern) for pattern in node.output)\n    \n    return matches\n\npatterns = ['he', 'she', 'his', 'hers']\ntext = 'ushers'\nprint(aho_corasick(patterns, text))",
+    "source": "test-data-ai",
+    "prompt": "Aho-Corasick algorithm for multiple pattern search yaz.",
+    "license": "MIT",
+    "language": "python"
+}

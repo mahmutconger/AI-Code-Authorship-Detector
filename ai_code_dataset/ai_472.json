@@ -1,0 +1,7 @@
+{
+    "code": "class HashTable:\n    def __init__(self, size=10):\n        self.size = size\n        self.table = [None] * self.size\n    def hash(self, key):\n        return hash(key) % self.size\n    def set(self, key, value):\n        index = self.hash(key)\n        if self.table[index] is None:\n            self.table[index] = (key, value)\n        else:\n            while self.table[index] is not None:\n                if self.table[index][0] == key:\n                    self.table[index] = (key, value)\n                    return\n                index = (index + 1) % self.size\n            self.table[index] = (key, value)\n    def get(self, key):\n        index = self.hash(key)\n        while self.table[index] is not None:\n            if self.table[index][0] == key:\n                return self.table[index][1]\n            index = (index + 1) % self.size\n        raise KeyError(key)\n    def delete(self, key):\n        index = self.hash(key)\n        while self.table[index] is not None:\n            if self.table[index][0] == key:\n                value = self.table[index][1]\n                self.table[index] = None\n                return value\n            index = (index + 1) % self.size\n        raise KeyError(key)",
+    "source": "test-data-ai",
+    "prompt": "Hash table with open addressing yaz.",
+    "license": "MIT",
+    "language": "python"
+}

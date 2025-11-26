@@ -1,0 +1,7 @@
+{
+    "code": "import os\nfrom datetime import datetime\n\ndef get_file_time(file_path):\n    file_stats = os.stat(file_path)\n    creation_time = datetime.fromtimestamp(file_stats.st_ctime)\n    modification_time = datetime.fromtimestamp(file_stats.st_mtime)\n    return creation_time, modification_time",
+    "source": "test-data-ai",
+    "prompt": "Dosya creation/modification time'ı alan fonksiyon yaz.",
+    "license": "MIT",
+    "language": "python"
+}

@@ -1,0 +1,7 @@
+{
+    "code": "def generateBST(n):\n    if n == 0:\n        return [None]\n    res = []\n    for i in range(1, n+1):\n        for node in generateBST(i-1):\n            left = [node]\n            right = generateBST(n-i-1)\n            for r in right:\n                left.append(r)\n            res.append(left)\n    return res",
+    "source": "test-data-ai",
+    "prompt": "Generate all unique BSTs yaz.",
+    "license": "MIT",
+    "language": "python"
+}

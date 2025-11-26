@@ -1,0 +1,7 @@
+{
+    "code": "num = 153\norder = len(str(num))\nsum = 0\ntemp = num\n\nwhile temp > 0:\n    digit = temp % 10\n    sum += digit ** order\n    temp //= 10\n\nif num == sum:\n    print(num, \"is an Armstrong number\")\nelse:\n    print(num, \"is not an Armstrong number\")",
+    "source": "test-data-ai",
+    "prompt": "Check if a number is Armstrong number yaz.",
+    "license": "MIT",
+    "language": "python"
+}

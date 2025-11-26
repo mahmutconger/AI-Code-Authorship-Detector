@@ -1,0 +1,7 @@
+{
+    "code": "def find_single_number(nums):\n    result = 0\n    for num in nums:\n        result ^= num\n    return result\n\nnumbers = [2, 3, 5, 2, 5, 3, 7]\nprint(find_single_number(numbers))  # Çıkan sonuç 7",
+    "source": "test-data-ai",
+    "prompt": "Bir dizideki tek bir tekrarsız sayıyı XOR ile bul.",
+    "license": "MIT",
+    "language": "python"
+}

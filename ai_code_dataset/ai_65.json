@@ -1,0 +1,7 @@
+{
+    "code": "import sys\n\ndef floyd_warshall(graph):\n    n = len(graph)\n    dist = [[sys.maxsize for _ in range(n)] for _ in range(n)]\n    \n    for i in range(n):\n        for j in range(n):\n            if i == j:\n                dist[i][j] = 0\n            elif graph[i][j] != 0:\n                dist[i][j] = graph[i][j]\n    \n    for k in range(n):\n        for i in range(n):\n            for j in range(n):\n                dist[i][j] = min(dist[i][j], dist[i][k] + dist[k][j])\n    \n    return dist\n\ngraph = [[0, 5, sys.maxsize, 10],\n         [sys.maxsize, 0, 3, sys.maxsize],\n         [sys.maxsize, sys.maxsize, 0, 1],\n         [sys.maxsize, sys.maxsize, sys.maxsize, 0]]\n\nprint(floyd_warshall(graph))",
+    "source": "test-data-ai",
+    "prompt": "Floyd-Warshall algoritmasını all-pairs shortest path için yaz.",
+    "license": "MIT",
+    "language": "python"
+}

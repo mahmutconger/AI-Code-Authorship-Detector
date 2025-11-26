@@ -1,0 +1,7 @@
+{
+    "code": "import time\n\ndef performance_monitoring_decorator(func):\n    def wrapper(*args, **kwargs):\n        start_time = time.time()\n        result = func(*args, **kwargs)\n        end_time = time.time()\n        print(f\"Function {func.__name__} took {end_time - start_time} seconds to execute.\")\n        return result\n    return wrapper\n\n@performance_monitoring_decorator\ndef example_function():\n    # Add your function implementation here\n    pass",
+    "source": "test-data-ai",
+    "prompt": "Performance monitoring decorator yaz.",
+    "license": "MIT",
+    "language": "python"
+}

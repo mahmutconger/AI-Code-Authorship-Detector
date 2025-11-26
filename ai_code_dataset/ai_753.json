@@ -1,0 +1,7 @@
+{
+    "code": "class MethodChain:\n    def __init__(self, value):\n        self.value = value\n\n    def add(self, num):\n        self.value += num\n        return self\n\n    def subtract(self, num):\n        self.value -= num\n        return self\n\n    def multiply(self, num):\n        self.value *= num\n        return self\n\n    def divide(self, num):\n        self.value /= num\n        return self\n\n# Example usage\nresult = MethodChain(10).add(5).subtract(3).multiply(2).divide(4).value\nprint(result)",
+    "source": "test-data-ai",
+    "prompt": "Method chaining implementation yaz.",
+    "license": "MIT",
+    "language": "python"
+}

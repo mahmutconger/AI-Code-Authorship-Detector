@@ -1,0 +1,7 @@
+{
+    "code": "print(\"()\")\nprint(\"(\", \")\")\nprint(\"(\"+str(1)+\")\")\nprint(f\"({1})\")\nx = 1\nprint(f\"({x})\")",
+    "source": "test-data-ai",
+    "prompt": "Different ways to add parentheses yaz.",
+    "license": "MIT",
+    "language": "python"
+}

@@ -1,0 +1,7 @@
+{
+    "code": "class NumMatrix:\n    def __init__(self, matrix: List[List[int]]):\n        if not matrix:\n            return\n        self.m, self.n = len(matrix), len(matrix[0])\n        self.tree = [[0] * (self.n + 1) for _ in range(self.m + 1)]\n        for i in range(self.m):\n            for j in range(self.n):\n                self.update(i, j, matrix[i][j])\n\n    def update(self, row: int, col: int, val: int):\n        i, j = row + 1, col + 1\n        while i <= self.m:\n            j1 = j\n            while j1 <= self.n:\n                self.tree[i][j1] += val\n                j1 += j1 & -j1\n            i += i & -i\n\n    def sumRegion(self, row1: int, col1: int, row2: int, col2: int) -> int:\n        return self.getSum(row2 + 1, col2 + 1) - self.getSum(row1, col2 + 1) - self.getSum(row2 + 1, col1) + self.getSum(row1, col1)\n\n    def getSum(self, i: int, j: int) -> int:\n        res = 0\n        while i > 0:\n            j1 = j\n            while j1 > 0:\n                res += self.tree[i][j1]\n                j1 -= j1 & -j1\n            i -= i & -i\n        return res",
+    "source": "test-data-ai",
+    "prompt": "Range sum query 2D using Fenwick tree yaz.",
+    "license": "MIT",
+    "language": "python"
+}

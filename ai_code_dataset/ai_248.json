@@ -1,0 +1,7 @@
+{
+    "code": "def flip_bits(n):\n    binary=bin(n)[2:]\n    new_binary=\"\"\n    for i in range(len(binary)):\n        if i%2==0:\n            new_binary+=\"1\"\n        else:\n            new_binary+=\"0\"\n    return int(new_binary,2)",
+    "source": "test-data-ai",
+    "prompt": "Flip bits to make alternate pattern yaz.",
+    "license": "MIT",
+    "language": "python"
+}

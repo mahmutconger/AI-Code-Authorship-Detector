@@ -1,0 +1,7 @@
+{
+    "code": "with open('file.txt', 'r') as file:\n    content = file.read()\n    print(content)",
+    "source": "test-data-ai",
+    "prompt": "Aşağıdaki kodu **with** ifadesi kullanarak kaynak yönetimini iyileştirerek yeniden yaz.",
+    "license": "MIT",
+    "language": "python"
+}

@@ -1,0 +1,7 @@
+{
+    "code": "import os\nimport tempfile\n\nclass TemporaryFile:\n    def __enter__(self):\n        self.file = tempfile.NamedTemporaryFile(delete=False)\n        return self.file\n\n    def __exit__(self, exc_type, exc_value, traceback):\n        self.file.close()\n        os.unlink(self.file.name)\n\nwith TemporaryFile() as f:\n    f.write(b'Hello, World!')\n    f.seek(0)\n    print(f.read())",
+    "source": "test-data-ai",
+    "prompt": "Temporary file oluşturan context manager yaz.",
+    "license": "MIT",
+    "language": "python"
+}

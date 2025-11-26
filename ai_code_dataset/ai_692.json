@@ -1,0 +1,7 @@
+{
+    "code": "import logging\nimport logging.handlers\n\nlogger = logging.getLogger(__name__)\nlogger.setLevel(logging.DEBUG)\n\nformatter = logging.Formatter('%(asctime)s - %(levelname)s - %(message)s')\n\nfile_handler = logging.handlers.RotatingFileHandler('app.log', maxBytes=1024*1024, backupCount=5)\nfile_handler.setFormatter(formatter)\n\nlogger.addHandler(file_handler)\n\nlogger.debug('This is a debug message')\nlogger.info('This is an info message')\nlogger.warning('This is a warning message')\nlogger.error('This is an error message')\nlogger.critical('This is a critical message')",
+    "source": "test-data-ai",
+    "prompt": "Rotating file handler ile log yaz.",
+    "license": "MIT",
+    "language": "python"
+}

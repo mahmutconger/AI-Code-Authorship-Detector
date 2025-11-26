@@ -1,0 +1,7 @@
+{
+    "code": "def is_palindrome(s):\n    return s == s[::-1]\n\ndef palindrome_partition(s):\n    def backtrack(start, path):\n        if start == len(s):\n            res.append(path)\n            return\n        for i in range(start, len(s)):\n            if is_palindrome(s[start:i+1]):\n                backtrack(i+1, path + [s[start:i+1]])\n    \n    res = []\n    backtrack(0, [])\n    return res\n\ns = \"yaz\"\nprint(palindrome_partition(s))",
+    "source": "test-data-ai",
+    "prompt": "Generate all palindrome partitions yaz.",
+    "license": "MIT",
+    "language": "python"
+}

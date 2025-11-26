@@ -1,0 +1,7 @@
+{
+    "code": "from collections import defaultdict\n\ndef min_cut(b):\n    g = defaultdict(list)\n    for i in range(len(b)):\n        for j in range(len(b[i])):\n            if b[i][j] == 1:\n                g[i].append(j)\n                g[j].append(i)\n    visited = [False]*len(b)\n    cut = 0\n    for i in range(len(b)):\n        if not visited[i]:\n            cut += 1\n            stack = [i]\n            visited[i] = True\n            while stack:\n                curr = stack.pop()\n                for j in g[curr]:\n                    if not visited[j]:\n                        visited[j] = True\n                        stack.append(j)\n    return cut - 1\n\nb = [[1, 1, 0, 0, 0], [1, 1, 1, 0, 0], [0, 1, 0, 1, 0], [0, 0, 1, 0, 1], [0, 0, 0, 1, 0]]\nprint(min_cut(b))",
+    "source": "test-data-ai",
+    "prompt": "Minimum cut bulan algoritma yaz.",
+    "license": "MIT",
+    "language": "python"
+}

@@ -1,0 +1,7 @@
+{
+    "code": "def group_shifted_strings(strings):\n    hash_map = {}\n    for s in strings:\n        key = tuple([(ord(c) - ord(s[0])) % 26 for c in s])\n        if key not in hash_map:\n            hash_map[key] = [s]\n        else:\n            hash_map[key].append(s)\n    return list(hash_map.values())",
+    "source": "test-data-ai",
+    "prompt": "Group shifted strings using hash map yaz.",
+    "license": "MIT",
+    "language": "python"
+}

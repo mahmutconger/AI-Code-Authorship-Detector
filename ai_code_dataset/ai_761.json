@@ -1,0 +1,7 @@
+{
+    "code": "if 'key' in my_dict:\n    value = my_dict['key']\n    print(value)",
+    "source": "test-data-ai",
+    "prompt": "Aşağıdaki kodu, **'EAFP'** (izin istemektense af dile) prensibi yerine **'LBYL'** (atlamadan önce bak) prensibini kullanarak yeniden yaz.",
+    "license": "MIT",
+    "language": "python"
+}

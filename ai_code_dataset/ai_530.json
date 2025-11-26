@@ -1,0 +1,7 @@
+{
+    "code": "from collections import deque\n\ndef minimum_vertices(graph, yaz):\n    n = len(graph)\n    visited = [False] * n\n    queue = deque([yaz])\n    visited[yaz] = True\n\n    while queue:\n        node = queue.popleft()\n        for neighbor in graph[node]:\n            if not visited[neighbor]:\n                visited[neighbor] = True\n                queue.append(neighbor)\n\n    return sum(1 for v in visited if not v)",
+    "source": "test-data-ai",
+    "prompt": "Minimum number of vertices to reach all nodes yaz.",
+    "license": "MIT",
+    "language": "python"
+}

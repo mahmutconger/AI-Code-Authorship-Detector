@@ -1,0 +1,7 @@
+{
+    "code": "def merge_two_lists(l1, l2):\n    if not l1:\n        return l2\n    if not l2:\n        return l1\n    if l1.val < l2.val:\n        l1.next = merge_two_lists(l1.next, l2)\n        return l1\n    else:\n        l2.next = merge_two_lists(l1, l2.next)\n        return l2",
+    "source": "test-data-ai",
+    "prompt": "İki linked list'i merge eden fonksiyon yaz.",
+    "license": "MIT",
+    "language": "python"
+}

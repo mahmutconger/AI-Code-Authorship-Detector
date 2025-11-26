@@ -1,0 +1,7 @@
+{
+    "code": "import html\n\ndef encode_html(text):\n    return html.escape(text)\n\ndef decode_html(text):\n    return html.unescape(text)",
+    "source": "test-data-ai",
+    "prompt": "HTML entities encode/decode yapan fonksiyon yaz.",
+    "license": "MIT",
+    "language": "python"
+}

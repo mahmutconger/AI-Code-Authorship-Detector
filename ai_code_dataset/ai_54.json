@@ -1,0 +1,7 @@
+{
+    "code": "def sqrt_binary_search(number, precision=0.00001):\n    low, high = 0.0, number\n    while high - low > precision:\n        mid = (high + low) / 2.0\n        if mid**2 > number:\n            high = mid\n        else:\n            low = mid\n    return low\n\nUsage example:\n\nprint(sqrt_binary_search(2))  # Output: 1.4142135623730949",
+    "source": "test-data-ai",
+    "prompt": "Square root hesaplayan binary search algoritması yaz.",
+    "license": "MIT",
+    "language": "python"
+}

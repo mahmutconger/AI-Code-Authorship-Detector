@@ -1,0 +1,7 @@
+{
+    "code": "def sum(a, b):\n    c = 0\n    def inner(num1, num2):\n        nonlocal c\n        c = num1 + num2\n        return c\n    return inner(a, b)",
+    "source": "test-data-ai",
+    "prompt": "Aşağıdaki koddaki **global değişken kullanımını** argüman ve geri dönüş değerleri kullanarak düzelt.",
+    "license": "MIT",
+    "language": "python"
+}

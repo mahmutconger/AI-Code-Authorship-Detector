@@ -1,0 +1,7 @@
+{
+    "code": "import asyncio\nimport websockets\n\nasync def connect_to_server():\n    async with websockets.connect(\"ws://localhost:8765\") as websocket:\n        while True:\n            message = await websocket.recv()\n            print(message)\n\nasyncio.run(connect_to_server())",
+    "source": "test-data-ai",
+    "prompt": "WebSocket connection açan fonksiyon yaz.",
+    "license": "MIT",
+    "language": "python"
+}

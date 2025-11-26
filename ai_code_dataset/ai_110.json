@@ -1,0 +1,7 @@
+{
+    "code": "def lps(s):\n    n = len(s)\n    table = [[0 for x in range(n)] for y in range(n)]\n    for i in range(n):\n        table[i][i] = 1\n    maxLength = 1\n    i = 0\n    while i < n-1:\n        if s[i] == s[i+1]:\n            table[i][i+1] = 2\n            maxLength = 2\n        else:\n            table[i][i+1] = 0\n        i = i + 1\n    k = 3\n    while k <= n:\n        for i in range(n-k+1):\n            j = i + k - 1\n            if table[i+1][j-1] == 1 or table[i][j] == k-2:\n                table[i][j] = max(table[i][j-1], table[i+1][j])\n            else:\n                table[i][j] = table[i+1][j-1] + 2\n            if table[i][j] > maxLength:\n                maxLength = table[i][j]\n        k = k + 1\n    return maxLength\n\nprint(lps(\"bulan\"))",
+    "source": "test-data-ai",
+    "prompt": "Longest Palindromic Subsequence bulan DP çözümü yaz.",
+    "license": "MIT",
+    "language": "python"
+}

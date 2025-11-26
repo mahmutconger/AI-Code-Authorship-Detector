@@ -1,0 +1,7 @@
+{
+    "code": "def lcm(x, y):\n    if x > y:\n        greater = x\n    else:\n        greater = y\n\n    while True:\n        if greater % x == 0 and greater % y == 0:\n            lcm = greater\n            break\n        greater += 1\n    \n    return lcm",
+    "source": "test-data-ai",
+    "prompt": "LCM (Least Common Multiple) hesaplayan fonksiyon yaz.",
+    "license": "MIT",
+    "language": "python"
+}

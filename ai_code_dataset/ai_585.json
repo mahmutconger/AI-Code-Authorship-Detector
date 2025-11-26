@@ -1,0 +1,7 @@
+{
+    "code": "class RequestInterceptor:\n    def __init__(self, target):\n        self.target = target\n\n    def process_request(self, request):\n        print(\"Request intercepted\")\n        # Do something with the request\n        \n        return self.target.process_request(request)\n\nclass Target:\n    def process_request(self, request):\n        print(\"Processing request\")\n        # Process the request\n\ntarget = Target()\ninterceptor = RequestInterceptor(target)\ninterceptor.process_request(\"example_request\")",
+    "source": "test-data-ai",
+    "prompt": "Request interceptor pattern uygula.",
+    "license": "MIT",
+    "language": "python"
+}

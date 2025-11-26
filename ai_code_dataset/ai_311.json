@@ -1,0 +1,7 @@
+{
+    "code": "class Node:\n    def __init__(self, data=None):\n        self.data = data\n        self.next = None\n\nclass LinkedList:\n    def __init__(self):\n        self.head = None\n\n    def insert(self, data):\n        if not self.head:\n            self.head = Node(data)\n        else:\n            current = self.head\n            while current.next:\n                current = current.next\n            current.next = Node(data)\n\n    def print_list(self):\n        current = self.head\n        while current:\n            print(current.data)\n            current = current.next\n\n    def delete(self, data):\n        if self.head is None:\n            return\n\n        if self.head.data == data:\n            self.head = self.head.next\n            return\n\n        current = self.head\n        while current.next:\n            if current.next.data == data:\n                current.next = current.next.next\n                return\n            current = current.next",
+    "source": "test-data-ai",
+    "prompt": "Singly linked list için Node ve LinkedList sınıfı oluştur.",
+    "license": "MIT",
+    "language": "python"
+}

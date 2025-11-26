@@ -1,0 +1,7 @@
+{
+    "code": "def ZAlgorithm(s):\n    n = len(s)\n    z = [0] * n\n    z[0] = n\n    left, right = 0, 0\n    for i in range(1, n):\n        if i <= right:\n            z[i] = min(right - i + 1, z[i - left])\n        while i + z[i] < n and s[i + z[i]] == s[i - z[i]]:\n            z[i] += 1\n        if z[i] > 0:\n            left, right = i, i + z[i] - 1\n    return z",
+    "source": "test-data-ai",
+    "prompt": "Z-algorithm for pattern matching yaz.",
+    "license": "MIT",
+    "language": "python"
+}

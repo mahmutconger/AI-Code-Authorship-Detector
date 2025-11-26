@@ -1,0 +1,7 @@
+{
+    "code": "def build_lps(pattern):\n    lps = [0] * len(pattern)\n    j = 0\n    for i in range(1, len(pattern)):\n        while j > 0 and pattern[i] != pattern[j]:\n            j = lps[j-1]\n        if pattern[i] == pattern[j]:\n            j += 1\n        lps[i] = j\n    return lps\n\ndef kmp(text, pattern):\n    lps = build_lps(pattern)\n    j = 0\n    matches = []\n    for i in range(len(text)):\n        while j > 0 and text[i] != pattern[j]:\n            j = lps[j-1]\n        if text[i] == pattern[j]:\n            if j == len(pattern) - 1:\n                matches.append(i - len(pattern) + 1)\n                j = lps[j]\n            else:\n                j += 1\n    return matches\n\ntext = \"ababcababcabcabc\"\npattern = \"abc\"\nprint(kmp(text, pattern))",
+    "source": "test-data-ai",
+    "prompt": "KMP (Knuth-Morris-Pratt) pattern matching yaz.",
+    "license": "MIT",
+    "language": "python"
+}

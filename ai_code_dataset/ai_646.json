@@ -1,0 +1,7 @@
+{
+    "code": "import xml.etree.ElementTree as ET\n\ndef parse\\_xml(file\\_path):\nfile = open(file\\_path, \"r\")\ncontent = file.read()\nfile.close()\n\ntree = ET.fromstring(content)\n\nreturn tree",
+    "source": "test-data-ai",
+    "prompt": "XML dosyası parse eden fonksiyon yaz.",
+    "license": "MIT",
+    "language": "python"
+}

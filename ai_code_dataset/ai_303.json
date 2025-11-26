@@ -1,0 +1,7 @@
+{
+    "code": "def group_shifted_strings(strings):\n    result = {}\n    for s in strings:\n        shifted = ord(s[0]) - 97\n        if shifted not in result:\n            result[shifted] = []\n        result[shifted].append(s)\n    return list(result.values())",
+    "source": "test-data-ai",
+    "prompt": "Group shifted strings yaz.",
+    "license": "MIT",
+    "language": "python"
+}

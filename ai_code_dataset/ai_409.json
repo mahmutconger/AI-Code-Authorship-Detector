@@ -1,0 +1,7 @@
+{
+    "code": "class TreeNode:\n    def __init__(self, val=0, left=None, right=None):\n        self.val = val\n        self.left = left\n        self.right = right\n\ndef postorderTraversal(root):\n    res = []\n    if root:\n        res = postorderTraversal(root.left)\n        res += postorderTraversal(root.right)\n        res.append(root.val)\n    return res",
+    "source": "test-data-ai",
+    "prompt": "Binary tree postorder traversal yaz.",
+    "license": "MIT",
+    "language": "python"
+}

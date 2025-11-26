@@ -1,0 +1,7 @@
+{
+    "code": "import networkx as nx\nimport matplotlib.pyplot as plt\n\ndef girvan_newman(G):\n    communities = []\n    while True:\n        edge_betweenness = nx.edge_betweenness_centrality(G)\n        max_edge = max(edge_betweenness.items(), key=lambda x: x[1])\n        G.remove_edge(*max_edge[0])\n        components = [c for c in nx.connected_components(G)]\n        if len(components) > len(communities):\n            communities.append(components)\n        if len(components) == len(G.nodes):\n            break\n    return communities\n\nG = nx.karate_club_graph()\ncommunities = girvan_newman(G)\nfor c in communities:\n    print(c)\nnx.draw(G, with_labels=True)\nplt.show()",
+    "source": "test-data-ai",
+    "prompt": "Community detection için Girvan-Newman algoritmasını yaz.",
+    "license": "MIT",
+    "language": "python"
+}

@@ -1,0 +1,7 @@
+{
+    "code": "mice = [4, -4, 2]\nholes = [4, 0, 5]\n\nmice.sort()\nholes.sort()\n\nmax_time = 0\n\nfor i in range(len(mice)):\n    max_time = max(max_time, abs(mice[i]-holes[i]))\n\nprint(max_time)",
+    "source": "test-data-ai",
+    "prompt": "Assign mice to holes problemini yaz.",
+    "license": "MIT",
+    "language": "python"
+}

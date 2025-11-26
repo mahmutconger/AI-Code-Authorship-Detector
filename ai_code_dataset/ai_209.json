@@ -1,0 +1,7 @@
+{
+    "code": "from heapq import *\ndef getSkyline(self, buildings: List[List[int]]) -> List[List[int]]:\n        events = [(L, -H, R) for L, R, H in buildings]\n        events += list({(R, 0, 0) for _, R, _ in buildings})\n        events.sort()\n        res = [[0, 0]]\n        live = [(0, float(\"inf\"))]\n        for pos, negH, R in events:\n            while live[0][1] <= pos:\n                heappop(live)\n            if negH:\n                heappush(live, (negH, R))\n            if res[-1][1] != -live[0][0]:\n                res.append([pos, -live[0][0]])\n        return res[1:]",
+    "source": "test-data-ai",
+    "prompt": "Skyline problem çözümü yaz.",
+    "license": "MIT",
+    "language": "python"
+}

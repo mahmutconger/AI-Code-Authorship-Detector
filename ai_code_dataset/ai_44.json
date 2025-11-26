@@ -1,0 +1,7 @@
+{
+    "code": "def two_sum(nums, target):\n    left = 0\n    right = len(nums) - 1\n    while left < right:\n        current_sum = nums[left] + nums[right]\n        if current_sum == target:\n            return [left, right]\n        elif current_sum < target:\n            left += 1\n        else:\n            right -= 1\n    return []",
+    "source": "test-data-ai",
+    "prompt": "Two Pointer tekniğiyle bir dizide çift toplam bulan fonksiyon yaz.",
+    "license": "MIT",
+    "language": "python"
+}

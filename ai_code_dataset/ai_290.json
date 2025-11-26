@@ -1,0 +1,7 @@
+{
+    "code": "class Trie:\n    def __init__(self):\n        self.children = {}\n        self.is_end_of_word = False\n\n    def insert(self, word: str) -> None:\n        node = self\n        for char in word:\n            if char not in node.children:\n                node.children[char] = Trie()\n            node = node.children[char]\n        node.is_end_of_word = True\n\n    def search(self, word: str) -> bool:\n        node = self\n        for char in word:\n            if char not in node.children:\n                return False\n            node = node.children[char]\n        return node.is_end_of_word\n\n    def starts_with(self, prefix: str) -> bool:\n        node = self\n        for char in prefix:\n            if char not in node.children:\n                return False\n            node = node.children[char]\n        return True",
+    "source": "test-data-ai",
+    "prompt": "Implement Trie data structure yaz.",
+    "license": "MIT",
+    "language": "python"
+}

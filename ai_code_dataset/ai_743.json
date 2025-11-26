@@ -1,0 +1,7 @@
+{
+    "code": "def deprecation_warning(message, version=\"0.0.0\"):\n    def decorator(func):\n        def wrapper(*args, **kwargs):\n            import warnings\n            warnings.simplefilter('always', DeprecationWarning)\n            warnings.warn(f\"Deprecation warning: {message}. This function will be removed in {version}.\", category=DeprecationWarning, stacklevel=2)\n            return func(*args, **kwargs)\n        return wrapper\n    return decorator",
+    "source": "test-data-ai",
+    "prompt": "Deprecation warning decorator yaz.",
+    "license": "MIT",
+    "language": "python"
+}

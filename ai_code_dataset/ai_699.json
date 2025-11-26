@@ -1,0 +1,7 @@
+{
+    "code": "def timer_decorator(func):\n    def wrapper(*args, **kwargs):\n        start_time = time.time()\n        result = func(*args, **kwargs)\n        end_time = time.time()\n        print(f\"Function {func.__name__} executed in {end_time - start_time} seconds\")\n        return result\n    return wrapper",
+    "source": "test-data-ai",
+    "prompt": "Function execution time logger decorator yaz.",
+    "license": "MIT",
+    "language": "python"
+}

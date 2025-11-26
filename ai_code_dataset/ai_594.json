@@ -1,0 +1,7 @@
+{
+    "code": "import requests\nimport ssl\n\ncontext = ssl.create_default_context()\ncontext.check_hostname = True\ncontext.verify_mode = ssl.CERT_REQUIRED\n\nresponse = requests.get('https://www.howsmyssl.com/a/check', verify=context)\n\nprint(response.json()['given_cipher_suite'])",
+    "source": "test-data-ai",
+    "prompt": "SSL certificate verification yapılandırmalı request yaz.",
+    "license": "MIT",
+    "language": "python"
+}

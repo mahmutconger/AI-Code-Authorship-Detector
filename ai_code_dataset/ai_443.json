@@ -1,0 +1,7 @@
+{
+    "code": "class Node:\n    def __init__(self, value):\n        self.value = value\n        self.left = None\n        self.right = None\n\ndef find_leaves(root):\n    if root is None:\n        return []\n    if root.left is None and root.right is None:\n        return [root.value]\n    else:\n        return find_leaves(root.left) + find_leaves(root.right)\n\n# use case\nroot = Node(1)\nroot.left = Node(2)\nroot.right = Node(3)\nroot.left.left = Node(4)\nroot.left.right = Node(5)\nroot.right.left = Node(6)\nroot.right.right = Node(7)\n\nprint(find_leaves(root))  # [4, 5, 6, 7]",
+    "source": "test-data-ai",
+    "prompt": "Find leaves of binary tree yaz.",
+    "license": "MIT",
+    "language": "python"
+}

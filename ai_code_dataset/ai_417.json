@@ -1,0 +1,7 @@
+{
+    "code": "class TreeNode:\n    def __init__(self, val=0, left=None, right=None):\n        self.val = val\n        self.left = left\n        self.right = right\n\ndef minDepth(root):\n    if not root:\n        return 0\n    if not root.left:\n        return 1 + minDepth(root.right)\n    if not root.right:\n        return 1 + minDepth(root.left)\n    return 1 + min(minDepth(root.left), minDepth(root.right))",
+    "source": "test-data-ai",
+    "prompt": "Minimum depth of binary tree yaz.",
+    "license": "MIT",
+    "language": "python"
+}

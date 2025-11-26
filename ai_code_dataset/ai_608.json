@@ -1,0 +1,7 @@
+{
+    "code": "from flask import Flask, request\nfrom flask_validator import Validator, ValidationFailure\n\napp = Flask(__name__)\n\n@app.route('/validate', methods=['POST'])\ndef validate():\n    validator = Validator(request.form)\n    validator.add_rules({\n        'name': ['required', 'string'],\n        'email': ['required', 'email']\n    })\n    if not validator.validate():\n        return str(validator.errors)\n    return 'Validation successful'\n\nif __name__ == '__main__':\n    app.run()",
+    "source": "test-data-ai",
+    "prompt": "Flask ile request validation yapan fonksiyon yaz.",
+    "license": "MIT",
+    "language": "python"
+}

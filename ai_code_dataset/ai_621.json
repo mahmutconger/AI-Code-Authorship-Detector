@@ -1,0 +1,7 @@
+{
+    "code": "from fastapi import FastAPI\nfrom fastapi.security import OAuth2PasswordBearer\n\napp = FastAPI()\n\noauth2_scheme = OAuth2PasswordBearer(tokenUrl=\"token\")\n\n@app.post(\"/token\")\nasync def login(form_data: OAuth2PasswordRequestForm = Depends()):\n    # your login logic here\n    # return access_token and token_type\n\n@app.get(\"/users/me\")\nasync def read_users_me(token: str = Depends(oauth2_scheme)):\n    # your logic to get current user using token\n    return {\"token\": token}",
+    "source": "test-data-ai",
+    "prompt": "FastAPI ile OAuth2 password flow yaz.",
+    "license": "MIT",
+    "language": "python"
+}

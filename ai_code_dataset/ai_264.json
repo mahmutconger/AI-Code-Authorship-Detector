@@ -1,0 +1,7 @@
+{
+    "code": "def sum_of_divisors(yaz):\n    total = 0\n    for i in range(1, yaz+1):\n        if yaz % i == 0:\n            total += i\n    return total",
+    "source": "test-data-ai",
+    "prompt": "Sum of divisors of a number yaz.",
+    "license": "MIT",
+    "language": "python"
+}

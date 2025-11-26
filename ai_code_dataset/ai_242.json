@@ -1,0 +1,7 @@
+{
+    "code": "def findMaximumXOR(yaz):\n    max_xor = 0\n    for num in yaz:\n        max_xor = max(max_xor, max_xor ^ num)\n    return max_xor\n\n# Example usage:\nyaz = [3, 10, 5, 25, 2, 1]\nprint(findMaximumXOR(yaz))  # Output: 28",
+    "source": "test-data-ai",
+    "prompt": "Maximum XOR of two numbers in array yaz.",
+    "license": "MIT",
+    "language": "python"
+}

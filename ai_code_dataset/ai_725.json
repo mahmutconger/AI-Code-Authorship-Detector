@@ -1,0 +1,7 @@
+{
+    "code": "def xss_prevention(input_string):\n    import html\n    return html.escape(input_string)",
+    "source": "test-data-ai",
+    "prompt": "XSS prevention fonksiyonu yaz.",
+    "license": "MIT",
+    "language": "python"
+}

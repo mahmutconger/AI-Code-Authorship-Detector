@@ -1,0 +1,7 @@
+{
+    "code": "def count_of_range_sum(arr, lower, upper):\n    if not arr or lower > upper:\n        return 0\n    prefix_sums = [0]\n    for num in arr:\n        prefix_sums.append(prefix_sums[-1] + num)\n    return merge_sort(prefix_sums, lower, upper, 0, len(prefix_sums) - 1)\n\ndef merge_sort(prefix_sums, lower, upper, left, right):\n    if left > right:\n        return 0\n    mid = (left + right) // 2\n    return merge_sort(prefix_sums, lower, upper, left, mid) + \\\n           merge_sort(prefix_sums, lower, upper, mid + 1, right) + \\\n           merge(prefix_sums, lower, upper, left, mid, right)\n\ndef merge(prefix_sums, lower, upper, left, mid, right):\n    count = 0\n    i = left\n    j = mid + 1\n    temp = []\n    while i <= mid and j <= right:\n        if prefix_sums[j] - prefix_sums[i] >= lower:\n            if prefix_sums[j] - prefix_sums[i] <= upper:\n                count += 1\n            i += 1\n        elif prefix_sums[j] - prefix_sums[i] < lower:\n            j += 1\n    i = left\n    j = mid + 1\n    while i <= mid and j <= right:\n        if prefix_sums[i] < prefix_sums[j]:\n            temp.append(prefix_sums[i])\n            i += 1\n        else:\n            temp.append(prefix_sums[j])\n            j += 1\n    temp += prefix_sums[i:mid + 1]\n    temp += prefix_sums[j:right + 1]\n    for k in range(left, right + 1):\n        prefix_sums[k] = temp[k - left]\n    return count",
+    "source": "test-data-ai",
+    "prompt": "Count of range sum in an array yaz.",
+    "license": "MIT",
+    "language": "python"
+}

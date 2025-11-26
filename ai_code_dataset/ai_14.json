@@ -1,0 +1,7 @@
+{
+    "code": "def gnome_sort(arr):\n    i, j = 1, 2\n    while i < len(arr):\n        if arr[i - 1] <= arr[i]:\n            i = j\n            j += 1\n        else:\n            arr[i - 1], arr[i] = arr[i], arr[i - 1]\n            i -= 1\n            if i == 0:\n                i = j\n                j += 1",
+    "source": "test-data-ai",
+    "prompt": "Gnome Sort (Garden Gnome Sort) algoritmasını uygula.",
+    "license": "MIT",
+    "language": "python"
+}

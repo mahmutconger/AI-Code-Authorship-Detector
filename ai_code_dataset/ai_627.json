@@ -1,0 +1,7 @@
+{
+    "code": "from fastapi import FastAPI\n\napp = FastAPI()\n\n@app.get(\"/\")\nasync def read_root():\n    return {\"message\": \"Hello World\"}\n\n@app.get(\"/users/\")\nasync def read_users():\n    users = [\n        {\"id\": 1, \"name\": \"John\"},\n        {\"id\": 2, \"name\": \"Jane\"},\n        {\"id\": 3, \"name\": \"Bob\"}\n    ]\n    return users\n\n@app.get(\"/users/{user_id}\")\nasync def read_user(user_id: int):\n    user = {\"id\": user_id, \"name\": \"John\"}\n    return user",
+    "source": "test-data-ai",
+    "prompt": "FastAPI ile async endpoint yaz.",
+    "license": "MIT",
+    "language": "python"
+}

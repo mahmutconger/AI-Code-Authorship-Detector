@@ -1,0 +1,7 @@
+{
+    "code": "def isPalindrome(head):\n    slow = fast = head\n    while fast and fast.next:\n        slow = slow.next\n        fast = fast.next.next\n    slow = slow.next\n    while slow:\n        print(slow.val, end=' ')\n        slow = slow.next\n    reverse = slow\n    while reverse:\n        print(reverse.val, end=' ')\n        reverse = reverse.next",
+    "source": "test-data-ai",
+    "prompt": "Palindrome linked list checker yaz.",
+    "license": "MIT",
+    "language": "python"
+}

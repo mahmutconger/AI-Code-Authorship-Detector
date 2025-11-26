@@ -1,0 +1,7 @@
+{
+    "code": "def minCost(n, m):\n    horizontal_cuts = sorted(n)\n    vertical_cuts = sorted(m)\n    \n    h_cuts = [horizontal_cuts[0]]\n    for i in range(1, len(horizontal_cuts)):\n        h_cuts.append(horizontal_cuts[i] - horizontal_cuts[i-1])\n    \n    v_cuts = [vertical_cuts[0]]\n    for i in range(1, len(vertical_cuts)):\n        v_cuts.append(vertical_cuts[i] - vertical_cuts[i-1])\n    \n    return min(h_cuts) * min(v_cuts)",
+    "source": "test-data-ai",
+    "prompt": "Minimum cost to cut a board into squares yaz.",
+    "license": "MIT",
+    "language": "python"
+}

@@ -1,0 +1,7 @@
+{
+    "code": "import time\n\ndef throttle(wait_time):\n    def decorator(func):\n        last_invocation = 0\n        \n        def wrapper(*args, **kwargs):\n            nonlocal last_invocation\n            elapsed_time = time.time() - last_invocation\n            if elapsed_time < wait_time:\n                time.sleep(wait_time - elapsed_time)\n            last_invocation = time.time()\n            return func(*args, **kwargs)\n        \n        return wrapper\n    \n    return decorator\n\n@throttle(5)\ndef test_func():\n    print(\"Function called\")\n\ntest_func()",
+    "source": "test-data-ai",
+    "prompt": "Throttle decorator yaz.",
+    "license": "MIT",
+    "language": "python"
+}

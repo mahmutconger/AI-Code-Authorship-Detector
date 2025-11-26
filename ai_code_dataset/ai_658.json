@@ -1,0 +1,7 @@
+{
+    "code": "import os\nimport shutil\n\ndef move_file(src, dst):\n    shutil.move(src, dst)\n\ndef copy_file(src, dst):\n    shutil.copy2(src, dst)",
+    "source": "test-data-ai",
+    "prompt": "Dosya taşıma/kopyalama fonksiyonu yaz.",
+    "license": "MIT",
+    "language": "python"
+}

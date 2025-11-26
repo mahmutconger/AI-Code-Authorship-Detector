@@ -1,0 +1,7 @@
+{
+    "code": "import math\n\ndef partition_into_k_subsets(arr, k):\n    total_sum = sum(arr)\n    if total_sum % k != 0:\n        return []\n    target_sum = total_sum // k\n    n = len(arr)\n    used = [False] * n\n    result = [[] for _ in range(k)]\n    return backtrack(arr, 0, target_sum, result, used)\n\ndef backtrack(arr, start, target_sum, result, used):\n    if all(used):\n        for subset in result:\n            if sum(subset) != target_sum:\n                return []\n        return result\n    for i in range(start, len(arr)):\n        if not used[i] and sum(result[-1]) + arr[i] <= target_sum:\n            result[-1].append(arr[i])\n            used[i] = True\n            if len(result[-1]) == target_sum:\n                result.append([])\n            if backtrack(arr, i + 1, target_sum, result, used):\n                return result\n            used[i] = False\n            if len(result[-1]) == target_sum:\n                result.pop()\n            result[-1].remove(arr[i])\n    return []",
+    "source": "test-data-ai",
+    "prompt": "Partition array into k subsets with equal sum yaz.",
+    "license": "MIT",
+    "language": "python"
+}

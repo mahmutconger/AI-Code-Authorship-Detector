@@ -1,0 +1,7 @@
+{
+    "code": "from heapq import nsmallest\n\ndef find_k_pairs(nums1, nums2, k):\n    return nsmallest(k, ((a, b) for a in nums1 for b in nums2), key=sum)\n\nnums1 = [1, 7, 11]\nnums2 = [2, 4, 6]\nk = 3\nprint(find_k_pairs(nums1, nums2, k))",
+    "source": "test-data-ai",
+    "prompt": "Find k pairs with smallest sums using heap yaz.",
+    "license": "MIT",
+    "language": "python"
+}

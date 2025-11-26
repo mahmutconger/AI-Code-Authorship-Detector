@@ -1,0 +1,7 @@
+{
+    "code": "class Builder:\n    def __init__(self):\n        self._result = []\n\n    def add(self, item):\n        self._result.append(item)\n\n    def build(self):\n        return self._result\n\nclass Director:\n    def __init__(self, builder):\n        self._builder = builder\n\n    def construct(self):\n        self._builder.add(\"Window\")\n        self._builder.add(\"Door\")\n        self._builder.add(\"Roof\")\n\nclass ConcreteBuilderA(Builder):\n    def __init__(self):\n        super().__init__()\n        self._result = []\n\n    def add(self, item):\n        self._result.append(item)\n\n    def add(self, item):\n        self._result.append(\"ConcreteBuilderA: \" + item)\n\nclass ConcreteBuilderB(Builder):\n    def __init__(self):\n        super().__init__()\n        self._result = []\n\n    def add(self, item):\n        self._result.append(item)\n\n    def add(self, item):\n        self._result.append(\"ConcreteBuilderB: \" + item)\n\ndirector = Director(ConcreteBuilderA())\ndirector.construct()\n\nprint(director._builder.build())",
+    "source": "test-data-ai",
+    "prompt": "Builder pattern implementation yaz.\"Aşağıdaki Python kodundaki mantık hatasını bul, düzelt ve düzeltmenin nedenini detaylı bir yorumla açıkla: \n    def calculate_average(numbers):\n        if not numbers:\n            return 0\n        total = sum(numbers)\n        return total / len(numbers) if len(numbers) > 0 else 0 \n    ",
+    "license": "MIT",
+    "language": "python"
+}

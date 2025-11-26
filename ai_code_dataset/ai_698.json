@@ -1,0 +1,7 @@
+{
+    "code": "import sys\nimport traceback\n\ndef exception_logger(func):\n    def wrapper(*args, **kwargs):\n        try:\n            return func(*args, **kwargs)\n        except Exception as e:\n            error_message = f\"Error in {func.__name__}: {str(e)}\\n\"\n            error_details = \"\".join(traceback.format_exception(etype=type(e), value=e, tb=e.__traceback__))\n            print(error_message + error_details, file=sys.stderr)\n            return None\n    return wrapper",
+    "source": "test-data-ai",
+    "prompt": "Exception logging decorator yaz.",
+    "license": "MIT",
+    "language": "python"
+}

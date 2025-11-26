@@ -1,0 +1,7 @@
+{
+    "code": "def is\\_rotation(s1, s2):\nif len(s1) != len(s2) or len(s1) == 0:\nreturn False\ns1s1 = s1 + s1\nreturn s2 in s1s1",
+    "source": "test-data-ai",
+    "prompt": "Check if string is rotation of another yaz.",
+    "license": "MIT",
+    "language": "python"
+}

@@ -1,0 +1,7 @@
+{
+    "code": "def pancake_sort(arr):\n    n = len(arr)\n\n    for size in range(n, 0, -1):\n        max_index = arr.index(max(arr[:size]))\n        if max_index == size-1:\n            continue\n        if max_index != 0:\n            arr[:max_index+1] = arr[:max_index+1][::-1]\n        arr[:size-size%2] = arr[:size-size%2][::-1]\n\npancake_sort([23, 10, 20, 11, 12, 6, 7])\nprint(\"Sorted array is:\", [6, 7, 10, 11, 12, 20, 23])",
+    "source": "test-data-ai",
+    "prompt": "Pancake Sort algoritmasını flip operasyonlarıyla yaz.",
+    "license": "MIT",
+    "language": "python"
+}

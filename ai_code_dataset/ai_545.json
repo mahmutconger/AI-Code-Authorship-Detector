@@ -1,0 +1,7 @@
+{
+    "code": "class UnionFind:\n    def __init__(self, n):\n        self.parent = [i for i in range(n)]\n    \n    def find(self, x):\n        if self.parent[x] != x:\n            self.parent[x] = self.find(self.parent[x])\n        return self.parent[x]\n    \n    def union(self, x, y):\n        root_x = self.find(x)\n        root_y = self.find(y)\n        self.parent[root_x] = root_y\n\ndef swimInWater(grid):\n    n = len(grid)\n    uf = UnionFind(n*n)\n    edges = []\n    \n    for i in range(n):\n        for j in range(n):\n            idx = i*n + j\n            if i > 0:\n                edges.append((idx-n, idx, max(grid[i][j], grid[i-1][j])))\n            if j > 0:\n                edges.append((idx-1, idx, max(grid[i][j], grid[i][j-1])))\n    \n    edges.sort(key=lambda x: x[2])\n    \n    for edge in edges:\n        uf.union(edge[0], edge[1])\n        if uf.find(0) == uf.find(n*n-1):\n            return edge[2]",
+    "source": "test-data-ai",
+    "prompt": "Swim in rising water using union find yaz.",
+    "license": "MIT",
+    "language": "python"
+}

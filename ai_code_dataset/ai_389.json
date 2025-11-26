@@ -1,0 +1,7 @@
+{
+    "code": "from collections import deque\n\ndef slidingWindowMax(nums, k):\n    result = []\n    dq = deque()\n    \n    for i in range(len(nums)):\n        while dq and nums[i] >= nums[dq[-1]]:\n            dq.pop()\n        \n        dq.append(i)\n        \n        if dq[0] == i - k:\n            dq.popleft()\n        \n        if i >= k - 1:\n            result.append(nums[dq[0]])\n    \n    return result",
+    "source": "test-data-ai",
+    "prompt": "Sliding window maximum using deque yaz.",
+    "license": "MIT",
+    "language": "python"
+}

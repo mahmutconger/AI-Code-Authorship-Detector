@@ -1,0 +1,7 @@
+{
+    "code": "def min_product_subset(arr):\n    if not arr:\n        return 0\n\n    arr.sort()\n    n = len(arr)\n    return arr[0] * arr[n - 1]",
+    "source": "test-data-ai",
+    "prompt": "Minimum product subset of an array bul.",
+    "license": "MIT",
+    "language": "python"
+}

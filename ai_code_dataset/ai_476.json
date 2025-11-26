@@ -1,0 +1,7 @@
+{
+    "code": "def subarraySum(nums, k):\n    count = 0\n    sum_dict = {0: 1}\n    curr_sum = 0\n    for num in nums:\n        curr_sum += num\n        if curr_sum - k in sum_dict:\n            count += sum_dict[curr_sum - k]\n        sum_dict[curr_sum] = sum_dict.get(curr_sum, 0) + 1\n    return count",
+    "source": "test-data-ai",
+    "prompt": "Subarray sum equals k using hash map yaz.",
+    "license": "MIT",
+    "language": "python"
+}

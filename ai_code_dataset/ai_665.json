@@ -1,0 +1,7 @@
+{
+    "code": "import os\n\ndef normalize_and_validate_path(path):\n    normalized_path = os.path.normpath(path)\n    if os.path.exists(normalized_path):\n        return normalized_path\n    else:\n        return \"Invalid path\"",
+    "source": "test-data-ai",
+    "prompt": "Path normalization ve validation yapan fonksiyon yaz.",
+    "license": "MIT",
+    "language": "python"
+}

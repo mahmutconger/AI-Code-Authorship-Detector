@@ -1,0 +1,7 @@
+{
+    "code": "import msgpack\n\n# Serialization\ndata = {'name': 'Alice', 'age': 30}\npacked_data = msgpack.packb(data)\n\n# Deserialization\nunpacked_data = msgpack.unpackb(packed_data)\nprint(unpacked_data)",
+    "source": "test-data-ai",
+    "prompt": "MessagePack serialization/deserialization yaz.",
+    "license": "MIT",
+    "language": "python"
+}

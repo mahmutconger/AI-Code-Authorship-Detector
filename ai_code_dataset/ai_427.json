@@ -1,0 +1,7 @@
+{
+    "code": "class BSTIterator:\n    def __init__(self, root):\n        self.stack = []\n        self.push_left(root)\n\n    def next(self):\n        temp = self.stack.pop()\n        self.push_left(temp.right)\n        return temp.val\n\n    def has_next(self):\n        return bool(self.stack)\n\n    def push_left(self, root):\n        while root:\n            self.stack.append(root)\n            root = root.left",
+    "source": "test-data-ai",
+    "prompt": "BST iterator yaz.",
+    "license": "MIT",
+    "language": "python"
+}

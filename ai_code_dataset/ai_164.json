@@ -1,0 +1,7 @@
+{
+    "code": "def chocolate_distribution(chocolates, students):\n    if len(chocolates) < students:\n        return -1\n    chocolates.sort()\n    min_diff = float('inf')\n    for i in range(len(chocolates)-students+1):\n        diff = chocolates[i+students-1] - chocolates[i]\n        if diff < min_diff:\n            min_diff = diff\n    return min_diff",
+    "source": "test-data-ai",
+    "prompt": "Chocolate distribution problem yaz.",
+    "license": "MIT",
+    "language": "python"
+}

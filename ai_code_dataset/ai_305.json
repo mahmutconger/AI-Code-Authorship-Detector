@@ -1,0 +1,7 @@
+{
+    "code": "def is_valid_number(num):\n    try:\n        float(num)\n        return True\n    except ValueError:\n        return False\n\n# Example Usage\nprint(is_valid_number(\"123\"))  # True\nprint(is_valid_number(\"12.3\"))  # True\nprint(is_valid_number(\"abc\"))  # False",
+    "source": "test-data-ai",
+    "prompt": "Valid number checker yaz.",
+    "license": "MIT",
+    "language": "python"
+}

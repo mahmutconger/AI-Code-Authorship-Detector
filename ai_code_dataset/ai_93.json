@@ -1,0 +1,7 @@
+{
+    "code": "def vertex_cover_approx(G):\n    cover = set()\n    edges = G.edges()\n\n    while edges:\n        max_edge = max(edges, key=lambda x: len(x))\n        u, v = max_edge\n        cover.add(u)\n        cover.add(v)\n        edges -= set(G.edges(u))\n        edges -= set(G.edges(v))\n\n    return cover",
+    "source": "test-data-ai",
+    "prompt": "Vertex cover problem için approximation algoritması yaz.",
+    "license": "MIT",
+    "language": "python"
+}

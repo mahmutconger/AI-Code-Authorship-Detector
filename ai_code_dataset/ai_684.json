@@ -1,0 +1,7 @@
+{
+    "code": "import json\nfrom datetime import datetime\n\ndef serialize_datetime_to_json(obj):\n    if isinstance(obj, datetime):\n        return obj.isoformat()\n    return obj.__dict__",
+    "source": "test-data-ai",
+    "prompt": "Datetime object'leri JSON'a serialize eden fonksiyon yaz.",
+    "license": "MIT",
+    "language": "python"
+}

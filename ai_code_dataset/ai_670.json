@@ -1,0 +1,7 @@
+{
+    "code": "import pandas as pd\n\ndef csv_to_dataframe(csv_file):\n    return pd.read_csv(csv_file)",
+    "source": "test-data-ai",
+    "prompt": "CSV'yi pandas DataFrame'e çeviren fonksiyon yaz.",
+    "license": "MIT",
+    "language": "python"
+}

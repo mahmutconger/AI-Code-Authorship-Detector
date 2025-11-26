@@ -1,0 +1,7 @@
+{
+    "code": "class UnionFind:\n    def __init__(self, n):\n        self.parent = list(range(n))\n        self.rank = [0] * n\n\n    def find(self, x):\n        if self.parent[x] != x:\n            self.parent[x] = self.find(self.parent[x])\n        return self.parent[x]\n\n    def union(self, x, y):\n        root_x = self.find(x)\n        root_y = self.find(y)\n        if root_x != root_y:\n            if self.rank[root_x] < self.rank[root_y]:\n                self.parent[root_x] = root_y\n            elif self.rank[root_x] > self.rank[root_y]:\n                self.parent[root_y] = root_x\n            else:\n                self.parent[root_y] = root_x\n                self.rank[root_x] += 1",
+    "source": "test-data-ai",
+    "prompt": "Path compression optimization yaz.",
+    "license": "MIT",
+    "language": "python"
+}

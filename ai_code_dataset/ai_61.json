@@ -1,0 +1,7 @@
+{
+    "code": "class Graph:\n    def __init__(self):\n        self.nodes = set()\n        self.edges = {}\n\n    def add_node(self, value):\n        self.nodes.add(value)\n        self.edges[value] = {}\n\n    def add_edge(self, from_node, to_node, weight):\n        self.edges[from_node][to_node] = weight\n        self.edges[to_node][from_node] = weight",
+    "source": "test-data-ai",
+    "prompt": "Python'da Dijkstra algoritmasının temel yapısını anlatan ve bir ağırlıklı grafiği temsil eden sınıfı kur.",
+    "license": "MIT",
+    "language": "python"
+}

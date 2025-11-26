@@ -1,0 +1,7 @@
+{
+    "code": "def majority_element(nums):\n    count, candidate = 0, None\n    for num in nums:\n        if count == 0:\n            candidate, count = num, 1\n        else:\n            if candidate == num:\n                count += 1\n            else:\n                count -= 1\n    return candidate\n\nprint(majority_element([3,2,3]))\nprint(majority_element([2,2,1,1,1,2,2]))",
+    "source": "test-data-ai",
+    "prompt": "Majority element (çoğunluk elemanı) bulan Boyer-Moore algoritmasını yaz.",
+    "license": "MIT",
+    "language": "python"
+}

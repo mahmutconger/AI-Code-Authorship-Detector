@@ -1,0 +1,7 @@
+{
+    "code": "class Node:\n    def __init__(self, data):\n        self.data = data\n        self.next = None\n\ndef rotateList(head, k):\n    if not head or not head.next:\n        return head\n    \n    # Find the length of the linked list\n    length = 0\n    current = head\n    while current:\n        length += 1\n        current = current.next\n    \n    # Normalize k to be within the range of the list length\n    k = k % length\n    \n    # If k is 0, no rotation is needed\n    if k == 0:\n        return head\n    \n    # Find the (length - k)th node, which will be the new head\n    current = head\n    for _ in range(length - k - 1):\n        current = current.next\n    new_head = current.next\n    \n    # Rotate the list\n    current.next = None\n    current = new_head\n    while current.next:\n        current = current.next\n    current.next = head\n    \n    return new_head",
+    "source": "test-data-ai",
+    "prompt": "Rotate linked list by k positions yaz.",
+    "license": "MIT",
+    "language": "python"
+}

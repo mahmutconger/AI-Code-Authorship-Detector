@@ -1,0 +1,7 @@
+{
+    "code": "import requests\n\ndef send_post_request(url, data):\n    response = requests.post(url, data=data)\n    return response.status_code",
+    "source": "test-data-ai",
+    "prompt": "requests kütüphanesini kullanarak belirli bir URL'ye POST isteği gönderen ve yanıtın durum kodunu döndüren bir fonksiyon oluştur.",
+    "license": "MIT",
+    "language": "python"
+}

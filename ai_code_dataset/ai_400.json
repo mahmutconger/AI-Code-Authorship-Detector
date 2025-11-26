@@ -1,0 +1,7 @@
+{
+    "code": "import collections\n\ndef shortest_subarray_sum_at_least_k(nums, k):\n    n = len(nums)\n    prefix_sum = [0] * (n + 1)\n    for i in range(n):\n        prefix_sum[i + 1] = prefix_sum[i] + nums[i]\n    \n    deque = collections.deque([(0, -1)])\n    min_len = float('inf')\n    for i in range(n + 1):\n        while deque and prefix_sum[i] - prefix_sum[deque[0][1]] >= k:\n            min_len = min(min_len, i - deque[0][1])\n            deque.popleft()\n        deque.append((prefix_sum[i], i))\n    \n    return min_len if min_len != float('inf') else -1",
+    "source": "test-data-ai",
+    "prompt": "Shortest subarray with sum at least k using deque yaz.",
+    "license": "MIT",
+    "language": "python"
+}

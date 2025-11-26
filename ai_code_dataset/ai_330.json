@@ -1,0 +1,7 @@
+{
+    "code": "def swap_pairs(head):\n    if not head or not head.next:\n        return head\n    new_head = head.next\n    head.next = swap_pairs(new_head.next)\n    new_head.next = head\n    return new_head",
+    "source": "test-data-ai",
+    "prompt": "Swap nodes in pairs yaz.",
+    "license": "MIT",
+    "language": "python"
+}

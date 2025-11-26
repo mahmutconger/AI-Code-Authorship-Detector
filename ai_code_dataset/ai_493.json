@@ -1,0 +1,7 @@
+{
+    "code": "class FreqStack:\n\n    def __init__(self):\n        self.freq = collections.defaultdict(int)\n        self.group = collections.defaultdict(list)\n        self.maxfreq = 0\n\n    def push(self, x: int) -> None:\n        self.freq[x] += 1\n        f = self.freq[x]\n        self.group[f].append(x)\n        self.maxfreq = max(self.maxfreq, f)\n\n    def pop(self) -> int:\n        x = self.group[self.maxfreq].pop()\n        if not self.group[self.maxfreq]:\n            self.maxfreq -= 1\n        self.freq[x] -= 1\n        return x",
+    "source": "test-data-ai",
+    "prompt": "Maximum frequency stack using hash map yaz.",
+    "license": "MIT",
+    "language": "python"
+}

@@ -1,0 +1,7 @@
+{
+    "code": "import time\nimport os\n\ndef file_watcher(filename):\n    timestamp = os.path.getmtime(filename)\n    \n    while True:\n        new_timestamp = os.path.getmtime(filename)\n        if new_timestamp != timestamp:\n            print(f\"{filename} has been modified\")\n            timestamp = new_timestamp\n        \n        time.sleep(1)\n\nfile_watcher(\"example.txt\")",
+    "source": "test-data-ai",
+    "prompt": "File watcher (changes monitor) implementation yaz.",
+    "license": "MIT",
+    "language": "python"
+}

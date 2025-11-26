@@ -1,0 +1,7 @@
+{
+    "code": "import random\nimport string\n\nclass TinyURL:\n    def __init__(self):\n        self.short_to_long = {}\n        self.long_to_short = {}\n\n    def encode(self, longUrl):\n        if longUrl in self.long_to_short:\n            return self.long_to_short[longUrl]\n        chars = string.ascii_letters + string.digits\n        shortUrl = ''.join(random.choices(chars, k=6))\n        while shortUrl in self.short_to_long:\n            shortUrl = ''.join(random.choices(chars, k=6))\n        self.short_to_long[shortUrl] = longUrl\n        self.long_to_short[longUrl] = shortUrl\n        return shortUrl\n\n    def decode(self, shortUrl):\n        if shortUrl in self.short_to_long:\n            return self.short_to_long[shortUrl]\n        return \"\"",
+    "source": "test-data-ai",
+    "prompt": "Encode and decode TinyURL using hash map yaz.",
+    "license": "MIT",
+    "language": "python"
+}

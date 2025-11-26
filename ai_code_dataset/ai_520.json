@@ -1,0 +1,7 @@
+{
+    "code": "def dfs_path_exists(graph, start, end):\n    visited = set()\n    stack = [(start, [start])]\n    while stack:\n        node, path = stack.pop()\n        if node == end:\n            return True\n        if node not in visited:\n            visited.add(node)\n            for neighbor in graph[node]:\n                stack.append((neighbor, path + [neighbor]))\n    return False",
+    "source": "test-data-ai",
+    "prompt": "Check if path exists using DFS yaz.",
+    "license": "MIT",
+    "language": "python"
+}

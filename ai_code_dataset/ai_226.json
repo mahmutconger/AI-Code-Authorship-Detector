@@ -1,0 +1,7 @@
+{
+    "code": "def hamming_distance(a, b):\n    return sum(el1 != el2 for el1, el2 in zip(bin(a)[2:], bin(b)[2:]))\n\na = 5\nb = 7\nprint(hamming_distance(a, b))",
+    "source": "test-data-ai",
+    "prompt": "İki sayının hamming distance'ını hesapla.",
+    "license": "MIT",
+    "language": "python"
+}

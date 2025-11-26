@@ -1,0 +1,7 @@
+{
+    "code": "from typing import List\n\ndef findLength(A: List[int], B: List[int]) -> int:\n    m, n = len(A), len(B)\n    dp = [[0] * (n + 1) for _ in range(m + 1)]\n    ans = 0\n    for i in range(m - 1, -1, -1):\n        for j in range(n - 1, -1, -1):\n            if A[i] == B[j]:\n                dp[i][j] = dp[i + 1][j + 1] + 1\n                ans = max(ans, dp[i][j])\n    return ans",
+    "source": "test-data-ai",
+    "prompt": "Maximum length of repeated subarray bul.",
+    "license": "MIT",
+    "language": "python"
+}

@@ -1,0 +1,7 @@
+{
+    "code": "from collections import defaultdict\n\ndef hopcroft_karp(G):\n    n1, n2 = len(G), len(G[0])\n    match = [-1] * n2\n    vis = [False] * n1 + [False] * n2\n\n    def bfs():\n        que = [0]\n        while que:\n            u = que.pop(0)\n            vis[u] = False\n            for v in G[u]:\n                if match[v] == -1 or vis[match[v]]:\n                    vis[match[v]] = False\n                    que.append(match[v])\n                    que.append(v)\n        return True if all(vis[v] for v in range(n1, n1 + n2)) else False\n\n    def dfs(u):\n        for v in G[u]:\n            if match[v] == -1 or vis[match[v]] and dfs(match[v]):\n                match[v] = u\n                return True\n        return False\n\n    while bfs():\n        for u in range(n1):\n            if match[u] == -1 and dfs(u):\n                break\n\n    return [match[v] for v in range(n1, n1 + n2) if match[v] != -1]\n\n\n# Example usage:\nG = [\n    [1, 3],\n    [0, 2],\n    [0, 3],\n    [1, 2]\n]\nprint(hopcroft_karp(G))  # Output: [0, 1]\n\nThis is a Python implementation of the Hopcroft-Karp algorithm for finding a maximum bipartite matching in a given bipartite graph represented as a list of lists. The function `hopcroft_karp` takes the graph as input and returns a list of matched vertices in the second partition.",
+    "source": "test-data-ai",
+    "prompt": "Hopcroft-Karp algoritmasını bipartite matching için yaz.",
+    "license": "MIT",
+    "language": "python"
+}

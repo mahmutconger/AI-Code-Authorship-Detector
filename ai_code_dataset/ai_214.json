@@ -1,0 +1,7 @@
+{
+    "code": "def max_gap(nums):\n    if len(nums) <= 1:\n        return 0\n    nums.sort()\n    return max(nums[i] - nums[i-1] for i in range(1, len(nums)))",
+    "source": "test-data-ai",
+    "prompt": "Maximum gap in sorted array yaz.",
+    "license": "MIT",
+    "language": "python"
+}

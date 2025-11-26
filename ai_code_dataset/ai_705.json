@@ -1,0 +1,7 @@
+{
+    "code": "import random\nimport datetime\n\ndef generate_data():\n    timestamp = datetime.datetime.now()\n    cpu_usage = random.uniform(0, 100)\n    memory_usage = random.uniform(0, 100)\n    disk_usage = random.uniform(0, 100)\n    \n    return {\"timestamp\": timestamp, \"cpu_usage\": cpu_usage, \"memory_usage\": memory_usage, \"disk_usage\": disk_usage}\n\nwhile True:\n    data = generate_data()\n    print(data)",
+    "source": "test-data-ai",
+    "prompt": "Status monitoring dashboard data generator yaz.",
+    "license": "MIT",
+    "language": "python"
+}

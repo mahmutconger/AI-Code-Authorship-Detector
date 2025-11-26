@@ -1,0 +1,7 @@
+{
+    "code": "def pascal(n):\n    triangle = []\n\n    for i in range(n):\n        row = [1]\n        if triangle:\n            lastrow = triangle[-1]\n            row.extend([sum(pair) for pair in zip(lastrow, lastrow[1:])])\n            row.append(1)\n        triangle.append(row)\n\n    return triangle",
+    "source": "test-data-ai",
+    "prompt": "Pascal's triangle generator yaz.",
+    "license": "MIT",
+    "language": "python"
+}

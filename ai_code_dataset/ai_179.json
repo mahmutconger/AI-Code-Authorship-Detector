@@ -1,0 +1,7 @@
+{
+    "code": "def combinationSum(candidates, target):\n    res = []\n    def dfs(remain, comb, start):\n        if remain == 0:\n            res.append(list(comb))\n            return\n        for i in range(start, len(candidates)):\n            if candidates[i] > remain:\n                break\n            comb.append(candidates[i])\n            dfs(remain - candidates[i], comb, i)\n            comb.pop()\n    dfs(target, [], 0)\n    return res",
+    "source": "test-data-ai",
+    "prompt": "Combination sum problemini yaz.",
+    "license": "MIT",
+    "language": "python"
+}

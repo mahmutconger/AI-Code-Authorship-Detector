@@ -1,0 +1,7 @@
+{
+    "code": "def reorder(head):\n    if not head or not head.next:\n        return head\n    slow = fast = head\n    while fast.next and fast.next.next:\n        slow = slow.next\n        fast = fast.next.next\n    mid = slow.next\n    slow.next = None\n    mid = reverse(mid)\n    p1 = head\n    p2 = mid\n    while p2:\n        temp1 = p1.next\n        temp2 = p2.next\n        p1.next = p2\n        p2.next = temp1\n        p1 = temp1\n        p2 = temp2\n    return head\n\ndef reverse(head):\n    prev = None\n    curr = head\n    while curr:\n        next_node = curr.next\n        curr.next = prev\n        prev = curr\n        curr = next_node\n    return prev",
+    "source": "test-data-ai",
+    "prompt": "Reorder linked list (L0→Ln→L1→Ln-1...) yaz.",
+    "license": "MIT",
+    "language": "python"
+}

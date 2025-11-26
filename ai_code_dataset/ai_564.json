@@ -1,0 +1,7 @@
+{
+    "code": "import requests\n\ndef update_data(url, data):\n    response = requests.put(url, json=data)\n    return response.json()",
+    "source": "test-data-ai",
+    "prompt": "REST API PUT request ile veri güncelleyen fonksiyon yaz.",
+    "license": "MIT",
+    "language": "python"
+}

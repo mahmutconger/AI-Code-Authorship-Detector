@@ -1,0 +1,7 @@
+{
+    "code": "from fastapi import FastAPI, Response\nfrom typing import Generator\n\napp = FastAPI()\n\n@app.get(\"/stream\")\ndef stream_response() -> Generator[bytes, None, None]:\n    for i in range(10):\n        yield f\"Data {i}\\n\".encode()\n    yield b\"Done\"",
+    "source": "test-data-ai",
+    "prompt": "FastAPI ile streaming response yaz.",
+    "license": "MIT",
+    "language": "python"
+}

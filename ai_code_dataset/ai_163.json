@@ -1,0 +1,7 @@
+{
+    "code": "edges = [(0,1,10),(0,2,15),(1,2,6),(1,3,5),(2,3,8),(2,4,9),(3,4,7)]\n\nclass UnionFind:\n    def __init__(self, n):\n        self.parent = list(range(n))\n        self.rank = [0]*n\n\n    def find(self, x):\n        if self.parent[x]!= x:\n            self.parent[x] = self.find(self.parent[x])\n        return self.parent[x]\n\n    def union(self, x, y):\n        root_x = self.find(x)\n        root_y = self.find(y)\n        if root_x!= root_y:\n            if self.rank[root_x] > self.rank[root_y]:\n                self.parent[root_y] = root_x\n            elif self.rank[root_x] < self.rank[root_y]:\n                self.parent[root_x] = root_y\n            else:\n                self.parent[root_y] = root_x\n                self.rank[root_x] += 1\n\n    def get_components(self):\n        components = {}\n        for i in range(len(self.parent)):\n            root = self.find(i)\n            if root not in components:\n                components[root] = []\n            components[root].append(i)\n        return list(components.values())\n\nn = len(edges)\nmst_cost = 0\nuf = UnionFind(n)\nedges.sort(key=lambda x: x[2])\nfor edge in edges:\n    u, v, w = edge\n    if uf.find(u)!= uf.find(v):\n        uf.union(u, v)\n        mst_cost += w\nprint(mst_cost)",
+    "source": "test-data-ai",
+    "prompt": "Minimum cost to connect all cities yaz.",
+    "license": "MIT",
+    "language": "python"
+}

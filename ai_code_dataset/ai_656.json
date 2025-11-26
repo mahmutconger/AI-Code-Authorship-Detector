@@ -1,0 +1,7 @@
+{
+    "code": "import os\n\ndef create_symlink(source, target):\n    try:\n        os.symlink(source, target)\n        print(f\"Symlink created: {target} -> {source}\")\n    except OSError as e:\n        print(f\"Error creating symlink: {e}\")\n\ndef check_symlink(path):\n    if os.path.islink(path):\n        try:\n            target = os.readlink(path)\n            print(f\"Symlink found: {path} -> {target}\")\n        except OSError as e:\n            print(f\"Error reading symlink: {e}\")\n    else:\n        print(f\"{path} is not a symlink\")",
+    "source": "test-data-ai",
+    "prompt": "Symlink oluşturan ve kontrol eden fonksiyon yaz.",
+    "license": "MIT",
+    "language": "python"
+}

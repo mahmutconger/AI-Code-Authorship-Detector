@@ -1,0 +1,7 @@
+{
+    "code": "def xml_to_dict(xml_string):\n    import xml.etree.ElementTree as ET\n    root = ET.fromstring(xml_string)\n    def _to_dict(element):\n        result = {}\n        for child in element:\n            if child.attrib:\n                result[child.tag] = {**child.attrib, **_to_dict(child)}\n            else:\n                result[child.tag] = _to_dict(child)\n        if element.text and element.text.strip():\n            result['_value_'] = element.text.strip()\n        return result\n    return _to_dict(root)",
+    "source": "test-data-ai",
+    "prompt": "XML'i dictionary'ye convert eden fonksiyon yaz.",
+    "license": "MIT",
+    "language": "python"
+}

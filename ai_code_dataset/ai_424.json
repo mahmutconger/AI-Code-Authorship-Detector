@@ -1,0 +1,7 @@
+{
+    "code": "class TreeNode:\n    def __init__(self, val=0, left=None, right=None):\n        self.val = val\n        self.left = left\n        self.right = right\n\ndef isValidBST(root):\n    def helper(node, lower, upper):\n        if not node:\n            return True\n        if node.val <= lower or node.val >= upper:\n            return False\n        return helper(node.left, lower, node.val) and helper(node.right, node.val, upper)\n    return helper(root, float('-inf'), float('inf'))",
+    "source": "test-data-ai",
+    "prompt": "Validate binary search tree yaz.",
+    "license": "MIT",
+    "language": "python"
+}

@@ -1,0 +1,7 @@
+{
+    "code": "from collections import Counter\n\ndef find_single_element(arr):\n    counts = Counter(arr)\n    for key, value in counts.items():\n        if value == 1:\n            return key\n\narr = [3, 3, 3, 4, 4, 4, 5, 5, 5, 6, 6, 6, 7]\nprint(find_single_element(arr))",
+    "source": "test-data-ai",
+    "prompt": "Find element that appears once while others appear thrice yaz.",
+    "license": "MIT",
+    "language": "python"
+}

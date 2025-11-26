@@ -1,0 +1,7 @@
+{
+    "code": "import re\n\ndef generate_ip_addresses(s):\n    if len(s) < 4 or len(s) > 12:\n        return []\n    \n    def is_valid_part(part):\n        if len(part) > 1 and part.startswith('0'):\n            return False\n        return 0 <= int(part) <= 255\n    \n    def backtrack(start, parts):\n        if len(parts) == 4 and start == len(s):\n            result.append('.'.join(parts))\n            return\n        if len(parts) == 4 or start == len(s):\n            return\n        \n        for end in range(start+1, min(start+4, len(s)+1)):\n            part = s[start:end]\n            if is_valid_part(part):\n                parts.append(part)\n                backtrack(end, parts)\n                parts.pop()\n    \n    result = []\n    backtrack(0, [])\n    return result",
+    "source": "test-data-ai",
+    "prompt": "Generate all valid IP addresses yaz.",
+    "license": "MIT",
+    "language": "python"
+}

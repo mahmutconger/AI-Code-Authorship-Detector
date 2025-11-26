@@ -1,0 +1,7 @@
+{
+    "code": "import logging\n\nclass LogHandler(logging.Handler):\n    def __init__(self, target_level):\n        self.target_level = target_level\n        super().__init__()\n\n    def emit(self, record):\n        if record.levelno >= self.target_level:\n            self.acquire()\n            try:\n                self.target.emit(record)\n            finally:\n                self.release()",
+    "source": "test-data-ai",
+    "prompt": "Log level filtering yapan handler yaz.",
+    "license": "MIT",
+    "language": "python"
+}

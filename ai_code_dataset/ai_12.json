@@ -1,0 +1,7 @@
+{
+    "code": "def cocktail_shaker_sort(arr):\n    n = len(arr)\n    swapped = True\n    start = 0\n    end = n-1\n    while swapped:\n        swapped = False\n        for i in range(start, end):\n            if arr[i] > arr[i+1]:\n                arr[i], arr[i+1] = arr[i+1], arr[i]\n                swapped = True\n        if not swapped:\n            break\n        swapped = False\n        end = end-1\n        for i in range(end-1, start-1, -1):\n            if arr[i] > arr[i+1]:\n                arr[i], arr[i+1] = arr[i+1], arr[i]\n                swapped = True\n        start = start+1",
+    "source": "test-data-ai",
+    "prompt": "Cocktail Shaker Sort (çift yönlü bubble sort) algoritmasını uygula.",
+    "license": "MIT",
+    "language": "python"
+}

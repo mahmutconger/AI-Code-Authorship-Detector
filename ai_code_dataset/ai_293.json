@@ -1,0 +1,7 @@
+{
+    "code": "from collections import Counter\n\ndef find_anagrams(s):\n    yaz = ['y', 'a', 'z']\n    result = []\n    target = Counter(yaz)\n    \n    for i in range(len(s) - 2):\n        window = s[i:i+3]\n        if Counter(window) == target:\n            result.append(window)\n    \n    return result\n\ns = \"yzaayzazy\"\nprint(find_anagrams(s))",
+    "source": "test-data-ai",
+    "prompt": "Find all anagrams in a string yaz.",
+    "license": "MIT",
+    "language": "python"
+}

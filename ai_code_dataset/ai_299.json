@@ -1,0 +1,7 @@
+{
+    "code": "def count_and_say(n):\n    def count_and_say_sequence(sequence):\n        result = []\n        i = 0\n        while i < len(sequence):\n            count = 1\n            while i + 1 < len(sequence) and sequence[i] == sequence[i + 1]:\n                i += 1\n                count += 1\n            result.append(str(count) + sequence[i])\n            i += 1\n        return ''.join(result)\n\n    sequence = '1'\n    for _ in range(n):\n        sequence = count_and_say_sequence(sequence)\n    return sequence\n\nprint(count_and_say(10))",
+    "source": "test-data-ai",
+    "prompt": "Count and say sequence generator yaz.",
+    "license": "MIT",
+    "language": "python"
+}

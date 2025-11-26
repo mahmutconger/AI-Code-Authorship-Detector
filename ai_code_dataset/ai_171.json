@@ -1,0 +1,7 @@
+{
+    "code": "def solve_n_queens(n):\n    def is_safe(board, row, col):\n        for i in range(row):\n            if board[i] == col or \\\n                board[i] - i == col - row or \\\n                board[i] + i == col + row:\n                return False\n        return True\n\n    def place_queens(n, row, board):\n        if row == n:\n            result.append(board[:])\n            return\n        for col in range(n):\n            if is_safe(board, row, col):\n                board[row] = col\n                place_queens(n, row + 1, board)\n\n    result = []\n    place_queens(n, 0, [-1] * n)\n    return [[\".\" * i + \"Q\" + \".\" * (n - i - 1) for i in sol] for sol in result]",
+    "source": "test-data-ai",
+    "prompt": "N-Queens problemini backtracking ile çöz.",
+    "license": "MIT",
+    "language": "python"
+}

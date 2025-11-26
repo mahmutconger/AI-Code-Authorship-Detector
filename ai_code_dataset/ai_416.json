@@ -1,0 +1,7 @@
+{
+    "code": "class TreeNode:\n    def __init__(self, val=0, left=None, right=None):\n        self.val = val\n        self.left = left\n        self.right = right\ndef maxDepth(root):\n    if not root:\n        return 0\n    return 1 + max(maxDepth(root.left), maxDepth(root.right))",
+    "source": "test-data-ai",
+    "prompt": "Maximum depth of binary tree yaz.",
+    "license": "MIT",
+    "language": "python"
+}

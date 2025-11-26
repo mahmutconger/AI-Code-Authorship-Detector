@@ -1,0 +1,7 @@
+{
+    "code": "def path_sum_checker(tree, target):\n    def _path_sum_checker(node, current_sum):\n        if not node:\n            return False\n\n        current_sum += node.val\n\n        if not node.left and not node.right and current_sum == target:\n            return True\n\n        return _path_sum_checker(node.left, current_sum) or _path_sum_checker(node.right, current_sum)\n\n    return _path_sum_checker(tree.root, 0)",
+    "source": "test-data-ai",
+    "prompt": "Path sum checker yaz.",
+    "license": "MIT",
+    "language": "python"
+}

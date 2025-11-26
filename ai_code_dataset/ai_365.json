@@ -1,0 +1,7 @@
+{
+    "code": "def simplifyPath(path):\n    stack = []\n    parts = path.split('/')\n    for part in parts:\n        if part == '..':\n            if stack:\n                stack.pop()\n        elif part and part != '.':\n            stack.append(part)\n    return '/' + '/'.join(stack) if stack else '/'",
+    "source": "test-data-ai",
+    "prompt": "Simplify directory path using stack yaz.",
+    "license": "MIT",
+    "language": "python"
+}

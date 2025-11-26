@@ -1,0 +1,7 @@
+{
+    "code": "class ListNode:\n    def __init__(self, val=0, next=None):\n        self.val = val\n        self.next = next\n\ndef partition(head, x):\n    dummy1 = ListNode()\n    dummy2 = ListNode()\n    p1 = dummy1\n    p2 = dummy2\n    while head:\n        if head.val < x:\n            p1.next = head\n            p1 = p1.next\n        else:\n            p2.next = head\n            p2 = p2.next\n        head = head.next\n    p2.next = None\n    p1.next = dummy2.next\n    return dummy1.next",
+    "source": "test-data-ai",
+    "prompt": "Partition linked list around a value yaz.",
+    "license": "MIT",
+    "language": "python"
+}

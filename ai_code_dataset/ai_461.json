@@ -1,0 +1,7 @@
+{
+    "code": "import heapq\n\ndef mincostToHireWorkers(quality, wage, K):\n    n = len(quality)\n    ans = float('inf')\n    \n    ratio = sorted([(w/q, q) for w, q in zip(wage, quality)])\n    \n    sumq = 0\n    h = []\n    \n    for r, q in ratio:\n        heapq.heappush(h, -q)\n        sumq += q\n        \n        if len(h) > K:\n            sumq += heapq.heappop(h)\n        \n        if len(h) == K:\n            ans = min(ans, sumq*r)\n    \n    return ans",
+    "source": "test-data-ai",
+    "prompt": "Minimum cost to hire k workers using heap yaz.",
+    "license": "MIT",
+    "language": "python"
+}

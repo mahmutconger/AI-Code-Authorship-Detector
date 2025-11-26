@@ -1,0 +1,7 @@
+{
+    "code": "def nextGreaterElement(nums):\n    result = [-1] * len(nums)\n    stack = []\n    \n    for i in range(len(nums)):\n        while stack and nums[stack[-1]] < nums[i]:\n            result[stack.pop()] = nums[i]\n        stack.append(i)\n    \n    return result",
+    "source": "test-data-ai",
+    "prompt": "Next greater element using stack yaz.",
+    "license": "MIT",
+    "language": "python"
+}

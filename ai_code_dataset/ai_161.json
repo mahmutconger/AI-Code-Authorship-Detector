@@ -1,0 +1,7 @@
+{
+    "code": "def maximizeSumAfterKNegations(A, K):\n    A.sort()\n    i = 0\n    while K > 0 and i < len(A):\n        if A[i] < 0:\n            A[i] = -A[i]\n            K -= 1\n        else:\n            break\n        i += 1\n    return sum(A) - K%2 * min(A) * 2\n\n# Example usage\nA = [4, 2, 3]\nK = 1\nprint(maximizeSumAfterKNegations(A, K))",
+    "source": "test-data-ai",
+    "prompt": "Maximize sum after k negations yaz.",
+    "license": "MIT",
+    "language": "python"
+}

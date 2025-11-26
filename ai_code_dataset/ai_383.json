@@ -1,0 +1,7 @@
+{
+    "code": "import heapq\n\nclass PriorityQueue:\n    def __init__(self):\n        self._queue = []\n        self._index = 0\n\n    def is_empty(self):\n        return not self._queue\n\n    def insert(self, item, priority):\n        heapq.heappush(self._queue, (-priority, self._index, item))\n        self._index += 1\n\n    def delete(self):\n        if self.is_empty():\n            return None\n        return heapq.heappop(self._queue)[-1]",
+    "source": "test-data-ai",
+    "prompt": "Priority queue using heap yaz.",
+    "license": "MIT",
+    "language": "python"
+}

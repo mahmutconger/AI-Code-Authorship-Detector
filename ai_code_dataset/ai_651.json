@@ -1,0 +1,7 @@
+{
+    "code": "def human_readable_size(bytes):\n    units = [\"B\", \"KB\", \"MB\", \"GB\", \"TB\"]\n    index = 0\n    while bytes >= 1024 and index < len(units) - 1:\n        bytes /= 1024\n        index += 1\n    return f\"{bytes:.2f}{units[index]}\"",
+    "source": "test-data-ai",
+    "prompt": "Dosya boyutunu human-readable format'ta döndüren fonksiyon yaz.",
+    "license": "MIT",
+    "language": "python"
+}

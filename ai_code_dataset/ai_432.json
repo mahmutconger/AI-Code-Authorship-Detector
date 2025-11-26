@@ -1,0 +1,7 @@
+{
+    "code": "class TreeNode:\n    def __init__(self, val=0, left=None, right=None):\n        self.val = val\n        self.left = left\n        self.right = right\n\ndef recoverTree(root):\n    stack = []\n    prev = None\n    first = None\n    second = None\n    \n    while root or stack:\n        while root:\n            stack.append(root)\n            root = root.left\n        \n        root = stack.pop()\n        if prev and prev.val > root.val:\n            if first is None:\n                first = prev\n            second = root\n        prev = root\n        root = root.right\n    \n    first.val, second.val = second.val, first.val",
+    "source": "test-data-ai",
+    "prompt": "Recover BST yaz.",
+    "license": "MIT",
+    "language": "python"
+}

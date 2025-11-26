@@ -1,0 +1,7 @@
+{
+    "code": "class Graph:\n    def __init__(self):\n        self.adjacency_list = {}\n    def add_vertex(self, vertex):\n        if vertex not in self.adjacency_list:\n            self.adjacency_list[vertex] = []\n    def add_edge(self, vertex1, vertex2):\n        if vertex1 in self.adjacency_list and vertex2 in self.adjacency_list:\n            self.adjacency_list[vertex1].append(vertex2)\n            self.adjacency_list[vertex2].append(vertex1)\n    def print_graph(self):\n        for vertex in self.adjacency_list:\n            print(vertex, \":\", self.adjacency_list[vertex])",
+    "source": "test-data-ai",
+    "prompt": "Graph representation using adjacency list yaz.",
+    "license": "MIT",
+    "language": "python"
+}

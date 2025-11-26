@@ -1,0 +1,7 @@
+{
+    "code": "def delete_nodes(head, m, n):\n    curr = head\n    while curr:\n        for _ in range(m - 1):\n            if not curr:\n                return head\n            curr = curr.next\n        if not curr:\n            return head\n        temp = curr.next\n        for _ in range(n):\n            if not temp:\n                curr.next = None\n                return head\n            temp = temp.next\n        curr.next = temp\n        curr = temp\n    return head",
+    "source": "test-data-ai",
+    "prompt": "Delete N nodes after M nodes yaz.",
+    "license": "MIT",
+    "language": "python"
+}

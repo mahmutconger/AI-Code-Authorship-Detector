@@ -1,0 +1,7 @@
+{
+    "code": "def find_max_and(nums):\n    max_and = float('-inf')\n    for i in range(len(nums)):\n        for j in range(i+1, len(nums)):\n            max_and = max(max_and, nums[i] & nums[j])\n    return max_and\n\nnums = [4, 8, 6, 2]\nprint(find_max_and(nums))",
+    "source": "test-data-ai",
+    "prompt": "Find maximum AND value pair yaz.",
+    "license": "MIT",
+    "language": "python"
+}

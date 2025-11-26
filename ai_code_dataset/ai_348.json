@@ -1,0 +1,7 @@
+{
+    "code": "class Node:\n    def __init__(self, data):\n        self.data = data\n        self.next = None\n\ndef insert_sorted(head, data):\n    new_node = Node(data)\n    if not head:\n        new_node.next = new_node\n        return new_node\n    if head.data >= data:\n        curr = head\n        while curr.next != head:\n            curr = curr.next\n        curr.next = new_node\n        new_node.next = head\n        return new_node\n    curr = head\n    while curr.next != head and curr.next.data < data:\n        curr = curr.next\n    new_node.next = curr.next\n    curr.next = new_node\n    return head",
+    "source": "test-data-ai",
+    "prompt": "Insert in sorted circular linked list yaz.",
+    "license": "MIT",
+    "language": "python"
+}

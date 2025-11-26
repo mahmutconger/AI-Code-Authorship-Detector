@@ -1,0 +1,7 @@
+{
+    "code": "class FluentString:\n    def __init__(self, value):\n        self.value = value\n\n    def append(self, suffix):\n        self.value += suffix\n        return self\n\n    def upper(self):\n        self.value = self.value.upper()\n        return self\n\n    def lower(self):\n        self.value = self.value.lower()\n        return self\n\n    def __str__(self):\n        return self.value\n\n\nif __name__ == \"__main__\":\n    print(\n        FluentString(\"hello\")\n        .append(\" world\")\n        .upper()\n        .append(\"!\")\n        .lower()\n    )",
+    "source": "test-data-ai",
+    "prompt": "Fluent interface example yaz.",
+    "license": "MIT",
+    "language": "python"
+}

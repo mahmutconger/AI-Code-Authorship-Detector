@@ -1,0 +1,7 @@
+{
+    "code": "def longest_substring(s, k):\n    if not s:\n        return \"\"\n    left = 0\n    char_count = {}\n    max_length = 0\n    result = \"\"\n    for right in range(len(s)):\n        char_count[s[right]] = char_count.get(s[right], 0) + 1\n        while len(char_count) > k:\n            char_count[s[left]] -= 1\n            if char_count[s[left]] == 0:\n                del char_count[s[left]]\n            left += 1\n        if right - left + 1 > max_length:\n            max_length = right - left + 1\n            result = s[left:right+1]\n    return result",
+    "source": "test-data-ai",
+    "prompt": "Longest substring with at most k distinct characters yaz.",
+    "license": "MIT",
+    "language": "python"
+}

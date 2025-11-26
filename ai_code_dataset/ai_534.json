@@ -1,0 +1,7 @@
+{
+    "code": "class UnionFind:\n    def __init__(self, n):\n        self.parent = list(range(n))\n        self.rank = [0]*n\n\n    def find(self, x):\n        if self.parent[x] != x:\n            self.parent[x] = self.find(self.parent[x])\n        return self.parent[x]\n\n    def union(self, x, y):\n        rootX = self.find(x)\n        rootY = self.find(y)\n        if rootX == rootY:\n            return\n        if self.rank[rootX] > self.rank[rootY]:\n            self.parent[rootY] = rootX\n        elif self.rank[rootX] < self.rank[rootY]:\n            self.parent[rootX] = rootY\n        else:\n            self.parent[rootY] = rootX\n            self.rank[rootX] += 1\n\ndef connected_components(n, edges):\n    uf = UnionFind(n)\n    for edge in edges:\n        uf.union(edge[0], edge[1])\n    return len(set(uf.find(i) for i in range(n)))",
+    "source": "test-data-ai",
+    "prompt": "Number of connected components using union find yaz.",
+    "license": "MIT",
+    "language": "python"
+}

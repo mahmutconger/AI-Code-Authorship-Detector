@@ -1,0 +1,7 @@
+{
+    "code": "class Stack:\n    def __init__(self):\n        self.stack = []\n\n    def push(self, item):\n        self.stack.append(item)\n\n    def pop(self):\n        if self.stack:\n            return self.stack.pop()\n        return None\n\n    def peek(self):\n        if self.stack:\n            return self.stack[-1]\n        return None\n\n    def isEmpty(self):\n        return len(self.stack) == 0",
+    "source": "test-data-ai",
+    "prompt": "Python listesi kullanarak stack implementation yaz.",
+    "license": "MIT",
+    "language": "python"
+}

@@ -1,0 +1,7 @@
+{
+    "code": "def exp_search(arr, x):\n    index = 1\n    while index < len(arr) and arr[index] <= x:\n        index *= 2\n    left = index // 2\n    right = min(index, len(arr)) - 1\n    while left <= right:\n        mid = left + (right - left) // 2\n        if arr[mid] < x:\n            left = mid + 1\n        elif arr[mid] > x:\n            right = mid - 1\n        else:\n            return mid\n    return -1\n\narr = [2, 3, 4, 10, 40]\nx = 10\nresult = exp_search(arr, x)\nif result!= -1:\n    print(\"Element found at index\", str(result))\nelse:\n    print(\"Element not found in the array\")",
+    "source": "test-data-ai",
+    "prompt": "Exponential Search algoritmasını büyük diziler için yaz.",
+    "license": "MIT",
+    "language": "python"
+}

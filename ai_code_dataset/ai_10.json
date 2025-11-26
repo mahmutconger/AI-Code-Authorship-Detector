@@ -1,0 +1,7 @@
+{
+    "code": "def bucket_sort(numbers):\n    # Find the maximum number to determine the number of buckets\n    max_number = max(numbers)\n    \n    # Initialize an empty list for buckets\n    buckets = [[] for _ in range(10)]\n\n    # Assign each number to a bucket based on its first digit\n    for number in numbers:\n        index = int(number * 10 / max_number)\n        buckets[index].append(number)\n\n    # Sort each bucket individually using insertion sort\n    for bucket in buckets:\n        for i in range(1, len(bucket)):\n            key = bucket[i]\n            j = i - 1\n            while j >= 0 and key < bucket[j]:\n                bucket[j + 1] = bucket[j]\n                j -= 1\n            bucket[j + 1] = key\n\n    # Concatenate all buckets to get the sorted list\n    sorted_numbers = [number for bucket in buckets for number in bucket]\n    return sorted_numbers",
+    "source": "test-data-ai",
+    "prompt": "Bucket Sort'u float sayılar için yaz.",
+    "license": "MIT",
+    "language": "python"
+}

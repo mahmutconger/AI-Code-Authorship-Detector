@@ -1,0 +1,7 @@
+{
+    "code": "import heapq\n\ndef kth_smallest(matrix, k):\n    n = len(matrix)\n    heap = [(matrix[i][0], i, 0) for i in range(n)]\n    heapq.heapify(heap)\n    for _ in range(k-1):\n        _, i, j = heapq.heappop(heap)\n        if j+1 < n:\n            heapq.heappush(heap, (matrix[i][j+1], i, j+1))\n    return heapq.heappop(heap)[0]",
+    "source": "test-data-ai",
+    "prompt": "Kth smallest element in sorted matrix using heap yaz.",
+    "license": "MIT",
+    "language": "python"
+}

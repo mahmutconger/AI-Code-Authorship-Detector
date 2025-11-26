@@ -1,0 +1,7 @@
+{
+    "code": "items = [(50, 10), (40, 20), (30, 30), (20, 40), (10, 50)]\ncapacity = 100\n\nitems.sort(key=lambda x: x[0]/x[1], reverse=True)\n\nresult = []\nwhile items and capacity:\n    item = items.pop()\n    if item[1] <= capacity:\n        capacity -= item[1]\n        result.append(item)\n    else:\n        result.append((item[0], capacity))\n        capacity = 0\n\nprint(sum(val for val, _ in result))",
+    "source": "test-data-ai",
+    "prompt": "Fractional knapsack with multiple items yaz.",
+    "license": "MIT",
+    "language": "python"
+}

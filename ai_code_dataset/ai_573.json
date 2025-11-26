@@ -1,0 +1,7 @@
+{
+    "code": "def handle_pagination(response):\n    data = response['data']\n    next_page = response['next_page']\n    \n    while next_page:\n        new_response = api_call(next_page)\n        data.extend(new_response['data'])\n        next_page = new_response['next_page']\n    \n    return data",
+    "source": "test-data-ai",
+    "prompt": "API response pagination handle eden fonksiyon yaz.",
+    "license": "MIT",
+    "language": "python"
+}

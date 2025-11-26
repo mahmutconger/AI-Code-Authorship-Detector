@@ -1,0 +1,7 @@
+{
+    "code": "def detect_cycle(graph):\n    visited = set()\n    for node in graph:\n        if node not in visited:\n            if dfs(graph, node, visited, None):\n                return True\n    return False\n\ndef dfs(graph, node, visited, parent):\n    visited.add(node)\n    for neighbor in graph[node]:\n        if neighbor not in visited:\n            if dfs(graph, neighbor, visited, node):\n                return True\n        elif neighbor != parent:\n            return True\n    return False",
+    "source": "test-data-ai",
+    "prompt": "Cycle detection algoritmasını undirected graph için yaz.",
+    "license": "MIT",
+    "language": "python"
+}

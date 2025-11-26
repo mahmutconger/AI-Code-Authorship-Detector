@@ -1,0 +1,7 @@
+{
+    "code": "def merge_sort(arr):\n    if len(arr) <= 1:\n        return arr\n    mid = len(arr) // 2\n    left_half = arr[:mid]\n    right_half = arr[mid:]\n    left_half = merge_sort(left_half)\n    right_half = merge_sort(right_half)\n    return merge(left_half, right_half)\n\ndef merge(left, right):\n    merged = []\n    while left and right:\n        if left[0] < right[0]:\n            merged.append(left.pop(0))\n        else:\n            merged.append(right.pop(0))\n    merged.extend(left)\n    merged.extend(right)\n    return merged",
+    "source": "test-data-ai",
+    "prompt": "Merge Sort algoritmasını in-place olmayan versiyonuyla uygula.",
+    "license": "MIT",
+    "language": "python"
+}

@@ -1,0 +1,7 @@
+{
+    "code": "class TreeNode:\n    def __init__(self, val=0, left=None, right=None):\n        self.val = val\n        self.left = left\n        self.right = right\ndef preorderTraversal(root):\n    result = []\n    def dfs(node):\n        if node:\n            result.append(node.val)\n            dfs(node.left)\n            dfs(node.right)\n    dfs(root)\n    return result",
+    "source": "test-data-ai",
+    "prompt": "Binary tree preorder traversal yaz.",
+    "license": "MIT",
+    "language": "python"
+}

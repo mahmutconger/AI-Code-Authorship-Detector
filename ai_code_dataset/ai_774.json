@@ -1,0 +1,7 @@
+{
+    "code": "class Fraction:\n    def __init__(self, numerator, denominator):\n        self.numerator = numerator\n        self.denominator = denominator\n\n    def __repr__(self):\n        return f\"Fraction({self.numerator}, {self.denominator})\"",
+    "source": "test-data-ai",
+    "prompt": "Aşağıdaki sınıfın **kapsamlı** bir `__repr__` metodu yaz.",
+    "license": "MIT",
+    "language": "python"
+}

@@ -1,0 +1,7 @@
+{
+    "code": "n = int(input())\narray = list(map(int, input().split()))\nleft = 0\nright = n - 1\ntotal = 0\nwhile left <= right:\n    if array[left] > array[right]:\n        total += array[left]\n        left += 2\n    else:\n        total += array[right]\n        right -= 2\nprint(total)",
+    "source": "test-data-ai",
+    "prompt": "Cherry pickup maximum cherries yaz.",
+    "license": "MIT",
+    "language": "python"
+}

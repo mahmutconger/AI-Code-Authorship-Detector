@@ -1,0 +1,7 @@
+{
+    "code": "def swapped_bits(n):\n return (n & 0xaaaaaaaa) >> 1 | (n & 0x55555555) << 1\n\nn = int(input())\nprint(swapped_bits(n))",
+    "source": "test-data-ai",
+    "prompt": "Swap all odd and even bits yaz.",
+    "license": "MIT",
+    "language": "python"
+}

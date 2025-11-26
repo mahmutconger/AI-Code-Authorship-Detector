@@ -1,0 +1,7 @@
+{
+    "code": "def group_anagrams(words):\n    anagrams = {}\n    for word in words:\n        sorted_word = ''.join(sorted(word))\n        if sorted_word not in anagrams:\n            anagrams[sorted_word] = [word]\n        else:\n            anagrams[sorted_word].append(word)\n    return list(anagrams.values())",
+    "source": "test-data-ai",
+    "prompt": "Group anagrams using hash map yaz.",
+    "license": "MIT",
+    "language": "python"
+}

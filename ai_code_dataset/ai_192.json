@@ -1,0 +1,7 @@
+{
+    "code": "def partition(arr):\n    n = len(arr)\n    target_sum = sum(arr) // 2\n    dp = [[False] * (target_sum + 1) for _ in range(n + 1)]\n    dp[0][0] = True\n    for i in range(1, n + 1):\n        for j in range(target_sum + 1):\n            if j >= arr[i - 1]:\n                dp[i][j] = dp[i - 1][j] or dp[i - 1][j - arr[i - 1]]\n            else:\n                dp[i][j] = dp[i - 1][j]\n    for j in range(target_sum, -1, -1):\n        if dp[n][j]:\n            return j\n    return None",
+    "source": "test-data-ai",
+    "prompt": "Tug of war (partition into two equal sum subsets) yaz.",
+    "license": "MIT",
+    "language": "python"
+}

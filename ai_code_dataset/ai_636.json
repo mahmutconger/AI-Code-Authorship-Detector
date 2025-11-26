@@ -1,0 +1,7 @@
+{
+    "code": "def get_file_extension(file_path):\n    import os\n    return os.path.splitext(file_path)[1]",
+    "source": "test-data-ai",
+    "prompt": "Dosya yolunu parametre olarak alan ve dosyanın uzantısını (örn: .txt) döndüren güvenli bir fonksiyon yaz.",
+    "license": "MIT",
+    "language": "python"
+}

@@ -1,0 +1,7 @@
+{
+    "code": "from fastapi import FastAPI, Query\n\napp = FastAPI()\n\n@app.get(\"/items/\")\ndef read_items(q: str = Query(..., max_length=50))\n    return {\"items\": [{\"item_name\": \"Foo\"}, {\"item_name\": \"Bar\"}]}",
+    "source": "test-data-ai",
+    "prompt": "FastAPI ile query parameters validation yaz.",
+    "license": "MIT",
+    "language": "python"
+}

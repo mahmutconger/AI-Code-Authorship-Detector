@@ -1,0 +1,7 @@
+{
+    "code": "import numpy as np\nfrom collections import defaultdict\n\ndef johnson(graph):\n    n = len(graph)\n    dist = [[float('inf')] * n for _ in range(n)]\n    for i in range(n):\n        dist[i][i] = 0\n    for u, v, w in graph:\n        dist[u-1][v-1] = w\n    for k in range(n):\n        for i in range(n):\n            for j in range(n):\n                dist[i][j] = min(dist[i][j], dist[i][k] + dist[k][j])\n    for i in range(n):\n        if dist[i][i] < 0:\n            return None\n    return dist\n\ngraph = [(1, 2, 3), (2, 3, 1), (3, 1, -4)]\nprint(johnson(graph))",
+    "source": "test-data-ai",
+    "prompt": "Johnson's algoritmasını sparse graph için yaz.",
+    "license": "MIT",
+    "language": "python"
+}

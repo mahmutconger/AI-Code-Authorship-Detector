@@ -1,0 +1,7 @@
+{
+    "code": "def my_function(*, name, age, email):\n    print(f\"Name: {name}\")\n    print(f\"Age: {age}\")\n    print(f\"Email: {email}\")",
+    "source": "test-data-ai",
+    "prompt": "Bir fonksiyonun tüm parametrelerini **keyword-only** olacak şekilde yeniden yaz.",
+    "license": "MIT",
+    "language": "python"
+}

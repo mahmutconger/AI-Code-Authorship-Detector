@@ -1,0 +1,7 @@
+{
+    "code": "yaz = 0.5\nbinary_fraction = ''\nwhile yaz > 0:\n    yaz *= 2\n    digit = int(yaz)\n    binary_fraction += str(digit)\n    yaz -= digit\nprint(binary_fraction)",
+    "source": "test-data-ai",
+    "prompt": "Binary representation of a decimal fraction yaz.",
+    "license": "MIT",
+    "language": "python"
+}

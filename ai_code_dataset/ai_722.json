@@ -1,0 +1,7 @@
+{
+    "code": "def validator(func):\n    def check_type(arg):\n        return isinstance(arg, (int, float))\n\n    def wrapper(*args, **kwargs):\n        for arg in args:\n            if not check_type(arg):\n                return 'Invalid argument type. Expected int or float.'\n        return func(*args, **kwargs)\n\n    return wrapper",
+    "source": "test-data-ai",
+    "prompt": "Custom validator decorator yaz.",
+    "license": "MIT",
+    "language": "python"
+}

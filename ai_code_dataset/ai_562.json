@@ -1,0 +1,7 @@
+{
+    "code": "import time\nimport requests\n\nclass RateLimiter:\n    def __init__(self, rate_limit):\n        self.rate_limit = rate_limit\n        self.reset_time = time.monotonic()\n\n    def should_wait(self):\n        now = time.monotonic()\n        time_since_reset = now - self.reset_time\n        if (time_since_reset > self.rate_limit):\n            self.reset_time = now\n            return False\n        return True\n\ndef request_with_rate_limit(url, rate_limiter):\n    if rate_limiter.should_wait():\n        time.sleep(rate_limiter.rate_limit - time_since_reset)\n    rate_limiter.reset_time = time.monotonic()\n    response = requests.get(url)\n    return response\n\nrate_limiter = RateLimiter(1) # Limit to 1 request per second\nurl = 'https://api.example.com/data'\n\nfor _ in range(5):\n    response = request_with_rate_limit(url, rate_limiter)\n    print(response.status_code)",
+    "source": "test-data-ai",
+    "prompt": "Rate limiting ile API request yapan fonksiyon yaz.",
+    "license": "MIT",
+    "language": "python"
+}

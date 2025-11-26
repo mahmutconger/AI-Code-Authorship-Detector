@@ -1,0 +1,7 @@
+{
+    "code": "def suma(x, y):\n    return x + y\n\ndef producto(x, y):\n    return x * y\n\ndef operaciones(num1, num2, operacion):\n    return globals()[operacion](num1, num2)",
+    "source": "test-data-ai",
+    "prompt": "Kod tekrarını önlemek için (DRY prensibi) iki benzer fonksiyonu tek bir fonksiyon altında birleştir.",
+    "license": "MIT",
+    "language": "python"
+}

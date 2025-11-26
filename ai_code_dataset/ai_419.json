@@ -1,0 +1,7 @@
+{
+    "code": "def pathSum(root, sum):\n    def dfs(node, path, cur_sum):\n        if not node:\n            return\n        cur_sum += node.val\n        path.append(node.val)\n        if cur_sum == sum:\n            result.append(path[:])\n        dfs(node.left, path, cur_sum)\n        dfs(node.right, path, cur_sum)\n        path.pop()\n    result = []\n    dfs(root, [], 0)\n    return result",
+    "source": "test-data-ai",
+    "prompt": "Path sum II (all paths) yaz.",
+    "license": "MIT",
+    "language": "python"
+}

@@ -1,0 +1,7 @@
+{
+    "code": "import networkx as nx\nfrom networkx.algorithms import centrality\n\ndef degree_centrality(G, nodes=None):\n    return centrality.degree_centrality(G, nodes)\n\ndef betweenness_centrality(G, nodes=None, weight=None):\n    return centrality.betweenness_centrality(G, nodes, weight)",
+    "source": "test-data-ai",
+    "prompt": "Centrality measures (degree, betweenness) hesaplayan fonksiyonlar yaz.",
+    "license": "MIT",
+    "language": "python"
+}

@@ -1,0 +1,7 @@
+{
+    "code": "import requests\n\ndef request_wrapper(url):\n    try:\n        response = requests.get(url)\n        response.raise_for_status()\n        return response.json()\n    except requests.exceptions.RequestException as e:\n        print(f\"An error occurred: {e}\")\n        return None\n\n# Example usage\ndata = request_wrapper(\"https://api.example.com/data\")\nif data:\n    print(data)",
+    "source": "test-data-ai",
+    "prompt": "Error handling ile comprehensive request wrapper yaz.",
+    "license": "MIT",
+    "language": "python"
+}

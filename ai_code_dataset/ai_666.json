@@ -1,0 +1,7 @@
+{
+    "code": "import json\n\ndef parse\\_json(json\\_string):\n\\-\\-\\-\n    parsed\\_json = json.loads(json\\_string)\n    return json.dumps(parsed\\_json, indent=4)",
+    "source": "test-data-ai",
+    "prompt": "JSON string'i parse edip pretty print yapan fonksiyon yaz.",
+    "license": "MIT",
+    "language": "python"
+}

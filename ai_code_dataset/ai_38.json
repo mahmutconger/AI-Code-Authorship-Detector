@@ -1,0 +1,7 @@
+{
+    "code": "def sublist_search(main_list, sub_list):\nfor i in range(len(main_list)-len(sub_list)+1):\nif main_list[i:i+len(sub_list)] == sub_list:\nreturn i\nreturn -1\n\n# Test\nmain_list = [1, 2, 3, 4, 5, 6, 7]\nsub_list = [4, 5, 6]\nprint(sublist_search(main_list, sub_list))  # Output: 3\n\nsub_list = [4, 5, 8]\nprint(sublist_search(main_list, sub_list))  # Output: -1",
+    "source": "test-data-ai",
+    "prompt": "Sublist Search algoritmasını linked list için yaz.",
+    "license": "MIT",
+    "language": "python"
+}

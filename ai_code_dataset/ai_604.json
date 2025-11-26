@@ -1,0 +1,7 @@
+{
+    "code": "from flask import Flask\nfrom flask_cors import CORS\n\napp = Flask(__name__)\nCORS(app)\n\n@app.route('/api/hello')\ndef hello():\n    return 'Hello, World!'\n\nif __name__ == '__main__':\n    app.run()",
+    "source": "test-data-ai",
+    "prompt": "Flask ile CORS configuration yaz.",
+    "license": "MIT",
+    "language": "python"
+}

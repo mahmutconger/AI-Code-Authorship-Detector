@@ -1,0 +1,7 @@
+{
+    "code": "n = int(input())\nn = bin(n)[2:]\nn = n.zfill(32)\nn = n.replace('1', '2')\nn = n.replace('0', '1')\nn = n.replace('2', '0')\nn = int(n, 2)\nprint(n)",
+    "source": "test-data-ai",
+    "prompt": "Find the two's complement yaz.",
+    "license": "MIT",
+    "language": "python"
+}

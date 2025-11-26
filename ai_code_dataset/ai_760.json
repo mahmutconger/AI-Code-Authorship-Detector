@@ -1,0 +1,7 @@
+{
+    "code": "def calculate_area(length, width):\n    \"\"\"\n    Calculates the area of a rectangle given its length and width.\n\n    Args:\n        length (float): The length of the rectangle.\n        width (float): The width of the rectangle.\n\n    Returns:\n        float: The area of the rectangle.\n    \"\"\"\n    return length * width",
+    "source": "test-data-ai",
+    "prompt": "Aşağıdaki fonksiyonun **docstring**'ini Google/Numpy stiline uygun olarak tamamlama ve **type hints** ekle.",
+    "license": "MIT",
+    "language": "python"
+}

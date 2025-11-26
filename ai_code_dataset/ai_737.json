@@ -1,0 +1,7 @@
+{
+    "code": "def parse_date(date):\n    year = int(date[6:])\n    month = int(date[3:5])\n    day = int(date[:2])\n    return (year, month, day)",
+    "source": "test-data-ai",
+    "prompt": "Verilen bir tarihin (string formatında) bir yıl, ay ve gün tuple'ı olarak döndüren bir tarih ayrıştırma fonksiyonu yaz.",
+    "license": "MIT",
+    "language": "python"
+}

@@ -1,0 +1,7 @@
+{
+    "code": "def is_operator(c):\n    return c in '+-*/'\n\ndef precedence(c):\n    if c == '+' or c == '-':\n        return 1\n    elif c == '*' or c == '/':\n        return 2\n    else:\n        return 0\n\ndef infix_to_postfix(infix):\n    postfix = []\n    stack = []\n    for c in infix:\n        if c.isalnum():\n            postfix.append(c)\n        elif c == '(':\n            stack.append(c)\n        elif c == ')':\n            while stack and stack[-1]!= '(':\n                postfix.append(stack.pop())\n            stack.pop()\n        else:\n            while stack and stack[-1]!= '(' and precedence(c) <= precedence(stack[-1]):\n                postfix.append(stack.pop())\n            stack.append(c)\n    while stack:\n        postfix.append(stack.pop())\n    return ' '.join(postfix)\n\nprint(infix_to_postfix(\"A+B*C\"))",
+    "source": "test-data-ai",
+    "prompt": "Stack kullanarak infix to postfix conversion yaz.",
+    "license": "MIT",
+    "language": "python"
+}

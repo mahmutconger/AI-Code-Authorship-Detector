@@ -1,0 +1,7 @@
+{
+    "code": "def reverse_bits(n):\n    result = 0\n    for _ in range(32):\n        result = (result << 1) | (n & 1)\n        n >>= 1\n    return result\n\n# Test the function\nnum = 0b00000010100101000001111010011100\nreversed_num = reverse_bits(num)\nprint(bin(reversed_num))",
+    "source": "test-data-ai",
+    "prompt": "Reverse bits of a 32-bit integer yaz.",
+    "license": "MIT",
+    "language": "python"
+}

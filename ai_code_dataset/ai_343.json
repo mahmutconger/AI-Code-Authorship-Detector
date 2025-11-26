@@ -1,0 +1,7 @@
+{
+    "code": "class Node:\n    def __init__(self, x):\n        self.val = x\n        self.next = None\n        self.random = None\n\ndef copyRandomList(head):\n    if not head:\n        return None\n\n    old_to_new = {}\n    cur = head\n    while cur:\n        old_to_new[cur] = Node(cur.val)\n        cur = cur.next\n\n    cur = head\n    while cur:\n        new_node = old_to_new[cur]\n        new_node.next = old_to_new.get(cur.next)\n        new_node.random = old_to_new.get(cur.random)\n        cur = cur.next\n\n    return old_to_new[head]",
+    "source": "test-data-ai",
+    "prompt": "Clone linked list with next and random pointers yaz.",
+    "license": "MIT",
+    "language": "python"
+}

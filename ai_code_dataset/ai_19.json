@@ -1,0 +1,7 @@
+{
+    "code": "def cycle_sort(arr):\n    writes = 0\n    for i in range(len(arr)):\n        write = i\n        for j in range(i+1, len(arr)):\n            if arr[j] < arr[write]:\n                write = j\n        arr[i], arr[write] = arr[write], arr[i]\n        writes += 1\n    return writes",
+    "source": "test-data-ai",
+    "prompt": "Cycle Sort algoritmasını minimum yazma işlemi için yaz.",
+    "license": "MIT",
+    "language": "python"
+}

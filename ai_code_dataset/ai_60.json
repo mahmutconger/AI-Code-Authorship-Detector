@@ -1,0 +1,7 @@
+{
+    "code": "import heapq\n\ndef findKthLargest(nums, k):\n    return heapq.nlargest(k, nums)[-1]",
+    "source": "test-data-ai",
+    "prompt": "Find kth largest element using heap.",
+    "license": "MIT",
+    "language": "python"
+}

@@ -1,0 +1,7 @@
+{
+    "code": "import os\n\ndef parse_env_vars():\n    env_vars = {}\n    for key, value in os.environ.items():\n        env_vars[key] = value\n    return env_vars",
+    "source": "test-data-ai",
+    "prompt": "Environment variables'ı parse eden fonksiyon yaz.",
+    "license": "MIT",
+    "language": "python"
+}

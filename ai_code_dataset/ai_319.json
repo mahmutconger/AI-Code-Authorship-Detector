@@ -1,0 +1,7 @@
+{
+    "code": "class Node:\n    def __init__(self, data=None):\n        self.data = data\n        self.next = None\n        self.prev = None\n\nclass DoublyLinkedList:\n    def __init__(self):\n        self.head = None\n\n    def append(self, data):\n        if not self.head:\n            self.head = Node(data)\n        else:\n            new_node = Node(data)\n            cur = self.head\n            while cur.next:\n                cur = cur.next\n            cur.next = new_node\n            new_node.prev = cur\n\n    def print_forward(self):\n        cur = self.head\n        while cur:\n            print(cur.data, end=\" \")\n            cur = cur.next\n        print()\n\n    def print_backward(self):\n        cur = self.head\n        while cur:\n            print(cur.data, end=\" \")\n            cur = cur.prev\n        print()",
+    "source": "test-data-ai",
+    "prompt": "Doubly linked list implementation yaz.",
+    "license": "MIT",
+    "language": "python"
+}

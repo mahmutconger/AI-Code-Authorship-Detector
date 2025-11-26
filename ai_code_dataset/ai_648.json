@@ -1,0 +1,7 @@
+{
+    "code": "import os\n\ndef safe_reader(file_path):\n    try:\n        with open(file_path, 'r') as file:\n            content = file.read()\n        return content\n    except FileNotFoundError:\n        print(f\"File not found: {file_path}\")\n        return None\n    except IOError:\n        print(f\"Error reading file: {file_path}\")\n        return None",
+    "source": "test-data-ai",
+    "prompt": "Dosya var mı kontrol eden safe reader yaz.",
+    "license": "MIT",
+    "language": "python"
+}

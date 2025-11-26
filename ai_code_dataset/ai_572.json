@@ -1,0 +1,7 @@
+{
+    "code": "import requests\n\ndef refresh_token(client_id, client_secret, refresh_token, token_url):\n    data = {\n        \"grant_type\": \"refresh_token\",\n        \"client_id\": client_id,\n        \"client_secret\": client_secret,\n        \"refresh_token\": refresh_token\n    }\n    response = requests.post(token_url, data=data)\n    response.raise_for_status()\n    return response.json()",
+    "source": "test-data-ai",
+    "prompt": "OAuth2 token refresh yapan fonksiyon yaz.",
+    "license": "MIT",
+    "language": "python"
+}

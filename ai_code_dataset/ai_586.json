@@ -1,0 +1,7 @@
+{
+    "code": "import json\nfrom django.core.cache import cache\n\nclass ResponseCacheMiddleware:\n    def __init__(self, get_response):\n        self.get_response = get_response\n\n    def __call__(self, request):\n        response = self.get_response(request)\n\n        if 'Cache-Control' not in response':\n            cache_control = 'public, max-age=300'\n            response['Cache-Control'] = cache_control\n\n            if response.status_code == 200:\n                cache_key = f'view-cache-{request.path}'\n                cache.set(cache_key, json.dumps(response.content), 300)\n\n        return response",
+    "source": "test-data-ai",
+    "prompt": "Response cache middleware yaz.",
+    "license": "MIT",
+    "language": "python"
+}

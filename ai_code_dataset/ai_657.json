@@ -1,0 +1,7 @@
+{
+    "code": "def create_directory(directory):\n    import os\n    if not os.path.exists(directory):\n        os.makedirs(directory)\n        print(f\"Directory '{directory}' created.\")\n    else:\n        print(f\"Directory '{directory}' already exists.\")\n        \ncreate_directory(\"new_directory\")",
+    "source": "test-data-ai",
+    "prompt": "Directory oluşturan (recursive) fonksiyon yaz.",
+    "license": "MIT",
+    "language": "python"
+}

@@ -1,0 +1,7 @@
+{
+    "code": "import sys\nfrom collections import defaultdict\n\ndef tarjan(graph):\n    index = [0] * len(graph)\n    lowlink = [0] * len(graph)\n    stack = []\n    index[:] = 0\n    def strongconnect(node):\n        index[node] = len(index)\n        lowlink[node] = index[node]\n        stack.append(node)\n        for neigh in graph[node]:\n            if index[neigh] == 0:\n                strongconnect(neigh)\n                lowlink[node] = min(lowlink[node], lowlink[neigh])\n            elif neigh in stack:\n                lowlink[node] = min(lowlink[node], index[neigh])\n        if lowlink[node] == index[node]:\n            comp = []\n            while True:\n                neigh = stack.pop()\n                comp.append(neigh)\n                if neigh == node:\n                    break\n            return comp\n    sccs = []\n    for node in range(len(graph)):\n        if index[node] == 0:\n            sccs.append(strongconnect(node))\n    return sccs\n\nif __name__ == '__main__':\n    graph = defaultdict(list)\n    for line in sys.stdin:\n        u, v = map(int, line.split())\n        graph[u-1].append(v-1)\n\n    sccs = tarjan(graph)\n    for sc in sccs:\n        print(sc)",
+    "source": "test-data-ai",
+    "prompt": "Tarjan algoritmasını SCC bulmak için yaz.",
+    "license": "MIT",
+    "language": "python"
+}

@@ -1,0 +1,7 @@
+{
+    "code": "import json\nfrom jsonschema import validate\n\nschema = {\n    \"type\": \"object\",\n    \"properties\": {\n        \"name\": {\"type\": \"string\"},\n        \"age\": {\"type\": \"integer\"},\n        \"email\": {\"type\": \"string\", \"format\": \"email\"}\n    },\n    \"required\": [\"name\", \"age\", \"email\"]\n}\n\ndata = {\n    \"name\": \"John Doe\",\n    \"age\": 30,\n    \"email\": \"johndoe@example.com\"\n}\n\nvalidate(instance=data, schema=schema)",
+    "source": "test-data-ai",
+    "prompt": "JSON schema validation örneği yaz.",
+    "license": "MIT",
+    "language": "python"
+}

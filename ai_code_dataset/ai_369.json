@@ -1,0 +1,7 @@
+{
+    "code": "def exclusive_time(n, logs):\n    stack = []\n    result = [0] * n\n    prev_time = 0\n    \n    for log in logs:\n        func_id, event, timestamp = log.split(\":\")\n        func_id, timestamp = int(func_id), int(timestamp)\n        \n        if event == \"start\":\n            if stack:\n                result[stack[-1]] += timestamp - prev_time\n            stack.append(func_id)\n            prev_time = timestamp\n        else:\n            result[stack.pop()] += timestamp - prev_time + 1\n            prev_time = timestamp + 1\n    \n    return result",
+    "source": "test-data-ai",
+    "prompt": "Exclusive time of functions using stack yaz.",
+    "license": "MIT",
+    "language": "python"
+}

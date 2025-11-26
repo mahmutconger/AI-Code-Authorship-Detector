@@ -1,0 +1,7 @@
+{
+    "code": "import json\nimport logging\n\nclass JSONFormatter(logging.Formatter):\n    def format(self, record):\n        data = {\n            'timestamp': self.formatTime(record, self.datefmt),\n            'level': record.levelname,\n            'message': record.getMessage(),\n            'module': record.module,\n            'line': record.lineno\n        }\n        return json.dumps(data)",
+    "source": "test-data-ai",
+    "prompt": "JSON formatted logs oluşturan formatter yaz.",
+    "license": "MIT",
+    "language": "python"
+}

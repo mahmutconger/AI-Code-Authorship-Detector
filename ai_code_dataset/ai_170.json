@@ -1,0 +1,7 @@
+{
+    "code": "def can_reach_end(nums):\n    last_position = len(nums) - 1\n    jump_range = 0\n    steps = 0\n\n    while last_position > 0:\n        next_position = max(i for i in range(last_position - jump_range, last_position + 1) if i >= 0 and nums[i] > 0)\n\n        if next_position == last_position:\n            last_position -= 1\n            jump_range = 0\n            steps += 1\n        elif next_position == last_position - jump_range - 1:\n            jump_range += 1\n            steps += 1\n        elif next_position < last_position - jump_range:\n            return False\n\n    return last_position == 0 or nums[0] > 0\n\n# Test cases\nprint(can_reach_end([2,3,1,1,4]))  # True\nprint(can_reach_end([3,2,1,0,4]))  # False\nprint(can_reach_end([1,2,3,0,4]))  # True\nprint(can_reach_end([1,1,0,1,1,0,0,1,1,1]))  # True\nprint(can_reach_end([1,1,0,1,1,0,1,0,1,1]))  # False\nprint(can_reach_end([1,1,0,1,1,1,0,0,1,1]))  # True\nprint(can_reach_end([1,1,0,1,1,1,0,1,0,1]))  # False\nprint(can_reach_end([1,1,0,1,1,1,1,0,1,1]))  # True\nprint(can_reach_end([1,1,0,1,1,1,1,1,0,1]))  # False",
+    "source": "test-data-ai",
+    "prompt": "Jump game to reach the end yaz.",
+    "license": "MIT",
+    "language": "python"
+}

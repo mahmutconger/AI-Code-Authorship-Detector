@@ -1,0 +1,7 @@
+{
+    "code": "with open('example.txt', 'r') as file:\n    content = file.read()\n    print(content)",
+    "source": "test-data-ai",
+    "prompt": "Python'da bir dosyayı açıp okurken kaynak sızıntısını önlemek için with ifadesini kullanan bir örnek yaz.",
+    "license": "MIT",
+    "language": "python"
+}

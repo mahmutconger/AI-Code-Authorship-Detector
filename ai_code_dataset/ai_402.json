@@ -1,0 +1,7 @@
+{
+    "code": "from collections import deque\n\ndef css(seq, modulo):\n    d = deque(maxlen=modulo)\n    d.appendleft(0)\n    cur_max = 0\n    for x in seq:\n        d.append(cur_max + x)\n        cur_max = max(cur_max, d.popleft())\n        if cur_max < 0:\n            cur_max = 0\n    return cur_max",
+    "source": "test-data-ai",
+    "prompt": "Constrained subsequence sum using deque yaz.",
+    "license": "MIT",
+    "language": "python"
+}

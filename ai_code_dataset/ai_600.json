@@ -1,0 +1,7 @@
+{
+    "code": "from flask import Flask, render_template\n\napp = Flask(__name__)\n\n@app.errorhandler(404)\ndef page_not_found(error):\n    return render_template('404.html'), 404\n\n@app.errorhandler(500)\ndef internal_server_error(error):\n    return render_template('500.html'), 500\n\nif __name__ == '__main__':\n    app.run()",
+    "source": "test-data-ai",
+    "prompt": "Flask ile error handler tanımla.",
+    "license": "MIT",
+    "language": "python"
+}

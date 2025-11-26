@@ -1,0 +1,7 @@
+{
+    "code": "# Graph representation using adjacency matrix\nclass Graph:\n    def __init__(self, num_of_nodes):\n        self.num_of_nodes = num_of_nodes\n        self.adj_matrix = [[0] * num_of_nodes for _ in range(num_of_nodes)]\n\n    def add_edge(self, u, v):\n        self.adj_matrix[u][v] = 1\n        self.adj_matrix[v][u] = 1\n\n    def print_graph(self):\n        for row in self.adj_matrix:\n            print(row)\n\ngraph = Graph(5)\ngraph.add_edge(0, 1)\ngraph.add_edge(0, 2)\ngraph.add_edge(1, 2)\ngraph.add_edge(2, 3)\ngraph.add_edge(3, 4)\n\ngraph.print_graph()",
+    "source": "test-data-ai",
+    "prompt": "Graph representation using adjacency matrix yaz.",
+    "license": "MIT",
+    "language": "python"
+}

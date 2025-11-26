@@ -1,0 +1,7 @@
+{
+    "code": "def download_progress_hook(count, block_size, total_size):\n    progress = int(count * block_size * 100 / total_size)\n    print(f\"Downloading... {progress}% complete\", end='\\r')",
+    "source": "test-data-ai",
+    "prompt": "File download progress bar ile fonksiyon yaz.",
+    "license": "MIT",
+    "language": "python"
+}

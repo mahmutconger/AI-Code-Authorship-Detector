@@ -1,0 +1,7 @@
+{
+    "code": "def extract_json_value(json_data, key):\n    for item in json_data.values():\n        if isinstance(item, dict):\n            result = extract_json_value(item, key)\n            if result is not None:\n                return result\n        elif isinstance(item, list):\n            for sub_item in item:\n                if isinstance(sub_item, dict):\n                    result = extract_json_value(sub_item, key)\n                    if result is not None:\n                        return result\n                elif isinstance(sub_item, str):\n                    if sub_item.startswith(key):\n                        return sub_item\n        elif isinstance(item, str):\n            if item.startswith(key):\n                return item\n    return None",
+    "source": "test-data-ai",
+    "prompt": "Nested JSON'dan belirli key'i extract eden fonksiyon yaz.",
+    "license": "MIT",
+    "language": "python"
+}

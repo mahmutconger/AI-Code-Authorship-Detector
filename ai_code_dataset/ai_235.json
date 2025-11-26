@@ -1,0 +1,7 @@
+{
+    "code": "def find_non_repeating_elements(arr):\n    count = {}\n    for num in arr:\n        if num in count:\n            count[num] += 1\n        else:\n            count[num] = 1\n    non_repeating = [k for k,v in count.items() if v == 1]\n    return non_repeating\n\narr = [1,2,3,2,4,5,5,6,7,8,8,9]\nprint(find_non_repeating_elements(arr))",
+    "source": "test-data-ai",
+    "prompt": "Find two non-repeating elements in array yaz.",
+    "license": "MIT",
+    "language": "python"
+}

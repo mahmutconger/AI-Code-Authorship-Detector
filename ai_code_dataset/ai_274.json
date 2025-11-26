@@ -1,0 +1,7 @@
+{
+    "code": "def legendre(a, p):\n    if p % 2 == 0 or p % 4 == 3:\n        if pow(a, p // 2, p) == 1:\n            return 1\n        else:\n            return -1\n    else:\n        return pow(a, (p - 1) // 2, p)\n\nassert legendre(2, 7) == 1, \"Legendre symbol calculation is incorrect\"\nassert legendre(3, 7) == -1, \"Legendre symbol calculation is incorrect\"",
+    "source": "test-data-ai",
+    "prompt": "Legendre symbol calculation yaz.",
+    "license": "MIT",
+    "language": "python"
+}

@@ -1,0 +1,7 @@
+{
+    "code": "def compare_versions(version1, version2):\n    v1 = [int(x) for x in version1.split('.')]\n    v2 = [int(x) for x in version2.split('.')]\n    for i in range(max(len(v1), len(v2))):\n        v1_part = v1[i] if i < len(v1) else 0\n        v2_part = v2[i] if i < len(v2) else 0\n        if v1_part < v2_part:\n            return -1\n        elif v1_part > v2_part:\n            return 1\n    return 0",
+    "source": "test-data-ai",
+    "prompt": "Compare version numbers yaz.",
+    "license": "MIT",
+    "language": "python"
+}

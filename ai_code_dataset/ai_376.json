@@ -1,0 +1,7 @@
+{
+    "code": "def sumSubarrayMins(arr):\n    n=len(arr)\n    left,right,ans=[-1]*n,[n]*n,0\n    stack=[]\n    for i in range(n):\n        while stack and arr[stack[-1]]>=arr[i]:\n            stack.pop()\n        left[i]=stack[-1] if stack else -1\n        stack.append(i)\n    stack=[]\n    for i in range(n-1,-1,-1):\n        while stack and arr[stack[-1]]>arr[i]:\n            stack.pop()\n        right[i]=stack[-1] if stack else n\n        stack.append(i)\n    for i in range(n):\n        ans+=(i-left[i])*(right[i]-i)*arr[i]\n    return ans%(10**9+7)",
+    "source": "test-data-ai",
+    "prompt": "Sum of subarray minimums using stack yaz.",
+    "license": "MIT",
+    "language": "python"
+}

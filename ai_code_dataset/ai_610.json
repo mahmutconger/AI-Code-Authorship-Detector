@@ -1,0 +1,7 @@
+{
+    "code": "from flask import Flask, session\napp = Flask(__name__)\napp.secret_key = 'development_key'\n\n@app.route('/set/<key>/<value>')\ndef set_session(key, value):\n    session[key] = value\n    return f'Set {key} to {value}'\n\n@app.route('/get/<key>')\ndef get_session(key):\n    if key in session:\n        return f'{key}: {session[key]}'\n    else:\n        return f'{key} not found in session'\n\n@app.route('/clear/<key>')\ndef clear_session(key):\n    if key in session:\n        session.pop(key)\n    return f'Removed {key} from session'\n\n@app.route('/clear')\ndef clear_session_all():\n    session.clear()\n    return 'Cleared all session keys'\n\nif __name__ == '__main__':\n    app.run(debug=True)",
+    "source": "test-data-ai",
+    "prompt": "Flask ile session management yaz.",
+    "license": "MIT",
+    "language": "python"
+}

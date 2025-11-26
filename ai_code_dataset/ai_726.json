@@ -1,0 +1,7 @@
+{
+    "code": "import hashlib, random, string, uuid\nfrom django.utils.decorators import decorator_from_middleware\nfrom django.utils.functional import lazy\nfrom django.http import HttpRequest\n\ncsrf_token_secret = ''.join(random.choices(string.ascii_letters + string.digits, k=32))\n\n@lazy(thread_local=True)\ndef get\\_csrf\\_token():\nreturn get\\_csrf\\_token.csrf\\_token\nget\\_csrf\\_token.csrf\\_token = None\n\ndef csrf\\_protect(view\\_func):\ndef _csrf\\_protect(request, *args, **kwargs):\ncsrf\\_token = request.POST.get('csrfmiddlewaretoken', '')\nif get\\_csrf\\_token() is None or csrf\\_token != get\\_csrf\\_token():\nreturn HttpRequest()\nreturn view\\_func(request, *args, **kwargs)\nreturn decorator\\_from\\_middleware(lambda request: _csrf\\_protect(request))\n\ndef generate\\_csrf\\_token():\nreturn hashlib.sha1((get\\_csrf\\_token() + csrf\\_token\\_secret).encode()).hexdigest()\n\ndef validate\\_csrf\\_token(token):\nreturn token == generate\\_csrf\\_token()",
+    "source": "test-data-ai",
+    "prompt": "CSRF token generator ve validator yaz.",
+    "license": "MIT",
+    "language": "python"
+}

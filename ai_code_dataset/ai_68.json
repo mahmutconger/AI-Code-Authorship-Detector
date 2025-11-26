@@ -1,0 +1,7 @@
+{
+    "code": "from collections import defaultdict\n\ndef topological_sort(graph):\n    n = len(graph)\n    indegree = [0] * n\n    for node in graph:\n        for neighbor in graph[node]:\n            indegree[neighbor] += 1\n    queue = [node for node in range(n) if indegree[node] == 0]\n    result = []\n    while queue:\n        node = queue.pop(0)\n        result.append(node)\n        for neighbor in graph[node]:\n            indegree[neighbor] -= 1\n            if indegree[neighbor] == 0:\n                queue.append(neighbor)\n    if len(result) != n:\n        return []\n    return result",
+    "source": "test-data-ai",
+    "prompt": "Topological Sort algoritmasını DAG için yaz.",
+    "license": "MIT",
+    "language": "python"
+}

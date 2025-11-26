@@ -1,0 +1,7 @@
+{
+    "code": "import logging\nimport os\nimport sys\n\ndef log_aggregation(log_file_path, log_level='INFO', log_format='%(asctime)s - %(levelname)s - %(message)s'):\n    logging.basicConfig(filename=log_file_path, level=log_level, format=log_format, datefmt='%Y-%m-%d %H:%M:%S')\n    root_logger = logging.getLogger()\n    stdout_handler = logging.StreamHandler(sys.stdout)\n    stdout_handler.setFormatter(logging.Formatter(log_format))\n    root_logger.addHandler(stdout_handler)",
+    "source": "test-data-ai",
+    "prompt": "Log aggregation fonksiyonu yaz.",
+    "license": "MIT",
+    "language": "python"
+}

@@ -1,0 +1,7 @@
+{
+    "code": "def min_platforms(arrival, departure):\n    arrival.sort()\n    departure.sort()\n    \n    n = len(arrival)\n    platforms = 1\n    result = 1\n    i = 1\n    j = 0\n    \n    while i < n and j < n:\n        if arrival[i] <= departure[j]:\n            platforms += 1\n            i += 1\n        elif arrival[i] > departure[j]:\n            platforms -= 1\n            j += 1\n        \n        if platforms > result:\n            result = platforms\n    \n    return result\n\narrival = [900, 940, 950, 1100, 1500, 1800]\ndeparture = [910, 1200, 1120, 1130, 1900, 2000]\n\nprint(min_platforms(arrival, departure))",
+    "source": "test-data-ai",
+    "prompt": "Minimum number of platforms required problemini yaz.",
+    "license": "MIT",
+    "language": "python"
+}

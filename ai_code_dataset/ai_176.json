@@ -1,0 +1,7 @@
+{
+    "code": "def generate_parentheses(n):\n    def backtrack(current, open_count, close_count):\n        if len(current) == 2*n:\n            result.append(current)\n            return\n        if open_count < n:\n            backtrack(current + '(', open_count + 1, close_count)\n        if close_count < open_count:\n            backtrack(current + ')', open_count, close_count + 1)\n    result = []\n    backtrack('', 0, 0)\n    return result",
+    "source": "test-data-ai",
+    "prompt": "Generate all combinations of parentheses yaz.",
+    "license": "MIT",
+    "language": "python"
+}

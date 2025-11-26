@@ -1,0 +1,7 @@
+{
+    "code": "class Node:\n    def __init__(self, value):\n        self.val = value\n        self.left = None\n        self.right = None\n\ndef morris_traversal(root):\n    current = root\n    while current:\n        if not current.left:\n            print(current.val)\n            current = current.right\n        else:\n            pre = current.left\n            while pre.right and pre.right != current:\n                pre = pre.right\n            if not pre.right:\n                pre.right = current\n                current = current.left\n            else:\n                pre.right = None\n                print(current.val)\n                current = current.right",
+    "source": "test-data-ai",
+    "prompt": "Morris traversal implementation yaz.",
+    "license": "MIT",
+    "language": "python"
+}

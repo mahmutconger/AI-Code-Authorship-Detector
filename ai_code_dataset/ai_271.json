@@ -1,0 +1,7 @@
+{
+    "code": "import random\nimport math\n\ndef baby_step_giant_step(a, b, p):\n    m = int(math.sqrt(p - 1))\n    baby_steps = [pow(a, j, p) for j in range(m + 1)]\n    giant_steps = {}\n    for i, bbs in enumerate(baby_steps):\n        for j in range(m):\n            if pow(bbs * pow(a, j, p), 1, p) in giant_steps:\n                return i * m + giant_steps[pow(bbs * pow(a, j, p), 1, p)]\n        giant_steps[bbs] = i\n\ndef discrete_log(a, b, p):\n    return baby_step_giant_step(a, b, p)\n\n# example usage\np = 257\na = 2\nb = 16\nprint(discrete_log(a, b, p))",
+    "source": "test-data-ai",
+    "prompt": "Baby-step giant-step algorithm for discrete log yaz.",
+    "license": "MIT",
+    "language": "python"
+}

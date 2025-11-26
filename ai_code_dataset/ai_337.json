@@ -1,0 +1,7 @@
+{
+    "code": "def removeZeroSumSublists(head):\n    prefix_sum = 0\n    seen = {}\n    dummy = ListNode(0)\n    dummy.next = head\n    curr = dummy\n    \n    while curr:\n        prefix_sum += curr.val\n        if prefix_sum in seen:\n            curr = seen[prefix_sum].next\n            temp_sum = prefix_sum + curr.val\n            while temp_sum != prefix_sum:\n                del seen[temp_sum]\n                curr = curr.next\n                temp_sum += curr.val\n            seen[prefix_sum].next = curr.next\n        else:\n            seen[prefix_sum] = curr\n        curr = curr.next\n        \n    return dummy.next",
+    "source": "test-data-ai",
+    "prompt": "Remove zero sum consecutive nodes yaz.",
+    "license": "MIT",
+    "language": "python"
+}

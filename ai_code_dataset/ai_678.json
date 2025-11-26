@@ -1,0 +1,7 @@
+{
+    "code": "import grpc\nimport your_pb2\nimport your_pb2_grpc\n\nchannel = grpc.insecure_channel('localhost:50051')\nstub = your_pb2_grpc.YourServiceStub(channel)\n\nresponse = stub.YourMethod(your_pb2.YourRequest(field1='value1', field2=123))\nprint(response)\n\nchannel.close()",
+    "source": "test-data-ai",
+    "prompt": "Protocol Buffers basic usage örneği yaz.",
+    "license": "MIT",
+    "language": "python"
+}

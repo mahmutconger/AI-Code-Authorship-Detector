@@ -1,0 +1,7 @@
+{
+    "code": "class TrieNode:\n    def __init__(self):\n        self.children = {}\n        self.is_word = False\n\nclass WordFilter:\n    def __init__(self):\n        self.root = TrieNode()\n\n    def add_word(self, word):\n        node = self.root\n        for char in word:\n            if char not in node.children:\n                node.children[char] = TrieNode()\n            node = node.children[char]\n        node.is_word = True\n\n    def checkExist(self, word):\n        node = self.root\n        for char in word:\n            if char not in node.children:\n                return False\n            node = node.children[char]\n        return node.is_word\n\n# Test the word filter\nword_filter = WordFilter()\nword_filter.add_word(\"hello\")\nword_filter.add_word(\"world\")\nprint(word_filter.checkExist(\"hello\"))  # True\nprint(word_filter.checkExist(\"world\"))  # True\nprint(word_filter.checkExist(\"helloworld\"))  # False\nprint(word_filter.checkExist(\"goodbye\"))  # False",
+    "source": "test-data-ai",
+    "prompt": "Word filter using trie yaz.",
+    "license": "MIT",
+    "language": "python"
+}

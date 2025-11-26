@@ -1,0 +1,7 @@
+{
+    "code": "from sys import maxsize\nfrom algebraic_structure import Grid\n\ndef get_width(heights, start, end):\n\twidth = 0\n\tfor i in range(start, end + 1):\n\t\twidth = max(width, i - start + 1 if heights[i] > 0 else 0)\n\treturn width\n\ndef max_histogram_area(heights):\n\tmax_area = 0\n\tstack = []\n\tfor i, h in enumerate(heights + [0]):\n\t\twhile stack and h < heights[stack[-1]]:\n\t\t\ttop = stack.pop()\n\t\t\tmax_area = max(max_area, heights[top] * (i - stack[-1] - 1) if stack else heights[top] * i)\n\t\tstack.append(i)\n\treturn max_area\n\ndef get_max_rectangle(grid):\n\theights = [0] * grid.width\n\tmax_area = 0\n\tfor row in grid:\n\t\tfor i in range(grid.width):\n\t\t\theights[i] = heights[i] + 1 if row[i] else 0\n\t\tmax_area = max(max_area, max_histogram_area(heights))\n\treturn max_area\n\ndef main():\n\tmatrix = [\n\t\t[1, 0, 1, 0, 0],\n\t\t[1, 0, 1, 1, 1],\n\t\t[1, 1, 1, 1, 1],\n\t\t[1, 0, 0, 1, 0]\n\t]\n\tprint(get_max_rectangle(Grid(matrix)))\n\nmain()",
+    "source": "test-data-ai",
+    "prompt": "Maximal rectangle in binary matrix bul.",
+    "license": "MIT",
+    "language": "python"
+}

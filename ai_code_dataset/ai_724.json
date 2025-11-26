@@ -1,0 +1,7 @@
+{
+    "code": "def validate_sql_injection(user_input):\n    import re\n    if not isinstance(user_input, str):\n        return False\n    pattern = r\"(;|--|\\*|\\/|\\+|%|'|\\\"|\\^|,|`|#|<|>|\\|)\"\n    if re.search(pattern, user_input):\n        return False\n    return True",
+    "source": "test-data-ai",
+    "prompt": "SQL injection prevention validator yaz.",
+    "license": "MIT",
+    "language": "python"
+}

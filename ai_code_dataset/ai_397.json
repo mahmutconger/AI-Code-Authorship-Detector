@@ -1,0 +1,7 @@
+{
+    "code": "from collections import deque\n\nclass FrontMiddleBackQueue:\n\n    def __init__(self):\n        self.queue = deque()\n\n    def pushFront(self, val: int) -> None:\n        self.queue.appendleft(val)\n\n    def pushMiddle(self, val: int) -> None:\n        idx = len(self.queue) // 2\n        self.queue.insert(idx, val)\n\n    def pushBack(self, val: int) -> None:\n        self.queue.append(val)\n\n    def popFront(self) -> int:\n        return self.queue.popleft() if self.queue else -1\n\n    def popMiddle(self) -> int:\n        idx = (len(self.queue) - 1) // 2\n        return self.queue.pop(idx) if self.queue else -1\n\n    def popBack(self) -> int:\n        return self.queue.pop() if self.queue else -1",
+    "source": "test-data-ai",
+    "prompt": "Design front middle back queue yaz.",
+    "license": "MIT",
+    "language": "python"
+}

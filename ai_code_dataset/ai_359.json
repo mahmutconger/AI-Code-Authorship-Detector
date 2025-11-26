@@ -1,0 +1,7 @@
+{
+    "code": "def largest_rectangle(histogram):\n    stack = []\n    max_area = 0\n    index = 0\n    while index < len(histogram):\n        if not stack or histogram[stack[-1]] < histogram[index]:\n            stack.append(index)\n            index += 1\n        else:\n            top_of_stack = stack.pop()\n            area = histogram[top_of_stack] * ((index - stack[-1] - 1) if stack else index)\n            max_area = max(max_area, area)\n    while stack:\n        top_of_stack = stack.pop()\n        area = histogram[top_of_stack] * ((index - stack[-1] - 1) if stack else index)\n        max_area = max(max_area, area)\n    return max_area\n\n# Test the function\nhistogram = [2, 1, 5, 6, 2, 3]\nprint(largest_rectangle(histogram))  # Output: 10",
+    "source": "test-data-ai",
+    "prompt": "Largest rectangle in histogram using stack yaz.",
+    "license": "MIT",
+    "language": "python"
+}

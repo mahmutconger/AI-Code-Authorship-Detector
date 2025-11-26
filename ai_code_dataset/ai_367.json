@@ -1,0 +1,7 @@
+{
+    "code": "stack = []\nseen = set()\nresult = []\n\nfor char in \"yaz\":\n    while stack and stack[-1] <= char and stack[-1] in seen:\n        seen.remove(stack.pop())\n    stack.append(char)\n    seen.add(char)\n\nfor char in stack:\n    result.append(char)\n\nprint(\"\".join(result))",
+    "source": "test-data-ai",
+    "prompt": "Remove duplicate letters using stack yaz.",
+    "license": "MIT",
+    "language": "python"
+}

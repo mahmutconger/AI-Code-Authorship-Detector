@@ -1,0 +1,7 @@
+{
+    "code": "import requests\n\ndef check_rate_limit(headers):\n    if 'X-RateLimit-Limit' in headers:\n        limit = int(headers['X-RateLimit-Limit'])\n        if 'X-RateLimit-Remaining' in headers:\n            remaining = int(headers['X-RateLimit-Remaining'])\n            return f\"Rate limit: {limit} - Remaining: {remaining}\"\n        else:\n            return f\"Rate limit: {limit} - Remaining: unknown\"\n    else:\n        return \"Rate limit: unknown\"\n\nresponse = requests.get('https://api.example.com')\n\nprint(check_rate_limit(dict(response.headers.items())))",
+    "source": "test-data-ai",
+    "prompt": "API rate limit header checker yaz.",
+    "license": "MIT",
+    "language": "python"
+}

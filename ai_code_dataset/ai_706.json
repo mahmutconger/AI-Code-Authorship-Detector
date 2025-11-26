@@ -1,0 +1,7 @@
+{
+    "code": "def error\\_rate( predictions, truth):\nif len(predictions) != len(truth):\nraise ValueError(\"Length of predictions and truth must be equal.\")\n\nreturn sum(int(pred != truth[i]) for i, pred in enumerate(predictions)) / len(predictions)",
+    "source": "test-data-ai",
+    "prompt": "Error rate calculator yaz.",
+    "license": "MIT",
+    "language": "python"
+}

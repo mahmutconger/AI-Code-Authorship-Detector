@@ -1,0 +1,7 @@
+{
+    "code": "from collections import deque\n\ndef find_winner(n, k):\n    players = deque(range(1, n+1))\n    while len(players) > 1:\n        for _ in range(k-1):\n            players.append(players.popleft())\n        players.popleft()\n    return players[0]",
+    "source": "test-data-ai",
+    "prompt": "Find the winner of circular game using queue yaz.",
+    "license": "MIT",
+    "language": "python"
+}

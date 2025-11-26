@@ -1,0 +1,7 @@
+{
+    "code": "def count_inversions(yaz):\n    n = len(yaz)\n    if n <= 1:\n        return 0\n    mid = n // 2\n    left_count = count_inversions(yaz[:mid])\n    right_count = count_inversions(yaz[mid:])\n    merge_count = merge_and_count(yaz, 0, mid, n)\n    return left_count + right_count + merge_count\n\ndef merge_and_count(yaz, left, mid, right):\n    i = left\n    j = mid\n    count = 0\n    temp = []\n    while i < mid and j < right:\n        if yaz[i] <= yaz[j]:\n            temp.append(yaz[i])\n            i += 1\n        else:\n            temp.append(yaz[j])\n            count += mid - i\n            j += 1\n    temp += yaz[i:mid]\n    temp += yaz[j:right]\n    yaz[left:right] = temp\n    return count",
+    "source": "test-data-ai",
+    "prompt": "Count inversions in an array yaz.",
+    "license": "MIT",
+    "language": "python"
+}

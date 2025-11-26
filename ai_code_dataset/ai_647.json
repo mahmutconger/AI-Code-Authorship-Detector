@@ -1,0 +1,7 @@
+{
+    "code": "def binary_reader(file_path):\n    with open(file_path, 'rb') as file:\n        file_content = file.read()\n        binary_string = ''.join(format(byte, '08b') for byte in file_content)\n    return binary_string\n\ndef binary_writer(file_path, binary_string):\n    with open(file_path, 'wb') as file:\n        binary_content = bytearray.fromhex(binary_string)\n        file.write(binary_content)\n\n# example usage\nbinary_content = binary_reader('example.txt')\nbinary_writer('result.txt', binary_content)",
+    "source": "test-data-ai",
+    "prompt": "Binary dosya okuma/yazma fonksiyonu yaz.",
+    "license": "MIT",
+    "language": "python"
+}

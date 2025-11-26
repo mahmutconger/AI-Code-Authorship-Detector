@@ -1,0 +1,7 @@
+{
+    "code": "import os\n\ndef filter\\_files(directory, pattern):\nfiles = os.listdir(directory)\nmatching\\_files = [file for file in files if file.match(pattern)]\nreturn matching\\_files\n\\# Example usage:\ndirectory = \"/path/to/directory\"\npattern = \"\\.txt$\"\nfiltered\\_files = filter\\_files(directory, pattern)\nprint(filtered\\_files)",
+    "source": "test-data-ai",
+    "prompt": "Dosyaları pattern'e göre filtreleyen fonksiyon yaz.",
+    "license": "MIT",
+    "language": "python"
+}

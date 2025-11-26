@@ -1,0 +1,7 @@
+{
+    "code": "def divide(a, b):\n    if b == 0:\n        return \"Error: Division by zero\"\n    return a / b",
+    "source": "test-data-ai",
+    "prompt": "Aşağıdaki fonksiyonu, **Guard Clause** (Erken çıkış) kullanarak refactor et.",
+    "license": "MIT",
+    "language": "python"
+}

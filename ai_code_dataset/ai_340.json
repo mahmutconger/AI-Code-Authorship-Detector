@@ -1,0 +1,7 @@
+{
+    "code": "class ListNode:\n    def __init__(self, val=0, next=None):\n        self.val = val\n        self.next = next\n\ndef deleteMiddle(head):\n    if not head or not head.next:\n        return None\n    slow, fast = head, head\n    prev = None\n    while fast and fast.next:\n        prev = slow\n        slow = slow.next\n        fast = fast.next.next\n    prev.next = slow.next\n    return head",
+    "source": "test-data-ai",
+    "prompt": "Delete middle node of linked list yaz.",
+    "license": "MIT",
+    "language": "python"
+}

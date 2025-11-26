@@ -1,0 +1,7 @@
+{
+    "code": "x = int(input())\ny = int(input())\nz = bin(y ^ x).count('1')",
+    "source": "test-data-ai",
+    "prompt": "Count number of bits to flip to convert A to B yaz.",
+    "license": "MIT",
+    "language": "python"
+}

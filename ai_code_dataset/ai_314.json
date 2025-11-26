@@ -1,0 +1,7 @@
+{
+    "code": "class Node:\n    def __init__(self, data):\n        self.data = data\n        self.next = None\n\ndef delete(head, x):\n    if head is None:\n        return head\n\n    if head.data == x:\n        head = head.next\n        return head\n\n    current = head\n    while current.next is not None:\n        if current.next.data == x:\n            current.next = current.next.next\n            return head\n        current = current.next\n\n    return head",
+    "source": "test-data-ai",
+    "prompt": "Linked list'ten eleman silme fonksiyonu yaz.",
+    "license": "MIT",
+    "language": "python"
+}

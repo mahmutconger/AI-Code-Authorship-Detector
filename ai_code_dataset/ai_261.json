@@ -1,0 +1,7 @@
+{
+    "code": "import math\n\nn = 5\nr = 2\nresult = math.comb(n, r)\nprint(result)",
+    "source": "test-data-ai",
+    "prompt": "Compute nCr (binomial coefficient) yaz.",
+    "license": "MIT",
+    "language": "python"
+}

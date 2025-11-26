@@ -1,0 +1,7 @@
+{
+    "code": "class MyHashMap:\n\n    def __init__(self):\n        self.size = 10000\n        self.buckets = [None] * self.size\n\n    def _hash(self, key):\n        return key % self.size\n\n    def put(self, key, value):\n        index = self._hash(key)\n        if self.buckets[index] is None:\n            self.buckets[index] = [(key, value)]\n        else:\n            for i in range(len(self.buckets[index])):\n                if self.buckets[index][i][0] == key:\n                    self.buckets[index][i] = (key, value)\n                    return\n            self.buckets[index].append((key, value))\n\n    def get(self, key):\n        index = self._hash(key)\n        if self.buckets[index] is None:\n            return -1\n        for i in range(len(self.buckets[index])):\n            if self.buckets[index][i][0] == key:\n                return self.buckets[index][i][1]\n        return -1\n\n    def remove(self, key):\n        index = self._hash(key)\n        if self.buckets[index] is None:\n            return\n        for i in range(len(self.buckets[index])):\n            if self.buckets[index][i][0] == key:\n                self.buckets[index].pop(i)\n                return",
+    "source": "test-data-ai",
+    "prompt": "Design hashmap from scratch yaz.",
+    "license": "MIT",
+    "language": "python"
+}

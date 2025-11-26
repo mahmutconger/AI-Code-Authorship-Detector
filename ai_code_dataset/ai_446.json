@@ -1,0 +1,7 @@
+{
+    "code": "class MinHeap:\n    def __init__(self):\n        self.heap = []\n\n    def parent(self, i):\n        return (i - 1) // 2\n\n    def left_child(self, i):\n        return 2 * i + 1\n\n    def right_child(self, i):\n        return 2 * i + 2\n\n    def has_left_child(self, i):\n        return self.left_child(i) < len(self.heap)\n\n    def has_right_child(self, i):\n        return self.right_child(i) < len(self.heap)\n\n    def swap(self, i, j):\n        self.heap[i], self.heap[j] = self.heap[j], self.heap[i]\n\n    def min_heapify(self, i):\n        smallest = i\n        if self.has_left_child(i) and self.heap[self.left_child(i)] < self.heap[smallest]:\n            smallest = self.left_child(i)\n        if self.has_right_child(i) and self.heap[self.right_child(i)] < self.heap[smallest]:\n            smallest = self.right_child(i)\n        if smallest != i:\n            self.swap(i, smallest)\n            self.min_heapify(smallest)\n\n    def insert(self, value):\n        self.heap.append(value)\n        self.min_heapify(len(self.heap) - 1)\n\n    def get_min(self):\n        return self.heap[0]\n\n    def delete_min(self):\n        self.heap[0] = self.heap.pop()\n        self.min_heapify(0)\n\n    def build_heap(self, arr):\n        self.heap = arr\n        for i in range(len(self.heap) // 2 - 1, -1, -1):\n            self.min_heapify(i)",
+    "source": "test-data-ai",
+    "prompt": "Min heap implementation from scratch yaz.",
+    "license": "MIT",
+    "language": "python"
+}

@@ -1,0 +1,7 @@
+{
+    "code": "from flask import Flask, request\n\napp = Flask(__name__)\n\n@app.route('/upload', methods=['POST'])\ndef upload_file():\n    if 'file' not in request.files:\n        return 'No file part in the request'\n    \n    file = request.files['file']\n    \n    if file.filename == '':\n        return 'No selected file'\n    \n    file.save(file.filename)\n    \n    return 'File uploaded successfully'\n\nif __name__ == '__main__':\n    app.run(debug=True)",
+    "source": "test-data-ai",
+    "prompt": "Flask ile file upload endpoint yaz.",
+    "license": "MIT",
+    "language": "python"
+}

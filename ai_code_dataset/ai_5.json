@@ -1,0 +1,7 @@
+{
+    "code": "def binary_search(arr, val, start, end):\n    if start == end:\n        return start if arr[start] > val else start + 1\n    if start > end:\n        return start\n\n    mid = (start + end) // 2\n\n    if arr[mid] < val:\n        return binary_search(arr, val, mid + 1, end)\n    elif arr[mid] > val:\n        return binary_search(arr, val, start, mid - 1)\n    else:\n        return mid\n\ndef insertion_sort(arr):\n    for i in range(1, len(arr)):\n        key = arr[i]\n        j = binary_search(arr, key, 0, i - 1)\n        arr = arr[:j] + [key] + arr[j:i] + arr[i+1:]\n    return arr\n\narr = [12, 11, 13, 5, 6]\nsorted_arr = insertion_sort(arr)\nprint(sorted_arr)",
+    "source": "test-data-ai",
+    "prompt": "Insertion Sort'u binary search ile optimize et.",
+    "license": "MIT",
+    "language": "python"
+}

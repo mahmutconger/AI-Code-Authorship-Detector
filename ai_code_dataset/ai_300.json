@@ -1,0 +1,7 @@
+{
+    "code": "def int_to_roman(num):\n    values = [1000, 900, 500, 400, 100, 90, 50, 40, 10, 9, 5, 4, 1]\n    numerals = [\"M\", \"CM\", \"D\", \"CD\", \"C\", \"XC\", \"L\", \"XL\", \"X\", \"IX\", \"V\", \"IV\", \"I\"]\n    result = \"\"\n    for i in range(len(values)):\n        count = int(num / values[i])\n        result += (numerals[i] * count)\n        num -= (values[i] * count)\n    return result",
+    "source": "test-data-ai",
+    "prompt": "Integer to roman numeral converter yaz.",
+    "license": "MIT",
+    "language": "python"
+}

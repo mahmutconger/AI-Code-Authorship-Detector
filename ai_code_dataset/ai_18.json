@@ -1,0 +1,7 @@
+{
+    "code": "def odd_even_sort(arr):\n    n = len(arr)\n    flag = True\n    while flag:\n        flag = False\n        for i in range(0, n-1, 2):\n            if arr[i] > arr[i+1]:\n                arr[i], arr[i+1] = arr[i+1], arr[i]\n                flag = True\n        for i in range(1, n-1, 2):\n            if arr[i] > arr[i+1]:\n                arr[i], arr[i+1] = arr[i+1], arr[i]\n                flag = True\n\narr = [5, 3, 8, 4, 6]\nodd_even_sort(arr)\nprint(arr)",
+    "source": "test-data-ai",
+    "prompt": "Odd-Even Sort algoritmasını uygula.",
+    "license": "MIT",
+    "language": "python"
+}

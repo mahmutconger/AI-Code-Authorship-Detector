@@ -1,0 +1,7 @@
+{
+    "code": "def cache(ttl):\n    def decorator(func):\n        cache_dict = {}\n        def wrapper(*args, **kwargs):\n            key = (args, tuple(kwargs.items()))\n            if key in cache_dict and time.time() - cache_dict[key][1] < ttl:\n                return cache_dict[key][0]\n            result = func(*args, **kwargs)\n            cache_dict[key] = (result, time.time())\n            return result\n        return wrapper\n    return decorator",
+    "source": "test-data-ai",
+    "prompt": "Cache decorator with TTL yaz.",
+    "license": "MIT",
+    "language": "python"
+}

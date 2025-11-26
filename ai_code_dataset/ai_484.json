@@ -1,0 +1,7 @@
+{
+    "code": "def isValidSudoku(board):\n    rows = [set() for _ in range(9)]\n    cols = [set() for _ in range(9)]\n    boxes = [set() for _ in range(9)]\n    for i in range(9):\n        for j in range(9):\n            if board[i][j] != '.':\n                num = int(board[i][j])\n                if num in rows[i] or num in cols[j] or num in boxes[i//3*3+j//3]:\n                    return False\n                rows[i].add(num)\n                cols[j].add(num)\n                boxes[i//3*3+j//3].add(num)\n    return True",
+    "source": "test-data-ai",
+    "prompt": "Valid Sudoku using hash sets yaz.",
+    "license": "MIT",
+    "language": "python"
+}

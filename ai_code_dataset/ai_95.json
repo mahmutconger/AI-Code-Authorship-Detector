@@ -1,0 +1,7 @@
+{
+    "code": "def independent_set(G):\n    n = len(G)\n    n = n * (n + 1) // 2\n\n    dp = [[0] * (n + 1) for _ in range(n + 1)]\n    ms = [[[] for _ in range(n + 1)] for _ in range(n + 1)]\n\n    for i in range(n + 1):\n        dp[i][0] = 1\n\n    for i in range(1, n + 1):\n        for k in range(n + 1):\n            sum_ = 0\n            for j in range(i):\n                if G[i][j]:\n                    sum_ += dp[k][j]\n            if sum_ == k:\n                dp[k][i] = 1\n            else:\n                dp[k][i] = 0\n            ms[k][i] = ms[k - sum_][i] + [j for j in range(i) if G[i][j]]\n\n    for i in range(n, -1, -1):\n        if dp[i][n]:\n            return i\n\n    return 0\n\nG = [[0, 0, 1, 1, 0],\n     [0, 0, 1, 1, 1],\n     [1, 1, 0, 0, 1],\n     [1, 1, 0, 0, 0],\n     [0, 1, 1, 0, 0]]\n\nprint(independent_set(G))",
+    "source": "test-data-ai",
+    "prompt": "Independent set bulan algoritma yaz.",
+    "license": "MIT",
+    "language": "python"
+}

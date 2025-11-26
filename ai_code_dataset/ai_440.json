@@ -1,0 +1,7 @@
+{
+    "code": "class TreeNode:\n    def __init__(self, val=0, left=None, right=None):\n        self.val = val\n        self.left = left\n        self.right = right\n\ndef maxPathSum(root):\n    max_sum = float('-inf')\n    def max_gain(node):\n        nonlocal max_sum\n        if not node:\n            return 0\n        left_gain = max(max_gain(node.left), 0)\n        right_gain = max(max_gain(node.right), 0)\n        new_price = node.val + left_gain + right_gain\n        max_sum = max(max_sum, new_price)\n        return node.val + max(left_gain, right_gain)\n    max_gain(root)\n    return max_sum",
+    "source": "test-data-ai",
+    "prompt": "Binary tree maximum path sum yaz.",
+    "license": "MIT",
+    "language": "python"
+}

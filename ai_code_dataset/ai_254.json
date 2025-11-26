@@ -1,0 +1,7 @@
+{
+    "code": "def sieve_of_eratosthenes(n):\n    primes = [True for i in range(n+1)]\n    p = 2\n    while (p * p <= n):\n        if (primes[p] == True):\n            for i in range(p * p, n+1, p):\n                primes[i] = False\n        p += 1\n    prime_numbers = []\n    for p in range(2, n):\n        if primes[p]:\n            prime_numbers.append(p)\n    return prime_numbers\n\nprint(sieve_of_eratosthenes(30))",
+    "source": "test-data-ai",
+    "prompt": "Sieve of Eratosthenes ile belirli bir sayıya kadar asal sayıları bul.",
+    "license": "MIT",
+    "language": "python"
+}

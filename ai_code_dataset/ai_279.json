@@ -1,0 +1,7 @@
+{
+    "code": "def matrix_exponentiation(matrix, exponent):\n    n = len(matrix)\n    result = [[1 if i == j else 0 for j in range(n)] for i in range(n)]\n    for i in range(n):\n        for j in range(n):\n            result[i][j] = matrix[i][j]\n    for _ in range(exponent - 1):\n        result = [[sum(a * b for a, b in zip(row, col)) for col in zip(*result)] for row in result]",
+    "source": "test-data-ai",
+    "prompt": "Matrix exponentiation yaz.",
+    "license": "MIT",
+    "language": "python"
+}

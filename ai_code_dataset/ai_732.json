@@ -1,0 +1,7 @@
+{
+    "code": "import requests\n\ndef check_username_availability(username):\n    url = f\"https://www.instagram.com/{username}/?__a=1\"\n    response = requests.get(url)\n    if response.status_code == 404:\n        return True\n    else:\n        return False\n\nusername = input(\"Enter a username to check: \")\nif check_username_availability(username):\n    print(f\"{username} is available!\")\nelse:\n    print(f\"{username} is not available.\")",
+    "source": "test-data-ai",
+    "prompt": "Username availability checker yaz.",
+    "license": "MIT",
+    "language": "python"
+}

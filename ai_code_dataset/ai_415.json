@@ -1,0 +1,7 @@
+{
+    "code": "def diameterOfBinaryTree(root):\n    self.diameter = 0\n    def maxDepth(node):\n        if node is None:\n            return 0\n        left = maxDepth(node.left)\n        right = maxDepth(node.right)\n        self.length = max(left, right) + 1\n        return self.length\n    def postorder(node):\n        if node:\n            postorder(node.left)\n            self.length = maxDepth(node.right)\n            if self.length + self.length - 1 > self.diameter:\n                self.diameter = self.length + self.length - 1\n            postorder(node.right)\n    postorder(root)\n    return self.diameter",
+    "source": "test-data-ai",
+    "prompt": "Diameter of binary tree yaz.",
+    "license": "MIT",
+    "language": "python"
+}

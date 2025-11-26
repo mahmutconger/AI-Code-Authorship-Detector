@@ -1,0 +1,7 @@
+{
+    "code": "import random\nfrom timeit import timeit\n\ndef stable_sort(arr):\n    return sorted(arr, stable=True)\n\ndef unstable_sort(arr):\n    return sorted(arr, stable=False)\n\narr = list(range(100))\nrandom.shuffle(arr)\nprint(\"Stable sort:\", timeit(lambda: stable_sort(arr), number=100))\nrandom.shuffle(arr)\nprint(\"Unstable sort:\", timeit(lambda: unstable_sort(arr), number=100))\n\n# To see the difference between stable and unstable sort more clearly:\n\narr = [(i, i) for i in range(100)]\nrandom.shuffle(arr)\nprint(\"Stable sort:\", timeit(lambda: stable_sort(arr), number=100))\nrandom.shuffle(arr)\nprint(\"Unstable sort:\", timeit(lambda: unstable_sort(arr), number=100))",
+    "source": "test-data-ai",
+    "prompt": "Stable ve unstable sort arasındaki farkı gösteren örnek kodlar yaz.",
+    "license": "MIT",
+    "language": "python"
+}

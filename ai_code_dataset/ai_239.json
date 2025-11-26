@@ -1,0 +1,7 @@
+{
+    "code": "def is_binary_palindrome(n):\n    bin_str = bin(n)[2:]\n    return bin_str == bin_str[::-1]\n\nprint(is_binary_palindrome(9))  # True\nprint(is_binary_palindrome(10))  # False",
+    "source": "test-data-ai",
+    "prompt": "Check if binary representation is palindrome yaz.",
+    "license": "MIT",
+    "language": "python"
+}

@@ -1,0 +1,7 @@
+{
+    "code": "from itertools import permutations\n\ndef tsp_brute_force(distances):\n    n = len(distances)\n    min_distance = float('inf')\n    best_route = None\n    for route in permutations(range(n)):\n        total_distance = 0\n        for i in range(n):\n            total_distance += distances[route[i]][route[(i+1)%n]]\n        if total_distance < min_distance:\n            min_distance = total_distance\n            best_route = route\n    return min_distance, best_route",
+    "source": "test-data-ai",
+    "prompt": "Travelling Salesman Problem için brute force çözüm yaz.",
+    "license": "MIT",
+    "language": "python"
+}

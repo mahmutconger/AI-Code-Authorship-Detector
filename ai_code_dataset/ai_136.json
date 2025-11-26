@@ -1,0 +1,7 @@
+{
+    "code": "def numDecodings(s):\n    if not s:\n        return 0\n    dp=[0]*(len(s)+1)\n    dp[0]=1\n    dp[1]=0 if s[0]=='0' else 1\n    for i in range(2,len(s)+1):\n        if 1<=int(s[i-1])<=9:\n            dp[i]+=dp[i-1]\n        if 10<=int(s[i-2:i])<=26:\n            dp[i]+=dp[i-2]\n    return dp[-1]",
+    "source": "test-data-ai",
+    "prompt": "Decode ways for a digit string yaz.",
+    "license": "MIT",
+    "language": "python"
+}

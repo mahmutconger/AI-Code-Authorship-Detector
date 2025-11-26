@@ -1,0 +1,7 @@
+{
+    "code": "import pandas as pd\n\ndef parse_excel(file_path):\n    excel_file = pd.ExcelFile(file_path)\n    sheets = excel_file.sheet_names\n    \n    data = {}\n    for sheet in sheets:\n        data[sheet] = pd.read_excel(file_path, sheet_name=sheet)\n    \n    return data",
+    "source": "test-data-ai",
+    "prompt": "Multiple sheets olan Excel'i parse eden fonksiyon yaz.",
+    "license": "MIT",
+    "language": "python"
+}

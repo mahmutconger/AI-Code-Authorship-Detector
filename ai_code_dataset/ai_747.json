@@ -1,0 +1,7 @@
+{
+    "code": "import os\nimport time\nimport threading\n\nclass FileLocker:\n    def __init__(self, filename):\n        self.filename = filename\n        self.lock_file = filename + '.lock'\n\n    def __enter__(self):\n        self.acquire()\n\n    def __exit__(self, exc_type, exc_value, exc_tb):\n        self.release()\n\n    def acquire(self):\n        while os.path.exists(self.lock_file):\n            time.sleep(0.1)\n        with open(self.lock_file, 'w') as f:\n            f.write(str(os.getpid()))\n\n    def release(self):\n        if os.path.exists(self.lock_file):\n            os.remove(self.lock_file)",
+    "source": "test-data-ai",
+    "prompt": "Context manager for file locking yaz.",
+    "license": "MIT",
+    "language": "python"
+}

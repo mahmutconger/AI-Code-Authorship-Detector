@@ -1,0 +1,7 @@
+{
+    "code": "def encode(plain_text):\n    return ''.join(chr(ord(char)+3) for char in plain_text)\n\ndef decode(cipher_text):\n    return ''.join(chr(ord(char)-3) for char in cipher_text)\n\n# testing\nprint(encode('yaz')) # 'bdc'\nprint(decode('bdc')) # 'yaz'",
+    "source": "test-data-ai",
+    "prompt": "Encode and decode strings yaz.",
+    "license": "MIT",
+    "language": "python"
+}

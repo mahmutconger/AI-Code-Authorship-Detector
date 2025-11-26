@@ -1,0 +1,7 @@
+{
+    "code": "def is_scramble(s1, s2):\n    if sorted(s1)!= sorted(s2):\n        return False\n    if len(s1)!= len(s2):\n        return False\n    if len(s1) == 0:\n        return True\n    for i in range(len(s1)):\n        if s1[i] == s2[0]:\n            t = s2[1:]\n            if t[0] == s1[i+1:]:\n                return is_scramble(s1[:i]+s1[i+1:], t)\n    return False",
+    "source": "test-data-ai",
+    "prompt": "Scrambled string verification algoritması yaz.",
+    "license": "MIT",
+    "language": "python"
+}

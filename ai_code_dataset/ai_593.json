@@ -1,0 +1,7 @@
+{
+    "code": "import requests\n\ndef make_request_with_proxy(url, proxy):\n    proxies = {\n        'http': proxy,\n        'https': proxy\n    }\n    \n    response = requests.get(url, proxies=proxies)\n    \n    return response.text",
+    "source": "test-data-ai",
+    "prompt": "Proxy kullanarak request yapan fonksiyon yaz.",
+    "license": "MIT",
+    "language": "python"
+}

@@ -1,0 +1,7 @@
+{
+    "code": "def archive_extract(source_dir, target_dir):\n    import os\n    import zipfile\n    if not os.path.exists(target_dir):\n        os.makedirs(target_dir)\n    for filename in os.listdir(source_dir):\n        if filename.endswith('.zip'):\n            with zipfile.ZipFile(os.path.join(source_dir, filename), 'r') as zip_ref:\n                zip_ref.extractall(target_dir)",
+    "source": "test-data-ai",
+    "prompt": "Archive extract eden fonksiyon yaz.",
+    "license": "MIT",
+    "language": "python"
+}

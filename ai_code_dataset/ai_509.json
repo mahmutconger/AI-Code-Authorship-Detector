@@ -1,0 +1,7 @@
+{
+    "code": "class WordDictionary:\n\n    def __init__(self):\n        self.words = set()\n\n    def addWord(self, word: str) -> None:\n        self.words.add(word)\n\n    def search(self, word: str) -> bool:\n        for w in self.words:\n            if len(w) == len(word):\n                match = True\n                for i in range(len(w)):\n                    if word[i] != '.' and word[i] != w[i]:\n                        match = False\n                        break\n                if match:\n                    return True\n        return False",
+    "source": "test-data-ai",
+    "prompt": "Design add and search words data structure yaz.",
+    "license": "MIT",
+    "language": "python"
+}

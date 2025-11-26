@@ -1,0 +1,7 @@
+{
+    "code": "import sys\n\ndef matrix_chain_order(p):\n    n = len(p) - 1\n    m = [[0 for _ in range(n)] for _ in range(n)]\n    s = [[0 for _ in range(n)] for _ in range(n)]\n\n    for l in range(2, n+1):\n        for i in range(n-l+1):\n            j = i + l - 1\n            m[i][j] = sys.maxsize\n            for k in range(i, j):\n                q = m[i][k] + m[k+1][j] + p[i]*p[k+1]*p[j+1]\n                if q < m[i][j]:\n                    m[i][j] = q\n                    s[i][j] = k\n\n    return m, s\n\ndef print_optimal_parens(s, i, j):\n    if i == j:\n        print(f\"A{i}\", end=\"\")\n    else:\n        print(\"(\", end=\"\")\n        print_optimal_parens(s, i, s[i][j])\n        print_optimal_parens(s, s[i][j]+1, j)\n        print(\")\", end=\"\")\n\np = [30, 35, 15, 5, 10, 20, 25]\nm, s = matrix_chain_order(p)\nprint_optimal_parens(s, 0, len(p)-2)",
+    "source": "test-data-ai",
+    "prompt": "Matrix Chain Multiplication optimizasyonunu yaz.",
+    "license": "MIT",
+    "language": "python"
+}

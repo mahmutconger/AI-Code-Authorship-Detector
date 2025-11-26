@@ -1,0 +1,7 @@
+{
+    "code": "class ListNode:\n    def __init__(self, val=0, next=None):\n        self.val = val\n        self.next = next\n\ndef binary_list_to_int(head):\n    res = 0\n    while head:\n        res = (res << 1) | head.val\n        head = head.next\n    return res",
+    "source": "test-data-ai",
+    "prompt": "Convert binary number in linked list to integer yaz.",
+    "license": "MIT",
+    "language": "python"
+}

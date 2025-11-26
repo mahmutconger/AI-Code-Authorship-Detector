@@ -1,0 +1,7 @@
+{
+    "code": "import pandas as pd\n\n# Load log data\nlog_data = pd.read_csv('log_file.txt', delimiter='\\t')\n\n# Extract statistics\ntotal_requests = len(log_data)\nsuccessful_requests = len(log_data[log_data['status_code'] == 200])\nfailed_requests = total_requests - successful_requests\n\n# Calculate success rate\nsuccess_rate = successful_requests / total_requests * 100\n\n# Display statistics\nprint(\"Total Requests:\", total_requests)\nprint(\"Successful Requests:\", successful_requests)\nprint(\"Failed Requests:\", failed_requests)\nprint(\"Success Rate:\", success_rate)",
+    "source": "test-data-ai",
+    "prompt": "Log analysis ve statistics extractor yaz.",
+    "license": "MIT",
+    "language": "python"
+}

@@ -1,0 +1,7 @@
+{
+    "code": "xor=lambda x:reduce(lambda a,b:a^b,x)\nsubsets=lambda x:reduce(lambda a,b:a+[i+[b] for i in a],x[1:],[[]])+[[]]+x\nprint xor(subsets(map(list,input().split())))",
+    "source": "test-data-ai",
+    "prompt": "Find XOR of all subsets yaz.",
+    "license": "MIT",
+    "language": "python"
+}

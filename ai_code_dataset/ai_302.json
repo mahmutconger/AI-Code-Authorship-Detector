@@ -1,0 +1,7 @@
+{
+    "code": "def convert(s, numRows):\n    if numRows == 1: return s\n    result = [''] * numRows\n    index, step = 0, -1\n    for x in s:\n        result[index] += x\n        index += step\n        if index == numRows-1: step = -1\n        elif index == 0: step = 1\n    return ''.join(result)",
+    "source": "test-data-ai",
+    "prompt": "Zigzag conversion yaz.",
+    "license": "MIT",
+    "language": "python"
+}

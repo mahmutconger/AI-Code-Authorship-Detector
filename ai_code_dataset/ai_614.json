@@ -1,0 +1,7 @@
+{
+    "code": "from fastapi import FastAPI\n\napp = FastAPI()\n\n@app.get(\"/items/{item_id}\")\nasync def read_item(item_id: int):\n return {\"item_id\": item_id}",
+    "source": "test-data-ai",
+    "prompt": "FastAPI ile path parameters alan endpoint yaz.",
+    "license": "MIT",
+    "language": "python"
+}

@@ -1,0 +1,7 @@
+{
+    "code": "class KStack:\n    def __init__(self, n, k):\n        self.stack = [0] * k\n        self.top = [-1] * k\n        self.size = [0] * k\n        self.elements = [0] * (k * n)\n        self.next = [0] * (k * n)\n        self.index = [0] * k\n        self.next_index = 0\n\n    def push(self, stack_num, item):\n        self.size[stack_num] += 1\n        self.elements[self.next_index] = item\n        self.next[self.next_index] = -1\n        self.top[stack_num] += 1\n        self.index[stack_num] = self.next_index\n        self.next_index += 1\n\n    def pop(self, stack_num):\n        if self.top[stack_num] == -1:\n            return -1\n        item = self.elements[self.index[stack_num]]\n        self.top[stack_num] -= 1\n        if self.top[stack_num] == -1:\n            self.size[stack_num] -= 1\n        self.next[self.index[stack_num]] = self.next[self.index[stack_num]]\n        self.index[stack_num] = self.next[self.index[stack_num]]\n        return item",
+    "source": "test-data-ai",
+    "prompt": "Implement k stacks in an array yaz.",
+    "license": "MIT",
+    "language": "python"
+}

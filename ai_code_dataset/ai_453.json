@@ -1,0 +1,7 @@
+{
+    "code": "import heapq\n\nclass MedianFinder:\n    def __init__(self):\n        self.min_heap = []\n        self.max_heap = []\n\n    def addNum(self, num: int) -> None:\n        if len(self.min_heap) == len(self.max_heap):\n            heapq.heappush(self.max_heap, -heapq.heappushpop(self.min_heap, num))\n        else:\n            heapq.heappush(self.min_heap, -heapq.heappushpop(self.max_heap, -num))\n\n    def findMedian(self) -> float:\n        if len(self.min_heap) == len(self.max_heap):\n            return (self.max_heap[0] - self.min_heap[0]) / 2\n        else:\n            return float(-self.min_heap[0])",
+    "source": "test-data-ai",
+    "prompt": "Find median from data stream using heaps yaz.",
+    "license": "MIT",
+    "language": "python"
+}

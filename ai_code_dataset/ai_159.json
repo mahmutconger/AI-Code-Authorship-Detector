@@ -1,0 +1,7 @@
+{
+    "code": "police = 5\nthieves = 10\nfor i in range(thieves):\n    police -= 1\n    if police <= 0:\n        break\nprint(\"Thieves left:\", thieves - i)",
+    "source": "test-data-ai",
+    "prompt": "Policemen catch thieves problemini yaz.",
+    "license": "MIT",
+    "language": "python"
+}

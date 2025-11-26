@@ -1,0 +1,7 @@
+{
+    "code": "class Node:\n    def __init__(self, key):\n        self.left = None\n        self.right = None\n        self.val = key\n\ndef sortedArrayToBST(nums):\n    if not nums:\n        return None\n    mid = len(nums) // 2\n    node = Node(nums[mid])\n    node.left = sortedArrayToBST(nums[:mid])\n    node.right = sortedArrayToBST(nums[mid+1:])\n    return node",
+    "source": "test-data-ai",
+    "prompt": "Convert sorted list to BST yaz.",
+    "license": "MIT",
+    "language": "python"
+}

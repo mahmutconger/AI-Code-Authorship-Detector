@@ -1,0 +1,7 @@
+{
+    "code": "from flask import Flask, render_template\n\napp = Flask(__name__)\n\n@app.route('/')\ndef index():\n    name = \"John\"\n    return render_template('index.html', name=name)\n\nif __name__ == '__main__':\n    app.run()",
+    "source": "test-data-ai",
+    "prompt": "Flask ile template rendering yapan endpoint yaz.",
+    "license": "MIT",
+    "language": "python"
+}

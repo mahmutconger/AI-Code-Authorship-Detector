@@ -1,0 +1,7 @@
+{
+    "code": "my_list = [1, 2, 3, 4, 5]\nresult = [i for i in my_list]\nprint(result)",
+    "source": "test-data-ai",
+    "prompt": "Aşağıdaki kodu **list comprehension** kullanarak tek satırda yeniden yaz:",
+    "license": "MIT",
+    "language": "python"
+}

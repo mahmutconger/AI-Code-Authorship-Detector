@@ -1,0 +1,7 @@
+{
+    "code": "class Stack:\n    def __init__(self):\n        self.items = []\n\n    def is_empty(self):\n        return not bool(self.items)\n\n    def push(self, item):\n        self.items.append(item)\n\n    def pop(self):\n        return self.items.pop()\n\n    def peek(self):\n        return self.items[-1]\n\n    def size(self):\n        return len(self.items)\n\n\ndef asteroid_collision(asteroids):\n    stack = Stack()\n    for ast in asteroids:\n        if not stack.is_empty():\n            while stack.size() > 0 and stack.peek() > 0 and ast < 0:\n                if stack.peek() + ast < 0:\n                    stack.pop()\n                elif stack.peek() + ast == 0:\n                    stack.pop()\n                    ast = 0\n                    break\n                else:\n                    ast = 0\n                    break\n        if ast != 0:\n            stack.push(ast)\n    return stack.items\n\n\nassert asteroid_collision([5, 10, -5]) == [5, 10]\nassert asteroid_collision([8, -8]) == []\nassert asteroid_collision([10, 2, -5]) == [10]\nassert asteroid_collision([-2, -1, 1, 2]) == [-2, -1, 1, 2]",
+    "source": "test-data-ai",
+    "prompt": "Asteroid collision using stack yaz.",
+    "license": "MIT",
+    "language": "python"
+}

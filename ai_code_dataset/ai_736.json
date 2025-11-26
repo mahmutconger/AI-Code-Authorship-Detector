@@ -1,0 +1,7 @@
+{
+    "code": "def get_json_string(**kwargs):\n    import json\n    return json.dumps(kwargs)",
+    "source": "test-data-ai",
+    "prompt": "Bir fonksiyona gelen tüm argümanları **kwargs kullanarak alan ve bunları bir JSON string'i olarak döndüren bir fonksiyon yaz.",
+    "license": "MIT",
+    "language": "python"
+}

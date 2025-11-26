@@ -1,0 +1,7 @@
+{
+    "code": "import random\nimport heapq\n\ndef dist(p1, p2):\n    return ((p1[0] - p2[0])**2 + (p1[1] - p2[1])**2)**0.5\n\ndef k_centers_greedy(k, points):\n    centers = random.sample(points, k)\n    last_assignments = [random.choice(centers) for _ in points]\n\n    while True:\n        new_assignments = [-1] * len(points)\n        clusters = [[] for _ in centers]\n\n        for p in points:\n            closest_center = None\n            closest_dist = float('inf')\n\n            for i, c in enumerate(centers):\n                d = dist(p, c)\n                if d < closest_dist:\n                    closest_dist = d\n                    closest_center = i\n\n            if closest_center != -1 and last_assignments[points.index(p)] != closest_center:\n                new_assignments[points.index(p)] = closest_center\n                clusters[closest_center].append(p)\n\n        if new_assignments == last_assignments:\n            break\n\n        last_assignments = new_assignments\n        centers = [heapq.nsmallest(1, cluster, key=lambda x: dist(x, cluster[0]))[0] for cluster in clusters]\n\n    return centers",
+    "source": "test-data-ai",
+    "prompt": "K centers problem için greedy approximation yaz.",
+    "license": "MIT",
+    "language": "python"
+}

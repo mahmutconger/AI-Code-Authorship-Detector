@@ -1,0 +1,7 @@
+{
+    "code": "def count_nodes(node):\n    if not node:\n        return 0\n    return 1 + count_nodes(node.left) + count_nodes(node.right)",
+    "source": "test-data-ai",
+    "prompt": "Count complete tree nodes yaz.",
+    "license": "MIT",
+    "language": "python"
+}

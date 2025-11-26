@@ -1,0 +1,7 @@
+{
+    "code": "import toml\n\ndef parse_toml_file(file_path):\n    with open(file_path, 'r') as file:\n        return toml.load(file)",
+    "source": "test-data-ai",
+    "prompt": "TOML dosyası parse eden fonksiyon yaz.",
+    "license": "MIT",
+    "language": "python"
+}

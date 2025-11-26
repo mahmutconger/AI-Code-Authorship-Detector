@@ -1,0 +1,7 @@
+{
+    "code": "import sys\n\ndef burrows_wheeler_transform(text):\n    n = len(text)\n    rotations = [text[i:] + text[:i] for i in range(n)]\n    rotations.sort()\n    return ''.join(row[-1] for row in rotations)\n\nif __name__ == '__main__':\n    text = sys.argv[1]\n    print(burrows_wheeler_transform(text))",
+    "source": "test-data-ai",
+    "prompt": "Burrows-Wheeler transform yaz.",
+    "license": "MIT",
+    "language": "python"
+}

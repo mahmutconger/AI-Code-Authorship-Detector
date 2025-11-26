@@ -1,0 +1,7 @@
+{
+    "code": "import datetime\n\nclass AlertTriggerConditionChecker:\n    def __init__(self, condition):\n        self.condition = condition\n\n    def check(self, data):\n        if self.condition == \"date_range\":\n            start_date, end_date = data\n            current_date = datetime.datetime.now()\n            return start_date <= current_date <= end_date\n        elif self.condition == \"num_less_than\":\n            threshold = data\n            return any(x < threshold for x in [1, 2, 3])\n        elif self.condition == \"str_match\":\n            pattern = data\n            return any(pattern in str(x) for x in [\"abc\", \"def\", \"ghi\"])\n        else:\n            raise ValueError(\"Invalid condition\")\n\nclass AlertTriggerCondition:\n    def __init__(self, id, condition, data):\n        self.id = id\n        self.condition = condition\n        self.condition_checker = AlertTriggerConditionChecker(condition)\n        self.data = data\n\n    def is_triggered(self, data):\n        return self.condition_checker.check(self.data)\n\n# example usage\ncondition = AlertTriggerCondition(\"date_range\", \"date_range\", (datetime.datetime(2022, 1, 1), datetime.datetime(2022, 1, 10)))\nprint(condition.is_triggered(datetime.datetime.now()))",
+    "source": "test-data-ai",
+    "prompt": "Alert trigger condition checker yaz.",
+    "license": "MIT",
+    "language": "python"
+}

@@ -1,0 +1,7 @@
+{
+    "code": "def dutch_flag(arr):\n    low, mid, high = 0, 0, len(arr) - 1\n    while mid <= high:\n        if arr[mid] == 0:\n            arr[low], arr[mid] = arr[mid], arr[low]\n            low += 1\n            mid += 1\n        elif arr[mid] == 1:\n            mid += 1\n        else:\n            arr[mid], arr[high] = arr[high], arr[mid]\n            high -= 1\n    return arr",
+    "source": "test-data-ai",
+    "prompt": "Bir diziyi sadece 0, 1, 2 değerlerini içeriyorsa Dutch National Flag algoritmasıyla sırala.",
+    "license": "MIT",
+    "language": "python"
+}

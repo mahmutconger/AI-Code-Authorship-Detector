@@ -1,0 +1,7 @@
+{
+    "code": "class Node:\n    def __init__(self, key):\n        self.left = None\n        self.right = None\n        self.val = key\n\nclass BinaryTree:\n    def depth(self, node):\n        if node is None:\n            return 0\n        else:\n            left_depth = self.depth(node.left)\n            right_depth = self.depth(node.right)\n\n            if left_depth > right_depth:\n                return left_depth + 1\n            else:\n                return right_depth + 1",
+    "source": "test-data-ai",
+    "prompt": "İkili bir ağacın (Binary Tree) derinliğini hesaplayan bir sınıf metodu geliştir.",
+    "license": "MIT",
+    "language": "python"
+}

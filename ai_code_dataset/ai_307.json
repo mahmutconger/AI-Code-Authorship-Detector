@@ -1,0 +1,7 @@
+{
+    "code": "def add_binary(bin_str1, bin_str2):\n    return bin(int(bin_str1, 2) + int(bin_str2, 2))[2:]\n\nprint(add_binary('1010', '1011'))\nprint(add_binary('1111', '1010'))\nprint(add_binary('1', '1'))\nprint(add_binary('0', '0'))",
+    "source": "test-data-ai",
+    "prompt": "Add binary strings yaz.",
+    "license": "MIT",
+    "language": "python"
+}

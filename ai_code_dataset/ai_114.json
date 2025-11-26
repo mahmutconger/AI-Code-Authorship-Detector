@@ -1,0 +1,7 @@
+{
+    "code": "def equal_sum_partition(nums):\n    n = sum(nums)\n    if n % 2 != 0:\n        return False\n    target = n // 2\n    dp = [False] * (target + 1)\n    dp[0] = True\n    for num in nums:\n        for j in range(target, -1, -1):\n            if dp[j] and j + num <= target:\n                dp[j + num] = True\n    return dp[target]\n\n# Test\nnums = [1, 5, 11, 5]\nprint(equal_sum_partition(nums))  # True\n\nnums = [1, 5, 11, 6]\nprint(equal_sum_partition(nums))  # False",
+    "source": "test-data-ai",
+    "prompt": "Partition problem (equal sum subsets) çözümü yaz.",
+    "license": "MIT",
+    "language": "python"
+}

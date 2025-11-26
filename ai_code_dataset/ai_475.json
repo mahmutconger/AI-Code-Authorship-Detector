@@ -1,0 +1,7 @@
+{
+    "code": "def longest_consecutive_sequence(nums):\n    num_set = set(nums)\n    longest_sequence = 0\n\n    for num in num_set:\n        if num - 1 not in num_set:\n            current_num = num\n            current_sequence = 1\n\n            while current_num + 1 in num_set:\n                current_num += 1\n                current_sequence += 1\n\n            longest_sequence = max(longest_sequence, current_sequence)\n\n    return longest_sequence",
+    "source": "test-data-ai",
+    "prompt": "Longest consecutive sequence using hash set yaz.",
+    "license": "MIT",
+    "language": "python"
+}

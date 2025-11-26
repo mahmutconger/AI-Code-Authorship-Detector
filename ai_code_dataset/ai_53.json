@@ -1,0 +1,7 @@
+{
+    "code": "def local_minimum(arr):\n    n = len(arr)\n    low = 0\n    high = n - 1\n\n    while low <= high:\n        mid = low + (high - low) // 2\n\n        if (mid == 0 or arr[mid - 1] > arr[mid]) and (mid == n - 1 or arr[mid + 1] > arr[mid]):\n            return arr[mid]\n        elif mid > 0 and arr[mid - 1] < arr[mid]:\n            high = mid - 1\n        else:\n            low = mid + 1\n\n    return None",
+    "source": "test-data-ai",
+    "prompt": "Local minimum bulan algoritma yaz.",
+    "license": "MIT",
+    "language": "python"
+}

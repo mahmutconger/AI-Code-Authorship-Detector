@@ -1,0 +1,7 @@
+{
+    "code": "def peak_element(numbers):\n    left, right = 0, len(numbers) - 1\n    while left < right:\n        mid = (left + right) // 2\n        if numbers[mid] < numbers[mid + 1]:\n            left = mid + 1\n        else:\n            right = mid\n    return left",
+    "source": "test-data-ai",
+    "prompt": "Peak element (tepe eleman) bulan algoritma yaz.",
+    "license": "MIT",
+    "language": "python"
+}

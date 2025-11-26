@@ -1,0 +1,7 @@
+{
+    "code": "def dict_to_xml(dictionary):\n    xml_string = \"<root>\"\n    for key, value in dictionary.items():\n        xml_string += \"<\" + str(key) + \">\" + str(value) + \"</\" + str(key) + \">\"\n    xml_string += \"</root>\"\n    return xml_string",
+    "source": "test-data-ai",
+    "prompt": "Dictionary'yi XML'e convert eden fonksiyon yaz.",
+    "license": "MIT",
+    "language": "python"
+}

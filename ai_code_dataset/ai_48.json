@@ -1,0 +1,7 @@
+{
+    "code": "def find_element_in_infinite_sequence(target):\n    left, right = 0, 1\n    while True:\n        if arr[left] == target:\n            return left\n        elif arr[right] == target:\n            return right\n        elif arr[left] > target:\n            return -1\n        left *= 2\n        right *= 2",
+    "source": "test-data-ai",
+    "prompt": "Sonsuz sıralı dizide eleman arayan algoritma yaz.",
+    "license": "MIT",
+    "language": "python"
+}

@@ -1,0 +1,7 @@
+{
+    "code": "from flask import Flask, request\nfrom flask_restplus import Api, Resource\n\napp = Flask(__name__)\napi = Api(app)\n\napi.title = \"API Title\"\napi.version = \"1.0\"\n\npet_ns = api.namespace('pets', description='Operations related to pets')\n\npet = pet_ns.model('Pet', {\n    'id': fields.Integer(readonly=True, description='The pet id'),\n    'name': fields.String(required=True, description='The pet name'),\n    'age': fields.Integer(required=True, description='The pet age')\n})\n\n@pet_ns.route('/')\nclass PetsCollection(Resource):\n    @api.doc('list_pets')\n    def get(self):\n        '''List all pets'''\n        pass\n\n    @api.doc('create_pet')\n    def post(self):\n        '''Create a new pet'''\n        pass\n\n@pet_ns.route('/<int:pet_id>')\n@api.response(404, 'Pet not found')\nclass PetItem(Resource):\n    @api.doc('get_pet')\n    def get(self, pet_id):\n        '''Fetch a pet given its identifier'''\n        pass\n\n    @api.doc('update_pet')\n    def put(self, pet_id):\n        '''Update a pet given its identifier'''\n        pass\n\n    @api.doc('delete_pet')\n    def delete(self, pet_id):\n        '''Delete a pet given its identifier'''\n        pass\n\nif __name__ == '__main__':\n    app.run(debug=True)",
+    "source": "test-data-ai",
+    "prompt": "Flask ile API documentation swagger entegrasyonu yaz.",
+    "license": "MIT",
+    "language": "python"
+}

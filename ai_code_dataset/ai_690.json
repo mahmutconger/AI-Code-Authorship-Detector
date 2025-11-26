@@ -1,0 +1,7 @@
+{
+    "code": "def merge\\_configs(*configs):\nconfig\\_sets = [dict(config) for config in configs]\nmerged\\_config = config\\_sets[0]\nfor config\\_set in config\\_sets[1:]:\nfor key, value in config\\_set.items():\nif key in merged\\_config and isinstance(merged\\_config[key], dict) and isinstance(value, dict):\nmerged\\_config[key] = merge\\_configs(merged\\_config[key], value)\nelif key in merged\\_config and merged\\_config[key] == value:\ncontinue\nelse:\nmerged\\_config[key] = value\nreturn merged\\_config",
+    "source": "test-data-ai",
+    "prompt": "Configuration merger (multiple configs) fonksionu yaz.",
+    "license": "MIT",
+    "language": "python"
+}

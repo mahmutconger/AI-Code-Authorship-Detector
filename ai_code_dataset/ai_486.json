@@ -1,0 +1,7 @@
+{
+    "code": "import time\n\nclass Logger:\n    def __init__(self):\n        self.map = {}",
+    "source": "test-data-ai",
+    "prompt": "Logger rate limiter using hash map yaz.",
+    "license": "MIT",
+    "language": "python"
+}

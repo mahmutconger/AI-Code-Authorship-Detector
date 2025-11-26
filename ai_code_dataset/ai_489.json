@@ -1,0 +1,7 @@
+{
+    "code": "from collections import defaultdict\n\nclass LFUCache:\n    def __init__(self, capacity):\n        self.capacity = capacity\n        self.cache = {}\n        self.freq = defaultdict(OrderedDict)\n        self.min_freq = 0\n\n    def get(self, key):\n        if key not in self.cache:\n            return -1\n        value, f = self.cache[key]\n        del self.freq[f][key]\n        if not self.freq[self.min_freq]:\n            self.min_freq += 1\n        self.freq[f + 1][key] = value\n        self.cache[key] = (value, f + 1)\n        return value\n\n    def put(self, key, value):\n        if self.capacity == 0:\n            return\n        if key in self.cache:\n            _, f = self.cache[key]\n            self.freq[f][key] = value\n            self.get(key)\n            return\n        if len(self.cache) == self.capacity:\n            k, _ = self.freq[self.min_freq].popitem(last=False)\n            del self.cache[k]\n        self.cache[key] = (value, 1)\n        self.freq[1][key] = value\n        self.min_freq = 1",
+    "source": "test-data-ai",
+    "prompt": "LFU cache implementation yaz.",
+    "license": "MIT",
+    "language": "python"
+}

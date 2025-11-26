@@ -1,0 +1,7 @@
+{
+    "code": "def wordPattern(pattern, s):\n    words = s.split()\n    if len(pattern) != len(words):\n        return False\n    \n    char_map = {}\n    word_map = {}\n    \n    for char, word in zip(pattern, words):\n        if char not in char_map:\n            char_map[char] = word\n        if word not in word_map:\n            word_map[word] = char\n        \n        if char_map[char] != word or word_map[word] != char:\n            return False\n\n    return True\n\npattern = \"abba\"\ns = \"dog cat cat dog\"\nprint(wordPattern(pattern, s))\n\npattern = \"abba\"\ns = \"dog cat cat fish\"\nprint(wordPattern(pattern, s))\n\npattern = \"aaaa\"\ns = \"dog cat cat dog\"\nprint(wordPattern(pattern, s))\n\npattern = \"abba\"\ns = \"dog dog dog dog\"\nprint(wordPattern(pattern, s))",
+    "source": "test-data-ai",
+    "prompt": "Word pattern checker using hash map yaz.",
+    "license": "MIT",
+    "language": "python"
+}

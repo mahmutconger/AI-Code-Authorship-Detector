@@ -1,0 +1,7 @@
+{
+    "code": "def maxProfit(prices):\n    n = len(prices)\n    if n < 2:\n        return 0\n    buy = -prices[0]\n    sell = 0\n    prev_sell = 0\n    for i in range(1, n):\n        tmp = sell\n        sell = max(sell, buy + prices[i])\n        buy = max(buy, prev_sell - prices[i])\n        prev_sell = tmp\n    return sell",
+    "source": "test-data-ai",
+    "prompt": "Maximum profit from stock buying/selling with cooldown.",
+    "license": "MIT",
+    "language": "python"
+}

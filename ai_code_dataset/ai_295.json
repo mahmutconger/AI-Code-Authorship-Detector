@@ -1,0 +1,7 @@
+{
+    "code": "def compress(s):\n    if not s:\n        return \"\"\n    res = []\n    i = 0\n    while i < len(s):\n        count = 1\n        while i + 1 < len(s) and s[i] == s[i+1]:\n            i += 1\n            count += 1\n        res.append(s[i] + str(count))\n        i += 1\n    return \"\".join(res)",
+    "source": "test-data-ai",
+    "prompt": "String compression algorithm yaz.",
+    "license": "MIT",
+    "language": "python"
+}

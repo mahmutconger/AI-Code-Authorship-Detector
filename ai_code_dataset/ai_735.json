@@ -1,0 +1,7 @@
+{
+    "code": "def validate_image_dimensions(w, h, min_width=0, max_width=0, min_height=0, max_height=0):\n    if w < min_width:\n        return False\n    if w > max_width:\n        return False\n    if h < min_height:\n        return False\n    if h > max_height:\n        return False\n    return True\n\ndef main():\n    width = int(input(\"Enter the width of the image: \"))\n    height = int(input(\"Enter the height of the image: \"))\n    min_width = int(input(\"Enter the minimum allowed width: \"))\n    max_width = int(input(\"Enter the maximum allowed width: \"))\n    min_height = int(input(\"Enter the minimum allowed height: \"))\n    max_height = int(input(\"Enter the maximum allowed height: \"))\n    if validate_image_dimensions(width, height, min_width, max_width, min_height, max_height):\n        print(\"The image dimensions are valid.\")\n    else:\n        print(\"The image dimensions are not valid.\")",
+    "source": "test-data-ai",
+    "prompt": "Image dimensions validator yaz.",
+    "license": "MIT",
+    "language": "python"
+}

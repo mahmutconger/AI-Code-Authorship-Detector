@@ -1,0 +1,7 @@
+{
+    "code": "def remove_outermost_parentheses(s):\n    stack = []\n    result = ''\n    for char in s:\n        if char == '(':\n            stack.append(char)\n        elif char == ')':\n            if stack:\n                stack.pop()\n            else:\n                result += char\n        else:\n            if stack:\n                result += char\n            else:\n                result += '(' + char + ')'\n    return result if stack else result[:-1]",
+    "source": "test-data-ai",
+    "prompt": "Remove outermost parentheses using stack yaz.",
+    "license": "MIT",
+    "language": "python"
+}

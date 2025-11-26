@@ -1,0 +1,7 @@
+{
+    "code": "from collections import OrderedDict\n\nclass LRUCache:\n\n    def __init__(self, capacity: int):\n        self.cache = OrderedDict()\n        self.capacity = capacity\n\n    def get(self, key: int) -> int:\n        if key not in self.cache:\n            return -1\n        else:\n            self.cache.move_to_end(key)  # Move the accessed key to the end\n            return self.cache[key]\n\n    def put(self, key: int, value: int) -> None:\n        if key in self.cache:\n            self.cache.move_to_end(key)  # Move the updated key to the end\n        self.cache[key] = value\n        if len(self.cache) > self.capacity:\n            self.cache.popitem(last=False)  # Remove the least recently used key",
+    "source": "test-data-ai",
+    "prompt": "LRU Cache implementation using queue and hash yaz.",
+    "license": "MIT",
+    "language": "python"
+}

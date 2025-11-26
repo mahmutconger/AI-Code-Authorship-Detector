@@ -1,0 +1,7 @@
+{
+    "code": "class FenwickTree:\n    def __init__(self, n):\n        self.tree = [0] * (n + 1)\n\n    def lowbit(self, x):\n        return x & -x\n\n    def update(self, x, val):\n        while x < len(self.tree):\n            self.tree[x] += val\n            x += self.lowbit(x)\n\n    def query(self, x):\n        res = 0\n        while x > 0:\n            res += self.tree[x]\n            x -= self.lowbit(x)\n        return res\n\n    def range_sum_query(self, left, right):\n        return self.query(right) - self.query(left - 1)\n\n\nif __name__ == '__main__':\n    ft = FenwickTree(10)\n    ft.update(1, 3)\n    ft.update(2, 2)\n    ft.update(6, 4)\n    print(ft.range_sum_query(1, 2))  # 5\n    print(ft.range_sum_query(2, 6))  # 11\n    print(ft.range_sum_query(6, 10)) # 4\n    print(ft.range_sum_query(1, 10)) # 20",
+    "source": "test-data-ai",
+    "prompt": "Range sum query using Fenwick tree yaz.",
+    "license": "MIT",
+    "language": "python"
+}

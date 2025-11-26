@@ -1,0 +1,7 @@
+{
+    "code": "import re\n\ndef validate_email(email):\n    pattern = r'^[\\w\\.-]+@[\\w\\.-]+\\.\\w+$'\n    if re.match(pattern, email):\n        return True\n    else:\n        return False",
+    "source": "test-data-ai",
+    "prompt": "Email validation regex ile fonksiyon yaz.",
+    "license": "MIT",
+    "language": "python"
+}

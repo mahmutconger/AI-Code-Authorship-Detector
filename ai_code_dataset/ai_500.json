@@ -1,0 +1,7 @@
+{
+    "code": "def custom_sort_string(order, string):\n    count = {}\n    for char in string:\n        count[char] = count.get(char, 0) + 1\n    result = ''\n    for char in order:\n        if char in count:\n            result += char * count[char]\n            del count[char]\n    for char, freq in count.items():\n        result += char * freq\n    return result",
+    "source": "test-data-ai",
+    "prompt": "Custom sort string using hash map yaz.",
+    "license": "MIT",
+    "language": "python"
+}

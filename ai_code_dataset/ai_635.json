@@ -1,0 +1,7 @@
+{
+    "code": "from fastapi import FastAPI, APIRouter\nfrom fastapi.openapi import OpenAPI\nfrom fastapi.openapi.utils import get_openapi\nfrom fastapi.responses import JSONResponse\nfrom fastapi.requests import Request\nfrom fastapi.security import OAuth2PasswordBearer\nfrom fastapi.security import OAuth2PasswordRequestForm\nfrom fastapi.security import Security\nfrom fastapi.security import HTTPBearer\nfrom fastapi.security import SecurityScopes\nfrom fastapi.security import SecurityScheme\nfrom fastapi.security import OAuth2PasswordBearer\n\napp = FastAPI()\nopenapi_schema = get_openapi(\n    title=\"My App\",\n    description=\"My App\",\n    version=\"1.0.0\",\n    routes=app.routes,\n)\n\n@app.get(\"/items/{item_id}\")\nasync def read_items(item_id: int):\n    return {\"item_name\": \"Item {}\".format(item_id)}\n\n@app.get(\"/users/{user_id}\")\nasync def read_users(user_id: int):\n    return {\"user_name\": \"User {}\".format(user_id)}\n\n@app.get(\"/openapi.json\")\nasync def read_openapi():\n    return JSONResponse(content=openapi_schema.json(), media_type=\"application/json\")",
+    "source": "test-data-ai",
+    "prompt": "FastAPI ile automatic OpenAPI documentation özelleştir.",
+    "license": "MIT",
+    "language": "python"
+}

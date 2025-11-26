@@ -1,0 +1,7 @@
+{
+    "code": "def interpolation_search(arr, low, high, x):\n    if low <= high:\n        mid = low + ((high - low) // (arr[high] - arr[low])) * (x - arr[low])\n        if arr[mid] == x:\n            return mid\n        elif arr[mid] < x:\n            return interpolation_search(arr, mid + 1, high, x)\n        else:\n            return interpolation_search(arr, low, mid - 1, x)\n    else:\n        return -1\n\narr = [10, 12, 13, 16, 18, 19, 20, 21, 22, 33, 35, 42, 47]\nx = 18\n\nresult = interpolation_search(arr, 0, len(arr) - 1, x)\n\nif result != -1:\n    print(\"Element is present at index\", str(result))\nelse:\n    print(\"Element is not present in array\")",
+    "source": "test-data-ai",
+    "prompt": "Interpolation Search'ü sıralı dizide yaz.",
+    "license": "MIT",
+    "language": "python"
+}

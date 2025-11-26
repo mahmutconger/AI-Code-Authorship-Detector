@@ -1,0 +1,7 @@
+{
+    "code": "class Solution:\n    def mincostTickets(self, days: List[int], costs: List[int]) -> int:\n        n = len(days)\n        dp = [float('inf')] * (n + 1)\n        dp[0] = 0\n        for i in range(1, n + 1):\n            dp[i] = min(dp[i - 1] + costs[0], dp[max(0, bisect.bisect_right(days, days[i - 1] - 7)) ] + costs[1], dp[max(0, bisect.bisect_right(days, days[i - 1] - 30))] + costs[2])\n        return dp[n]",
+    "source": "test-data-ai",
+    "prompt": "Minimum cost for tickets (travel planning) yaz.",
+    "license": "MIT",
+    "language": "python"
+}

@@ -1,0 +1,7 @@
+{
+    "code": "def memoize(func):\n    cache = dict()\n    def memoized_func(*args):\n        if args in cache:\n            return cache[args]\n        result = func(*args)\n        cache[args] = result\n        return result\n    return memoized_func",
+    "source": "test-data-ai",
+    "prompt": "Memoization decorator yaz.",
+    "license": "MIT",
+    "language": "python"
+}

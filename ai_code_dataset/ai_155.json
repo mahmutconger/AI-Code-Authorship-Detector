@@ -1,0 +1,7 @@
+{
+    "code": "n = int(input())\ntrains = list(map(int, input().split()))\ntrains.sort(reverse=True)\ni = 0\nwhile i < n:\n    i += trains[i]\nprint(i)",
+    "source": "test-data-ai",
+    "prompt": "Maximum trains for which stoppage can be provided yaz.",
+    "license": "MIT",
+    "language": "python"
+}

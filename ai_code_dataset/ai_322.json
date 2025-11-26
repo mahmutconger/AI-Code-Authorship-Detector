@@ -1,0 +1,7 @@
+{
+    "code": "class Node:\n    def __init__(self, data=None):\n        self.data = data\n        self.next = None\n\nclass LinkedList:\n    def __init__(self):\n        self.head = None\n\n    def push(self, new_data):\n        new_node = Node(new_data)\n        new_node.next = self.head\n        self.head = new_node\n\n    def length(self):\n        cur = self.head\n        count = 0\n        while cur is not None:\n            cur = cur.next\n            count += 1\n        return count\n\n    def nth_from_end(self, n):\n        if n < 0:\n            raise ValueError(\"n must be non-negative\")\n        if self.length() < n:\n            raise IndexError(\"list index out of range\")\n        cur = self.head\n        pos = self.length() - n\n        while pos > 0:\n            cur = cur.next\n            pos -= 1\n        return cur.data\n\nll = LinkedList()\nll.push(1)\nll.push(2)\nll.push(3)\nll.push(4)\nprint(ll.nth_from_end(2)) # prints 3",
+    "source": "test-data-ai",
+    "prompt": "Nth node from end of linked list bul.",
+    "license": "MIT",
+    "language": "python"
+}

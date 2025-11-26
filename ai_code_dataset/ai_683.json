@@ -1,0 +1,7 @@
+{
+    "code": "import json\nfrom json import JSONEncoder\n\nclass CustomEncoder(JSONEncoder):\n    def default(self, obj):\n        if isinstance(obj, CustomObject):\n            return {'id': obj.id, 'name': obj.name}\n        return super().default(obj)\n\nclass CustomObject:\n    def __init__(self, id, name):\n        self.id = id\n        self.name = name\n\njson.dumps(CustomObject(1, 'Test'), cls=CustomEncoder)",
+    "source": "test-data-ai",
+    "prompt": "Custom object'i JSON serializable yapan encoder yaz.",
+    "license": "MIT",
+    "language": "python"
+}

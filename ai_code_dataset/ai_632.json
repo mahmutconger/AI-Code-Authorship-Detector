@@ -1,0 +1,7 @@
+{
+    "code": "from flask import Flask, redirect\n\napp = Flask(__name__)\n\n@app.route('/redirect')\ndef redirect_page():\n    return redirect('https://www.example.com')\n\nif __name__ == '__main__':\n    app.run(debug=True)",
+    "source": "test-data-ai",
+    "prompt": "Flask ile redirect yapan endpoint yaz.",
+    "license": "MIT",
+    "language": "python"
+}

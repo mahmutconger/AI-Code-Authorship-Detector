@@ -1,0 +1,7 @@
+{
+    "code": "import heapq\n\ndef find_largest_sum_subsequence(arr, k):\n    heap = []\n    for i in range(len(arr) - k + 1):\n        subseq_sum = sum(arr[i:i+k])\n        heapq.heappush(heap, (-subseq_sum, i))\n    \n    largest_sum, start = heapq.heappop(heap)\n    return arr[start:start+k]\n\n# Example usage\narr = [4, 3, -2, 6, 7, -10, -2, 5, 8]\nk = 3\nprint(find_largest_sum_subsequence(arr, k))",
+    "source": "test-data-ai",
+    "prompt": "Find subsequence of length k with largest sum using heap yaz.",
+    "license": "MIT",
+    "language": "python"
+}

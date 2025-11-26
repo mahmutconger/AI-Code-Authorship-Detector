@@ -1,0 +1,7 @@
+{
+    "code": "import pandas as pd\n\ndef dataframe_to_excel(df, file_name):\n    with pd.ExcelWriter(file_name) as writer:\n        df.to_excel(writer, index=False)\n\n# Example usage:\ndataframe_to_excel(df, 'output.xlsx')",
+    "source": "test-data-ai",
+    "prompt": "DataFrame'i Excel'e yazan fonksiyon yaz.",
+    "license": "MIT",
+    "language": "python"
+}

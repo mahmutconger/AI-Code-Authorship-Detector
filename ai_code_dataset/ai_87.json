@@ -1,0 +1,7 @@
+{
+    "code": "from collections import deque\n\ndef cycle_detection(graph):\n    visited = set()\n    rec_stack = set()\n\n    for node in graph:\n        if node not in visited:\n            if is_cyclic_util(node, graph, visited, rec_stack):\n                return True\n\n    return False\n\ndef is_cyclic_util(node, graph, visited, rec_stack):\n    visited.add(node)\n    rec_stack.add(node)\n\n    for neighbor in graph[node]:\n        if neighbor not in visited:\n            if is_cyclic_util(neighbor, graph, visited, rec_stack):\n                return True\n        elif neighbor in rec_stack:\n            return True\n\n    rec_stack.remove(node)\n    return False\n\n# Example usage:\ngraph = {\n    0: [1, 2],\n    1: [2],\n    2: [3],\n    3: [3]\n}\nprint(cycle_detection(graph))  # Output: True",
+    "source": "test-data-ai",
+    "prompt": "Cycle detection algoritmasını directed graph için yaz.",
+    "license": "MIT",
+    "language": "python"
+}

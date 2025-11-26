@@ -1,0 +1,7 @@
+{
+    "code": "import heapq\n\ndef merge_k_sorted_arrays(arrays):\n    heap = []\n    for i, arr in enumerate(arrays):\n        if arr:\n            heapq.heappush(heap, (arr[0], i, 0))\n    result = []\n    while heap:\n        val, i, j = heapq.heappop(heap)\n        result.append(val)\n        if j + 1 < len(arrays[i]):\n            heapq.heappush(heap, (arrays[i][j + 1], i, j + 1))\n    return result",
+    "source": "test-data-ai",
+    "prompt": "Merge k sorted arrays using heap yaz.",
+    "license": "MIT",
+    "language": "python"
+}

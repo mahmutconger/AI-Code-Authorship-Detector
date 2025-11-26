@@ -1,0 +1,7 @@
+{
+    "code": "def has_cycle(graph):\n    visited = set()\n    rec_stack = set()\n\n    for node in graph:\n        if node not in visited:\n            if has_cycle_util(node, graph, visited, rec_stack):\n                return True\n\n    return False\n\ndef has_cycle_util(node, graph, visited, rec_stack):\n    visited.add(node)\n    rec_stack.add(node)\n\n    for neighbor in graph[node]:\n        if neighbor not in visited:\n            if has_cycle_util(neighbor, graph, visited, rec_stack):\n                return True\n        elif neighbor in rec_stack:\n            return True\n\n    rec_stack.remove(node)\n    return False",
+    "source": "test-data-ai",
+    "prompt": "Detect cycle in undirected graph yaz.",
+    "license": "MIT",
+    "language": "python"
+}

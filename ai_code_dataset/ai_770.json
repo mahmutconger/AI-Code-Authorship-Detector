@@ -1,0 +1,7 @@
+{
+    "code": "x = 10\ny = 20\n\nmiyim = True\n\nsonuc = x if miyim else y \n\nprint(sonuc)",
+    "source": "test-data-ai",
+    "prompt": "Aşağıdaki kodu **ternary operator** kullanarak tek satırda yaz.",
+    "license": "MIT",
+    "language": "python"
+}

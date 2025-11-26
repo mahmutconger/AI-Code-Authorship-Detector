@@ -1,0 +1,7 @@
+{
+    "code": "from fastapi import FastAPI\nfrom pydantic import BaseModel\n\napp = FastAPI()\n\nclass Item(BaseModel):\n    name: str\n    price: float\n\n@app.post(\"/items/\")\nasync def create_item(item: Item):\n    return {\"name\": item.name, \"price\": item.price}",
+    "source": "test-data-ai",
+    "prompt": "FastAPI ile POST endpoint with Pydantic model yaz.",
+    "license": "MIT",
+    "language": "python"
+}

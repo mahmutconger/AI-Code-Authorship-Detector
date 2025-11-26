@@ -1,0 +1,7 @@
+{
+    "code": "def search_in_rotated_sorted_array(nums, target):\n    left, right = 0, len(nums) - 1\n    while left <= right:\n        mid = (left + right) // 2\n        if nums[mid] == target:\n            return mid\n        elif nums[left] <= nums[mid]:\n            if nums[left] <= target < nums[mid]:\n                right = mid - 1\n            else:\n                left = mid + 1\n        else:\n            if nums[mid] < target <= nums[right]:\n                left = mid + 1\n            else:\n                right = mid - 1\n    return -1",
+    "source": "test-data-ai",
+    "prompt": "Rotated sorted array'de eleman arayan binary search varyasyonu yaz.",
+    "license": "MIT",
+    "language": "python"
+}

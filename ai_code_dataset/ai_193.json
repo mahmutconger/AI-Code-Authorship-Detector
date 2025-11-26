@@ -1,0 +1,7 @@
+{
+    "code": "print(3 + 4)\nprint(5 - 2)\nprint(2 * 6)\nprint(8 / 2)",
+    "source": "test-data-ai",
+    "prompt": "Expression add operators yaz.",
+    "license": "MIT",
+    "language": "python"
+}

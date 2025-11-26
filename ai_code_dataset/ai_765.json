@@ -1,0 +1,7 @@
+{
+    "code": "try:\n    num = int(input(\"Enter a number: \"))\n    print(\"You entered:\", num)\nexcept ValueError:\n    print(\"Invalid input. Please enter a valid number.\")",
+    "source": "test-data-ai",
+    "prompt": "Aşağıdaki koddaki **yakalanmamış istisna (unhandled exception)** nerede ve nasıl düzeltilmelidir?",
+    "license": "MIT",
+    "language": "python"
+}

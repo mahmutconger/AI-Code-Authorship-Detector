@@ -1,0 +1,7 @@
+{
+    "code": "class Node:\n    def __init__(self, val, next=None):\n        self.val = val\n        self.next = next\n\ndef connect(root):\n    if root is None:\n        return\n\n    prev = None\n\n    while root:\n        current = root\n        while current:\n            for node in [current, current.next, current.next.next]:\n                if node:\n                    if prev:\n                        prev.next = node\n                    prev = node\n            current = current.next\n        prev = None\n        root = root.next",
+    "source": "test-data-ai",
+    "prompt": "Populate next right pointers yaz.",
+    "license": "MIT",
+    "language": "python"
+}

@@ -1,0 +1,7 @@
+{
+    "code": "import heapq\n\ndef kruskal(graph):\n    mst = []\n    heap = [(e, s, t) for s, neighbors in graph.items() for e, t in neighbors.items()]\n    heapq.heapify(heap)\n\n    parent = {s: s for s in graph}\n    rank = {s: 0 for s in graph}\n\n    def find(node):\n        if parent[node] != node:\n            parent[node] = find(parent[node])\n        return parent[node]\n\n    def union(x, y):\n        rootx, rooty = find(x), find(y)\n        if rootx != rooty:\n            if rank[rootx] > rank[rooty]:\n                parent[rooty] = rootx\n            elif rank[rootx] < rank[rooty]:\n                parent[rootx] = rooty\n            else:\n                parent[rooty] = rootx\n                rank[rootx] += 1\n\n    while heap and len(mst) < len(graph) - 1:\n        edge, s, t = heapq.heappop(heap)\n        if find(s) != find(t):\n            union(s, t)\n            mst.append((s, t, edge))\n\n    return mst",
+    "source": "test-data-ai",
+    "prompt": "Kruskal algoritmasını minimum spanning tree için yaz.",
+    "license": "MIT",
+    "language": "python"
+}

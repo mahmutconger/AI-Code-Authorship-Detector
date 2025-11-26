@@ -1,0 +1,7 @@
+{
+    "code": "class ApiVersioning:\n    def __init__(self):\n        self.versions = {}\n\n    def add_version(self, version, api):\n        self.versions[version] = api\n\n    def get_version(self, version):\n        return self.versions.get(version)\n\n    def get_latest_version(self):\n        return max(self.versions, key=self.versions.get)\n\n    def get_all_versions(self):\n        return self.versions.keys()\n\nclass EdenClient:\n    def __init__(self):\n        self.api_versioning = ApiVersioning()\n\n    def set_api_version(self, version, api):\n        self.api_versioning.add_version(version, api)\n\n    def get_api_version(self, version):\n        return self.api_versioning.get_version(version)\n\n    def get_latest_api_version(self):\n        return self.api_versioning.get_latest_version()\n\n    def get_all_api_versions(self):\n        return self.api_versioning.get_all_versions()\n\n# Example usage\neden_client = EdenClient()\neden_client.set_api_version('v1', 'http://v1.api.com')\neden_client.set_api_version('v2', 'http://v2.api.com')\nprint(eden_client.get_api_version('v1'))  # Output: http://v1.api.com\nprint(eden_client.get_latest_api_version())  # Output: v2\nprint(eden_client.get_all_api_versions())  # Output: ['v1', 'v2']",
+    "source": "test-data-ai",
+    "prompt": "API versioning handle eden client yaz.",
+    "license": "MIT",
+    "language": "python"
+}

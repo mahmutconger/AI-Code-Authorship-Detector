@@ -1,0 +1,7 @@
+{
+    "code": "def yaz(func):\n    def wrapper(*args, **kwargs):\n        for arg in args:\n            if not isinstance(arg, str):\n                raise TypeError(f\"Argument {arg} must be a string\")\n        return func(*args, **kwargs)\n    return wrapper",
+    "source": "test-data-ai",
+    "prompt": "Type checking decorator yaz.",
+    "license": "MIT",
+    "language": "python"
+}

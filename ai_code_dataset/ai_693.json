@@ -1,0 +1,7 @@
+{
+    "code": "import logging\n\n# Create a logger\nlogger = logging.getLogger('my_logger')\nlogger.setLevel(logging.DEBUG)\n\n# Create file handler\nfile_handler = logging.FileHandler('my_log.log')\nfile_handler.setLevel(logging.DEBUG)\n\n# Create console handler\nconsole_handler = logging.StreamHandler()\nconsole_handler.setLevel(logging.DEBUG)\n\n# Create formatter\nformatter = logging.Formatter('%(asctime)s - %(name)s - %(levelname)s - %(message)s')\n\n# Add formatter to handlers\nfile_handler.setFormatter(formatter)\nconsole_handler.setFormatter(formatter)\n\n# Add handlers to logger\nlogger.addHandler(file_handler)\nlogger.addHandler(console_handler)\n\n# Test the logger\nlogger.debug('This is a debug message')\nlogger.info('This is an info message')\nlogger.warning('This is a warning message')\nlogger.error('This is an error message')\nlogger.critical('This is a critical message')",
+    "source": "test-data-ai",
+    "prompt": "Multiple handlers (file + console) ile logger yaz.",
+    "license": "MIT",
+    "language": "python"
+}

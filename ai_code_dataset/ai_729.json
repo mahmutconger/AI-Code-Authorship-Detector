@@ -1,0 +1,7 @@
+{
+    "code": "def validate_postal_code(postal_code):\n    if len(postal_code) != 5:\n        return False\n    if not postal_code.isdigit():\n        return False\n    return True",
+    "source": "test-data-ai",
+    "prompt": "Postal code validation fonksiyonu yaz.",
+    "license": "MIT",
+    "language": "python"
+}

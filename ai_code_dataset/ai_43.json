@@ -1,0 +1,7 @@
+{
+    "code": "def bitap(pattern, text):\n    m = len(pattern)\n    n = len(text)\n    pi = [0] * m\n    pi[0] = m - 1\n    for i in range(1, m):\n        if pattern[i] == pattern[m - 1 - i]:\n            pi[i] = pi[i - 1] - 1\n        else:\n            pi[i] = pi[i - 1]\n    d = [0] * (m + n)\n    for i in range(m, m + n):\n        if pattern[m - 1 - d[i - m]]!= text[i - 1]:\n            d[i] = d[i - 1] + 1\n        else:\n            d[i] = d[i - 1]\n    result = []\n    for i in range(m + n - 1, -1, -1):\n        if d[i] == 0:\n            result.append(i - m + 1)\n        d[i - 1] = max(d[i - 1], d[i] - (m - 1 - pi[d[i]]))\n    result.reverse()\n    return result",
+    "source": "test-data-ai",
+    "prompt": "Bitap algoritmasını approximate string matching için yaz.",
+    "license": "MIT",
+    "language": "python"
+}

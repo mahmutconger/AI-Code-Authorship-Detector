@@ -1,0 +1,7 @@
+{
+    "code": "class ListNode:\n    def __init__(self, val=0, next=None):\n        self.val = val\n        self.next = next\n\ndef getIntersectionNode(headA, headB):\n    if not headA or not headB:\n        return None\n    ptrA, ptrB = headA, headB\n    while ptrA != ptrB:\n        ptrA = ptrA.next if ptrA else headB\n        ptrB = ptrB.next if ptrB else headA\n    return ptrA",
+    "source": "test-data-ai",
+    "prompt": "Intersection point of two linked lists bul.",
+    "license": "MIT",
+    "language": "python"
+}

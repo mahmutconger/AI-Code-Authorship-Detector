@@ -1,0 +1,7 @@
+{
+    "code": "def password_strength(password):\n    score = 0\n    if len(password) < 8:\n        return \"Password is too short.\"\n    elif not any(char.isupper() for char in password):\n        return \"Password should have at least one uppercase letter.\"\n    elif not any(char.islower() for char in password):\n        return \"Password should have at least one lowercase letter.\"\n    elif not any(char.isdigit() for char in password):\n        return \"Password should have at least one number.\"\n    elif not any(char in \"!@#$%^&*()\" for char in password):\n        return \"Password should have at least one special character.\"\n    else:\n        score += 2\n    score += len(password)\n    if score >= 9:\n        return \"Password is strong.\"\n    else:\n        return \"Password is weak.\"\n\nprint(password_strength(\"Password123!\"))\nprint(password_strength(\"password\"))\nprint(password_strength(\"Password\"))\nprint(password_strength(\"Password123\"))\nprint(password_strength(\"PassWord123!\"))",
+    "source": "test-data-ai",
+    "prompt": "Password strength checker yaz.",
+    "license": "MIT",
+    "language": "python"
+}

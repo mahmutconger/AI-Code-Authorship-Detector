@@ -1,0 +1,7 @@
+{
+    "code": "import math\n\ndef bellman_ford(graph, source):\n    n = len(graph)\n    dist = [math.inf] * n\n    dist[source] = 0\n    for i in range(n-1):\n        for u in range(n):\n            for v, w in graph[u]:\n                if dist[u] + w < dist[v]:\n                    dist[v] = dist[u] + w\n    for u in range(n):\n        for v, w in graph[u]:\n            if dist[u] + w < dist[v]:\n                return False, dist\n    return True, dist",
+    "source": "test-data-ai",
+    "prompt": "Bellman-Ford algoritmasını negatif ağırlıklı kenarlar için yaz.",
+    "license": "MIT",
+    "language": "python"
+}

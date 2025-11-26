@@ -1,0 +1,7 @@
+{
+    "code": "def check_ransom_note(ransom_note, magazine):\n    ransom_dict = {}\n    magazine_dict = {}\n\n    for word in ransom_note.split():\n        ransom_dict[word] = ransom_dict.get(word, 0) + 1\n\n    for word in magazine.split():\n        magazine_dict[word] = magazine_dict.get(word, 0) + 1\n\n    for word, count in ransom_dict.items():\n        if word not in magazine_dict or magazine_dict[word] < count:\n            return False\n\n    return True\n\n# Example usage\nransom_note = \"hello world\"\nmagazine = \"hello python world\"\nprint(check_ransom_note(ransom_note, magazine))",
+    "source": "test-data-ai",
+    "prompt": "Ransom note checker using hash map yaz.",
+    "license": "MIT",
+    "language": "python"
+}

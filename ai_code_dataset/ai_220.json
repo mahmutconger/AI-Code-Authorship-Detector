@@ -1,0 +1,7 @@
+{
+    "code": "import heapq\n\nclass MedianFinder:\n    def __init__(self):\n        self.small = []\n        self.large = []\n\n    def addNum(self, num: int) -> None:\n        if len(self.small) == len(self.large):\n            heapq.heappush(self.small, -heapq.heappushpop(self.large, num))\n        else:\n            heapq.heappush(self.large, -heapq.heappushpop(self.small, -num))\n\n    def findMedian(self) -> float:\n        if len(self.small) == len(self.large):\n            return (-self.small[0] + self.large[0]) / 2.0\n        else:\n            return -self.small[0]",
+    "source": "test-data-ai",
+    "prompt": "Median in a stream using heaps yaz.",
+    "license": "MIT",
+    "language": "python"
+}

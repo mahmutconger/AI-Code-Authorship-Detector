@@ -1,0 +1,7 @@
+{
+    "code": "def reverseKGroup(head, k):\n    if not head:\n        return None\n    dummy = ListNode(0)\n    dummy.next = head\n    pre = dummy\n    while head:\n        cur = head\n        for _ in range(k):\n            if not cur.next:\n                return dummy.next\n            cur = cur.next\n        next_node = cur\n        cur = pre.next\n        for _ in range(k):\n            temp = cur.next\n            cur.next = next_node\n            next_node = temp\n            cur = temp\n        pre.next = next_node\n        head = cur\n    return dummy.next",
+    "source": "test-data-ai",
+    "prompt": "Reverse nodes in k-group yaz.",
+    "license": "MIT",
+    "language": "python"
+}

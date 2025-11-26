@@ -1,0 +1,7 @@
+{
+    "code": "set1 = set(input().split())\nset2 = set(input().split())\nprint(list(set1 & set2))",
+    "source": "test-data-ai",
+    "prompt": "Intersection of arrays using hash set yaz.",
+    "license": "MIT",
+    "language": "python"
+}

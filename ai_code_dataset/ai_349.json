@@ -1,0 +1,7 @@
+{
+    "code": "class Node:\n    def __init__(self, data):\n        self.data = data\n        self.next = None\n\nclass LinkedList:\n    def __init__(self):\n        self.head = None\n\n    def split_list(self):\n        if self.head is None:\n            return None\n\n        slow_ptr = self.head\n        fast_ptr = self.head\n\n        while fast_ptr.next != self.head and fast_ptr.next.next != self.head:\n            slow_ptr = slow_ptr.next\n            fast_ptr = fast_ptr.next.next\n\n        if fast_ptr.next.next == self.head:\n            fast_ptr = fast_ptr.next\n\n        first_head = self.head\n        second_head = slow_ptr.next\n\n        slow_ptr.next = first_head\n        fast_ptr.next = second_head\n\n        return first_head, second_head",
+    "source": "test-data-ai",
+    "prompt": "Split circular linked list into two halves yaz.",
+    "license": "MIT",
+    "language": "python"
+}

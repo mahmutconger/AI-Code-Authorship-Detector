@@ -1,0 +1,7 @@
+{
+    "code": "import heapq\n\ndef reorganize_string(s):\n    char_count = {}\n    for char in s:\n        char_count[char] = char_count.get(char, 0) + 1\n\n    min_heap = [(-count, char) for char, count in char_count.items()]\n    heapq.heapify(min_heap)\n\n    result = []\n    while min_heap:\n        count, char = heapq.heappop(min_heap)\n        count = -count\n\n        result.append(char)\n        if count < len(result) // 2:\n            heapq.heappush(min_heap, (1, char))\n        if min_heap:\n            count2, char2 = min_heap[0]\n            if -count2 < len(result) // 2:\n                heapq.heappush(min_heap, (count, char))\n                min_heap.sort(key=lambda x: -x[0])\n                heapq.heappop(min_heap)\n            else:\n                heapq.heappush(min_heap, (count2, char2))\n\n    return ''.join(result)\n\nprint(reorganize_string(\"aab\"))\nprint(reorganize_string(\"aaab\"))\nprint(reorganize_string(\"vvvlo\"))",
+    "source": "test-data-ai",
+    "prompt": "Reorganize string using heap yaz.",
+    "license": "MIT",
+    "language": "python"
+}

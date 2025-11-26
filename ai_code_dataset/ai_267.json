@@ -1,0 +1,7 @@
+{
+    "code": "def mul_inv(a, m):\n    m0, x0, x1 = m, 0, 1\n    while m0:\n        q = (a // m0)\n        m, a = a - q * m0, m0\n        x0, x1 = x1, x0 - q * x1\n    return x1\n\ndef extended_gcd(a, b):\n    if a == 0:\n        return b, 0, 1\n    else:\n        g, y, x = extended_gcd(b % a, a)\n        return g, x - (b // a) * y, y\n\ndef mod_inv(a, m):\n    g, x, _ = extended_gcd(a, m)\n    if g != 1:\n        return None  # modular inverse does not exist\n    else:\n        return x % m\n\ndef mod_inv_modmul(a, m):\n    return a * mod_inv(a, m) % m\n\nprint(mod_inv_modmul(3, 7))  # should return 5\nprint(mod_inv_modmul(7, 8))  # should return None",
+    "source": "test-data-ai",
+    "prompt": "Modular multiplicative inverse bul.",
+    "license": "MIT",
+    "language": "python"
+}

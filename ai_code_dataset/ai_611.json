@@ -1,0 +1,7 @@
+{
+    "code": "from flask import Flask, request, make_response\n\napp = Flask(__name__)\n\n@app.route('/cookie')\ndef set_cookie():\n    response = make_response('Cookie set successfully')\n    response.set_cookie('my_cookie', 'cookie_value')\n    return response\n\nif __name__ == '__main__':\n    app.run(debug=True)",
+    "source": "test-data-ai",
+    "prompt": "Flask ile cookie set eden endpoint yaz.",
+    "license": "MIT",
+    "language": "python"
+}

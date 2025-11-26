@@ -1,0 +1,7 @@
+{
+    "code": "import networkx as nx\nimport matplotlib.pyplot as plt\n\ndef is_isomorphic(g1, g2):\n    if nx.is_isomorphic(g1, g2):\n        return True\n    else:\n        return False\n\ng1 = nx.Graph()\ng1.add_edges_from([(1, 2), (2, 3), (3, 4), (4, 1)])\n\ng2 = nx.Graph()\ng2.add_edges_from([(5, 6), (6, 7), (7, 8), (8, 5)])\n\nprint(is_isomorphic(g1, g2))",
+    "source": "test-data-ai",
+    "prompt": "Graph isomorphism kontrol eden basit algoritma yaz.",
+    "license": "MIT",
+    "language": "python"
+}

@@ -1,0 +1,7 @@
+{
+    "code": "def inorder_iterative(root):\n    if not root:\n        return []\n\n    stack = []\n    result = []\n    current = root\n\n    while True:\n        while current:\n            stack.append(current)\n            current = current.left\n        if stack:\n            current = stack.pop()\n            result.append(current.val)\n            current = current.right\n        else:\n            break\n\n    return result\n\ndef inorder_recursive(root):\n    result = []\n    def inorder(node):\n        if node:\n            inorder(node.left)\n            result.append(node.val)\n            inorder(node.right)\n    inorder(root)\n    return result",
+    "source": "test-data-ai",
+    "prompt": "Binary tree inorder traversal (iterative ve recursive) yaz.",
+    "license": "MIT",
+    "language": "python"
+}

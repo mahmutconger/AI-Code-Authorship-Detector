@@ -1,0 +1,7 @@
+{
+    "code": "import psycopg2\n\nclass Transaction:\n    def __init__(self, dbname, user, password, host='localhost'):\n        self.dbname = dbname\n        self.user = user\n        self.password = password\n        self.host = host\n        self.conn = None\n\n    def __enter__(self):\n        self.conn = psycopg2.connect(database=self.dbname, user=self.user,\n                                     password=self.password, host=self.host)\n        self.conn.autocommit = False\n        return self.conn.cursor()\n\n    def __exit__(self, exc_type, exc_val, exc_tb):\n        if self.conn:\n            if not self.conn.closed:\n                if exc_type is None:\n                    self.conn.commit()\n                else:\n                    self.conn.rollback()\n            self.conn.close()",
+    "source": "test-data-ai",
+    "prompt": "Context manager for database transaction yaz.",
+    "license": "MIT",
+    "language": "python"
+}

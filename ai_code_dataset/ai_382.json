@@ -1,0 +1,7 @@
+{
+    "code": "class CircularQueue():\n    def __init__(self, k):\n        self.k = k\n        self.queue = [None] * k\n        self.head = self.tail = -1\n\n    def enqueue(self, data):\n        if ((self.tail + 1) % self.k == self.head):  \n            print(\"Circular Queue is full\\n\") \n        elif (self.head == -1):  \n            self.head = 0\n            self.tail = 0\n            self.queue[self.tail] = data\n        else: \n            self.tail = (self.tail + 1) % self.k \n            self.queue[self.tail] = data\n\n    def dequeue(self):\n        if (self.head == -1):  \n            print(\"Circular Queue is empty\\n\") \n        elif (self.head == self.tail):  \n            self.temp=self.queue[self.head] \n            self.head = -1\n            self.tail = -1\n            return self.temp\n        else: \n            self.temp = self.queue[self.head] \n            self.head = (self.head + 1) % self.k \n            return self.temp\n\n    def printCQueue(self):\n        if(self.head == -1):\n            print(\"No element in the Circular Queue\")\n        elif (self.tail >= self.head):\n            for i in range(self.head, self.tail + 1):\n                print(self.queue[i], end=\" \")\n        else:\n            for i in range(self.head, self.k):\n                print(self.queue[i], end=\" \")\n            for i in range(0, self.tail + 1):\n                print(self.queue[i], end=\" \")",
+    "source": "test-data-ai",
+    "prompt": "Circular queue implementation yaz.",
+    "license": "MIT",
+    "language": "python"
+}

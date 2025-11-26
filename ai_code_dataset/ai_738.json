@@ -1,0 +1,7 @@
+{
+    "code": "import time\n\ndef retry(exception, max_attempts=5, initial_delay=0.1, factor=2):\n    def decorator(func):\n        def wrapper(*args, **kwargs):\n            attempts = 0\n            success = False\n            while attempts < max_attempts and not success:\n                try:\n                    return func(*args, **kwargs)\n                except exception:\n                    attempts += 1\n                    time.sleep(initial_delay * (factor ** attempts))\n            raise exception('Max attempts exceeded')\n        return wrapper\n    return decorator",
+    "source": "test-data-ai",
+    "prompt": "Retry decorator with exponential backoff yaz.",
+    "license": "MIT",
+    "language": "python"
+}

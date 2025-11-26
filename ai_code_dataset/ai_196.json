@@ -1,0 +1,7 @@
+{
+    "code": "def matchsticks_to_square(matchsticks):\n    total_matchsticks = sum(matchsticks)\n    if total_matchsticks % 4 != 0:\n        return -1\n    side_length = total_matchsticks // 4\n    matchsticks.sort(reverse=True)\n    used = [False] * len(matchsticks)\n    def backtrack(index, count, sides):\n        if count == 4 and all(side == side_length for side in sides):\n            return True\n        if count == 4:\n            return False\n        for i in range(index, len(matchsticks)):\n            if not used[i] and sides[count] + matchsticks[i] <= side_length:\n                used[i] = True\n                if backtrack(i + 1, count + (sides[count] + matchsticks[i] == side_length), sides[:count] + [sides[count] + matchsticks[i]]):\n                    return True\n                used[i] = False\n        return False\n    return 0 if backtrack(0, 0, [0, 0, 0, 0]) else -1",
+    "source": "test-data-ai",
+    "prompt": "Matchsticks to square yaz.",
+    "license": "MIT",
+    "language": "python"
+}

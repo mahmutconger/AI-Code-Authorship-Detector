@@ -1,0 +1,7 @@
+{
+    "code": "def count_smaller(nums):\n    n = len(nums)\n    res = [0] * n\n    BIT = [0] * (n + 1)\n    for i in range(n-1, -1, -1):\n        res[i] = sum(BIT[:i+1])\n        for j in range(i, -1, -1):\n            BIT[j] += 1\n    return res",
+    "source": "test-data-ai",
+    "prompt": "Count of smaller numbers after self using Fenwick tree yaz.",
+    "license": "MIT",
+    "language": "python"
+}

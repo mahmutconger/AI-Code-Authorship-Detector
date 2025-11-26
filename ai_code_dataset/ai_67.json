@@ -1,0 +1,7 @@
+{
+    "code": "class Graph:\n    def __init__(self, vertices):\n        self.V = vertices\n        self.graph = [[0 for column in range(vertices)] for row in range(vertices)]\n\n    def printMST(self, parent):\n        print(\"Edge \\tWeight\")\n        for i in range(1, self.V):\n            print(parent[i], \"-\", i, \"\\t\", self.graph[i][parent[i]])\n\n    def minKey(self, key, mstSet):\n        min = float('inf')\n        for v in range(self.V):\n            if key[v] < min and mstSet[v] == False:\n                min = key[v]\n                min_index = v\n        return min_index\n\n    def primMST(self):\n        key = [float('inf')] * (self.V)\n        parent = [None] * (self.V)\n        key[0] = 0\n        mstSet = [False] * (self.V)\n\n        parent[0] = -1\n\n        for cout in range(self.V):\n            u = self.minKey(key, mstSet)\n            mstSet[u] = True\n            for v in range(self.V):\n                if self.graph[u][v] > 0 and mstSet[v] == False and key[v] > self.graph[u][v]:\n                    key[v] = self.graph[u][v]\n                    parent[v] = u\n        self.printMST(parent)\n\n\n# Create a graph\ng = Graph(5)\ng.graph = [[0, 2, 0, 6, 0],\n           [2, 0, 3, 8, 5],\n           [0, 3, 0, 0, 7],\n           [6, 8, 0, 0, 9],\n           [0, 5, 7, 9, 0]]\n\ng.primMST()",
+    "source": "test-data-ai",
+    "prompt": "Prim algoritmasını MST için priority queue ile yaz.",
+    "license": "MIT",
+    "language": "python"
+}

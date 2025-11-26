@@ -1,0 +1,7 @@
+{
+    "code": "def password_validator(password):\n    if len(password) < 8:\n        return False\n    has_uppercase = False\n    has_digit = False\n    for char in password:\n        if char.isdigit():\n            has_digit = True\n        if char.isupper():\n            has_uppercase = True\n    return has_uppercase and has_digit",
+    "source": "test-data-ai",
+    "prompt": "Kullanıcının girdiği bir şifrenin en az 8 karakter, bir büyük harf ve bir rakam içerip içermediğini kontrol eden bir doğrulama fonksiyonu yaz.",
+    "license": "MIT",
+    "language": "python"
+}

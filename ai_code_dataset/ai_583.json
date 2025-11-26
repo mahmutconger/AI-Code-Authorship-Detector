@@ -1,0 +1,7 @@
+{
+    "code": "import concurrent.futures\nimport requests\n\ndef get_page(url):\n    return requests.get(url).json()\n\ndef main():\n    urls = [\n        'https://api.github.com/users/user1',\n        'https://api.github.com/users/user2',\n        'https://api.github.com/users/user3',\n        'https://api.github.com/users/user4',\n        'https://api.github.com/users/user5'\n    ]\n\n    with concurrent.futures.ThreadPoolExecutor(max_workers=5) as executor:\n        futures = [executor.submit(get_page, url) for url in urls]\n        for future in concurrent.futures.as_completed(futures):\n            try:\n                page = future.result()\n                print(page)\n            except Exception as e:\n                print(f'An error occurred: {e}')\n\nif __name__ == '__main__':\n    main()",
+    "source": "test-data-ai",
+    "prompt": "Concurrent API calls yapan ThreadPoolExecutor örneği yaz.",
+    "license": "MIT",
+    "language": "python"
+}

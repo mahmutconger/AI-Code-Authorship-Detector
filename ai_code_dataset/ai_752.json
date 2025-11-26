@@ -1,0 +1,7 @@
+{
+    "code": "class yaz:\n    def __init__(self, func):\n        self.func = func\n    def __get__(self, instance, owner):\n        return self.func(instance)",
+    "source": "test-data-ai",
+    "prompt": "Class property decorator yaz.",
+    "license": "MIT",
+    "language": "python"
+}

@@ -1,0 +1,7 @@
+{
+    "code": "def is_iban_valid(iban):\n    iban = iban.upper()\n    if not iban.isalnum() or len(iban) != 24:\n        return False\n    else:\n        total = 0\n        for i in range(2, len(iban), 2):\n            total += int(iban[i - 2])\n        for i in range(0, len(iban), 2):\n            digit = int(iban[i]) * 2\n            total += (digit // 10) + (digit % 10)\n        return total % 97 == 0\n\n# Test cases\nprint(is_iban_valid('TR33000610051978645723'))  # True\nprint(is_iban_valid('TR93000610051978901234'))  # False",
+    "source": "test-data-ai",
+    "prompt": "IBAN validation fonksiyonu yaz.",
+    "license": "MIT",
+    "language": "python"
+}

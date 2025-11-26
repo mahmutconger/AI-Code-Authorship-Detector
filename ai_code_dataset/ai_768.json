@@ -1,0 +1,7 @@
+{
+    "code": "import unittest\n\nclass TestSum(unittest.TestCase):\n    def test_positive_numbers(self):\n        self.assertEqual(sum([1, 2, 3]), 6)\n        self.assertEqual(sum([10, 20, 30]), 60)\n\n    def test_negative_numbers(self):\n        self.assertEqual(sum([-1, -2, -3]), -6)\n        self.assertEqual(sum([-10, -20, -30]), -60)\n\n    def test_mixed_numbers(self):\n        self.assertEqual(sum([1, -2, 3]), 2)\n        self.assertEqual(sum([-10, 20, -30]), -20)\n\nif __name__ == '__main__':\n    unittest.main()",
+    "source": "test-data-ai",
+    "prompt": "Aşağıdaki kodun **unit test'ini** yaz (en az 3 farklı senaryo içersin).",
+    "license": "MIT",
+    "language": "python"
+}

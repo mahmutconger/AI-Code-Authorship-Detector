@@ -1,0 +1,7 @@
+{
+    "code": "class MinStack:\n\n    def __init__(self):\n        self.stack = []\n        self.min_stack = []\n\n    def push(self, value):\n        self.stack.append(value)\n        if not self.min_stack or value <= self.min_stack[-1]:\n            self.min_stack.append(value)\n\n    def pop(self):\n        if self.stack[-1] == self.min_stack[-1]:\n            self.min_stack.pop()\n        return self.stack.pop()\n\n    def getMin(self):\n        return self.min_stack[-1]",
+    "source": "test-data-ai",
+    "prompt": "Min stack (constant time getMin) yaz.",
+    "license": "MIT",
+    "language": "python"
+}

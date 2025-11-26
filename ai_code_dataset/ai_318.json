@@ -1,0 +1,7 @@
+{
+    "code": "def find_middle(head):\n    slow, fast = head, head\n    while fast and fast.next:\n        slow = slow.next\n        fast = fast.next.next\n    return slow",
+    "source": "test-data-ai",
+    "prompt": "Linked list'in ortasını bulan fonksiyon yaz.",
+    "license": "MIT",
+    "language": "python"
+}

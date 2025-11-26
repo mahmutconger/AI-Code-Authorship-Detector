@@ -1,0 +1,7 @@
+{
+    "code": "from functools import wraps\nfrom flask import request, redirect, url\\_for\n\ndef login\\_required(f):\n@wraps(f)\ndef decorated\\_function(*args, **kwargs):\nif 'username' not in request.cookies:\nreturn redirect(url\\_for('login'))\nreturn f(*args, **kwargs)\nreturn decorated\\_function\n\n@app.route('/login')\ndef login():\n# Set the user's cookie here\nreturn 'Login successful'\n\n@app.route('/dashboard')\n@login\\_required\ndef dashboard():\nreturn 'Welcome to the dashboard!'",
+    "source": "test-data-ai",
+    "prompt": "Flask ile authentication decorator yaz.",
+    "license": "MIT",
+    "language": "python"
+}

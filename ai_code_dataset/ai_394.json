@@ -1,0 +1,7 @@
+{
+    "code": "import time\n\ndef buy_tickets(n, windows):\n    queue = [i for i in range(1, n + 1)]\n    start_time = time.time()\n\n    while queue:\n        window = queue.pop(0)\n        print(f'Customer {window} is being served.')\n        time.sleep(windows)\n\n    end_time = time.time()\n    print(f'Total time taken to buy tickets: {end_time - start_time:.4f} seconds')\n\nbuy_tickets(10, 0.5)",
+    "source": "test-data-ai",
+    "prompt": "Time needed to buy tickets using queue yaz.",
+    "license": "MIT",
+    "language": "python"
+}

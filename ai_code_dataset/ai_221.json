@@ -1,0 +1,7 @@
+{
+    "code": "def count_ones_in_binary(num):\n    binary_num = bin(num)[2:]\n    return binary_num.count('1')",
+    "source": "test-data-ai",
+    "prompt": "Bir sayının binary gösterimindeki 1'lerin sayısını bul.",
+    "license": "MIT",
+    "language": "python"
+}

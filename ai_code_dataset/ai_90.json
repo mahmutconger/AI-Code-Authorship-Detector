@@ -1,0 +1,7 @@
+{
+    "code": "def is\\_connected(graph):\nfor node in graph:\nvisited = set()\n\ndef dfs(current\\_node):\nif current\\_node not in visited:\nvisited.add(current\\_node)\nfor neighbor in graph[current\\_node]:\ndfs(neighbor)\n\ndfs(node)\nif len(visited) < len(graph):\nreturn False\nreturn True\n\n# Example usage:\ngraph = {\n'A': ['B', 'C'],\n'B': ['A', 'D', 'E'],\n'C': ['A', 'F'],\n'D': ['B'],\n'E': ['B', 'F'],\n'F': ['C', 'E']\n}\n\nprint(is\\_connected(graph))",
+    "source": "test-data-ai",
+    "prompt": "Graph'ın connected olup olmadığını kontrol eden fonksiyon yaz.",
+    "license": "MIT",
+    "language": "python"
+}

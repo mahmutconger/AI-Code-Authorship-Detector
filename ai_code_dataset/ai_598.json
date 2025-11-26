@@ -1,0 +1,7 @@
+{
+    "code": "from flask import Flask, request\napp = Flask(__name__)\n\n@app.route('/data', methods=['POST'])\ndef get_data():\n    if request.method == 'POST':\n        data = request.get_json()\n        return {'You sent': data}, 200\n\nif __name__ == '__main__':\n    app.run(debug=True)",
+    "source": "test-data-ai",
+    "prompt": "Flask ile POST data alan endpoint yaz.",
+    "license": "MIT",
+    "language": "python"
+}

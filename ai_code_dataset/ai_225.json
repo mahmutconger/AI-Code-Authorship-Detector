@@ -1,0 +1,7 @@
+{
+    "code": "def set_ith_bit(num, i):\n    return num | (1 << i)\n\ndef clear_ith_bit(num, i):\n    return num & ~(1 << i)\n\ndef toggle_ith_bit(num, i):\n    return num ^ (1 << i)",
+    "source": "test-data-ai",
+    "prompt": "Bir sayının i'nci bitini set/clear/toggle eden fonksiyonlar yaz.",
+    "license": "MIT",
+    "language": "python"
+}

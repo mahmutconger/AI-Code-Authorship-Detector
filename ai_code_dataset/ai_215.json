@@ -1,0 +1,7 @@
+{
+    "code": "import collections\n\ndef reverse_pairs_count(nums):\n    count = collections.Counter(nums)\n    res = 0\n    for v in count.values():\n        res += v * (v - 1) // 2\n    return res",
+    "source": "test-data-ai",
+    "prompt": "Reverse pairs count yaz.",
+    "license": "MIT",
+    "language": "python"
+}

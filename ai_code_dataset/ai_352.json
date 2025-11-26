@@ -1,0 +1,7 @@
+{
+    "code": "def check_brackets(s):\n    stack = []\n    for c in s:\n        if c in '([{':\n            stack.append(c)\n        elif c in ')]}':\n            if not stack:\n                return False\n            top = stack.pop()\n            if (c == ')' and top != '(') or (c == ']' and top != '[') or (c == '}' and top != '{'):\n                return False\n    return len(stack) == 0",
+    "source": "test-data-ai",
+    "prompt": "Stack kullanarak parantez dengeleme kontrol et.",
+    "license": "MIT",
+    "language": "python"
+}

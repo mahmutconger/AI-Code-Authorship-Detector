@@ -1,0 +1,7 @@
+{
+    "code": "import random\n\ndef partition(arr, low, high):\n    pivot_index = random.randint(low, high)\n    arr[pivot_index], arr[high] = arr[high], arr[pivot_index]\n    pivot = arr[high]\n    i = low - 1\n    for j in range(low, high):\n        if arr[j] < pivot:\n            i += 1\n            arr[i], arr[j] = arr[j], arr[i]\n    arr[i + 1], arr[high] = arr[high], arr[i + 1]\n    return i + 1\n\ndef quickselect(arr, k):\n    low, high = 0, len(arr) - 1\n    while True:\n        pivot_index = partition(arr, low, high)\n        if pivot_index == k - 1:\n            return arr[pivot_index]\n        elif pivot_index < k - 1:\n            low = pivot_index + 1\n        else:\n            high = pivot_index - 1\n\narr = [12, 7, 9, 21, 14, 1]\nk = 3\nprint(quickselect(arr, k))",
+    "source": "test-data-ai",
+    "prompt": "K-th smallest element'i bulan quickselect algoritmasını yaz.",
+    "license": "MIT",
+    "language": "python"
+}

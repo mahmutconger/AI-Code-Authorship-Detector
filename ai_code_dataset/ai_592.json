@@ -1,0 +1,7 @@
+{
+    "code": "import requests\n\ndef custom_user_agent(url, user_agent):\n    headers = {'User-Agent': user_agent}\n    response = requests.get(url, headers=headers)\n    return response",
+    "source": "test-data-ai",
+    "prompt": "Custom user agent ile request yapan fonksiyon yaz.",
+    "license": "MIT",
+    "language": "python"
+}

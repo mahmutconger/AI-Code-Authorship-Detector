@@ -1,0 +1,7 @@
+{
+    "code": "import requests\n\ndef upload_file(url, file_path, field_name='file'):\n    with open(file_path, 'rb') as file:\n        files = {field_name: file}\n        response = requests.post(url, files=files)\n    return response",
+    "source": "test-data-ai",
+    "prompt": "Multipart/form-data file upload yapan fonksiyon yaz.",
+    "license": "MIT",
+    "language": "python"
+}

@@ -1,0 +1,7 @@
+{
+    "code": "from fastapi import FastAPI, Response\nfrom fastapi.middleware.cors import CORSMiddleware\n\napp = FastAPI()\n\norigins = [\"*\"]\n\napp.add_middleware(\n    CORSMiddleware,\n    allow_origins=origins,\n    allow_credentials=True,\n    allow_methods=[\"*\"],\n    allow_headers=[\"*\"],\n)",
+    "source": "test-data-ai",
+    "prompt": "FastAPI ile CORS middleware yaz.",
+    "license": "MIT",
+    "language": "python"
+}

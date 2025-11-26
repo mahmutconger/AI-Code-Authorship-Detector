@@ -1,0 +1,7 @@
+{
+    "code": "def is_happy(n):\n    visited = set()\n    while n != 1 and n not in visited:\n        visited.add(n)\n        n = sum(int(i) ** 2 for i in str(n))\n    return n == 1\n\nprint(is_happy(19))  # True\nprint(is_happy(20))  # False",
+    "source": "test-data-ai",
+    "prompt": "Happy number using hash set yaz.",
+    "license": "MIT",
+    "language": "python"
+}

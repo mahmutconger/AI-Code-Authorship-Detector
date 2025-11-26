@@ -1,0 +1,7 @@
+{
+    "code": "import networkx as nx\nimport networkx.algorithms.connectivity as nx_conn\n\ndef remove_edges_to_keep_traversable(graph, n):\n    while True:\n        num_edges_before = len(graph.edges())\n        graph.remove_edges_from(nx_conn.edge_cut(graph, n))\n        if len(graph.edges()) == num_edges_before:\n            break\n    return graph",
+    "source": "test-data-ai",
+    "prompt": "Remove max number of edges to keep graph traversable yaz.",
+    "license": "MIT",
+    "language": "python"
+}

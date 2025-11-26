@@ -1,0 +1,7 @@
+{
+    "code": "def min\\_coins(coin\\_values, change):\ncoins = [0] \\* (change + 1)\ncoins[0] = 0\nfor amt in range(1, change + 1):\nmin\\_coin\\_amount = float('inf')\nfor cv in coin\\_values:\nif amt >= cv:\nnum\\_coins = coins[amt - cv] + 1\nif num\\_coins < min\\_coin\\_amount:\nmin\\_coin\\_amount = num\\_coins\ncoins[amt] = min\\_coin\\_amount\nreturn coins[change]\n\ncoin\\_values = [1, 5, 10, 25]\nchange = 96\nprint(min\\_coins(coin\\_values, change))",
+    "source": "test-data-ai",
+    "prompt": "Minimum number of coins for change (greedy approach) yaz.",
+    "license": "MIT",
+    "language": "python"
+}

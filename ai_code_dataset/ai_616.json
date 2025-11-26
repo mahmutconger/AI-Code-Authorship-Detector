@@ -1,0 +1,7 @@
+{
+    "code": "from fastapi import FastAPI, Body\nfrom pydantic import BaseModel\n\nclass PersonResponse(BaseModel):\n    name: str\n    age: int\n\napp = FastAPI()\n\n@app.post(\"/person\")\ndef create_person(person: PersonResponse = Body(...)):\n    return person",
+    "source": "test-data-ai",
+    "prompt": "FastAPI ile response model tanımla.",
+    "license": "MIT",
+    "language": "python"
+}

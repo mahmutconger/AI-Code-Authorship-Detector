@@ -1,0 +1,7 @@
+{
+    "code": "import collections\n\ndef articulation_points(graph):\n    time = 0\n    low_time = collections.defaultdict(int)\n    articulation_points = set()\n    root = None\n\n    def visit(node, parent):\n        nonlocal time\n        time += 1\n        low_time[node] = time\n\n        children = 0\n        for neighbor in graph[node]:\n            if neighbor == parent:\n                continue\n\n            if not low_time[neighbor]:\n                children += 1\n                visit(neighbor, node)\n\n                low_time[node] = min(low_time[node], low_time[neighbor])\n\n                if low_time[neighbor] >= time:\n                    articulation_points.add(node)\n\n            elif neighbor in graph[node]:\n                low_time[node] = min(low_time[node], low_time[neighbor])\n\n        if root is None and children > 1:\n            root = node\n\n    for node in graph:\n        if not low_time[node]:\n            visit(node, None)\n\n    return articulation_points if root else None",
+    "source": "test-data-ai",
+    "prompt": "Articulation point (kesim noktası) bulan algoritma yaz.",
+    "license": "MIT",
+    "language": "python"
+}

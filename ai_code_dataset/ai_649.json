@@ -1,0 +1,7 @@
+{
+    "code": "import os\n\ndef list_files(directory):\n    for root, dirs, files in os.walk(directory):\n        for file in files:\n            print(os.path.join(root, file))\n\n# Usage\nlist_files(\"Directory\")",
+    "source": "test-data-ai",
+    "prompt": "Directory içindeki tüm dosyaları listeleyen fonksiyon yaz.",
+    "license": "MIT",
+    "language": "python"
+}

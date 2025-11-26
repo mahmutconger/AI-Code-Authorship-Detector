@@ -1,0 +1,7 @@
+{
+    "code": "from itertools import chain, combinations\n\ndef power_set(iterable):\n    s = list(iterable)\n    return chain.from_iterable(combinations(s, r) for r in range(len(s)+1))\n\n# Example\ndata = [1, 2, 3]\nresult = power_set(data)\nfor subset in result:\n    print(subset)",
+    "source": "test-data-ai",
+    "prompt": "Generate all subsets (power set) yaz.",
+    "license": "MIT",
+    "language": "python"
+}

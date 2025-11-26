@@ -1,0 +1,7 @@
+{
+    "code": "def handle_stream_response(response):\n    if response.status_code == 200:\n        for line in response.iter_lines():\n            if line:\n                try:\n                    data = json.loads(line)\n                    process_data(data)\n                except json.JSONDecodeError:\n                    pass\n    else:\n        print(f\"Error: {response.status_code} - {response.text}\")\n\ndef process_data(data):\n    # Implement your data processing logic here\n    pass",
+    "source": "test-data-ai",
+    "prompt": "Streaming API response handle eden fonksiyon yaz.",
+    "license": "MIT",
+    "language": "python"
+}

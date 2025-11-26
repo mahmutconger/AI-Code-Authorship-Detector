@@ -1,0 +1,7 @@
+{
+    "code": "def all_paths(graph, start, end):\n    result = []\n    stack = [(start, [start])]\n    \n    while stack:\n        node, path = stack.pop()\n        \n        for neighbor in graph[node]:\n            if neighbor == end:\n                result.append(path + [neighbor])\n            else:\n                stack.append((neighbor, path + [neighbor]))\n    \n    return result\n\n# Example usage\ngraph = {0: [1, 2], 1: [2], 2: [3], 3: [4], 4: []}\nsource = 0\ntarget = 4\nprint(all_paths(graph, source, target))",
+    "source": "test-data-ai",
+    "prompt": "All paths from source to target yaz.",
+    "license": "MIT",
+    "language": "python"
+}

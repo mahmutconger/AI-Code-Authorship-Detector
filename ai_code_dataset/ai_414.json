@@ -1,0 +1,7 @@
+{
+    "code": "class Node:\n    def __init__(self, x):\n        self.val = x\n        self.left = None\n        self.right = None\n\ndef invert_tree(node):\n    if node is None:\n        return None\n    node.left, node.right = invert_tree(node.right), invert_tree(node.left)\n    return node\n\ndef tree_to_list(node, lst):\n    if node is not None:\n        lst.append(node.val)\n        tree_to_list(node.left, lst)\n        tree_to_list(node.right, lst)\n    return lst\n\nnode1 = Node(1)\nnode2 = Node(2)\nnode3 = Node(3)\nnode4 = Node(4)\nnode5 = Node(5)\n\nnode1.left = node2\nnode1.right = node3\nnode2.left = node4\nnode2.right = node5\n\ninvert_tree(node1)\n\nprint(tree_to_list(node1, []))",
+    "source": "test-data-ai",
+    "prompt": "Invert binary tree yaz.",
+    "license": "MIT",
+    "language": "python"
+}

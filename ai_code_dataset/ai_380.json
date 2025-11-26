@@ -1,0 +1,7 @@
+{
+    "code": "class Car:\n    def __init__(self, position, speed):\n        self.position = position\n        self.speed = speed\n\ndef car_fleet(target, positions, speeds):\n    cars = [Car(p, s) for p, s in zip(positions, speeds)]\n    cars.sort(key=lambda c: -c.position)\n    stack = []\n    for car in cars:\n        time = (target - car.position) / car.speed\n        while stack and time >= stack[-1]:\n            stack.pop()\n        stack.append(time)\n    return len(stack)",
+    "source": "test-data-ai",
+    "prompt": "Car fleet problem using stack yaz.",
+    "license": "MIT",
+    "language": "python"
+}

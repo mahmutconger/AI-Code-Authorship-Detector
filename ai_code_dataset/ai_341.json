@@ -1,0 +1,7 @@
+{
+    "code": "class Node:\n    def __init__(self, data):\n        self.data = data\n        self.next = None\n\ndef reverse_k_alt(head, k):\n    current = head\n    next = None\n    prev = None\n    count = 0\n\n    while current is not None and count < k:\n        next = current.next\n        current.next = prev\n        prev = current\n        current = next\n        count += 1\n\n    if head is not None:\n        head.next = current\n\n    count = 0\n    while count < k - 1 and current is not None:\n        current = current.next\n        count += 1\n\n    if current is not None:\n        current.next = reverse_k_alt(current.next, k)\n\n    return prev",
+    "source": "test-data-ai",
+    "prompt": "Reverse alternate k nodes yaz.",
+    "license": "MIT",
+    "language": "python"
+}

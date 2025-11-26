@@ -1,0 +1,7 @@
+{
+    "code": "class TreeNode:\n    def __init__(self, val=0, left=None, right=None):\n        self.val = val\n        self.left = left\n        self.right = right\n\ndef verticalOrder(root):\n    if not root:\n        return []\n    queue = deque([(root, 0)])\n    columnTable = defaultdict(list)\n    min_column = max_column = 0\n    while queue:\n        node, column = queue.popleft()\n        columnTable[column].append(node.val)\n        min_column = min(min_column, column)\n        max_column = max(max_column, column)\n        if node.left:\n            queue.append((node.left, column - 1))\n        if node.right:\n            queue.append((node.right, column + 1))\n    return [columnTable[x] for x in range(min_column, max_column + 1)]",
+    "source": "test-data-ai",
+    "prompt": "Binary tree vertical order traversal yaz.",
+    "license": "MIT",
+    "language": "python"
+}

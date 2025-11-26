@@ -1,0 +1,7 @@
+{
+    "code": "import pickle\n\ndef object_to_pickle(obj, filename):\n    with open(filename, 'wb') as file:\n        pickle.dump(obj, file)\n\ndef pickle_to_object(filename):\n    with open(filename, 'rb') as file:\n        return pickle.load(file)\n\n# Test\nobj = {'name': 'John', 'age': 30}\nobject_to_pickle(obj, 'person.pkl')\n\nloaded_obj = pickle_to_object('person.pkl')\nprint(loaded_obj)",
+    "source": "test-data-ai",
+    "prompt": "Pickle ile object serialization yapan fonksiyon yaz.",
+    "license": "MIT",
+    "language": "python"
+}

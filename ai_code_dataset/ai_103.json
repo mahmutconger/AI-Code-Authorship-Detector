@@ -1,0 +1,7 @@
+{
+    "code": "def lcs(a, b):\n    m, n = len(a), len(b)\n    dp = [[0] * (n + 1) for _ in range(m + 1)]\n    for i in range(m + 1):\n        for j in range(n + 1):\n            if i == 0:\n                dp[i][j] = 0\n            elif j == 0:\n                dp[i][j] = 0\n            elif a[i - 1] == b[j - 1]:\n                dp[i][j] = dp[i - 1][j - 1] + 1\n            else:\n                dp[i][j] = max(dp[i - 1][j], dp[i][j - 1])\n    return dp[m][n], [dp[i][j-1] != dp[i-1][j-2] and a[i-1] for i in range(1,m+1) for j in range(1,n+1) if dp[i][j] == max(dp[i-1][j],dp[i][j-1])]",
+    "source": "test-data-ai",
+    "prompt": "Longest Common Subsequence (LCS) problemini DP ile çöz.",
+    "license": "MIT",
+    "language": "python"
+}

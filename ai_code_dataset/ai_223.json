@@ -1,0 +1,7 @@
+{
+    "code": "def is_power_of_two(n):\n    if n <= 0:\n        return False\n    return (n & (n - 1)) == 0",
+    "source": "test-data-ai",
+    "prompt": "Bir sayının power of 2 olup olmadığını kontrol et.",
+    "license": "MIT",
+    "language": "python"
+}

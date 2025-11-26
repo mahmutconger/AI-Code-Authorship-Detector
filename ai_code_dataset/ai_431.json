@@ -1,0 +1,7 @@
+{
+    "code": "class TreeNode:\n    def __init__(self, x):\n        self.val = x\n        self.left = None\n        self.right = None\n\nclass Solution:\n    def searchBST(self, root, val):\n        if not root:\n            return None\n        if root.val == val:\n            return root\n        if val < root.val:\n            return self.searchBST(root.left, val)\n        return self.searchBST(root.right, val)",
+    "source": "test-data-ai",
+    "prompt": "Search in BST yaz.",
+    "license": "MIT",
+    "language": "python"
+}

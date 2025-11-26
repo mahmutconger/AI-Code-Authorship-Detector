@@ -1,0 +1,7 @@
+{
+    "code": "def remove_edge(graph, u, v):\n    if u in graph and v in graph[u]:\n        del graph[u][v]\n    if v in graph and u in graph[v]:\n        del graph[v][u]\n    return graph",
+    "source": "test-data-ai",
+    "prompt": "Remove edge from graph yaz.",
+    "license": "MIT",
+    "language": "python"
+}

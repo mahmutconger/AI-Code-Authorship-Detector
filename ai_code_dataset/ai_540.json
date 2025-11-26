@@ -1,0 +1,7 @@
+{
+    "code": "class UnionFind:\n    def __init__(self,n):\n        self.parent = list(range(n))\n        self.rank = [0] * n\n    def find(self,x):\n        if self.parent[x] != x:\n            self.parent[x] = self.find(self.parent[x])\n        return self.parent[x]\n    def union(self,x,y):\n        xroot = self.find(x)\n        yroot = self.find(y)\n        if xroot == yroot:\n            return\n        if self.rank[xroot] < self.rank[yroot]:\n            self.parent[xroot] = yroot\n        elif self.rank[xroot] > self.rank[yroot]:\n            self.parent[yroot] = xroot\n        else:\n            self.parent[yroot] = xroot\n            self.rank[xroot] += 1\ndef equationsPossible(equations):\n    uf = UnionFind(26)\n    for eq in equations:\n        if eq[1] == '=':\n            uf.union(ord(eq[0]) - ord('a'), ord(eq[3]) - ord('a'))\n    for eq in equations:\n        if eq[1] == '!':\n            if uf.find(ord(eq[0]) - ord('a')) == uf.find(ord(eq[3]) - ord('a')):\n                return False\n    return True",
+    "source": "test-data-ai",
+    "prompt": "Satisfiability of equality equations using union find yaz.",
+    "license": "MIT",
+    "language": "python"
+}

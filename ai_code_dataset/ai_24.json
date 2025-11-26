@@ -1,0 +1,7 @@
+{
+    "code": "def wave_sort(arr):\n    n = len(arr)\n    for i in range(0, n, 2):\n        if i > 0 and arr[i] < arr[i-1]:\n            arr[i], arr[i-1] = arr[i-1], arr[i]\n        if i < n-1 and arr[i] < arr[i+1]:\n            arr[i], arr[i+1] = arr[i+1], arr[i]\n    return arr",
+    "source": "test-data-ai",
+    "prompt": "Wave Sort algoritmasını (zigzag pattern) uygula.",
+    "license": "MIT",
+    "language": "python"
+}

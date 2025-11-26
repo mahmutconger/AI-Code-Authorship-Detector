@@ -1,0 +1,7 @@
+{
+    "code": "import random\n\ndef is\\_valid(n, x, y):\n    if x < 0 or x >= n or y < 0 or y >= n:\n        return False\n    return True\n\ndef knight\\_tour\\_problemini(n):\n    move\\_x = [2, 2, -2, -2, 1, 1, -1, -1]\n    move\\_y = [1, -1, 1, -1, 2, -2, 2, -2]\n    board = [[-1 for _ in range(n)] for _ in range(n)]\n    x, y = random.randint(0, n - 1), random.randint(0, n - 1)\n    board[x][y] = 0\n    moves = 0\n\n    while moves < n * n - 1:\n        possibles = []\n        for k in range(8):\n            new\\_x, new\\_y = x + move\\_x[k], y + move\\_y[k]\n            if is\\_valid(n, new\\_x, new\\_y) and board[new\\_x][new\\_y] == -1:\n                possibles.append((new\\_x, new\\_y))\n        if not possibles:\n            back = moves - 1\n            while board[x][y] != 0 and moves < n * n - 1:\n                board[x][y] = -1\n                x, y = board[x - move\\_x[back % 8]][y - move\\_y[back % 8]]\n                board[x][y] = moves\n                moves += 1\n                back -= 1\n        else:\n            next\\_x, next\\_y = random.choice(possibles)\n            x, y = next\\_x, next\\_y\n            board[x][y] = moves + 1\n            moves += 1\n\n    return board\n\nprint(knight\\_tour\\_problemini(5))",
+    "source": "test-data-ai",
+    "prompt": "Knight's tour problemini yaz.",
+    "license": "MIT",
+    "language": "python"
+}

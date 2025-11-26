@@ -1,0 +1,7 @@
+{
+    "code": "def lucas_lehmer_test(p):\n    s = 4\n    M = 2**p - 1\n    for _ in range(2, p):\n        s = (s**2 - 2) % M\n    return s == 0\n\np = 7\nresult = lucas_lehmer_test(p)\nprint(result)",
+    "source": "test-data-ai",
+    "prompt": "Lucas-Lehmer primality test for Mersenne primes yaz.",
+    "license": "MIT",
+    "language": "python"
+}

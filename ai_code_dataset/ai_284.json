@@ -1,0 +1,7 @@
+{
+    "code": "def longestPalindrome(s):\n    n=len(s)\n    dp=[0]*n\n    center=0\n    right=0\n    for i in range(n):\n        if i<=right:\n            dp[i]=min(dp[2*center-i],right-i)\n        while i-dp[i]>=0 and i+dp[i]<n and s[i-dp[i]]==s[i+dp[i]]:\n            dp[i]+=1\n        if i+dp[i]>right:\n            center=i\n            right=i+dp[i]\n    return max(dp)",
+    "source": "test-data-ai",
+    "prompt": "Manacher's algorithm for longest palindromic substring yaz.",
+    "license": "MIT",
+    "language": "python"
+}

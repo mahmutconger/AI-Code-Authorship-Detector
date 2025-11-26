@@ -1,0 +1,7 @@
+{
+    "code": "class Node:\n    def __init__(self, data=0, next=None):\n        self.data = data\n        self.next = next\n\ndef merge_sorted_lists(left, right):\n    result = Node()\n    last = result\n    while left is not None and right is not None:\n        if left.data < right.data:\n            last.next = left\n            left = left.next\n        else:\n            last.next = right\n            right = right.next\n        last = last.next\n    last.next = left if left is not None else right\n    return result.next\n\ndef merge_sort(head):\n    if head is None or head.next is None:\n        return head\n    slow, fast = head, head.next\n    while fast and fast.next:\n        slow = slow.next\n        fast = fast.next.next\n    mid = slow.next\n    slow.next = None\n    return merge_sorted_lists(merge_sort(head), merge_sort(mid))",
+    "source": "test-data-ai",
+    "prompt": "Sort linked list using merge sort yaz.",
+    "license": "MIT",
+    "language": "python"
+}

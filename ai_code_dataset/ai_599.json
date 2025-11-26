@@ -1,0 +1,7 @@
+{
+    "code": "from flask import request, Response\n\nclass MyMiddleware:\n    def __init__(self, app):\n        self.app = app\n\n    def __call__(self, view, *args, **kwargs):\n        print(\"Middleware: Before view function call\")\n        response = view(*args, **kwargs)\n        print(\"Middleware: After view function call\")\n        return response\n\napp = Flask(__name__)\n\n@app.before_request\ndef before_request():\n    print(\"Before request\")\n\n@app.after_request\ndef after_request(response):\n    print(\"After request\")\n    return response\n\n@app.route('/')\ndef hello_world():\n    return 'Hello, World!'\n\napp.wsgi_app = MyMiddleware(app.wsgi_app)\n\nif __name__ == '__main__':\n    app.run()",
+    "source": "test-data-ai",
+    "prompt": "Flask middleware örneği yaz.",
+    "license": "MIT",
+    "language": "python"
+}

@@ -1,0 +1,7 @@
+{
+    "code": "def parse_headers(headers):\n    parsed_headers = {}\n    lines = headers.strip().split('\\r\\n')\n    for line in lines:\n        key, value = line.split(': ', 1)\n        parsed_headers[key] = value\n    return parsed_headers",
+    "source": "test-data-ai",
+    "prompt": "HTTP headers parse eden fonksiyon yaz.",
+    "license": "MIT",
+    "language": "python"
+}

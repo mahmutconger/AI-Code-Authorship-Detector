@@ -1,0 +1,7 @@
+{
+    "code": "def process_data():\n    data = get_data()\n    result = []\n    for item in data:\n        processed_item = process_item(item)",
+    "source": "test-data-ai",
+    "prompt": "Bir döngü içinde gereksiz yere tanımlanmış değişkeni döngü dışına alarak bu kodu refactor et.",
+    "license": "MIT",
+    "language": "python"
+}

@@ -1,0 +1,7 @@
+{
+    "code": "def is_bleak_yaz(n):\n    return -10 <= n <= 10 and ('0' not in str(n) or '1' not in str(n) or '2' not in str(n) or '5' not in str(n))\n\n# Test cases\nassert is_bleak_yaz(0) == True\nassert is_bleak_yaz(1) == False\nassert is_bleak_yaz(5) == False\nassert is_bleak_yaz(10) == False\nassert is_bleak_yaz(11) == False\nassert is_bleak_yaz(-1) == True\nassert is_bleak_yaz(-10) == True\nassert is_bleak_yaz(-11) == False",
+    "source": "test-data-ai",
+    "prompt": "Check if a number is bleak yaz.",
+    "license": "MIT",
+    "language": "python"
+}

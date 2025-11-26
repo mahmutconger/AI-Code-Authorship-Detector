@@ -1,0 +1,7 @@
+{
+    "code": "import math\n\ndef shell_sort(arr):\n    n = len(arr)\n    gap = n // 2\n    while gap > 0:\n        for i in range(gap, n):\n            temp = arr[i]\n            j = i\n            while j >= gap and arr[j - gap] > temp:\n                arr[j] = arr[j - gap]\n                j -= gap\n            arr[j] = temp\n        gap = gap // 2\n    return arr\n\ndef shell_sort_with_gap(arr, gap):\n    n = len(arr)\n    for g in gap:\n        for i in range(g, n):\n            temp = arr[i]\n            j = i\n            while j >= g and arr[j - g] > temp:\n                arr[j] = arr[j - g]\n                j -= g\n            arr[j] = temp\n    return arr\n\narr = [64, 34, 25, 12, 22, 11, 90]\ngap1 = [5, 3, 1]\ngap2 = [4, 1]\ngap3 = [3, 1]\n\nresult1 = shell_sort_with_gap(arr.copy(), gap1)\nresult2 = shell_sort_with_gap(arr.copy(), gap2)\nresult3 = shell_sort_with_gap(arr.copy(), gap3)\n\nprint(result1)\nprint(result2)\nprint(result3)",
+    "source": "test-data-ai",
+    "prompt": "Shell Sort algoritmasını farklı gap dizileriyle uygula.",
+    "license": "MIT",
+    "language": "python"
+}

@@ -1,0 +1,7 @@
+{
+    "code": "def fast_power(base, exponent, mod):\n    result = 1\n    while (exponent > 0):\n        if (exponent % 2 == 1):\n            result = (result * base) % mod\n        exponent = exponent >> 1\n        base = (base * base) % mod\n    return result",
+    "source": "test-data-ai",
+    "prompt": "Modular exponentiation (fast power) algoritması yaz.",
+    "license": "MIT",
+    "language": "python"
+}

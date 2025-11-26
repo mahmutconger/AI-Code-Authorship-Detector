@@ -1,0 +1,7 @@
+{
+    "code": "a = 5\nb = 7\n\na += b # this is the same as a = a + b\nprint(a)",
+    "source": "test-data-ai",
+    "prompt": "İki sayıyı aritmetik operatörler kullanmadan topla.",
+    "license": "MIT",
+    "language": "python"
+}

@@ -1,0 +1,7 @@
+{
+    "code": "import urllib.parse, urllib.request\n\ndef get\\_with\\_query(url, query\\_params):\nurl = url + \"?\" + urllib.parse.urlencode(query\\_params)\nresponse = urllib.request.urlopen(url)\nreturn response.read()",
+    "source": "test-data-ai",
+    "prompt": "Query parameters ile GET request yapan fonksiyon yaz.",
+    "license": "MIT",
+    "language": "python"
+}

@@ -1,0 +1,7 @@
+{
+    "code": "def singleton(cls):\n    instances = {}\n    def get_instance(*args, **kwargs):\n        if cls not in instances:\n            instances[cls] = cls(*args, **kwargs)\n        return instances[cls]\n    return get_instance\n\n@singleton\nclass MyClass:\n    pass",
+    "source": "test-data-ai",
+    "prompt": "Singleton pattern decorator yaz.",
+    "license": "MIT",
+    "language": "python"
+}

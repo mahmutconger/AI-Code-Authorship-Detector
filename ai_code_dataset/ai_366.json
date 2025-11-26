@@ -1,0 +1,7 @@
+{
+    "code": "import re\nfrom collections import deque\n\ndef decode_yaz(string):\n    stack = deque()\n    for i in reversed(re.findall(r'[A-Z]+|\\d+', string)):\n        if i.isdigit():\n            stack.extendleft(int(i) * [stack.pop()])\n        else:\n            stack.appendleft(i)\n    return ''.join(stack)\n\nprint(decode_yaz(\"3[a]2[b4[de]]\"))",
+    "source": "test-data-ai",
+    "prompt": "Decode string using stack yaz.",
+    "license": "MIT",
+    "language": "python"
+}

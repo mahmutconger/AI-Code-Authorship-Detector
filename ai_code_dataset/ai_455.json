@@ -1,0 +1,7 @@
+{
+    "code": "import heapq\n\npoints = [(1, 2), (3, 4), (5, 6), (7, 8), (9, 10)]\nk = 3\n\nheap = []\n\nfor point in points:\n    distance = point[0]**2 + point[1]**2\n    heapq.heappush(heap, (distance, point))\n\nfor _ in range(k):\n    _, point = heapq.heappop(heap)\n    print(point)",
+    "source": "test-data-ai",
+    "prompt": "K closest points to origin using heap yaz.",
+    "license": "MIT",
+    "language": "python"
+}

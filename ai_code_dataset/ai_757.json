@@ -1,0 +1,7 @@
+{
+    "code": "def check_number(num):\n    if num > 0:\n        if num % 2 == 0:\n            if num % 4 == 0:\n                return \"Number is positive, even and divisible by 4\"\n            else:\n                return \"Number is positive and even but not divisible by 4\"\n        else:\n            return \"Number is positive but not even\"\n    else:\n        return \"Number is not positive\"",
+    "source": "test-data-ai",
+    "prompt": "Bu kodu daha okunabilir hale getirmek için **refactor** et: İç içe 3 if-else bloğu olan bir fonksiyon yaz.",
+    "license": "MIT",
+    "language": "python"
+}

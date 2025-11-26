@@ -1,0 +1,7 @@
+{
+    "code": "class Node:\n    def __init__(self, val = 0, neighbors = None):\n        self.val = val\n        self.neighbors = [] if neighbors is None else neighbors\n\ndef cloneGraph(node):\n    if not node:\n        return None\n        \n    visited = {}\n    def dfs(old_node):\n        if old_node in visited:\n            return visited[old_node]\n        \n        new_node = Node(old_node.val)\n        visited[old_node] = new_node\n        for neighbor in old_node.neighbors:\n            new_node.neighbors.append(dfs(neighbor))\n        \n        return new_node\n    \n    return dfs(node)",
+    "source": "test-data-ai",
+    "prompt": "Clone graph yaz.",
+    "license": "MIT",
+    "language": "python"
+}

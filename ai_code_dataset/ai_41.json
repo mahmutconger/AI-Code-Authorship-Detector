@@ -1,0 +1,7 @@
+{
+    "code": "def search_in_matrix(matrix, target):\n    for i in range(len(matrix)):\n        for j in range(len(matrix[0])):\n            if matrix[i][j] == target:\n                return (i, j)\n    return None\n\n# Example of how to use the function:\nmatrix = [\n    [1, 2, 3],\n    [4, 5, 6],\n    [7, 8, 9]\n]\n\ntarget = 5\nprint(search_in_matrix(matrix, target))",
+    "source": "test-data-ai",
+    "prompt": "2D matrix'te satır ve sütunlar sıralıyken eleman arayan algoritma yaz.",
+    "license": "MIT",
+    "language": "python"
+}

@@ -1,0 +1,7 @@
+{
+    "code": "def find_duplicates(arr):\n    seen = set()\n    duplicates = set()\n\n    for num in arr:\n        if num in seen:\n            duplicates.add(num)\n        else:\n            seen.add(num)\n\n    return duplicates",
+    "source": "test-data-ai",
+    "prompt": "Find duplicate in array using hash set yaz.",
+    "license": "MIT",
+    "language": "python"
+}

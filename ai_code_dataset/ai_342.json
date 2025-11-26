@@ -1,0 +1,7 @@
+{
+    "code": "def pairwise_swap(head):\n    if not head or not head.next:\n        return head\n    prev, curr = None, head\n    while curr and curr.next:\n        next_node = curr.next\n        if prev:\n            prev.next = next_node\n        else:\n            head = next_node\n        curr.next = prev\n        prev = curr\n        curr = next_node\n    return head\n\nclass ListNode:\n    def __init__(self, val=0, next=None):\n        self.val = val\n        self.next = next\n\n# Test\na = ListNode(1)\nb = ListNode(2)\nc = ListNode(3)\nd = ListNode(4)\na.next = b\nb.next = c\nc.next = d\n\nhead = pairwise_swap(a)\nwhile head:\n    print(head.val, end=' -> ')\n    head = head.next\nprint('None')",
+    "source": "test-data-ai",
+    "prompt": "Pairwise swap nodes yaz.",
+    "license": "MIT",
+    "language": "python"
+}

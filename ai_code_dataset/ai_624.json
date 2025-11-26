@@ -1,0 +1,7 @@
+{
+    "code": "from fastapi import FastAPI, HTTPException\nfrom starlette.responses import JSONResponse\n\napp = FastAPI()\n\nclass CustomException(Exception):\n    def __init__(self, message, status_code):\n        self.message = message\n        self.status_code = status_code\n\n@app.exception_handler(CustomException)\nasync def custom_exception_handler(request, exc):\n    return JSONResponse(status_code=exc.status_code, content={\"detail\": exc.message})\n\n@app.get(\"/\")\nasync def root():\n    raise CustomException(\"This is a custom exception\", 400)",
+    "source": "test-data-ai",
+    "prompt": "FastAPI ile custom exception handler yaz.",
+    "license": "MIT",
+    "language": "python"
+}

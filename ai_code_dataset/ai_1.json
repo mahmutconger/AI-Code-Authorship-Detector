@@ -1,0 +1,7 @@
+{
+    "code": "def quicksort(arr):\n    if len(arr) <= 1:\n        return arr\n    pivot = arr[len(arr) // 2]\n    left = [x for x in arr if x < pivot]\n    middle = [x for x in arr if x == pivot]\n    right = [x for x in arr if x > pivot]\n    return quicksort(left) + middle + quicksort(right)",
+    "source": "test-data-ai",
+    "prompt": "Python'da yinelemeli (iterative) bir Hızlı Sıralama (Quicksort) algoritması yaz.",
+    "license": "MIT",
+    "language": "python"
+}

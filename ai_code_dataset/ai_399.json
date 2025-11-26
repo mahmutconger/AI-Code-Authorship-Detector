@@ -1,0 +1,7 @@
+{
+    "code": "from collections import deque\n\ndef jumpGameVI(nums):\n    n = len(nums)\n    q = deque([(0, 0, nums[0])])  # (index, jump, value)\n    res = [[float('inf'), float('inf')]]\n    while q:\n        i, jump, val = q.popleft()\n        if res[0][0] < val:\n            res = [[val, jump]]\n        elif res[0][0] == val:\n            res[0][1] = min(res[0][1], jump)\n        if i + nums[i] >= n - 1:\n            res[0][0] = min(res[0][0], val)\n            res[0][1] = min(res[0][1], jump)\n        for j in range(i + 1, min(i + nums[i] + 1, n)):\n            q.append((j, jump + 1, val + nums[j]))\n    return res[0]",
+    "source": "test-data-ai",
+    "prompt": "Jump game VI using deque yaz.",
+    "license": "MIT",
+    "language": "python"
+}

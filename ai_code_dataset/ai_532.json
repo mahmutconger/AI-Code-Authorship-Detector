@@ -1,0 +1,7 @@
+{
+    "code": "class UnionFind:\n    def __init__(self, n):\n        self.parent = list(range(n))\n        self.rank = [0] * n\n    def find(self, x):\n        if self.parent[x] != x:\n            self.parent[x] = self.find(self.parent[x])\n        return self.parent[x]\n    def union(self, x, y):\n        x_root = self.find(x)\n        y_root = self.find(y)\n        if x_root == y_root:\n            return\n        if self.rank[x_root] < self.rank[y_root]:\n            self.parent[x_root] = y_root\n        elif self.rank[x_root] > self.rank[y_root]:\n            self.parent[y_root] = x_root\n        else:\n            self.parent[y_root] = x_root\n            self.rank[x_root] += 1",
+    "source": "test-data-ai",
+    "prompt": "Union by rank optimization yaz.",
+    "license": "MIT",
+    "language": "python"
+}

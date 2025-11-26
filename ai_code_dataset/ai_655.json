@@ -1,0 +1,7 @@
+{
+    "code": "def kontrol_izin(filename):\n    izinler = ['read', 'write', 'execute']\n    for izin in izinler:\n        if not os.access(filename, izin):\n            return False\n    return True",
+    "source": "test-data-ai",
+    "prompt": "Dosya izinlerini kontrol eden fonksiyon yaz.",
+    "license": "MIT",
+    "language": "python"
+}

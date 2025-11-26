@@ -1,0 +1,7 @@
+{
+    "code": "def chunks(file_path, chunk_size):\n    with open(file_path, 'rb') as file:\n        while True:\n            chunk = file.read(chunk_size)\n            if not chunk:\n                break\n            yield chunk",
+    "source": "test-data-ai",
+    "prompt": "Large file'ı chunk'lar halinde okuyan generator yaz.",
+    "license": "MIT",
+    "language": "python"
+}

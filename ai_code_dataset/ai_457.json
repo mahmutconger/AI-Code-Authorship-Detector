@@ -1,0 +1,7 @@
+{
+    "code": "import heapq\n\ndef nthUglyNumber(n):\n    heap = [1]\n    seen = {1}\n    res = 0\n\n    for _ in range(n):\n        res = heapq.heappop(heap)\n        for i in [2, 3, 5]:\n            ugly = res * i\n            if ugly not in seen:\n                seen.add(ugly)\n                heapq.heappush(heap, ugly)\n\n    return res\n\nn = 10\nprint(nthUglyNumber(n))",
+    "source": "test-data-ai",
+    "prompt": "Ugly number II using heap yaz.",
+    "license": "MIT",
+    "language": "python"
+}

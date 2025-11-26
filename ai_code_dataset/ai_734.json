@@ -1,0 +1,7 @@
+{
+    "code": "def validate_size(filename, max_size):\n    if not isinstance(max_size, int) or max_size < 0:\n        raise ValueError(\"Invalid max file size\")\n    return os.path.getsize(filename) <= max_size",
+    "source": "test-data-ai",
+    "prompt": "File size limit validator yaz.",
+    "license": "MIT",
+    "language": "python"
+}

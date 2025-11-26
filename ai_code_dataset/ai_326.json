@@ -1,0 +1,7 @@
+{
+    "code": "class D LinkedList:\ndef __init__(self):\nself.head = None\n\ndef append(self, data):\nnew\\_node = Node(data)\nif not self.head:\nself.head = new\\_node\nreturn\ncurr = self.head\nwhile curr.next:\ncurr = curr.next\ncurr.next = new\\_node\nnew\\_node.prev = curr\n\nclass Node:\ndef **init**(self, data):\nself.data = data\nself.next = None\nself.prev = None\n\ndef flatten\\_d\\_linked\\_list(head):\nif not head or not head.next:\nreturn head\nhead\\_next = head.next\nwhile head\\_next:\nif head\\_next.next:\nhead\\_next = merge(head, head\\_next)\nelse:\nbreak\nreturn head\n\ndef merge(list1, list2):\nlist1\\_temp = list1\nlist2\\_next = list2.next\nlist2.next = None\nlist1.next = list2\nlist2.prev = list1\nlist2\\_next.prev = None\nreturn list1\\_next\n\ndef display(head):\ncurr = head\nwhile curr:\nprint(curr.data, end=\" <-> \")\ncurr = curr.next\nprint(\"None\")\n\ndll = D LinkedList()\ndll.append(1)\ndll.append(2)\ndll.append(3)\ndll.append(4)\ndll.append(5)\ndll.append(6)\n\nroot = dll.flatten\\_d\\_linked\\_list(dll.head)\ndll.display(root)",
+    "source": "test-data-ai",
+    "prompt": "Flatten a multilevel doubly linked list yaz.",
+    "license": "MIT",
+    "language": "python"
+}

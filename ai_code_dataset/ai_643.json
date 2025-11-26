@@ -1,0 +1,7 @@
+{
+    "code": "def dict_to_json(dictionary, filename):\n    import json\n    with open(filename, 'w') as f:\n        json.dump(dictionary, f, indent=4)",
+    "source": "test-data-ai",
+    "prompt": "Python dictionary'yi JSON dosyasına yazan fonksiyon yaz.",
+    "license": "MIT",
+    "language": "python"
+}

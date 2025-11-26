@@ -1,0 +1,7 @@
+{
+    "code": "def find_missing(arr):\n    n = len(arr) + 1\n    xor_all = 0\n    xor_arr = 0\n    for i in range(1, n + 1):\n        xor_all ^= i\n    for num in arr:\n        xor_arr ^= num\n    return xor_all ^ xor_arr",
+    "source": "test-data-ai",
+    "prompt": "Missing number problemi için XOR tekniğini kullanan fonksiyon yaz.",
+    "license": "MIT",
+    "language": "python"
+}

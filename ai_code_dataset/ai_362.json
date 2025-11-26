@@ -1,0 +1,7 @@
+{
+    "code": "def reverse_stack(stack):\n    if not stack or len(stack) == 1:\n        return stack\n    top = stack.pop()\n    reverse_stack(stack)\n    stack.append(top)\n\n# Example usage:\nstack = [1, 2, 3, 4, 5]\nprint(reverse_stack(stack))",
+    "source": "test-data-ai",
+    "prompt": "Reverse a stack using recursion yaz.",
+    "license": "MIT",
+    "language": "python"
+}

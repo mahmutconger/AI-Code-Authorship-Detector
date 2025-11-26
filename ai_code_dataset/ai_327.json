@@ -1,0 +1,7 @@
+{
+    "code": "class Node:\n    def __init__(self, x):\n        self.val = x\n        self.next = None\n        self.random = None\n\ndef copyRandomList(head):\n    if not head:\n        return None\n\n    oldToNew = {}\n    oldToNew[head] = Node(head.val)\n    cur = head\n    while cur:\n        oldToNew[cur] = Node(cur.val)\n        cur = cur.next\n\n    cur = head\n    while cur:\n        if cur.next:\n            oldToNew[cur].next = oldToNew[cur.next]\n        if cur.random:\n            oldToNew[cur].random = oldToNew[cur.random]\n        cur = cur.next\n\n    return oldToNew[head]",
+    "source": "test-data-ai",
+    "prompt": "Copy list with random pointer yaz.",
+    "license": "MIT",
+    "language": "python"
+}

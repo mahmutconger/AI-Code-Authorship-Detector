@@ -1,0 +1,7 @@
+{
+    "code": "import sys\nfrom functools import wraps\n\ndef track_memory(func):\n    @wraps(func)\n    def wrapper(*args, **kwargs):\n        initial_memory = sys.gettotalmemory()\n        result = func(*args, **kwargs)\n        final_memory = sys.gettotalmemory()\n        memory_used = final_memory - initial_memory\n        print(f'Memory used by {func.__name__}: {memory_used} bytes')\n        return result\n    return wrapper\n\n@track_memory\ndef my_function():\n    large_list = [i for i in range(1000000)]\n\nmy_function()\n\nThis code defines a decorator `track_memory` that can be used to track the memory usage of a function. The decorator uses the `sys.gettotalmemory` function to get the current memory usage before and after the function is called, and then calculates the difference to determine the amount of memory used by the function. The memory usage is then printed to the console. The `track_memory` decorator is then used to decorate the `my_function` function, which creates a large list to use up memory. When `my_function` is called, the `track_memory` decorator will track the memory usage and print it to the console.",
+    "source": "test-data-ai",
+    "prompt": "Memory usage tracking decorator yaz.",
+    "license": "MIT",
+    "language": "python"
+}

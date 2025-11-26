@@ -1,0 +1,7 @@
+{
+    "code": "def validate_api_response(response):\n    try:\n        data = response.json()\n        if response.status_code == 200 and data:\n            return True, data\n        else:\n            return False, data\n    except Exception as e:\n        return False, str(e)",
+    "source": "test-data-ai",
+    "prompt": "API response validation yapan fonksiyon yaz.",
+    "license": "MIT",
+    "language": "python"
+}

@@ -1,0 +1,7 @@
+{
+    "code": "def check_positive_number(n):\n    assert n > 0, \"Input must be a positive number\"\n    return True\n\nprint(check_positive_number(5))\nprint(check_positive_number(-3))",
+    "source": "test-data-ai",
+    "prompt": "Bir fonksiyonun **assertion** kullanarak girdi doğrulamasını nasıl yapacağını gösteren bir örnek yaz.",
+    "license": "MIT",
+    "language": "python"
+}

@@ -1,0 +1,7 @@
+{
+    "code": "import math\n\ndef is_prime(n):\n    if n <= 1:\n        return False\n    for i in range(2, int(math.sqrt(n)) + 1):\n        if n % i == 0:\n            return False\n    return True\n\ndef quadratic_sieve(n):\n    a = int(math.ceil(math.sqrt(n)))\n    b = 0\n    while True:\n        x = a ** 2 - n\n        if is_prime(x):\n            return a, b\n        b += 1\n        a = int(math.ceil(math.sqrt(n + b ** 2)))\n\nprint(quadratic_sieve(123456789))",
+    "source": "test-data-ai",
+    "prompt": "Quadratic sieve basics yaz.",
+    "license": "MIT",
+    "language": "python"
+}

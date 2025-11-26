@@ -1,0 +1,7 @@
+{
+    "code": "def rabin_karp(text, pattern):\n    prime = 101\n    pattern_hash = 0\n    text_hash = 0\n    power = 1\n\n    for i in range(len(pattern) - 1, -1, -1):\n        pattern_hash += (ord(pattern[i]) * power) % prime\n        text_hash += (ord(text[i]) * power) % prime\n        power = (power * 100) % prime\n\n    for i in range(len(pattern) - 1, len(text)):\n        text_hash = ((text_hash - (ord(text[i - len(pattern) + 1]) * power) % prime) * 100 + ord(text[i + 1])) % prime\n        if text_hash == pattern_hash and text[i - len(pattern) + 1 : i + 1] == pattern:\n            return i - len(pattern) + 1\n\n    return -1",
+    "source": "test-data-ai",
+    "prompt": "Rabin-Karp algorithm for pattern searching yaz.",
+    "license": "MIT",
+    "language": "python"
+}

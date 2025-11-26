@@ -1,0 +1,7 @@
+{
+    "code": "import numpy as np\nimport matplotlib.pyplot as plt\n\n# Generate some data\nN = 1000\nT = 1.0 / 800.0\nx = np.linspace(0.0, N*T, N)\ny = np.sin(50.0 * 2.0*np.pi*x) + 0.5*np.sin(80.0 * 2.0*np.pi*x)\n\n# Perform FFT\nyf = np.fft.fft(y)\nxf = np.fft.fftfreq(N, T)\nxf = np.fft.fftshift(xf)\nyplot = np.fft.fftshift(yf)\n\nplt.plot(xf, 1.0/N * np.abs(yplot))\nplt.xlim(-0.1, 0.1)\nplt.grid()\nplt.show()",
+    "source": "test-data-ai",
+    "prompt": "Fast Fourier Transform basics yaz.",
+    "license": "MIT",
+    "language": "python"
+}

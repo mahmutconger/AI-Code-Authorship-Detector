@@ -1,0 +1,7 @@
+{
+    "code": "a = 5\nb = 7\nprint(f\"Before swap: a = {a}, b = {b}\")\na = a ^ b\nb = a ^ b\na = a ^ b\nprint(f\"After swap: a = {a}, b = {b}\")",
+    "source": "test-data-ai",
+    "prompt": "XOR kullanarak swap işlemi yap.",
+    "license": "MIT",
+    "language": "python"
+}

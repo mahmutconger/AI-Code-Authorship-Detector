@@ -1,0 +1,7 @@
+{
+    "code": "class SuffixTree:\n    def __init__(self, text):\n        self.text = text + '$'\n        self.tree = {}\n\n    def build_tree(self):\n        for i in range(len(self.text)):\n            suffix = self.text[i:]\n            current = self.tree\n            for j in range(0, len(suffix), 1):\n                node = current.setdefault(suffix[j], {})\n                if j == len(suffix) - 1:\n                    node['$'] = i\n                current = node\n\n    def print_tree(self):\n        def print_node(node, level=0):\n            if '$' in node:\n                print('  ' * level + str(node['$']))\n            for char, child in node.items():\n                print_node(child, level + 1)\n        print_node(self.tree)",
+    "source": "test-data-ai",
+    "prompt": "Suffix tree construction basics yaz.",
+    "license": "MIT",
+    "language": "python"
+}

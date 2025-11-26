@@ -1,0 +1,7 @@
+{
+    "code": "import itertools\n\ns = 'yaz'\nresult = [''.join(p) for p in itertools.permutations(s)]\nprint(result)",
+    "source": "test-data-ai",
+    "prompt": "Generate all permutations of a string yaz.",
+    "license": "MIT",
+    "language": "python"
+}

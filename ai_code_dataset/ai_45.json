@@ -1,0 +1,7 @@
+{
+    "code": "def max_subarray(nums, k):\n    max_sum = float('-inf')\n    window_sum = 0\n    start = 0\n    \n    for end in range(len(nums)):\n        window_sum += nums[end]\n        \n        if end >= k-1:\n            max_sum = max(max_sum, window_sum)\n            window_sum -= nums[start]\n            start += 1\n    \n    return max_sum",
+    "source": "test-data-ai",
+    "prompt": "Sliding Window tekniğiyle maksimum toplam alt dizi bulan fonksiyon yaz.",
+    "license": "MIT",
+    "language": "python"
+}

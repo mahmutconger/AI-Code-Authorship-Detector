@@ -1,0 +1,7 @@
+{
+    "code": "import collections\nfrom queue import LifoQueue\n\ndef dota2\\_senate(starting\\_ Senate):\n    senate\\_queue = collections.deque(starting\\_Senate)\n    dradant = LifoQueue()\n    dradant.put('D')\n\n    while senate\\_queue:\n        current = senate\\_queue.popleft()\n        if current == 'D':\n            if not dradant.empty() and dradant.get() == 'R':\n                continue\n        else:\n            if not dradant.empty() and dradant.get() == 'D':\n                continue\n\n        dradant.put(current)\n\n    return 'D' if dradant.qsize() > 0 and dradant.get() == 'D' else 'R'\n\nstarting\\_Senate = ['D', 'R', 'D', 'D', 'R', 'D', 'R', 'D']\nprint(dota2\\_senate(starting\\_Senate))",
+    "source": "test-data-ai",
+    "prompt": "Dota2 Senate problem using queue yaz.",
+    "license": "MIT",
+    "language": "python"
+}

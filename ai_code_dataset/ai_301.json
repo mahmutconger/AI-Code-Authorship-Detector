@@ -1,0 +1,7 @@
+{
+    "code": "def romanToInt(s):\n    roman_dict = {'I': 1, 'V': 5, 'X': 10, 'L': 50, 'C': 100, 'D': 500, 'M': 1000}\n    result = 0\n    for i in range(len(s)):\n        if i > 0 and roman_dict[s[i]] > roman_dict[s[i - 1]]:\n            result += roman_dict[s[i]] - 2 * roman_dict[s[i - 1]]\n        else:\n            result += roman_dict[s[i]]\n    return result\n\nprint(romanToInt(\"III\"))\nprint(romanToInt(\"IV\"))\nprint(romanToInt(\"IX\"))\nprint(romanToInt(\"LVIII\"))\nprint(romanToInt(\"MCMXCIV\"))",
+    "source": "test-data-ai",
+    "prompt": "Roman numeral to integer converter yaz.",
+    "license": "MIT",
+    "language": "python"
+}

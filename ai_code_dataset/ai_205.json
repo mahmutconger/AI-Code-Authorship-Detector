@@ -1,0 +1,7 @@
+{
+    "code": "def find_median(arr):\n    arr.sort()\n    n = len(arr)\n    return arr[n//2]\n\ndef median_of_medians(arr, k):\n    if len(arr) <= 5:\n        return find_median(arr)\n\n    groups = [arr[i:i+5] for i in range(0, len(arr), 5)]\n    medians = [find_median(group) for group in groups]\n\n    pivot = median_of_medians(medians, len(medians)//2)\n\n    lower = [x for x in arr if x < pivot]\n    upper = [x for x in arr if x > pivot]\n    equal = [x for x in arr if x == pivot]\n\n    if k < len(lower):\n        return median_of_medians(lower, k)\n    elif k < len(lower) + len(equal):\n        return pivot\n    else:\n        return median_of_medians(upper, k - len(lower) - len(equal))",
+    "source": "test-data-ai",
+    "prompt": "Median of medians algoritmasını yaz.",
+    "license": "MIT",
+    "language": "python"
+}

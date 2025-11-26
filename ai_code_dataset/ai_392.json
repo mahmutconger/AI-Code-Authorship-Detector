@@ -1,0 +1,7 @@
+{
+    "code": "import queue\n\ncards = [5, 2, 8, 1, 9]\nq = queue.Queue()\n\nfor card in cards:\n    q.put(card)\n\nwhile not q.empty():\n    print(q.get())",
+    "source": "test-data-ai",
+    "prompt": "Reveal cards in increasing order using queue yaz.",
+    "license": "MIT",
+    "language": "python"
+}

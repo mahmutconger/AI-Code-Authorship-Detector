@@ -1,0 +1,7 @@
+{
+    "code": "def solve_maze(maze):\n    def is_valid_move(x, y):\n        if x >= 0 and x < len(maze) and y >= 0 and y < len(maze[0]) and maze[x][y] == 1:\n            return True\n        return False\n    \n    def solve(x, y):\n        if x == len(maze) - 1 and y == len(maze[0]) - 1:\n            solution[x][y] = 1\n            return True\n        \n        if is_valid_move(x, y):\n            solution[x][y] = 1\n            \n            if solve(x + 1, y):\n                return True\n            if solve(x, y + 1):\n                return True\n            \n            solution[x][y] = 0\n            return False\n    \n    solution = [[0 for _ in range(len(maze[0]))] for _ in range(len(maze))]\n    \n    if solve(0, 0):\n        for row in solution:\n            print(row)\n    else:\n        print(\"No solution exists\")",
+    "source": "test-data-ai",
+    "prompt": "Rat in a maze problemini yaz.",
+    "license": "MIT",
+    "language": "python"
+}

@@ -1,0 +1,7 @@
+{
+    "code": "def dailyTemperatures(temperatures):\n    stack = []\n    res = [0] * len(temperatures)\n    for i, t in enumerate(temperatures):\n        while stack and temperatures[stack[-1]] < t:\n            idx = stack.pop()\n            res[idx] = i - idx\n        stack.append(i)\n    return res",
+    "source": "test-data-ai",
+    "prompt": "Daily temperatures using stack yaz.",
+    "license": "MIT",
+    "language": "python"
+}

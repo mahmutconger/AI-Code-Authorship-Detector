@@ -1,0 +1,7 @@
+{
+    "code": "try:\n    my_dict = {\"apple\": 2, \"banana\": 3, \"cherry\": 5}\n    print(my_dict[\"orange\"])\nexcept KeyError:\n    print(\"The key 'orange' does not exist in the dictionary.\")",
+    "source": "test-data-ai",
+    "prompt": "Aşağıdaki kod parçasının potansiyel olarak fırlatabileceği KeyError hatasını, sözlüğe güvenli erişim sağlayarak (get metodu) düzelt:",
+    "license": "MIT",
+    "language": "python"
+}

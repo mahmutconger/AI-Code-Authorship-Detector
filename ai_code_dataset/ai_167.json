@@ -1,0 +1,7 @@
+{
+    "code": "import time\nimport threading\n\nclass TaskScheduler:\n    def __init__(self):\n        self.tasks = []\n        self.cooldown = 0\n\n    def add_task(self, task):\n        self.tasks.append(task)\n\n    def start(self):\n        while True:\n            for task in self.tasks:\n                time.sleep(self.cooldown)\n                task()\n                self.cooldown = 0\n            self.cooldown = 5  # Set the cooldown timer\n\n    def run(self):\n        threading.Thread(target=self.start).start()\n\nclass Task:\n    def __init__(self, func, cooldown):\n        self.func = func\n        self.cooldown = cooldown\n\n    def __call__(self):\n        self.func()\n        self.cooldown -= 1\n\ndef job1():\n    print(\"Job 1\")\n\ndef job2():\n    print(\"Job 2\")\n\nscheduler = TaskScheduler()\nscheduler.add_task(Task(job1, 5))\nscheduler.add_task(Task(job2, 10))\nscheduler.run()",
+    "source": "test-data-ai",
+    "prompt": "Task scheduler with cooling interval yaz.",
+    "license": "MIT",
+    "language": "python"
+}

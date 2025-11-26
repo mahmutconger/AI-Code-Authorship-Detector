@@ -1,0 +1,7 @@
+{
+    "code": "def search_bitonic(arr, target):\nn = len(arr)\nif n == 1:\nreturn 0 if arr[0] == target else -1\n\npeak_index = find_peak(arr)\nif target == arr[peak_index]:\nreturn peak_index\n\nresult = -1\nif peak_index != 0:\nresult = binary_search(arr[:peak_index], target)\nif result == -1 and peak_index != n-1:\nresult = binary_search(arr[peak_index+1:], target)\n\nreturn result\n\ndef find_peak(arr):\nleft, right = 0, len(arr) - 1\nwhile left < right:\nmid = (left + right) // 2\nif arr[mid] > arr[mid+1]:\nright = mid\nelse:\nleft = mid + 1\nreturn left\n\ndef binary_search(arr, target):\nlow, high = 0, len(arr) - 1\nwhile low <= high:\nmid = (low + high) // 2\nif arr[mid] == target:\nreturn mid\nelif arr[mid] < target:\nlow = mid + 1\nelse:\nhigh = mid - 1\nreturn -1",
+    "source": "test-data-ai",
+    "prompt": "Search in bitonic array (ilk artan sonra azalan) algoritması yaz.",
+    "license": "MIT",
+    "language": "python"
+}

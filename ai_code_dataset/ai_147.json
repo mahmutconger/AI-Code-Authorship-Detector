@@ -1,0 +1,7 @@
+{
+    "code": "def egyptian_fraction(n):\n    def gcd(a, b):\n        while b:\n            a, b = b, a % b\n        return a\n\n    def egyptian_fraction_representation(a, b):\n        if a == b:\n            return []\n        if a < b:\n            return egyptian_fraction_representation(b, a)\n        return [1, 1, *egyptian_fraction_representation(a - 1, b)]\n\n    def find_representation(n):\n        return egyptian_fraction_representation(n, 1)\n\n    return find_representation(n)\n\nprint(egyptian_fraction(4))  # Output: [1, 2, 1, 2]",
+    "source": "test-data-ai",
+    "prompt": "Egyptian fraction representation yaz.",
+    "license": "MIT",
+    "language": "python"
+}

@@ -1,0 +1,7 @@
+{
+    "code": "class TreeNode:\n    def __init__(self, key):\n        self.val = key\n        self.left = None\n        self.right = None\n\ndef deleteNode(root, key):\n    if not root:\n        return root\n    if key < root.val:\n        root.left = deleteNode(root.left, key)\n    elif key > root.val:\n        root.right = deleteNode(root.right, key)\n    else:\n        if not root.left:\n            return root.right\n        elif not root.right:\n            return root.left\n        temp = root.right\n        min_val = temp.val\n        while temp.left:\n            temp = temp.left\n            min_val = temp.val\n        root.val = min_val\n        root.right = deleteNode(root.right, root.val)\n    return root",
+    "source": "test-data-ai",
+    "prompt": "Delete node in BST yaz.",
+    "license": "MIT",
+    "language": "python"
+}

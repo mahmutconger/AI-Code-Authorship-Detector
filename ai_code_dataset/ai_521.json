@@ -1,0 +1,7 @@
+{
+    "code": "from collections import deque\n\ndef bfs(graph, start, end):\n    visited = set()\n    queue = deque([start])\n\n    while queue:\n        node = queue.popleft()\n        if node == end:\n            return True\n\n        if node not in visited:\n            visited.add(node)\n            queue.extend(graph[node])\n\n    return False\n\ngraph = {\n    'A': ['B', 'C'],\n    'B': ['D', 'E'],\n    'C': ['F'],\n    'D': [],\n    'E': ['F'],\n    'F': []\n}\n\nstart_node = 'A'\nend_node = 'F'\n\nprint(bfs(graph, start_node, end_node))",
+    "source": "test-data-ai",
+    "prompt": "Check if path exists using BFS yaz.",
+    "license": "MIT",
+    "language": "python"
+}

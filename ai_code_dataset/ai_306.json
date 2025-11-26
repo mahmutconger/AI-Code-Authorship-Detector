@@ -1,0 +1,7 @@
+{
+    "code": "def prod(s1, s2):\n    if not s1 or not s2:\n        return \"0\"\n\n    s1, s2 = s1.strip(), s2.strip()\n    neg = s1[0] == '-' ^ s2[0] == '-'\n    s1, s2 = s1[1:], s2[1:] if neg else s1, s2[1:]\n\n    if len(s1) > len(s2):\n        s1, s2 = s2, s1\n\n    carry = 0\n    res = \"\"\n    for i in range(len(s1)-1, -1, -1):\n        p1 = ord(s1[i]) - ord('0')\n        mul = carry\n        for j in range(len(s2)):\n            p2 = ord(s2[j]) - ord('0')\n            prod = p1 * p2 + mul\n            mul = prod // 10\n            prod %= 10\n            res += str(prod)\n        if mul:\n            res += str(mul)\n\n    if neg:\n        res = \"-\" + res\n    return res[::-1]\n\nassert prod(\"123\", \"456\") == \"56088\"\nassert prod(\"12\", \"45\") == \"540\"\nassert prod(\"123\", \"9\") == \"1107\"\nassert prod(\"0\", \"45\") == \"0\"\nassert prod(\"123\", \"0\") == \"0\"\nassert prod(\"-123\", \"45\") == \"-5535\"\nassert prod(\"123\", \"-45\") == \"-5535\"\nassert prod(\"-123\", \"-45\") == \"5535\"",
+    "source": "test-data-ai",
+    "prompt": "Multiply strings as numbers yaz.",
+    "license": "MIT",
+    "language": "python"
+}

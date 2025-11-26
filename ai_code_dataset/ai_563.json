@@ -1,0 +1,7 @@
+{
+    "code": "from functools import wraps\nfrom time import time\nfrom typing import Callable, Any\n\ndef cache_response(ttl=60):  # 1 dakika\n    cache = {}\n    last_update = {}\n\n    def decorator(func: Callable) -> Callable:\n        @wraps(func)\n        def wrapper(*args: Any, **kwargs: Any) -> Any:\n            key = str(args) + str(kwargs)\n\n            if key in cache:\n                return cache[key]\n\n            result = func(*args, **kwargs)\n            cache[key] = result\n            last_update[key] = time()\n            return result\n\n        def update_cache() -> None:\n            now = time()\n            for key, value in list(cache.items()):\n                if now - last_update[key] > ttl:\n                    del cache[key]\n                    del last_update[key]\n\n        def cache_clear() -> None:\n            cache.clear()\n            last_update.clear()\n\n        wrapper.cache_clear = cache_clear\n        wrapper.update_cache = update_cache\n        return wrapper\n\n    return decorator\n\n@cache_response()\ndef api_call(url: str) -> str:\n    # API çağrısı\n    time.sleep(2)  # İşlem yapma zamanı\n    return f\"API response for {url}\"\n\nprint(api_call(\"url1\"))\nprint(api_call(\"url1\"))\nprint(api_call(\"url2\"))",
+    "source": "test-data-ai",
+    "prompt": "API response'u cache'leyen decorator yaz.",
+    "license": "MIT",
+    "language": "python"
+}

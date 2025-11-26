@@ -1,0 +1,7 @@
+{
+    "code": "def numDistinct(s, t):\n    m, n = len(s), len(t)\n    dp = [[0] * (n + 1) for _ in range(m + 1)]\n    for i in range(m + 1):\n        dp[i][0] = 1\n    for i in range(1, m + 1):\n        for j in range(1, n + 1):\n            if s[i - 1] == t[j - 1]:\n                dp[i][j] = dp[i - 1][j - 1] + dp[i - 1][j]\n            else:\n                dp[i][j] = dp[i - 1][j]\n    return dp[m][n]",
+    "source": "test-data-ai",
+    "prompt": "Distinct subsequences count yaz.",
+    "license": "MIT",
+    "language": "python"
+}

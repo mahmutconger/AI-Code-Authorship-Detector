@@ -1,0 +1,7 @@
+{
+    "code": "def search_matrix(matrix, target):\n    m, n = len(matrix), len(matrix[0])\n    row, col = 0, n - 1\n\n    while row < m and col >= 0:\n        if matrix[row][col] == target:\n            return True\n        elif matrix[row][col] > target:\n            col -= 1\n        else:\n            row += 1\n    return False\n\nmatrix = [\n    [1, 4, 7, 11, 15],\n    [2, 5, 8, 12, 19],\n    [3, 6, 9, 16, 22],\n    [10, 13, 14, 17, 24],\n    [18, 21, 23, 26, 30]\n]\nprint(search_matrix(matrix, 5))  # True\nprint(search_matrix(matrix, 20))  # False",
+    "source": "test-data-ai",
+    "prompt": "Search in row-wise and column-wise sorted matrix.",
+    "license": "MIT",
+    "language": "python"
+}

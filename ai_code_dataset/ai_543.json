@@ -1,0 +1,7 @@
+{
+    "code": "import heapq\n\ndef check_paths(graph, m, n):\n    pq = [(0, 0, 0)]  # (distance, x, y)\n    visited = set((0, 0))\n    while pq:\n        d, x, y = heapq.heappop(pq)\n        if x == m - 1 and y == n - 1:\n            return True\n        for dx, dy in [(-1, 0), (1, 0), (0, -1), (0, 1)]:\n            nx, ny = x + dx, y + dy\n            if 0 <= nx < m and 0 <= ny < n and (nx, ny) not in visited:\n                if graph[nx][ny] == 0:\n                    heapq.heappush(pq, (d + 1, nx, ny))\n                    visited.add((nx, ny))\n    return False",
+    "source": "test-data-ai",
+    "prompt": "Checking existence of edge length limited paths yaz.",
+    "license": "MIT",
+    "language": "python"
+}

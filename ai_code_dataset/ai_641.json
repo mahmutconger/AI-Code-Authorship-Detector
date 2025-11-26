@@ -1,0 +1,7 @@
+{
+    "code": "try:\n    with open('metin.txt', 'r') as file:\n        text = file.read()\nexcept FileNotFoundError:\n    print(\"Dosya bulunamadı. Lütfen dosya adını kontrol edin.\")",
+    "source": "test-data-ai",
+    "prompt": "Bir metin dosyasını okurken oluşabilecek FileNotFoundError istisnasını yakala ve kullanıcı dostu bir mesaj yazdır.",
+    "license": "MIT",
+    "language": "python"
+}

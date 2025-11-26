@@ -1,0 +1,7 @@
+{
+    "code": "import time\n\nclass HashMapYaz:\n    def __init__(self):\n        self.storage = {}\n        self.expiry_times = {}\n\n    def set(self, key, value, ttl=None):\n        self.storage[key] = value\n        if ttl:\n            self.expiry_times[key] = time.time() + ttl\n\n    def get(self, key):\n        if key in self.storage:\n            if key in self.expiry_times and time.time() > self.expiry_times[key]:\n                del self.storage[key]\n                del self.expiry_times[key]\n                return None\n            return self.storage[key]\n        return None\n\n    def delete(self, key):\n        if key in self.storage:\n            del self.storage[key]\n            if key in self.expiry_times:\n                del self.expiry_times[key]",
+    "source": "test-data-ai",
+    "prompt": "Time based key-value store using hash map yaz.",
+    "license": "MIT",
+    "language": "python"
+}

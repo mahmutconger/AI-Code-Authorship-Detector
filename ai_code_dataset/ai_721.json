@@ -1,0 +1,7 @@
+{
+    "code": "from pydantic import BaseModel\n\nclass User(BaseModel):\n    id: int\n    username: str\n    email: str\n    age: int\n\n# Example usage\nuser_data = {\n    'id': 1,\n    'username': 'john_doe',\n    'email': 'john.doe@example.com',\n    'age': 30\n}\n\nuser = User(**user_data)\nprint(user)",
+    "source": "test-data-ai",
+    "prompt": "Pydantic model ile data validation yaz.",
+    "license": "MIT",
+    "language": "python"
+}

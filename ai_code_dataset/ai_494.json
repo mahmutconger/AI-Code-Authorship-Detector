@@ -1,0 +1,7 @@
+{
+    "code": "class HashSet:\n    def __init__(self):\n        self.bucket_size = 10\n        self.buckets = [[] for _ in range(self.bucket_size)]\n\n    def _hash(self, key):\n        hash_value = sum(ord(char) for char in key) % self.bucket_size\n        return hash_value\n\n    def add(self, key):\n        hash_value = self._hash(key)\n        if key not in self.buckets[hash_value]:\n            self.buckets[hash_value].append(key)\n\n    def remove(self, key):\n        hash_value = self._hash(key)\n        if key in self.buckets[hash_value]:\n            self.buckets[hash_value].remove(key)\n\n    def contains(self, key):\n        hash_value = self._hash(key)\n        return key in self.buckets[hash_value]\n\n\n# Usage example\nhash_set = HashSet()\nhash_set.add(\"apple\")\nhash_set.add(\"banana\")\nprint(hash_set.contains(\"banana\"))  # True\nhash_set.remove(\"apple\")\nprint(hash_set.contains(\"apple\"))  # False",
+    "source": "test-data-ai",
+    "prompt": "Design hashset from scratch yaz.",
+    "license": "MIT",
+    "language": "python"
+}

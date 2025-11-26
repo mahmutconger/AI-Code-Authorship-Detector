@@ -1,0 +1,7 @@
+{
+    "code": "import asyncio\nfrom fastapi import FastAPI\n\napp = FastAPI()\n\n@app.on\\_event(\"startup\")\nasync def startup\\_event():\nprint(\"Startup event fired.\")\n\n@app.on\\_event(\"shutdown\")\nasync def shutdown\\_event():\nprint(\"Shutdown event fired.\")\n\nif **name** == \"**main**\":\nimport uvicorn\n\nuvicorn.run(app, host=\"127.0.0.1\", port=8000)",
+    "source": "test-data-ai",
+    "prompt": "FastAPI ile startup/shutdown events yaz.",
+    "license": "MIT",
+    "language": "python"
+}

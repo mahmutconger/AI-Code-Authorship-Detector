@@ -1,0 +1,7 @@
+{
+    "code": "import re\nimport uuid\n\ndef validate_uuid(uuid_string, version=None, variant=None):\n    \"\"\"\n    Validate UUID string.\n\n    :param uuid_string:",
+    "source": "test-data-ai",
+    "prompt": "UUID validation fonksiyonu yaz.",
+    "license": "MIT",
+    "language": "python"
+}

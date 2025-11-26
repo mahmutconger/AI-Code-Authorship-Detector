@@ -1,0 +1,7 @@
+{
+    "code": "def validate_phone_number(phone_number):\n    if len(phone_number) == 10 and phone_number.isdigit():\n        return True\n    else:\n        return False",
+    "source": "test-data-ai",
+    "prompt": "Phone number validation fonksiyonu yaz.",
+    "license": "MIT",
+    "language": "python"
+}

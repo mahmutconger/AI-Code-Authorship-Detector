@@ -1,0 +1,7 @@
+{
+    "code": "def bead_sort(arr):\n    if any(not isinstance(x, int) or x < 0 for x in arr):\n        return \"Listede negatif olmayan tamsayılar olmalıdır.\"\n\n    if not arr:\n        return []\n\n    max_num = max(arr)\n    beads = [[1 if j <= i else 0 for j in range(max_num)] for i in arr]\n\n    for j in range(max_num):\n        sum = 0\n        for i in range(len(arr)):\n            sum += beads[i][j]\n            beads[i][j] = 0\n\n        for i in range(len(arr) - sum, len(arr)):\n            beads[i][j] = 1\n\n    result = []\n    for i in range(len(arr)):\n        value = 0\n        for j in range(max_num):\n            if beads[i][j]:\n                value += 1\n        result.append(value)\n\n    return result\n\n# Test\narr = [5, 3, 1, 7, 4, 1, 1]\nprint(bead_sort(arr))",
+    "source": "test-data-ai",
+    "prompt": "Bead Sort (gravity sort) algoritmasını pozitif tamsayılar için yaz.",
+    "license": "MIT",
+    "language": "python"
+}

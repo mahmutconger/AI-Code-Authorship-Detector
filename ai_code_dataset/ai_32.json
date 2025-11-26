@@ -1,0 +1,7 @@
+{
+    "code": "def linear_search_sentinel(arr, target):\n    n = len(arr)\n    last_elem = arr[-1]\n    arr[-1] = target\n    i = 0\n    while arr[i] != target:\n        i += 1\n    arr[-1] = last_elem\n    if i < n-1 or arr[n-1] == target:\n        return i\n    else:\n        return -1",
+    "source": "test-data-ai",
+    "prompt": "Linear Search'ü sentinel tekniğiyle optimize et.",
+    "license": "MIT",
+    "language": "python"
+}

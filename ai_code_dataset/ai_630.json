@@ -1,0 +1,7 @@
+{
+    "code": "from flask import Flask, render_template\nfrom flask_socketio import SocketIO, send\n\napp = Flask(__name__)\napp.config['SECRET_KEY'] = 'secret!'\nsocketio = SocketIO(app)\n\n@app.route('/')\ndef index():\n    return render_template('index.html')\n\n@socketio.on('message')\ndef handle_message(data):\n    send(data, broadcast=True)\n\nif __name__ == '__main__':\n    socketio.run(app)",
+    "source": "test-data-ai",
+    "prompt": "Flask-SocketIO ile real-time endpoint yaz.",
+    "license": "MIT",
+    "language": "python"
+}

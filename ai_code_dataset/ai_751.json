@@ -1,0 +1,7 @@
+{
+    "code": "def lazy_property(func):\n    def wrapper(self):\n        if not hasattr(self, '_wrapped'):\n            setattr(self, '_wrapped', func(self))\n    return property(wrapper)\n\nclass TestClass:\n    @lazy_property\n    def x(self):\n        print(\"Calculating x\")\n        return 1 + 2\n\nt = TestClass()\nprint(t.x)  # prints: Calculating x, then 3\nprint(t.x)  # just prints 3",
+    "source": "test-data-ai",
+    "prompt": "Lazy property decorator yaz.",
+    "license": "MIT",
+    "language": "python"
+}

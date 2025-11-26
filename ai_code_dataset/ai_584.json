@@ -1,0 +1,7 @@
+{
+    "code": "def api_response_mock_eden_test():\n    import json\n    response = {\n        \"status\": \"success\",\n        \"data\": {\n            \"name\": \"John Doe\",\n            \"email\": \"john.doe@example.com\",\n            \"age\": 35\n        }\n    }\n    return json.dumps(response)",
+    "source": "test-data-ai",
+    "prompt": "API response mock eden test fonksiyonu yaz.",
+    "license": "MIT",
+    "language": "python"
+}

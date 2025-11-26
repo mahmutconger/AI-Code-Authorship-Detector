@@ -1,0 +1,7 @@
+{
+    "code": "import pandas as pd\nimport csv\n\ndef export_to_csv(df, filename):\n    df.to_csv(filename, index=False)",
+    "source": "test-data-ai",
+    "prompt": "DataFrame'i CSV'ye export eden fonksiyon yaz.",
+    "license": "MIT",
+    "language": "python"
+}

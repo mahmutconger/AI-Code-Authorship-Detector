@@ -1,0 +1,7 @@
+{
+    "code": "def lowest_common_ancestor(root, p, q):\n    if not root or root == p or root == q:\n        return root\n    left = lowest_common_ancestor(root.left, p, q)\n    right = lowest_common_ancestor(root.right, p, q)\n    return root if left and right else left or right",
+    "source": "test-data-ai",
+    "prompt": "Lowest common ancestor in BST yaz.",
+    "license": "MIT",
+    "language": "python"
+}

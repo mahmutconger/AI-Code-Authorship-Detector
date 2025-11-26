@@ -1,0 +1,7 @@
+{
+    "code": "import numpy as np\n\ndef page_rank(graph, num_iterations=100, damping_factor=0.85, tolerance=1e-8):\n    n = len(graph)\n    page_ranks = np.ones(n) / n\n\n    for _ in range(num_iterations):\n        new_page_ranks = np.zeros(n)\n        for i in range(n):\n            for j in range(n):\n                if graph[j][i] > 0:\n                    new_page_ranks[i] += (1 - damping_factor) / n + damping_factor * page_ranks[j] / sum(graph[j])\n        change = np.sum(abs(new_page_ranks - page_ranks))\n        page_ranks = new_page_ranks\n        if change < tolerance:\n            break\n\n    return page_ranks\n\ngraph = np.array([[0, 1, 0, 0, 0],\n                 [0, 0, 1, 0, 0],\n                 [0, 0, 0, 1, 0],\n                 [1, 0, 0, 0, 0],\n                 [0, 1, 0, 0, 0]])\n\nprint(page_rank(graph))",
+    "source": "test-data-ai",
+    "prompt": "PageRank algoritmasının basitleştirilmiş versiyonunu yaz.",
+    "license": "MIT",
+    "language": "python"
+}

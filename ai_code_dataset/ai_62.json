@@ -1,0 +1,7 @@
+{
+    "code": "def bfs(graph, start):\n    queue = [start]\n    visited = set()\n    visited.add(start)\n\n    while queue:\n        current = queue.pop(0)\n        print(current)\n\n        for neighbor in graph[current]:\n            if neighbor not in visited:\n                queue.append(neighbor)\n                visited.add(neighbor)",
+    "source": "test-data-ai",
+    "prompt": "Breadth-First Search (BFS) algoritmasını graf için yaz.",
+    "license": "MIT",
+    "language": "python"
+}

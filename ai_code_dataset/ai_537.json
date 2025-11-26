@@ -1,0 +1,7 @@
+{
+    "code": "class UnionFind:\n    def __init__(self):\n        self.parent = {}\n\n    def find(self, x):\n        if x not in self.parent:\n            self.parent[x] = x\n        elif self.parent[x] != x:\n            self.parent[x] = self.find(self.parent[x])\n        return self.parent[x]\n\n    def union(self, x, y):\n        self.parent[self.find(x)] = self.find(y)\n\ndef accountsMerge(accounts):\n    uf = UnionFind()\n    email_to_name = {}\n    email_to_id = {}\n    id = 0\n\n    for account in accounts:\n        name = account[0]\n        for email in account[1:]:\n            email_to_name[email] = name\n            if email not in email_to_id:\n                email_to_id[email] = id\n                id += 1\n            uf.union(email_to_id[account[1]], email_to_id[email])\n\n    merged_accounts = {}\n    for email in email_to_name:\n        root = uf.find(email_to_id[email])\n        if root not in merged_accounts:\n            merged_accounts[root] = []\n        merged_accounts[root].append(email)\n\n    return [[email_to_name[root]] + sorted(emails) for root, emails in merged_accounts.items()]",
+    "source": "test-data-ai",
+    "prompt": "Accounts merge using union find yaz.",
+    "license": "MIT",
+    "language": "python"
+}

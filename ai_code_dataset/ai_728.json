@@ -1,0 +1,7 @@
+{
+    "code": "def age_verification(age):\n    if age >= 18:\n        return \"You are eligible to proceed.\"\n    else:\n        return \"You are not eligible to proceed.\"",
+    "source": "test-data-ai",
+    "prompt": "Age verification fonksiyonu yaz.",
+    "license": "MIT",
+    "language": "python"
+}

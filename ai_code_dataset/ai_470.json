@@ -1,0 +1,7 @@
+{
+    "code": "import heapq\n\nclass ReservationManager:\n    def __init__(self, capacity):\n        self.capacity = capacity\n        self.waitlist = []\n\n    def book(self, time):\n        if self.capacity > 0:\n            self.capacity -= 1\n            return time, 'assigned'\n        else:\n            heapq.heappush(self.waitlist, (-time, time))\n            return time, 'waitlist'\n\n    def release(self):\n        if self.waitlist:\n            _, time = heapq.heappop(self.waitlist)\n            self.capacity += 1\n            return time, 'assigned'\n        else:\n            self.capacity += 1\n            return None, 'none'\n\n\n# Example usage\nmanager = ReservationManager(2)\nprint(manager.book(3)) # (3, 'assigned')\nprint(manager.book(1)) # (1, 'waitlist')\nprint(manager.book(2)) # (2, 'assigned')\nprint(manager.release()) # (1, 'assigned')\nprint(manager.release()) # (None, 'none')",
+    "source": "test-data-ai",
+    "prompt": "Seat reservation manager using heap yaz.",
+    "license": "MIT",
+    "language": "python"
+}

@@ -1,0 +1,7 @@
+{
+    "code": "from collections import deque\n\ndef generate_binary(n):\n    q = deque()\n    q.append(0)\n    res = []\n    for i in range(n):\n        res.append(int(bin(q[0])[2:], 2))\n        for _ in range(len(q)):\n            x = q.popleft()\n            if x!= (1 << i) - 1:\n                q.append(x)\n                q.append(x | (1 << i))\n    return res",
+    "source": "test-data-ai",
+    "prompt": "Generate binary numbers from 1 to n using queue yaz.",
+    "license": "MIT",
+    "language": "python"
+}

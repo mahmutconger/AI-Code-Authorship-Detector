@@ -1,0 +1,7 @@
+{
+    "code": "import requests\n\ndef basic_auth(url, username, password):\n    headers = {'Authorization': f'Basic {username}:{password}'}\n    response = requests.get(url, headers=headers)\n    return response\n\n# Örnek kullanım\nurl = 'https://example.com/api'\nusername = 'kullanıcı adı'\npassword = 'parola'\nresponse = basic_auth(url, username, password)\nprint(response.status_code)",
+    "source": "test-data-ai",
+    "prompt": "Basic authentication ile request yapan fonksiyon yaz.",
+    "license": "MIT",
+    "language": "python"
+}

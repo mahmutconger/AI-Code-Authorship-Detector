@@ -1,0 +1,7 @@
+{
+    "code": "def calculate_average(numbers):\n    total = sum(numbers)\n    return total / len(numbers)\n\nnumbers = [2, 4, 6, 8]\nresult = calculate_average(numbers)\nprint(result)",
+    "source": "test-data-ai",
+    "prompt": "Aşağıdaki kodda kullanılmayan değişkeni kaldırarak kodu temizle.",
+    "license": "MIT",
+    "language": "python"
+}

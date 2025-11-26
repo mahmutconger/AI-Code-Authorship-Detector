@@ -1,0 +1,7 @@
+{
+    "code": "def lengthOfLIS(nums):\n    if not nums:\n        return 0\n    n = len(nums)\n    dp = [1] * n\n    for i in range(1, n):\n        for j in range(i):\n            if nums[i] > nums[j]:\n                dp[i] = max(dp[i], dp[j] + 1)\n    return max(dp)",
+    "source": "test-data-ai",
+    "prompt": "Longest Increasing Subsequence (LIS) problemini çöz.",
+    "license": "MIT",
+    "language": "python"
+}

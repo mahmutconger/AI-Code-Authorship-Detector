@@ -1,0 +1,7 @@
+{
+    "code": "def build_tree(arr):\n    n = len(arr)\n    tree = [0] * (4 * n)\n    def build_tree_util(node, start, end):\n        if start == end:\n            tree[node] = arr[start]\n        else:\n            mid = (start + end) // 2\n            build_tree_util(2 * node + 1, start, mid)\n            build_tree_util(2 * node + 2, mid + 1, end)\n            tree[node] = tree[2 * node + 1] + tree[2 * node + 2]\n    build_tree_util(0, 0, n - 1)\n    return tree\n\ndef count_range_sum(tree, start, end, node, left, right):\n    if start > right or end < left:\n        return 0\n    if left <= start and end <= right:\n        return tree[node]\n    mid = (start + end) // 2\n    p1 = count_range_sum(tree, start, mid, 2 * node + 1, left, right)\n    p2 = count_range_sum(tree, mid + 1, end, 2 * node + 2, left, right)\n    return p1 + p2\n\ntree = build_tree([1, 3, 5, 7, 9, 11, 13, 15])\nprint(count_range_sum(tree, 0, len(tree) - 1, 0, 2, 6))",
+    "source": "test-data-ai",
+    "prompt": "Count of range sum using segment tree yaz.",
+    "license": "MIT",
+    "language": "python"
+}

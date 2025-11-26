@@ -1,0 +1,7 @@
+{
+    "code": "def subset_sum(candidates, target):\n    dp = [False] * (target + 1)\n    dp[0] = True\n    for i in range(len(candidates)):\n        for j in range(target, candidates[i] - 1, -1):\n            dp[j] = dp[j] or dp[j - candidates[i]]\n    return dp[target]",
+    "source": "test-data-ai",
+    "prompt": "Subset sum problemini DP ile çöz.",
+    "license": "MIT",
+    "language": "python"
+}

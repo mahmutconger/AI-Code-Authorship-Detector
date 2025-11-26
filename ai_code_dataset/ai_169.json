@@ -1,0 +1,7 @@
+{
+    "code": "import numpy as np\n\ndef min_max_heights(arr, k):\n    arr.sort()\n    n = len(arr)\n    diff = arr[n-1] - arr[0]\n    small = arr[0] + k\n    big = arr[n-1] - k\n    if small > big:\n        small, big = big, small\n    for i in range(1, n-1):\n        sub = arr[i] - k\n        add = arr[i] + k\n        if sub >= small or add <= big:\n            continue\n        if big - sub <= add - small:\n            small = sub\n        else:\n            big = add\n    return min(diff, big - small)",
+    "source": "test-data-ai",
+    "prompt": "Minimize maximum difference in heights yaz.",
+    "license": "MIT",
+    "language": "python"
+}

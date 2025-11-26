@@ -1,0 +1,7 @@
+{
+    "code": "def rotate_bits(yaz, direction, shift):\n    if direction == 'left':\n        return (yaz << shift) | (yaz >> (32 - shift))\n    elif direction == 'right':\n        return (yaz >> shift) | (yaz << (32 - shift))",
+    "source": "test-data-ai",
+    "prompt": "Rotate bits of a number yaz.",
+    "license": "MIT",
+    "language": "python"
+}

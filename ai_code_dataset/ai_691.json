@@ -1,0 +1,7 @@
+{
+    "code": "import logging\n\n# Logger oluşturma\nlogger = logging.getLogger('kritik_hatalar')\n\n# Logger'ın seviyesini belirleme\nlogger.setLevel(logging.CRITICAL)\n\n# Dosya ayarları\ndosya_ayarlari = {\n    'dosya_adi': 'app.log',\n    'format': '%(asctime)s - %(name)s - %(levelname)s - %(message)s',\n    'kayit_seviyesi': logging.CRITICAL  # sadece CRITICAL seviyesini kaydedilsin\n}\n\n# Dosya kaydı\ndosya_formatı = logging.Formatter(dosya_ayarlari['format'])\ndosya_ogesi = logging.FileHandler(dosya_ayarlari['dosya_adi'])\ndosya_ogesi.setLevel(dosya_ayarlari['kayit_seviyesi'])\ndosya_ogesi.setFormatter(dosya_formatı)\n\n# Logger'a dosya ögesi eklenme\nlogger.addHandler(dosya_ogesi)\n\n# Kritik hata oluştur\nlogger.critical('Kritik bir hata oluştu!')",
+    "source": "test-data-ai",
+    "prompt": "Logging modülünü kullanarak, kritik hataları bir dosyaya (app.log) kaydeden basit bir yapılandırma örneği oluştur.",
+    "license": "MIT",
+    "language": "python"
+}

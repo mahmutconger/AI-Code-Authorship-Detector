@@ -1,0 +1,7 @@
+{
+    "code": "def is\\_sorted\\_list(ll):\nif not ll or not ll.next:\nreturn True\ncurrent = ll\nwhile current and current.next:\nif current.value > current.next.value:\nreturn False\ncurrent = current.next\nreturn True",
+    "source": "test-data-ai",
+    "prompt": "Check if linked list is sorted yaz.",
+    "license": "MIT",
+    "language": "python"
+}

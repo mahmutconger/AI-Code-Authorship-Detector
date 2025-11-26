@@ -1,0 +1,7 @@
+{
+    "code": "def chunked\\_file\\_upload(file\\_path, chunk\\_size=8192, **upload\\_params):\nfor i in range(0, file\\_path.seek(0, 2), chunk\\_size):\n\\# Move the read position to i\nfile\\_path.seek(i)\n\\# Read the next chunk\nchunk = file\\_path.read(chunk\\_size)\n\\# If this is the last chunk, adjust the size\nif len(chunk) < chunk\\_size:\n\\# Perform upload\nresponse = upload\\_to\\_server(chunk, **upload\\_params)\nelse:\n\\# Perform upload\nresponse = upload\\_to\\_server(chunk, **upload\\_params)\nreturn response",
+    "source": "test-data-ai",
+    "prompt": "Chunked file upload yapan fonksiyon yaz.",
+    "license": "MIT",
+    "language": "python"
+}

@@ -1,0 +1,7 @@
+{
+    "code": "from fastapi import FastAPI\nfrom background_tasks import background\nfrom typing import AsyncContextManager",
+    "source": "test-data-ai",
+    "prompt": "FastAPI ile background tasks yaz.",
+    "license": "MIT",
+    "language": "python"
+}

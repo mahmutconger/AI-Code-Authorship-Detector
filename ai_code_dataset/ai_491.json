@@ -1,0 +1,7 @@
+{
+    "code": "class InsertDeleteGetRandomO1:\n    def __init__(self):\n        self.hash_map = {}\n        self.list = []\n\n    def insert(self, val):\n        if val not in self.hash_map:\n            self.list.append(val)\n            self.hash_map[val] = len(self.list) - 1\n\n    def remove(self, val):\n        if val in self.hash_map:\n            idx = self.hash_map.pop(val)\n            if idx != len(self.list) - 1:\n                self.list[idx] = self.list.pop()\n                self.hash_map[self.list[idx]] = idx\n\n    def getRandom(self):\n        return self.list[random.randint(0, len(self.list) - 1)]\n\n    def getRandomO1(self):\n        return self.list[random.randint(0, len(self.list) - 1)]",
+    "source": "test-data-ai",
+    "prompt": "Insert delete getRandom O(1) using hash map and list yaz.",
+    "license": "MIT",
+    "language": "python"
+}

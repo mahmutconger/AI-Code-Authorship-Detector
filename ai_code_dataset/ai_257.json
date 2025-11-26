@@ -1,0 +1,7 @@
+{
+    "code": "def extended_euclidean_algorithm(a, b):\n    if a == 0:\n        return b, 0, 1\n    else:\n        gcd, x, y = extended_euclidean_algorithm(b % a, a)\n        return gcd, y - (b // a) * x, x\n\na = 35\nb = 15\ngcd, x, y = extended_euclidean_algorithm(a, b)\nprint(\"Extended Euclidean Algorithm:\")\nprint(f\"GCD({a}, {b}) = {gcd}\")\nprint(f\"x = {x}, y = {y}\")",
+    "source": "test-data-ai",
+    "prompt": "Extended Euclidean algorithm yaz.",
+    "license": "MIT",
+    "language": "python"
+}

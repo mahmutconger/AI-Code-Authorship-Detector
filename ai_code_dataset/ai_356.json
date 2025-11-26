@@ -1,0 +1,7 @@
+{
+    "code": "def postfix_eval(expression):\n    stack = []\n    for token in expression.split():\n        if token in '+-*/':\n            b = stack.pop()\n            a = stack.pop()\n            if token == '+':\n                stack.append(a + b)\n            elif token == '-':\n                stack.append(a - b)\n            elif token == '*':\n                stack.append(a * b)\n            else:\n                stack.append(a / b)\n        else:\n            stack.append(float(token))\n    return stack.pop()",
+    "source": "test-data-ai",
+    "prompt": "Postfix expression evaluation yaz.",
+    "license": "MIT",
+    "language": "python"
+}

@@ -1,0 +1,7 @@
+{
+    "code": "def count_trailing_zeros(n: int) -> int:\n    return bin(n).count(\"0\") - bin(n).rfind(\"1\")\n\nprint(count_trailing_zeros(26))",
+    "source": "test-data-ai",
+    "prompt": "Count trailing zeros in binary representation yaz.",
+    "license": "MIT",
+    "language": "python"
+}

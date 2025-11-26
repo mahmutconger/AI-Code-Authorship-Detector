@@ -1,0 +1,7 @@
+{
+    "code": "def bogo_sort(arr):\n    import random\n    while not is_sorted(arr):\n        random.shuffle(arr)\n    return arr\n\ndef is_sorted(arr):\n    for i in range(len(arr)-1):\n        if arr[i] > arr[i+1]:\n            return False\n    return True",
+    "source": "test-data-ai",
+    "prompt": "Bogo Sort (permütasyon sort) algoritmasını eğitim amaçlı yaz.",
+    "license": "MIT",
+    "language": "python"
+}

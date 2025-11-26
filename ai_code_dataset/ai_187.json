@@ -1,0 +1,7 @@
+{
+    "code": "def restore_ip_addresses(s):\n    def backtrack(start, path, ip_sum):\n        if len(path) == 4:\n            if start == len(s):\n                result.append('.'.join(map(str, path)))\n            return\n        for end in range(start + 1, min(start + 4, len(s))):\n            if int(s[start:end]) <= 255 and (start > 0 or s[start] != '0'):\n                backtrack(end, path + [int(s[start:end])], ip_sum + [int(s[start:end])])\n    result = []\n    backtrack(0, [], [])\n    return result",
+    "source": "test-data-ai",
+    "prompt": "Restore IP addresses yaz.",
+    "license": "MIT",
+    "language": "python"
+}

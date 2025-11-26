@@ -1,0 +1,7 @@
+{
+    "code": "def text_justify(words, maxWidth):\n    result = []\n    line = []\n    line_length = 0\n    \n    for word in words:\n        if line_length + len(word) + len(line) > maxWidth:\n            for i in range(maxWidth - line_length):\n                line[i % (len(line) - 1 or 1)] += ' '\n            result.append(''.join(line))\n            line = []\n            line_length = 0\n        \n        line.append(word)\n        line_length += len(word)\n    \n    result.append(' '.join(line).ljust(maxWidth))\n    \n    return result",
+    "source": "test-data-ai",
+    "prompt": "Text justification yaz.",
+    "license": "MIT",
+    "language": "python"
+}

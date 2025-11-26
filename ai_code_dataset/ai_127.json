@@ -1,0 +1,7 @@
+{
+    "code": "def dungeon_game(health, damage):\n    total_health = health\n    damage_dealt = 0\n    while health > 0:\n        damage_dealt += damage\n        health -= damage\n    return total_health - damage_dealt\n\nprint(dungeon_game(100, 10))",
+    "source": "test-data-ai",
+    "prompt": "Dungeon game minimum initial health hesapla.",
+    "license": "MIT",
+    "language": "python"
+}

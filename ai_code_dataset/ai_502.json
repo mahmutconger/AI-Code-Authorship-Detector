@@ -1,0 +1,7 @@
+{
+    "code": "class Trie:\n    def __init__(self):\n        self.children = {' ': {}}\n        self.end_of_word = False\n\n    def insert(self, word: str) -> None:\n        node = self.children\n        for char in word:\n            if char not in node:\n                node[char] = {}\n            node = node[char]\n        node[' '] = {}\n        node['#'] = True\n\ndef insert_word_into_trie(trie: Trie, word: str) -> None:\n    trie.insert(word)\n\n# Example usage:\ntrie = Trie()\ninsert_word_into_trie(trie, \"yaz\")",
+    "source": "test-data-ai",
+    "prompt": "Insert word into trie yaz.",
+    "license": "MIT",
+    "language": "python"
+}

@@ -1,0 +1,7 @@
+{
+    "code": "def beautiful_arrangement_count(n):\n    mod = 10 ** 9 + 7\n    def can place(x, used):\n        return all(x % (i + 1) != 0 for i in used) and all((x - 1) % (i + 1) != 0 for i in used)\n\n    @cache\n    def dp(pos, used):\n        if pos == n:\n            return 1\n        ans = 0\n        for i in range(n):\n            if not (i in used or not can_place(i, used)):\n                used.add(i)\n                ans = (ans + dp(pos + 1, used)) % mod\n                used.remove(i)\n        return ans\n\n    return dp(0, set())",
+    "source": "test-data-ai",
+    "prompt": "Beautiful arrangement count yaz.",
+    "license": "MIT",
+    "language": "python"
+}

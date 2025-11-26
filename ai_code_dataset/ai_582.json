@@ -1,0 +1,7 @@
+{
+    "code": "import aiohttp\n\nasync def make_http_request(url):\n    async with aiohttp.ClientSession() as session:\n        async with session.get(url) as response:\n            html = await response.text()\n            return html",
+    "source": "test-data-ai",
+    "prompt": "Async HTTP request yapan aiohttp kullanımlı fonksiyon yaz.",
+    "license": "MIT",
+    "language": "python"
+}

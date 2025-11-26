@@ -1,0 +1,7 @@
+{
+    "code": "class StockSpanner:\n\n    def __init__(self):\n        self.stack = []\n\n    def next(self, price: int) -> int:\n        span = 1\n        while self.stack and self.stack[-1][0] <= price:\n            span += self.stack.pop()[1]\n        self.stack.append((price, span))\n        return span",
+    "source": "test-data-ai",
+    "prompt": "Stock span problem using stack yaz.",
+    "license": "MIT",
+    "language": "python"
+}

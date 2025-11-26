@@ -1,0 +1,7 @@
+{
+    "code": "from dataclasses import dataclass, asdict, astuple\nimport json\n\n@dataclass\nclass Address:\n    street: str\n    number: int\n\n@dataclass\nclass User:\n    name: str\n    age: int\n    address: Address\n\ndef encode(user):\n    return json.dumps(asdict(user))\n\ndef decode(data):\n    raw = json.loads(data)\n    args = astuple(Address(**raw['address']))\n    return User(**raw, address=Address(*args))\n\nuser = User('John', 30, Address('Main St', 123))\nencoded = encode(user)\ndecoded = decode(encoded)\nassert decoded == user",
+    "source": "test-data-ai",
+    "prompt": "Nested dataclass'ları serialize/deserialize eden fonksiyon yaz.",
+    "license": "MIT",
+    "language": "python"
+}

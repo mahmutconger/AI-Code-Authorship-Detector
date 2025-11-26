@@ -1,0 +1,7 @@
+{
+    "code": "class Solution:\n    def findCelebrity(self, n: int) -> int:\n        stack = []\n        for i in range(n):\n            stack.append(i)\n        while len(stack) > 1:\n            a, b = stack.pop(), stack.pop()\n            if knows(a, b):\n                stack.append(b)\n            else:\n                stack.append(a)\n        if not any(knows(stack[0], i) for i in range(n)):\n            return stack[0]\n        return -1\n\ndef knows(a: int, b: int) -> bool:\n    # This is a mock function, you will implement the real knows API\n    return False",
+    "source": "test-data-ai",
+    "prompt": "Celebrity problem using stack yaz.",
+    "license": "MIT",
+    "language": "python"
+}

@@ -1,0 +1,7 @@
+{
+    "code": "class Stack:\n    def __init__(self):\n        self.stack = []\n        self.increment = 0\n\n    def push(self, x):\n        self.stack.append(x + self.increment)\n\n    def pop(self):\n        return self.stack.pop() - self.increment\n\n    def top(self):\n        return self.stack[-1] - self.increment\n\n    def increment(self, x):\n        self.increment += x",
+    "source": "test-data-ai",
+    "prompt": "Design a stack with increment operation yaz.",
+    "license": "MIT",
+    "language": "python"
+}

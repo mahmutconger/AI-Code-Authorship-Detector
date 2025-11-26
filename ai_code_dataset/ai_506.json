@@ -1,0 +1,7 @@
+{
+    "code": "class Trie:\n    def __init__(self):\n        self.children = defaultdict(Trie)\n        self.word = None\n\ndef search(board, word):\n    trie = Trie()\n    for word in words:\n        cur = trie\n        for char in word:\n            cur = cur.children[char]\n        cur.word = word\n\n    def dfs(board, i, j, cur):\n        if i < 0 or i >= m or j < 0 or j >= n or board[i][j] not in cur.children:\n            return False\n\n        cur = cur.children[board[i][j]]\n        if cur.word is not None:\n            found.add(cur.word)\n\n        temp = board[i][j]\n        board[i][j] = '#'\n        for di, dj in [(0, 1), (0, -1), (1, 0), (-1, 0)]:\n            if dfs(board, i + di, j + dj, cur):\n                return True\n        board[i][j] = temp\n        return False\n\n    found = set()\n    m, n = len(board), len(board[0])\n    for i in range(m):\n        for j in range(n):\n            if board[i][j] in trie.children:\n                dfs(board, i, j, trie)\n    return found\n\nwords = [\"oath\", \"pea\", \"eat\", \"rain\"]\nboard = [\n    ['o', 'a', 'a', 'n'],\n    ['e', 't', 'a', 'e'],\n    ['i', 'h', 'k', 'r'],\n    ['i', 'f', 'l', 'v']\n]\nprint(search(board, words))",
+    "source": "test-data-ai",
+    "prompt": "Word search II using trie yaz.",
+    "license": "MIT",
+    "language": "python"
+}

@@ -1,0 +1,7 @@
+{
+    "code": "def fibonacci_search(arr, target):\n    n = len(arr)\n    fib2 = 0\n    fib1 = 1\n    fib = fib1 + fib2\n    while fib < n:\n        fib2 = fib1\n        fib1 = fib\n        fib = fib1 + fib2\n    offset = -1\n    while fib > 1:\n        i = min(offset+fib2, n-1)\n        if arr[i] < target:\n            fib = fib1\n            fib1 = fib2\n            fib2 = fib - fib1\n            offset = i\n        elif arr[i] > target:\n            fib = fib2\n            fib1 = fib1 - fib2\n            fib2 = fib - fib1\n        else:\n            return i\n    if fib1 and n > 0 and arr[n-1] == target:\n        return n-1\n    return -1",
+    "source": "test-data-ai",
+    "prompt": "Fibonacci Search algoritmasını golden ratio ile uygula.",
+    "license": "MIT",
+    "language": "python"
+}

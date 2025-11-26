@@ -1,0 +1,7 @@
+{
+    "code": "from itertools import permutations\n\ndef is\\_valid(graph, cycle):\n    for i in range(len(cycle)-1):\n        if not graph[cycle[i]][cycle[i+1]]:\n            return False\n    return True\n\ndef hamiltonian\\_cycle(graph):\n    n = len(graph)\n    for cycle in permutations(range(n)):\n        if is\\_valid(graph, cycle):\n            if cycle[-1] == 0:\n                return cycle\n\ngraph = [\n    [1, 1, 0, 1, 0],\n    [1, 1, 1, 0, 0],\n    [0, 1, 1, 1, 1],\n    [1, 0, 1, 1, 1],\n    [0, 0, 1, 1, 1]\n]\n\nprint(list(hamiltonian\\_cycle(graph)))",
+    "source": "test-data-ai",
+    "prompt": "Hamiltonian cycle problemini yaz.",
+    "license": "MIT",
+    "language": "python"
+}

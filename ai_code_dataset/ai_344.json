@@ -1,0 +1,7 @@
+{
+    "code": "class Node:\n    def __init__(self, data):\n        self.data = data\n        self.next = None\n\ndef segregate_even_odd(head):\n    even_head = even_tail = None\n    odd_head = odd_tail = None\n    current = head\n    while current:\n        if current.data % 2 == 0:\n            if even_head is None:\n                even_head = even_tail = current\n            else:\n                even_tail.next = current\n                even_tail = current\n        else:\n            if odd_head is None:\n                odd_head = odd_tail = current\n            else:\n                odd_tail.next = current\n                odd_tail = current\n        current = current.next\n    if even_head is None:\n        return odd_head\n    even_tail.next = odd_head\n    if odd_head is not None:\n        odd_tail.next = None\n    return even_head",
+    "source": "test-data-ai",
+    "prompt": "Segregate even and odd nodes yaz.",
+    "license": "MIT",
+    "language": "python"
+}

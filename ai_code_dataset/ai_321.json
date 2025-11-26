@@ -1,0 +1,7 @@
+{
+    "code": "class Node:\n    def __init__(self, data):\n        self.data = data\n        self.next = None\n\nclass LinkedList:\n    def __init__(self):\n        self.head = None\n\n    def remove_duplicates(self):\n        current = self.head\n        while current:\n            temp = current\n            while temp.next:\n                if temp.next.data == current.data:\n                    temp.next = temp.next.next\n                else:\n                    temp = temp.next\n            current = current.next",
+    "source": "test-data-ai",
+    "prompt": "Linked list'ten duplicates removal yaz.",
+    "license": "MIT",
+    "language": "python"
+}

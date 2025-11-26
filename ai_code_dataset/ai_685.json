@@ -1,0 +1,7 @@
+{
+    "code": "import json\nfrom enum import Enum\n\nclass CustomEncoder(json.JSONEncoder):\n    def default(self, obj):\n        if isinstance(obj, Enum):\n            return obj.value\n        return json.JSONEncoder.default(self, obj)\n\n# Kullanımı:\n# json.dumps(my_enum_value, cls=CustomEncoder)",
+    "source": "test-data-ai",
+    "prompt": "Enum'ları serialize eden custom encoder yaz.",
+    "license": "MIT",
+    "language": "python"
+}

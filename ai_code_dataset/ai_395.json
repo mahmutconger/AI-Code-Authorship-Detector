@@ -1,0 +1,7 @@
+{
+    "code": "from collections import deque\n\nclass MovingAverage:\n    def __init__(self, size):\n        self.queue = deque()\n        self.window_size = size\n\n    def next(self, val):\n        self.queue.append(val)\n        if len(self.queue) > self.window_size:\n            self.queue.popleft()\n        return sum(self.queue) / len(self.queue)",
+    "source": "test-data-ai",
+    "prompt": "Moving average from data stream using queue yaz.",
+    "license": "MIT",
+    "language": "python"
+}

@@ -1,0 +1,7 @@
+{
+    "code": "def find_rightmost_set_bit(n):\n    result = 0\n    while n:\n        result += 1\n        n = n >> 1\n    return result - 1",
+    "source": "test-data-ai",
+    "prompt": "Find position of rightmost set bit yaz.",
+    "license": "MIT",
+    "language": "python"
+}

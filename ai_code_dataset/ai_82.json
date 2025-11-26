@@ -1,0 +1,7 @@
+{
+    "code": "def greedy_graph_coloring(graph):\n    color_assignment = {node: None for node in graph}\n    color_choices = list(range(len(graph)))\n\n    for node in sorted(graph):\n        color_choices_for_node = [\n            color for color in color_choices\n            if not any(\n                graph[neighbor] and color_assignment[neighbor] == color\n                for neighbor in graph[node]\n            )\n        ]\n        color_assignment[node] = color_choices_for_node.pop()\n\n    return color_assignment",
+    "source": "test-data-ai",
+    "prompt": "Graph coloring için greedy algoritma yaz.",
+    "license": "MIT",
+    "language": "python"
+}
