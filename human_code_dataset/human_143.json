@@ -1,0 +1,7 @@
+{
+    "code": "def __dir__(self):\n        \"\"\"Return directory of the lfx module.\"\"\"\n        try:\n            lfx_module = self._get_lfx_module()\n            return dir(lfx_module)\n        except ImportError:\n            return []",
+    "source": "github_repo:langflow-ai/langflow",
+    "file": "src/backend/base/langflow/__init__.py",
+    "license": "MIT",
+    "language": "python"
+}

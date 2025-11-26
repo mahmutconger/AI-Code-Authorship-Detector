@@ -1,0 +1,7 @@
+{
+    "code": "def log(message, color=\"green\"):\n        if verbose and not tracker:\n            console.print(f\"[{color}]{message}[/] {rel_path}\")",
+    "source": "github_repo:github/spec-kit",
+    "file": "src/specify_cli/__init__.py",
+    "license": "MIT",
+    "language": "python"
+}

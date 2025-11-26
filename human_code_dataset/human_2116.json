@@ -1,0 +1,7 @@
+{
+    "code": "def gpt_35_api(messages: list):\n    \"\"\"为提供的对话消息创建新的回答\n\n    Args:\n        messages (list): 完整的对话消息\n    \"\"\"\n    completion = client.chat.completions.create(model=\"gpt-3.5-turbo\", messages=messages)\n    print(completion.choices[0].message.content)",
+    "source": "github_repo:chatanywhere/GPT_API_free",
+    "file": "demo.py",
+    "license": "MIT",
+    "language": "python"
+}

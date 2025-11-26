@@ -1,0 +1,7 @@
+{
+    "code": "def testServerChan(self):\n        \"\"\"\n        实测server酱是否可用\n        :return:\n        \"\"\"\n        sendServerChan(u\"server酱 微信通知测试一下\")",
+    "source": "github_repo:testerSunshine/12306",
+    "file": "UnitTest/TestAll.py",
+    "license": "MIT",
+    "language": "python"
+}

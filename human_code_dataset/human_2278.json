@@ -1,0 +1,7 @@
+{
+    "code": "def run_child() -> None:\n    \"\"\"\n    Running in the child process.\n    \"\"\"\n    SETTINGS[\"log.file\"] = True\n\n    event_engine: EventEngine = EventEngine()\n    main_engine: MainEngine = MainEngine(event_engine)\n    main_engine.add_gateway(CtpGateway)\n    cta_engine: CtaEngine = main_engine.add_app(CtaStrategyApp)\n    logger.info(\"主引擎创建成功\")\n\n    log_engine: LogEngine = main_engine.get_engine(\"log\")       # type: ignore\n    event_engine.register(EVENT_CTA_LOG, log_engine.process_log_event)\n    logger.info(\"注册日志事件监听\")\n\n    main_engine.connect(ctp_setting, \"CTP\")\n    logger.info(\"连接CTP接口\")\n\n    sleep(10)\n\n    cta_engine.init_engine()\n    logger.info(\"CTA策略初始化完成\")\n\n    cta_engine.init_all_strategies()\n    sleep(60)   # Leave enough time to complete strategy initialization\n    logger.info(\"CTA策略全部初始化\")\n\n    cta_engine.start_all_strategies()\n    logger.info(\"CTA策略全部启动\")\n\n    while True:\n        sleep(10)\n\n        trading = check_trading_period()\n        if not trading:\n            logger.info(\"关闭子进程\")\n            main_engine.close()\n            sys.exit(0)",
+    "source": "github_repo:vnpy/vnpy",
+    "file": "examples/no_ui/run.py",
+    "license": "MIT",
+    "language": "python"
+}

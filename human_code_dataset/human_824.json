@@ -1,0 +1,7 @@
+{
+    "code": "def test_avg_frequency_checks(self):\n    for poll in (True, False):\n      sm = messaging.SubMaster([\"modelV2\", \"carParams\", \"carState\", \"cameraOdometry\", \"liveCalibration\"],\n                               poll=(\"modelV2\" if poll else None),\n                               frequency=(20. if not poll else None))\n\n      checks = {\n        \"carState\": (20, 20),\n        \"modelV2\": (20, 20 if poll else 10),\n        \"cameraOdometry\": (20, 10),\n        \"liveCalibration\": (4, 4),\n        \"carParams\": (None, None),\n        \"userBookmark\": (None, None),\n      }\n\n      for service, (max_freq, min_freq) in checks.items():\n        if max_freq is not None:\n          assert sm._check_avg_freq(service)\n          assert sm.freq_tracker[service].max_freq == max_freq*1.2\n          assert sm.freq_tracker[service].min_freq == min_freq*0.8\n        else:\n          assert not sm._check_avg_freq(service)",
+    "source": "github_repo:commaai/openpilot",
+    "file": "cereal/messaging/tests/test_pub_sub_master.py",
+    "license": "MIT",
+    "language": "python"
+}

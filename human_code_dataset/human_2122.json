@@ -1,0 +1,7 @@
+{
+    "code": "def firstmark():\n    with open(student_record, \"rb\") as F:\n        val = pickle.load(F)\n        count = 0\n        main = [i[2] for i in val]\n\n        top = max(main)\n        print(top, \"is the first mark\")\n\n        for i in val:\n            if top == i[2]:\n                print(f\"{i}\\ncongrats\")\n                count += 1\n        print(\"The total number of students who secured top marks are\", count)",
+    "source": "github_repo:geekcomputers/Python",
+    "file": "1 File handle/File handle binary/question 1 (elegible for remedial, top marks).py",
+    "license": "MIT",
+    "language": "python"
+}

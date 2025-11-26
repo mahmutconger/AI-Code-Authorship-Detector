@@ -1,0 +1,7 @@
+{
+    "code": "def _load_plugins() -> Union[None, List[Any]]:\n    \"\"\"Lazy load plugins, exiting early if already loaded.\"\"\"\n    global _plugins\n\n    # Skip if we've already loaded plugins\n    if _plugins is not None:\n        return _plugins\n\n    # Load plugins\n    _plugins = []\n    for entry_point in entry_points(group=\"markitdown.plugin\"):\n        try:\n            _plugins.append(entry_point.load())\n        except Exception:\n            tb = traceback.format_exc()\n            warn(f\"Plugin '{entry_point.name}' failed to load ... skipping:\\n{tb}\")\n\n    return _plugins",
+    "source": "github_repo:microsoft/markitdown",
+    "file": "packages/markitdown/src/markitdown/_markitdown.py",
+    "license": "MIT",
+    "language": "python"
+}

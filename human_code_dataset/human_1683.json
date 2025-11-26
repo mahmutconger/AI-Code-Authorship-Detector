@@ -1,0 +1,7 @@
+{
+    "code": "def _get_abspath(path):\n    \"\"\"Find absolute path of the specified `path`\n    according to its\n    \"\"\"\n\n    if path.startswith(\"/\"):\n        return path\n\n    import __main__\n\n    return os.path.join(os.path.dirname(os.path.dirname(__main__.__file__)), path)",
+    "source": "github_repo:chubin/cheat.sh",
+    "file": "lib/adapter/cmd.py",
+    "license": "MIT",
+    "language": "python"
+}

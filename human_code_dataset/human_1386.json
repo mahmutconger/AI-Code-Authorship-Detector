@@ -1,0 +1,7 @@
+{
+    "code": "def pt2np(self, x):\n        x = ((x + 1.0) * .5).detach().cpu().numpy()\n        return x",
+    "source": "github_repo:Stability-AI/stablediffusion",
+    "file": "ldm/data/util.py",
+    "license": "MIT",
+    "language": "python"
+}

@@ -1,0 +1,7 @@
+{
+    "code": "def convert_local(\n        self,\n        path: Union[str, Path],\n        *,\n        stream_info: Optional[StreamInfo] = None,\n        file_extension: Optional[str] = None,  # Deprecated -- use stream_info\n        url: Optional[str] = None,  # Deprecated -- use stream_info\n        **kwargs: Any,\n    ) -> DocumentConverterResult:\n        if isinstance(path, Path):\n            path = str(path)\n\n        # Build a base StreamInfo object from which to start guesses\n        base_guess = StreamInfo(\n            local_path=path,\n            extension=os.path.splitext(path)[1],\n            filename=os.path.basename(path),\n        )\n\n        # Extend the base_guess with any additional info from the arguments\n        if stream_info is not None:\n            base_guess = base_guess.copy_and_update(stream_info)\n\n        if file_extension is not None:\n            # Deprecated -- use stream_info\n            base_guess = base_guess.copy_and_update(extension=file_extension)\n\n        if url is not None:\n            # Deprecated -- use stream_info\n            base_guess = base_guess.copy_and_update(url=url)\n\n        with open(path, \"rb\") as fh:\n            guesses = self._get_stream_info_guesses(\n                file_stream=fh, base_guess=base_guess\n            )\n            return self._convert(file_stream=fh, stream_info_guesses=guesses, **kwargs)",
+    "source": "github_repo:microsoft/markitdown",
+    "file": "packages/markitdown/src/markitdown/_markitdown.py",
+    "license": "MIT",
+    "language": "python"
+}

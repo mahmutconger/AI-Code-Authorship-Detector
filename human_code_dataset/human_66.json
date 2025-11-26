@@ -1,0 +1,7 @@
+{
+    "code": "def process(self, sample: float) -> float:\n        \"\"\"\n        Calculate y[n]\n\n        >>> issubclass(FilterType, Protocol)\n        True\n        \"\"\"",
+    "source": "github_repo:TheAlgorithms/Python",
+    "file": "audio_filters/show_response.py",
+    "license": "MIT",
+    "language": "python"
+}

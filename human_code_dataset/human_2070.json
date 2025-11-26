@@ -1,0 +1,7 @@
+{
+    "code": "def disable_parallel():\n    global pool, dt, cut, cut_for_search\n    if pool:\n        pool.close()\n        pool = None\n    cut = dt.cut\n    cut_for_search = dt.cut_for_search",
+    "source": "github_repo:fxsjy/jieba",
+    "file": "jieba/__init__.py",
+    "license": "MIT",
+    "language": "python"
+}

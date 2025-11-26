@@ -1,0 +1,7 @@
+{
+    "code": "def quantize(self, x, *args, **kwargs):\n        if self.vq_interface:\n            return x, None, [None, None, None]\n        return x",
+    "source": "github_repo:Stability-AI/stablediffusion",
+    "file": "ldm/models/autoencoder.py",
+    "license": "MIT",
+    "language": "python"
+}

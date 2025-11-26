@@ -1,0 +1,7 @@
+{
+    "code": "def toast(bread):\n    try:\n        put_in_toaster(bread)\n    except:\n        raise ToastException(\"Could not toast bread\")",
+    "source": "github_repo:charlax/professional-programming",
+    "file": "antipatterns/python-examples/reraise_exceptions_bad.py",
+    "license": "MIT",
+    "language": "python"
+}

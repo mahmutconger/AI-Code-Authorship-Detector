@@ -1,0 +1,7 @@
+{
+    "code": "from .claude import stream_claude_response, stream_claude_response_native\nfrom .openai_client import stream_openai_response\nfrom .gemini import stream_gemini_response\nfrom llm import Completion\n\n# Re-export the functions for backward compatibility\n__all__ = [\n    \"stream_claude_response\", \n    \"stream_claude_response_native\",\n    \"stream_openai_response\",\n    \"stream_gemini_response\",\n    \"Completion\"\n]",
+    "source": "github_repo:abi/screenshot-to-code",
+    "file": "backend/models/__init__.py",
+    "license": "MIT",
+    "language": "python"
+}

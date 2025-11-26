@@ -1,0 +1,7 @@
+{
+    "code": "def finish(self, message=\"The processing has been finished.\"):\n        \"\"\"Notify Start.\n        Will print the last line to the standard output.\n        Keyword Arguments:\n        self                   -- This object.\n        message                -- The 2 last phrases.\n        Return Value:\n        Nothing.\n        \"\"\"\n        NumberOfResults = self.countResults() - 1\n\n        print(Style.BRIGHT + Fore.GREEN + \"[\" +\n              Fore.YELLOW + \"*\" +\n              Fore.GREEN + \"] Search completed with\" +\n              Fore.WHITE + f\" {NumberOfResults} \" +\n              Fore.GREEN + \"results\" + Style.RESET_ALL\n              )",
+    "source": "github_repo:sherlock-project/sherlock",
+    "file": "sherlock_project/notify.py",
+    "license": "MIT",
+    "language": "python"
+}

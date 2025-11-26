@@ -1,0 +1,7 @@
+{
+    "code": "def normalize(cls, policy: str) -> list[str]:\n        if boolean_validator(policy):\n            if boolean_normalizer(policy):\n                return [\":all:\"]\n            else:\n                return [\":none:\"]\n\n        return list(\n            {\n                name.strip() if cls.is_reserved(name) else canonicalize_name(name)\n                for name in policy.strip().split(\",\")\n                if name\n            }\n        )",
+    "source": "github_repo:python-poetry/poetry",
+    "file": "src/poetry/config/config.py",
+    "license": "MIT",
+    "language": "python"
+}

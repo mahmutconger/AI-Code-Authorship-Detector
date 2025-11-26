@@ -1,0 +1,7 @@
+{
+    "code": "def get_args(cls, dist, header=None):\n    \"\"\"\n    Yield write_script() argument tuples for a distribution's\n    console_scripts and gui_scripts entry points.\n    \"\"\"\n    if header is None:\n        header = cls.get_header()\n    spec = str(dist.as_requirement())\n    for type_ in 'console', 'gui':\n        group = type_ + '_scripts'\n        for name, ep in dist.get_entry_map(group).items():\n            # ensure_safe_name\n            if re.search(r'[\\\\/]', name):\n                raise ValueError(\"Path separators not allowed in script names\")\n            script_text = TEMPLATE.format(\n                          ep.module_name, ep.attrs[0], '.'.join(ep.attrs),\n                          spec, group, name)\n            args = cls._get_script_args(type_, name, header, script_text)\n            for res in args:\n                yield res",
+    "source": "github_repo:nvbn/thefuck",
+    "file": "fastentrypoints.py",
+    "license": "MIT",
+    "language": "python"
+}

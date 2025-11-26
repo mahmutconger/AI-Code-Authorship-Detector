@@ -1,0 +1,7 @@
+{
+    "code": "def all_adapters(as_dict=False):\n    \"\"\"\n    Return list of all known adapters\n    If `as_dict` is True, return dict {'name': adapter} instead of a list.\n    \"\"\"\n\n    def _all_subclasses(cls):\n        return set(cls.__subclasses__()).union(\n            set([s for c in cls.__subclasses__() for s in _all_subclasses(c)])\n        )\n\n    if as_dict:\n        return {x.name(): x for x in _all_subclasses(Adapter)}\n    return list(_all_subclasses(Adapter))",
+    "source": "github_repo:chubin/cheat.sh",
+    "file": "lib/adapter/adapter.py",
+    "license": "MIT",
+    "language": "python"
+}

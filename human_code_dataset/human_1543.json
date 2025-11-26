@@ -1,0 +1,7 @@
+{
+    "code": "def get_top_packages() -> list[str]:\n    with urlopen(PYPI_TOP_PACKAGES) as page:\n        result = json.load(page)\n\n    return [package[\"project\"] for package in result[\"rows\"]]",
+    "source": "github_repo:psf/black",
+    "file": "gallery/gallery.py",
+    "license": "MIT",
+    "language": "python"
+}

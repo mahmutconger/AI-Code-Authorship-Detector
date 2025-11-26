@@ -1,0 +1,7 @@
+{
+    "code": "class LinkedList:\n    def __init__(self):\n        self.head = None\n\n    def insert_at_beginning(self, new_data):\n        new_node = Node(new_data)\n        if self.head is None:\n            self.head = new_node\n            return\n        new_node.next = self.head\n        self.head = new_node\n\n    def add_two_no(self, first, second):\n        prev = None\n        temp = None\n        carry = 0\n        while first is not None or second is not None:\n            first_data = 0 if first is None else first.data\n            second_data = 0 if second is None else second.data\n            Sum = carry + first_data + second_data\n            carry = 1 if Sum >= 10 else 0\n            Sum = Sum if Sum < 10 else Sum % 10\n            temp = Node(Sum)\n            if self.head is None:\n                self.head = temp\n            else:\n                prev.next = temp\n            prev = temp\n            if first is not None:\n                first = first.next\n            if second is not None:\n                second = second.next\n        if carry > 0:\n            temp.next = Node(carry)\n\n    def __str__(self):\n        temp = self.head\n        while temp:\n            print(temp.data, \"->\", end=\" \")\n            temp = temp.next\n        return \"None\"",
+    "source": "github_repo:geekcomputers/Python",
+    "file": "Add_two_Linked_List.py",
+    "license": "MIT",
+    "language": "python"
+}

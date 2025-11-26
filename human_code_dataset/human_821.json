@@ -1,0 +1,7 @@
+{
+    "code": "def test_getitem(self):\n    sock = \"carState\"\n    pub_sock = messaging.pub_sock(sock)\n    sm = messaging.SubMaster([sock,])\n    zmq_sleep()\n\n    msg = random_carstate()\n    pub_sock.send(msg.to_bytes())\n    sm.update(1000)\n    assert_carstate(msg.carState, sm[sock])",
+    "source": "github_repo:commaai/openpilot",
+    "file": "cereal/messaging/tests/test_pub_sub_master.py",
+    "license": "MIT",
+    "language": "python"
+}

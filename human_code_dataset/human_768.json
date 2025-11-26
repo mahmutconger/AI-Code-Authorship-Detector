@@ -1,0 +1,7 @@
+{
+    "code": "#!/usr/bin/env python\n# -*- coding: utf-8 -*-\n\"\"\"\n@Time    : 2023/12/22\n@Author  : alexanderwu\n@File    : debate_simple.py\n\"\"\"\nimport asyncio\n\nfrom metagpt.actions import Action\nfrom metagpt.config2 import Config\nfrom metagpt.environment import Environment\nfrom metagpt.roles import Role\nfrom metagpt.team import Team\n\ngpt35 = Config.default()\ngpt35.llm.model = \"gpt-3.5-turbo\"\ngpt4 = Config.default()\ngpt4.llm.model = \"gpt-4-turbo\"\naction1 = Action(config=gpt4, name=\"AlexSay\", instruction=\"Express your opinion with emotion and don't repeat it\")\naction2 = Action(config=gpt35, name=\"BobSay\", instruction=\"Express your opinion with emotion and don't repeat it\")\nalex = Role(name=\"Alex\", profile=\"Democratic candidate\", goal=\"Win the election\", actions=[action1], watch=[action2])\nbob = Role(name=\"Bob\", profile=\"Republican candidate\", goal=\"Win the election\", actions=[action2], watch=[action1])\nenv = Environment(desc=\"US election live broadcast\")\nteam = Team(investment=10.0, env=env, roles=[alex, bob])\n\nasyncio.run(team.run(idea=\"Topic: climate change. Under 80 words per message.\", send_to=\"Alex\", n_round=5))",
+    "source": "github_repo:FoundationAgents/MetaGPT",
+    "file": "examples/debate_simple.py",
+    "license": "MIT",
+    "language": "python"
+}

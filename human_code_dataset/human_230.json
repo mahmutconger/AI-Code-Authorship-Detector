@@ -1,0 +1,7 @@
+{
+    "code": "def forward(self, x: torch.Tensor) -> torch.Tensor:\n        \"\"\"\n        Forward pass for parallel embedding layer.\n\n        Args:\n            x (torch.Tensor): Input tensor containing token indices.\n\n        Returns:\n            torch.Tensor: Embedded representations.\n\n        Raises:\n            ValueError: If `world_size` is not defined.\n        \"\"\"\n        if world_size > 1:\n            mask = (x < self.vocab_start_idx) | (x >= self.vocab_end_idx)\n            x = x - self.vocab_start_idx\n            x[mask] = 0\n        y = F.embedding(x, self.weight)\n        if world_size > 1:\n            y[mask] = 0\n            dist.all_reduce(y)\n        return y",
+    "source": "github_repo:deepseek-ai/DeepSeek-V3",
+    "file": "inference/model.py",
+    "license": "MIT",
+    "language": "python"
+}

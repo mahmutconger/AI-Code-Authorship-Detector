@@ -1,0 +1,7 @@
+{
+    "code": "def resize_window(self, width: int, height: int) -> None:\n        subprocess.Popen(\n            [\"resize\", \"-s\", str(height), str(width)],\n            stdout=subprocess.PIPE,\n            stderr=subprocess.PIPE,\n        )",
+    "source": "github_repo:mitmproxy/mitmproxy",
+    "file": "docs/scripts/clirecording/clidirector.py",
+    "license": "MIT",
+    "language": "python"
+}

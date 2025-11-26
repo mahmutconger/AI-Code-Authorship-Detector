@@ -1,0 +1,7 @@
+{
+    "code": "def _readFinish(self):\n        self._status = 0\n        if \"esc\" in self._pressSet:  # 含esc，则为退出\n            PubSubService.publish(self._readFinishTitle, \"\")\n        else:\n            names = _KeyTranslator.set2names(self._pressSet)\n            PubSubService.publish(self._readFinishTitle, names)",
+    "source": "github_repo:hiroi-sora/Umi-OCR",
+    "file": "UmiOCR-data/py_src/event_bus/key_mouse/keyboard.py",
+    "license": "MIT",
+    "language": "python"
+}

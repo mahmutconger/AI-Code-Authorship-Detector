@@ -1,0 +1,7 @@
+{
+    "code": "def __call__(self, df: pd.DataFrame, *args, **kwargs):\n        df.index = pd.to_datetime(df.index)\n        res_index = resam_calendar(df.index, \"1min\", self.target_frq)\n        df = df.resample(self.target_frq).last().reindex(res_index)\n        return df",
+    "source": "github_repo:microsoft/qlib",
+    "file": "examples/benchmarks/LightGBM/features_resample_N.py",
+    "license": "MIT",
+    "language": "python"
+}

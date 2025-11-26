@@ -1,0 +1,7 @@
+{
+    "code": "def install(self):\n        self.before_install()\n        if isinstance(self.INSTALL_COMMANDS, (list, tuple)):\n            for INSTALL_COMMAND in self.INSTALL_COMMANDS:\n                console.print(f\"[yellow]→ {INSTALL_COMMAND}[/yellow]\")\n                os.system(INSTALL_COMMAND)\n            self.after_install()",
+    "source": "github_repo:Z4nzu/hackingtool",
+    "file": "core.py",
+    "license": "MIT",
+    "language": "python"
+}

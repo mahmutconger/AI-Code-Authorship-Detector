@@ -1,0 +1,7 @@
+{
+    "code": "def parse_cleaned_prediction(self, cleaned_prediction: str, true_label: Any) -> Tuple[str, bool]:\n        \"\"\"\n        Parse the cleaned prediction and compare it with the true label.\n\n        Args:\n            cleaned_prediction (str): The cleaned prediction string.\n            true_label (Any): The true label to compare against.\n\n        Returns:\n            Tuple[str, bool]: A tuple containing the cleaned prediction and a boolean indicating\n                              whether it matches the true label.\n        \"\"\"\n        if cleaned_prediction:  # Ensure the cleaned prediction is not empty\n            pred_dict = parse_prediction(cleaned_prediction)  # Parse the prediction\n            if pred_dict is not None and compare_predictions(pred_dict, true_label):\n                return cleaned_prediction, True  # Return if the prediction matches the true label\n        return cleaned_prediction, False  # Return the cleaned prediction with a False match",
+    "source": "github_repo:FoundationAgents/MetaGPT",
+    "file": "examples/di/InfiAgent-DABench/DABench.py",
+    "license": "MIT",
+    "language": "python"
+}

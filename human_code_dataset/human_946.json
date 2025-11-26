@@ -1,0 +1,7 @@
+{
+    "code": "def time_wrapping_unicode_heavy_warm_cache(self):\n        for _ in range(20):\n            Text(snippets.UNICODE_HEAVY_TEXT).wrap(self.console, 12, overflow=\"fold\")",
+    "source": "github_repo:Textualize/rich",
+    "file": "benchmarks/benchmarks.py",
+    "license": "MIT",
+    "language": "python"
+}

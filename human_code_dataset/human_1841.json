@@ -1,0 +1,7 @@
+{
+    "code": "def format(self, record):\n        # Add color to the level name\n        levelname = record.levelname\n        if levelname in self.COLORS:\n            record.levelname = f\"{self.COLORS[levelname]}{self.BOLD}{levelname}{self.RESET}\"\n        # Format the message\n        message = super().format(record)\n        # Add color to specific parts of the message\n        if levelname == 'INFO':\n            # Highlight numbers and percentages\n            message = re.sub(r'(\\d+\\.?\\d*\\s*(?:GB|MB|%|docs))', rf'{self.BOLD}\\1{self.RESET}', message)\n            message = re.sub(r'(Shard \\d+)', rf'{self.COLORS[\"INFO\"]}{self.BOLD}\\1{self.RESET}', message)\n        return message",
+    "source": "github_repo:karpathy/nanochat",
+    "file": "nanochat/common.py",
+    "license": "MIT",
+    "language": "python"
+}

@@ -1,0 +1,7 @@
+{
+    "code": "def testCdn(self):\n        \"\"\"\n        测试cdn筛选\n        :return:\n        \"\"\"\n        cdn = [\"60.9.0.19\", \"60.9.0.20\", \"113.16.212.251\", \"36.250.248.27\"]\n        from inter.LiftTicketInit import liftTicketInit\n        from init.select_ticket_info import select\n        from config.getCookie import getDrvicesID\n\n        s = select()\n        s.httpClint.cdn = cdn[3]\n        getDrvicesID(s)\n        liftTicketInit(s).reqLiftTicketInit()",
+    "source": "github_repo:testerSunshine/12306",
+    "file": "UnitTest/TestAll.py",
+    "license": "MIT",
+    "language": "python"
+}

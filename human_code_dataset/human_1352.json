@@ -1,0 +1,7 @@
+{
+    "code": "def load_existing_categories() -> Dict[str, str]:\n    \"\"\"Load existing categories from search_categories.json created by create_categories.py.\"\"\"\n    try:\n        with open('context/search_categories.json', 'r', encoding='utf-8') as f:\n            categories_data = json.load(f)\n\n        # Convert to filename -> category mapping\n        category_mapping = {}\n        for item in categories_data:\n            if item.get('category'):\n                category_mapping[item['filename']] = item['category']\n\n        return category_mapping\n    except FileNotFoundError:\n        print(\"Warning: search_categories.json not found, using integration-based categorization\")\n        return {}",
+    "source": "github_repo:Zie619/n8n-workflows",
+    "file": "scripts/generate_search_index.py",
+    "license": "MIT",
+    "language": "python"
+}

@@ -1,0 +1,7 @@
+{
+    "code": "def __init__(self, config):\n        super().__init__()\n        self.ln_1 = LayerNorm(config.n_embd, bias=config.bias)\n        self.attn = CausalSelfAttention(config)\n        self.ln_2 = LayerNorm(config.n_embd, bias=config.bias)\n        self.mlp = MLP(config)",
+    "source": "github_repo:karpathy/nanoGPT",
+    "file": "model.py",
+    "license": "MIT",
+    "language": "python"
+}

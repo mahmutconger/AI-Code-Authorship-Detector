@@ -1,0 +1,7 @@
+{
+    "code": "class UndirectWeightedGraph:\n    d = 0.85\n\n    def __init__(self):\n        self.graph = defaultdict(list)\n\n    def addEdge(self, start, end, weight):\n        # use a tuple (start, end, weight) instead of a Edge object\n        self.graph[start].append((start, end, weight))\n        self.graph[end].append((end, start, weight))\n\n    def rank(self):\n        ws = defaultdict(float)\n        outSum = defaultdict(float)\n\n        wsdef = 1.0 / (len(self.graph) or 1.0)\n        for n, out in self.graph.items():\n            ws[n] = wsdef\n            outSum[n] = sum((e[2] for e in out), 0.0)\n\n        # this line for build stable iteration\n        sorted_keys = sorted(self.graph.keys())\n        for x in xrange(10):  # 10 iters\n            for n in sorted_keys:\n                s = 0\n                for e in self.graph[n]:\n                    s += e[2] / outSum[e[1]] * ws[e[1]]\n                ws[n] = (1 - self.d) + self.d * s\n\n        (min_rank, max_rank) = (sys.float_info[0], sys.float_info[3])\n\n        for w in itervalues(ws):\n            if w < min_rank:\n                min_rank = w\n            if w > max_rank:\n                max_rank = w\n\n        for n, w in ws.items():\n            # to unify the weights, don't *100.\n            ws[n] = (w - min_rank / 10.0) / (max_rank - min_rank / 10.0)\n\n        return ws",
+    "source": "github_repo:fxsjy/jieba",
+    "file": "jieba/analyse/textrank.py",
+    "license": "MIT",
+    "language": "python"
+}

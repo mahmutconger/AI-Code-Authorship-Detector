@@ -1,0 +1,7 @@
+{
+    "code": "def finalize(self, tokens: Tensor, sum_logprobs: Tensor):\n        # make sure each sequence has at least one EOT token at the end\n        tokens = F.pad(tokens, (0, 1), value=self.eot)\n        return tokens, sum_logprobs.tolist()",
+    "source": "github_repo:openai/whisper",
+    "file": "whisper/decoding.py",
+    "license": "MIT",
+    "language": "python"
+}

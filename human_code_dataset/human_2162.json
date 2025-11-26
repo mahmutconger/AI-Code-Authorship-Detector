@@ -1,0 +1,7 @@
+{
+    "code": "def loadFile(fileName):\n    \"\"\"\n    loadFile: This function loads the file and reads its lines.\n    \"\"\"\n    global lines\n    fo = open(fileName)\n    for line in fo:\n        lines.append(line)\n    fo.close()",
+    "source": "github_repo:geekcomputers/Python",
+    "file": "Assembler/assembler.py",
+    "license": "MIT",
+    "language": "python"
+}

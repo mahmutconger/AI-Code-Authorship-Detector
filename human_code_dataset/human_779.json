@@ -1,0 +1,7 @@
+{
+    "code": "def get_answer(self, answer_id: str) -> list:\n        \"\"\"\n        Retrieve the answer list associated with the given ID.\n\n        This method looks up an answer by its unique identifier. If the answer\n        is found, it returns the answer data; otherwise, it returns a message\n        indicating that the answer was not found.\n\n        Args:\n            answer_id (str): The unique identifier for the answer.\n\n        Returns:\n            list: The answer data if found, otherwise an \"Answer not found.\" message.\n        \"\"\"\n        return self.answers.get(answer_id, \"Answer not found.\")  # Return the answer or an error message",
+    "source": "github_repo:FoundationAgents/MetaGPT",
+    "file": "examples/di/InfiAgent-DABench/DABench.py",
+    "license": "MIT",
+    "language": "python"
+}

@@ -1,0 +1,7 @@
+{
+    "code": "def compare(f1: FilesDict, f2: FilesDict):\n    def colored_diff(s1, s2):\n        lines1 = s1.splitlines()\n        lines2 = s2.splitlines()\n\n        diff = difflib.unified_diff(lines1, lines2, lineterm=\"\")\n\n        RED = \"\\033[38;5;202m\"\n        GREEN = \"\\033[92m\"\n        RESET = \"\\033[0m\"\n\n        colored_lines = []\n        for line in diff:\n            if line.startswith(\"+\"):\n                colored_lines.append(GREEN + line + RESET)\n            elif line.startswith(\"-\"):\n                colored_lines.append(RED + line + RESET)\n            else:\n                colored_lines.append(line)\n\n        return \"\\n\".join(colored_lines)\n\n    for file in sorted(set(f1) | set(f2)):\n        diff = colored_diff(f1.get(file, \"\"), f2.get(file, \"\"))\n        if diff:\n            print(f\"Changes to {file}:\")\n            print(diff)",
+    "source": "github_repo:AntonOsika/gpt-engineer",
+    "file": "gpt_engineer/applications/cli/main.py",
+    "license": "MIT",
+    "language": "python"
+}

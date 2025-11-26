@@ -1,0 +1,7 @@
+{
+    "code": "def write_to_file(self, filename: str, content: str) -> None:\n        try:\n            with open(os.path.join(self.debug_artifacts_path, filename), \"w\") as file:\n                file.write(content)\n        except Exception as e:\n            logging.error(f\"Failed to write to file: {e}\")",
+    "source": "github_repo:abi/screenshot-to-code",
+    "file": "backend/debug/DebugFileWriter.py",
+    "license": "MIT",
+    "language": "python"
+}

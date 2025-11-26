@@ -1,0 +1,7 @@
+{
+    "code": "def batch_sequences(sequences: List[np.array], axis: int = 0, pad_value: int = 0):\n    seq = sequences[0]\n    ndim = seq.ndim\n    if axis < 0:\n        axis += ndim\n    dtype = seq.dtype\n    pad_value = dtype.type(pad_value)\n    seq_lengths = [seq.shape[axis] for seq in sequences]\n    max_length = np.max(seq_lengths)\n\n    padded_sequences = []\n    for seq, length in zip(sequences, seq_lengths):\n        padding = [(0, 0)] * axis + [(0, max_length - length)] + [(0, 0)] * (ndim - axis - 1)\n        padded_seq = np.pad(seq, padding, mode=\"constant\", constant_values=pad_value)\n        padded_sequences.append(padded_seq)\n    batch = np.stack(padded_sequences)\n    return batch",
+    "source": "github_repo:RVC-Boss/GPT-SoVITS",
+    "file": "GPT_SoVITS/AR/data/dataset.py",
+    "license": "MIT",
+    "language": "python"
+}

@@ -1,0 +1,7 @@
+{
+    "code": "def forward(self, x, x_mask, h, h_mask):\n        \"\"\"\n        x: decoder input\n        h: encoder output\n        \"\"\"\n        self_attn_mask = commons.subsequent_mask(x_mask.size(2)).to(\n            device=x.device, dtype=x.dtype\n        )\n        encdec_attn_mask = h_mask.unsqueeze(2) * x_mask.unsqueeze(-1)\n        x = x * x_mask\n        for i in range(self.n_layers):\n            y = self.self_attn_layers[i](x, x, self_attn_mask)\n            y = self.drop(y)\n            x = self.norm_layers_0[i](x + y)\n\n            y = self.encdec_attn_layers[i](x, h, encdec_attn_mask)\n            y = self.drop(y)\n            x = self.norm_layers_1[i](x + y)\n\n            y = self.ffn_layers[i](x, x_mask)\n            y = self.drop(y)\n            x = self.norm_layers_2[i](x + y)\n        x = x * x_mask\n        return x",
+    "source": "github_repo:myshell-ai/OpenVoice",
+    "file": "openvoice/attentions.py",
+    "license": "MIT",
+    "language": "python"
+}

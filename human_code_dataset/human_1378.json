@@ -1,0 +1,7 @@
+{
+    "code": "def detect_intent(self, query: str) -> str:\n        \"\"\"Detect user intent from query.\"\"\"\n        query_lower = query.lower()\n        \n        if any(word in query_lower for word in ['automate', 'schedule', 'recurring', 'daily', 'weekly']):\n            return \"automation\"\n        elif any(word in query_lower for word in ['connect', 'integrate', 'sync', 'webhook']):\n            return \"integration\"\n        elif any(word in query_lower for word in ['manual', 'trigger', 'button', 'click']):\n            return \"manual\"\n        elif any(word in query_lower for word in ['ai', 'chat', 'assistant', 'intelligent']):\n            return \"ai\"\n        else:\n            return \"general\"",
+    "source": "github_repo:Zie619/n8n-workflows",
+    "file": "src/ai_assistant.py",
+    "license": "MIT",
+    "language": "python"
+}

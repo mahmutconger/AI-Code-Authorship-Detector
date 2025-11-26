@@ -1,0 +1,7 @@
+{
+    "code": "def scaled_dot_product_attention(\n    query: torch.Tensor,\n    key: torch.Tensor,\n    value: torch.Tensor,\n    attn_mask: Optional[torch.Tensor] = None,\n    scale: Optional[torch.Tensor] = None,\n) -> torch.Tensor:\n    B, H, L, S = query.size(0), query.size(1), query.size(-2), key.size(-2)\n    if scale is None:\n        scale_factor = torch.tensor(1 / math.sqrt(query.size(-1)))\n    else:\n        scale_factor = scale\n    attn_bias = torch.zeros(B, H, L, S, dtype=query.dtype, device=query.device)\n\n    if attn_mask is not None:\n        if attn_mask.dtype == torch.bool:\n            attn_bias.masked_fill_(attn_mask, float(\"-inf\"))\n        else:\n            attn_bias += attn_mask\n    attn_weight = query @ key.transpose(-2, -1) * scale_factor\n    attn_weight += attn_bias\n    attn_weight = torch.softmax(attn_weight, dim=-1)\n\n    if attn_mask is not None:\n        if attn_mask.dtype == torch.bool:\n            attn_weight.masked_fill_(attn_mask, 0)\n        else:\n            attn_mask[attn_mask != float(\"-inf\")] = 0\n            attn_mask[attn_mask == float(\"-inf\")] = 1\n            attn_weight.masked_fill_(attn_mask, 0)\n\n    return attn_weight @ value",
+    "source": "github_repo:RVC-Boss/GPT-SoVITS",
+    "file": "GPT_SoVITS/AR/models/t2s_model.py",
+    "license": "MIT",
+    "language": "python"
+}

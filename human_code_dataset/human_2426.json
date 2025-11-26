@@ -1,0 +1,7 @@
+{
+    "code": "def build_options(self):\n        for e in self.extensions:\n            e.extra_compile_args += COMPILE_OPTIONS.get(\n                self.compiler.compiler_type, COMPILE_OPTIONS[\"other\"]\n            )\n        for e in self.extensions:\n            e.extra_link_args += LINK_OPTIONS.get(\n                self.compiler.compiler_type, LINK_OPTIONS[\"other\"]\n            )",
+    "source": "github_repo:explosion/spaCy",
+    "file": "setup.py",
+    "license": "MIT",
+    "language": "python"
+}

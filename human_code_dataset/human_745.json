@@ -1,0 +1,7 @@
+{
+    "code": "class RunnableCoder(Role):\n    name: str = \"Alice\"\n    profile: str = \"RunnableCoder\"\n\n    def __init__(self, **kwargs):\n        super().__init__(**kwargs)\n        self.set_actions([SimpleWriteCode, SimpleRunCode])\n        self._set_react_mode(react_mode=RoleReactMode.BY_ORDER.value)\n\n    async def _act(self) -> Message:\n        logger.info(f\"{self._setting}: to do {self.rc.todo}({self.rc.todo.name})\")\n        # By choosing the Action by order under the hood\n        # todo will be first SimpleWriteCode() then SimpleRunCode()\n        todo = self.rc.todo\n\n        msg = self.get_memories(k=1)[0]  # find the most k recent messages\n        result = await todo.run(msg.content)\n\n        msg = Message(content=result, role=self.profile, cause_by=type(todo))\n        self.rc.memory.add(msg)\n        return msg",
+    "source": "github_repo:FoundationAgents/MetaGPT",
+    "file": "examples/build_customized_agent.py",
+    "license": "MIT",
+    "language": "python"
+}

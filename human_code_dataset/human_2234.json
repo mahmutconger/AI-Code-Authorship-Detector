@@ -1,0 +1,7 @@
+{
+    "code": "def virtualenvs_path(self) -> Path:\n        path = self.get(\"virtualenvs.path\")\n        if path is None:\n            path = Path(self.get(\"cache-dir\")) / \"virtualenvs\"\n        return Path(path).expanduser()",
+    "source": "github_repo:python-poetry/poetry",
+    "file": "src/poetry/config/config.py",
+    "license": "MIT",
+    "language": "python"
+}

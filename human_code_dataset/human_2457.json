@@ -1,0 +1,7 @@
+{
+    "code": "def warmup(\n    nlp: Language, docs: List[Doc], warmup_epochs: int, batch_size: Optional[int]\n) -> numpy.ndarray:\n    docs = [doc.copy() for doc in docs * warmup_epochs]\n    return annotate(nlp, docs, batch_size)",
+    "source": "github_repo:explosion/spaCy",
+    "file": "spacy/cli/benchmark_speed.py",
+    "license": "MIT",
+    "language": "python"
+}

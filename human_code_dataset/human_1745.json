@@ -1,0 +1,7 @@
+{
+    "code": "# -*- coding: utf-8 -*-\n\nfrom asyncio import run\nimport ccxt.pro as ccxt\nfrom pprint import pprint\n\n\n# This example will run silent and will return your balance only when the balance is updated.\n\n# 1. launch the example with your keys and keep it running\n# 2. go to the margin trading on the website\n# 3. place a margin order on a spot market\n# 4. see your balance updated in the example\n\n\nasync def main():\n    exchange = ccxt.pro.binance({\n        'apiKey': 'YOUR_API_KEY',\n        'secret': 'YOUR_SECRET',\n        'options': {\n            'defaultType': 'margin',\n        },\n        # comment it out if you don't want debug output\n        # this is for the demo purpose only (to show the communication)\n        'verbose': True,\n    })\n    while True:\n        try:\n            balance = await exchange.watch_balance()\n            # it will print the balance update when the balance changes\n            # if the balance remains unchanged the exchange will not send it\n            pprint(balance)\n        except Exception as e:\n            print('watch_balance() failed')\n            print(e)\n            break\n    await exchange.close()\n\n\nrun(main())",
+    "source": "github_repo:ccxt/ccxt",
+    "file": "examples/ccxt.pro/py/binance-watch-margin-balance.py",
+    "license": "MIT",
+    "language": "python"
+}

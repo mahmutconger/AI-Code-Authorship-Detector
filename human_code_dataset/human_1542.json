@@ -1,0 +1,7 @@
+{
+    "code": "def get_pypi_download_url(package: str, version: str | None) -> str:\n    with urlopen(PYPI_INSTANCE + f\"/{package}/json\") as page:\n        metadata = json.load(page)\n\n    if version is None:\n        sources = metadata[\"urls\"]\n    else:\n        if version in metadata[\"releases\"]:\n            sources = metadata[\"releases\"][version]\n        else:\n            raise ValueError(\n                f\"No releases found with version ('{version}') tag. \"\n                f\"Found releases: {metadata['releases'].keys()}\"\n            )\n\n    for source in sources:\n        if source[\"python_version\"] == \"source\":\n            break\n    else:\n        raise ValueError(f\"Couldn't find any sources for {package}\")\n\n    return cast(str, source[\"url\"])",
+    "source": "github_repo:psf/black",
+    "file": "gallery/gallery.py",
+    "license": "MIT",
+    "language": "python"
+}

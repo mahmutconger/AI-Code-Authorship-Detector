@@ -1,0 +1,7 @@
+{
+    "code": "def __init__(self):\n        super().__init__()\n        openai.api_type = \"azure\"\n        openai.api_version = conf().get(\"azure_api_version\", \"2023-06-01-preview\")\n        self.args[\"deployment_id\"] = conf().get(\"azure_deployment_id\")",
+    "source": "github_repo:zhayujie/chatgpt-on-wechat",
+    "file": "bot/chatgpt/chat_gpt_bot.py",
+    "license": "MIT",
+    "language": "python"
+}

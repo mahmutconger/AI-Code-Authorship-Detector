@@ -1,0 +1,7 @@
+{
+    "code": "def main(source_path: str, zone_configuration_path: str) -> None:\n    global current_mouse_position\n    original_image = resolve_source(source_path=source_path)\n    if original_image is None:\n        print(\"Failed to load source image.\")\n        return\n\n    image = original_image.copy()\n    cv2.imshow(WINDOW_NAME, image)\n    cv2.setMouseCallback(WINDOW_NAME, mouse_event, image)\n\n    while True:\n        key = cv2.waitKey(1) & 0xFF\n        if key == KEY_ENTER or key == KEY_NEWLINE:\n            close_and_finalize_polygon(image, original_image)\n        elif key == KEY_ESCAPE:\n            POLYGONS[-1] = []\n            current_mouse_position = None\n        elif key == KEY_SAVE:\n            save_polygons_to_json(POLYGONS, zone_configuration_path)\n            print(f\"Polygons saved to {zone_configuration_path}\")\n            break\n        redraw(image, original_image)\n        if key == KEY_QUIT:\n            break\n\n    cv2.destroyAllWindows()",
+    "source": "github_repo:roboflow/supervision",
+    "file": "examples/time_in_zone/scripts/draw_zones.py",
+    "license": "MIT",
+    "language": "python"
+}

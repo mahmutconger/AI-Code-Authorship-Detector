@@ -1,0 +1,7 @@
+{
+    "code": "def __init__(self, *, n_labels: int, lambda_: float = 0.5, m_positive: float = 0.9, m_negative: float = 0.1):\n        super().__init__()\n\n        self.m_negative = m_negative\n        self.m_positive = m_positive\n        self.lambda_ = lambda_\n        self.n_labels = n_labels",
+    "source": "github_repo:labmlai/annotated_deep_learning_paper_implementations",
+    "file": "labml_nn/capsule_networks/__init__.py",
+    "license": "MIT",
+    "language": "python"
+}

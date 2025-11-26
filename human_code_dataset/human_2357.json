@@ -1,0 +1,7 @@
+{
+    "code": "def data_csv_path(self):\n        csv_map = {\n            \"Alpha158\": \"Alpha158.csv\",\n        }\n\n        return os.path.join(self.data_folder, csv_map[self.experiment])",
+    "source": "github_repo:microsoft/qlib",
+    "file": "examples/benchmarks/TFT/expt_settings/configs.py",
+    "license": "MIT",
+    "language": "python"
+}

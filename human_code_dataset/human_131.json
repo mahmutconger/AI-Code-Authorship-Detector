@@ -1,0 +1,7 @@
+{
+    "code": "def update_uv_dep(base_version: str) -> None:\n    \"\"\"Update the langflow-base dependency in pyproject.toml.\"\"\"\n    pyproject_path = BASE_DIR / \"pyproject.toml\"\n\n    # Read the pyproject.toml file content\n    content = pyproject_path.read_text(encoding=\"utf-8\")\n\n    # For the main project, update the langflow-base dependency in the UV section\n    # Updated pattern to handle PEP 440 version suffixes and both ~= and == version specifiers\n    pattern = re.compile(\n        r'(dependencies\\s*=\\s*\\[\\s*\\n\\s*)(\"langflow-base(?:~=|==)[\\d.]+(?:\\.(?:post|dev|a|b|rc)\\d+)*\")'\n    )\n    replacement = rf'\\1\"langflow-base-nightly=={base_version}\"'\n\n    # Check if the pattern is found\n    if not pattern.search(content):\n        msg = f\"{pattern} UV dependency not found in {pyproject_path}\"\n        raise ValueError(msg)\n\n    # Replace the matched pattern with the new one\n    content = pattern.sub(replacement, content)\n\n    # Write the updated content back to the file\n    pyproject_path.write_text(content, encoding=\"utf-8\")",
+    "source": "github_repo:langflow-ai/langflow",
+    "file": "scripts/ci/update_uv_dependency.py",
+    "license": "MIT",
+    "language": "python"
+}

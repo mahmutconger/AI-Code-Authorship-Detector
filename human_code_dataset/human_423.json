@@ -1,0 +1,7 @@
+{
+    "code": "class MissingDependencyException(MarkItDownException):\n    \"\"\"\n    Converters shipped with MarkItDown may depend on optional\n    dependencies. This exception is thrown when a converter's\n    convert() method is called, but the required dependency is not\n    installed. This is not necessarily a fatal error, as the converter\n    will simply be skipped (an error will bubble up only if no other\n    suitable converter is found).\n\n    Error messages should clearly indicate which dependency is missing.\n    \"\"\"\n\n    pass",
+    "source": "github_repo:microsoft/markitdown",
+    "file": "packages/markitdown/src/markitdown/_exceptions.py",
+    "license": "MIT",
+    "language": "python"
+}

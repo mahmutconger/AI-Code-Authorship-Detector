@@ -1,0 +1,7 @@
+{
+    "code": "def serve(\n    *,\n    port: Annotated[\n        int | None,\n        typer.Option(help=\"The port to run the server on\"),\n    ] = None,\n    host: Annotated[\n        str | None,\n        typer.Option(help=\"The host to run the server on\"),\n    ] = None,\n) -> None:\n    \"\"\"Start the LangServe app, whether it's a template or an app.\"\"\"\n    try:\n        project_dir = get_package_root()\n        pyproject = project_dir / \"pyproject.toml\"\n        get_langserve_export(pyproject)\n    except (KeyError, FileNotFoundError):\n        # not a template\n        app_namespace.serve(port=port, host=host)\n    else:\n        # is a template\n        template_namespace.serve(port=port, host=host)",
+    "source": "github_repo:langchain-ai/langchain",
+    "file": "libs/cli/langchain_cli/cli.py",
+    "license": "MIT",
+    "language": "python"
+}

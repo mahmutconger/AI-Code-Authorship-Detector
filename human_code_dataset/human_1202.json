@@ -1,0 +1,7 @@
+{
+    "code": "class Toaster(Base):\n    __tablename__ = \"toasters\"\n\n    id = Column(Integer, primary_key=True)\n    name = Column(String)\n    color = Column(String)",
+    "source": "github_repo:charlax/professional-programming",
+    "file": "antipatterns/sqlalchemy-examples/exists.py",
+    "license": "MIT",
+    "language": "python"
+}

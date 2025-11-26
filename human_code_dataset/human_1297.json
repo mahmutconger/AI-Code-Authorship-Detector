@@ -1,0 +1,7 @@
+{
+    "code": "def _parse_list_item(line):\n        \"\"\"Extract the item marker (number or bullet symbol) and the text of the item.\"\"\"\n\n        match = re.match(r\"^(\\s*)(\\*|-|\\d+\\.)\\s+(.*)\", line)\n        if match:\n            indent = match.group(1)\n            marker = match.group(2)  # The list marker (e.g., \"*\", \"-\", \"1.\")\n            text = match.group(3)  # The actual text of the list item\n\n            if marker == \"*\" or marker == \"-\":\n                return {\n                    \"type\": \"list_item\",\n                    \"marker\": marker,\n                    \"text\": text.strip(),\n                    \"numbered\": False,\n                    \"indent\": 0 if indent is None else len(indent),\n                }\n            else:\n                return {\n                    \"type\": \"list_item\",\n                    \"marker\": marker,\n                    \"text\": text.strip(),\n                    \"numbered\": True,\n                    \"indent\": 0 if indent is None else len(indent),\n                }\n        else:\n            # Fallback if no match\n            return {\n                \"type\": \"list_item\",\n                \"marker\": \"-\",\n                \"text\": line,\n                \"numbered\": False,\n                \"indent\": 0,\n            }",
+    "source": "github_repo:docling-project/docling",
+    "file": "docling/backend/asciidoc_backend.py",
+    "license": "MIT",
+    "language": "python"
+}

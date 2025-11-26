@@ -1,0 +1,7 @@
+{
+    "code": "from rich import inspect\nfrom rich.console import Console\n\nc = Console(record=True, width=110)\n\nf = open(\"foo.txt\", \"w\")\n\ninspect(f, console=c)\nc.save_svg(\"inspect1.svg\")\n\n\ninspect(f, console=c, methods=True)\nc.save_svg(\"inspect2.svg\")\n\n\ninspect(f, console=c, methods=True, help=True)\nc.save_svg(\"inspect3.svg\")",
+    "source": "github_repo:Textualize/textual",
+    "file": "docs/blog/images/gen_inspect.py",
+    "license": "MIT",
+    "language": "python"
+}

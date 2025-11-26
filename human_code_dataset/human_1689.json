@@ -1,0 +1,7 @@
+{
+    "code": "def name2key(char):\n        if hasattr(keyboard.Key, char):  # 控制键返回Code\n            return getattr(keyboard.Key, char).value\n        else:  # 非控制键返回自己\n            return char",
+    "source": "github_repo:hiroi-sora/Umi-OCR",
+    "file": "UmiOCR-data/py_src/event_bus/key_mouse/keyboard.py",
+    "license": "MIT",
+    "language": "python"
+}

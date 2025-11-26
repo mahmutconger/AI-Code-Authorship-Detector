@@ -1,0 +1,7 @@
+{
+    "code": "def phase_vocoder(a, b, fade_out, fade_in):\n    window = torch.sqrt(fade_out * fade_in)\n    fa = torch.fft.rfft(a * window)\n    fb = torch.fft.rfft(b * window)\n    absab = torch.abs(fa) + torch.abs(fb)\n    n = a.shape[0]\n    if n % 2 == 0:\n        absab[1:-1] *= 2\n    else:\n        absab[1:] *= 2\n    phia = torch.angle(fa)\n    phib = torch.angle(fb)\n    deltaphase = phib - phia\n    deltaphase = deltaphase - 2 * np.pi * torch.floor(deltaphase / 2 / np.pi + 0.5)\n    w = 2 * np.pi * torch.arange(n // 2 + 1).to(a) + deltaphase\n    t = torch.arange(n).unsqueeze(-1).to(a) / n\n    result = (\n        a * (fade_out**2)\n        + b * (fade_in**2)\n        + torch.sum(absab * torch.cos(w * t + phia), -1) * window / n\n    )\n    return result",
+    "source": "github_repo:RVC-Project/Retrieval-based-Voice-Conversion-WebUI",
+    "file": "gui_v1.py",
+    "license": "MIT",
+    "language": "python"
+}

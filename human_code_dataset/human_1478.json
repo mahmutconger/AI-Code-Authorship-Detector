@@ -1,0 +1,7 @@
+{
+    "code": "class _Iot(_AlibabaCloud):\n    _type = \"iot\"\n    _icon_dir = \"resources/alibabacloud/iot\"",
+    "source": "github_repo:mingrammer/diagrams",
+    "file": "diagrams/alibabacloud/iot.py",
+    "license": "MIT",
+    "language": "python"
+}

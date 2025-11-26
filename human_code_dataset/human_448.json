@@ -1,0 +1,7 @@
+{
+    "code": "def file_uri_to_path(file_uri: str) -> Tuple[str | None, str]:\n    \"\"\"Convert a file URI to a local file path\"\"\"\n    parsed = urlparse(file_uri)\n    if parsed.scheme != \"file\":\n        raise ValueError(f\"Not a file URL: {file_uri}\")\n\n    netloc = parsed.netloc if parsed.netloc else None\n    path = os.path.abspath(url2pathname(parsed.path))\n    return netloc, path",
+    "source": "github_repo:microsoft/markitdown",
+    "file": "packages/markitdown/src/markitdown/_uri_utils.py",
+    "license": "MIT",
+    "language": "python"
+}

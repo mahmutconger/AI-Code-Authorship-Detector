@@ -1,0 +1,7 @@
+{
+    "code": "\"\"\"\nThis example demonstrates the justify argument to print.\n\"\"\"\n\nfrom rich.console import Console\n\nconsole = Console(width=20)\n\nstyle = \"bold white on blue\"\nconsole.print(\"Rich\", style=style)\nconsole.print(\"Rich\", style=style, justify=\"left\")\nconsole.print(\"Rich\", style=style, justify=\"center\")\nconsole.print(\"Rich\", style=style, justify=\"right\")",
+    "source": "github_repo:Textualize/rich",
+    "file": "examples/justify.py",
+    "license": "MIT",
+    "language": "python"
+}

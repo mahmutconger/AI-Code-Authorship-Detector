@@ -1,0 +1,7 @@
+{
+    "code": "def start(self, filename: str, width: int = 0, height: int = 0) -> libtmux.Session:\n        self.start_session(width, height)\n        self.start_recording(filename)\n        return self.tmux_session",
+    "source": "github_repo:mitmproxy/mitmproxy",
+    "file": "docs/scripts/clirecording/clidirector.py",
+    "license": "MIT",
+    "language": "python"
+}

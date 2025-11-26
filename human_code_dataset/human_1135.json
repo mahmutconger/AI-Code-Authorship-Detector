@@ -1,0 +1,7 @@
+{
+    "code": "def _github_auth_headers(cli_token: str | None = None) -> dict:\n    \"\"\"Return Authorization header dict only when a non-empty token exists.\"\"\"\n    token = _github_token(cli_token)\n    return {\"Authorization\": f\"Bearer {token}\"} if token else {}",
+    "source": "github_repo:github/spec-kit",
+    "file": "src/specify_cli/__init__.py",
+    "license": "MIT",
+    "language": "python"
+}

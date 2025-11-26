@@ -1,0 +1,7 @@
+{
+    "code": "def handle_all_orderbooks(orderbooks):\n    print('We have the following orderbooks:')\n    for exchange_id, orderbooks_by_symbol in orderbooks.items():\n        for symbol in orderbooks_by_symbol.keys():\n            orderbook = orderbooks_by_symbol[symbol]\n            print(ccxt.pro.Exchange.iso8601(orderbook['timestamp']), exchange_id, symbol, orderbook['asks'][0], orderbook['bids'][0])",
+    "source": "github_repo:ccxt/ccxt",
+    "file": "examples/ccxt.pro/py/many-exchanges-many-orderbooks-throttled.py",
+    "license": "MIT",
+    "language": "python"
+}

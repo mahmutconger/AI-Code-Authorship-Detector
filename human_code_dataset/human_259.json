@@ -1,0 +1,7 @@
+{
+    "code": "def os_environ(monkeypatch):\n    env = {'PATH': os.environ['PATH']}\n    monkeypatch.setattr('os.environ', env)\n    return env",
+    "source": "github_repo:nvbn/thefuck",
+    "file": "tests/conftest.py",
+    "license": "MIT",
+    "language": "python"
+}

@@ -1,0 +1,7 @@
+{
+    "code": "from typing import Annotated, Union\n\nfrom fastapi import Body, FastAPI, status\nfrom fastapi.responses import JSONResponse\n\napp = FastAPI()\n\nitems = {\"foo\": {\"name\": \"Fighters\", \"size\": 6}, \"bar\": {\"name\": \"Tenders\", \"size\": 3}}\n\n\n@app.put(\"/items/{item_id}\")\nasync def upsert_item(\n    item_id: str,\n    name: Annotated[Union[str, None], Body()] = None,\n    size: Annotated[Union[int, None], Body()] = None,\n):\n    if item_id in items:\n        item = items[item_id]\n        item[\"name\"] = name\n        item[\"size\"] = size\n        return item\n    else:\n        item = {\"name\": name, \"size\": size}\n        items[item_id] = item\n        return JSONResponse(status_code=status.HTTP_201_CREATED, content=item)",
+    "source": "github_repo:fastapi/fastapi",
+    "file": "docs_src/additional_status_codes/tutorial001_an_py39.py",
+    "license": "MIT",
+    "language": "python"
+}

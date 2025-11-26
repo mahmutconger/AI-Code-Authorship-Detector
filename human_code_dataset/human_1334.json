@@ -1,0 +1,7 @@
+{
+    "code": "def check_rate_limit(client_ip: str) -> bool:\n    \"\"\"Check if client has exceeded rate limit.\"\"\"\n    current_time = time.time()\n    # Clean old entries\n    rate_limit_storage[client_ip] = [\n        timestamp for timestamp in rate_limit_storage[client_ip]\n        if current_time - timestamp < 60\n    ]\n    # Check rate limit\n    if len(rate_limit_storage[client_ip]) >= MAX_REQUESTS_PER_MINUTE:\n        return False\n    # Add current request\n    rate_limit_storage[client_ip].append(current_time)\n    return True",
+    "source": "github_repo:Zie619/n8n-workflows",
+    "file": "api_server.py",
+    "license": "MIT",
+    "language": "python"
+}

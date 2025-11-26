@@ -1,0 +1,7 @@
+{
+    "code": "def displayable(self) -> str:\n        \"\"\"\n        Returns a string representation of the path for display in a tree-like structure.\n\n        Returns\n        -------\n        str\n            The displayable string representation of the file or directory.\n        \"\"\"\n        if self.parent is None:\n            return self.display_name\n\n        _filename_prefix = (\n            self.display_filename_prefix_last\n            if self.is_last\n            else self.display_filename_prefix_middle\n        )\n\n        parts = [\"{!s} {!s}\".format(_filename_prefix, self.display_name)]\n\n        parent = self.parent\n        while parent and parent.parent is not None:\n            parts.append(\n                self.display_parent_prefix_middle\n                if parent.is_last\n                else self.display_parent_prefix_last\n            )\n            parent = parent.parent\n\n        return \"\".join(reversed(parts))  # Assemble the parts into the final string",
+    "source": "github_repo:AntonOsika/gpt-engineer",
+    "file": "gpt_engineer/applications/cli/file_selector.py",
+    "license": "MIT",
+    "language": "python"
+}

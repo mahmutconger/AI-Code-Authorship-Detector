@@ -1,0 +1,7 @@
+{
+    "code": "class TestServices:\n\n  @parameterized.expand(SERVICE_LIST.keys())\n  def test_services(self, s):\n    service = SERVICE_LIST[s]\n    assert service.frequency <= 104\n    assert service.decimation != 0\n\n  def test_generated_header(self):\n    with tempfile.NamedTemporaryFile(suffix=\".h\") as f:\n      ret = os.system(f\"python3 {services.__file__} > {f.name} && clang++ {f.name} -std=c++11\")\n      assert ret == 0, \"generated services header is not valid C\"",
+    "source": "github_repo:commaai/openpilot",
+    "file": "cereal/messaging/tests/test_services.py",
+    "license": "MIT",
+    "language": "python"
+}

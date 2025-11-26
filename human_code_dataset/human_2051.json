@@ -1,0 +1,7 @@
+{
+    "code": "def __init__(\n        self,\n        in_channels,\n        out_channels,\n        filter_channels,\n        kernel_size,\n        p_dropout=0.0,\n        activation=None,\n        causal=False,\n    ):\n        super().__init__()\n        self.in_channels = in_channels\n        self.out_channels = out_channels\n        self.filter_channels = filter_channels\n        self.kernel_size = kernel_size\n        self.p_dropout = p_dropout\n        self.activation = activation\n        self.causal = causal\n\n        if causal:\n            self.padding = self._causal_padding\n        else:\n            self.padding = self._same_padding\n\n        self.conv_1 = nn.Conv1d(in_channels, filter_channels, kernel_size)\n        self.conv_2 = nn.Conv1d(filter_channels, out_channels, kernel_size)\n        self.drop = nn.Dropout(p_dropout)",
+    "source": "github_repo:myshell-ai/OpenVoice",
+    "file": "openvoice/attentions.py",
+    "license": "MIT",
+    "language": "python"
+}

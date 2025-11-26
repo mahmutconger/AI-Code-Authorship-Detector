@@ -1,0 +1,7 @@
+{
+    "code": "def __enter__(self):\n        self.start = time.perf_counter()\n        return self",
+    "source": "github_repo:explosion/spaCy",
+    "file": "spacy/cli/benchmark_speed.py",
+    "license": "MIT",
+    "language": "python"
+}

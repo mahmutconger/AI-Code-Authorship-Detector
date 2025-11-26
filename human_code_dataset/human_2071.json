@@ -1,0 +1,7 @@
+{
+    "code": "def __init__(self, dictionary=DEFAULT_DICT):\n        self.lock = threading.RLock()\n        if dictionary == DEFAULT_DICT:\n            self.dictionary = dictionary\n        else:\n            self.dictionary = _get_abs_path(dictionary)\n        self.FREQ = {}\n        self.total = 0\n        self.user_word_tag_tab = {}\n        self.initialized = False\n        self.tmp_dir = None\n        self.cache_file = None",
+    "source": "github_repo:fxsjy/jieba",
+    "file": "jieba/__init__.py",
+    "license": "MIT",
+    "language": "python"
+}

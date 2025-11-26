@@ -1,0 +1,7 @@
+{
+    "code": "def _encode_data_str_v2(d):\n    b = len(d)\n    if b % 2 == 0:\n        return d[b // 2: b] + d[0:b // 2]\n    else:\n        return d[b // 2 + 1:b] + d[b // 2] + d[0:b // 2]",
+    "source": "github_repo:testerSunshine/12306",
+    "file": "config/getCookie.py",
+    "license": "MIT",
+    "language": "python"
+}

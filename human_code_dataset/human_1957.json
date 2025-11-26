@@ -1,0 +1,7 @@
+{
+    "code": "def stream_video_to_url(video_path: str, stream_url: str) -> Thread:\n    command = (\n        f\"ffmpeg -re -stream_loop -1 -i {video_path} \"\n        f\"-f rtsp -rtsp_transport tcp {stream_url}\"\n    )\n    return run_command_in_thread(command.split())",
+    "source": "github_repo:roboflow/supervision",
+    "file": "examples/time_in_zone/scripts/stream_from_file.py",
+    "license": "MIT",
+    "language": "python"
+}

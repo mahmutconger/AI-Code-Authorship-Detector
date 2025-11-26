@@ -1,0 +1,7 @@
+{
+    "code": "def stop(self):\n        console.print(Panel(Text(self.TITLE, justify=\"center\"), style=f\"bold {P_COLOR}\"))\n        console.print(\"Stopping Anonsurf...\", style=f\"bold {P_COLOR}\")\n        os.system(\"sudo anonsurf stop\")",
+    "source": "github_repo:Z4nzu/hackingtool",
+    "file": "tools/anonsurf.py",
+    "license": "MIT",
+    "language": "python"
+}

@@ -1,0 +1,7 @@
+{
+    "code": "def _extract_schema_info(\n        self, action_schema: dict[str, Any]\n    ) -> tuple[dict[str, Any], list[str]]:\n        \"\"\"Extract schema properties and required fields from action schema.\"\"\"\n        schema_props = (\n            action_schema.get(\"function\", {})\n            .get(\"parameters\", {})\n            .get(\"properties\", {})\n        )\n        required = (\n            action_schema.get(\"function\", {}).get(\"parameters\", {}).get(\"required\", [])\n        )\n        return schema_props, required",
+    "source": "github_repo:crewAIInc/crewAI",
+    "file": "lib/crewai-tools/src/crewai_tools/adapters/enterprise_adapter.py",
+    "license": "MIT",
+    "language": "python"
+}

@@ -1,0 +1,7 @@
+{
+    "code": "class BoundingBox(TypedDict):\n\t\"\"\"Element bounding box with position and dimensions.\"\"\"\n\n\tx: float\n\ty: float\n\twidth: float\n\theight: float",
+    "source": "github_repo:browser-use/browser-use",
+    "file": "browser_use/actor/element.py",
+    "license": "MIT",
+    "language": "python"
+}

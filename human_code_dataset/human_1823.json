@@ -1,0 +1,7 @@
+{
+    "code": "def load_checkpoint(checkpoint_dir, step, device, load_optimizer=False, rank=0):\n    # Load the model state\n    model_path = os.path.join(checkpoint_dir, f\"model_{step:06d}.pt\")\n    model_data = torch.load(model_path, map_location=device)\n    # Load the optimizer state if requested\n    optimizer_data = None\n    if load_optimizer:\n        optimizer_path = os.path.join(checkpoint_dir, f\"optim_{step:06d}_rank{rank:d}.pt\")\n        optimizer_data = torch.load(optimizer_path, map_location=device)\n    # Load the metadata\n    meta_path = os.path.join(checkpoint_dir, f\"meta_{step:06d}.json\")\n    with open(meta_path, \"r\", encoding=\"utf-8\") as f:\n        meta_data = json.load(f)\n    return model_data, optimizer_data, meta_data",
+    "source": "github_repo:karpathy/nanochat",
+    "file": "nanochat/checkpoint_manager.py",
+    "license": "MIT",
+    "language": "python"
+}

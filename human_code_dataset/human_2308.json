@@ -1,0 +1,7 @@
+{
+    "code": "def __init__(\n        self,\n        df: pl.DataFrame,\n        train_period: tuple[str, str],\n        valid_period: tuple[str, str],\n        test_period: tuple[str, str],\n        process_type: str = \"append\"\n    ) -> None:\n        \"\"\"Constructor\"\"\"\n        self.df: pl.DataFrame = df\n\n        # DataFrames for processed data\n        self.result_df: pl.DataFrame\n        self.raw_df: pl.DataFrame\n        self.infer_df: pl.DataFrame\n        self.learn_df: pl.DataFrame\n\n        # New version\n        self.data_periods: dict[Segment, tuple[str, str]] = {\n            Segment.TRAIN: train_period,\n            Segment.VALID: valid_period,\n            Segment.TEST: test_period\n        }\n\n        self.feature_expressions: dict[str, str | pl.expr.expr.Expr] = {}\n        self.feature_results: dict[str, pl.DataFrame] = {}\n        self.label_expression: str = \"\"\n\n        self.process_type: str = process_type\n        self.infer_processors: list = []\n        self.learn_processors: list = []",
+    "source": "github_repo:vnpy/vnpy",
+    "file": "vnpy/alpha/dataset/template.py",
+    "license": "MIT",
+    "language": "python"
+}

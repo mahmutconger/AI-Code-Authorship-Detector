@@ -1,0 +1,7 @@
+{
+    "code": "def test_if_check_duplicate_links_has_the_correct_return(self):\n        result_1 = check_duplicate_links(self.duplicate_links)\n        result_2 = check_duplicate_links(self.no_duplicate_links)\n\n        self.assertIsInstance(result_1, tuple)\n        self.assertIsInstance(result_2, tuple)\n\n        has_duplicate_links, links = result_1\n        no_duplicate_links, no_links = result_2\n\n        self.assertTrue(has_duplicate_links)\n        self.assertFalse(no_duplicate_links)\n\n        self.assertIsInstance(links, list)\n        self.assertIsInstance(no_links, list)\n\n        self.assertEqual(len(links), 2)\n        self.assertEqual(len(no_links), 0)",
+    "source": "github_repo:public-apis/public-apis",
+    "file": "scripts/tests/test_validate_links.py",
+    "license": "MIT",
+    "language": "python"
+}

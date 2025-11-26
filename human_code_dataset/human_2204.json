@@ -1,0 +1,7 @@
+{
+    "code": "def setSuffix(s):\n\tglobal suffix\n\tsuffix = s",
+    "source": "github_repo:testerSunshine/12306",
+    "file": "config/logger.py",
+    "license": "MIT",
+    "language": "python"
+}

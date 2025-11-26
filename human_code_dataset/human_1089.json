@@ -1,0 +1,7 @@
+{
+    "code": "def update_memory(\n        self,\n        role: ROLE_TYPE,  # type: ignore\n        content: str,\n        base64_image: Optional[str] = None,\n        **kwargs,\n    ) -> None:\n        \"\"\"Add a message to the agent's memory.\n\n        Args:\n            role: The role of the message sender (user, system, assistant, tool).\n            content: The message content.\n            base64_image: Optional base64 encoded image.\n            **kwargs: Additional arguments (e.g., tool_call_id for tool messages).\n\n        Raises:\n            ValueError: If the role is unsupported.\n        \"\"\"\n        message_map = {\n            \"user\": Message.user_message,\n            \"system\": Message.system_message,\n            \"assistant\": Message.assistant_message,\n            \"tool\": lambda content, **kw: Message.tool_message(content, **kw),\n        }\n\n        if role not in message_map:\n            raise ValueError(f\"Unsupported message role: {role}\")\n\n        # Create message with appropriate parameters based on role\n        kwargs = {\"base64_image\": base64_image, **(kwargs if role == \"tool\" else {})}\n        self.memory.add_message(message_map[role](content, **kwargs))",
+    "source": "github_repo:FoundationAgents/OpenManus",
+    "file": "app/agent/base.py",
+    "license": "MIT",
+    "language": "python"
+}

@@ -1,0 +1,7 @@
+{
+    "code": "def _assert_tracker_updated(usage_tracker_io, pid):\n    usage_tracker_io.seek(0)\n    info = json.load(usage_tracker_io)\n    assert info['pid'] == pid",
+    "source": "github_repo:nvbn/thefuck",
+    "file": "tests/entrypoints/test_not_configured.py",
+    "license": "MIT",
+    "language": "python"
+}

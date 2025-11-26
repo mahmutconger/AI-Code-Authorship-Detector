@@ -1,0 +1,7 @@
+{
+    "code": "def _remove_initial_underscore(filename):\n    if filename.startswith(\"_\"):\n        filename = filename[1:]\n    return filename",
+    "source": "github_repo:chubin/cheat.sh",
+    "file": "lib/adapter/cheat_sheets.py",
+    "license": "MIT",
+    "language": "python"
+}

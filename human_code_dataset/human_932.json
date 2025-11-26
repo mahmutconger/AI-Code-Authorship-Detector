@@ -1,0 +1,7 @@
+{
+    "code": "def get_agent(path):\n    \"\"\"\n    Dynamically imports and returns the default configuration agent from the given path.\n\n    Parameters\n    ----------\n    path : str\n        The file path to the module containing the default configuration agent.\n\n    Returns\n    -------\n    BaseAgent\n        An instance of the imported default configuration agent.\n    \"\"\"\n    # Dynamically import the python module at path\n    sys.path.append(os.path.dirname(path))\n    agent_module = importlib.import_module(path.replace(\"/\", \".\").replace(\".py\", \"\"))\n    return agent_module.default_config_agent()",
+    "source": "github_repo:AntonOsika/gpt-engineer",
+    "file": "gpt_engineer/benchmark/__main__.py",
+    "license": "MIT",
+    "language": "python"
+}

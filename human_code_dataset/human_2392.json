@@ -1,0 +1,7 @@
+{
+    "code": "def start_conversion():\n    try:\n        if not audio_api.flag_vc:\n            audio_api.start_vc()\n            return {\"message\": \"Audio conversion started\"}\n        else:\n            logger.warning(\"Audio conversion already running\")\n            raise HTTPException(status_code=400, detail=\"Audio conversion already running\")\n    except HTTPException as e:\n        logger.error(f\"Start conversion error: {e.detail}\")\n        raise\n    except Exception as e:\n        logger.error(f\"Failed to start conversion: {e}\")\n        raise HTTPException(status_code=500, detail=\"Failed to start conversion: {e}\")",
+    "source": "github_repo:RVC-Project/Retrieval-based-Voice-Conversion-WebUI",
+    "file": "api_240604.py",
+    "license": "MIT",
+    "language": "python"
+}

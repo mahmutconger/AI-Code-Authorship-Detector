@@ -1,0 +1,7 @@
+{
+    "code": "def main(self):\n        # self.get_proxy()\n        self.filter_proxy()",
+    "source": "github_repo:testerSunshine/12306",
+    "file": "agency/agency_tools.py",
+    "license": "MIT",
+    "language": "python"
+}

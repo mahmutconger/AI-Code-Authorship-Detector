@@ -1,0 +1,7 @@
+{
+    "code": "def _get_relative_embeddings(self, relative_embeddings, length):\n        2 * self.window_size + 1\n        # Pad first before slice to avoid using cond ops.\n        pad_length = max(length - (self.window_size + 1), 0)\n        slice_start_position = max((self.window_size + 1) - length, 0)\n        slice_end_position = slice_start_position + 2 * length - 1\n        if pad_length > 0:\n            padded_relative_embeddings = F.pad(\n                relative_embeddings,\n                commons.convert_pad_shape([[0, 0], [pad_length, pad_length], [0, 0]]),\n            )\n        else:\n            padded_relative_embeddings = relative_embeddings\n        used_relative_embeddings = padded_relative_embeddings[\n            :, slice_start_position:slice_end_position\n        ]\n        return used_relative_embeddings",
+    "source": "github_repo:myshell-ai/OpenVoice",
+    "file": "openvoice/attentions.py",
+    "license": "MIT",
+    "language": "python"
+}

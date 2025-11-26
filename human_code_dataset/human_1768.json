@@ -1,0 +1,7 @@
+{
+    "code": "def run():\n    try:\n        # load config\n        load_config()\n        # ctrl + c\n        sigterm_handler_wrap(signal.SIGINT)\n        # kill signal\n        sigterm_handler_wrap(signal.SIGTERM)\n\n        # create channel\n        channel_name = conf().get(\"channel_type\", \"wx\")\n\n        if \"--cmd\" in sys.argv:\n            channel_name = \"terminal\"\n\n        if channel_name == \"wxy\":\n            os.environ[\"WECHATY_LOG\"] = \"warn\"\n\n        start_channel(channel_name)\n\n        while True:\n            time.sleep(1)\n    except Exception as e:\n        logger.error(\"App startup failed!\")\n        logger.exception(e)",
+    "source": "github_repo:zhayujie/chatgpt-on-wechat",
+    "file": "app.py",
+    "license": "MIT",
+    "language": "python"
+}

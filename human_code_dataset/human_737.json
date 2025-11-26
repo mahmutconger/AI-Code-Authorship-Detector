@@ -1,0 +1,7 @@
+{
+    "code": "class CreateAgent(Action):\n    PROMPT_TEMPLATE: str = \"\"\"\n    ### BACKGROUND\n    You are using an agent framework called metagpt to write agents capable of different actions,\n    the usage of metagpt can be illustrated by the following example:\n    ### EXAMPLE STARTS AT THIS LINE\n    {example}\n    ### EXAMPLE ENDS AT THIS LINE\n    ### TASK\n    Now you should create an agent with appropriate actions based on the instruction, consider carefully about\n    the PROMPT_TEMPLATE of all actions and when to call self._aask()\n    ### INSTRUCTION\n    {instruction}\n    ### YOUR CODE\n    Return ```python your_code_here ``` with NO other texts, your code:\n    \"\"\"\n\n    async def run(self, example: str, instruction: str):\n        prompt = self.PROMPT_TEMPLATE.format(example=example, instruction=instruction)\n        # logger.info(prompt)\n\n        rsp = await self._aask(prompt)\n\n        code_text = CreateAgent.parse_code(rsp)\n\n        return code_text\n\n    @staticmethod\n    def parse_code(rsp):\n        pattern = r\"```python(.*)```\"\n        match = re.search(pattern, rsp, re.DOTALL)\n        code_text = match.group(1) if match else \"\"\n        config.workspace.path.mkdir(parents=True, exist_ok=True)\n        new_file = config.workspace.path / \"agent_created_agent.py\"\n        new_file.write_text(code_text)\n        return code_text",
+    "source": "github_repo:FoundationAgents/MetaGPT",
+    "file": "examples/agent_creator.py",
+    "license": "MIT",
+    "language": "python"
+}

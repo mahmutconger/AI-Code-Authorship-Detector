@@ -1,0 +1,7 @@
+{
+    "code": "def _should_finish_execution(**kwargs) -> bool:\n        \"\"\"Determine if tool execution should finish the agent\"\"\"\n        return True",
+    "source": "github_repo:FoundationAgents/OpenManus",
+    "file": "app/agent/toolcall.py",
+    "license": "MIT",
+    "language": "python"
+}

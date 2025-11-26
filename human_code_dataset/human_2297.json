@@ -1,0 +1,7 @@
+{
+    "code": "def process_fill_na(df: pl.DataFrame, fill_value: float, fill_label: bool = True) -> pl.DataFrame:\n    \"\"\"Fill missing values\"\"\"\n    if fill_label:\n        df = df.fill_null(fill_value)\n        df = df.fill_nan(fill_value)\n    else:\n        df = df.with_columns(\n            [pl.col(col).fill_null(fill_value).fill_nan(fill_value) for col in df.columns[2:-1]]\n        )\n    return df",
+    "source": "github_repo:vnpy/vnpy",
+    "file": "vnpy/alpha/dataset/processor.py",
+    "license": "MIT",
+    "language": "python"
+}

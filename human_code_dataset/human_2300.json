@@ -1,0 +1,7 @@
+{
+    "code": "def process_cs_rank_norm(df: pl.DataFrame, names: list[str]) -> pl.DataFrame:\n    \"\"\"Cross-sectional rank normalization\"\"\"\n    _df: pl.DataFrame = df.fill_nan(None)\n\n    _df = _df.with_columns([\n        ((pl.col(col).rank(\"average\").over(\"datetime\") / pl.col(\"datetime\").count().over(\"datetime\")) - 0.5) * 3.46\n        for col in names\n    ])\n\n    df = df.with_columns([\n        _df[col].alias(col) for col in names\n    ])\n\n    return df",
+    "source": "github_repo:vnpy/vnpy",
+    "file": "vnpy/alpha/dataset/processor.py",
+    "license": "MIT",
+    "language": "python"
+}

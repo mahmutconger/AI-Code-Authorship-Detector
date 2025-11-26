@@ -1,0 +1,7 @@
+{
+    "code": "def construct(self):\n        # Create a new template\n        myTemplate = TexTemplate()\n\n        # Add packages to the template\n        myTemplate.add_to_preamble(r\"\\usepackage{esvect}\")\n\n        # Set the compiler and output format (default: latex and .dvi)\n        # possible tex compilers: \"latex\", \"pdflatex\", \"xelatex\", \"lualatex\", \"luatex\"\n        # possible output formats: \".dvi\",  \".pdf\", and \".xdv\"\n        myTemplate.tex_compiler = \"latex\"\n        myTemplate.output_format = \".dvi\"\n\n        # To use this template in a Tex() or MathTex() object\n        # use the keyword argument tex_template\n        text = MathTex(r\"\\vv{vb}\", tex_template=myTemplate)\n        self.play(Write(text))\n        self.wait(1)",
+    "source": "github_repo:ManimCommunity/manim",
+    "file": "example_scenes/customtex.py",
+    "license": "MIT",
+    "language": "python"
+}

@@ -1,0 +1,7 @@
+{
+    "code": "class BlackVersion(NamedTuple):\n    version: str\n    config: str | None = None",
+    "source": "github_repo:psf/black",
+    "file": "gallery/gallery.py",
+    "license": "MIT",
+    "language": "python"
+}

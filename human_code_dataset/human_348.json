@@ -1,0 +1,7 @@
+{
+    "code": "def test_read_main():\n    response = client.get(\"/\")\n    assert response.status_code == 200\n    assert response.json() == {\"msg\": \"Hello World\"}",
+    "source": "github_repo:fastapi/fastapi",
+    "file": "docs_src/app_testing/test_main.py",
+    "license": "MIT",
+    "language": "python"
+}

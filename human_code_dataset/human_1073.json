@@ -1,0 +1,7 @@
+{
+    "code": "def process_prompt(\n        self,\n        x: torch.Tensor,\n        attn_mask: torch.Tensor,\n        padding_mask: Optional[torch.Tensor] = None,\n        torch_sdpa: bool = True,\n    ):\n        k_cache: List[torch.Tensor] = []\n        v_cache: List[torch.Tensor] = []\n        for i in range(self.num_blocks):\n            x, k_cache_, v_cache_ = self.blocks[i].process_prompt(x, attn_mask, padding_mask, torch_sdpa)\n            k_cache.append(k_cache_)\n            v_cache.append(v_cache_)\n        return x, k_cache, v_cache",
+    "source": "github_repo:RVC-Boss/GPT-SoVITS",
+    "file": "GPT_SoVITS/AR/models/t2s_model.py",
+    "license": "MIT",
+    "language": "python"
+}

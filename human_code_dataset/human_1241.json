@@ -1,0 +1,7 @@
+{
+    "code": "def file_iterator(file_path, offset=0, bytes_to_read=None):\n        with open(file_path, \"rb\") as f:\n            f.seek(offset, os.SEEK_SET)\n            remaining = bytes_to_read or video_size\n            while remaining > 0:\n                bytes_to_read = min(4096, remaining)\n                data = f.read(bytes_to_read)\n                if not data:\n                    break\n                remaining -= len(data)\n                yield data",
+    "source": "github_repo:harry0703/MoneyPrinterTurbo",
+    "file": "app/controllers/v1/video.py",
+    "license": "MIT",
+    "language": "python"
+}

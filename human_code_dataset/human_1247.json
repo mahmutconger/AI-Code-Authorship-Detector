@@ -1,0 +1,7 @@
+{
+    "code": "class VideoTransitionMode(str, Enum):\n    none = None\n    shuffle = \"Shuffle\"\n    fade_in = \"FadeIn\"\n    fade_out = \"FadeOut\"\n    slide_in = \"SlideIn\"\n    slide_out = \"SlideOut\"",
+    "source": "github_repo:harry0703/MoneyPrinterTurbo",
+    "file": "app/models/schema.py",
+    "license": "MIT",
+    "language": "python"
+}

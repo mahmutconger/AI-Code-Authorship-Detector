@@ -1,0 +1,7 @@
+{
+    "code": "def check_https(line_num: int, https: str) -> List[str]:\n\n    err_msgs = []\n\n    if https not in https_keys:\n        err_msg = error_message(line_num, f'{https} is not a valid HTTPS option')\n        err_msgs.append(err_msg)\n\n    return err_msgs",
+    "source": "github_repo:public-apis/public-apis",
+    "file": "scripts/validate/format.py",
+    "license": "MIT",
+    "language": "python"
+}

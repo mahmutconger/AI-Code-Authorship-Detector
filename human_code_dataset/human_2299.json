@@ -1,0 +1,7 @@
+{
+    "code": "def process_robust_zscore_norm(\n    df: pl.DataFrame,\n    fit_start_time: datetime | str | None = None,\n    fit_end_time: datetime | str | None = None,\n    clip_outlier: bool = True\n) -> pl.DataFrame:\n    \"\"\"Robust Z-Score normalization\"\"\"\n    _df: pl.DataFrame = df.fill_nan(None)\n\n    if fit_start_time and fit_end_time:\n        fit_start_time = to_datetime(fit_start_time)\n        fit_end_time = to_datetime(fit_end_time)\n        _df = _df.filter((pl.col(\"datetime\") >= fit_start_time) & (pl.col(\"datetime\") <= fit_end_time))\n\n    cols = df.columns[2:-1]\n    X = _df.select(cols).to_numpy()\n\n    mean_train = np.nanmedian(X, axis=0)\n    std_train = np.nanmedian(np.abs(X - mean_train), axis=0)\n    std_train += 1e-12\n    std_train *= 1.4826\n\n    for name in cols:\n        normalized_col = (\n            (pl.col(name) - mean_train[cols.index(name)]) / std_train[cols.index(name)]\n        ).cast(pl.Float64)\n\n        if clip_outlier:\n            normalized_col = normalized_col.clip(-3, 3)\n\n        df = df.with_columns(normalized_col.alias(name))\n\n    return df",
+    "source": "github_repo:vnpy/vnpy",
+    "file": "vnpy/alpha/dataset/processor.py",
+    "license": "MIT",
+    "language": "python"
+}

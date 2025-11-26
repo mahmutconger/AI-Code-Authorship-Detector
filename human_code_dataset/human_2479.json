@@ -1,0 +1,7 @@
+{
+    "code": "class MyApp(App[None]):\n    BINDINGS = [(\"l\", \"load\", \"Load data\")]\n    CSS = \"\"\"\n    Grid {\n        grid-size: 2;\n    }\n    \"\"\"\n\n    def compose(self) -> ComposeResult:\n        yield Grid(\n            ColourChanger(),\n            VerticalScroll(id=\"log\"),\n        )\n        yield Footer()\n\n    def action_load(self) -> None:\n        asyncio.create_task(self._do_long_operation())\n\n    async def _do_long_operation(self) -> None:\n        self.query_one(\"#log\").mount(Label(\"Starting ⏳\"))  # (1)!\n        await asyncio.sleep(5)  # (2)!\n        self.query_one(\"#log\").mount(Label(\"Data loaded ✅\"))  # (3)!",
+    "source": "github_repo:Textualize/textual",
+    "file": "docs/blog/snippets/2022-12-07-responsive-app-background-task/nonblocking01.py",
+    "license": "MIT",
+    "language": "python"
+}

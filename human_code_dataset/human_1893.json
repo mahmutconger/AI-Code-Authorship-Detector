@@ -1,0 +1,7 @@
+{
+    "code": "def write_descending(filepath, msg_text):\n    lockpath = filepath + \".lock\"\n    got_it = False\n    for _ in range(16):\n        try:\n            os.mkdir(lockpath)\n            got_it = True\n            break\n        except:\n            time.sleep(0.1)\n            continue\n\n    if not got_it:\n        return sys.exit(1)\n\n    try:\n        oldpath = filepath + \".old\"\n        os.rename(filepath, oldpath)\n        with open(oldpath, \"r\", encoding=\"utf-8\", errors=\"replace\") as infile, open(\n            filepath, \"w\", encoding=\"utf-8\", errors=\"replace\"\n        ) as outfile:\n            outfile.write(msg_text)\n            while True:\n                buf = infile.read(4096)\n                if not buf:\n                    break\n                outfile.write(buf)\n    finally:\n        try:\n            os.unlink(oldpath)\n        except:\n            pass\n        os.rmdir(lockpath)",
+    "source": "github_repo:9001/copyparty",
+    "file": "bin/hooks/msg-log.py",
+    "license": "MIT",
+    "language": "python"
+}

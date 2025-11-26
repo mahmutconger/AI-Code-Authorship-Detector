@@ -1,0 +1,7 @@
+{
+    "code": "class DummyWandb:\n    \"\"\"Useful if we wish to not use wandb but have all the same signatures\"\"\"\n    def __init__(self):\n        pass\n    def log(self, *args, **kwargs):\n        pass\n    def finish(self):\n        pass",
+    "source": "github_repo:karpathy/nanochat",
+    "file": "nanochat/common.py",
+    "license": "MIT",
+    "language": "python"
+}

@@ -1,0 +1,7 @@
+{
+    "code": "def _stream_docbin(path: Path, vocab: Vocab) -> Iterable[Doc]:\n    \"\"\"\n    Stream Doc objects from DocBin.\n    \"\"\"\n    docbin = DocBin().from_disk(path)\n    for doc in docbin.get_docs(vocab):\n        yield doc",
+    "source": "github_repo:explosion/spaCy",
+    "file": "spacy/cli/apply.py",
+    "license": "MIT",
+    "language": "python"
+}

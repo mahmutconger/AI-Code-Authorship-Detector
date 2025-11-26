@@ -1,0 +1,7 @@
+{
+    "code": "import ccxt.pro\nfrom asyncio import run, gather\n\n\nprint('CCXT Pro version', ccxt.pro.__version__)\n\n\nasync def watch_order_book(exchange, symbol):\n    while True:\n        try:\n            orderbook = await exchange.watch_order_book(symbol)\n            datetime = exchange.iso8601(exchange.milliseconds())\n            print(datetime, orderbook['nonce'], symbol, orderbook['asks'][0], orderbook['bids'][0])\n        except Exception as e:\n            print(type(e).__name__, str(e))\n            break\n\n\nasync def reload_markets(exchange, delay):\n    while True:\n        try:\n            await exchange.sleep(delay)\n            markets = await exchange.load_markets(True)\n            datetime = exchange.iso8601(exchange.milliseconds())\n            print(datetime, 'Markets reloaded')\n        except Exception as e:\n            print(type(e).__name__, str(e))\n            break\n\n\nasync def main():\n    exchange = ccxt.pro.binance()\n    await exchange.load_markets()\n    # exchange.verbose = True\n    symbol = 'BTC/USDT'\n    delay = 60000  # every minute = 60 seconds = 60000 milliseconds\n    loops = [watch_order_book(exchange, symbol), reload_markets(exchange, delay)]\n    await gather(*loops)\n    await exchange.close()\n\n\nrun(main())",
+    "source": "github_repo:ccxt/ccxt",
+    "file": "examples/ccxt.pro/py/binance-reload-markets.py",
+    "license": "MIT",
+    "language": "python"
+}

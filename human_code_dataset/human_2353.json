@@ -1,0 +1,7 @@
+{
+    "code": "def get_default_model_params(self):\n        \"\"\"Returns default optimised model parameters.\"\"\"\n\n        model_params = {\n            \"dropout_rate\": 0.4,\n            \"hidden_layer_size\": 160,\n            \"learning_rate\": 0.0001,\n            \"minibatch_size\": 128,\n            \"max_gradient_norm\": 0.0135,\n            \"num_heads\": 1,\n            \"stack_size\": 1,\n        }\n\n        return model_params",
+    "source": "github_repo:microsoft/qlib",
+    "file": "examples/benchmarks/TFT/data_formatters/qlib_Alpha158.py",
+    "license": "MIT",
+    "language": "python"
+}

@@ -1,0 +1,7 @@
+{
+    "code": "def get_by_ids(self, ids: Sequence[str], /) -> list[Document]:\n        \"\"\"Get documents by their ids.\n\n        Args:\n            ids: The ids of the documents to get.\n\n        Returns:\n            A list of Document objects.\n        \"\"\"\n        documents = []\n\n        for doc_id in ids:\n            doc = self._database.get(doc_id)\n            if doc:\n                documents.append(\n                    Document(\n                        id=doc[\"id\"],\n                        page_content=doc[\"text\"],\n                        metadata=doc[\"metadata\"],\n                    )\n                )\n        return documents",
+    "source": "github_repo:langchain-ai/langchain",
+    "file": "libs/cli/langchain_cli/integration_template/integration_template/vectorstores.py",
+    "license": "MIT",
+    "language": "python"
+}

@@ -1,0 +1,7 @@
+{
+    "code": "def __init__(\n        self,\n        *,\n        dp_doc: PdfDocument,\n        page_obj: PdfPage,\n        page_no: int,\n        create_words: bool = True,\n        create_textlines: bool = True,\n        keep_chars: bool = False,\n        keep_lines: bool = False,\n        keep_images: bool = True,\n    ):\n        self._ppage = page_obj\n        self._dp_doc = dp_doc\n        self._page_no = page_no\n\n        self._create_words = create_words\n        self._create_textlines = create_textlines\n\n        self._keep_chars = keep_chars\n        self._keep_lines = keep_lines\n        self._keep_images = keep_images\n\n        self._dpage: Optional[SegmentedPdfPage] = None\n        self._unloaded = False\n        self.valid = (self._ppage is not None) and (self._dp_doc is not None)",
+    "source": "github_repo:docling-project/docling",
+    "file": "docling/backend/docling_parse_v4_backend.py",
+    "license": "MIT",
+    "language": "python"
+}

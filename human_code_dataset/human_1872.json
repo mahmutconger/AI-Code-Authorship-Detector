@@ -1,0 +1,7 @@
+{
+    "code": "def examples():\n    print(\n        \"\"\"\n# clearing the journal\n./dbtool.py up2k.db\n\n# copy tags \".bpm\" and \"key\" from old.db to up2k.db, and remove the mtp flag from matching files (so copyparty won't run any mtps on it)\n./dbtool.py -ls up2k.db\n./dbtool.py -src old.db up2k.db -cmp\n./dbtool.py -src old.v3 up2k.db -rm-mtp-flag -copy key\n./dbtool.py -src old.v3 up2k.db -rm-mtp-flag -copy .bpm -vac\n\n\"\"\"\n    )",
+    "source": "github_repo:9001/copyparty",
+    "file": "bin/dbtool.py",
+    "license": "MIT",
+    "language": "python"
+}

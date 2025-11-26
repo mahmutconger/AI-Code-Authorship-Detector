@@ -1,0 +1,7 @@
+{
+    "code": "class EventApp(App):\n\n    COLORS = [\n        \"white\",\n        \"maroon\",\n        \"red\",\n        \"purple\",\n        \"fuchsia\",\n        \"olive\",\n        \"yellow\",\n        \"navy\",\n        \"teal\",\n        \"aqua\",\n    ]\n\n    def on_mount(self) -> None:\n        self.screen.styles.background = \"darkblue\"\n\n    def on_key(self, event: events.Key) -> None:\n        if event.key.isdecimal():\n            self.screen.styles.background = self.COLORS[int(event.key)]",
+    "source": "github_repo:Textualize/textual",
+    "file": "docs/examples/app/event01.py",
+    "license": "MIT",
+    "language": "python"
+}

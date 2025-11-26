@@ -1,0 +1,7 @@
+{
+    "code": "def forward(self, z: torch.Tensor):\n        # Add another dimension of size $1$.\n        # We will expand this into bins.\n        z = z.view(*z.shape, 1)\n\n        # $$\\phi_\\eta(z) = 1 - I_{\\eta,+} \\big( \\max(\\mathbf{c} - z, 0) + \\max(z - \\delta - \\mathbf{c}, 0) \\big)$$\n        z = 1. - self.fuzzy_i_plus(torch.clip(self.c - z, min=0.) + torch.clip(z - self.delta - self.c, min=0.))\n\n        # Reshape back to original number of dimensions.\n        # The last dimension size gets expanded by the number of bins, $\\frac{u - l}{\\delta}$.\n        return z.view(*z.shape[:-2], -1)",
+    "source": "github_repo:labmlai/annotated_deep_learning_paper_implementations",
+    "file": "labml_nn/activations/fta/__init__.py",
+    "license": "MIT",
+    "language": "python"
+}

@@ -1,0 +1,7 @@
+{
+    "code": "def get_output_devices():\n    try:\n        _, output_devices, _, _ = audio_api.get_devices()\n        return output_devices\n    except Exception as e:\n        logger.error(f\"Failed to get output devices: {e}\")\n        raise HTTPException(status_code=500, detail=\"Failed to get output devices\")",
+    "source": "github_repo:RVC-Project/Retrieval-based-Voice-Conversion-WebUI",
+    "file": "api_231006.py",
+    "license": "MIT",
+    "language": "python"
+}

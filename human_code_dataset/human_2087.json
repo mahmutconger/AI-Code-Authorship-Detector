@@ -1,0 +1,7 @@
+{
+    "code": "def tokenize(self, unicode_sentence, mode=\"default\", HMM=True):\n        \"\"\"\n        Tokenize a sentence and yields tuples of (word, start, end)\n\n        Parameter:\n            - sentence: the str(unicode) to be segmented.\n            - mode: \"default\" or \"search\", \"search\" is for finer segmentation.\n            - HMM: whether to use the Hidden Markov Model.\n        \"\"\"\n        if not isinstance(unicode_sentence, text_type):\n            raise ValueError(\"jieba: the input parameter should be unicode.\")\n        start = 0\n        if mode == 'default':\n            for w in self.cut(unicode_sentence, HMM=HMM):\n                width = len(w)\n                yield (w, start, start + width)\n                start += width\n        else:\n            for w in self.cut(unicode_sentence, HMM=HMM):\n                width = len(w)\n                if len(w) > 2:\n                    for i in xrange(len(w) - 1):\n                        gram2 = w[i:i + 2]\n                        if self.FREQ.get(gram2):\n                            yield (gram2, start + i, start + i + 2)\n                if len(w) > 3:\n                    for i in xrange(len(w) - 2):\n                        gram3 = w[i:i + 3]\n                        if self.FREQ.get(gram3):\n                            yield (gram3, start + i, start + i + 3)\n                yield (w, start, start + width)\n                start += width",
+    "source": "github_repo:fxsjy/jieba",
+    "file": "jieba/__init__.py",
+    "license": "MIT",
+    "language": "python"
+}

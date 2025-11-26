@@ -1,0 +1,7 @@
+{
+    "code": "def print_result(filename, location):\n    top, right, bottom, left = location\n    print(\"{},{},{},{},{}\".format(filename, top, right, bottom, left))",
+    "source": "github_repo:ageitgey/face_recognition",
+    "file": "face_recognition/face_detection_cli.py",
+    "license": "MIT",
+    "language": "python"
+}

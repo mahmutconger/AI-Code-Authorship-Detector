@@ -1,0 +1,7 @@
+{
+    "code": "def requestPixmap(self, path, size=None, resSize=None):\n        if \"/\" in path:\n            compID, imgID = path.split(\"/\", 1)\n            self._delCompCache(compID, imgID)  # 先清缓存\n            if imgID in self.pixmapDict:\n                self.compDict[compID] = imgID  # 记录缓存\n                return self.pixmapDict[imgID]\n        else:  # 清空一个组件的缓存\n            self._delCompCache(path)\n        return self._getNoneImg()  # 返回占位符",
+    "source": "github_repo:hiroi-sora/Umi-OCR",
+    "file": "UmiOCR-data/py_src/image_controller/image_provider.py",
+    "license": "MIT",
+    "language": "python"
+}

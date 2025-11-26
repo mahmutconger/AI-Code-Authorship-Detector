@@ -1,0 +1,7 @@
+{
+    "code": "class Clock:\n    \"\"\"Renders the time in the center of the screen.\"\"\"\n\n    def __rich__(self) -> Text:\n        return Text(datetime.now().ctime(), style=\"bold magenta\", justify=\"center\")",
+    "source": "github_repo:Textualize/rich",
+    "file": "examples/layout.py",
+    "license": "MIT",
+    "language": "python"
+}

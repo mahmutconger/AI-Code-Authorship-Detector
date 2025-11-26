@@ -1,0 +1,7 @@
+{
+    "code": "def stack_sequences(tokens, pad_token_id):\n    \"\"\"Stack up a list of token sequences, pad to longest on the right\"\"\"\n    bsz, seq_len = len(tokens), max(len(x) for x in tokens)\n    input_ids = torch.full((bsz, seq_len), pad_token_id, dtype=torch.long)\n    for i, x in enumerate(tokens):\n        input_ids[i, :len(x)] = torch.tensor(x, dtype=torch.long)\n    return input_ids",
+    "source": "github_repo:karpathy/nanochat",
+    "file": "nanochat/core_eval.py",
+    "license": "MIT",
+    "language": "python"
+}

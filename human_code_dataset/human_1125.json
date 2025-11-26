@@ -1,0 +1,7 @@
+{
+    "code": "class RunflowSettings(BaseModel):\n    use_data_analysis_agent: bool = Field(\n        default=False, description=\"Enable data analysis agent in run flow\"\n    )",
+    "source": "github_repo:FoundationAgents/OpenManus",
+    "file": "app/config.py",
+    "license": "MIT",
+    "language": "python"
+}

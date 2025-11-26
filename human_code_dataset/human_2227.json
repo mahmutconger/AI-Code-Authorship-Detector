@@ -1,0 +1,7 @@
+{
+    "code": "def __init__(self, use_environment: bool = True) -> None:\n        self._config = deepcopy(self.default_config)\n        self._use_environment = use_environment\n        self._config_source: ConfigSource = DictConfigSource()\n        self._auth_config_source: ConfigSource = DictConfigSource()",
+    "source": "github_repo:python-poetry/poetry",
+    "file": "src/poetry/config/config.py",
+    "license": "MIT",
+    "language": "python"
+}

@@ -1,0 +1,7 @@
+{
+    "code": "class Filter:\n    filter: flowfilter.TFilter\n\n    def configure(self, updated):\n        if \"flowfilter\" in updated:\n            self.filter = flowfilter.parse(\".\")\n\n    def load(self, loader: Loader):\n        loader.add_option(\"flowfilter\", str, \"\", \"Check that flow matches filter.\")\n\n    def response(self, flow: http.HTTPFlow) -> None:\n        if flowfilter.match(self.filter, flow):\n            logging.info(\"Flow matches filter:\")\n            logging.info(flow)",
+    "source": "github_repo:mitmproxy/mitmproxy",
+    "file": "examples/addons/filter-flows.py",
+    "license": "MIT",
+    "language": "python"
+}

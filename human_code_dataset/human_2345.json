@@ -1,0 +1,7 @@
+{
+    "code": "def _check_single_column(input_type):\n            length = len([tup for tup in column_definition if tup[2] == input_type])\n\n            if length != 1:\n                raise ValueError(\"Illegal number of inputs ({}) of type {}\".format(length, input_type))",
+    "source": "github_repo:microsoft/qlib",
+    "file": "examples/benchmarks/TFT/data_formatters/base.py",
+    "license": "MIT",
+    "language": "python"
+}

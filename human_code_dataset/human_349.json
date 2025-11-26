@@ -1,0 +1,7 @@
+{
+    "code": "def random():\n    rand.seed(42)\n    numpy.random.seed(42)",
+    "source": "github_repo:openai/whisper",
+    "file": "tests/conftest.py",
+    "license": "MIT",
+    "language": "python"
+}

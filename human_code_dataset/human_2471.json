@@ -1,0 +1,7 @@
+{
+    "code": "def on_click(self) -> None:\n        self.styles.background = Color(\n            randint(1, 255),\n            randint(1, 255),\n            randint(1, 255),\n        )",
+    "source": "github_repo:Textualize/textual",
+    "file": "docs/blog/snippets/2022-12-07-responsive-app-background-task/blocking01.py",
+    "license": "MIT",
+    "language": "python"
+}

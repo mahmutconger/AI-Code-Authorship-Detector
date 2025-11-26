@@ -1,0 +1,7 @@
+{
+    "code": "def encrypt(dpdata, key):\n    encrypted = []\n    k = 0\n    for i in range(len(dpdata)):\n        encrypted.append(chr(ord(dpdata[i]) ^ ord(key[k])))\n        k = 0 if k >= len(key) - 1 else k + 1\n    return ''.join(str(e) for e in encrypted)",
+    "source": "github_repo:swisskyrepo/PayloadsAllTheThings",
+    "file": "CVE Exploits/Telerik CVE-2017-9248.py",
+    "license": "MIT",
+    "language": "python"
+}

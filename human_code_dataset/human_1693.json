@@ -1,0 +1,7 @@
+{
+    "code": "def readHotkey(\n        self, runningTitle=\"<<readHotkeyRunning>>\", finishTitle=\"<<readHotkeyFinish>>\"\n    ):\n        self._start()\n        if self._status == 1:\n            return (\n                \"[Warning] Recording is running. 当前快捷键录制已在进行，不能同时录制！\"\n            )\n        self._status = 1\n        self._readRunningTitle = runningTitle\n        self._readFinishTitle = finishTitle\n        return \"[Success]\"",
+    "source": "github_repo:hiroi-sora/Umi-OCR",
+    "file": "UmiOCR-data/py_src/event_bus/key_mouse/keyboard.py",
+    "license": "MIT",
+    "language": "python"
+}

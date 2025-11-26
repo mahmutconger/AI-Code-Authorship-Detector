@@ -1,0 +1,7 @@
+{
+    "code": "class LogitFilter:\n    def apply(self, logits: Tensor, tokens: Tensor) -> None:\n        \"\"\"Apply any filtering or masking to logits in-place\n\n        Parameters\n        ----------\n        logits : Tensor, shape = (n_batch, vocab_size)\n            per-token logits of the probability distribution at the current step\n\n        tokens : Tensor, shape = (n_batch, current_sequence_length)\n            all tokens in the context so far, including the prefix and sot_sequence tokens\n\n        \"\"\"\n        raise NotImplementedError",
+    "source": "github_repo:openai/whisper",
+    "file": "whisper/decoding.py",
+    "license": "MIT",
+    "language": "python"
+}

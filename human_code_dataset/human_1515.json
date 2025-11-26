@@ -1,0 +1,7 @@
+{
+    "code": "class MyAddon:\n    @command.command(\"myaddon.addheader\")\n    def addheader(self, flows: Sequence[flow.Flow]) -> None:\n        for f in flows:\n            if isinstance(f, http.HTTPFlow):\n                f.request.headers[\"myheader\"] = \"value\"\n        logging.log(ALERT, \"done\")",
+    "source": "github_repo:mitmproxy/mitmproxy",
+    "file": "examples/addons/commands-flows.py",
+    "license": "MIT",
+    "language": "python"
+}

@@ -1,0 +1,7 @@
+{
+    "code": "class AnalyticsResponse(BaseModel):\n    overview: Dict[str, Any]\n    trends: Dict[str, Any]\n    patterns: Dict[str, Any]\n    recommendations: List[str]\n    generated_at: str",
+    "source": "github_repo:Zie619/n8n-workflows",
+    "file": "src/analytics_engine.py",
+    "license": "MIT",
+    "language": "python"
+}

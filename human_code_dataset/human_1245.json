@@ -1,0 +1,7 @@
+{
+    "code": "def __init__(\n        self, task_id: str, status_code: int, message: str = \"\", data: Any = None\n    ):\n        self.message = message\n        self.status_code = status_code\n        self.data = data\n        # Retrieve the exception stack trace information.\n        tb_str = traceback.format_exc().strip()\n        if not tb_str or tb_str == \"NoneType: None\":\n            msg = f\"HttpException: {status_code}, {task_id}, {message}\"\n        else:\n            msg = f\"HttpException: {status_code}, {task_id}, {message}\\n{tb_str}\"\n\n        if status_code == 400:\n            logger.warning(msg)\n        else:\n            logger.error(msg)",
+    "source": "github_repo:harry0703/MoneyPrinterTurbo",
+    "file": "app/models/exception.py",
+    "license": "MIT",
+    "language": "python"
+}

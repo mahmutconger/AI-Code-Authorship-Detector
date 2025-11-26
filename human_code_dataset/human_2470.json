@@ -1,0 +1,7 @@
+{
+    "code": "class MyApp(App[None]):\n    BINDINGS = [(\"l\", \"load\", \"Load data\")]  # (2)!\n    CSS = \"\"\"\n    Grid {\n        grid-size: 2;\n    }\n    \"\"\"\n\n    def compose(self) -> ComposeResult:\n        yield Grid(\n            ColourChanger(),\n            VerticalScroll(id=\"log\"),\n        )\n        yield Footer()\n\n    def action_load(self) -> None:  # (3)!\n        time.sleep(5)  # (4)!\n        self.query_one(\"#log\").mount(Label(\"Data loaded ✅\"))",
+    "source": "github_repo:Textualize/textual",
+    "file": "docs/blog/snippets/2022-12-07-responsive-app-background-task/blocking01.py",
+    "license": "MIT",
+    "language": "python"
+}

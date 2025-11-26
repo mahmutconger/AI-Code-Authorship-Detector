@@ -1,0 +1,7 @@
+{
+    "code": "def is_ddp():\n    # TODO is there a proper way\n    return int(os.environ.get('RANK', -1)) != -1",
+    "source": "github_repo:karpathy/nanochat",
+    "file": "nanochat/common.py",
+    "license": "MIT",
+    "language": "python"
+}

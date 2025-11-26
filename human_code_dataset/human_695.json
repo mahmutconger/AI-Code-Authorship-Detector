@@ -1,0 +1,7 @@
+{
+    "code": "def main():\n    \"\"\"\n    #### Create and run the experiment\n    \"\"\"\n    # Create experiment\n    experiment.create(name=\"fta\", writers={'screen', 'labml'})\n    # Create configs\n    conf = Configs()\n    # Override configurations\n    experiment.configs(conf, {\n        # Use character level tokenizer\n        'tokenizer': 'character',\n        # Prompt separator is blank\n        'prompt_separator': '',\n        # Starting prompt for sampling\n        'prompt': 'It is ',\n        # Use Tiny Shakespeare dataset\n        'text': 'tiny_shakespeare',\n\n        # Use a context size of $256$\n        'seq_len': 256,\n        # Train for 32 epochs\n        'epochs': 32,\n        # Batch size $16$\n        'batch_size': 16,\n        # Switch between training and validation for $10$ times per epoch\n        'inner_iterations': 10,\n\n        # Adam optimizer with no warmup\n        'optimizer.optimizer': 'Adam',\n        'optimizer.learning_rate': 3e-4,\n    })\n\n    # Set model(s) for saving and loading\n    experiment.add_pytorch_models({'model': conf.model})\n\n    # Start the experiment\n    with experiment.start():\n        # Run training\n        conf.run()",
+    "source": "github_repo:labmlai/annotated_deep_learning_paper_implementations",
+    "file": "labml_nn/activations/fta/experiment.py",
+    "license": "MIT",
+    "language": "python"
+}

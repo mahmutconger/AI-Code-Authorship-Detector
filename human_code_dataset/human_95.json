@@ -1,0 +1,7 @@
+{
+    "code": "def is_safe(board: list[list[int]], row: int, column: int) -> bool:\n    \"\"\"\n    This function returns a boolean value True if it is safe to place a queen there\n    considering the current state of the board.\n\n    Parameters:\n    board (2D matrix): The chessboard\n    row, column: Coordinates of the cell on the board\n\n    Returns:\n    Boolean Value\n\n    >>> is_safe([[0, 0, 0], [0, 0, 0], [0, 0, 0]], 1, 1)\n    True\n    >>> is_safe([[0, 1, 0], [0, 0, 0], [0, 0, 0]], 1, 1)\n    False\n    >>> is_safe([[1, 0, 0], [0, 0, 0], [0, 0, 0]], 1, 1)\n    False\n    >>> is_safe([[0, 0, 1], [0, 0, 0], [0, 0, 0]], 1, 1)\n    False\n    \"\"\"\n\n    n = len(board)  # Size of the board\n\n    # Check if there is any queen in the same upper column,\n    # left upper diagonal and right upper diagonal\n    return (\n        all(board[i][j] != 1 for i, j in zip(range(row), [column] * row))\n        and all(\n            board[i][j] != 1\n            for i, j in zip(range(row - 1, -1, -1), range(column - 1, -1, -1))\n        )\n        and all(\n            board[i][j] != 1\n            for i, j in zip(range(row - 1, -1, -1), range(column + 1, n))\n        )\n    )",
+    "source": "github_repo:TheAlgorithms/Python",
+    "file": "backtracking/n_queens.py",
+    "license": "MIT",
+    "language": "python"
+}

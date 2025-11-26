@@ -1,0 +1,7 @@
+{
+    "code": "def __init__(self) -> None:\n        super().__init__(\"poetry\", __version__)\n\n        self._poetry: Poetry | None = None\n        self._io: IO | None = None\n        self._disable_plugins = False\n        self._disable_cache = False\n        self._plugins_loaded = False\n        self._working_directory = Path.cwd()\n        self._project_directory: Path | None = None\n\n        dispatcher = EventDispatcher()\n        dispatcher.add_listener(COMMAND, self.register_command_loggers)\n        dispatcher.add_listener(COMMAND, self.configure_env)\n        dispatcher.add_listener(COMMAND, self.configure_installer_for_event)\n        self.set_event_dispatcher(dispatcher)\n\n        command_loader = CommandLoader({name: load_command(name) for name in COMMANDS})\n        self.set_command_loader(command_loader)",
+    "source": "github_repo:python-poetry/poetry",
+    "file": "src/poetry/console/application.py",
+    "license": "MIT",
+    "language": "python"
+}

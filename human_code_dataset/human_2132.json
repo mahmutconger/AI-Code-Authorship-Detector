@@ -1,0 +1,7 @@
+{
+    "code": "def display_words(file_path):\n    try:\n        with open(file_path) as F:\n            words = F.read().split()\n            words_less_than_40 = list(filter(lambda word: len(word) < 4, words))\n\n            for word in words_less_than_40:\n                print(word)\n\n        return (\n            \"The total number of the word's count which has less than 4 characters\",\n            (len(words_less_than_40)),\n        )\n\n    except FileNotFoundError:\n        print(\"File not found\")",
+    "source": "github_repo:geekcomputers/Python",
+    "file": "1 File handle/File handle text/question 2.py",
+    "license": "MIT",
+    "language": "python"
+}

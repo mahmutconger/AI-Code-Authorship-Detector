@@ -1,0 +1,7 @@
+{
+    "code": "class OpenVoiceBaseClass(object):\n    def __init__(self, \n                config_path, \n                device='cuda:0'):\n        if 'cuda' in device:\n            assert torch.cuda.is_available()\n\n        hps = utils.get_hparams_from_file(config_path)\n\n        model = SynthesizerTrn(\n            len(getattr(hps, 'symbols', [])),\n            hps.data.filter_length // 2 + 1,\n            n_speakers=hps.data.n_speakers,\n            **hps.model,\n        ).to(device)\n\n        model.eval()\n        self.model = model\n        self.hps = hps\n        self.device = device\n\n    def load_ckpt(self, ckpt_path):\n        checkpoint_dict = torch.load(ckpt_path, map_location=torch.device(self.device))\n        a, b = self.model.load_state_dict(checkpoint_dict['model'], strict=False)\n        print(\"Loaded checkpoint '{}'\".format(ckpt_path))\n        print('missing/unexpected keys:', a, b)",
+    "source": "github_repo:myshell-ai/OpenVoice",
+    "file": "openvoice/api.py",
+    "license": "MIT",
+    "language": "python"
+}

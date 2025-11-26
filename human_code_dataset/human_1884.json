@@ -1,0 +1,7 @@
+{
+    "code": "def main(cli, vn, rem):\n    msg = f\"sorry {cli.ip} but {cli.vpath} doesn't exist\"\n\n    return str(cli.reply(msg.encode(\"utf-8\"), 404, \"text/plain\"))",
+    "source": "github_repo:9001/copyparty",
+    "file": "bin/handlers/sorry.py",
+    "license": "MIT",
+    "language": "python"
+}

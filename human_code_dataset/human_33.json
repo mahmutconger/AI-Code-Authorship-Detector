@@ -1,0 +1,7 @@
+{
+    "code": "def test_if_fake_user_agent_has_a_str_as_return(self):\n        user_agent = fake_user_agent()\n        self.assertIsInstance(user_agent, str)",
+    "source": "github_repo:public-apis/public-apis",
+    "file": "scripts/tests/test_validate_links.py",
+    "license": "MIT",
+    "language": "python"
+}

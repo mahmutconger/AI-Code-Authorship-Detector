@@ -1,0 +1,7 @@
+{
+    "code": "def save_config():\n    with open(config_file, \"w\", encoding=\"utf-8\") as f:\n        _cfg[\"app\"] = app\n        _cfg[\"azure\"] = azure\n        _cfg[\"siliconflow\"] = siliconflow\n        _cfg[\"ui\"] = ui\n        f.write(toml.dumps(_cfg))",
+    "source": "github_repo:harry0703/MoneyPrinterTurbo",
+    "file": "app/config/config.py",
+    "license": "MIT",
+    "language": "python"
+}

@@ -1,0 +1,7 @@
+{
+    "code": "def test_markdown_tags(self):\n        text = \"```html<head></head>```\"\n        expected = \"```html<head></head>```\"\n        result = extract_html_content(text)\n        self.assertEqual(result, expected)",
+    "source": "github_repo:abi/screenshot-to-code",
+    "file": "backend/codegen/test_utils.py",
+    "license": "MIT",
+    "language": "python"
+}

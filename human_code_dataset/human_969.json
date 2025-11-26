@@ -1,0 +1,7 @@
+{
+    "code": "def divide_all(divides: List[Tuple[float, float]]) -> None:\n    \"\"\"Do something impossible every day.\"\"\"\n\n    for number, divisor in divides:\n        console.print(f\"dividing {number} by {divisor}\")\n        try:\n            result = divide_by(number, divisor)\n        except Exception:\n            console.print_exception(extra_lines=8, show_locals=True)\n        else:\n            console.print(f\" = {result}\")",
+    "source": "github_repo:Textualize/rich",
+    "file": "examples/exception.py",
+    "license": "MIT",
+    "language": "python"
+}

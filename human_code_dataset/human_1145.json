@@ -1,0 +1,7 @@
+{
+    "code": "def check_tool(tool: str, tracker: StepTracker = None) -> bool:\n    \"\"\"Check if a tool is installed. Optionally update tracker.\n    \n    Args:\n        tool: Name of the tool to check\n        tracker: Optional StepTracker to update with results\n        \n    Returns:\n        True if tool is found, False otherwise\n    \"\"\"\n    # Special handling for Claude CLI after `claude migrate-installer`\n    # See: https://github.com/github/spec-kit/issues/123\n    # The migrate-installer command REMOVES the original executable from PATH\n    # and creates an alias at ~/.claude/local/claude instead\n    # This path should be prioritized over other claude executables in PATH\n    if tool == \"claude\":\n        if CLAUDE_LOCAL_PATH.exists() and CLAUDE_LOCAL_PATH.is_file():\n            if tracker:\n                tracker.complete(tool, \"available\")\n            return True\n    \n    found = shutil.which(tool) is not None\n    \n    if tracker:\n        if found:\n            tracker.complete(tool, \"available\")\n        else:\n            tracker.error(tool, \"not found\")\n    \n    return found",
+    "source": "github_repo:github/spec-kit",
+    "file": "src/specify_cli/__init__.py",
+    "license": "MIT",
+    "language": "python"
+}

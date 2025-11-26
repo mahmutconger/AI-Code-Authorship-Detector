@@ -1,0 +1,7 @@
+{
+    "code": "def check_cors(line_num: int, cors: str) -> List[str]:\n\n    err_msgs = []\n\n    if cors not in cors_keys:\n        err_msg = error_message(line_num, f'{cors} is not a valid CORS option')\n        err_msgs.append(err_msg)\n    \n    return err_msgs",
+    "source": "github_repo:public-apis/public-apis",
+    "file": "scripts/validate/format.py",
+    "license": "MIT",
+    "language": "python"
+}

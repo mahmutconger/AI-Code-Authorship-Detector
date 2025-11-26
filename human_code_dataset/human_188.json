@@ -1,0 +1,7 @@
+{
+    "code": "def from_texts(\n        cls: Type[__ModuleName__VectorStore],\n        texts: List[str],\n        embedding: Embeddings,\n        metadatas: list[dict] | None = None,\n        **kwargs: Any,\n    ) -> __ModuleName__VectorStore:\n        store = cls(\n            embedding=embedding,\n        )\n        store.add_texts(texts=texts, metadatas=metadatas, **kwargs)\n        return store",
+    "source": "github_repo:langchain-ai/langchain",
+    "file": "libs/cli/langchain_cli/integration_template/integration_template/vectorstores.py",
+    "license": "MIT",
+    "language": "python"
+}

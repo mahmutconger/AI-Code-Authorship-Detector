@@ -1,0 +1,7 @@
+{
+    "code": "def create_all_state(\n    increment: int,\n    total_number: int,\n    level: int,\n    current_list: list[int],\n    total_list: list[list[int]],\n) -> None:\n    \"\"\"\n    Helper function to recursively build all combinations.\n\n    >>> create_all_state(1, 4, 2, [], result := [])\n    >>> result\n    [[1, 2], [1, 3], [1, 4], [2, 3], [2, 4], [3, 4]]\n    >>> create_all_state(1, 3, 3, [], result := [])\n    >>> result\n    [[1, 2, 3]]\n    >>> create_all_state(2, 2, 1, [1], result := [])\n    >>> result\n    [[1, 2]]\n    >>> create_all_state(1, 0, 0, [], result := [])\n    >>> result\n    [[]]\n    >>> create_all_state(1, 4, 0, [1, 2], result := [])\n    >>> result\n    [[1, 2]]\n    >>> create_all_state(5, 4, 2, [1, 2], result := [])\n    >>> result\n    []\n    \"\"\"\n    if level == 0:\n        total_list.append(current_list[:])\n        return\n\n    for i in range(increment, total_number - level + 2):\n        current_list.append(i)\n        create_all_state(i + 1, total_number, level - 1, current_list, total_list)\n        current_list.pop()",
+    "source": "github_repo:TheAlgorithms/Python",
+    "file": "backtracking/all_combinations.py",
+    "license": "MIT",
+    "language": "python"
+}

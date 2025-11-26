@@ -1,0 +1,7 @@
+{
+    "code": "class SimpleWriteReview(Action):\n    PROMPT_TEMPLATE: str = \"\"\"\n    Context: {context}\n    Review the test cases and provide one critical comments:\n    \"\"\"\n\n    name: str = \"SimpleWriteReview\"\n\n    async def run(self, context: str):\n        prompt = self.PROMPT_TEMPLATE.format(context=context)\n\n        rsp = await self._aask(prompt)\n\n        return rsp",
+    "source": "github_repo:FoundationAgents/MetaGPT",
+    "file": "examples/build_customized_multi_agents.py",
+    "license": "MIT",
+    "language": "python"
+}

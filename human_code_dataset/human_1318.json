@@ -1,0 +1,7 @@
+{
+    "code": "def load_page(self, page_no: int) -> DoclingParseV2PageBackend:\n        with pypdfium2_lock:\n            return DoclingParseV2PageBackend(\n                self.parser, self.document_hash, page_no, self._pdoc[page_no]\n            )",
+    "source": "github_repo:docling-project/docling",
+    "file": "docling/backend/docling_parse_v2_backend.py",
+    "license": "MIT",
+    "language": "python"
+}

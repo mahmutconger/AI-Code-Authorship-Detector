@@ -1,0 +1,7 @@
+{
+    "code": "class NamedShaderExample(Scene):\n    def construct(self):\n        shader = Shader(self.renderer.context, \"manim_coords\")\n        shader.set_uniform(\"u_color\", (0.0, 1.0, 0.0, 1.0))\n\n        view_matrix = self.camera.formatted_view_matrix\n        shader.set_uniform(\"u_model_view_matrix\", view_matrix)\n        shader.set_uniform(\n            \"u_projection_matrix\",\n            opengl.perspective_projection_matrix(),\n        )\n        attributes = np.zeros(\n            6,\n            dtype=[\n                (\"in_vert\", np.float32, (4,)),\n            ],\n        )\n        attributes[\"in_vert\"] = np.array(\n            [\n                [-1, -1, 0, 1],\n                [-1, 1, 0, 1],\n                [1, 1, 0, 1],\n                [-1, -1, 0, 1],\n                [1, -1, 0, 1],\n                [1, 1, 0, 1],\n            ],\n        )\n        mesh = Mesh(shader, attributes)\n        self.add(mesh)\n\n        self.wait(5)",
+    "source": "github_repo:ManimCommunity/manim",
+    "file": "example_scenes/opengl.py",
+    "license": "MIT",
+    "language": "python"
+}

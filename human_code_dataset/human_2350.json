@@ -1,0 +1,7 @@
+{
+    "code": "def transform_inputs(self, df):\n        \"\"\"Performs feature transformations.\n\n        This includes both feature engineering, preprocessing and normalisation.\n\n        Args:\n          df: Data frame to transform.\n\n        Returns:\n          Transformed data frame.\n\n        \"\"\"\n        output = df.copy()\n\n        if self._real_scalers is None and self._cat_scalers is None:\n            raise ValueError(\"Scalers have not been set!\")\n\n        column_definitions = self.get_column_definition()\n\n        real_inputs = utils.extract_cols_from_data_type(\n            DataTypes.REAL_VALUED, column_definitions, {InputTypes.ID, InputTypes.TIME}\n        )\n        categorical_inputs = utils.extract_cols_from_data_type(\n            DataTypes.CATEGORICAL, column_definitions, {InputTypes.ID, InputTypes.TIME}\n        )\n\n        # Format real inputs\n        output[real_inputs] = self._real_scalers.transform(df[real_inputs].values)\n\n        # Format categorical inputs\n        for col in categorical_inputs:\n            string_df = df[col].apply(str)\n            output[col] = self._cat_scalers[col].transform(string_df)\n\n        return output",
+    "source": "github_repo:microsoft/qlib",
+    "file": "examples/benchmarks/TFT/data_formatters/qlib_Alpha158.py",
+    "license": "MIT",
+    "language": "python"
+}

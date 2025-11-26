@@ -1,0 +1,7 @@
+{
+    "code": "def execute_task(self, func: Callable, *args: Any, **kwargs: Any):\n        thread = threading.Thread(\n            target=self.run_task, args=(func, *args), kwargs=kwargs\n        )\n        thread.start()",
+    "source": "github_repo:harry0703/MoneyPrinterTurbo",
+    "file": "app/controllers/manager/base_manager.py",
+    "license": "MIT",
+    "language": "python"
+}

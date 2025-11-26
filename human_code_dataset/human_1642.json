@@ -1,0 +1,7 @@
+{
+    "code": "def _proxy(*args, **kwargs):\n    # print \"method=\", request.method,\n    # print \"url=\", request.url.replace('/:shell-x/', ':3000/')\n    # print \"headers=\", {key: value for (key, value) in request.headers if key != 'Host'}\n    # print \"data=\", request.get_data()\n    # print \"cookies=\", request.cookies\n    # print \"allow_redirects=\", False\n\n    url_before, url_after = request.url.split(\"/:shell-x/\", 1)\n    url = url_before + \":3000/\"\n\n    if \"q\" in request.args:\n        url_after = \"?\" + \"&\".join(\"arg=%s\" % x for x in request.args[\"q\"].split())\n\n    url += url_after\n    print(url)\n    print(request.get_data())\n    resp = requests.request(\n        method=request.method,\n        url=url,\n        headers={key: value for (key, value) in request.headers if key != \"Host\"},\n        data=request.get_data(),\n        cookies=request.cookies,\n        allow_redirects=False,\n    )\n\n    excluded_headers = [\n        \"content-encoding\",\n        \"content-length\",\n        \"transfer-encoding\",\n        \"connection\",\n    ]\n    headers = [\n        (name, value)\n        for (name, value) in resp.raw.headers.items()\n        if name.lower() not in excluded_headers\n    ]\n\n    response = Response(resp.content, resp.status_code, headers)\n    return response",
+    "source": "github_repo:chubin/cheat.sh",
+    "file": "bin/app.py",
+    "license": "MIT",
+    "language": "python"
+}

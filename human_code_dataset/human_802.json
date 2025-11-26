@@ -1,0 +1,7 @@
+{
+    "code": "def send(self, s: str, dat: Union[bytes, capnp.lib.capnp._DynamicStructBuilder]) -> None:\n    if not isinstance(dat, bytes):\n      dat = dat.to_bytes()\n    self.sock[s].send(dat)",
+    "source": "github_repo:commaai/openpilot",
+    "file": "cereal/messaging/__init__.py",
+    "license": "MIT",
+    "language": "python"
+}

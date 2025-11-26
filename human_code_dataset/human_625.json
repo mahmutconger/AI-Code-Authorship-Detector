@@ -1,0 +1,7 @@
+{
+    "code": "def extract_image_from_messages(\n    messages: List[ChatCompletionMessageParam],\n) -> Dict[str, str]:\n    \"\"\"\n    Extracts image data from OpenAI-style chat completion messages.\n\n    Args:\n        messages: List of ChatCompletionMessageParam containing message content\n\n    Returns:\n        Dictionary with mime_type and data keys for the first image found\n    \"\"\"\n    for content_part in messages[-1][\"content\"]:  # type: ignore\n        if content_part[\"type\"] == \"image_url\":  # type: ignore\n            image_url = content_part[\"image_url\"][\"url\"]  # type: ignore\n            if image_url.startswith(\"data:\"):  # type: ignore\n                # Extract base64 data and mime type for data URLs\n                mime_type = image_url.split(\";\")[0].split(\":\")[1]  # type: ignore\n                base64_data = image_url.split(\",\")[1]  # type: ignore\n                return {\"mime_type\": mime_type, \"data\": base64_data}\n            else:\n                # Handle regular URLs - would need to download and convert to base64\n                # For now, just return the URI\n                return {\"uri\": image_url}  # type: ignore\n\n    # No image found\n    raise ValueError(\"No image found in messages\")",
+    "source": "github_repo:abi/screenshot-to-code",
+    "file": "backend/models/gemini.py",
+    "license": "MIT",
+    "language": "python"
+}

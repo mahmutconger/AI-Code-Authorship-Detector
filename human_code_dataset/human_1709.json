@@ -1,0 +1,7 @@
+{
+    "code": "def subscribe(self, title, func):\n        if not callable(func):\n            logger.error(f\"订阅事件失败！传入 {func} 不是可调用对象。\")\n            return\n        self._eventDictMutex.lock()  # 上锁\n        if title not in self._eventDict:\n            self._eventDict[title] = [func]\n        else:\n            self._eventDict[title].append(func)\n        self._eventDictMutex.unlock()  # 解锁",
+    "source": "github_repo:hiroi-sora/Umi-OCR",
+    "file": "UmiOCR-data/py_src/event_bus/pubsub_service.py",
+    "license": "MIT",
+    "language": "python"
+}

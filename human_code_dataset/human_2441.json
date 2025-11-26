@@ -1,0 +1,7 @@
+{
+    "code": "def walk_directory(path: Path, suffix: Optional[str] = None) -> List[Path]:\n    \"\"\"Given a directory and a suffix, recursively find all files matching the suffix.\n    Directories or files with names beginning with a . are ignored, but hidden flags on\n    filesystems are not checked.\n    When provided with a suffix `None`, there is no suffix-based filtering.\"\"\"\n    if not path.is_dir():\n        return [path]\n    paths = [path]\n    locs = []\n    seen = set()\n    for path in paths:\n        if str(path) in seen:\n            continue\n        seen.add(str(path))\n        if path.parts[-1].startswith(\".\"):\n            continue\n        elif path.is_dir():\n            paths.extend(path.iterdir())\n        elif suffix is not None and not path.parts[-1].endswith(suffix):\n            continue\n        else:\n            locs.append(path)\n    # It's good to sort these, in case the ordering messes up cache.\n    locs.sort()\n    return locs",
+    "source": "github_repo:explosion/spaCy",
+    "file": "spacy/cli/_util.py",
+    "license": "MIT",
+    "language": "python"
+}

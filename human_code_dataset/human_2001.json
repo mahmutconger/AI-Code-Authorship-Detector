@@ -1,0 +1,7 @@
+{
+    "code": "class GuiTest2(Scene):\n    def construct(self):\n        mesh = get_plane_mesh(self.renderer.context)\n        mesh.attributes[\"in_vert\"][:, 0] -= 2\n        self.add(mesh)\n\n        mesh2 = get_plane_mesh(self.renderer.context)\n        mesh2.attributes[\"in_vert\"][:, 0] += 2\n        self.add(mesh2)\n\n        def callback(sender, data):\n            mesh2.attributes[\"in_color\"][:, 3] = dpg.get_value(sender)\n\n        self.widgets.append(\n            {\n                \"name\": \"mesh2 opacity\",\n                \"widget\": \"slider_float\",\n                \"callback\": callback,\n                \"min_value\": 0,\n                \"max_value\": 1,\n                \"default_value\": 1,\n            },\n        )\n\n        self.interactive_embed()",
+    "source": "github_repo:ManimCommunity/manim",
+    "file": "example_scenes/opengl.py",
+    "license": "MIT",
+    "language": "python"
+}

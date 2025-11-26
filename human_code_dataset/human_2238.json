@@ -1,0 +1,7 @@
+{
+    "code": "def process(self, value: Any) -> Any:\n        if not isinstance(value, str):\n            return value\n\n        def resolve_from_config(match: re.Match[str]) -> Any:\n            key = match.group(1)\n            config_value = self.get(key)\n            if config_value:\n                return config_value\n\n            # The key doesn't exist in the config but might be resolved later,\n            # so we keep it as a format variable.\n            return f\"{{{key}}}\"\n\n        return re.sub(r\"{(.+?)}\", resolve_from_config, value)",
+    "source": "github_repo:python-poetry/poetry",
+    "file": "src/poetry/config/config.py",
+    "license": "MIT",
+    "language": "python"
+}

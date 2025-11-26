@@ -1,0 +1,7 @@
+{
+    "code": "def __init__(self, lambda_p: float, max_steps: int = 1_000):\n        \"\"\"\n        * `lambda_p` is $\\lambda_p$ - the success probability of geometric distribution\n        * `max_steps` is the highest $N$; we use this to pre-compute $p_G(\\lambda_p)$\n        \"\"\"\n        super().__init__()\n\n        # Empty vector to calculate $p_G(\\lambda_p)$\n        p_g = torch.zeros((max_steps,))\n        # $(1 - \\lambda_p)^k$\n        not_halted = 1.\n        # Iterate upto `max_steps`\n        for k in range(max_steps):\n            # $$Pr_{p_G(\\lambda_p)}(X = k) = (1 - \\lambda_p)^k \\lambda_p$$\n            p_g[k] = not_halted * lambda_p\n            # Update $(1 - \\lambda_p)^k$\n            not_halted = not_halted * (1 - lambda_p)\n\n        # Save $Pr_{p_G(\\lambda_p)}$\n        self.p_g = nn.Parameter(p_g, requires_grad=False)\n\n        # KL-divergence loss\n        self.kl_div = nn.KLDivLoss(reduction='batchmean')",
+    "source": "github_repo:labmlai/annotated_deep_learning_paper_implementations",
+    "file": "labml_nn/adaptive_computation/ponder_net/__init__.py",
+    "license": "MIT",
+    "language": "python"
+}

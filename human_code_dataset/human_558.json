@@ -1,0 +1,7 @@
+{
+    "code": "def parse_url(url):\n    \"\"\"\n    Parses the URL.\n    \"\"\"\n\n    # url: http://example.com/demo/struts2-showcase/index.action\n\n    url = url.replace('#', '%23')\n    url = url.replace(' ', '%20')\n\n    if ('://' not in url):\n        url = str(\"http://\") + str(url)\n    scheme = urllib.parse.urlparse(url).scheme\n\n    # Site: http://example.com\n    site = scheme + '://' + urllib.parse.urlparse(url).netloc\n\n    # FilePath: /demo/struts2-showcase/index.action\n    file_path = urllib.parse.urlparse(url).path\n    if (file_path == ''):\n        file_path = '/'\n\n    # Filename: index.action\n    try:\n        filename = url.split('/')[-1]\n    except IndexError:\n        filename = ''\n\n    # File Dir: /demo/struts2-showcase/\n    file_dir = file_path.rstrip(filename)\n    if (file_dir == ''):\n        file_dir = '/'\n\n    return({\"site\": site,\n            \"file_dir\": file_dir,\n            \"filename\": filename})",
+    "source": "github_repo:swisskyrepo/PayloadsAllTheThings",
+    "file": "CVE Exploits/Apache Struts 2 CVE-2018-11776.py",
+    "license": "MIT",
+    "language": "python"
+}

@@ -1,0 +1,7 @@
+{
+    "code": "def text_content(self) -> str:\n        \"\"\"Soft-deprecated alias for `markdown`. New code should migrate to using `markdown` or __str__.\"\"\"\n        return self.markdown",
+    "source": "github_repo:microsoft/markitdown",
+    "file": "packages/markitdown/src/markitdown/_base_converter.py",
+    "license": "MIT",
+    "language": "python"
+}

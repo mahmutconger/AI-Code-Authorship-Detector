@@ -1,0 +1,7 @@
+{
+    "code": "from fastapi import FastAPI\nfrom fastapi.middleware.gzip import GZipMiddleware\n\napp = FastAPI()\n\napp.add_middleware(GZipMiddleware, minimum_size=1000, compresslevel=5)\n\n\n@app.get(\"/\")\nasync def main():\n    return \"somebigcontent\"",
+    "source": "github_repo:fastapi/fastapi",
+    "file": "docs_src/advanced_middleware/tutorial003.py",
+    "license": "MIT",
+    "language": "python"
+}

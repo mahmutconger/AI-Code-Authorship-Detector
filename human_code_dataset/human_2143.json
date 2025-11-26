@@ -1,0 +1,7 @@
+{
+    "code": "def priority(self) -> int:\n        \"\"\"A* priority: moves + Manhattan distance.\"\"\"\n        return self.moves + self.manhattan()",
+    "source": "github_repo:geekcomputers/Python",
+    "file": "8_puzzle.py",
+    "license": "MIT",
+    "language": "python"
+}

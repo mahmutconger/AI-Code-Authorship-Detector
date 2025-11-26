@@ -1,0 +1,7 @@
+{
+    "code": "def use_fp32_config(self):\n        for config_file in version_config_list:\n            self.json_config[config_file][\"train\"][\"fp16_run\"] = False\n            with open(f\"configs/inuse/{config_file}\", \"r\") as f:\n                strr = f.read().replace(\"true\", \"false\")\n            with open(f\"configs/inuse/{config_file}\", \"w\") as f:\n                f.write(strr)\n            logger.info(\"overwrite \" + config_file)\n        self.preprocess_per = 3.0\n        logger.info(\"overwrite preprocess_per to %d\" % (self.preprocess_per))",
+    "source": "github_repo:RVC-Project/Retrieval-based-Voice-Conversion-WebUI",
+    "file": "configs/config.py",
+    "license": "MIT",
+    "language": "python"
+}

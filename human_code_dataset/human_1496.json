@@ -1,0 +1,7 @@
+{
+    "code": "def press_key(\n        self, keys: str, count=1, pause: float | None = None, target=None\n    ) -> None:\n        if pause is None:\n            pause = self.pause_between_keys\n        if target is None:\n            target = self.tmux_pane\n        for i in range(count):\n            if keys == \" \":\n                keys = \"Space\"\n            target.send_keys(cmd=keys, enter=False, suppress_history=False)\n\n            # inspired by https://github.com/dmotz/TuringType\n            real_pause = random.uniform(0, pause) + 0.4 * pause\n            if keys == \"Space\":\n                real_pause += 1.5 * pause\n            elif keys == \".\":\n                real_pause += pause\n            elif random.random() > 0.75:\n                real_pause += pause\n            elif random.random() > 0.95:\n                real_pause += 2 * pause\n            self.pause(real_pause)",
+    "source": "github_repo:mitmproxy/mitmproxy",
+    "file": "docs/scripts/clirecording/clidirector.py",
+    "license": "MIT",
+    "language": "python"
+}

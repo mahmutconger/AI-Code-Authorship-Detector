@@ -1,0 +1,7 @@
+{
+    "code": "def __call__(self, sample):\n        # sample['jpg'] is tensor hwc in [-1, 1] at this point\n        x = self.pt2np(sample['jpg'])\n        x = self.transform({\"image\": x})[\"image\"]\n        sample['midas_in'] = x\n        return sample",
+    "source": "github_repo:Stability-AI/stablediffusion",
+    "file": "ldm/data/util.py",
+    "license": "MIT",
+    "language": "python"
+}

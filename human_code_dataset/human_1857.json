@@ -1,0 +1,7 @@
+{
+    "code": "def list_parquet_files(data_dir=None):\n    \"\"\" Looks into a data dir and returns full paths to all parquet files. \"\"\"\n    data_dir = DATA_DIR if data_dir is None else data_dir\n    parquet_files = sorted([\n        f for f in os.listdir(data_dir)\n        if f.endswith('.parquet') and not f.endswith('.tmp')\n    ])\n    parquet_paths = [os.path.join(data_dir, f) for f in parquet_files]\n    return parquet_paths",
+    "source": "github_repo:karpathy/nanochat",
+    "file": "nanochat/dataset.py",
+    "license": "MIT",
+    "language": "python"
+}

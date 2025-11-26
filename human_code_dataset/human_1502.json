@@ -1,0 +1,7 @@
+{
+    "code": "def close_popup(self, duration: float = 0) -> None:\n        self.pause(duration)\n        self.tmux_pane.cmd(\"display-popup\", \"-C\")",
+    "source": "github_repo:mitmproxy/mitmproxy",
+    "file": "docs/scripts/clirecording/clidirector.py",
+    "license": "MIT",
+    "language": "python"
+}

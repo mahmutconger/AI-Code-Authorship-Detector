@@ -1,0 +1,7 @@
+{
+    "code": "def git_add_and_commit(msg: str, repo: Path) -> None:\n    subprocess.run([\"git\", \"add\", \".\"], cwd=repo)\n    subprocess.run([\"git\", \"commit\", \"-m\", msg, \"--allow-empty\"], cwd=repo)",
+    "source": "github_repo:psf/black",
+    "file": "gallery/gallery.py",
+    "license": "MIT",
+    "language": "python"
+}

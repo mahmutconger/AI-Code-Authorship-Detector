@@ -1,0 +1,7 @@
+{
+    "code": "def print_mean_with_ci(sample: numpy.ndarray):\n    mean = numpy.mean(sample)\n    bootstrap_means = bootstrap(sample)\n    bootstrap_means.sort()\n\n    # 95% confidence interval\n    low = bootstrap_means[int(len(bootstrap_means) * 0.025)]\n    high = bootstrap_means[int(len(bootstrap_means) * 0.975)]\n\n    print(f\"Mean: {mean:.1f} words/s (95% CI: {low-mean:.1f} +{high-mean:.1f})\")",
+    "source": "github_repo:explosion/spaCy",
+    "file": "spacy/cli/benchmark_speed.py",
+    "license": "MIT",
+    "language": "python"
+}

@@ -1,0 +1,7 @@
+{
+    "code": "def _change_tracker(usage_tracker_io, pid):\n    usage_tracker_io.truncate(0)\n    info = {'pid': pid, 'time': 0}\n    json.dump(info, usage_tracker_io)\n    usage_tracker_io.seek(0)",
+    "source": "github_repo:nvbn/thefuck",
+    "file": "tests/entrypoints/test_not_configured.py",
+    "license": "MIT",
+    "language": "python"
+}

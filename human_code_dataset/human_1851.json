@@ -1,0 +1,7 @@
+{
+    "code": "def forward_model(model, input_ids):\n    \"\"\"\n    Take BxT tensor of token ids, return BxT tensor of losses and argmax predictions.\n    The last column of losses is set to nan because we don't have autoregressive targets there.\n    \"\"\"\n    batch_size, seq_len = input_ids.size()\n    outputs = model(input_ids)\n    # Roll the tensor to the left by one position to get the (autoregressive) target ids\n    target_ids = torch.roll(input_ids, shifts=-1, dims=1)\n    # Calculate cross entropy at all positions\n    losses = torch.nn.functional.cross_entropy(\n        outputs.view(batch_size * seq_len, -1),\n        target_ids.view(batch_size * seq_len),\n        reduction='none'\n    ).view(batch_size, seq_len)\n    # Set the last column to be nan because there is no autoregressive loss there\n    losses[:, -1] = float('nan')\n    # Get the argmax predictions at each position\n    predictions = outputs.argmax(dim=-1)\n    return losses, predictions",
+    "source": "github_repo:karpathy/nanochat",
+    "file": "nanochat/core_eval.py",
+    "license": "MIT",
+    "language": "python"
+}

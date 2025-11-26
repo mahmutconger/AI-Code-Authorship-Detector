@@ -1,0 +1,7 @@
+{
+    "code": "class Chat:\n    def __init__(self, client):\n        self.completions = ChatCompletions(client)",
+    "source": "github_repo:FoundationAgents/OpenManus",
+    "file": "app/bedrock.py",
+    "license": "MIT",
+    "language": "python"
+}

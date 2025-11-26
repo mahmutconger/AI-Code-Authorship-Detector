@@ -1,0 +1,7 @@
+{
+    "code": "def format_predictions(self, df):\n        \"\"\"Reverts any normalisation to give predictions in original scale.\"\"\"\n        raise NotImplementedError()",
+    "source": "github_repo:microsoft/qlib",
+    "file": "examples/benchmarks/TFT/data_formatters/base.py",
+    "license": "MIT",
+    "language": "python"
+}

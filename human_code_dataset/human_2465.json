@@ -1,0 +1,7 @@
+{
+    "code": "def autodetect_ner_format(input_data: str) -> Optional[str]:\n    # guess format from the first 20 lines\n    lines = input_data.split(\"\\n\")[:20]\n    format_guesses = {\"ner\": 0, \"iob\": 0}\n    iob_re = re.compile(r\"\\S+\\|(O|[IB]-\\S+)\")\n    ner_re = re.compile(r\"\\S+\\s+(O|[IB]-\\S+)$\")\n    for line in lines:\n        line = line.strip()\n        if iob_re.search(line):\n            format_guesses[\"iob\"] += 1\n        if ner_re.search(line):\n            format_guesses[\"ner\"] += 1\n    if format_guesses[\"iob\"] == 0 and format_guesses[\"ner\"] > 0:\n        return \"ner\"\n    if format_guesses[\"ner\"] == 0 and format_guesses[\"iob\"] > 0:\n        return \"iob\"\n    return None",
+    "source": "github_repo:explosion/spaCy",
+    "file": "spacy/cli/convert.py",
+    "license": "MIT",
+    "language": "python"
+}

@@ -1,0 +1,7 @@
+{
+    "code": "def test_check_cors_with_valid_cors(self):\n        for cors in cors_keys:\n            with self.subTest():\n                err_msgs = check_cors(0, cors)\n                self.assertIsInstance(err_msgs, list)\n                self.assertEqual(len(err_msgs), 0)\n                self.assertEqual(err_msgs, [])",
+    "source": "github_repo:public-apis/public-apis",
+    "file": "scripts/tests/test_validate_format.py",
+    "license": "MIT",
+    "language": "python"
+}

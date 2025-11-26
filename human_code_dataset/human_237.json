@@ -1,0 +1,7 @@
+{
+    "code": "def __init__(self, dim: int, eps: float = 1e-6):\n        super().__init__()\n        self.dim = dim\n        self.eps = eps\n        self.weight = nn.Parameter(torch.ones(dim))",
+    "source": "github_repo:deepseek-ai/DeepSeek-V3",
+    "file": "inference/model.py",
+    "license": "MIT",
+    "language": "python"
+}

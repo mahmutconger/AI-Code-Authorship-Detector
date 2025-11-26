@@ -1,0 +1,7 @@
+{
+    "code": "def create_audio(\n    background_tasks: BackgroundTasks, request: Request, body: AudioRequest\n):\n    return create_task(request, body, stop_at=\"audio\")",
+    "source": "github_repo:harry0703/MoneyPrinterTurbo",
+    "file": "app/controllers/v1/video.py",
+    "license": "MIT",
+    "language": "python"
+}

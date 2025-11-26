@@ -1,0 +1,7 @@
+{
+    "code": "def settings(request):\n    def _reset_settings():\n        conf.settings.clear()\n        conf.settings.update(const.DEFAULT_SETTINGS)\n\n    request.addfinalizer(_reset_settings)\n    conf.settings.user_dir = Path('~/.thefuck')\n    return conf.settings",
+    "source": "github_repo:nvbn/thefuck",
+    "file": "tests/conftest.py",
+    "license": "MIT",
+    "language": "python"
+}

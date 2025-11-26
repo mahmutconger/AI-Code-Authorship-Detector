@@ -1,0 +1,7 @@
+{
+    "code": "def _sanitize_name(self, name: str) -> str:\n        \"\"\"Sanitize names to create proper Python class names.\"\"\"\n        sanitized = re.sub(r\"[^a-zA-Z0-9_]\", \"\", name)\n        parts = sanitized.split(\"_\")\n        return \"\".join(word.capitalize() for word in parts if word)",
+    "source": "github_repo:crewAIInc/crewAI",
+    "file": "lib/crewai-tools/src/crewai_tools/adapters/enterprise_adapter.py",
+    "license": "MIT",
+    "language": "python"
+}

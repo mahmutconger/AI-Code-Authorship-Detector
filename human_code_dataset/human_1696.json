@@ -1,0 +1,7 @@
+{
+    "code": "def _onPress(self, key):\n        keyName = _KeyTranslator.key2name(key)\n        # 禁止重复触发\n        if keyName in self._pressSet:\n            return\n        self._checkTTL()  # 检查超时\n        self._pressSet.add(keyName)  # 加入集合\n        self._ttlDict[keyName] = time() + self._ttl  # 记录超时时间\n        if self._status == 0:  # 正常运行\n            self._checkKeyEvent(0, keyName)  # 检查按下模式的快捷键\n        elif self._status == 1:  # 录制中\n            self._readRunning()",
+    "source": "github_repo:hiroi-sora/Umi-OCR",
+    "file": "UmiOCR-data/py_src/event_bus/key_mouse/keyboard.py",
+    "license": "MIT",
+    "language": "python"
+}

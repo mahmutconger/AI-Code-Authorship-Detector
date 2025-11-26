@@ -1,0 +1,7 @@
+{
+    "code": "def _patched_del(self):\n\t\"\"\"Patched __del__ that handles closed event loops without throwing noisy red-herring errors like RuntimeError: Event loop is closed\"\"\"\n\ttry:\n\t\t# Check if the event loop is closed before calling the original\n\t\tif hasattr(self, '_loop') and self._loop and self._loop.is_closed():\n\t\t\t# Event loop is closed, skip cleanup that requires the loop\n\t\t\treturn\n\t\t_original_del(self)\n\texcept RuntimeError as e:\n\t\tif 'Event loop is closed' in str(e):\n\t\t\t# Silently ignore this specific error\n\t\t\tpass\n\t\telse:\n\t\t\traise",
+    "source": "github_repo:browser-use/browser-use",
+    "file": "browser_use/__init__.py",
+    "license": "MIT",
+    "language": "python"
+}

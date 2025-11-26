@@ -1,0 +1,7 @@
+{
+    "code": "def run_test(setup, test, iterations_per_test=5, tests_to_run=10):\n    fastest_execution = min(timeit.Timer(test, setup=setup).repeat(tests_to_run, iterations_per_test))\n    execution_time = fastest_execution / iterations_per_test\n    fps = 1.0 / execution_time\n    return execution_time, fps",
+    "source": "github_repo:ageitgey/face_recognition",
+    "file": "examples/benchmark.py",
+    "license": "MIT",
+    "language": "python"
+}

@@ -1,0 +1,7 @@
+{
+    "code": "def test_dtw(N: int, M: int):\n    steps = np.concatenate([np.zeros(N - 1), np.ones(M - 1)])\n    np.random.shuffle(steps)\n    x = np.random.random((N, M)).astype(np.float32)\n\n    i, j, k = 0, 0, 0\n    trace = []\n    while True:\n        x[i, j] -= 1\n        trace.append((i, j))\n\n        if k == len(steps):\n            break\n\n        if k + 1 < len(steps) and steps[k] != steps[k + 1]:\n            i += 1\n            j += 1\n            k += 2\n            continue\n\n        if steps[k] == 0:\n            i += 1\n        if steps[k] == 1:\n            j += 1\n        k += 1\n\n    trace = np.array(trace).T\n    dtw_trace = dtw_cpu(x)\n\n    assert np.allclose(trace, dtw_trace)",
+    "source": "github_repo:openai/whisper",
+    "file": "tests/test_timing.py",
+    "license": "MIT",
+    "language": "python"
+}

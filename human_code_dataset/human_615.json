@@ -1,0 +1,7 @@
+{
+    "code": "def extract_dimensions(url: str):\n    # Regular expression to match numbers in the format '300x200'\n    matches = re.findall(r\"(\\d+)x(\\d+)\", url)\n\n    if matches:\n        width, height = matches[0]  # Extract the first match\n        width = int(width)\n        height = int(height)\n        return (width, height)\n    else:\n        return (100, 100)",
+    "source": "github_repo:abi/screenshot-to-code",
+    "file": "backend/image_generation/core.py",
+    "license": "MIT",
+    "language": "python"
+}

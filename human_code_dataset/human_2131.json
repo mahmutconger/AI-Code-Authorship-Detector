@@ -1,0 +1,7 @@
+{
+    "code": "# practicing with streams\r\nimport sys\r\n\r\nsys.stdout.write(\"Enter the name of the file\")\r\nfile = sys.stdin.readline()\r\n\r\nwith open(\r\n    file.strip(),\r\n) as F:\r\n    while True:\r\n        ch = F.readlines()\r\n        for i in ch:  # ch is the whole file,for i in ch gives lines, for j in i gives letters,for j in i.split gives words\r\n            print(i, end=\"\")\r\n        else:\r\n            sys.stderr.write(\"End of file reached\")\r\n            break",
+    "source": "github_repo:geekcomputers/Python",
+    "file": "1 File handle/File handle text/input,output and error streams.py",
+    "license": "MIT",
+    "language": "python"
+}

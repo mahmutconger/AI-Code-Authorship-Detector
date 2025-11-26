@@ -1,0 +1,7 @@
+{
+    "code": "def forward(self, idx, targets=None):\n        device = idx.device\n        b, t = idx.size()\n        assert t <= self.config.block_size, f\"Cannot forward sequence of length {t}, block size is only {self.config.block_size}\"\n        pos = torch.arange(0, t, dtype=torch.long, device=device) # shape (t)\n\n        # forward the GPT model itself\n        tok_emb = self.transformer.wte(idx) # token embeddings of shape (b, t, n_embd)\n        pos_emb = self.transformer.wpe(pos) # position embeddings of shape (t, n_embd)\n        x = self.transformer.drop(tok_emb + pos_emb)\n        for block in self.transformer.h:\n            x = block(x)\n        x = self.transformer.ln_f(x)\n\n        if targets is not None:\n            # if we are given some desired targets also calculate the loss\n            logits = self.lm_head(x)\n            loss = F.cross_entropy(logits.view(-1, logits.size(-1)), targets.view(-1), ignore_index=-1)\n        else:\n            # inference-time mini-optimization: only forward the lm_head on the very last position\n            logits = self.lm_head(x[:, [-1], :]) # note: using list [-1] to preserve the time dim\n            loss = None\n\n        return logits, loss",
+    "source": "github_repo:karpathy/nanoGPT",
+    "file": "model.py",
+    "license": "MIT",
+    "language": "python"
+}

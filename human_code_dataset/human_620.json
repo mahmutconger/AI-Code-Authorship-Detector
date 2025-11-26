@@ -1,0 +1,7 @@
+{
+    "code": "class Completion(TypedDict):\n    duration: float\n    code: str",
+    "source": "github_repo:abi/screenshot-to-code",
+    "file": "backend/llm.py",
+    "license": "MIT",
+    "language": "python"
+}

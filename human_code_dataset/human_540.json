@@ -1,0 +1,7 @@
+{
+    "code": "def _truncate_text(text: str, max_length: int, from_beginning: bool = False) -> str:\n\t\"\"\"Truncate text to maximum length with eval system indicator.\"\"\"\n\tif len(text) <= max_length:\n\t\treturn text\n\tif from_beginning:\n\t\treturn '...[text truncated]' + text[-max_length + 23 :]\n\telse:\n\t\treturn text[: max_length - 23] + '...[text truncated]...'",
+    "source": "github_repo:browser-use/browser-use",
+    "file": "browser_use/agent/judge.py",
+    "license": "MIT",
+    "language": "python"
+}

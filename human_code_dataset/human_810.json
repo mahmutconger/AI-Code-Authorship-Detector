@@ -1,0 +1,7 @@
+{
+    "code": "def test_new_message(self, evt):\n    try:\n      msg = messaging.new_message(evt)\n    except capnp.lib.capnp.KjException:\n      msg = messaging.new_message(evt, random.randrange(200))\n    assert (time.monotonic() - msg.logMonoTime) < 0.1\n    assert not msg.valid\n    assert evt == msg.which()",
+    "source": "github_repo:commaai/openpilot",
+    "file": "cereal/messaging/tests/test_messaging.py",
+    "license": "MIT",
+    "language": "python"
+}

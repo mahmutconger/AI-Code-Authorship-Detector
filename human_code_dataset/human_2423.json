@@ -1,0 +1,7 @@
+{
+    "code": "def write_git_info_py(filename=\"spacy/git_info.py\"):\n    def _minimal_ext_cmd(cmd):\n        # construct minimal environment\n        env = {}\n        for k in [\"SYSTEMROOT\", \"PATH\", \"HOME\"]:\n            v = os.environ.get(k)\n            if v is not None:\n                env[k] = v\n        # LANGUAGE is used on win32\n        env[\"LANGUAGE\"] = \"C\"\n        env[\"LANG\"] = \"C\"\n        env[\"LC_ALL\"] = \"C\"\n        out = subprocess.check_output(cmd, stderr=subprocess.STDOUT, env=env)\n        return out\n\n    git_version = \"Unknown\"\n    if Path(\".git\").exists():\n        try:\n            out = _minimal_ext_cmd([\"git\", \"rev-parse\", \"--short\", \"HEAD\"])\n            git_version = out.strip().decode(\"ascii\")\n        except Exception:\n            pass\n    elif Path(filename).exists():\n        # must be a source distribution, use existing version file\n        try:\n            a = open(filename, \"r\")\n            lines = a.readlines()\n            git_version = lines[-1].split('\"')[1]\n        except Exception:\n            pass\n        finally:\n            a.close()\n\n    text = \"\"\"# THIS FILE IS GENERATED FROM SPACY SETUP.PY\n#\nGIT_VERSION = \"%(git_version)s\"\n\"\"\"\n    a = open(filename, \"w\")\n    try:\n        a.write(text % {\"git_version\": git_version})\n    finally:\n        a.close()",
+    "source": "github_repo:explosion/spaCy",
+    "file": "setup.py",
+    "license": "MIT",
+    "language": "python"
+}

@@ -1,0 +1,7 @@
+{
+    "code": "def discard_exceeding(self, max_tokens, cur_tokens=None):\n        precise = True\n        try:\n            cur_tokens = self.calc_tokens()\n        except Exception as e:\n            precise = False\n            if cur_tokens is None:\n                raise e\n            logger.debug(\"Exception when counting tokens precisely for query: {}\".format(e))\n        while cur_tokens > max_tokens:\n            if len(self.messages) >= 2:\n                self.messages.pop(0)\n                self.messages.pop(0)\n            else:\n                logger.debug(\"max_tokens={}, total_tokens={}, len(messages)={}\".format(max_tokens, cur_tokens, len(self.messages)))\n                break\n            if precise:\n                cur_tokens = self.calc_tokens()\n            else:\n                cur_tokens = cur_tokens - max_tokens\n        return cur_tokens",
+    "source": "github_repo:zhayujie/chatgpt-on-wechat",
+    "file": "bot/baidu/baidu_wenxin_session.py",
+    "license": "MIT",
+    "language": "python"
+}

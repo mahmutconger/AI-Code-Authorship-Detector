@@ -1,0 +1,7 @@
+{
+    "code": "class SkipFlaskLogger(object):\n    def filter(self, record):\n        if record.name != \"werkzeug\":\n            return True",
+    "source": "github_repo:chubin/cheat.sh",
+    "file": "bin/app.py",
+    "license": "MIT",
+    "language": "python"
+}

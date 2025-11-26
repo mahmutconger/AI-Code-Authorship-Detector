@@ -1,0 +1,7 @@
+{
+    "code": "def valid_coloring(\n    neighbours: list[int], colored_vertices: list[int], color: int\n) -> bool:\n    \"\"\"\n    For each neighbour check if the coloring constraint is satisfied\n    If any of the neighbours fail the constraint return False\n    If all neighbours validate the constraint return True\n\n    >>> neighbours = [0,1,0,1,0]\n    >>> colored_vertices = [0, 2, 1, 2, 0]\n\n    >>> color = 1\n    >>> valid_coloring(neighbours, colored_vertices, color)\n    True\n\n    >>> color = 2\n    >>> valid_coloring(neighbours, colored_vertices, color)\n    False\n    \"\"\"\n    # Does any neighbour not satisfy the constraints\n    return not any(\n        neighbour == 1 and colored_vertices[i] == color\n        for i, neighbour in enumerate(neighbours)\n    )",
+    "source": "github_repo:TheAlgorithms/Python",
+    "file": "backtracking/coloring.py",
+    "license": "MIT",
+    "language": "python"
+}

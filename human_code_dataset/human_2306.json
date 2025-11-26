@@ -1,0 +1,7 @@
+{
+    "code": "def query_by_time(df: pl.DataFrame, start: datetime | str = \"\", end: datetime | str = \"\") -> pl.DataFrame:\n    \"\"\"\n    Filter DataFrame based on time range\n    \"\"\"\n    if start:\n        start = to_datetime(start)\n        df = df.filter(pl.col(\"datetime\") >= start)\n\n    if end:\n        end = to_datetime(end)\n        df = df.filter(pl.col(\"datetime\") <= end)\n\n    return df.sort([\"datetime\", \"vt_symbol\"])",
+    "source": "github_repo:vnpy/vnpy",
+    "file": "vnpy/alpha/dataset/template.py",
+    "license": "MIT",
+    "language": "python"
+}

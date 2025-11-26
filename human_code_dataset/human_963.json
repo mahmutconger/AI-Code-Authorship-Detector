@@ -1,0 +1,7 @@
+{
+    "code": "def get_content(user):\n    \"\"\"Extract text from user dict.\"\"\"\n    country = user[\"location\"][\"country\"]\n    name = f\"{user['name']['first']} {user['name']['last']}\"\n    return f\"[b]{name}[/b]\\n[yellow]{country}\"",
+    "source": "github_repo:Textualize/rich",
+    "file": "examples/columns.py",
+    "license": "MIT",
+    "language": "python"
+}

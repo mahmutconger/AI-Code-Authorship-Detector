@@ -1,0 +1,7 @@
+{
+    "code": "def response(self, flow: http.HTTPFlow) -> None:\n        if flowfilter.match(self.filter, flow):\n            logging.info(\"Flow matches filter:\")\n            logging.info(flow)",
+    "source": "github_repo:mitmproxy/mitmproxy",
+    "file": "examples/addons/filter-flows.py",
+    "license": "MIT",
+    "language": "python"
+}

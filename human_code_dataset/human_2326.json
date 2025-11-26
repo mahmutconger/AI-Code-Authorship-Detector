@@ -1,0 +1,7 @@
+{
+    "code": "def load(self, instruments=None, start_time=None, end_time=None) -> pd.DataFrame:\n        df = super(Avg15minLoader, self).load(instruments, start_time, end_time)\n        if self.is_group:\n            # feature_day(day freq) and feature_15min(1min freq, Average every 15 minutes) renamed feature\n            df.columns = df.columns.map(lambda x: (\"feature\", x[1]) if x[0].startswith(\"feature\") else x)\n        return df",
+    "source": "github_repo:microsoft/qlib",
+    "file": "examples/benchmarks/LightGBM/multi_freq_handler.py",
+    "license": "MIT",
+    "language": "python"
+}

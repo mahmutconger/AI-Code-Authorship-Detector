@@ -1,0 +1,7 @@
+{
+    "code": "class RowParallelLinear(Linear):\n    \"\"\"\n    Linear layer with row parallelism, splitting input features across distributed processes.\n\n    Args:\n        in_features (int): Total number of input features.\n        out_features (int): Number of output features.\n        bias (bool): Whether to include a bias term. Defaults to False.\n        dtype (optional): Data type for the layer. Defaults to `torch.bfloat16`.\n    \"\"\"\n    def __init__(self, in_features: int, out_features: int, bias: bool = False, dtype = None):\n        assert in_features % world_size == 0, f\"Input features must be divisible by world size (world_size={world_size})\"\n        self.part_in_features = in_features // world_size\n        super().__init__(self.part_in_features, out_features, bias, dtype)\n\n    def forward(self, x: torch.Tensor) -> torch.Tensor:\n        \"\"\"\n        Forward pass for row parallel linear layer.\n\n        Args:\n            x (torch.Tensor): Input tensor.\n\n        Returns:\n            torch.Tensor: Transformed tensor with row-parallel computation.\n        \"\"\"\n        y = linear(x, self.weight)\n        if world_size > 1:\n            dist.all_reduce(y)\n        if self.bias is not None:\n            y += self.bias\n        return y",
+    "source": "github_repo:deepseek-ai/DeepSeek-V3",
+    "file": "inference/model.py",
+    "license": "MIT",
+    "language": "python"
+}

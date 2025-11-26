@@ -1,0 +1,7 @@
+{
+    "code": "def __lt__(self, other: \"PuzzleState\") -> bool:\n        \"\"\"For PriorityQueue ordering: compare priorities.\"\"\"\n        return self.priority() < other.priority()",
+    "source": "github_repo:geekcomputers/Python",
+    "file": "8_puzzle.py",
+    "license": "MIT",
+    "language": "python"
+}

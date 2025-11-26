@@ -1,0 +1,7 @@
+{
+    "code": "class LineJoints(Scene):\n    def construct(self):\n        t1 = Triangle()\n        t2 = Triangle(joint_type=LineJointType.ROUND)\n        t3 = Triangle(joint_type=LineJointType.BEVEL)\n\n        grp = VGroup(t1, t2, t3).arrange(RIGHT)\n        grp.set(width=config.frame_width - 1)\n\n        self.add(grp)",
+    "source": "github_repo:ManimCommunity/manim",
+    "file": "example_scenes/basic.py",
+    "license": "MIT",
+    "language": "python"
+}

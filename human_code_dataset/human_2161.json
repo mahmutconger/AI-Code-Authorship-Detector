@@ -1,0 +1,7 @@
+{
+    "code": "class Token:\n    def __init__(self, token, t):\n        self.token = token\n        self.t = t",
+    "source": "github_repo:geekcomputers/Python",
+    "file": "Assembler/assembler.py",
+    "license": "MIT",
+    "language": "python"
+}

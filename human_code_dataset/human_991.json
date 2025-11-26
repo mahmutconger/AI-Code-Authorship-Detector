@@ -1,0 +1,7 @@
+{
+    "code": "def uninstall(self):\n        if self.before_uninstall():\n            if isinstance(self.UNINSTALL_COMMANDS, (list, tuple)):\n                for UNINSTALL_COMMAND in self.UNINSTALL_COMMANDS:\n                    console.print(f\"[red]→ {UNINSTALL_COMMAND}[/red]\")\n                    os.system(UNINSTALL_COMMAND)\n            self.after_uninstall()",
+    "source": "github_repo:Z4nzu/hackingtool",
+    "file": "core.py",
+    "license": "MIT",
+    "language": "python"
+}

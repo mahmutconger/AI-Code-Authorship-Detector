@@ -1,0 +1,7 @@
+{
+    "code": "def interpolate_string(input_object, username):\n    if isinstance(input_object, str):\n        return input_object.replace(\"{}\", username)\n    elif isinstance(input_object, dict):\n        return {k: interpolate_string(v, username) for k, v in input_object.items()}\n    elif isinstance(input_object, list):\n        return [interpolate_string(i, username) for i in input_object]\n    return input_object",
+    "source": "github_repo:sherlock-project/sherlock",
+    "file": "sherlock_project/sherlock.py",
+    "license": "MIT",
+    "language": "python"
+}

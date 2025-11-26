@@ -1,0 +1,7 @@
+{
+    "code": "class ImageQt(QImage):\n    def __init__(self, im):\n        \"\"\"\n        An PIL image wrapper for Qt.  This is a subclass of PyQt's QImage\n        class.\n\n        :param im: A PIL Image object, or a file name (given either as\n            Python string or a PyQt string object).\n        \"\"\"\n        im_data = _toqclass_helper(im)\n        # must keep a reference, or Qt will crash!\n        # All QImage constructors that take data operate on an existing\n        # buffer, so this buffer has to hang on for the life of the image.\n        # Fixes https://github.com/python-pillow/Pillow/issues/1370\n        self._data = im_data[\"data\"]\n        super().__init__(\n            self._data,\n            im_data[\"size\"][0],\n            im_data[\"size\"][1],\n            im_data[\"format\"],\n        )\n        if im_data[\"colortable\"]:\n            self.setColorTable(im_data[\"colortable\"])",
+    "source": "github_repo:hiroi-sora/Umi-OCR",
+    "file": "UmiOCR-data/py_src/image_controller/ImageQt.py",
+    "license": "MIT",
+    "language": "python"
+}

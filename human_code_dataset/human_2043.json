@@ -1,0 +1,7 @@
+{
+    "code": "def forward(self, x, c, attn_mask=None):\n        q = self.conv_q(x)\n        k = self.conv_k(c)\n        v = self.conv_v(c)\n\n        x, self.attn = self.attention(q, k, v, mask=attn_mask)\n\n        x = self.conv_o(x)\n        return x",
+    "source": "github_repo:myshell-ai/OpenVoice",
+    "file": "openvoice/attentions.py",
+    "license": "MIT",
+    "language": "python"
+}

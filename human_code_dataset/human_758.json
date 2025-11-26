@@ -1,0 +1,7 @@
+{
+    "code": "def __init__(self, **kwargs):\n        super().__init__(**kwargs)\n        self.set_actions([SimpleWriteTest])\n        # self._watch([SimpleWriteCode])\n        self._watch([SimpleWriteCode, SimpleWriteReview])  # feel free to try this too",
+    "source": "github_repo:FoundationAgents/MetaGPT",
+    "file": "examples/build_customized_multi_agents.py",
+    "license": "MIT",
+    "language": "python"
+}

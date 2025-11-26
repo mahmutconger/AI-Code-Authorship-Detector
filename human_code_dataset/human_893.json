@@ -1,0 +1,7 @@
+{
+    "code": "def init(self, prompt: Prompt) -> FilesDict:\n        \"\"\"\n        Generates a new piece of code using the AI and step bundle based on the provided prompt.\n\n        Parameters\n        ----------\n        prompt : str\n            A string prompt that guides the code generation process.\n\n        Returns\n        -------\n        FilesDict\n            An instance of the `FilesDict` class containing the generated code.\n        \"\"\"\n\n        files_dict = self.code_gen_fn(\n            self.ai, prompt, self.memory, self.preprompts_holder\n        )\n        entrypoint = gen_entrypoint(\n            self.ai, prompt, files_dict, self.memory, self.preprompts_holder\n        )\n        combined_dict = {**files_dict, **entrypoint}\n        files_dict = FilesDict(combined_dict)\n        files_dict = self.process_code_fn(\n            self.ai,\n            self.execution_env,\n            files_dict,\n            preprompts_holder=self.preprompts_holder,\n            prompt=prompt,\n            memory=self.memory,\n        )\n        return files_dict",
+    "source": "github_repo:AntonOsika/gpt-engineer",
+    "file": "gpt_engineer/applications/cli/cli_agent.py",
+    "license": "MIT",
+    "language": "python"
+}

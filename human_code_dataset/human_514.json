@@ -1,0 +1,7 @@
+{
+    "code": "def dom_service(self) -> 'DomService':\n\t\t\"\"\"Get the DOM service for this target.\"\"\"\n\t\treturn DomService(self._browser_session)",
+    "source": "github_repo:browser-use/browser-use",
+    "file": "browser_use/actor/page.py",
+    "license": "MIT",
+    "language": "python"
+}

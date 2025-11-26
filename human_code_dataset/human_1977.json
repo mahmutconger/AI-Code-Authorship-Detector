@@ -1,0 +1,7 @@
+{
+    "code": "def construct(self):\n        self.add(Tex(\"Tex Font Example\").to_edge(UL))\n        self.play(Create(FrenchCursive(\"$f: A \\\\longrightarrow B$\").shift(UP)))\n        self.play(Create(FrenchCursive(\"Behold! We can write math in French Cursive\")))\n        self.wait(1)\n        self.play(\n            Create(\n                Tex(\n                    \"See more font templates at \\\\\\\\ http://jf.burnol.free.fr/showcase.html\",\n                ).shift(2 * DOWN),\n            ),\n        )\n        self.wait(2)",
+    "source": "github_repo:ManimCommunity/manim",
+    "file": "example_scenes/advanced_tex_fonts.py",
+    "license": "MIT",
+    "language": "python"
+}

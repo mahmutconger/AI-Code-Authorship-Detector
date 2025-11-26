@@ -1,0 +1,7 @@
+{
+    "code": "def remove_nsfw_sites(self, do_not_remove: list = []):\n        \"\"\"\n        Remove NSFW sites from the sites, if isNSFW flag is true for site\n\n        Keyword Arguments:\n        self                   -- This object.\n\n        Return Value:\n        None\n        \"\"\"\n        sites = {}\n        do_not_remove = [site.casefold() for site in do_not_remove]\n        for site in self.sites:\n            if self.sites[site].is_nsfw and site.casefold() not in do_not_remove:\n                continue\n            sites[site] = self.sites[site]\n        self.sites =  sites",
+    "source": "github_repo:sherlock-project/sherlock",
+    "file": "sherlock_project/sites.py",
+    "license": "MIT",
+    "language": "python"
+}

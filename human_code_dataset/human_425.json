@@ -1,0 +1,7 @@
+{
+    "code": "class FailedConversionAttempt(object):\n    \"\"\"\n    Represents an a single attempt to convert a file.\n    \"\"\"\n\n    def __init__(self, converter: Any, exc_info: Optional[tuple] = None):\n        self.converter = converter\n        self.exc_info = exc_info",
+    "source": "github_repo:microsoft/markitdown",
+    "file": "packages/markitdown/src/markitdown/_exceptions.py",
+    "license": "MIT",
+    "language": "python"
+}

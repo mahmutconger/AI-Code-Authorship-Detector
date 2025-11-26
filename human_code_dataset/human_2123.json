@@ -1,0 +1,7 @@
+{
+    "code": "def binary_read():\n    with open(\"studrec.dat\", \"rb\") as b:\n        stud = pickle.load(b)\n        print(stud)\n\n        # prints the whole record in nested list format\n        print(\"contents of binary file\")\n\n        for ch in stud:\n            print(ch)  # prints one of the chosen rec in list\n\n            rno = ch[0]\n            rname = ch[1]  # due to unpacking the val not printed in list format\n            rmark = ch[2]\n\n            print(rno, rname, rmark, end=\"\\t\")",
+    "source": "github_repo:geekcomputers/Python",
+    "file": "1 File handle/File handle binary/read.py",
+    "license": "MIT",
+    "language": "python"
+}

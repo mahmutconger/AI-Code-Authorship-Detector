@@ -1,0 +1,7 @@
+{
+    "code": "def test_from_command_argument(self, os_environ):\n        os_environ['TF_HISTORY'] = None\n        known_args = Mock(force_command=None,\n                          command=['sl'])\n        assert _get_raw_command(known_args) == ['sl']",
+    "source": "github_repo:nvbn/thefuck",
+    "file": "tests/entrypoints/test_fix_command.py",
+    "license": "MIT",
+    "language": "python"
+}

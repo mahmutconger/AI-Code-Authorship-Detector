@@ -1,0 +1,7 @@
+{
+    "code": "def check_root():\n    if os.geteuid() != 0:\n        console.print(Panel(\"[red]This installer must be run as root. Use: sudo python3 install_hackingtool.py[/red]\"))\n        sys.exit(1)",
+    "source": "github_repo:Z4nzu/hackingtool",
+    "file": "install.py",
+    "license": "MIT",
+    "language": "python"
+}

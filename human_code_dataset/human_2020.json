@@ -1,0 +1,7 @@
+{
+    "code": "def load_ckpt(self, ckpt_path):\n        checkpoint_dict = torch.load(ckpt_path, map_location=torch.device(self.device))\n        a, b = self.model.load_state_dict(checkpoint_dict['model'], strict=False)\n        print(\"Loaded checkpoint '{}'\".format(ckpt_path))\n        print('missing/unexpected keys:', a, b)",
+    "source": "github_repo:myshell-ai/OpenVoice",
+    "file": "openvoice/api.py",
+    "license": "MIT",
+    "language": "python"
+}

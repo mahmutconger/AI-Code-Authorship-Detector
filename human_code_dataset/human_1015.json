@@ -1,0 +1,7 @@
+{
+    "code": "def final_messages():\n    panel = Panel(\n        \"[bold magenta]Installation complete[/bold magenta]\\n\\nType [bold cyan]hackingtool[/bold cyan] in terminal to start.\",\n        border_style=\"magenta\",\n    )\n    console.print(panel)",
+    "source": "github_repo:Z4nzu/hackingtool",
+    "file": "install.py",
+    "license": "MIT",
+    "language": "python"
+}

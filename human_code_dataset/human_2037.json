@@ -1,0 +1,7 @@
+{
+    "code": "def forward(self, x):\n        x = x.transpose(1, -1)\n        x = F.layer_norm(x, (self.channels,), self.gamma, self.beta, self.eps)\n        return x.transpose(1, -1)",
+    "source": "github_repo:myshell-ai/OpenVoice",
+    "file": "openvoice/attentions.py",
+    "license": "MIT",
+    "language": "python"
+}

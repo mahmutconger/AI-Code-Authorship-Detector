@@ -1,0 +1,7 @@
+{
+    "code": "def __getitem__(self, idx: int) -> Dict:\n        semantic_ids, phoneme_ids = self.semantic_phoneme[idx]\n        item_name = self.item_names[idx]\n        phoneme_ids_len = len(phoneme_ids)\n        # semantic tokens target\n        semantic_ids_len = len(semantic_ids)\n\n        flag = 0\n        path_bert = \"%s/%s.pt\" % (self.path3, item_name)\n        if os.path.exists(path_bert) == True:\n            bert_feature = torch.load(path_bert, map_location=\"cpu\")\n        else:\n            flag = 1\n        if flag == 1:\n            # bert_feature=torch.zeros_like(phoneme_ids,dtype=torch.float32)\n            bert_feature = None\n        else:\n            assert bert_feature.shape[-1] == len(phoneme_ids)\n        return {\n            \"idx\": idx,\n            \"phoneme_ids\": phoneme_ids,\n            \"phoneme_ids_len\": phoneme_ids_len,\n            \"semantic_ids\": semantic_ids,\n            \"semantic_ids_len\": semantic_ids_len,\n            \"bert_feature\": bert_feature,\n        }",
+    "source": "github_repo:RVC-Boss/GPT-SoVITS",
+    "file": "GPT_SoVITS/AR/data/dataset.py",
+    "license": "MIT",
+    "language": "python"
+}

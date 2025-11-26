@@ -1,0 +1,7 @@
+{
+    "code": "def main(ka: dict[str, Any]) -> dict[str, Any]:\n    global fstab\n    with mutex:\n        log = ka[\"log\"]  # this is a copyparty NamedLogger function\n        if not fstab:\n            log(\"<HOOK:RAMDISK> creating fstab\", 6)\n            args = Namespace()\n            args.mtab_age = 1  # cache the filesystem info for 1 sec\n            fstab = Fstab(log, args, False)\n\n        ap = ka[\"ap\"]  # abspath the upload is going to\n        fs, mp = fstab.get(ap)  # figure out what the filesystem is\n        ramdisk = fs in (\"tmpfs\", \"overlay\")  # looks like a ramdisk?\n\n        # log(\"<HOOK:RAMDISK> fs=%r\" % (fs,))\n\n        if ramdisk:\n            t = \"Upload REJECTED because destination is a ramdisk\"\n            return {\"rc\": 1, \"rejectmsg\": t}\n\n        return {\"rc\": 0}",
+    "source": "github_repo:9001/copyparty",
+    "file": "bin/hooks/reject-ramdisk.py",
+    "license": "MIT",
+    "language": "python"
+}

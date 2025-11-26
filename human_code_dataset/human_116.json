@@ -1,0 +1,7 @@
+{
+    "code": "def update_base_dep(pyproject_path: str, new_version: str) -> None:\n    \"\"\"Update the langflow-base dependency in pyproject.toml.\"\"\"\n    filepath = BASE_DIR / pyproject_path\n    content = filepath.read_text(encoding=\"utf-8\")\n\n    # Updated pattern to handle PEP 440 version suffixes and both ~= and == version specifiers\n    pattern = re.compile(r'(\"langflow-base(?:~=|==)[\\d.]+(?:\\.(?:post|dev|a|b|rc)\\d+)*\")')\n    replacement = f'\"langflow-base-nightly=={new_version}\"'\n\n    # Check if the pattern is found\n    if not pattern.search(content):\n        msg = f'langflow-base dependency not found in \"{filepath}\"'\n        raise ValueError(msg)\n\n    # Replace the matched pattern with the new one\n    content = pattern.sub(replacement, content)\n    filepath.write_text(content, encoding=\"utf-8\")",
+    "source": "github_repo:langflow-ai/langflow",
+    "file": "scripts/ci/update_lf_base_dependency.py",
+    "license": "MIT",
+    "language": "python"
+}

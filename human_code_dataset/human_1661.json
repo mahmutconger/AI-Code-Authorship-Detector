@@ -1,0 +1,7 @@
+{
+    "code": "def _get_output_format(self, topic):\n        if \"/\" in topic:\n            subquery = topic.split(\"/\")[-1]\n        else:\n            subquery = topic\n\n        if subquery in [\":list\"]:\n            return \"text\"\n        return self._output_format",
+    "source": "github_repo:chubin/cheat.sh",
+    "file": "lib/adapter/adapter.py",
+    "license": "MIT",
+    "language": "python"
+}

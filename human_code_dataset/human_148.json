@@ -1,0 +1,7 @@
+{
+    "code": "def wait_for_server_ready(host, port, protocol) -> None:\n    \"\"\"Wait for the server to become ready by polling the health endpoint.\"\"\"\n    # Use localhost for health check when host is 0.0.0.0 (bind to all interfaces)\n    health_check_host = \"localhost\" if host == \"0.0.0.0\" else host  # noqa: S104\n\n    status_code = 0\n    while status_code != httpx.codes.OK:\n        try:\n            status_code = httpx.get(\n                f\"{protocol}://{health_check_host}:{port}/health\",\n                verify=health_check_host not in (\"127.0.0.1\", \"localhost\"),\n            ).status_code\n        except HTTPError:\n            time.sleep(1)\n        except Exception:  # noqa: BLE001\n            logger.debug(\"Error while waiting for the server to become ready.\", exc_info=True)\n            time.sleep(1)",
+    "source": "github_repo:langflow-ai/langflow",
+    "file": "src/backend/base/langflow/__main__.py",
+    "license": "MIT",
+    "language": "python"
+}

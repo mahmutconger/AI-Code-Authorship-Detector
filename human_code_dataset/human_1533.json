@@ -1,0 +1,7 @@
+{
+    "code": "def request(flow: http.HTTPFlow) -> None:\n    if flow.request.urlencoded_form:\n        # If there's already a form, one can just add items to the dict:\n        flow.request.urlencoded_form[\"mitmproxy\"] = \"rocks\"\n    else:\n        # One can also just pass new form data.\n        # This sets the proper content type and overrides the body.\n        flow.request.urlencoded_form = [(\"foo\", \"bar\")]  # type: ignore[assignment]",
+    "source": "github_repo:mitmproxy/mitmproxy",
+    "file": "examples/addons/http-modify-form.py",
+    "license": "MIT",
+    "language": "python"
+}

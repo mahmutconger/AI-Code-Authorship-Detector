@@ -1,0 +1,7 @@
+{
+    "code": "def recv_one_or_none(sock: SubSocket) -> Optional[capnp.lib.capnp._DynamicStructReader]:\n  dat = sock.receive(non_blocking=True)\n  if dat is not None:\n    dat = log_from_bytes(dat)\n  return dat",
+    "source": "github_repo:commaai/openpilot",
+    "file": "cereal/messaging/__init__.py",
+    "license": "MIT",
+    "language": "python"
+}

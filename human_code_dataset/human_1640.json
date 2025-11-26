@@ -1,0 +1,7 @@
+{
+    "code": "def get_request_ip(req):\n    \"\"\"\n    Extract IP address from `request`\n    \"\"\"\n\n    if req.headers.getlist(\"X-Forwarded-For\"):\n        ip_addr = req.headers.getlist(\"X-Forwarded-For\")[0]\n        if ip_addr.startswith(\"::ffff:\"):\n            ip_addr = ip_addr[7:]\n    else:\n        ip_addr = req.remote_addr\n    if req.headers.getlist(\"X-Forwarded-For\"):\n        ip_addr = req.headers.getlist(\"X-Forwarded-For\")[0]\n        if ip_addr.startswith(\"::ffff:\"):\n            ip_addr = ip_addr[7:]\n    else:\n        ip_addr = req.remote_addr\n\n    return ip_addr",
+    "source": "github_repo:chubin/cheat.sh",
+    "file": "bin/app.py",
+    "license": "MIT",
+    "language": "python"
+}

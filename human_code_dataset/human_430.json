@@ -1,0 +1,7 @@
+{
+    "code": "class ConverterRegistration:\n    \"\"\"A registration of a converter with its priority and other metadata.\"\"\"\n\n    converter: DocumentConverter\n    priority: float",
+    "source": "github_repo:microsoft/markitdown",
+    "file": "packages/markitdown/src/markitdown/_markitdown.py",
+    "license": "MIT",
+    "language": "python"
+}

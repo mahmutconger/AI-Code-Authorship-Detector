@@ -1,0 +1,7 @@
+{
+    "code": "def addHotkey(self, keysName, title, press=0):\n        self._start()\n        if press != 0 and press != 1:\n            return f\"[Error] press只能为0按下或1抬起，不能为 {press} 。\"\n        keySet = _KeyTranslator.names2set(keysName)\n        self._hotkeyMutex.lock()\n        kl = self._hotkeyList[press]\n        for k in kl:  # 检测重复\n            if k[\"keySet\"] == keySet:  # 键集合相同\n                self._hotkeyMutex.unlock()\n                msg = \"[Success] 注册事件相同的重复快捷键。\"\n                if k[\"title\"] != title:  # 事件标题不同\n                    msg = f'[Warning] Registering same hotkey. The existing event for {keysName} is {k[\"title\"]}, new event is {title} .'\n                return msg\n        # 加入列表\n        kl.append({\"keySet\": keySet, \"title\": title})\n        self._hotkeyMutex.unlock()\n        return \"[Success]\"",
+    "source": "github_repo:hiroi-sora/Umi-OCR",
+    "file": "UmiOCR-data/py_src/event_bus/key_mouse/keyboard.py",
+    "license": "MIT",
+    "language": "python"
+}

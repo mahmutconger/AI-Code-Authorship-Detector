@@ -1,0 +1,7 @@
+{
+    "code": "def mouse_event(event: int, x: int, y: int, flags: int, param: Any) -> None:\n    global current_mouse_position\n    if event == cv2.EVENT_MOUSEMOVE:\n        current_mouse_position = (x, y)\n    elif event == cv2.EVENT_LBUTTONDOWN:\n        POLYGONS[-1].append((x, y))",
+    "source": "github_repo:roboflow/supervision",
+    "file": "examples/time_in_zone/scripts/draw_zones.py",
+    "license": "MIT",
+    "language": "python"
+}

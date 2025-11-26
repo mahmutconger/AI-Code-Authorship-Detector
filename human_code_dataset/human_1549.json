@@ -1,0 +1,7 @@
+{
+    "code": "def download_and_extract_top_packages(\n    directory: Path,\n    workers: int = 8,\n    limit: slice = DEFAULT_SLICE,\n) -> Generator[Path, None, None]:\n    with ThreadPoolExecutor(max_workers=workers) as executor:\n        bound_downloader = partial(get_package, version=None, directory=directory)\n        for package in executor.map(bound_downloader, get_top_packages()[limit]):\n            if package is not None:\n                yield package",
+    "source": "github_repo:psf/black",
+    "file": "gallery/gallery.py",
+    "license": "MIT",
+    "language": "python"
+}

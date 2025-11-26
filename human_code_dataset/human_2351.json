@@ -1,0 +1,7 @@
+{
+    "code": "def format_predictions(self, predictions):\n        \"\"\"Reverts any normalisation to give predictions in original scale.\n\n        Args:\n          predictions: Dataframe of model predictions.\n\n        Returns:\n          Data frame of unnormalised predictions.\n        \"\"\"\n        output = predictions.copy()\n\n        column_names = predictions.columns\n\n        for col in column_names:\n            if col not in {\"forecast_time\", \"identifier\"}:\n                # Using [col] is for aligning with the format when fitting\n                output[col] = self._target_scaler.inverse_transform(predictions[[col]])\n\n        return output",
+    "source": "github_repo:microsoft/qlib",
+    "file": "examples/benchmarks/TFT/data_formatters/qlib_Alpha158.py",
+    "license": "MIT",
+    "language": "python"
+}

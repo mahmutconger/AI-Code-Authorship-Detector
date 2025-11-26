@@ -1,0 +1,7 @@
+{
+    "code": "def checkSleepTime(session):\n    now = datetime.datetime.now()\n    if now.hour >= maxRunStopTime or now.hour < maxRunTime:\n        print(u\"12306休息时间，本程序自动停止,明天早上六点将自动运行\")\n        open_time = datetime.datetime(now.year, now.month, now.day, maxRunTime)\n        if open_time < now:\n            open_time += datetime.timedelta(1)\n        time.sleep((open_time - now).seconds + round(random.uniform(1, 10)))\n        session.call_login()",
+    "source": "github_repo:testerSunshine/12306",
+    "file": "config/configCommon.py",
+    "license": "MIT",
+    "language": "python"
+}

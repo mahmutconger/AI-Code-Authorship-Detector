@@ -1,0 +1,7 @@
+{
+    "code": "def crop_block_size(self, block_size):\n        # model surgery to decrease the block size if necessary\n        # e.g. we may load the GPT2 pretrained model checkpoint (block size 1024)\n        # but want to use a smaller block size for some smaller, simpler model\n        assert block_size <= self.config.block_size\n        self.config.block_size = block_size\n        self.transformer.wpe.weight = nn.Parameter(self.transformer.wpe.weight[:block_size])\n        for block in self.transformer.h:\n            if hasattr(block.attn, 'bias'):\n                block.attn.bias = block.attn.bias[:,:,:block_size,:block_size]",
+    "source": "github_repo:karpathy/nanoGPT",
+    "file": "model.py",
+    "license": "MIT",
+    "language": "python"
+}

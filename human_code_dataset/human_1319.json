@@ -1,0 +1,7 @@
+{
+    "code": "def unload(self):\n        super().unload()\n        self.parser.unload_document(self.document_hash)\n        with pypdfium2_lock:\n            self._pdoc.close()\n            self._pdoc = None",
+    "source": "github_repo:docling-project/docling",
+    "file": "docling/backend/docling_parse_v2_backend.py",
+    "license": "MIT",
+    "language": "python"
+}

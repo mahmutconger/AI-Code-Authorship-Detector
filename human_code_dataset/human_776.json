@@ -1,0 +1,7 @@
+{
+    "code": "def __init__(\n        self,\n        questions_file: Path = Path(DABENCH_PATH) / \"da-dev-questions.jsonl\",\n        answers_file: Path = Path(DABENCH_PATH) / \"da-dev-labels.jsonl\",\n        template: str = \"\",\n    ):\n        \"\"\"\n        Initializes the DABench instance with questions and answers.\n\n        This constructor loads questions and answers from specified JSONL files.\n        It also sets a template for formatting prompts. If no template is provided,\n        a default template is used.\n\n        Args:\n            questions_file (Path): The path to the JSONL file containing questions.\n            answers_file (Path): The path to the JSONL file containing answers.\n            template (str): A string template for formatting prompts.\n        \"\"\"\n\n        self.questions = {\n            int(line[\"id\"]): line for line in load_jsonl(questions_file)\n        }  # Load questions from the specified file\n        self.answers = {\n            int(line[\"id\"]): line for line in load_jsonl(answers_file)\n        }  # Load answers from the specified file\n        self.template = template if template else DABENCH  # Set the template, defaulting if necessary",
+    "source": "github_repo:FoundationAgents/MetaGPT",
+    "file": "examples/di/InfiAgent-DABench/DABench.py",
+    "license": "MIT",
+    "language": "python"
+}

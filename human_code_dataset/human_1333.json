@@ -1,0 +1,7 @@
+{
+    "code": "def load_page(\n        self, page_no: int, create_words: bool = True, create_textlines: bool = True\n    ) -> DoclingParseV4PageBackend:\n        with pypdfium2_lock:\n            ppage = self._pdoc[page_no]\n\n        return DoclingParseV4PageBackend(\n            dp_doc=self.dp_doc,\n            page_obj=ppage,\n            page_no=page_no,\n            create_words=create_words,\n            create_textlines=create_textlines,\n        )",
+    "source": "github_repo:docling-project/docling",
+    "file": "docling/backend/docling_parse_v4_backend.py",
+    "license": "MIT",
+    "language": "python"
+}

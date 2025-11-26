@@ -1,0 +1,7 @@
+{
+    "code": "def _unwrap_schema(schema: Mapping[str, Any] | dict[str, Any]) -> dict[str, Any]:\n        result: dict[str, Any] = dict(schema)\n        while (\n            result.get(\"type\") in {\"function-after\", \"default\"} and \"schema\" in result\n        ):\n            result = dict(result[\"schema\"])\n        return result",
+    "source": "github_repo:crewAIInc/crewAI",
+    "file": "lib/crewai-tools/generate_tool_specs.py",
+    "license": "MIT",
+    "language": "python"
+}

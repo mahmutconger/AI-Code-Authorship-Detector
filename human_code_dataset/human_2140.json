@@ -1,0 +1,7 @@
+{
+    "code": "def print_solution(solution: Optional[PuzzleState]) -> None:\n    \"\"\"Print step-by-step solution from initial to goal state.\"\"\"\n    if not solution:\n        print(\"No solution found.\")\n        return\n    steps = []\n    while solution:\n        steps.append(solution.board)\n        solution = solution.previous\n    for step in reversed(steps):\n        for row in step:\n            print(\" \".join(map(str, row)))\n        print()",
+    "source": "github_repo:geekcomputers/Python",
+    "file": "8_puzzle.py",
+    "license": "MIT",
+    "language": "python"
+}

@@ -1,0 +1,7 @@
+{
+    "code": "class RAGAdapter(Adapter):\n    def __init__(\n        self,\n        collection_name: str = \"crewai_knowledge_base\",\n        persist_directory: str | None = None,\n        embedding_model: str = \"text-embedding-3-small\",\n        top_k: int = 5,\n        embedding_api_key: str | None = None,\n        **embedding_kwargs,\n    ):\n        super().__init__()\n\n        # Prepare embedding configuration\n        embedding_config = {\"api_key\": embedding_api_key, **embedding_kwargs}\n\n        self._adapter = RAG(\n            collection_name=collection_name,\n            persist_directory=persist_directory,\n            embedding_model=embedding_model,\n            top_k=top_k,\n            embedding_config=embedding_config,\n        )\n\n    def query(self, question: str) -> str:  # type: ignore[override]\n        return self._adapter.query(question)\n\n    def add(\n        self,\n        *args: Any,\n        **kwargs: Any,\n    ) -> None:\n        self._adapter.add(*args, **kwargs)",
+    "source": "github_repo:crewAIInc/crewAI",
+    "file": "lib/crewai-tools/src/crewai_tools/adapters/rag_adapter.py",
+    "license": "MIT",
+    "language": "python"
+}

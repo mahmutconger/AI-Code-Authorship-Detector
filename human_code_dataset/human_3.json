@@ -1,0 +1,7 @@
+{
+    "code": "def test_if_get_categories_content_return_correct_data_of_categories(self):\n        fake_contents = [\n            '### A',\n            'API | Description | Auth | HTTPS | CORS |',\n            '|---|---|---|---|---|',\n            '| [AA](https://www.ex.com) | Desc | `apiKey` | Yes | Yes |',\n            '| [AB](https://www.ex.com) | Desc | `apiKey` | Yes | Yes |',\n            '',\n            '### B',\n            'API | Description | Auth | HTTPS | CORS |',\n            '|---|---|---|---|---|',\n            '| [BA](https://www.ex.com) | Desc | `apiKey` | Yes | Yes |',\n            '| [BB](https://www.ex.com) | Desc | `apiKey` | Yes | Yes |'\n        ]\n\n        result = get_categories_content(fake_contents)\n        self.assertIsInstance(result, tuple)\n\n        categories, category_line_num = result\n        self.assertIsInstance(categories, dict)\n        self.assertIsInstance(category_line_num, dict)\n\n        expected_result = ({'A': ['AA', 'AB'], 'B': ['BA', 'BB']}, {'A': 0, 'B': 6})\n\n        for res, ex_res in zip(result, expected_result):\n\n            with self.subTest():\n                self.assertEqual(res, ex_res)",
+    "source": "github_repo:public-apis/public-apis",
+    "file": "scripts/tests/test_validate_format.py",
+    "license": "MIT",
+    "language": "python"
+}

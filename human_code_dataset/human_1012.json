@@ -1,0 +1,7 @@
+{
+    "code": "def git_clone():\n    console.print(\"[yellow]* Cloning hackingtool repository...[/yellow]\")\n    try:\n        run_cmd(f\"git clone {REPO_URL} {str(INSTALL_DIR)}\")\n        console.print(\"[green][✔] Repository cloned[/green]\")\n        return True\n    except Exception as e:\n        console.print(f\"[red][✘] Failed to clone repository: {e}[/red]\")\n        return False",
+    "source": "github_repo:Z4nzu/hackingtool",
+    "file": "install.py",
+    "license": "MIT",
+    "language": "python"
+}

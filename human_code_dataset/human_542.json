@@ -1,0 +1,7 @@
+{
+    "code": "def _log_get_message_emoji(message: BaseMessage) -> str:\n\t\"\"\"Get emoji for a message type - used only for logging display\"\"\"\n\temoji_map = {\n\t\t'UserMessage': '💬',\n\t\t'SystemMessage': '🧠',\n\t\t'AssistantMessage': '🔨',\n\t}\n\treturn emoji_map.get(message.__class__.__name__, '🎮')",
+    "source": "github_repo:browser-use/browser-use",
+    "file": "browser_use/agent/message_manager/service.py",
+    "license": "MIT",
+    "language": "python"
+}

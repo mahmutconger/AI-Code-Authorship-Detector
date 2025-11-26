@@ -1,0 +1,7 @@
+{
+    "code": "def __enter__(self):\n        setcluster(self)\n        return self",
+    "source": "github_repo:mingrammer/diagrams",
+    "file": "diagrams/__init__.py",
+    "license": "MIT",
+    "language": "python"
+}

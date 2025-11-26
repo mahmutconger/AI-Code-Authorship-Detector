@@ -1,0 +1,7 @@
+{
+    "code": "def backtrack(\n    partial: str, open_count: int, close_count: int, n: int, result: list[str]\n) -> None:\n    \"\"\"\n    Generate valid combinations of balanced parentheses using recursion.\n\n    :param partial: A string representing the current combination.\n    :param open_count: An integer representing the count of open parentheses.\n    :param close_count: An integer representing the count of close parentheses.\n    :param n: An integer representing the total number of pairs.\n    :param result: A list to store valid combinations.\n    :return: None\n\n    This function uses recursion to explore all possible combinations,\n    ensuring that at each step, the parentheses remain balanced.\n\n    Example:\n    >>> result = []\n    >>> backtrack(\"\", 0, 0, 2, result)\n    >>> result\n    ['(())', '()()']\n    \"\"\"\n    if len(partial) == 2 * n:\n        # When the combination is complete, add it to the result.\n        result.append(partial)\n        return\n\n    if open_count < n:\n        # If we can add an open parenthesis, do so, and recurse.\n        backtrack(partial + \"(\", open_count + 1, close_count, n, result)\n\n    if close_count < open_count:\n        # If we can add a close parenthesis (it won't make the combination invalid),\n        # do so, and recurse.\n        backtrack(partial + \")\", open_count, close_count + 1, n, result)",
+    "source": "github_repo:TheAlgorithms/Python",
+    "file": "backtracking/generate_parentheses.py",
+    "license": "MIT",
+    "language": "python"
+}

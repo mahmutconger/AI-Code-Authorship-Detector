@@ -1,0 +1,7 @@
+{
+    "code": "def subgraph(self, dot: Digraph) -> None:\n        \"\"\"Create a subgraph for clustering\"\"\"\n        self.dot.subgraph(dot)",
+    "source": "github_repo:mingrammer/diagrams",
+    "file": "diagrams/__init__.py",
+    "license": "MIT",
+    "language": "python"
+}

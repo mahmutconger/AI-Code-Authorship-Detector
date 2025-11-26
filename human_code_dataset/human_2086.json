@@ -1,0 +1,7 @@
+{
+    "code": "def suggest_freq(self, segment, tune=False):\n        \"\"\"\n        Suggest word frequency to force the characters in a word to be\n        joined or splitted.\n\n        Parameter:\n            - segment : The segments that the word is expected to be cut into,\n                        If the word should be treated as a whole, use a str.\n            - tune : If True, tune the word frequency.\n\n        Note that HMM may affect the final result. If the result doesn't change,\n        set HMM=False.\n        \"\"\"\n        self.check_initialized()\n        ftotal = float(self.total)\n        freq = 1\n        if isinstance(segment, string_types):\n            word = segment\n            for seg in self.cut(word, HMM=False):\n                freq *= self.FREQ.get(seg, 1) / ftotal\n            freq = max(int(freq * self.total) + 1, self.FREQ.get(word, 1))\n        else:\n            segment = tuple(map(strdecode, segment))\n            word = ''.join(segment)\n            for seg in segment:\n                freq *= self.FREQ.get(seg, 1) / ftotal\n            freq = min(int(freq * self.total), self.FREQ.get(word, 0))\n        if tune:\n            self.add_word(word, freq)\n        return freq",
+    "source": "github_repo:fxsjy/jieba",
+    "file": "jieba/__init__.py",
+    "license": "MIT",
+    "language": "python"
+}

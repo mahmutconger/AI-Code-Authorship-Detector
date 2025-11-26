@@ -1,0 +1,7 @@
+{
+    "code": "def __init__(self) -> None:\n        \"\"\"\n        Constructor\n        \"\"\"\n        super().__init__()",
+    "source": "github_repo:vnpy/vnpy",
+    "file": "examples/simple_rpc/test_client.py",
+    "license": "MIT",
+    "language": "python"
+}

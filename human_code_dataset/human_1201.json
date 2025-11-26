@@ -1,0 +1,7 @@
+{
+    "code": "def toast(bread):\n    try:\n        put_in_toaster(bread)\n    except:\n        print(\"Got exception while trying to toast\")\n        raise",
+    "source": "github_repo:charlax/professional-programming",
+    "file": "antipatterns/python-examples/reraise_exceptions_good.py",
+    "license": "MIT",
+    "language": "python"
+}

@@ -1,0 +1,7 @@
+{
+    "code": "def test_extract_html_content_with_html_tags(self):\n        text = \"<html><body><p>Hello, World!</p></body></html>\"\n        expected = \"<html><body><p>Hello, World!</p></body></html>\"\n        result = extract_html_content(text)\n        self.assertEqual(result, expected)",
+    "source": "github_repo:abi/screenshot-to-code",
+    "file": "backend/codegen/test_utils.py",
+    "license": "MIT",
+    "language": "python"
+}

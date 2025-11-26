@@ -1,0 +1,7 @@
+{
+    "code": "def get_system_info():\n    system_info = {\n        \"os\": platform.system(),\n        \"os_version\": platform.version(),\n        \"architecture\": platform.machine(),\n        \"python_version\": sys.version,\n        \"packages\": format_installed_packages(get_installed_packages()),\n    }\n    return system_info",
+    "source": "github_repo:AntonOsika/gpt-engineer",
+    "file": "gpt_engineer/applications/cli/main.py",
+    "license": "MIT",
+    "language": "python"
+}

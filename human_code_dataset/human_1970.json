@@ -1,0 +1,7 @@
+{
+    "code": "def gha_group(title: str) -> Generator:\n    if not is_ci():\n        yield\n        return\n    print(f\"\\n::group::{title}\")\n    stdout.flush()\n    try:\n        yield\n    finally:\n        print(\"::endgroup::\")\n        stdout.flush()",
+    "source": "github_repo:ManimCommunity/manim",
+    "file": ".github/scripts/ci_build_cairo.py",
+    "license": "MIT",
+    "language": "python"
+}

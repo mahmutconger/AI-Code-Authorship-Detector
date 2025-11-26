@@ -1,0 +1,7 @@
+{
+    "code": "def _pcut_for_search(sentence, HMM=True):\n    parts = strdecode(sentence).splitlines(True)\n    if HMM:\n        result = pool.map(_lcut_for_search, parts)\n    else:\n        result = pool.map(_lcut_for_search_no_hmm, parts)\n    for r in result:\n        for w in r:\n            yield w",
+    "source": "github_repo:fxsjy/jieba",
+    "file": "jieba/__init__.py",
+    "license": "MIT",
+    "language": "python"
+}

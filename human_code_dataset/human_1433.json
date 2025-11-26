@@ -1,0 +1,7 @@
+{
+    "code": "def predict_start_from_z_and_v(self, x_t, t, v):\n        # self.register_buffer('sqrt_alphas_cumprod', to_torch(np.sqrt(alphas_cumprod)))\n        # self.register_buffer('sqrt_one_minus_alphas_cumprod', to_torch(np.sqrt(1. - alphas_cumprod)))\n        return (\n                extract_into_tensor(self.sqrt_alphas_cumprod, t, x_t.shape) * x_t -\n                extract_into_tensor(self.sqrt_one_minus_alphas_cumprod, t, x_t.shape) * v\n        )",
+    "source": "github_repo:Stability-AI/stablediffusion",
+    "file": "ldm/models/diffusion/ddpm.py",
+    "license": "MIT",
+    "language": "python"
+}

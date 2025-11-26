@@ -1,0 +1,7 @@
+{
+    "code": "def test_check_description_with_punctuation_in_the_end(self):\n        base_desc = 'This is a fake description'\n        punctuation = r\"\"\"!\"#$%&'*+,-./:;<=>?@[\\]^_`{|}~\"\"\"\n        desc_with_punc = [base_desc + punc for punc in punctuation]\n        \n        for desc in desc_with_punc:\n\n            with self.subTest():\n                err_msgs = check_description(0, desc)\n\n                self.assertIsInstance(err_msgs, list)\n                self.assertEqual(len(err_msgs), 1)\n        \n                err_msg = err_msgs[0]\n                expected_err_msg = f'(L001) description should not end with {desc[-1]}'\n\n                self.assertIsInstance(err_msg, str)\n                self.assertEqual(err_msg, expected_err_msg)",
+    "source": "github_repo:public-apis/public-apis",
+    "file": "scripts/tests/test_validate_format.py",
+    "license": "MIT",
+    "language": "python"
+}

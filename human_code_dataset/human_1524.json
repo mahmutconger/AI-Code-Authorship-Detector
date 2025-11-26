@@ -1,0 +1,7 @@
+{
+    "code": "class SwapCase(contentviews.Contentview):\n    def prettify(self, data: bytes, metadata: contentviews.Metadata) -> str:\n        return data.swapcase().decode()\n\n    def render_priority(self, data: bytes, metadata: contentviews.Metadata) -> float:\n        if metadata.content_type and metadata.content_type.startswith(\"text/example\"):\n            return 2  # return a value > 1 to make sure the custom view is automatically selected\n        else:\n            return 0",
+    "source": "github_repo:mitmproxy/mitmproxy",
+    "file": "examples/addons/contentview.py",
+    "license": "MIT",
+    "language": "python"
+}

@@ -1,0 +1,7 @@
+{
+    "code": "def verify_pep440(version):\n    \"\"\"Verify if version is PEP440 compliant.\n\n    https://github.com/pypa/packaging/blob/16.7/packaging/version.py#L191\n    \"\"\"\n    return packaging.version.Version(version)",
+    "source": "github_repo:langflow-ai/langflow",
+    "file": "scripts/ci/update_lf_base_dependency.py",
+    "license": "MIT",
+    "language": "python"
+}

@@ -1,0 +1,7 @@
+{
+    "code": "def collect_and_send_human_review(\n    prompt: Prompt,\n    model: str,\n    temperature: float,\n    config: Tuple[str, ...],\n    memory: DiskMemory,\n):\n    \"\"\"\n    Collects human feedback on the code and sends it for analysis.\n\n    Parameters\n    ----------\n    prompt : str\n        The initial prompt or question that was provided to the model.\n    model : str\n        The name of the model used for generating the response.\n    temperature : float\n        The temperature setting used in the model's response generation.\n    config : Tuple[str, ...]\n        Configuration parameters used for the learning session.\n    memory : DiskMemory\n        An instance of DiskMemory for storing and retrieving data.\n\n    Returns\n    -------\n    None\n\n    Notes\n    -----\n    This function prompts the user for a review of the generated or improved code using the\n    `human_review_input` function. If a valid review is provided, it's serialized to JSON format\n    and stored within the database's memory under the \"review\" key.\n    \"\"\"\n\n    review = human_review_input()\n    if review:\n        collect_learnings(prompt, model, temperature, config, memory, review)",
+    "source": "github_repo:AntonOsika/gpt-engineer",
+    "file": "gpt_engineer/applications/cli/collect.py",
+    "license": "MIT",
+    "language": "python"
+}

@@ -1,0 +1,7 @@
+{
+    "code": "def ask_for_valid_input(ran):\n    while ran not in (\"y\", \"n\", \"u\"):\n        ran = input(\"Invalid input. Please enter y, n, or u: \")\n    return ran",
+    "source": "github_repo:AntonOsika/gpt-engineer",
+    "file": "gpt_engineer/applications/cli/learning.py",
+    "license": "MIT",
+    "language": "python"
+}

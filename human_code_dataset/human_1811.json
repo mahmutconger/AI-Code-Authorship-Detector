@@ -1,0 +1,7 @@
+{
+    "code": "def __init__(self):\n        super().__init__()\n        self.sessions = SessionManager(ClaudeAiSession, model=conf().get(\"model\") or \"gpt-3.5-turbo\")\n        self.claude_api_cookie = conf().get(\"claude_api_cookie\")\n        self.proxy = conf().get(\"proxy\")\n        self.con_uuid_dic = {}\n        if self.proxy:\n            self.proxies = {\n            \"http\": self.proxy,\n            \"https\": self.proxy\n        }\n        else:\n            self.proxies = None\n        self.error = \"\"\n        self.org_uuid = self.get_organization_id()",
+    "source": "github_repo:zhayujie/chatgpt-on-wechat",
+    "file": "bot/claude/claude_ai_bot.py",
+    "license": "MIT",
+    "language": "python"
+}

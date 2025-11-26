@@ -1,0 +1,7 @@
+{
+    "code": "def process_cs_norm(\n    df: pl.DataFrame,\n    names: list[str],\n    method: str         # robust/zscore\n) -> pl.DataFrame:\n    \"\"\"Cross-sectional normalization\"\"\"\n    _df: pl.DataFrame = df.fill_nan(None)\n\n    # Median method\n    if method == \"robust\":\n        for col in names:\n            df = df.with_columns(\n                _df.select(\n                    (pl.col(col) - pl.col(col).median()).over(\"datetime\").alias(col),\n                )\n            )\n\n            df = df.with_columns(\n                df.select(\n                    pl.col(col).abs().median().over(\"datetime\").alias(\"mad\"),\n                )\n            )\n\n            df = df.with_columns(\n                (pl.col(col) / pl.col(\"mad\") / 1.4826).clip(-3, 3).alias(col)\n            ).drop([\"mad\"])\n    # Z-Score method\n    else:\n        for col in names:\n            df = df.with_columns(\n                _df.select(\n                    pl.col(col).mean().over(\"datetime\").alias(\"mean\"),\n                    pl.col(col).std().over(\"datetime\").alias(\"std\"),\n                )\n            )\n\n            df = df.with_columns(\n                (pl.col(col) - pl.col(\"mean\")) / pl.col(\"std\").alias(col)\n            ).drop([\"mean\", \"std\"])\n\n    return df",
+    "source": "github_repo:vnpy/vnpy",
+    "file": "vnpy/alpha/dataset/processor.py",
+    "license": "MIT",
+    "language": "python"
+}

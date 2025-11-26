@@ -1,0 +1,7 @@
+{
+    "code": "class SWEAgent(ToolCallAgent):\n    \"\"\"An agent that implements the SWEAgent paradigm for executing code and natural conversations.\"\"\"\n\n    name: str = \"swe\"\n    description: str = \"an autonomous AI programmer that interacts directly with the computer to solve tasks.\"\n\n    system_prompt: str = SYSTEM_PROMPT\n    next_step_prompt: str = \"\"\n\n    available_tools: ToolCollection = ToolCollection(\n        Bash(), StrReplaceEditor(), Terminate()\n    )\n    special_tool_names: List[str] = Field(default_factory=lambda: [Terminate().name])\n\n    max_steps: int = 20",
+    "source": "github_repo:FoundationAgents/OpenManus",
+    "file": "app/agent/swe.py",
+    "license": "MIT",
+    "language": "python"
+}

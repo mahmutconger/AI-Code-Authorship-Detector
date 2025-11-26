@@ -1,0 +1,7 @@
+{
+    "code": "def sendEmail(msg):\n    \"\"\"\n    邮件通知\n    :param str: email content\n    :return:\n    \"\"\"\n    try:\n        if TickerConfig.EMAIL_CONF[\"IS_MAIL\"]:\n            sender = TickerConfig.EMAIL_CONF[\"email\"]\n            receiver = TickerConfig.EMAIL_CONF[\"notice_email_list\"]\n            subject = '恭喜，您已订票成功'\n            username = TickerConfig.EMAIL_CONF[\"username\"]\n            password = TickerConfig.EMAIL_CONF[\"password\"]\n            host = TickerConfig.EMAIL_CONF[\"host\"]\n            s = \"{0}\".format(msg)\n\n            msg = MIMEText(s, 'plain', 'utf-8')  # 中文需参数‘utf-8’，单字节字符不需要\n            msg['Subject'] = Header(subject, 'utf-8')\n            msg['From'] = sender\n            msg['To'] = receiver\n\n            try:\n                smtp = smtplib.SMTP_SSL(host)\n                smtp.connect(host)\n            except socket.error:\n                smtp = smtplib.SMTP()\n                smtp.connect(host)\n            smtp.connect(host)\n            smtp.login(username, password)\n            smtp.sendmail(sender, receiver.split(\",\"), msg.as_string())\n            smtp.quit()\n            print(u\"邮件已通知, 请查收\")\n    except Exception as e:\n        print(u\"邮件配置有误{}\".format(e))",
+    "source": "github_repo:testerSunshine/12306",
+    "file": "config/emailConf.py",
+    "license": "MIT",
+    "language": "python"
+}

@@ -1,0 +1,7 @@
+{
+    "code": "def add(self, key: str, label: str):\n        if key not in [s[\"key\"] for s in self.steps]:\n            self.steps.append({\"key\": key, \"label\": label, \"status\": \"pending\", \"detail\": \"\"})\n            self._maybe_refresh()",
+    "source": "github_repo:github/spec-kit",
+    "file": "src/specify_cli/__init__.py",
+    "license": "MIT",
+    "language": "python"
+}

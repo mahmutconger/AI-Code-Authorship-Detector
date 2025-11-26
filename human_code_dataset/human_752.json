@@ -1,0 +1,7 @@
+{
+    "code": "class SimpleCoder(Role):\n    name: str = \"Alice\"\n    profile: str = \"SimpleCoder\"\n\n    def __init__(self, **kwargs):\n        super().__init__(**kwargs)\n        self._watch([UserRequirement])\n        self.set_actions([SimpleWriteCode])",
+    "source": "github_repo:FoundationAgents/MetaGPT",
+    "file": "examples/build_customized_multi_agents.py",
+    "license": "MIT",
+    "language": "python"
+}

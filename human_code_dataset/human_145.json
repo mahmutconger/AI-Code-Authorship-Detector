@@ -1,0 +1,7 @@
+{
+    "code": "def get_number_of_workers(workers=None):\n    if workers == -1 or workers is None:\n        workers = (cpu_count() * 2) + 1\n    logger.debug(f\"Number of workers: {workers}\")\n    return workers",
+    "source": "github_repo:langflow-ai/langflow",
+    "file": "src/backend/base/langflow/__main__.py",
+    "license": "MIT",
+    "language": "python"
+}

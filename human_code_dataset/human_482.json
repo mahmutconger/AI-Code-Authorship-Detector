@@ -1,0 +1,7 @@
+{
+    "code": "def func(x, y):\n            # Switch from manim coords to axes coords\n            xa, ya = axes.point_to_coords(np.array([x, y, 0]))\n            return xa**4 + ya**4 - 4",
+    "source": "github_repo:3b1b/manim",
+    "file": "example_scenes.py",
+    "license": "MIT",
+    "language": "python"
+}

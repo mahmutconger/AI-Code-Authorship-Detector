@@ -1,0 +1,7 @@
+{
+    "code": "# -*- coding: utf-8 -*-\n\nimport ccxt.pro\nfrom asyncio import gather, run\n\n\nasync def symbol_loop(exchange, symbol):\n    print('Starting the', exchange.id, 'symbol loop with', symbol)\n    while True:\n        try:\n            orderbook = await exchange.watch_order_book(symbol)\n            now = exchange.milliseconds()\n            print(exchange.iso8601(now), exchange.id, symbol, orderbook['asks'][0], orderbook['bids'][0])\n        except Exception as e:\n            print(str(e))\n            # raise e  # uncomment to break all loops in case of an error in any one of them\n            break  # you can break just this one loop if it fails\n\nasync def main():\n    exchange = ccxt.pro.kucoin({\n        \"apiKey\": \"YOUR_API_KEY\",\n        \"secret\": \"YOUR_API_SECRET\",\n        \"password\": \"YOUR_API_PASSWORD\",\n    })\n    symbols = ['KDA/USDT', 'KDA/BTC', 'BTC/USDT']\n    loops = [symbol_loop(exchange, symbol) for symbol in symbols]\n    await gather(*loops)\n    await exchange.close()\n\n\nrun(main())",
+    "source": "github_repo:ccxt/ccxt",
+    "file": "examples/ccxt.pro/py/kucoin-watch-multiple-orderbooks.py",
+    "license": "MIT",
+    "language": "python"
+}

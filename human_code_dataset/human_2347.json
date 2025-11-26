@@ -1,0 +1,7 @@
+{
+    "code": "def __init__(self):\n        \"\"\"Initialises formatter.\"\"\"\n\n        self.identifiers = None\n        self._real_scalers = None\n        self._cat_scalers = None\n        self._target_scaler = None\n        self._num_classes_per_cat_input = None",
+    "source": "github_repo:microsoft/qlib",
+    "file": "examples/benchmarks/TFT/data_formatters/qlib_Alpha158.py",
+    "license": "MIT",
+    "language": "python"
+}

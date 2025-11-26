@@ -1,0 +1,7 @@
+{
+    "code": "def resolve_source(source_path: str) -> np.ndarray | None:\n    if not os.path.exists(source_path):\n        return None\n\n    image = cv2.imread(source_path)\n    if image is not None:\n        return image\n\n    frame_generator = sv.get_video_frames_generator(source_path=source_path)\n    frame = next(frame_generator)\n    return frame",
+    "source": "github_repo:roboflow/supervision",
+    "file": "examples/time_in_zone/scripts/draw_zones.py",
+    "license": "MIT",
+    "language": "python"
+}

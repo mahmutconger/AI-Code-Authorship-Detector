@@ -1,0 +1,7 @@
+{
+    "code": "class AllTools(HackingToolsCollection):\n    TITLE = \"All tools\"\n    TOOLS = all_tools\n\n    def show_info(self):\n        header = Text()\n        header.append(ASCII_LOGO, style=\"bold magenta\")\n        header.append(\"\\n\\n\",)\n        footer = Text.assemble(\n            (\" https://github.com/Z4nzu/hackingtool \", \"bold bright_black\"),\n            (\" | \",),\n            (\"Version 1.1.0\", \"bold green\"),\n        )\n        warning = Text(\" Please Don't Use For illegal Activity \", style=\"bold red\")\n        panel = Panel(\n            Align.center(header + Text(\"\\n\") + footer + Text(\"\\n\") + warning),\n            box=box.DOUBLE,\n            padding=(1, 2),\n            border_style=\"magenta\"\n        )\n        console.print(panel)",
+    "source": "github_repo:Z4nzu/hackingtool",
+    "file": "hackingtool.py",
+    "license": "MIT",
+    "language": "python"
+}

@@ -1,0 +1,7 @@
+{
+    "code": "def copy_url(task_id: TaskID, url: str, path: str) -> None:\n    \"\"\"Copy data from a url to a local file.\"\"\"\n    progress.console.log(f\"Requesting {url}\")\n    response = urlopen(url)\n    # This will break if the response doesn't contain content length\n    progress.update(task_id, total=int(response.info()[\"Content-length\"]))\n    with open(path, \"wb\") as dest_file:\n        progress.start_task(task_id)\n        for data in iter(partial(response.read, 32768), b\"\"):\n            dest_file.write(data)\n            progress.update(task_id, advance=len(data))\n            if done_event.is_set():\n                return\n    progress.console.log(f\"Downloaded {path}\")",
+    "source": "github_repo:Textualize/rich",
+    "file": "examples/downloader.py",
+    "license": "MIT",
+    "language": "python"
+}

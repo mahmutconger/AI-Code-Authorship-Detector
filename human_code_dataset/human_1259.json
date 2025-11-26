@@ -1,0 +1,7 @@
+{
+    "code": "def __init__(\n        self,\n        message_id,\n        message_text,\n        author,\n        timestamp,\n        parent_message=None,\n        child_message=None,\n    ):\n        self.message_id = message_id\n        self.message_text = message_text\n        self.author = author\n        self.parent_message = parent_message\n        self.child_message = child_message\n        self.timestamp = timestamp",
+    "source": "github_repo:run-llama/llama_index",
+    "file": "docs/examples/discover_llamaindex/document_management/group_conversations.py",
+    "license": "MIT",
+    "language": "python"
+}

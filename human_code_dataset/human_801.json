@@ -1,0 +1,7 @@
+{
+    "code": "def __init__(self, services: List[str]):\n    self.sock = {}\n    for s in services:\n      self.sock[s] = pub_sock(s)",
+    "source": "github_repo:commaai/openpilot",
+    "file": "cereal/messaging/__init__.py",
+    "license": "MIT",
+    "language": "python"
+}

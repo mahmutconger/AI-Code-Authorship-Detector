@@ -1,0 +1,7 @@
+{
+    "code": "def __init__(self):\n        self._listener = None  # 监听器\n        # 热键列表，[0]存放按下触发，[1]存放抬起触发\n        # 每个元素为：{\"keySet\":按键集合, \"title\":事件标题}\n        self._hotkeyList = [[], []]\n        self._hotkeyMutex = QMutex()  # 热键列表的锁\n        self._status = 0  # 状态，0正常，1录制中\n        self._pressSet = set()  # 当前已按下的按键集合\n        self._strict = True  # 键集合相等的判定，T为严格，F为宽松\n        self._ttl = 30  # 长按键超时忽略时间，秒\n        self._ttlDict = {}  # 存放当前已按下按键的超时时间\n        self._readRunningTitle = \"\"\n        self._readFinishTitle = \"\"\n        # 注册默认监听的热键\n        self.addHotkey(\"esc\", \"<<esc>>\")",
+    "source": "github_repo:hiroi-sora/Umi-OCR",
+    "file": "UmiOCR-data/py_src/event_bus/key_mouse/keyboard.py",
+    "license": "MIT",
+    "language": "python"
+}

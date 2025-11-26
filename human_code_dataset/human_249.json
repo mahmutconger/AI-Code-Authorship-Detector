@@ -1,0 +1,7 @@
+{
+    "code": "def forward(self, x: torch.Tensor) -> torch.Tensor:\n        \"\"\"\n        Forward pass for the Expert layer.\n\n        Args:\n            x (torch.Tensor): Input tensor.\n\n        Returns:\n            torch.Tensor: Output tensor after expert computation.\n        \"\"\"\n        return self.w2(F.silu(self.w1(x)) * self.w3(x))",
+    "source": "github_repo:deepseek-ai/DeepSeek-V3",
+    "file": "inference/model.py",
+    "license": "MIT",
+    "language": "python"
+}

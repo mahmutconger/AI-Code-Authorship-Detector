@@ -1,0 +1,7 @@
+{
+    "code": "def log_query(ip_addr, found, topic, user_agent):\n    \"\"\"\n    Log processed query and some internal data\n    \"\"\"\n    log_entry = \"%s %s %s %s\\n\" % (ip_addr, found, topic, user_agent)\n    with open(CONFIG[\"path.log.queries\"], \"ab\") as my_file:\n        my_file.write(log_entry.encode(\"utf-8\"))",
+    "source": "github_repo:chubin/cheat.sh",
+    "file": "bin/app.py",
+    "license": "MIT",
+    "language": "python"
+}

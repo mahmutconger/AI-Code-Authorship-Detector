@@ -1,0 +1,7 @@
+{
+    "code": "def append(self,\n               other: Union[List[\"Node\"],\n                            List[\"Edge\"]],\n               forward=None,\n               reverse=None) -> List[\"Edge\"]:\n        result = []\n        for o in other:\n            if isinstance(o, Edge):\n                o.forward = forward if forward else o.forward\n                o.reverse = reverse if reverse else o.reverse\n                self._attrs = o.attrs.copy()\n                result.append(o)\n            else:\n                result.append(\n                    Edge(\n                        o,\n                        forward=forward,\n                        reverse=reverse,\n                        **self._attrs))\n        return result",
+    "source": "github_repo:mingrammer/diagrams",
+    "file": "diagrams/__init__.py",
+    "license": "MIT",
+    "language": "python"
+}

@@ -1,0 +1,7 @@
+{
+    "code": "def sites_obj():\n    sites_obj = SitesInformation(data_file_path=os.path.join(os.path.dirname(__file__), \"../sherlock_project/resources/data.json\"))\n    yield sites_obj",
+    "source": "github_repo:sherlock-project/sherlock",
+    "file": "tests/conftest.py",
+    "license": "MIT",
+    "language": "python"
+}

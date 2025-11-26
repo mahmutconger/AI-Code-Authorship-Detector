@@ -1,0 +1,7 @@
+{
+    "code": "def get_new_setup_py_lines():\n    global version\n    with open('setup.py', 'r') as sf:\n        current_setup = sf.readlines()\n    for line in current_setup:\n        if line.startswith('VERSION = '):\n            major, minor = re.findall(r\"VERSION = '(\\d+)\\.(\\d+)'\", line)[0]\n            version = \"{}.{}\".format(major, int(minor) + 1)\n            yield \"VERSION = '{}'\\n\".format(version)\n        else:\n            yield line",
+    "source": "github_repo:nvbn/thefuck",
+    "file": "release.py",
+    "license": "MIT",
+    "language": "python"
+}

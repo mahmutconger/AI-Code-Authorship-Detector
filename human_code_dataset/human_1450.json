@@ -1,0 +1,7 @@
+{
+    "code": "def __exit__(self, exc_type, exc_value, traceback):\n        if self._parent:\n            self._parent.subgraph(self.dot)\n        else:\n            self._diagram.subgraph(self.dot)\n        setcluster(self._parent)",
+    "source": "github_repo:mingrammer/diagrams",
+    "file": "diagrams/__init__.py",
+    "license": "MIT",
+    "language": "python"
+}

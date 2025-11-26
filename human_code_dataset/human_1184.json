@@ -1,0 +1,7 @@
+{
+    "code": "def forward(self, x):\n        x = self.c_fc(x)\n        x = self.gelu(x)\n        x = self.c_proj(x)\n        x = self.dropout(x)\n        return x",
+    "source": "github_repo:karpathy/nanoGPT",
+    "file": "model.py",
+    "license": "MIT",
+    "language": "python"
+}

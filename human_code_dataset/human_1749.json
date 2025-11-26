@@ -1,0 +1,7 @@
+{
+    "code": "def common_handler(exchange, symbol):\n    market = exchange.market(symbol)\n    base = market['base']\n    quote = market['quote']\n    balance = data['balance']\n    orderbook = data['orderbook']\n    if balance and orderbook:\n        total = balance['total']\n        tip = [ orderbook['asks'][0], orderbook['bids'][0] ]\n        print(exchange.iso8601(exchange.milliseconds()), symbol, 'orderbook:', tip, 'balance:', total)",
+    "source": "github_repo:ccxt/ccxt",
+    "file": "examples/ccxt.pro/py/binance-watch-orderbook-watch-balance.py",
+    "license": "MIT",
+    "language": "python"
+}

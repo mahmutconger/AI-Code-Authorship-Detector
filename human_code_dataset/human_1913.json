@@ -1,0 +1,7 @@
+{
+    "code": "def get_segs(dur):\n    # keep first 5s of each 20s,\n    # keep entire last segment\n    ofs = 0\n    segs = []\n    while True:\n        seg = [ofs, 5]\n        segs.append(seg)\n        if dur - ofs < 20:\n            seg[-1] = int(dur - seg[0])\n            break\n\n        ofs += 20\n\n    return segs",
+    "source": "github_repo:9001/copyparty",
+    "file": "bin/mtag/audio-key-slicing.py",
+    "license": "MIT",
+    "language": "python"
+}

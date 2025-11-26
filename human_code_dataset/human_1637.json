@@ -1,0 +1,7 @@
+{
+    "code": "def send_favicon():\n    \"\"\"\n    Return static file `favicon.ico`.\n    Can be served by the HTTP frontend.\n    \"\"\"\n    return send_from_directory(CONFIG[\"path.internal.static\"], \"favicon.ico\")",
+    "source": "github_repo:chubin/cheat.sh",
+    "file": "bin/app.py",
+    "license": "MIT",
+    "language": "python"
+}

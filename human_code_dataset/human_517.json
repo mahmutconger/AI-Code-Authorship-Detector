@@ -1,0 +1,7 @@
+{
+    "code": "class LatestEditFinder(BaseModel):\n\t\"\"\"Find the latest huge edit on the current wikipedia page.\"\"\"\n\n\tlatest_edit: str\n\tedit_time: str\n\tedit_author: str\n\tedit_summary: str\n\tedit_url: str",
+    "source": "github_repo:browser-use/browser-use",
+    "file": "browser_use/actor/playground/mixed_automation.py",
+    "license": "MIT",
+    "language": "python"
+}

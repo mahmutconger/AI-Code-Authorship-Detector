@@ -1,0 +1,7 @@
+{
+    "code": "\"\"\"\n---\ntitle: Neural Network Activation Functions\nsummary: >\n A set of PyTorch implementations/tutorials related to neural network activations\n---\n\n# Neural Networks Activations\n\n* [Fuzzy Tiling Activations](fta/index.html)\n* 🚧 [Swish](swish/index.html)\n\"\"\"\n\nfrom .swish import Swish",
+    "source": "github_repo:labmlai/annotated_deep_learning_paper_implementations",
+    "file": "labml_nn/activations/__init__.py",
+    "license": "MIT",
+    "language": "python"
+}

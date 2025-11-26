@@ -1,0 +1,7 @@
+{
+    "code": "def initiate_annotators(\n    polygons: list[np.ndarray], resolution_wh: tuple[int, int]\n) -> tuple[list[sv.PolygonZone], list[sv.PolygonZoneAnnotator], list[sv.BoxAnnotator]]:\n    line_thickness = sv.calculate_optimal_line_thickness(resolution_wh=resolution_wh)\n    text_scale = sv.calculate_optimal_text_scale(resolution_wh=resolution_wh)\n\n    zones = []\n    zone_annotators = []\n    box_annotators = []\n\n    for index, polygon in enumerate(polygons):\n        zone = sv.PolygonZone(polygon=polygon)\n        zone_annotator = sv.PolygonZoneAnnotator(\n            zone=zone,\n            color=COLORS.by_idx(index),\n            thickness=line_thickness,\n            text_thickness=line_thickness * 2,\n            text_scale=text_scale * 2,\n        )\n        box_annotator = sv.BoxAnnotator(\n            color=COLORS.by_idx(index), thickness=line_thickness\n        )\n        zones.append(zone)\n        zone_annotators.append(zone_annotator)\n        box_annotators.append(box_annotator)\n\n    return zones, zone_annotators, box_annotators",
+    "source": "github_repo:roboflow/supervision",
+    "file": "examples/count_people_in_zone/ultralytics_example.py",
+    "license": "MIT",
+    "language": "python"
+}

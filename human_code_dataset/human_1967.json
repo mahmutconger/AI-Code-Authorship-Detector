@@ -1,0 +1,7 @@
+{
+    "code": "def verify_sha256sum(path, sha256sum):\n    with open(path, \"rb\") as file:\n        file_hash = hashlib.sha256(file.read()).hexdigest()\n    if file_hash != sha256sum:\n        raise Exception(\"SHA256SUM does not match\")",
+    "source": "github_repo:ManimCommunity/manim",
+    "file": ".github/scripts/ci_build_cairo.py",
+    "license": "MIT",
+    "language": "python"
+}

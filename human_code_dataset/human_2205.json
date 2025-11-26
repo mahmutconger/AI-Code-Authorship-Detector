@@ -1,0 +1,7 @@
+{
+    "code": "def setDateStr(s):\n\tglobal dateStr\n\tdateStr = s",
+    "source": "github_repo:testerSunshine/12306",
+    "file": "config/logger.py",
+    "license": "MIT",
+    "language": "python"
+}

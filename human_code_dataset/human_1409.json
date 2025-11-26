@@ -1,0 +1,7 @@
+{
+    "code": "def register_buffer(self, name, attr):\n        if type(attr) == torch.Tensor:\n            if attr.device != self.device:\n                attr = attr.to(self.device)\n        setattr(self, name, attr)",
+    "source": "github_repo:Stability-AI/stablediffusion",
+    "file": "ldm/models/diffusion/ddim.py",
+    "license": "MIT",
+    "language": "python"
+}

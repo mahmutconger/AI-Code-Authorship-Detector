@@ -1,0 +1,7 @@
+{
+    "code": "def main() -> None:\n    if len(sys.argv) != ARGUMENT_NUMBER:\n        msg = \"Usage: update_lf_base_dependency.py <base_version> <lfx_version>\"\n        raise ValueError(msg)\n    base_version = sys.argv[1]\n    lfx_version = sys.argv[2]\n\n    # Strip \"v\" prefix from versions if present\n    base_version = base_version.removeprefix(\"v\")\n    lfx_version = lfx_version.removeprefix(\"v\")\n\n    verify_pep440(base_version)\n    verify_pep440(lfx_version)\n\n    # Update langflow-base dependency in main project\n    update_base_dep(\"pyproject.toml\", base_version)\n\n    # Update LFX dependency in langflow-base\n    update_lfx_dep_in_base(\"src/backend/base/pyproject.toml\", lfx_version)",
+    "source": "github_repo:langflow-ai/langflow",
+    "file": "scripts/ci/update_lf_base_dependency.py",
+    "license": "MIT",
+    "language": "python"
+}

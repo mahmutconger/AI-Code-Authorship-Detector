@@ -1,0 +1,7 @@
+{
+    "code": "def __init__(self, order: int) -> None:\n        self.order = order\n\n        # a_{0} ... a_{k}\n        self.a_coeffs = [1.0] + [0.0] * order\n        # b_{0} ... b_{k}\n        self.b_coeffs = [1.0] + [0.0] * order\n\n        # x[n-1] ... x[n-k]\n        self.input_history = [0.0] * self.order\n        # y[n-1] ... y[n-k]\n        self.output_history = [0.0] * self.order",
+    "source": "github_repo:TheAlgorithms/Python",
+    "file": "audio_filters/iir_filter.py",
+    "license": "MIT",
+    "language": "python"
+}

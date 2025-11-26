@@ -1,0 +1,7 @@
+{
+    "code": "def main(ka: dict[str, Any]) -> dict[str, Any]:\n    # \"ka\" is a dictionary with info from copyparty...\n\n    # but because we are running inside copyparty, we don't need such courtesies;\n    import inspect\n\n    cf = inspect.currentframe().f_back.f_back.f_back\n    t = \"hello from hook; I am able to peek into copyparty's memory like so:\\n  function name: %s\\n  variables:\\n    %s\\n\"\n    t2 = \"\\n    \".join([(\"%r: %r\" % (k, v))[:99] for k, v in cf.f_locals.items()][:9])\n    logger = ka[\"log\"]\n    logger(t % (cf.f_code, t2))\n\n    # must return a dictionary with:\n    #  \"rc\": the retcode; 0 is ok\n    return {\"rc\": 0}",
+    "source": "github_repo:9001/copyparty",
+    "file": "bin/hooks/import-me.py",
+    "license": "MIT",
+    "language": "python"
+}

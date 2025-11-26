@@ -1,0 +1,7 @@
+{
+    "code": "def create_alt_url_mapping(code: str) -> Dict[str, str]:\n    soup = BeautifulSoup(code, \"html.parser\")\n    images = soup.find_all(\"img\")\n\n    mapping: Dict[str, str] = {}\n\n    for image in images:\n        if not image[\"src\"].startswith(\"https://placehold.co\"):\n            mapping[image[\"alt\"]] = image[\"src\"]\n\n    return mapping",
+    "source": "github_repo:abi/screenshot-to-code",
+    "file": "backend/image_generation/core.py",
+    "license": "MIT",
+    "language": "python"
+}

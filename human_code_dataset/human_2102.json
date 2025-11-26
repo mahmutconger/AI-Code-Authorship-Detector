@@ -1,0 +1,7 @@
+{
+    "code": "def pairfilter(self, wp):\n        return (wp.flag in self.pos_filt and len(wp.word.strip()) >= 2\n                and wp.word.lower() not in self.stop_words)",
+    "source": "github_repo:fxsjy/jieba",
+    "file": "jieba/analyse/textrank.py",
+    "license": "MIT",
+    "language": "python"
+}

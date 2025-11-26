@@ -1,0 +1,7 @@
+{
+    "code": "def test_recv_one_retry(self):\n    sock = \"carState\"\n    sock_timeout = 0.1\n    pub_sock = messaging.pub_sock(sock)\n    sub_sock = messaging.sub_sock(sock, timeout=round(sock_timeout*1000))\n    zmq_sleep()\n\n    # this test doesn't work with ZMQ since multiprocessing interrupts it\n    if \"ZMQ\" not in os.environ:\n      # wait 5 socket timeouts and make sure it's still retrying\n      p = multiprocessing.Process(target=messaging.recv_one_retry, args=(sub_sock,))\n      p.start()\n      time.sleep(sock_timeout*5)\n      assert p.is_alive()\n      p.terminate()\n\n    # wait 5 socket timeouts before sending\n    msg = random_carstate()\n    start_time = time.monotonic()\n    delayed_send(sock_timeout*5, pub_sock, msg.to_bytes())\n    recvd = messaging.recv_one_retry(sub_sock)\n    assert (time.monotonic() - start_time) >= sock_timeout*5\n    assert isinstance(recvd, capnp._DynamicStructReader)\n    assert_carstate(msg.carState, recvd.carState)",
+    "source": "github_repo:commaai/openpilot",
+    "file": "cereal/messaging/tests/test_messaging.py",
+    "license": "MIT",
+    "language": "python"
+}

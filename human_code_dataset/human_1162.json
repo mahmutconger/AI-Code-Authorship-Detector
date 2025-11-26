@@ -1,0 +1,7 @@
+{
+    "code": "def run_selection_loop():\n        nonlocal selected_key, selected_index\n        with Live(create_selection_panel(), console=console, transient=True, auto_refresh=False) as live:\n            while True:\n                try:\n                    key = get_key()\n                    if key == 'up':\n                        selected_index = (selected_index - 1) % len(option_keys)\n                    elif key == 'down':\n                        selected_index = (selected_index + 1) % len(option_keys)\n                    elif key == 'enter':\n                        selected_key = option_keys[selected_index]\n                        break\n                    elif key == 'escape':\n                        console.print(\"\\n[yellow]Selection cancelled[/yellow]\")\n                        raise typer.Exit(1)\n\n                    live.update(create_selection_panel(), refresh=True)\n\n                except KeyboardInterrupt:\n                    console.print(\"\\n[yellow]Selection cancelled[/yellow]\")\n                    raise typer.Exit(1)",
+    "source": "github_repo:github/spec-kit",
+    "file": "src/specify_cli/__init__.py",
+    "license": "MIT",
+    "language": "python"
+}

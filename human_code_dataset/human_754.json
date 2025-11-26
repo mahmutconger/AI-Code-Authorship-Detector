@@ -1,0 +1,7 @@
+{
+    "code": "class SimpleTester(Role):\n    name: str = \"Bob\"\n    profile: str = \"SimpleTester\"\n\n    def __init__(self, **kwargs):\n        super().__init__(**kwargs)\n        self.set_actions([SimpleWriteTest])\n        # self._watch([SimpleWriteCode])\n        self._watch([SimpleWriteCode, SimpleWriteReview])  # feel free to try this too\n\n    async def _act(self) -> Message:\n        logger.info(f\"{self._setting}: to do {self.rc.todo}({self.rc.todo.name})\")\n        todo = self.rc.todo\n\n        # context = self.get_memories(k=1)[0].content # use the most recent memory as context\n        context = self.get_memories()  # use all memories as context\n\n        code_text = await todo.run(context, k=5)  # specify arguments\n        msg = Message(content=code_text, role=self.profile, cause_by=type(todo))\n\n        return msg",
+    "source": "github_repo:FoundationAgents/MetaGPT",
+    "file": "examples/build_customized_multi_agents.py",
+    "license": "MIT",
+    "language": "python"
+}

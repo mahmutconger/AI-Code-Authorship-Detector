@@ -1,0 +1,7 @@
+{
+    "code": "def gpt_35_api_stream(messages: list):\n    \"\"\"为提供的对话消息创建新的回答 (流式传输)\n\n    Args:\n        messages (list): 完整的对话消息\n    \"\"\"\n    stream = client.chat.completions.create(\n        model='gpt-3.5-turbo',\n        messages=messages,\n        stream=True,\n    )\n    for chunk in stream:\n        if chunk.choices[0].delta.content is not None:\n            print(chunk.choices[0].delta.content, end=\"\")",
+    "source": "github_repo:chatanywhere/GPT_API_free",
+    "file": "demo.py",
+    "license": "MIT",
+    "language": "python"
+}

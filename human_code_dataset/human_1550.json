@@ -1,0 +1,7 @@
+{
+    "code": "def git_create_repository(repo: Path) -> None:\n    subprocess.run([\"git\", \"init\"], cwd=repo)\n    git_add_and_commit(msg=\"Initial commit\", repo=repo)",
+    "source": "github_repo:psf/black",
+    "file": "gallery/gallery.py",
+    "license": "MIT",
+    "language": "python"
+}

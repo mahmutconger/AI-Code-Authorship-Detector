@@ -1,0 +1,7 @@
+{
+    "code": "def get_input(self, batch, k):\n        x = batch[k]\n        if len(x.shape) == 3:\n            x = x[..., None]\n        x = x.permute(0, 3, 1, 2).to(memory_format=torch.contiguous_format).float()\n        return x",
+    "source": "github_repo:Stability-AI/stablediffusion",
+    "file": "ldm/models/autoencoder.py",
+    "license": "MIT",
+    "language": "python"
+}

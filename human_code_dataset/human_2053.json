@@ -1,0 +1,7 @@
+{
+    "code": "def _causal_padding(self, x):\n        if self.kernel_size == 1:\n            return x\n        pad_l = self.kernel_size - 1\n        pad_r = 0\n        padding = [[0, 0], [0, 0], [pad_l, pad_r]]\n        x = F.pad(x, commons.convert_pad_shape(padding))\n        return x",
+    "source": "github_repo:myshell-ai/OpenVoice",
+    "file": "openvoice/attentions.py",
+    "license": "MIT",
+    "language": "python"
+}

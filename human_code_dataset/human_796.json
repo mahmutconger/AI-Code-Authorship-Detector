@@ -1,0 +1,7 @@
+{
+    "code": "def record_recv_time(self, cur_time: float) -> None:\n    # TODO: Handle case where cur_time is less than prev_time\n    if self.prev_time > 1e-5:\n      dt = cur_time - self.prev_time\n\n      self.avg_dt.add_value(dt)\n      self.recent_avg_dt.add_value(dt)\n\n    self.prev_time = cur_time",
+    "source": "github_repo:commaai/openpilot",
+    "file": "cereal/messaging/__init__.py",
+    "license": "MIT",
+    "language": "python"
+}

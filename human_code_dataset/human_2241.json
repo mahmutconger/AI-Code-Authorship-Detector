@@ -1,0 +1,7 @@
+{
+    "code": "def _all(config: dict[str, Any], parent_key: str = \"\") -> dict[str, Any]:\n            all_ = {}\n\n            for key in config:\n                value = self.get(parent_key + key)\n                if isinstance(value, dict):\n                    if parent_key != \"\":\n                        current_parent = parent_key + key + \".\"\n                    else:\n                        current_parent = key + \".\"\n                    all_[key] = _all(config[key], parent_key=current_parent)\n                    continue\n\n                all_[key] = value\n\n            return all_",
+    "source": "github_repo:python-poetry/poetry",
+    "file": "src/poetry/config/config.py",
+    "license": "MIT",
+    "language": "python"
+}

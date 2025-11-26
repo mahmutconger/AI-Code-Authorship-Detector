@@ -1,0 +1,7 @@
+{
+    "code": "def popup(self, content: str, duration: int = 4) -> None:\n        # todo: check if installed tmux version supports display-popup\n\n        # tmux's display-popup is blocking, so we close it in a separate thread\n        t = threading.Thread(target=self.close_popup, args=[duration])\n        t.start()\n\n        lines = content.splitlines()\n        self.tmux_pane.cmd(\"display-popup\", \"\", *lines)\n        t.join()",
+    "source": "github_repo:mitmproxy/mitmproxy",
+    "file": "docs/scripts/clirecording/clidirector.py",
+    "license": "MIT",
+    "language": "python"
+}

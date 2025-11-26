@@ -1,0 +1,7 @@
+{
+    "code": "def __init__(self, in_doc: \"InputDocument\", path_or_stream: Union[BytesIO, Path]):\n        super().__init__(in_doc, path_or_stream)\n\n        # Load content\n        try:\n            if isinstance(self.path_or_stream, BytesIO):\n                self.content = StringIO(self.path_or_stream.getvalue().decode(\"utf-8\"))\n            elif isinstance(self.path_or_stream, Path):\n                self.content = StringIO(self.path_or_stream.read_text(\"utf-8\"))\n            self.valid = True\n        except Exception as e:\n            raise RuntimeError(\n                f\"CsvDocumentBackend could not load document with hash {self.document_hash}\"\n            ) from e\n        return",
+    "source": "github_repo:docling-project/docling",
+    "file": "docling/backend/csv_backend.py",
+    "license": "MIT",
+    "language": "python"
+}

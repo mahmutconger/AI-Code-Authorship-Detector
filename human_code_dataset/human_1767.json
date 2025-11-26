@@ -1,0 +1,7 @@
+{
+    "code": "def start_channel(channel_name: str):\n    channel = channel_factory.create_channel(channel_name)\n    if channel_name in [\"wx\", \"wxy\", \"terminal\", \"wechatmp\", \"web\", \"wechatmp_service\", \"wechatcom_app\", \"wework\",\n                        const.FEISHU, const.DINGTALK]:\n        PluginManager().load_plugins()\n\n    if conf().get(\"use_linkai\"):\n        try:\n            from common import linkai_client\n            threading.Thread(target=linkai_client.start, args=(channel,)).start()\n        except Exception as e:\n            pass\n    channel.startup()",
+    "source": "github_repo:zhayujie/chatgpt-on-wechat",
+    "file": "app.py",
+    "license": "MIT",
+    "language": "python"
+}

@@ -1,0 +1,7 @@
+{
+    "code": "def _map_json_type_to_python(self, json_type: str) -> type[Any]:\n        \"\"\"Map basic JSON schema types to Python types.\"\"\"\n        type_mapping = {\n            \"string\": str,\n            \"integer\": int,\n            \"number\": float,\n            \"boolean\": bool,\n            \"array\": list,\n            \"object\": dict,\n            \"null\": type(None),\n        }\n        return type_mapping.get(json_type, str)",
+    "source": "github_repo:crewAIInc/crewAI",
+    "file": "lib/crewai-tools/src/crewai_tools/adapters/enterprise_adapter.py",
+    "license": "MIT",
+    "language": "python"
+}

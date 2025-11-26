@@ -1,0 +1,7 @@
+{
+    "code": "def add_watermark(self, audio, message):\n        if self.watermark_model is None:\n            return audio\n        device = self.device\n        bits = utils.string_to_bits(message).reshape(-1)\n        n_repeat = len(bits) // 32\n\n        K = 16000\n        coeff = 2\n        for n in range(n_repeat):\n            trunck = audio[(coeff * n) * K: (coeff * n + 1) * K]\n            if len(trunck) != K:\n                print('Audio too short, fail to add watermark')\n                break\n            message_npy = bits[n * 32: (n + 1) * 32]\n            \n            with torch.no_grad():\n                signal = torch.FloatTensor(trunck).to(device)[None]\n                message_tensor = torch.FloatTensor(message_npy).to(device)[None]\n                signal_wmd_tensor = self.watermark_model.encode(signal, message_tensor)\n                signal_wmd_npy = signal_wmd_tensor.detach().cpu().squeeze()\n            audio[(coeff * n) * K: (coeff * n + 1) * K] = signal_wmd_npy\n        return audio",
+    "source": "github_repo:myshell-ai/OpenVoice",
+    "file": "openvoice/api.py",
+    "license": "MIT",
+    "language": "python"
+}

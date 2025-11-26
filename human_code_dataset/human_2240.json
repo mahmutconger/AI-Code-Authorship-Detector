@@ -1,0 +1,7 @@
+{
+    "code": "def create(cls, reload: bool = False) -> Config:\n        global _default_config\n\n        if _default_config is None or reload:\n            _default_config = cls()\n\n            # Load global config\n            config_file = TOMLFile(CONFIG_DIR / \"config.toml\")\n            if config_file.exists():\n                logger.debug(\"Loading configuration file %s\", config_file.path)\n                _default_config.merge(config_file.read())\n\n            _default_config.set_config_source(FileConfigSource(config_file))\n\n            # Load global auth config\n            auth_config_file = TOMLFile(CONFIG_DIR / \"auth.toml\")\n            if auth_config_file.exists():\n                logger.debug(\"Loading configuration file %s\", auth_config_file.path)\n                _default_config.merge(auth_config_file.read())\n\n            _default_config.set_auth_config_source(FileConfigSource(auth_config_file))\n\n        return _default_config",
+    "source": "github_repo:python-poetry/poetry",
+    "file": "src/poetry/config/config.py",
+    "license": "MIT",
+    "language": "python"
+}

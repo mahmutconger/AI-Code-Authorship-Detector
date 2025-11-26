@@ -1,0 +1,7 @@
+{
+    "code": "def setup_gpu(use_gpu: int, silent=None) -> None:\n    \"\"\"Configure the GPU and log info.\"\"\"\n    if silent is None:\n        local_msg = Printer()\n    else:\n        local_msg = Printer(no_print=silent, pretty=not silent)\n    if use_gpu >= 0:\n        local_msg.info(f\"Using GPU: {use_gpu}\")\n        require_gpu(use_gpu)\n    else:\n        local_msg.info(\"Using CPU\")\n        if gpu_is_available():\n            local_msg.info(\"To switch to GPU 0, use the option: --gpu-id 0\")",
+    "source": "github_repo:explosion/spaCy",
+    "file": "spacy/cli/_util.py",
+    "license": "MIT",
+    "language": "python"
+}

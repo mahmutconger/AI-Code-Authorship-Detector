@@ -1,0 +1,7 @@
+{
+    "code": "def logits(self, tokens: Tensor, audio_features: Tensor) -> Tensor:\n        \"\"\"Perform a forward pass on the decoder and return per-token logits\"\"\"\n        raise NotImplementedError",
+    "source": "github_repo:openai/whisper",
+    "file": "whisper/decoding.py",
+    "license": "MIT",
+    "language": "python"
+}

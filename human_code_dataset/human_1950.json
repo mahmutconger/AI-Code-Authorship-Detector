@@ -1,0 +1,7 @@
+{
+    "code": "def save_polygons_to_json(polygons, target_path):\n    data_to_save = polygons if polygons[-1] else polygons[:-1]\n    with open(target_path, \"w\") as f:\n        json.dump(data_to_save, f)",
+    "source": "github_repo:roboflow/supervision",
+    "file": "examples/time_in_zone/scripts/draw_zones.py",
+    "license": "MIT",
+    "language": "python"
+}

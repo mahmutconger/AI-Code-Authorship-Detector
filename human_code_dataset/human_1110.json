@@ -1,0 +1,7 @@
+{
+    "code": "class OpenAIResponse:\n    def __init__(self, data):\n        # Recursively convert nested dicts and lists to OpenAIResponse objects\n        for key, value in data.items():\n            if isinstance(value, dict):\n                value = OpenAIResponse(value)\n            elif isinstance(value, list):\n                value = [\n                    OpenAIResponse(item) if isinstance(item, dict) else item\n                    for item in value\n                ]\n            setattr(self, key, value)\n\n    def model_dump(self, *args, **kwargs):\n        # Convert object to dict and add timestamp\n        data = self.__dict__\n        data[\"created_at\"] = datetime.now().isoformat()\n        return data",
+    "source": "github_repo:FoundationAgents/OpenManus",
+    "file": "app/bedrock.py",
+    "license": "MIT",
+    "language": "python"
+}

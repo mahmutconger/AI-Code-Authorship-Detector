@@ -1,0 +1,7 @@
+{
+    "code": "class FileTypes(str, Enum):\n    json = \"json\"\n    spacy = \"spacy\"",
+    "source": "github_repo:explosion/spaCy",
+    "file": "spacy/cli/convert.py",
+    "license": "MIT",
+    "language": "python"
+}

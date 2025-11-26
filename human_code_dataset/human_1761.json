@@ -1,0 +1,7 @@
+{
+    "code": "def handle_ohlcv(self, client, message):\n        # add your handling of the original message here\n        print('intercepted', message)\n        return super(MyBinance, self).handle_ohlcv(client, message)",
+    "source": "github_repo:ccxt/ccxt",
+    "file": "examples/ccxt.pro/py/intercept-original-ohlcv-updates.py",
+    "license": "MIT",
+    "language": "python"
+}

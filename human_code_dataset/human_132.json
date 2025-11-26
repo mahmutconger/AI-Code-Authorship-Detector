@@ -1,0 +1,7 @@
+{
+    "code": "def main() -> None:\n    if len(sys.argv) != ARGUMENT_NUMBER:\n        msg = \"specify base version\"\n        raise ValueError(msg)\n    base_version = sys.argv[1]\n    base_version = base_version.lstrip(\"v\")\n    update_uv_dep(base_version)",
+    "source": "github_repo:langflow-ai/langflow",
+    "file": "scripts/ci/update_uv_dependency.py",
+    "license": "MIT",
+    "language": "python"
+}

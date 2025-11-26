@@ -1,0 +1,7 @@
+{
+    "code": "def init_repos(options: Namespace) -> tuple[Path, ...]:\n    options.output.mkdir(exist_ok=True)\n\n    if options.top_packages:\n        source_directories = tuple(\n            download_and_extract_top_packages(\n                directory=options.output,\n                workers=options.workers,\n                limit=slice(None, options.top_packages),\n            )\n        )\n    else:\n        source_directories = (\n            download_and_extract(\n                package=options.pypi_package,\n                version=options.version,\n                directory=options.output,\n            ),\n        )\n\n    for source_directory in source_directories:\n        git_create_repository(source_directory)\n\n    if options.black_repo is None:\n        subprocess.run(\n            [\"git\", \"clone\", \"https://github.com/psf/black.git\", INTERNAL_BLACK_REPO],\n            cwd=options.output,\n        )\n        options.black_repo = options.output / INTERNAL_BLACK_REPO\n\n    return source_directories",
+    "source": "github_repo:psf/black",
+    "file": "gallery/gallery.py",
+    "license": "MIT",
+    "language": "python"
+}

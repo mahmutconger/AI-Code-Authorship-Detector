@@ -1,0 +1,7 @@
+{
+    "code": "def fuzzy_i_plus(self, x: torch.Tensor):\n        \"\"\"\n        #### Fuzzy indicator function\n\n        $$I_{\\eta,+}(x) = I_+(\\eta - x) x + I_+ (x - \\eta)$$\n        \"\"\"\n        return (x <= self.eta) * x + (x > self.eta)",
+    "source": "github_repo:labmlai/annotated_deep_learning_paper_implementations",
+    "file": "labml_nn/activations/fta/__init__.py",
+    "license": "MIT",
+    "language": "python"
+}

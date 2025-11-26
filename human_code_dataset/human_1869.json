@@ -1,0 +1,7 @@
+{
+    "code": "def ls(db):\n    nfiles = next(db.execute(\"select count(w) from up\"))[0]\n    ntags = next(db.execute(\"select count(w) from mt\"))[0]\n    print(f\"{nfiles} files\")\n    print(f\"{ntags} tags\\n\")\n\n    print(\"number of occurrences for each tag,\")\n    print(\" 'x' = file has no tags\")\n    print(\" 't:mtp' = the mtp flag (file not mtp processed yet)\")\n    print()\n    for k, nk in db.execute(\"select k, count(k) from mt group by k order by k\"):\n        print(f\"{nk:9} {k}\")",
+    "source": "github_repo:9001/copyparty",
+    "file": "bin/dbtool.py",
+    "license": "MIT",
+    "language": "python"
+}

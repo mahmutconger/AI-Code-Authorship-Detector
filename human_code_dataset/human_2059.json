@@ -1,0 +1,7 @@
+{
+    "code": "def rand_gumbel(shape):\n    \"\"\"Sample from the Gumbel distribution, protect from overflows.\"\"\"\n    uniform_samples = torch.rand(shape) * 0.99998 + 0.00001\n    return -torch.log(-torch.log(uniform_samples))",
+    "source": "github_repo:myshell-ai/OpenVoice",
+    "file": "openvoice/commons.py",
+    "license": "MIT",
+    "language": "python"
+}

@@ -1,0 +1,7 @@
+{
+    "code": "class SlowLoris(HackingTool):\n    TITLE = \"SlowLoris\"\n    DESCRIPTION = (\n        \"Slowloris is basically an HTTP Denial of Service attack.\"\n        \"It send lots of HTTP Request\"\n    )\n    INSTALL_COMMANDS = [\"sudo pip3 install slowloris\"]\n\n    def run(self):\n        console.print(Panel(Text(self.TITLE, justify=\"center\"), style=f\"bold {P_COLOR}\"))\n        target_site = Prompt.ask(\"Enter Target Site:-\")\n        subprocess.run([\"slowloris\", target_site])",
+    "source": "github_repo:Z4nzu/hackingtool",
+    "file": "tools/ddos.py",
+    "license": "MIT",
+    "language": "python"
+}

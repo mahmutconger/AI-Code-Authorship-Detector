@@ -1,0 +1,7 @@
+{
+    "code": "class ImageConnector(QObject):\n    # 对所有屏幕截图。传入延时时间。返回截图列表\n    @Slot(float, result=\"QVariant\")\n    def getScreenshot(self, wait):\n        return ScreenshotController.getScreenshot(wait)\n\n    # 对一张图片做裁切。传入原图imgID和裁切参数，返回裁切后的imgID或[Error]\n    @Slot(str, int, int, int, int, result=str)\n    def getClipImgID(self, imgID, x, y, w, h):\n        return ScreenshotController.getClipImgID(imgID, x, y, w, h)\n\n    # 获取当前剪贴板的内容，返回 {\"type\":\"\", \"\": \"\"}\n    @Slot(result=\"QVariant\")\n    def getPaste(self):\n        return ScreenshotController.getPaste()\n\n    # 将图片写入剪贴板\n    @Slot(str, result=str)\n    def copyImage(self, path):\n        return copyImage(path)\n\n    # 用系统默认应用打开图片\n    @Slot(str, result=str)\n    def openImage(self, path):\n        return openImage(path)\n\n    # 将图片保存到本地\n    @Slot(str, str, result=str)\n    def saveImage(self, fromPath, toPath):\n        return saveImage(fromPath, toPath)",
+    "source": "github_repo:hiroi-sora/Umi-OCR",
+    "file": "UmiOCR-data/py_src/image_controller/image_connector.py",
+    "license": "MIT",
+    "language": "python"
+}

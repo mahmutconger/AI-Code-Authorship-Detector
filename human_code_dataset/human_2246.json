@@ -1,0 +1,7 @@
+{
+    "code": "def dry_run(self, config_source: ConfigSource, io: IO | None = None) -> bool:\n        io = io or NullIO()\n\n        try:\n            old_value = config_source.get_property(self.old_key)\n        except PropertyNotFoundError:\n            return False\n\n        new_value = (\n            self.value_migration[old_value] if self.value_migration else old_value\n        )\n\n        msg = f\"<c1>{self.old_key}</c1> = <c2>{json.dumps(old_value)}</c2>\"\n\n        if self.new_key is not None and new_value is not UNSET:\n            msg += f\" -> <c1>{self.new_key}</c1> = <c2>{json.dumps(new_value)}</c2>\"\n        elif self.new_key is None:\n            msg += \" -> <c1>Removed from config</c1>\"\n        elif self.new_key and new_value is UNSET:\n            msg += f\" -> <c1>{self.new_key}</c1> = <c2>Not explicit set</c2>\"\n\n        io.write_line(msg)\n\n        return True",
+    "source": "github_repo:python-poetry/poetry",
+    "file": "src/poetry/config/config_source.py",
+    "license": "MIT",
+    "language": "python"
+}

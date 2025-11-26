@@ -1,0 +1,7 @@
+{
+    "code": "def convert_messages_format(self, messages) -> Tuple[str, List[ChatQaMessage]]:\n        history = []\n        user_content = ''\n        assistant_content = ''\n        system_content = ''\n        for message in messages:\n            role = message.get('role')\n            if role == 'user':\n                user_content += message.get('content')\n            elif role == 'assistant':\n                assistant_content = message.get('content')\n                history.append(ChatQaMessage(user_content, assistant_content))\n                user_content = ''\n                assistant_content = ''\n            elif role =='system':\n                system_content += message.get('content')\n        if user_content == '':\n            raise Exception('no user message')\n        if system_content != '':\n            # NOTE 模拟系统消息，测试发现人格描述以\"你需要扮演ChatGPT\"开头能够起作用，而以\"你是ChatGPT\"开头模型会直接否认\n            system_qa = ChatQaMessage(system_content, '好的，我会严格按照你的设定回答问题')\n            history.insert(0, system_qa)\n        logger.debug(\"[QWEN] converted qa messages: {}\".format([item.to_dict() for item in history]))\n        logger.debug(\"[QWEN] user content as prompt: {}\".format(user_content))\n        return user_content, history",
+    "source": "github_repo:zhayujie/chatgpt-on-wechat",
+    "file": "bot/ali/ali_qwen_bot.py",
+    "license": "MIT",
+    "language": "python"
+}

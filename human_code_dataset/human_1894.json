@@ -1,0 +1,7 @@
+{
+    "code": "def main(argv=None):\n    if argv is None:\n        argv = sys.argv\n\n    msg_info = json.loads(sys.argv[1])\n    # print(msg_info)\n\n    try:\n        dt = datetime.fromtimestamp(msg_info[\"at\"], timezone.utc)\n    except:\n        dt = datetime.utcfromtimestamp(msg_info[\"at\"])\n\n    msg_info[\"datetime\"] = dt.strftime(\"%Y-%m-%d, %H:%M:%S\")\n\n    msg_text = TEMPLATE % msg_info\n\n    filepath = os.path.join(msg_info[\"ap\"], FILENAME)\n\n    if DESCENDING and os.path.exists(filepath):\n        write_descending(filepath, msg_text)\n    else:\n        write_ascending(filepath, msg_text)\n\n    print(msg_text)",
+    "source": "github_repo:9001/copyparty",
+    "file": "bin/hooks/msg-log.py",
+    "license": "MIT",
+    "language": "python"
+}

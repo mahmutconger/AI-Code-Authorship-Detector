@@ -1,0 +1,7 @@
+{
+    "code": "def benchmark(\n    nlp: Language,\n    docs: List[Doc],\n    n_batches: int,\n    batch_size: int,\n    shuffle: bool,\n) -> numpy.ndarray:\n    if shuffle:\n        bench_docs = [\n            nlp.make_doc(random.choice(docs).text)\n            for _ in range(n_batches * batch_size)\n        ]\n    else:\n        bench_docs = [\n            nlp.make_doc(docs[i % len(docs)].text)\n            for i in range(n_batches * batch_size)\n        ]\n\n    return annotate(nlp, bench_docs, batch_size)",
+    "source": "github_repo:explosion/spaCy",
+    "file": "spacy/cli/benchmark_speed.py",
+    "license": "MIT",
+    "language": "python"
+}

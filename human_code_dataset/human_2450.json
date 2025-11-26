@@ -1,0 +1,7 @@
+{
+    "code": "class time_context:\n    \"\"\"Register the running time of a context.\"\"\"\n\n    def __enter__(self):\n        self.start = time.perf_counter()\n        return self\n\n    def __exit__(self, type, value, traceback):\n        self.elapsed = time.perf_counter() - self.start",
+    "source": "github_repo:explosion/spaCy",
+    "file": "spacy/cli/benchmark_speed.py",
+    "license": "MIT",
+    "language": "python"
+}

@@ -1,0 +1,7 @@
+{
+    "code": "def setUp(self):\n    # TODO: ZMQ tests are too slow; all sleeps will need to be\n    # replaced with logic to block on the necessary condition\n    if \"ZMQ\" in os.environ:\n      pytest.skip()\n\n    # ZMQ pub socket takes too long to die\n    # sleep to prevent multiple publishers error between tests\n    zmq_sleep()",
+    "source": "github_repo:commaai/openpilot",
+    "file": "cereal/messaging/tests/test_messaging.py",
+    "license": "MIT",
+    "language": "python"
+}

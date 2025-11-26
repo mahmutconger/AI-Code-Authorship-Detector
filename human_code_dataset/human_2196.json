@@ -1,0 +1,7 @@
+{
+    "code": "def handleFunc(*args, **kwargs):\n        dirname = func(*args, **kwargs)\n        if not os.path.exists(dirname):\n            os.makedirs(dirname)\n        elif not os.path.isdir(dirname):\n            pass\n\n        return dirname",
+    "source": "github_repo:testerSunshine/12306",
+    "file": "config/configCommon.py",
+    "license": "MIT",
+    "language": "python"
+}

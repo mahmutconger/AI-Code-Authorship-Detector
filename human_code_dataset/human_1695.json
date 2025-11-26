@@ -1,0 +1,7 @@
+{
+    "code": "def _start(self):\n        if not self._listener:\n            self._listener = keyboard.Listener(\n                on_press=self._onPress, on_release=self._onRelease\n            )\n            self._listener.start()",
+    "source": "github_repo:hiroi-sora/Umi-OCR",
+    "file": "UmiOCR-data/py_src/event_bus/key_mouse/keyboard.py",
+    "license": "MIT",
+    "language": "python"
+}

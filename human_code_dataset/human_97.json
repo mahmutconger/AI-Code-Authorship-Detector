@@ -1,0 +1,7 @@
+{
+    "code": "def printboard(board: list[list[int]]) -> None:\n    \"\"\"\n    Prints the boards that have a successful combination.\n    \"\"\"\n    for i in range(len(board)):\n        for j in range(len(board)):\n            if board[i][j] == 1:\n                print(\"Q\", end=\" \")  # Queen is present\n            else:\n                print(\".\", end=\" \")  # Empty cell\n        print()",
+    "source": "github_repo:TheAlgorithms/Python",
+    "file": "backtracking/n_queens.py",
+    "license": "MIT",
+    "language": "python"
+}

@@ -1,0 +1,7 @@
+{
+    "code": "class Review:\n    \"\"\"\n    A dataclass that represents a user's review of the generated code.\n\n    Attributes\n    ----------\n    ran : Optional[bool]\n        Indicates whether the generated code ran without errors.\n    perfect : Optional[bool]\n        Indicates whether the generated code met all the user's requirements.\n    works : Optional[bool]\n        Indicates whether the generated code was useful, even if not perfect.\n    comments : str\n        Any additional comments provided by the user.\n    raw : str\n        A raw string representation of the user's responses.\n    \"\"\"\n\n    ran: Optional[bool]\n    perfect: Optional[bool]\n    works: Optional[bool]\n    comments: str\n    raw: str",
+    "source": "github_repo:AntonOsika/gpt-engineer",
+    "file": "gpt_engineer/applications/cli/learning.py",
+    "license": "MIT",
+    "language": "python"
+}

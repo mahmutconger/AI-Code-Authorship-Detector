@@ -1,0 +1,7 @@
+{
+    "code": "class Item(BaseModel):\n    id: str\n    title: str\n    description: Union[str, None] = None",
+    "source": "github_repo:fastapi/fastapi",
+    "file": "docs_src/app_testing/app_b/main.py",
+    "license": "MIT",
+    "language": "python"
+}

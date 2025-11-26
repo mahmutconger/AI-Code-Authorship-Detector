@@ -1,0 +1,7 @@
+{
+    "code": "def wait_for_readers_to_update(self, s: str, timeout: int, dt: float = 0.05) -> bool:\n    for _ in range(int(timeout*(1./dt))):\n      if self.sock[s].all_readers_updated():\n        return True\n      time.sleep(dt)\n    return False",
+    "source": "github_repo:commaai/openpilot",
+    "file": "cereal/messaging/__init__.py",
+    "license": "MIT",
+    "language": "python"
+}

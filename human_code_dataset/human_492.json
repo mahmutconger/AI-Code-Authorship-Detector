@@ -1,0 +1,7 @@
+{
+    "code": "def _validate_input_type(self, mobject: Mobject) -> None:\n        if not isinstance(mobject, Mobject):\n            raise TypeError(\"Animation only works for Mobjects.\")",
+    "source": "github_repo:3b1b/manim",
+    "file": "manimlib/animation/animation.py",
+    "license": "MIT",
+    "language": "python"
+}

@@ -1,0 +1,7 @@
+{
+    "code": "class StyleSuite:\n    def setup(self):\n        self.console = Console(\n            file=StringIO(), color_system=\"truecolor\", legacy_windows=False, width=100\n        )\n        self.style1 = Style.parse(\"blue on red\")\n        self.style2 = Style.parse(\"green italic bold\")\n\n    def time_parse_ansi(self):\n        Style.parse(\"red on blue\")\n\n    def time_parse_hex(self):\n        Style.parse(\"#f0f0f0 on #e2e28a\")\n\n    def time_parse_mixed_complex_style(self):\n        Style.parse(\"dim bold reverse #00ee00 on rgb(123,12,50)\")\n\n    def time_style_add(self):\n        self.style1 + self.style2",
+    "source": "github_repo:Textualize/rich",
+    "file": "benchmarks/benchmarks.py",
+    "license": "MIT",
+    "language": "python"
+}

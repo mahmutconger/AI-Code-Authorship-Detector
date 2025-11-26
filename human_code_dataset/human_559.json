@@ -1,0 +1,7 @@
+{
+    "code": "def build_injection_inputs(url):\n    \"\"\"\n    Builds injection inputs for the check.\n    \"\"\"\n\n    parsed_url = parse_url(url)\n    injection_inputs = []\n    url_directories = parsed_url[\"file_dir\"].split(\"/\")\n\n    try:\n        url_directories.remove(\"\")\n    except ValueError:\n        pass\n\n    for i in range(len(url_directories)):\n        injection_entry = \"/\".join(url_directories[:i])\n\n        if not injection_entry.startswith(\"/\"):\n            injection_entry = \"/%s\" % (injection_entry)\n\n        if not injection_entry.endswith(\"/\"):\n            injection_entry = \"%s/\" % (injection_entry)\n\n        injection_entry += \"{{INJECTION_POINT}}/\"  # It will be renderred later with the payload.\n        injection_entry += parsed_url[\"filename\"]\n\n        injection_inputs.append(injection_entry)\n\n    return(injection_inputs)",
+    "source": "github_repo:swisskyrepo/PayloadsAllTheThings",
+    "file": "CVE Exploits/Apache Struts 2 CVE-2018-11776.py",
+    "license": "MIT",
+    "language": "python"
+}

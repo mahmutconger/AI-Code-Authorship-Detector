@@ -1,0 +1,7 @@
+{
+    "code": "def _extract_init_params(tool_class: type[BaseTool]) -> dict[str, Any]:\n        ignored_init_params = [\n            \"name\",\n            \"description\",\n            \"env_vars\",\n            \"args_schema\",\n            \"description_updated\",\n            \"cache_function\",\n            \"result_as_answer\",\n            \"max_usage_count\",\n            \"current_usage_count\",\n            \"package_dependencies\",\n        ]\n\n        json_schema = tool_class.model_json_schema(\n            schema_generator=SchemaGenerator, mode=\"serialization\"\n        )\n\n        json_schema[\"properties\"] = {\n            key: value\n            for key, value in json_schema[\"properties\"].items()\n            if key not in ignored_init_params\n        }\n        return json_schema",
+    "source": "github_repo:crewAIInc/crewAI",
+    "file": "lib/crewai-tools/generate_tool_specs.py",
+    "license": "MIT",
+    "language": "python"
+}

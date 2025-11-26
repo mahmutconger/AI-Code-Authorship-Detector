@@ -1,0 +1,7 @@
+{
+    "code": "def __init__(self):\n        self.tokenizer = self.postokenizer = jieba.posseg.dt\n        self.stop_words = self.STOP_WORDS.copy()\n        self.pos_filt = frozenset(('ns', 'n', 'vn', 'v'))\n        self.span = 5",
+    "source": "github_repo:fxsjy/jieba",
+    "file": "jieba/analyse/textrank.py",
+    "license": "MIT",
+    "language": "python"
+}

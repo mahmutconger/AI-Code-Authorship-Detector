@@ -1,0 +1,7 @@
+{
+    "code": "def create_demo_server_chat() -> FastAPI:\n    \"\"\"Create a chat demo server.\n\n    Returns:\n        The chat demo server.\n    \"\"\"\n    return create_demo_server(playground_type=\"chat\")",
+    "source": "github_repo:langchain-ai/langchain",
+    "file": "libs/cli/langchain_cli/dev_scripts.py",
+    "license": "MIT",
+    "language": "python"
+}

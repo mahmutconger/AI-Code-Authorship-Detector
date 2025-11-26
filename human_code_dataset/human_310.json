@@ -1,0 +1,7 @@
+{
+    "code": "from fastapi import FastAPI\nfrom fastapi.middleware.httpsredirect import HTTPSRedirectMiddleware\n\napp = FastAPI()\n\napp.add_middleware(HTTPSRedirectMiddleware)\n\n\n@app.get(\"/\")\nasync def main():\n    return {\"message\": \"Hello World\"}",
+    "source": "github_repo:fastapi/fastapi",
+    "file": "docs_src/advanced_middleware/tutorial001.py",
+    "license": "MIT",
+    "language": "python"
+}

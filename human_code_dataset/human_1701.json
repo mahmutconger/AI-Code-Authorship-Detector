@@ -1,0 +1,7 @@
+{
+    "code": "def _checkTTL(self):\n        nowTime = time()\n        for k in self._pressSet.copy():\n            if nowTime >= self._ttlDict[k]:\n                logger.debug(f\"忽略超时按键 {k}\")\n                del self._ttlDict[k]\n                self._pressSet.discard(k)",
+    "source": "github_repo:hiroi-sora/Umi-OCR",
+    "file": "UmiOCR-data/py_src/event_bus/key_mouse/keyboard.py",
+    "license": "MIT",
+    "language": "python"
+}

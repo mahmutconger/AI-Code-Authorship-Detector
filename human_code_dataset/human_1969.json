@@ -1,0 +1,7 @@
+{
+    "code": "def run_command(command, cwd=None, env=None):\n    process = subprocess.Popen(command, cwd=cwd, env=env)\n    process.communicate()\n    if process.returncode != 0:\n        raise Exception(\"Command failed\")",
+    "source": "github_repo:ManimCommunity/manim",
+    "file": ".github/scripts/ci_build_cairo.py",
+    "license": "MIT",
+    "language": "python"
+}

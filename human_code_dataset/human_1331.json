@@ -1,0 +1,7 @@
+{
+    "code": "def __init__(\n        self,\n        in_doc: \"InputDocument\",\n        path_or_stream: Union[BytesIO, Path],\n        options: PdfBackendOptions = PdfBackendOptions(),\n    ):\n        super().__init__(in_doc, path_or_stream, options)\n\n        password = (\n            self.options.password.get_secret_value() if self.options.password else None\n        )\n        with pypdfium2_lock:\n            self._pdoc = pdfium.PdfDocument(self.path_or_stream, password=password)\n        self.parser = DoclingPdfParser(loglevel=\"fatal\")\n        self.dp_doc: PdfDocument = self.parser.load(\n            path_or_stream=self.path_or_stream, password=password\n        )\n        success = self.dp_doc is not None\n\n        if not success:\n            raise RuntimeError(\n                f\"docling-parse v4 could not load document {self.document_hash}.\"\n            )",
+    "source": "github_repo:docling-project/docling",
+    "file": "docling/backend/docling_parse_v4_backend.py",
+    "license": "MIT",
+    "language": "python"
+}

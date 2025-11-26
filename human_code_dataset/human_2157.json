@@ -1,0 +1,7 @@
+{
+    "code": "def save_and_send():\n    global body, to\n    to = str(text_field_number.get())\n    body = str(text_field_text.get())\n    message()",
+    "source": "github_repo:geekcomputers/Python",
+    "file": "Anonymous_TextApp.py",
+    "license": "MIT",
+    "language": "python"
+}

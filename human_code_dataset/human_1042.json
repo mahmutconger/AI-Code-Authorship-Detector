@@ -1,0 +1,7 @@
+{
+    "code": "def setup(self, stage=None, output_logs=False):\n        self._train_dataset = Text2SemanticDataset(\n            phoneme_path=self.train_phoneme_path,\n            semantic_path=self.train_semantic_path,\n            max_sec=self.config[\"data\"][\"max_sec\"],\n            pad_val=self.config[\"data\"][\"pad_val\"],\n        )\n        self._dev_dataset = self._train_dataset",
+    "source": "github_repo:RVC-Boss/GPT-SoVITS",
+    "file": "GPT_SoVITS/AR/data/data_module.py",
+    "license": "MIT",
+    "language": "python"
+}

@@ -1,0 +1,7 @@
+{
+    "code": "def __init__(self):\n        self.device = \"cuda:0\"\n        self.is_half = True\n        self.use_jit = False\n        self.n_cpu = 0\n        self.gpu_name = None\n        self.json_config = self.load_config_json()\n        self.gpu_mem = None\n        (\n            self.python_cmd,\n            self.listen_port,\n            self.iscolab,\n            self.noparallel,\n            self.noautoopen,\n            self.dml,\n        ) = self.arg_parse()\n        self.instead = \"\"\n        self.preprocess_per = 3.7\n        self.x_pad, self.x_query, self.x_center, self.x_max = self.device_config()",
+    "source": "github_repo:RVC-Project/Retrieval-based-Voice-Conversion-WebUI",
+    "file": "configs/config.py",
+    "license": "MIT",
+    "language": "python"
+}

@@ -1,0 +1,7 @@
+{
+    "code": "def evaluate_accuracy_by_sub_question(results: dict) -> float:\n    \"\"\"\n    Evaluate the correctness of all sub-questions across the results.\n    This function is referenced from https://github.com/InfiAgent/InfiAgent/blob/main/examples/DA-Agent/eval_closed_form.py\n    This function calculates the total number of correct sub-questions and the overall\n    number of sub-questions present in all results. It returns the ratio of correct\n    sub-questions to the total number of sub-questions.\n\n    Args:\n        results (dict): A collection of results where each result may contain a 'correctness' field.\n\n    Returns:\n        float: The ratio of correct sub-questions, rounded to four decimal places.\n               Returns 0 if there are no sub-questions.\n    \"\"\"\n    correct = sum(sum(result[\"correctness\"].values()) for result in results if \"correctness\" in result)\n    total = sum(len(result[\"correctness\"]) for result in results if \"correctness\" in result)\n    return round(correct / total, 4) if total > 0 else 0",
+    "source": "github_repo:FoundationAgents/MetaGPT",
+    "file": "examples/di/InfiAgent-DABench/DABench.py",
+    "license": "MIT",
+    "language": "python"
+}

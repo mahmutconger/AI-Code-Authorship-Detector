@@ -1,0 +1,7 @@
+{
+    "code": "def _normalize_for_determinism(obj):\n    \"\"\"Recursively normalize data structures for deterministic serialization.\n\n    Sorts dictionaries by key and lists (where semantically appropriate) to ensure\n    the same input always produces the same JSON output.\n    \"\"\"\n    if isinstance(obj, dict):\n        # Recursively normalize all dict values and return sorted by keys\n        return {k: _normalize_for_determinism(v) for k, v in sorted(obj.items())}\n    if isinstance(obj, list):\n        # Recursively normalize list items\n        # Keep list order as-is since some lists are ordered (like field_order)\n        return [_normalize_for_determinism(item) for item in obj]\n    # Primitive types, return as-is\n    return obj",
+    "source": "github_repo:langflow-ai/langflow",
+    "file": "scripts/build_component_index.py",
+    "license": "MIT",
+    "language": "python"
+}

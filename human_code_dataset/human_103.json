@@ -1,0 +1,7 @@
+{
+    "code": "def _get_langflow_version():\n    \"\"\"Get the installed langflow version.\"\"\"\n    from importlib.metadata import version\n\n    return version(\"langflow\")",
+    "source": "github_repo:langflow-ai/langflow",
+    "file": "scripts/build_component_index.py",
+    "license": "MIT",
+    "language": "python"
+}

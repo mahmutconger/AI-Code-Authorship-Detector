@@ -1,0 +1,7 @@
+{
+    "code": "def get_ear(eye):\n\n\t# compute the euclidean distances between the two sets of\n\t# vertical eye landmarks (x, y)-coordinates\n\tA = dist.euclidean(eye[1], eye[5])\n\tB = dist.euclidean(eye[2], eye[4])\n \n\t# compute the euclidean distance between the horizontal\n\t# eye landmark (x, y)-coordinates\n\tC = dist.euclidean(eye[0], eye[3])\n \n\t# compute the eye aspect ratio\n\tear = (A + B) / (2.0 * C)\n \n\t# return the eye aspect ratio\n\treturn ear",
+    "source": "github_repo:ageitgey/face_recognition",
+    "file": "examples/blink_detection.py",
+    "license": "MIT",
+    "language": "python"
+}

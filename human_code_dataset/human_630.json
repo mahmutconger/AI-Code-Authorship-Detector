@@ -1,0 +1,7 @@
+{
+    "code": "def assemble_text_prompt(\n    text_prompt: str,\n    stack: Stack,\n) -> list[ChatCompletionMessageParam]:\n\n    system_content = TEXT_SYSTEM_PROMPTS[stack]\n\n    return [\n        {\n            \"role\": \"system\",\n            \"content\": system_content,\n        },\n        {\n            \"role\": \"user\",\n            \"content\": \"Generate UI for \" + text_prompt,\n        },\n    ]",
+    "source": "github_repo:abi/screenshot-to-code",
+    "file": "backend/prompts/__init__.py",
+    "license": "MIT",
+    "language": "python"
+}

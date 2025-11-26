@@ -1,0 +1,7 @@
+{
+    "code": "def _minimal_ext_cmd(cmd):\n        # construct minimal environment\n        env = {}\n        for k in [\"SYSTEMROOT\", \"PATH\", \"HOME\"]:\n            v = os.environ.get(k)\n            if v is not None:\n                env[k] = v\n        # LANGUAGE is used on win32\n        env[\"LANGUAGE\"] = \"C\"\n        env[\"LANG\"] = \"C\"\n        env[\"LC_ALL\"] = \"C\"\n        out = subprocess.check_output(cmd, stderr=subprocess.STDOUT, env=env)\n        return out",
+    "source": "github_repo:explosion/spaCy",
+    "file": "setup.py",
+    "license": "MIT",
+    "language": "python"
+}

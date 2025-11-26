@@ -1,0 +1,7 @@
+{
+    "code": "def walk_sherlock_for_files_with(pattern: str) -> list[str]:\n        \"\"\"Check all files within the Sherlock package for matching patterns\"\"\"\n        pattern:re.Pattern = re.compile(pattern)\n        matching_files:list[str] = []\n        for root, dirs, files in os.walk(\"sherlock_project\"):\n            for file in files:\n                file_path = os.path.join(root,file)\n                if \"__pycache__\" in file_path:\n                    continue\n                with open(file_path, 'r', errors='ignore') as f:\n                    if pattern.search(f.read()):\n                        matching_files.append(file_path)\n        return matching_files",
+    "source": "github_repo:sherlock-project/sherlock",
+    "file": "tests/sherlock_interactives.py",
+    "license": "MIT",
+    "language": "python"
+}

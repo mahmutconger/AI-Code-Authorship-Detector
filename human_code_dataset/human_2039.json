@@ -1,0 +1,7 @@
+{
+    "code": "def forward(self, x, x_mask, g=None):\n        attn_mask = x_mask.unsqueeze(2) * x_mask.unsqueeze(-1)\n        x = x * x_mask\n        for i in range(self.n_layers):\n            if i == self.cond_layer_idx and g is not None:\n                g = self.spk_emb_linear(g.transpose(1, 2))\n                g = g.transpose(1, 2)\n                x = x + g\n                x = x * x_mask\n            y = self.attn_layers[i](x, x, attn_mask)\n            y = self.drop(y)\n            x = self.norm_layers_1[i](x + y)\n\n            y = self.ffn_layers[i](x, x_mask)\n            y = self.drop(y)\n            x = self.norm_layers_2[i](x + y)\n        x = x * x_mask\n        return x",
+    "source": "github_repo:myshell-ai/OpenVoice",
+    "file": "openvoice/attentions.py",
+    "license": "MIT",
+    "language": "python"
+}

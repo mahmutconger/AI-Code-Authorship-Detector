@@ -1,0 +1,7 @@
+{
+    "code": "import ccxt\nimport ccxt.pro\nimport asyncio\n\nfrom pprint import pprint\n\nloop = asyncio.get_event_loop()\n\n\nasync def print_balance(exchange, market_type):\n    while True:\n        try:\n            balance = await exchange.watch_balance({'type': market_type})\n            pprint(balance)\n            print('balance of ' + market_type, balance)\n            print(exchange.options[market_type])\n        except ccxt.BaseError as e:\n            print(type(e), e)\n        except Exception as e:\n            print(type(e), e)\n\n\nasync def main():\n    exchange = ccxt.pro.binance({\n        \"apiKey\": \"\",\n        \"secret\": \"\",\n        'enableRateLimit': True,\n        'newUpdates': True,\n    })\n    # you must make an order a transfer first to the websocket to send updates\n    asyncio.ensure_future(print_balance(exchange, 'future'))\n    asyncio.ensure_future(print_balance(exchange, 'delivery'))  # inverse futures settled in BTC\n    asyncio.ensure_future(print_balance(exchange, 'spot'))\n\n\nasyncio.run(main())\nasyncio.ensure_future(main())\nloop.run_forever()",
+    "source": "github_repo:ccxt/ccxt",
+    "file": "examples/ccxt.pro/py/binance-futures-watch-balance.py",
+    "license": "MIT",
+    "language": "python"
+}

@@ -1,0 +1,7 @@
+{
+    "code": "class AudioRequest(BaseModel):\n    video_script: str\n    video_language: Optional[str] = \"\"\n    voice_name: Optional[str] = \"zh-CN-XiaoxiaoNeural-Female\"\n    voice_volume: Optional[float] = 1.0\n    voice_rate: Optional[float] = 1.2\n    bgm_type: Optional[str] = \"random\"\n    bgm_file: Optional[str] = \"\"\n    bgm_volume: Optional[float] = 0.2\n    video_source: Optional[str] = \"local\"",
+    "source": "github_repo:harry0703/MoneyPrinterTurbo",
+    "file": "app/models/schema.py",
+    "license": "MIT",
+    "language": "python"
+}

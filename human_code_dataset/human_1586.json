@@ -1,0 +1,7 @@
+{
+    "code": "def __init__(self) -> None:\n        self.tools_spec: list[dict[str, Any]] = []\n        self.processed_tools: set[str] = set()",
+    "source": "github_repo:crewAIInc/crewAI",
+    "file": "lib/crewai-tools/generate_tool_specs.py",
+    "license": "MIT",
+    "language": "python"
+}

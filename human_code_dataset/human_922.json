@@ -1,0 +1,7 @@
+{
+    "code": "def load_env_if_needed():\n    \"\"\"\n    Load environment variables if the OPENAI_API_KEY is not already set.\n\n    This function checks if the OPENAI_API_KEY environment variable is set,\n    and if not, it attempts to load it from a .env file in the current working\n    directory. It then sets the openai.api_key for use in the application.\n    \"\"\"\n    # We have all these checks for legacy reasons...\n    if os.getenv(\"OPENAI_API_KEY\") is None:\n        load_dotenv()\n    if os.getenv(\"OPENAI_API_KEY\") is None:\n        load_dotenv(dotenv_path=os.path.join(os.getcwd(), \".env\"))\n\n    openai.api_key = os.getenv(\"OPENAI_API_KEY\")\n\n    if os.getenv(\"ANTHROPIC_API_KEY\") is None:\n        load_dotenv()\n    if os.getenv(\"ANTHROPIC_API_KEY\") is None:\n        load_dotenv(dotenv_path=os.path.join(os.getcwd(), \".env\"))",
+    "source": "github_repo:AntonOsika/gpt-engineer",
+    "file": "gpt_engineer/applications/cli/main.py",
+    "license": "MIT",
+    "language": "python"
+}

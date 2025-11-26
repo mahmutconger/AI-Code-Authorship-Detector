@@ -1,0 +1,7 @@
+{
+    "code": "def make_layout() -> Layout:\n    \"\"\"Define the layout.\"\"\"\n    layout = Layout(name=\"root\")\n\n    layout.split(\n        Layout(name=\"header\", size=3),\n        Layout(name=\"main\", ratio=1),\n        Layout(name=\"footer\", size=7),\n    )\n    layout[\"main\"].split_row(\n        Layout(name=\"side\"),\n        Layout(name=\"body\", ratio=2, minimum_size=60),\n    )\n    layout[\"side\"].split(Layout(name=\"box1\"), Layout(name=\"box2\"))\n    return layout",
+    "source": "github_repo:Textualize/rich",
+    "file": "examples/fullscreen.py",
+    "license": "MIT",
+    "language": "python"
+}

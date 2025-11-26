@@ -1,0 +1,7 @@
+{
+    "code": "def load_config():\n    # fix: IsADirectoryError: [Errno 21] Is a directory: '/MoneyPrinterTurbo/config.toml'\n    if os.path.isdir(config_file):\n        shutil.rmtree(config_file)\n\n    if not os.path.isfile(config_file):\n        example_file = f\"{root_dir}/config.example.toml\"\n        if os.path.isfile(example_file):\n            shutil.copyfile(example_file, config_file)\n            logger.info(\"copy config.example.toml to config.toml\")\n\n    logger.info(f\"load config from file: {config_file}\")\n\n    try:\n        _config_ = toml.load(config_file)\n    except Exception as e:\n        logger.warning(f\"load config failed: {str(e)}, try to load as utf-8-sig\")\n        with open(config_file, mode=\"r\", encoding=\"utf-8-sig\") as fp:\n            _cfg_content = fp.read()\n            _config_ = toml.loads(_cfg_content)\n    return _config_",
+    "source": "github_repo:harry0703/MoneyPrinterTurbo",
+    "file": "app/config/config.py",
+    "license": "MIT",
+    "language": "python"
+}

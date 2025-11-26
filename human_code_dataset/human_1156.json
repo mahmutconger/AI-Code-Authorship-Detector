@@ -1,0 +1,7 @@
+{
+    "code": "def __init__(self, title: str):\n        self.title = title\n        self.steps = []  # list of dicts: {key, label, status, detail}\n        self.status_order = {\"pending\": 0, \"running\": 1, \"done\": 2, \"error\": 3, \"skipped\": 4}\n        self._refresh_cb = None  # callable to trigger UI refresh",
+    "source": "github_repo:github/spec-kit",
+    "file": "src/specify_cli/__init__.py",
+    "license": "MIT",
+    "language": "python"
+}

@@ -1,0 +1,7 @@
+{
+    "code": "def main():\n    inf = json.loads(sys.argv[1])\n    fp = inf[\"ap\"]\n    sz = humansize(inf[\"sz\"])\n    dp, fn = os.path.split(fp)\n    dt = datetime.fromtimestamp(inf[\"mt\"], timezone.utc)\n    mt = dt.strftime(\"%Y-%m-%d %H:%M:%S\")\n\n    msg = f\"{fn} ({sz})\\n📁 {dp}\"\n    title = \"File received\"\n    icon = \"emblem-documents-symbolic\" if sys.platform == \"linux\" else \"\"\n\n    if inf.get(\"txt\"):\n        msg = inf[\"txt\"]\n        title = \"Message received\"\n        icon = \"mail-unread-symbolic\" if sys.platform == \"linux\" else \"\"\n\n    msg += f\"\\n👤 {inf['user']} ({inf['ip']})\\n🕒 {mt}\"\n\n    if \"com.termux\" in sys.executable:\n        sp.run([\"termux-notification\", \"-t\", title, \"-c\", msg])\n        return\n\n    notification.notify(\n        title=title,\n        message=msg,\n        app_icon=icon,\n        timeout=10,\n    )",
+    "source": "github_repo:9001/copyparty",
+    "file": "bin/hooks/notify2.py",
+    "license": "MIT",
+    "language": "python"
+}

@@ -1,0 +1,7 @@
+{
+    "code": "def __init__(\n        self,\n        markdown: str,\n        *,\n        title: Optional[str] = None,\n    ):\n        \"\"\"\n        Initialize the DocumentConverterResult.\n\n        The only required parameter is the converted Markdown text.\n        The title, and any other metadata that may be added in the future, are optional.\n\n        Parameters:\n        - markdown: The converted Markdown text.\n        - title: Optional title of the document.\n        \"\"\"\n        self.markdown = markdown\n        self.title = title",
+    "source": "github_repo:microsoft/markitdown",
+    "file": "packages/markitdown/src/markitdown/_base_converter.py",
+    "license": "MIT",
+    "language": "python"
+}

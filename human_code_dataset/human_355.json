@@ -1,0 +1,7 @@
+{
+    "code": "def test_dtw_cuda_equivalence(N: int, M: int):\n    x_numpy = np.random.randn(N, M).astype(np.float32)\n    x_cuda = torch.from_numpy(x_numpy).cuda()\n\n    trace_cpu = dtw_cpu(x_numpy)\n    trace_cuda = dtw_cuda(x_cuda)\n\n    assert np.allclose(trace_cpu, trace_cuda)",
+    "source": "github_repo:openai/whisper",
+    "file": "tests/test_timing.py",
+    "license": "MIT",
+    "language": "python"
+}

@@ -1,0 +1,7 @@
+{
+    "code": "def begin(self) -> None:\n        # This is called right as an animation is being\n        # played.  As much initialization as possible,\n        # especially any mobject copying, should live in\n        # this method\n        if self.time_span is not None:\n            start, end = self.time_span\n            self.run_time = max(end, self.run_time)\n        self.mobject.set_animating_status(True)\n        self.starting_mobject = self.create_starting_mobject()\n        if self.suspend_mobject_updating:\n            self.mobject_was_updating = not self.mobject.updating_suspended\n            self.mobject.suspend_updating()\n        self.families = list(self.get_all_families_zipped())\n        self.interpolate(0)",
+    "source": "github_repo:3b1b/manim",
+    "file": "manimlib/animation/animation.py",
+    "license": "MIT",
+    "language": "python"
+}

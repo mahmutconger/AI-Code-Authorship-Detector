@@ -1,0 +1,7 @@
+{
+    "code": "def update_bar() -> None:\n        bar = new_data.pop(0)\n        widget.update_bar(bar)",
+    "source": "github_repo:vnpy/vnpy",
+    "file": "examples/candle_chart/run.py",
+    "license": "MIT",
+    "language": "python"
+}

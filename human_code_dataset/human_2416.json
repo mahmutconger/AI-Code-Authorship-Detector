@@ -1,0 +1,7 @@
+{
+    "code": "def printt(strr, *args):\n    if len(args) == 0:\n        print(strr)\n    else:\n        print(strr % args)",
+    "source": "github_repo:RVC-Project/Retrieval-based-Voice-Conversion-WebUI",
+    "file": "gui_v1.py",
+    "license": "MIT",
+    "language": "python"
+}

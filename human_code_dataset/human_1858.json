@@ -1,0 +1,7 @@
+{
+    "code": "def parquets_iter_batched(split, start=0, step=1):\n    \"\"\"\n    Iterate through the dataset, in batches of underlying row_groups for efficiency.\n    - split can be \"train\" or \"val\". the last parquet file will be val.\n    - start/step are useful for skipping rows in DDP. e.g. start=rank, step=world_size\n    \"\"\"\n    assert split in [\"train\", \"val\"], \"split must be 'train' or 'val'\"\n    parquet_paths = list_parquet_files()\n    parquet_paths = parquet_paths[:-1] if split == \"train\" else parquet_paths[-1:]\n    for filepath in parquet_paths:\n        pf = pq.ParquetFile(filepath)\n        for rg_idx in range(start, pf.num_row_groups, step):\n            rg = pf.read_row_group(rg_idx)\n            texts = rg.column('text').to_pylist()\n            yield texts",
+    "source": "github_repo:karpathy/nanochat",
+    "file": "nanochat/dataset.py",
+    "license": "MIT",
+    "language": "python"
+}

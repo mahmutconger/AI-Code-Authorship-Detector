@@ -1,0 +1,7 @@
+{
+    "code": "def make_pypi_svg(version: str) -> None:\n    template: Path = CURRENT_DIR / \"_static\" / \"pypi_template.svg\"\n    target: Path = CURRENT_DIR / \"_static\" / \"pypi.svg\"\n    with open(str(template), encoding=\"utf8\") as f:\n        svg: str = string.Template(f.read()).substitute(version=version)\n    with open(str(target), \"w\", encoding=\"utf8\") as f:\n        f.write(svg)",
+    "source": "github_repo:psf/black",
+    "file": "docs/conf.py",
+    "license": "MIT",
+    "language": "python"
+}

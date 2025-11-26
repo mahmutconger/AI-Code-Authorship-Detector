@@ -1,0 +1,7 @@
+{
+    "code": "def find_links_in_file(filename: str) -> List[str]:\n    \"\"\"Find links in a file and return a list of URLs from text file.\"\"\"\n\n    with open(filename, mode='r', encoding='utf-8') as file:\n        readme = file.read()\n        index_section = readme.find('## Index')\n        if index_section == -1:\n            index_section = 0\n        content = readme[index_section:]\n\n    links = find_links_in_text(content)\n\n    return links",
+    "source": "github_repo:public-apis/public-apis",
+    "file": "scripts/validate/links.py",
+    "license": "MIT",
+    "language": "python"
+}

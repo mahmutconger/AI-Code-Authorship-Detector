@@ -1,0 +1,7 @@
+{
+    "code": "def download_with_python(url, pw):\n    import requests\n\n    headers = {}\n    if pw:\n        headers[\"PW\"] = pw\n\n    with requests.get(url, headers=headers, stream=True) as r:\n        r.raise_for_status()\n        for _ in r.iter_content(chunk_size=1024 * 256):\n            pass",
+    "source": "github_repo:9001/copyparty",
+    "file": "bin/hooks/into-the-cache-it-goes.py",
+    "license": "MIT",
+    "language": "python"
+}

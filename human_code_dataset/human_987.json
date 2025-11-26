@@ -1,0 +1,7 @@
+{
+    "code": "def __init__(self, options=None, installable=True, runnable=True):\n        options = options or []\n        if isinstance(options, list):\n            self.OPTIONS = []\n            if installable:\n                self.OPTIONS.append((\"Install\", self.install))\n            if runnable:\n                self.OPTIONS.append((\"Run\", self.run))\n            self.OPTIONS.extend(options)\n        else:\n            raise Exception(\"options must be a list of (option_name, option_fn) tuples\")",
+    "source": "github_repo:Z4nzu/hackingtool",
+    "file": "core.py",
+    "license": "MIT",
+    "language": "python"
+}

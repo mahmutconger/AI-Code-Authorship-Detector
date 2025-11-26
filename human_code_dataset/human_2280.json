@@ -1,0 +1,7 @@
+{
+    "code": "class TestClient(RpcClient):\n    \"\"\"\n    Test RpcClient\n    \"\"\"\n\n    def __init__(self) -> None:\n        \"\"\"\n        Constructor\n        \"\"\"\n        super().__init__()\n\n    def callback(self, topic: str, data: Any) -> None:\n        \"\"\"\n        Realize callable function\n        \"\"\"\n        print(f\"client received topic:{topic}, data:{data}\")",
+    "source": "github_repo:vnpy/vnpy",
+    "file": "examples/simple_rpc/test_client.py",
+    "license": "MIT",
+    "language": "python"
+}

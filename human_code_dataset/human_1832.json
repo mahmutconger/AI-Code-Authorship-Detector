@@ -1,0 +1,7 @@
+{
+    "code": "def download_file_with_lock(url, filename, postprocess_fn=None):\n    \"\"\"\n    Downloads a file from a URL to a local path in the base directory.\n    Uses a lock file to prevent concurrent downloads among multiple ranks.\n    \"\"\"\n    base_dir = get_base_dir()\n    file_path = os.path.join(base_dir, filename)\n    lock_path = file_path + \".lock\"\n\n    if os.path.exists(file_path):\n        return file_path\n\n    with FileLock(lock_path):\n        # Only a single rank can acquire this lock\n        # All other ranks block until it is released\n\n        # Recheck after acquiring lock\n        if os.path.exists(file_path):\n            return file_path\n\n        # Download the content as bytes\n        print(f\"Downloading {url}...\")\n        with urllib.request.urlopen(url) as response:\n            content = response.read() # bytes\n\n        # Write to local file\n        with open(file_path, 'wb') as f:\n            f.write(content)\n        print(f\"Downloaded to {file_path}\")\n\n        # Run the postprocess function if provided\n        if postprocess_fn is not None:\n            postprocess_fn(file_path)\n\n    return file_path",
+    "source": "github_repo:karpathy/nanochat",
+    "file": "nanochat/common.py",
+    "license": "MIT",
+    "language": "python"
+}

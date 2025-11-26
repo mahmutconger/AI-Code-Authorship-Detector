@@ -1,0 +1,7 @@
+{
+    "code": "def upload_image():\n    # Check if a valid image file was uploaded\n    if request.method == 'POST':\n        if 'file' not in request.files:\n            return redirect(request.url)\n\n        file = request.files['file']\n\n        if file.filename == '':\n            return redirect(request.url)\n\n        if file and allowed_file(file.filename):\n            # The image file seems valid! Detect faces and return the result.\n            return detect_faces_in_image(file)\n\n    # If no valid image file was uploaded, show the file upload form:\n    return '''\n    <!doctype html>\n    <title>Is this a picture of Obama?</title>\n    <h1>Upload a picture and see if it's a picture of Obama!</h1>\n    <form method=\"POST\" enctype=\"multipart/form-data\">\n      <input type=\"file\" name=\"file\">\n      <input type=\"submit\" value=\"Upload\">\n    </form>\n    '''",
+    "source": "github_repo:ageitgey/face_recognition",
+    "file": "examples/web_service_example.py",
+    "license": "MIT",
+    "language": "python"
+}

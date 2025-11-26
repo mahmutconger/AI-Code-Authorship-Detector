@@ -1,0 +1,7 @@
+{
+    "code": "def __init__(self, *args):\n        super().__init__(*args)\n        self._funcDict = {}  # 缓存历史已订阅的函数",
+    "source": "github_repo:hiroi-sora/Umi-OCR",
+    "file": "UmiOCR-data/py_src/event_bus/pubsub_connector.py",
+    "license": "MIT",
+    "language": "python"
+}

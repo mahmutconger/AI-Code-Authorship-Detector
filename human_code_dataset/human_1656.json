@@ -1,0 +1,7 @@
+{
+    "code": "def get_list(self, prefix=None):\n        \"\"\"\n        Return available pages for `prefix`\n        \"\"\"\n\n        if prefix in self._list:\n            return self._list[prefix]\n\n        self._list[prefix] = set(self._get_list(prefix=prefix))\n        return self._list[prefix]",
+    "source": "github_repo:chubin/cheat.sh",
+    "file": "lib/adapter/adapter.py",
+    "license": "MIT",
+    "language": "python"
+}

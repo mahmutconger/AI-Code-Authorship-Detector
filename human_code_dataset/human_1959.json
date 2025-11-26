@@ -1,0 +1,7 @@
+{
+    "code": "def run_command(command: list) -> int:\n    process = subprocess.run(command)\n    return process.returncode",
+    "source": "github_repo:roboflow/supervision",
+    "file": "examples/time_in_zone/scripts/stream_from_file.py",
+    "license": "MIT",
+    "language": "python"
+}

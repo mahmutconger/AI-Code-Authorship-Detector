@@ -1,0 +1,7 @@
+{
+    "code": "def transform_points(self, points: np.ndarray) -> np.ndarray:\n        if points.size == 0:\n            return points\n\n        reshaped_points = points.reshape(-1, 1, 2).astype(np.float32)\n        transformed_points = cv2.perspectiveTransform(reshaped_points, self.m)\n        return transformed_points.reshape(-1, 2)",
+    "source": "github_repo:roboflow/supervision",
+    "file": "examples/speed_estimation/ultralytics_example.py",
+    "license": "MIT",
+    "language": "python"
+}

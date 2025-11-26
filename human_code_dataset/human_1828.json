@@ -1,0 +1,7 @@
+{
+    "code": "def load_model(source, *args, **kwargs):\n    model_dir = {\n        \"base\": \"base_checkpoints\",\n        \"mid\": \"mid_checkpoints\",\n        \"sft\": \"chatsft_checkpoints\",\n        \"rl\": \"chatrl_checkpoints\",\n    }[source]\n    base_dir = get_base_dir()\n    checkpoints_dir = os.path.join(base_dir, model_dir)\n    return load_model_from_dir(checkpoints_dir, *args, **kwargs)",
+    "source": "github_repo:karpathy/nanochat",
+    "file": "nanochat/checkpoint_manager.py",
+    "license": "MIT",
+    "language": "python"
+}

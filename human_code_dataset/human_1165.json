@@ -1,0 +1,7 @@
+{
+    "code": "def deep_merge(base: dict, update: dict) -> dict:\n        \"\"\"Recursively merge update dict into base dict.\"\"\"\n        result = base.copy()\n        for key, value in update.items():\n            if key in result and isinstance(result[key], dict) and isinstance(value, dict):\n                # Recursively merge nested dictionaries\n                result[key] = deep_merge(result[key], value)\n            else:\n                # Add new key or replace existing value\n                result[key] = value\n        return result",
+    "source": "github_repo:github/spec-kit",
+    "file": "src/specify_cli/__init__.py",
+    "license": "MIT",
+    "language": "python"
+}

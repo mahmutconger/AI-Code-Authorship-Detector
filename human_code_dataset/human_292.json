@@ -1,0 +1,7 @@
+{
+    "code": "def how_to_configure(proc, TIMEOUT):\n    proc.sendline(u'fuck')\n    assert proc.expect([TIMEOUT, u\"alias isn't configured\"])",
+    "source": "github_repo:nvbn/thefuck",
+    "file": "tests/functional/plots.py",
+    "license": "MIT",
+    "language": "python"
+}

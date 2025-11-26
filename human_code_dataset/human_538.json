@@ -1,0 +1,7 @@
+{
+    "code": "def _wrap_text(text: str, font: ImageFont.FreeTypeFont, max_width: int) -> str:\n\t\"\"\"\n\tWrap text to fit within a given width.\n\n\tArgs:\n\t    text: Text to wrap\n\t    font: Font to use for text\n\t    max_width: Maximum width in pixels\n\n\tReturns:\n\t    Wrapped text with newlines\n\t\"\"\"\n\ttext = decode_unicode_escapes_to_utf8(text)\n\twords = text.split()\n\tlines = []\n\tcurrent_line = []\n\n\tfor word in words:\n\t\tcurrent_line.append(word)\n\t\tline = ' '.join(current_line)\n\t\tbbox = font.getbbox(line)\n\t\tif bbox[2] > max_width:\n\t\t\tif len(current_line) == 1:\n\t\t\t\tlines.append(current_line.pop())\n\t\t\telse:\n\t\t\t\tcurrent_line.pop()\n\t\t\t\tlines.append(' '.join(current_line))\n\t\t\t\tcurrent_line = [word]\n\n\tif current_line:\n\t\tlines.append(' '.join(current_line))\n\n\treturn '\\n'.join(lines)",
+    "source": "github_repo:browser-use/browser-use",
+    "file": "browser_use/agent/gif.py",
+    "license": "MIT",
+    "language": "python"
+}

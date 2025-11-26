@@ -1,0 +1,7 @@
+{
+    "code": "def generate_readme():\n    toc = get_toc(all_tools[:-1])\n    tools_desc = get_tools_toc(all_tools[:-1])\n\n    with open(\"README_template.md\") as fh:\n        readme_template = fh.read()\n\n    readme_template = readme_template.replace(\"{{toc}}\", toc)\n    readme_template = readme_template.replace(\"{{tools}}\", tools_desc)\n\n    with open(\"README.md\", \"w\") as fh:\n        fh.write(readme_template)",
+    "source": "github_repo:Z4nzu/hackingtool",
+    "file": "generate_readme.py",
+    "license": "MIT",
+    "language": "python"
+}

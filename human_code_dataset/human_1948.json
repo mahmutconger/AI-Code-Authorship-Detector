@@ -1,0 +1,7 @@
+{
+    "code": "def close_and_finalize_polygon(image: np.ndarray, original_image: np.ndarray) -> None:\n    if len(POLYGONS[-1]) > 2:\n        cv2.line(\n            img=image,\n            pt1=POLYGONS[-1][-1],\n            pt2=POLYGONS[-1][0],\n            color=COLORS.by_idx(0).as_bgr(),\n            thickness=THICKNESS,\n        )\n    POLYGONS.append([])\n    image[:] = original_image.copy()\n    redraw_polygons(image)\n    cv2.imshow(WINDOW_NAME, image)",
+    "source": "github_repo:roboflow/supervision",
+    "file": "examples/time_in_zone/scripts/draw_zones.py",
+    "license": "MIT",
+    "language": "python"
+}

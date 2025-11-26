@@ -1,0 +1,7 @@
+{
+    "code": "class Position(TypedDict):\n\t\"\"\"2D position coordinates.\"\"\"\n\n\tx: float\n\ty: float",
+    "source": "github_repo:browser-use/browser-use",
+    "file": "browser_use/actor/element.py",
+    "license": "MIT",
+    "language": "python"
+}

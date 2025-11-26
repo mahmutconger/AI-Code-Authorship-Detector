@@ -1,0 +1,7 @@
+{
+    "code": "def blank(\n    name: str,\n    *,\n    vocab: Union[Vocab, bool] = True,\n    config: Union[Dict[str, Any], Config] = util.SimpleFrozenDict(),\n    meta: Dict[str, Any] = util.SimpleFrozenDict(),\n) -> Language:\n    \"\"\"Create a blank nlp object for a given language code.\n\n    name (str): The language code, e.g. \"en\".\n    vocab (Vocab): A Vocab object. If True, a vocab is created.\n    config (Dict[str, Any] / Config): Optional config overrides.\n    meta (Dict[str, Any]): Overrides for nlp.meta.\n    RETURNS (Language): The nlp object.\n    \"\"\"\n    LangClass = util.get_lang_class(name)\n    # We should accept both dot notation and nested dict here for consistency\n    config = util.dot_to_dict(config)\n    return LangClass.from_config(config, vocab=vocab, meta=meta)",
+    "source": "github_repo:explosion/spaCy",
+    "file": "spacy/__init__.py",
+    "license": "MIT",
+    "language": "python"
+}

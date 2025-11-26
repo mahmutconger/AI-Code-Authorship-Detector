@@ -1,0 +1,7 @@
+{
+    "code": "def update_pyproject_version(pyproject_path: str, new_version: str) -> None:\n    \"\"\"Update the version in pyproject.toml.\"\"\"\n    filepath = BASE_DIR / pyproject_path\n    content = filepath.read_text(encoding=\"utf-8\")\n\n    # Regex to match the version line under [tool.poetry]\n    pattern = re.compile(r'(?<=^version = \")[^\"]+(?=\")', re.MULTILINE)\n\n    if not pattern.search(content):\n        msg = f'Project version not found in \"{filepath}\"'\n        raise ValueError(msg)\n\n    content = pattern.sub(new_version, content)\n\n    filepath.write_text(content, encoding=\"utf-8\")",
+    "source": "github_repo:langflow-ai/langflow",
+    "file": "scripts/ci/update_pyproject_version.py",
+    "license": "MIT",
+    "language": "python"
+}

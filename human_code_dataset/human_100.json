@@ -1,0 +1,7 @@
+{
+    "code": "def backtrack(\n    needed_sum: int,\n    power: int,\n    current_number: int,\n    current_sum: int,\n    solutions_count: int,\n) -> tuple[int, int]:\n    \"\"\"\n    >>> backtrack(13, 2, 1, 0, 0)\n    (0, 1)\n    >>> backtrack(10, 2, 1, 0, 0)\n    (0, 1)\n    >>> backtrack(10, 3, 1, 0, 0)\n    (0, 0)\n    >>> backtrack(20, 2, 1, 0, 0)\n    (0, 1)\n    >>> backtrack(15, 10, 1, 0, 0)\n    (0, 0)\n    >>> backtrack(16, 2, 1, 0, 0)\n    (0, 1)\n    >>> backtrack(20, 1, 1, 0, 0)\n    (0, 64)\n    \"\"\"\n    if current_sum == needed_sum:\n        # If the sum of the powers is equal to needed_sum, then we have a solution.\n        solutions_count += 1\n        return current_sum, solutions_count\n\n    i_to_n = current_number**power\n    if current_sum + i_to_n <= needed_sum:\n        # If the sum of the powers is less than needed_sum, then continue adding powers.\n        current_sum += i_to_n\n        current_sum, solutions_count = backtrack(\n            needed_sum, power, current_number + 1, current_sum, solutions_count\n        )\n        current_sum -= i_to_n\n    if i_to_n < needed_sum:\n        # If the power of i is less than needed_sum, then try with the next power.\n        current_sum, solutions_count = backtrack(\n            needed_sum, power, current_number + 1, current_sum, solutions_count\n        )\n    return current_sum, solutions_count",
+    "source": "github_repo:TheAlgorithms/Python",
+    "file": "backtracking/power_sum.py",
+    "license": "MIT",
+    "language": "python"
+}

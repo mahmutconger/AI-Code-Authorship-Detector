@@ -1,0 +1,7 @@
+{
+    "code": "def main(cli, vn, rem):\n    req_fn = rem.split(\"/\")[-1]\n    if not cli.can_read or not req_fn.startswith(\"randpic\"):\n        return\n\n    req_abspath = vn.canonical(rem)\n    req_ap_dir = os.path.dirname(req_abspath)\n    files_in_dir = os.listdir(req_ap_dir)\n\n    if \".\" in req_fn:\n        file_ext = \".\" + req_fn.split(\".\")[-1]\n        files_in_dir = [x for x in files_in_dir if x.lower().endswith(file_ext)]\n\n    if not files_in_dir:\n        return\n\n    selected_file = random.choice(files_in_dir)\n\n    req_url = \"/\".join([vn.vpath, rem]).strip(\"/\")\n    req_dir = req_url.rsplit(\"/\", 1)[0]\n    new_url = \"/\".join([req_dir, quote(selected_file)]).strip(\"/\")\n\n    cli.reply(b\"redirecting...\", 302, headers={\"Location\": \"/\" + new_url})\n    return \"true\"",
+    "source": "github_repo:9001/copyparty",
+    "file": "bin/handlers/randpic.py",
+    "license": "MIT",
+    "language": "python"
+}

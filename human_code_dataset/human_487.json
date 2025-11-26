@@ -1,0 +1,7 @@
+{
+    "code": "def run_scenes():\n    \"\"\"\n    Runs the scenes in a loop and detects when a scene reload is requested.\n    \"\"\"\n    # Create a new dict to be able to upate without\n    # altering global configuration\n    scene_config = Dict(manim_config.scene)\n    run_config = manim_config.run\n\n    if run_config.show_in_window:\n        # Create a reusable window\n        window = Window(**manim_config.window)\n        scene_config.update(window=window)\n\n    while True:\n        try:\n            # Blocking call since a scene may init an IPython shell()\n            scenes = manimlib.extract_scene.main(scene_config, run_config)\n            for scene in scenes:\n                scene.run()\n            return\n        except KillEmbedded:\n            # Requested via the `exit_raise` IPython runline magic\n            # by means of the reload_scene() command\n            pass\n        except KeyboardInterrupt:\n            break",
+    "source": "github_repo:3b1b/manim",
+    "file": "manimlib/__main__.py",
+    "license": "MIT",
+    "language": "python"
+}

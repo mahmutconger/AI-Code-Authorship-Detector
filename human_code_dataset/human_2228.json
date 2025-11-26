@@ -1,0 +1,7 @@
+{
+    "code": "def set_config_source(self, config_source: ConfigSource) -> Config:\n        self._config_source = config_source\n\n        return self",
+    "source": "github_repo:python-poetry/poetry",
+    "file": "src/poetry/config/config.py",
+    "license": "MIT",
+    "language": "python"
+}

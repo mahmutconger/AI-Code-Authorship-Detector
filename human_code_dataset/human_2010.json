@@ -1,0 +1,7 @@
+{
+    "code": "def construct(self):\n        import string\n\n        text = Text(string.ascii_lowercase, stroke_width=4, stroke_color=BLUE).scale(2)\n        text2 = (\n            Text(string.ascii_uppercase, stroke_width=4, stroke_color=BLUE)\n            .scale(2)\n            .next_to(text, DOWN)\n        )\n        # self.add(text, text2)\n        self.play(Write(text))\n        self.play(Write(text2))\n        self.interactive_embed()",
+    "source": "github_repo:ManimCommunity/manim",
+    "file": "example_scenes/opengl.py",
+    "license": "MIT",
+    "language": "python"
+}

@@ -1,0 +1,7 @@
+{
+    "code": "class Quartiles:\n    \"\"\"Calculate the q1, q2, q3 quartiles and the inter-quartile range (iqr)\n    of a sample.\"\"\"\n\n    q1: float\n    q2: float\n    q3: float\n    iqr: float\n\n    def __init__(self, sample: numpy.ndarray) -> None:\n        self.q1 = numpy.quantile(sample, 0.25)\n        self.q2 = numpy.quantile(sample, 0.5)\n        self.q3 = numpy.quantile(sample, 0.75)\n        self.iqr = self.q3 - self.q1",
+    "source": "github_repo:explosion/spaCy",
+    "file": "spacy/cli/benchmark_speed.py",
+    "license": "MIT",
+    "language": "python"
+}

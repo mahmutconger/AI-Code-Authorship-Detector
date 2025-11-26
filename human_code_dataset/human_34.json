@@ -1,0 +1,7 @@
+{
+    "code": "def test_get_host_from_link(self):\n        links = [\n            'example.com',\n            'https://example.com',\n            'https://www.example.com',\n            'https://www.example.com.br',\n            'https://www.example.com/route',\n            'https://www.example.com?p=1&q=2',\n            'https://www.example.com#anchor'\n        ]\n\n        for link in links:\n            host = get_host_from_link(link)\n\n            with self.subTest():\n                self.assertIsInstance(host, str)\n\n                self.assertNotIn('://', host)\n                self.assertNotIn('/', host)\n                self.assertNotIn('?', host)\n                self.assertNotIn('#', host)\n\n        with self.assertRaises(TypeError):\n            get_host_from_link()",
+    "source": "github_repo:public-apis/public-apis",
+    "file": "scripts/tests/test_validate_links.py",
+    "license": "MIT",
+    "language": "python"
+}

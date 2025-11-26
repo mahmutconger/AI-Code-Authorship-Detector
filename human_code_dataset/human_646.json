@@ -1,0 +1,7 @@
+{
+    "code": "def start(self, message):\n        \"\"\"Notify Start.\n\n        Will print the title to the standard output.\n\n        Keyword Arguments:\n        self                   -- This object.\n        message                -- String containing username that the series\n                                  of queries are about.\n\n        Return Value:\n        Nothing.\n        \"\"\"\n\n        title = \"Checking username\"\n\n        print(Style.BRIGHT + Fore.GREEN + \"[\" +\n              Fore.YELLOW + \"*\" +\n              Fore.GREEN + f\"] {title}\" +\n              Fore.WHITE + f\" {message}\" +\n              Fore.GREEN + \" on:\")\n        # An empty line between first line and the result(more clear output)\n        print('\\r')\n\n        return",
+    "source": "github_repo:sherlock-project/sherlock",
+    "file": "sherlock_project/notify.py",
+    "license": "MIT",
+    "language": "python"
+}

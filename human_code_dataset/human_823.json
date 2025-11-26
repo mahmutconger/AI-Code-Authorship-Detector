@@ -1,0 +1,7 @@
+{
+    "code": "def test_update_timeout(self):\n    sock = random_sock()\n    sm = messaging.SubMaster([sock,])\n    timeout = random.randrange(1000, 3000)\n    start_time = time.monotonic()\n    sm.update(timeout)\n    t = time.monotonic() - start_time\n    assert t >= timeout/1000.\n    assert t < 3\n    assert not any(sm.updated.values())",
+    "source": "github_repo:commaai/openpilot",
+    "file": "cereal/messaging/tests/test_pub_sub_master.py",
+    "license": "MIT",
+    "language": "python"
+}

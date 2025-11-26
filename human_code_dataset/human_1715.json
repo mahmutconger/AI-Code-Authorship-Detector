@@ -1,0 +1,7 @@
+{
+    "code": "def rgb(r, g, b, a=255):\n    \"\"\"(Internal) Turns an RGB color into a Qt compatible color integer.\"\"\"\n    # use qRgb to pack the colors, and then turn the resulting long\n    # into a negative integer with the same bitpattern.\n    return qRgba(r, g, b, a) & 0xFFFFFFFF",
+    "source": "github_repo:hiroi-sora/Umi-OCR",
+    "file": "UmiOCR-data/py_src/image_controller/ImageQt.py",
+    "license": "MIT",
+    "language": "python"
+}

@@ -1,0 +1,7 @@
+{
+    "code": "def python_installation_dir(self) -> Path:\n        path = self.get(\"python.installation-dir\")\n        if path is None:\n            path = Path(self.get(\"data-dir\")) / \"python\"\n        return Path(path).expanduser()",
+    "source": "github_repo:python-poetry/poetry",
+    "file": "src/poetry/config/config.py",
+    "license": "MIT",
+    "language": "python"
+}

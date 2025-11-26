@@ -1,0 +1,7 @@
+{
+    "code": "def get_pr_revision(pr: int) -> str:\n    data = http_get(f\"https://api.github.com/repos/{REPO}/pulls/{pr}\")\n    assert isinstance(data[\"head\"][\"sha\"], str)\n    return data[\"head\"][\"sha\"]",
+    "source": "github_repo:psf/black",
+    "file": "scripts/diff_shades_gha_helper.py",
+    "license": "MIT",
+    "language": "python"
+}

@@ -1,0 +1,7 @@
+{
+    "code": "def _create_tools(self):\n        \"\"\"Create BaseTool instances for each action.\"\"\"\n        tools = []\n\n        for action_name, action_schema in self._actions_schema.items():\n            function_details = action_schema.get(\"function\", {})\n            description = function_details.get(\"description\", f\"Execute {action_name}\")\n\n            parameters = function_details.get(\"parameters\", {})\n            param_descriptions = []\n\n            if parameters.get(\"properties\"):\n                param_descriptions.append(\"\\nDetailed Parameter Structure:\")\n                param_descriptions.extend(\n                    self._generate_detailed_description(parameters)\n                )\n\n            full_description = description + \"\\n\".join(param_descriptions)\n\n            tool = EnterpriseActionTool(\n                name=action_name.lower().replace(\" \", \"_\"),\n                description=full_description,\n                action_name=action_name,\n                action_schema=action_schema,\n                enterprise_action_token=self.enterprise_action_token,\n                enterprise_api_base_url=self.enterprise_api_base_url,\n            )\n\n            tools.append(tool)\n\n        self._tools = tools",
+    "source": "github_repo:crewAIInc/crewAI",
+    "file": "lib/crewai-tools/src/crewai_tools/adapters/enterprise_adapter.py",
+    "license": "MIT",
+    "language": "python"
+}

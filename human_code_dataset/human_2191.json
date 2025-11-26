@@ -1,0 +1,7 @@
+{
+    "code": "def autoSynchroTime():\n    \"\"\"\n    同步北京时间，执行时候，请务必用sudo，sudo，sudo 执行，否则会报权限错误，windows打开ide或者cmd请用管理员身份\n    :return:\n    \"\"\"\n    c = ntplib.NTPClient()\n\n    hosts = ['ntp1.aliyun.com', 'ntp2.aliyun.com', 'ntp3.aliyun.com', 'ntp4.aliyun.com', 'cn.pool.ntp.org']\n\n    print(u\"正在同步时间，请耐心等待30秒左右，如果下面有错误发送，可以忽略！！\")\n    print(u\"系统当前时间{}\".format(str(datetime.datetime.now())[:22]))\n    system = platform.system()\n    if system == \"Windows\":  # windows 同步时间未测试过，参考地址：https://www.jianshu.com/p/92ec15da6cc3\n        for host in hosts:\n            os.popen('w32tm /register')\n            os.popen('net start w32time')\n            os.popen('w32tm /config /manualpeerlist:\"{}\" /syncfromflags:manual /reliable:yes /update'.format(host))\n            os.popen('ping -n 3 127.0.0.1 >nul')\n            sin = os.popen('w32tm /resync')\n            if sin is 0:\n                break\n    else:  # mac同步地址，如果ntpdate未安装，brew install ntpdate    linux 安装 yum install -y ntpdate\n        for host in hosts:\n            sin = os.popen('ntpdate {}'.format(host))\n            if sin is 0:\n                break\n    print(u\"同步后时间:{}\".format(str(datetime.datetime.now())[:22]))",
+    "source": "github_repo:testerSunshine/12306",
+    "file": "config/AutoSynchroTime.py",
+    "license": "MIT",
+    "language": "python"
+}

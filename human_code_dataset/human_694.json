@@ -1,0 +1,7 @@
+{
+    "code": "def _model(c: Configs):\n    \"\"\"\n    #### Initialize the model\n    \"\"\"\n\n    # Create FTA activation module\n    fta = FTA(c.fta_lower_limit, c.fta_upper_limit, c.fta_delta, c.fta_eta)\n    # Create the transformer.\n    # We re-use [`TransformerLayer`](../../transformers/models.html#TransformerLayer) and\n    # [`MultiHeadAttention`](../../transformers/mha.html) implementations.\n    m = AutoregressiveTransformer(c.n_tokens, c.d_model, c.n_layers,\n                                  TransformerLayer(d_model=c.d_model,\n                                                   feed_forward=FeedForwardFTA(d_model=c.d_model,\n                                                                               d_ff=c.d_ff,\n                                                                               activation=fta,\n                                                                               dropout=0.1),\n                                                   self_attn=MultiHeadAttention(c.n_heads, c.d_model,\n                                                                                dropout_prob=0.0),\n                                                   dropout_prob=0.0))\n\n    # Move to the device\n    return m.to(c.device)",
+    "source": "github_repo:labmlai/annotated_deep_learning_paper_implementations",
+    "file": "labml_nn/activations/fta/experiment.py",
+    "license": "MIT",
+    "language": "python"
+}

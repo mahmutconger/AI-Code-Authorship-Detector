@@ -1,0 +1,7 @@
+{
+    "code": "def _default_definition(self) -> Definition:\n        from cleo.io.inputs.option import Option\n\n        definition = super()._default_definition\n\n        definition.add_option(\n            Option(\"--no-plugins\", flag=True, description=\"Disables plugins.\")\n        )\n\n        definition.add_option(\n            Option(\n                \"--no-cache\", flag=True, description=\"Disables Poetry source caches.\"\n            )\n        )\n\n        definition.add_option(\n            Option(\n                \"--project\",\n                \"-P\",\n                flag=False,\n                description=(\n                    \"Specify another path as the project root.\"\n                    \" All command-line arguments will be resolved relative to the current working directory.\"\n                ),\n            )\n        )\n\n        definition.add_option(\n            Option(\n                \"--directory\",\n                \"-C\",\n                flag=False,\n                description=(\n                    \"The working directory for the Poetry command (defaults to the\"\n                    \" current working directory). All command-line arguments will be\"\n                    \" resolved relative to the given directory.\"\n                ),\n            )\n        )\n\n        return definition",
+    "source": "github_repo:python-poetry/poetry",
+    "file": "src/poetry/console/application.py",
+    "license": "MIT",
+    "language": "python"
+}

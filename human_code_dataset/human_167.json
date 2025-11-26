@@ -1,0 +1,7 @@
+{
+    "code": "def create_demo_server(\n    *,\n    config_keys: Sequence[str] = (),\n    playground_type: Literal[\"default\", \"chat\"] = \"default\",\n) -> FastAPI:\n    \"\"\"Create a demo server for the current template.\n\n    Args:\n        config_keys: Optional sequence of config keys to expose in the playground.\n        playground_type: The type of playground to use.\n\n    Returns:\n        The demo server.\n\n    Raises:\n        KeyError: If the `pyproject.toml` file is missing required fields.\n        ImportError: If the module defined in `pyproject.toml` cannot be imported.\n    \"\"\"\n    app = FastAPI()\n    package_root = get_package_root()\n    pyproject = package_root / \"pyproject.toml\"\n    try:\n        package = get_langserve_export(pyproject)\n\n        mod = __import__(package[\"module\"], fromlist=[package[\"attr\"]])\n\n        chain = getattr(mod, package[\"attr\"])\n        add_routes(\n            app,\n            chain,\n            config_keys=config_keys,\n            playground_type=playground_type,\n        )\n    except KeyError as e:\n        msg = \"Missing fields from pyproject.toml\"\n        raise KeyError(msg) from e\n    except ImportError as e:\n        msg = \"Could not import module defined in pyproject.toml\"\n        raise ImportError(msg) from e\n\n    return app",
+    "source": "github_repo:langchain-ai/langchain",
+    "file": "libs/cli/langchain_cli/dev_scripts.py",
+    "license": "MIT",
+    "language": "python"
+}

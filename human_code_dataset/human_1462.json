@@ -1,0 +1,7 @@
+{
+    "code": "def __init__(\n        self,\n        node: \"Node\" = None,\n        forward: bool = False,\n        reverse: bool = False,\n        label: str = \"\",\n        color: str = \"\",\n        style: str = \"\",\n        **attrs: Dict,\n    ):\n        \"\"\"Edge represents an edge between two nodes.\n\n        :param node: Parent node.\n        :param forward: Points forward.\n        :param reverse: Points backward.\n        :param label: Edge label.\n        :param color: Edge color.\n        :param style: Edge style.\n        :param attrs: Other edge attributes\n        \"\"\"\n        if node is not None:\n            assert isinstance(node, Node)\n\n        self.node = node\n        self.forward = forward\n        self.reverse = reverse\n\n        self._attrs = {}\n\n        # Set attributes.\n        for k, v in self._default_edge_attrs.items():\n            self._attrs[k] = v\n\n        if label:\n            # Graphviz complaining about using label for edges, so replace it with xlabel.\n            # Update: xlabel option causes the misaligned label position:\n            # https://github.com/mingrammer/diagrams/issues/83\n            self._attrs[\"label\"] = label\n        if color:\n            self._attrs[\"color\"] = color\n        if style:\n            self._attrs[\"style\"] = style\n        self._attrs.update(attrs)",
+    "source": "github_repo:mingrammer/diagrams",
+    "file": "diagrams/__init__.py",
+    "license": "MIT",
+    "language": "python"
+}

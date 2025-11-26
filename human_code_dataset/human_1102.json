@@ -1,0 +1,7 @@
+{
+    "code": "def _should_finish_execution(self, name: str, **kwargs) -> bool:\n        \"\"\"Determine if tool execution should finish the agent\"\"\"\n        # Terminate if the tool name is 'terminate'\n        return name.lower() == \"terminate\"",
+    "source": "github_repo:FoundationAgents/OpenManus",
+    "file": "app/agent/mcp.py",
+    "license": "MIT",
+    "language": "python"
+}

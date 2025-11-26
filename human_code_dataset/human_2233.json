@@ -1,0 +1,7 @@
+{
+    "code": "def _get_environment_build_config_settings() -> Mapping[\n        NormalizedName, Mapping[str, str | Sequence[str]]\n    ]:\n        build_config_settings = {}\n        pattern = re.compile(r\"POETRY_INSTALLER_BUILD_CONFIG_SETTINGS_(?P<name>[^.]+)\")\n\n        for env_key in os.environ:\n            if match := pattern.match(env_key):\n                if not build_config_setting_validator(os.environ[env_key]):\n                    logger.debug(\n                        \"Invalid value set for environment variable %s\", env_key\n                    )\n                    continue\n                build_config_settings[canonicalize_name(match.group(\"name\"))] = (\n                    build_config_setting_normalizer(os.environ[env_key])\n                )\n\n        return build_config_settings",
+    "source": "github_repo:python-poetry/poetry",
+    "file": "src/poetry/config/config.py",
+    "license": "MIT",
+    "language": "python"
+}

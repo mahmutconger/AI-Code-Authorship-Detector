@@ -1,0 +1,7 @@
+{
+    "code": "def main():\n    \"\"\"Update LFX for nightly builds.\n\n    Usage:\n    update_lfx_version.py <lfx_tag>\n    \"\"\"\n    expected_args = 2\n    if len(sys.argv) != expected_args:\n        print(\"Usage: update_lfx_version.py <lfx_tag>\")\n        sys.exit(1)\n\n    lfx_tag = sys.argv[1]\n    update_lfx_for_nightly(lfx_tag)",
+    "source": "github_repo:langflow-ai/langflow",
+    "file": "scripts/ci/update_lfx_version.py",
+    "license": "MIT",
+    "language": "python"
+}

@@ -1,0 +1,7 @@
+{
+    "code": "def _stream_jsonl(path: Path, field: str) -> Iterable[str]:\n    \"\"\"\n    Stream \"text\" field from JSONL. If the field \"text\" is\n    not found it raises error.\n    \"\"\"\n    for entry in srsly.read_jsonl(path):\n        if field not in entry:\n            msg.fail(f\"{path} does not contain the required '{field}' field.\", exits=1)\n        else:\n            yield entry[field]",
+    "source": "github_repo:explosion/spaCy",
+    "file": "spacy/cli/apply.py",
+    "license": "MIT",
+    "language": "python"
+}

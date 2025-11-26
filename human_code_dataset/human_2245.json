@@ -1,0 +1,7 @@
+{
+    "code": "def drop_empty_config_category(\n    keys: list[str], config: dict[Any, Any]\n) -> dict[Any, Any]:\n    config_ = {}\n\n    for key, value in config.items():\n        if not keys or key != keys[0]:\n            config_[key] = value\n            continue\n        if keys and key == keys[0]:\n            if isinstance(value, dict):\n                value = drop_empty_config_category(keys[1:], value)\n\n            if value != {}:\n                config_[key] = value\n\n    return config_",
+    "source": "github_repo:python-poetry/poetry",
+    "file": "src/poetry/config/config_source.py",
+    "license": "MIT",
+    "language": "python"
+}

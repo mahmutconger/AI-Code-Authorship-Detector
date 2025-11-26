@@ -1,0 +1,7 @@
+{
+    "code": "def setUp(self):\n        self.duplicate_links = [\n            'https://www.example.com',\n            'https://www.example.com',\n            'https://www.example.com',\n            'https://www.anotherexample.com',\n        ]\n        self.no_duplicate_links = [\n            'https://www.firstexample.com',\n            'https://www.secondexample.com',\n            'https://www.anotherexample.com',\n        ]\n\n        self.code_200 = 200\n        self.code_403 = 403\n        self.code_503 = 503\n\n        self.cloudflare_headers = {'Server': 'cloudflare'}\n        self.no_cloudflare_headers = {'Server': 'google'}\n\n        self.text_with_cloudflare_flags = '403 Forbidden Cloudflare We are checking your browser...'\n        self.text_without_cloudflare_flags = 'Lorem Ipsum'",
+    "source": "github_repo:public-apis/public-apis",
+    "file": "scripts/tests/test_validate_links.py",
+    "license": "MIT",
+    "language": "python"
+}

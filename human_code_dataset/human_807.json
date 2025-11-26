@@ -1,0 +1,7 @@
+{
+    "code": "def delayed_send(delay, sock, dat):\n  def send_func():\n    sock.send(dat)\n  threading.Timer(delay, send_func).start()",
+    "source": "github_repo:commaai/openpilot",
+    "file": "cereal/messaging/tests/test_messaging.py",
+    "license": "MIT",
+    "language": "python"
+}

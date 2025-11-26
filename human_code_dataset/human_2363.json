@@ -1,0 +1,7 @@
+{
+    "code": "def load_results(self):\n        \"\"\"Loads results from previous hyperparameter optimisation.\n\n        Returns:\n          A boolean indicating if previous results can be loaded.\n        \"\"\"\n        print(\"Loading results from\", self.hyperparam_folder)\n\n        results_file = os.path.join(self.hyperparam_folder, \"results.csv\")\n        params_file = os.path.join(self.hyperparam_folder, \"params.csv\")\n\n        if os.path.exists(results_file) and os.path.exists(params_file):\n            self.results = pd.read_csv(results_file, index_col=0)\n            self.saved_params = pd.read_csv(params_file, index_col=0)\n\n            if not self.results.empty:\n                self.results.at[\"loss\"] = self.results.loc[\"loss\"].apply(float)\n                self.best_score = self.results.loc[\"loss\"].min()\n\n                is_optimal = self.results.loc[\"loss\"] == self.best_score\n                self.optimal_name = self.results.T[is_optimal].index[0]\n\n                return True\n\n        return False",
+    "source": "github_repo:microsoft/qlib",
+    "file": "examples/benchmarks/TFT/libs/hyperparam_opt.py",
+    "license": "MIT",
+    "language": "python"
+}

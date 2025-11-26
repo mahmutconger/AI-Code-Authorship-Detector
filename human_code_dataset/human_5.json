@@ -1,0 +1,7 @@
+{
+    "code": "def test_check_title_with_correct_title(self):\n        raw_title = '[A](https://www.ex.com)'\n\n        err_msgs = check_title(0, raw_title)\n\n        self.assertIsInstance(err_msgs, list)\n        self.assertEqual(len(err_msgs), 0)\n        self.assertEqual(err_msgs, [])",
+    "source": "github_repo:public-apis/public-apis",
+    "file": "scripts/tests/test_validate_format.py",
+    "license": "MIT",
+    "language": "python"
+}

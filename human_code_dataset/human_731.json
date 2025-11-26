@@ -1,0 +1,7 @@
+{
+    "code": "def capsule_network_model(c: Configs):\n    \"\"\"Set the model\"\"\"\n    return MNISTCapsuleNetworkModel().to(c.device)",
+    "source": "github_repo:labmlai/annotated_deep_learning_paper_implementations",
+    "file": "labml_nn/capsule_networks/mnist.py",
+    "license": "MIT",
+    "language": "python"
+}

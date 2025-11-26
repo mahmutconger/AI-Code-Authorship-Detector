@@ -1,0 +1,7 @@
+{
+    "code": "def _embedding_function(input):\n        rs = client.embeddings.create(input=input, model=\"text-embedding-ada-002\")\n        return [record.embedding for record in rs.data]",
+    "source": "github_repo:crewAIInc/crewAI",
+    "file": "lib/crewai-tools/src/crewai_tools/adapters/lancedb_adapter.py",
+    "license": "MIT",
+    "language": "python"
+}

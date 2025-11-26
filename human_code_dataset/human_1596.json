@@ -1,0 +1,7 @@
+{
+    "code": "class AddDocumentParams(TypedDict, total=False):\n    \"\"\"Parameters for adding documents to the RAG system.\"\"\"\n\n    data_type: DataType\n    metadata: dict[str, Any]\n    website: str\n    url: str\n    file_path: str | Path\n    github_url: str\n    youtube_url: str\n    directory_path: str | Path",
+    "source": "github_repo:crewAIInc/crewAI",
+    "file": "lib/crewai-tools/src/crewai_tools/adapters/crewai_rag_adapter.py",
+    "license": "MIT",
+    "language": "python"
+}

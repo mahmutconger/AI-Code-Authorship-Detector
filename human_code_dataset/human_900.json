@@ -1,0 +1,7 @@
+{
+    "code": "def __init__(self, project_path: Union[str, Path]):\n        \"\"\"\n        Initializes the FileSelector with a given project path.\n\n        Parameters\n        ----------\n        project_path : Union[str, Path]\n            The path to the project directory where file selection is to be performed.\n        \"\"\"\n        self.project_path = project_path\n        self.metadata_db = DiskMemory(metadata_path(self.project_path))\n        self.toml_path = self.metadata_db.path / self.FILE_LIST_NAME",
+    "source": "github_repo:AntonOsika/gpt-engineer",
+    "file": "gpt_engineer/applications/cli/file_selector.py",
+    "license": "MIT",
+    "language": "python"
+}

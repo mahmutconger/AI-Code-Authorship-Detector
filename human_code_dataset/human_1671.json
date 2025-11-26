@@ -1,0 +1,7 @@
+{
+    "code": "def get_updates_list_command(cls):\n        \"\"\"\n        Return the command to get the list of updates\n        since the last update whose id is saved as the repository state (`cached_state`).\n        The list is used to invalidate the cache.\n        \"\"\"\n        return None",
+    "source": "github_repo:chubin/cheat.sh",
+    "file": "lib/adapter/adapter.py",
+    "license": "MIT",
+    "language": "python"
+}

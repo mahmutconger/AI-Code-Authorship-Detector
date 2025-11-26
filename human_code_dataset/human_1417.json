@@ -1,0 +1,7 @@
+{
+    "code": "def disabled_train(self, mode=True):\n    \"\"\"Overwrite model.train with this function to make sure train/eval mode\n    does not change anymore.\"\"\"\n    return self",
+    "source": "github_repo:Stability-AI/stablediffusion",
+    "file": "ldm/models/diffusion/ddpm.py",
+    "license": "MIT",
+    "language": "python"
+}

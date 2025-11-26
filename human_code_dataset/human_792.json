@@ -1,0 +1,7 @@
+{
+    "code": "class FrequencyTracker:\n  def __init__(self, service_freq: float, update_freq: float, is_poll: bool):\n    freq = max(min(service_freq, update_freq), 1.)\n    if is_poll:\n      min_freq = max_freq = freq\n    else:\n      max_freq = min(freq, update_freq)\n      if service_freq >= 2 * update_freq:\n        min_freq = update_freq\n      elif update_freq >= 2* service_freq:\n        min_freq = freq\n      else:\n        min_freq = min(freq, freq / 2.)\n\n    self.min_freq = min_freq * 0.8\n    self.max_freq = max_freq * 1.2\n    self.avg_dt = MovingAverage(int(10 * freq))\n    self.recent_avg_dt = MovingAverage(int(freq))\n    self.prev_time = 0.0\n\n  def record_recv_time(self, cur_time: float) -> None:\n    # TODO: Handle case where cur_time is less than prev_time\n    if self.prev_time > 1e-5:\n      dt = cur_time - self.prev_time\n\n      self.avg_dt.add_value(dt)\n      self.recent_avg_dt.add_value(dt)\n\n    self.prev_time = cur_time\n\n  @property\n  def valid(self) -> bool:\n    if self.avg_dt.count == 0:\n      return False\n\n    avg_freq = 1.0 / self.avg_dt.get_average()\n    if self.min_freq <= avg_freq <= self.max_freq:\n      return True\n\n    avg_freq_recent = 1.0 / self.recent_avg_dt.get_average()\n    return self.min_freq <= avg_freq_recent <= self.max_freq",
+    "source": "github_repo:commaai/openpilot",
+    "file": "cereal/messaging/__init__.py",
+    "license": "MIT",
+    "language": "python"
+}

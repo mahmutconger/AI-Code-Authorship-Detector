@@ -1,0 +1,7 @@
+{
+    "code": "def subscribe_data(event: Event) -> None:\n        \"\"\"\n        处理合约推送并订阅行情\n\n        当系统接收到合约信息后，根据预设的交易所和品种过滤条件，\n        自动为符合条件的合约添加行情录制任务。\n\n        参数:\n            event: 包含合约信息的事件对象\n        \"\"\"\n        # 从事件对象中获取合约数据\n        contract: ContractData = event.data\n\n        # 判断合约是否符合录制条件\n        if (\n            contract.exchange in recording_exchanges    # 检查合约所属交易所是否在预设列表中\n            and contract.product in recording_products  # 检查合约品种类型是否在预设列表中\n        ):\n            # 添加该合约的行情录制任务，vt_symbol是VeighNa中的唯一标识符，格式为\"代码.交易所\"\n            recorder_engine.add_tick_recording(contract.vt_symbol)      # 录制Tick数据\n            recorder_engine.add_bar_recording(contract.vt_symbol)       # 录制分钟K线",
+    "source": "github_repo:vnpy/vnpy",
+    "file": "examples/data_recorder/data_recorder.py",
+    "license": "MIT",
+    "language": "python"
+}

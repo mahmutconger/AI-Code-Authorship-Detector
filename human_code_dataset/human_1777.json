@@ -1,0 +1,7 @@
+{
+    "code": "def get_completion_content(self, response, node_id):\n        if not response['Success']:\n            return f\"[ERROR]\\n{response['Code']}:{response['Message']}\"\n        text = response['Data']['Text']\n        if node_id == '':\n            return text\n        # TODO: 当使用流程编排创建大模型应用时，响应结构如下，最终结果在['finalResult'][node_id]['response']['text']中，暂时先这么写\n        # {\n        #     'Success': True,\n        #     'Code': None,\n        #     'Message': None,\n        #     'Data': {\n        #         'ResponseId': '9822f38dbacf4c9b8daf5ca03a2daf15',\n        #         'SessionId': 'session_id',\n        #         'Text': '{\"finalResult\":{\"LLM_T7islK\":{\"params\":{\"modelId\":\"qwen-plus-v1\",\"prompt\":\"${systemVars.query}${bizVars.Text}\"},\"response\":{\"text\":\"作为一个AI语言模型，我没有年龄，因为我没有生日。\\n我只是一个程序，没有生命和身体。\"}}}}',\n        #         'Thoughts': [],\n        #         'Debug': {},\n        #         'DocReferences': []\n        #     },\n        #     'RequestId': '8e11d31551ce4c3f83f49e6e0dd998b0',\n        #     'Failed': None\n        # }\n        text_dict = json.loads(text)\n        completion_content =  text_dict['finalResult'][node_id]['response']['text']\n        return completion_content",
+    "source": "github_repo:zhayujie/chatgpt-on-wechat",
+    "file": "bot/ali/ali_qwen_bot.py",
+    "license": "MIT",
+    "language": "python"
+}

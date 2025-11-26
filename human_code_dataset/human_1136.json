@@ -1,0 +1,7 @@
+{
+    "code": "def _parse_rate_limit_headers(headers: httpx.Headers) -> dict:\n    \"\"\"Extract and parse GitHub rate-limit headers.\"\"\"\n    info = {}\n    \n    # Standard GitHub rate-limit headers\n    if \"X-RateLimit-Limit\" in headers:\n        info[\"limit\"] = headers.get(\"X-RateLimit-Limit\")\n    if \"X-RateLimit-Remaining\" in headers:\n        info[\"remaining\"] = headers.get(\"X-RateLimit-Remaining\")\n    if \"X-RateLimit-Reset\" in headers:\n        reset_epoch = int(headers.get(\"X-RateLimit-Reset\", \"0\"))\n        if reset_epoch:\n            reset_time = datetime.fromtimestamp(reset_epoch, tz=timezone.utc)\n            info[\"reset_epoch\"] = reset_epoch\n            info[\"reset_time\"] = reset_time\n            info[\"reset_local\"] = reset_time.astimezone()\n    \n    # Retry-After header (seconds or HTTP-date)\n    if \"Retry-After\" in headers:\n        retry_after = headers.get(\"Retry-After\")\n        try:\n            info[\"retry_after_seconds\"] = int(retry_after)\n        except ValueError:\n            # HTTP-date format - not implemented, just store as string\n            info[\"retry_after\"] = retry_after\n    \n    return info",
+    "source": "github_repo:github/spec-kit",
+    "file": "src/specify_cli/__init__.py",
+    "license": "MIT",
+    "language": "python"
+}

@@ -1,0 +1,7 @@
+{
+    "code": "def __init__(self, epsilon=1e-8):\n        super().__init__()\n        self.epsilon = epsilon",
+    "source": "github_repo:labmlai/annotated_deep_learning_paper_implementations",
+    "file": "labml_nn/capsule_networks/__init__.py",
+    "license": "MIT",
+    "language": "python"
+}

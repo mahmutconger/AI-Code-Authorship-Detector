@@ -1,0 +1,7 @@
+{
+    "code": "class MaterialInfo:\n    provider: str = \"pexels\"\n    url: str = \"\"\n    duration: int = 0",
+    "source": "github_repo:harry0703/MoneyPrinterTurbo",
+    "file": "app/models/schema.py",
+    "license": "MIT",
+    "language": "python"
+}

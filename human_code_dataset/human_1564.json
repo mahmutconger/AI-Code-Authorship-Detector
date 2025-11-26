@@ -1,0 +1,7 @@
+{
+    "code": "def main(changes: str, the_basics: str) -> None:\n    changes_html = commonmark.commonmark(changes)\n    changes_soup = BeautifulSoup(changes_html, \"html.parser\")\n    headers = changes_soup.find_all(\"h2\")\n    tags = [header.string for header in headers if header.string != \"Unreleased\"]\n    latest_tag = tags[0]\n\n    the_basics_html = commonmark.commonmark(the_basics)\n    the_basics_soup = BeautifulSoup(the_basics_html, \"html.parser\")\n    version_examples = [\n        code_block.string\n        for code_block in the_basics_soup.find_all(class_=\"language-console\")\n        if \"$ black --version\" in code_block.string\n    ]\n\n    for tag in tags:\n        for version_example in version_examples:\n            if tag in version_example and tag != latest_tag:\n                print(\n                    \"Please set the version in the ``black --version`` \"\n                    \"examples from ``the_basics.md`` to be the latest one.\\n\"\n                    f\"Expected {latest_tag}, got {tag}.\\n\"\n                )\n                sys.exit(1)",
+    "source": "github_repo:psf/black",
+    "file": "scripts/check_version_in_basics_example.py",
+    "license": "MIT",
+    "language": "python"
+}

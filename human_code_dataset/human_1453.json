@@ -1,0 +1,7 @@
+{
+    "code": "def __repr__(self):\n        _name = self.__class__.__name__\n        return f\"<{self._provider}.{self._type}.{_name}>\"",
+    "source": "github_repo:mingrammer/diagrams",
+    "file": "diagrams/__init__.py",
+    "license": "MIT",
+    "language": "python"
+}

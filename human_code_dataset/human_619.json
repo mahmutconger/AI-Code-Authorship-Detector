@@ -1,0 +1,7 @@
+{
+    "code": "class Llm(Enum):\n    GPT_4_VISION = \"gpt-4-vision-preview\"\n    GPT_4_TURBO_2024_04_09 = \"gpt-4-turbo-2024-04-09\"\n    GPT_4O_2024_05_13 = \"gpt-4o-2024-05-13\"\n    GPT_4O_2024_08_06 = \"gpt-4o-2024-08-06\"\n    GPT_4O_2024_11_20 = \"gpt-4o-2024-11-20\"\n    GPT_4_1_2025_04_14 = \"gpt-4.1-2025-04-14\"\n    GPT_4_1_MINI_2025_04_14 = \"gpt-4.1-mini-2025-04-14\"\n    GPT_4_1_NANO_2025_04_14 = \"gpt-4.1-nano-2025-04-14\"\n    CLAUDE_3_SONNET = \"claude-3-sonnet-20240229\"\n    CLAUDE_3_OPUS = \"claude-3-opus-20240229\"\n    CLAUDE_3_HAIKU = \"claude-3-haiku-20240307\"\n    CLAUDE_3_7_SONNET_2025_02_19 = \"claude-3-7-sonnet-20250219\"\n    CLAUDE_4_SONNET_2025_05_14 = \"claude-sonnet-4-20250514\"\n    CLAUDE_4_5_SONNET_2025_09_29 = \"claude-sonnet-4-5-20250929\"\n    CLAUDE_4_OPUS_2025_05_14 = \"claude-opus-4-20250514\"\n    GEMINI_2_0_FLASH_EXP = \"gemini-2.0-flash-exp\"\n    GEMINI_2_0_FLASH = \"gemini-2.0-flash\"\n    GEMINI_2_0_PRO_EXP = \"gemini-2.0-pro-exp-02-05\"\n    GEMINI_2_5_FLASH_PREVIEW_05_20 = \"gemini-2.5-flash-preview-05-20\"\n    O1_2024_12_17 = \"o1-2024-12-17\"\n    O4_MINI_2025_04_16 = \"o4-mini-2025-04-16\"\n    O3_2025_04_16 = \"o3-2025-04-16\"",
+    "source": "github_repo:abi/screenshot-to-code",
+    "file": "backend/llm.py",
+    "license": "MIT",
+    "language": "python"
+}

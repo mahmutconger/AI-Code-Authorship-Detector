@@ -1,0 +1,7 @@
+{
+    "code": "def _raw_face_landmarks(face_image, face_locations=None, model=\"large\"):\n    if face_locations is None:\n        face_locations = _raw_face_locations(face_image)\n    else:\n        face_locations = [_css_to_rect(face_location) for face_location in face_locations]\n\n    pose_predictor = pose_predictor_68_point\n\n    if model == \"small\":\n        pose_predictor = pose_predictor_5_point\n\n    return [pose_predictor(face_image, face_location) for face_location in face_locations]",
+    "source": "github_repo:ageitgey/face_recognition",
+    "file": "face_recognition/api.py",
+    "license": "MIT",
+    "language": "python"
+}

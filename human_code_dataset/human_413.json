@@ -1,0 +1,7 @@
+{
+    "code": "def _exit_with_error(message: str):\n    print(message)\n    sys.exit(1)",
+    "source": "github_repo:microsoft/markitdown",
+    "file": "packages/markitdown/src/markitdown/__main__.py",
+    "license": "MIT",
+    "language": "python"
+}

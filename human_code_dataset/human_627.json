@@ -1,0 +1,7 @@
+{
+    "code": "def create_message_from_history_item(\n    item: dict[str, Any], role: str\n) -> ChatCompletionMessageParam:\n    \"\"\"\n    Create a ChatCompletionMessageParam from a history item.\n    Handles both text-only and text+images content.\n    \"\"\"\n    # Check if this is a user message with images\n    if role == \"user\" and item.get(\"images\") and len(item[\"images\"]) > 0:\n        # Create multipart content for user messages with images\n        user_content: list[ChatCompletionContentPartParam] = []\n\n        # Add all images first\n        for image_url in item[\"images\"]:\n            user_content.append(\n                {\n                    \"type\": \"image_url\",\n                    \"image_url\": {\"url\": image_url, \"detail\": \"high\"},\n                }\n            )\n\n        # Add text content\n        user_content.append(\n            {\n                \"type\": \"text\",\n                \"text\": item[\"text\"],\n            }\n        )\n\n        return cast(\n            ChatCompletionMessageParam,\n            {\n                \"role\": role,\n                \"content\": user_content,\n            },\n        )\n    else:\n        # Regular text-only message\n        return cast(\n            ChatCompletionMessageParam,\n            {\n                \"role\": role,\n                \"content\": item[\"text\"],\n            },\n        )",
+    "source": "github_repo:abi/screenshot-to-code",
+    "file": "backend/prompts/__init__.py",
+    "license": "MIT",
+    "language": "python"
+}

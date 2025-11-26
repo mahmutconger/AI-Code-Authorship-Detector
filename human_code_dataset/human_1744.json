@@ -1,0 +1,7 @@
+{
+    "code": "def when_orderbook_changed(exchange_spot, symbol, orderbook):\n    # this is a common handler function\n    # it is called when any of the orderbook is updated\n    # it has access to both the orderbook that was updated\n    # as well as the rest of the orderbooks\n    # ...................................................................\n    print('-------------------------------------------------------------')\n    print('Last updated:', exchange_spot.iso8601(exchange_spot.milliseconds()))\n    # ...................................................................\n    # print just one orderbook here\n    # print(orderbook['datetime'], symbol, orderbook['asks'][0], orderbook['bids'][0])\n    # ...................................................................\n    # or print all orderbooks that have been already subscribed-to\n    for symbol, orderbook in orderbooks.items():\n        print(orderbook['datetime'], symbol, orderbook['asks'][0], orderbook['bids'][0])",
+    "source": "github_repo:ccxt/ccxt",
+    "file": "examples/ccxt.pro/py/binance-watch-many-orderbooks.py",
+    "license": "MIT",
+    "language": "python"
+}

@@ -1,0 +1,7 @@
+{
+    "code": "class SegmentSuite:\n    def setup(self):\n        self.line = [\n            Segment(\"foo\"),\n            Segment(\"bar\"),\n            Segment(\"egg\"),\n            Segment(\"Where there is a Will\"),\n            Segment(\"There is a way\"),\n        ] * 2\n\n    def test_divide_complex(self):\n        list(Segment.divide(self.line, [5, 10, 20, 50, 108, 110, 118]))",
+    "source": "github_repo:Textualize/rich",
+    "file": "benchmarks/benchmarks.py",
+    "license": "MIT",
+    "language": "python"
+}

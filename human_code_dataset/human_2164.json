@@ -1,0 +1,7 @@
+{
+    "code": "def scan():\n    \"\"\"\n    scan: applies function scanner() to each line of the source code.\n    \"\"\"\n    global lines\n    assert len(lines) > 0, \"no lines\"\n    for line in lines:\n        try:\n            scanner(line)\n        except InvalidSyntax:\n            print(\"line=\", line)",
+    "source": "github_repo:geekcomputers/Python",
+    "file": "Assembler/assembler.py",
+    "license": "MIT",
+    "language": "python"
+}

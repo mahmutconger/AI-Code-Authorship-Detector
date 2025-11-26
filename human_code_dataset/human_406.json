@@ -1,0 +1,7 @@
+{
+    "code": "def accepts(\n        self,\n        file_stream: BinaryIO,\n        stream_info: StreamInfo,\n        **kwargs: Any,\n    ) -> bool:\n        mimetype = (stream_info.mimetype or \"\").lower()\n        extension = (stream_info.extension or \"\").lower()\n\n        if extension in ACCEPTED_FILE_EXTENSIONS:\n            return True\n\n        for prefix in ACCEPTED_MIME_TYPE_PREFIXES:\n            if mimetype.startswith(prefix):\n                return True\n\n        return False",
+    "source": "github_repo:microsoft/markitdown",
+    "file": "packages/markitdown-sample-plugin/src/markitdown_sample_plugin/_plugin.py",
+    "license": "MIT",
+    "language": "python"
+}

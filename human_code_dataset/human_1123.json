@@ -1,0 +1,7 @@
+{
+    "code": "class ProxySettings(BaseModel):\n    server: str = Field(None, description=\"Proxy server address\")\n    username: Optional[str] = Field(None, description=\"Proxy username\")\n    password: Optional[str] = Field(None, description=\"Proxy password\")",
+    "source": "github_repo:FoundationAgents/OpenManus",
+    "file": "app/config.py",
+    "license": "MIT",
+    "language": "python"
+}

@@ -1,0 +1,7 @@
+{
+    "code": "def tuple_calver(calver: str) -> tuple[int, ...]:  # mypy can't notice maxsplit below\n    \"\"\"Convert a calver string into a tuple of ints for sorting\"\"\"\n    try:\n        return tuple(map(int, calver.split(\".\", maxsplit=2)))\n    except ValueError:\n        return (0, 0, 0)",
+    "source": "github_repo:psf/black",
+    "file": "scripts/release.py",
+    "license": "MIT",
+    "language": "python"
+}

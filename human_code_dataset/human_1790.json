@@ -1,0 +1,7 @@
+{
+    "code": "def get_access_token(self):\n        \"\"\"\n        使用 AK，SK 生成鉴权签名（Access Token）\n        :return: access_token，或是None(如果错误)\n        \"\"\"\n        url = \"https://aip.baidubce.com/oauth/2.0/token\"\n        params = {\"grant_type\": \"client_credentials\", \"client_id\": BAIDU_API_KEY, \"client_secret\": BAIDU_SECRET_KEY}\n        return str(requests.post(url, params=params).json().get(\"access_token\"))",
+    "source": "github_repo:zhayujie/chatgpt-on-wechat",
+    "file": "bot/baidu/baidu_wenxin.py",
+    "license": "MIT",
+    "language": "python"
+}

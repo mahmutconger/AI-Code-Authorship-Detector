@@ -1,0 +1,7 @@
+{
+    "code": "def get_session() -> str:\n    \"\"\"\n    Retrieves or generates a unique identifier for the current user session.\n\n    This function attempts to read a unique user ID from a temporary file. If the file does not exist, it generates a new random ID, writes it to the file, and returns it. This ID is used to uniquely identify the user's session.\n\n    Returns\n    -------\n    str\n        A unique identifier for the user session.\n    \"\"\"\n    path = Path(tempfile.gettempdir()) / \"gpt_engineer_user_id.txt\"\n\n    try:\n        if path.exists():\n            user_id = path.read_text()\n        else:\n            # random uuid:\n            user_id = str(random.randint(0, 2**32))\n            path.write_text(user_id)\n        return user_id\n    except IOError:\n        return \"ephemeral_\" + str(random.randint(0, 2**32))",
+    "source": "github_repo:AntonOsika/gpt-engineer",
+    "file": "gpt_engineer/applications/cli/learning.py",
+    "license": "MIT",
+    "language": "python"
+}

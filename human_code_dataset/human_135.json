@@ -1,0 +1,7 @@
+{
+    "code": "def find_legacy_components(backend_components_path: Path) -> set[str]:\n    \"\"\"Find Python files containing 'legacy = True'.\"\"\"\n    legacy_files = set()\n\n    if not backend_components_path.exists():\n        print(f\"Warning: Backend components path not found: {backend_components_path}\")\n        return set()\n\n    # Walk through all Python files in components directory\n    for py_file in backend_components_path.rglob(\"*.py\"):\n        try:\n            with py_file.open(encoding=\"utf-8\") as f:\n                content = f.read()\n\n            # Check if file contains 'legacy = True'\n            if re.search(r\"\\blegacy\\s*=\\s*True\\b\", content):\n                # Get relative path from components directory\n                rel_path = py_file.relative_to(backend_components_path)\n                legacy_files.add(str(rel_path))\n\n        except (UnicodeDecodeError, PermissionError) as e:\n            print(f\"Warning: Could not read {py_file}: {e}\")\n            continue\n\n    print(f\"Found {len(legacy_files)} legacy component files\")\n    return legacy_files",
+    "source": "github_repo:langflow-ai/langflow",
+    "file": "scripts/generate_coverage_config.py",
+    "license": "MIT",
+    "language": "python"
+}

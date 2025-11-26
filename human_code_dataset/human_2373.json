@@ -1,0 +1,7 @@
+{
+    "code": "def configure_audio(config_data: ConfigData):\n    try:\n        logger.info(f\"Configuring audio with data: {config_data}\")\n        if audio_api.set_values(config_data):\n            settings = config_data.dict()\n            settings[\"use_jit\"] = False\n            settings[\"f0method\"] = \"rmvpe\"\n            with open(\"configs/config.json\", \"w\", encoding='utf-8') as j:\n                json.dump(settings, j, ensure_ascii=False)\n            logger.info(\"Configuration set successfully\")\n            return {\"message\": \"Configuration set successfully\"}\n    except HTTPException as e:\n        logger.error(f\"Configuration error: {e.detail}\")\n        raise\n    except Exception as e:\n        logger.error(f\"Configuration failed: {e}\")\n        raise HTTPException(status_code=400, detail=f\"Configuration failed: {e}\")",
+    "source": "github_repo:RVC-Project/Retrieval-based-Voice-Conversion-WebUI",
+    "file": "api_231006.py",
+    "license": "MIT",
+    "language": "python"
+}

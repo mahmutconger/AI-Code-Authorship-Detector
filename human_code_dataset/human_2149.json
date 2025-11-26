@@ -1,0 +1,7 @@
+{
+    "code": "def sumOfSeries(n):\n    x = n * (n + 1) / 2\n    return (int)(x * x)",
+    "source": "github_repo:geekcomputers/Python",
+    "file": "ARKA.py",
+    "license": "MIT",
+    "language": "python"
+}

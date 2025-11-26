@@ -1,0 +1,7 @@
+{
+    "code": "def start_server(host: str = \"127.0.0.1\", port: int = 8000, reload: bool = False):\n    \"\"\"Start the FastAPI server.\"\"\"\n    print(f\"🌐 Starting server at http://{host}:{port}\")\n    print(f\"📊 API Documentation: http://{host}:{port}/docs\")\n    print(f\"🔍 Workflow Search: http://{host}:{port}/api/workflows\")\n    print()\n    print(\"Press Ctrl+C to stop the server\")\n    print(\"-\" * 50)\n    \n    # Configure database path\n    os.environ['WORKFLOW_DB_PATH'] = \"database/workflows.db\"\n    \n    # Start uvicorn with better configuration\n    import uvicorn\n    uvicorn.run(\n        \"api_server:app\", \n        host=host, \n        port=port, \n        reload=reload,\n        log_level=\"info\",\n        access_log=False  # Reduce log noise\n    )",
+    "source": "github_repo:Zie619/n8n-workflows",
+    "file": "run.py",
+    "license": "MIT",
+    "language": "python"
+}

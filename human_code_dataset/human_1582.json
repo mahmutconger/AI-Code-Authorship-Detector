@@ -1,0 +1,7 @@
+{
+    "code": "def _handle_debug(debug: bool) -> None:\n    \"\"\"Turn on debugging if asked otherwise INFO default\"\"\"\n    log_level = logging.DEBUG if debug else logging.INFO\n    logging.basicConfig(\n        format=\"[%(asctime)s] %(levelname)s: %(message)s (%(filename)s:%(lineno)d)\",\n        level=log_level,\n    )",
+    "source": "github_repo:psf/black",
+    "file": "scripts/release.py",
+    "license": "MIT",
+    "language": "python"
+}

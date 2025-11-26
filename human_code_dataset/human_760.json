@@ -1,0 +1,7 @@
+{
+    "code": "import fire\n\nfrom metagpt.roles.di.engineer2 import Engineer2\nfrom metagpt.tools.libs.cr import CodeReview\n\n\nasync def main(msg):\n    role = Engineer2(tools=[\"Plan\", \"Editor:write,read\", \"RoleZero\", \"ValidateAndRewriteCode\", \"CodeReview\"])\n    cr = CodeReview()\n    role.tool_execution_map.update({\"CodeReview.review\": cr.review, \"CodeReview.fix\": cr.fix})\n    await role.run(msg)\n\n\nif __name__ == \"__main__\":\n    fire.Fire(main)",
+    "source": "github_repo:FoundationAgents/MetaGPT",
+    "file": "examples/cr.py",
+    "license": "MIT",
+    "language": "python"
+}

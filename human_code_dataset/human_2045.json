@@ -1,0 +1,7 @@
+{
+    "code": "def _matmul_with_relative_values(self, x, y):\n        \"\"\"\n        x: [b, h, l, m]\n        y: [h or 1, m, d]\n        ret: [b, h, l, d]\n        \"\"\"\n        ret = torch.matmul(x, y.unsqueeze(0))\n        return ret",
+    "source": "github_repo:myshell-ai/OpenVoice",
+    "file": "openvoice/attentions.py",
+    "license": "MIT",
+    "language": "python"
+}

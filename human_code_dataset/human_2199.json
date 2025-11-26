@@ -1,0 +1,7 @@
+{
+    "code": "def request_device_id(session):\n    \"\"\"\n    获取加密后的浏览器特征 ID\n    :return:\n    \"\"\"\n    params = {\"algID\": request_alg_id(session), \"timestamp\": int(time.time() * 1000)}\n    params = dict(params, **_get_hash_code_params())\n    response = session.httpClint.send(urls.get(\"getDevicesId\"), params=params)\n    if response.find('callbackFunction') >= 0:\n        result = response[18:-2]\n        try:\n            result = json.loads(result)\n            session.httpClint.set_cookies([{\n                'RAIL_EXPIRATION': result.get('exp'),\n                'RAIL_DEVICEID': result.get('dfp'),\n            }])\n            session.cookies = [{\n                'RAIL_EXPIRATION': result.get('exp'),\n                'RAIL_DEVICEID': result.get('dfp'),\n            }]\n        except:\n            return False",
+    "source": "github_repo:testerSunshine/12306",
+    "file": "config/getCookie.py",
+    "license": "MIT",
+    "language": "python"
+}

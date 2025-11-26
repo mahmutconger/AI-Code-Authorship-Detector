@@ -1,0 +1,7 @@
+{
+    "code": "def __str__(self) -> str:\n        \"\"\"Return the converted Markdown text.\"\"\"\n        return self.markdown",
+    "source": "github_repo:microsoft/markitdown",
+    "file": "packages/markitdown/src/markitdown/_base_converter.py",
+    "license": "MIT",
+    "language": "python"
+}

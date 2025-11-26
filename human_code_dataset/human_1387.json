@@ -1,0 +1,7 @@
+{
+    "code": "def np2pt(self, x):\n        x = torch.from_numpy(x) * 2 - 1.\n        return x",
+    "source": "github_repo:Stability-AI/stablediffusion",
+    "file": "ldm/data/util.py",
+    "license": "MIT",
+    "language": "python"
+}

@@ -1,0 +1,7 @@
+{
+    "code": "class T2SMLP:\n    def __init__(self, w1, b1, w2, b2):\n        self.w1 = w1\n        self.b1 = b1\n        self.w2 = w2\n        self.b2 = b2\n\n    def forward(self, x):\n        x = F.relu(F.linear(x, self.w1, self.b1))\n        x = F.linear(x, self.w2, self.b2)\n        return x",
+    "source": "github_repo:RVC-Boss/GPT-SoVITS",
+    "file": "GPT_SoVITS/AR/models/t2s_model.py",
+    "license": "MIT",
+    "language": "python"
+}

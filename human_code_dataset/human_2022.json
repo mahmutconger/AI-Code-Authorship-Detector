@@ -1,0 +1,7 @@
+{
+    "code": "def audio_numpy_concat(segment_data_list, sr, speed=1.):\n        audio_segments = []\n        for segment_data in segment_data_list:\n            audio_segments += segment_data.reshape(-1).tolist()\n            audio_segments += [0] * int((sr * 0.05)/speed)\n        audio_segments = np.array(audio_segments).astype(np.float32)\n        return audio_segments",
+    "source": "github_repo:myshell-ai/OpenVoice",
+    "file": "openvoice/api.py",
+    "license": "MIT",
+    "language": "python"
+}

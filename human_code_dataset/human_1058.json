@@ -1,0 +1,7 @@
+{
+    "code": "def __init__(self, config, output_dir, is_train=True):\n        super().__init__()\n        self.config = config\n        self.top_k = 3\n        self.model = Text2SemanticDecoder(config=config, top_k=self.top_k)\n        pretrained_s1 = config.get(\"pretrained_s1\")\n        if pretrained_s1 and is_train:\n            # print(self.load_state_dict(torch.load(pretrained_s1,map_location=\"cpu\")[\"state_dict\"]))\n            print(\n                self.load_state_dict(\n                    torch.load(\n                        pretrained_s1,\n                        map_location=\"cpu\",\n                    )[\"weight\"],\n                ),\n            )\n        if is_train:\n            self.automatic_optimization = False\n            self.save_hyperparameters()\n            self.eval_dir = output_dir / \"eval\"\n            self.eval_dir.mkdir(parents=True, exist_ok=True)",
+    "source": "github_repo:RVC-Boss/GPT-SoVITS",
+    "file": "GPT_SoVITS/AR/models/t2s_lightning_module_onnx.py",
+    "license": "MIT",
+    "language": "python"
+}

@@ -1,0 +1,7 @@
+{
+    "code": "def select_command_with_arrows(proc, TIMEOUT):\n    \"\"\"Ensures that command can be selected with arrow keys.\"\"\"\n    _set_confirmation(proc, True)\n\n    proc.sendline(u'git h')\n    assert proc.expect([TIMEOUT, u\"git: 'h' is not a git command.\"])\n\n    proc.sendline(u'fuck')\n    assert proc.expect([TIMEOUT, u'git show'])\n    proc.send('\\033[B')\n    assert proc.expect([TIMEOUT, u'git push'])\n    proc.send('\\033[B')\n    assert proc.expect([TIMEOUT, u'git help', u'git hook'])\n    proc.send('\\033[A')\n    assert proc.expect([TIMEOUT, u'git push'])\n    proc.send('\\033[B')\n    assert proc.expect([TIMEOUT, u'git help', u'git hook'])\n    proc.send('\\n')\n\n    assert proc.expect([TIMEOUT, u'usage', u'fatal: not a git repository'])",
+    "source": "github_repo:nvbn/thefuck",
+    "file": "tests/functional/plots.py",
+    "license": "MIT",
+    "language": "python"
+}

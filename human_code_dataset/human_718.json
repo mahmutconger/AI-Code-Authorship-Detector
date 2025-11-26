@@ -1,0 +1,7 @@
+{
+    "code": "def init(self):\n        # Print indicators to screen\n        tracker.set_scalar('loss.*', True)\n        tracker.set_scalar('loss_reg.*', True)\n        tracker.set_scalar('accuracy.*', True)\n        tracker.set_scalar('steps.*', True)\n\n        # We need to set the metrics to calculate them for the epoch for training and validation\n        self.state_modules = [self.accuracy]\n\n        # Initialize the model\n        self.model = ParityPonderGRU(self.n_elems, self.n_hidden, self.max_steps).to(self.device)\n        # $L_{Rec}$\n        self.loss_rec = ReconstructionLoss(nn.BCEWithLogitsLoss(reduction='none')).to(self.device)\n        # $L_{Reg}$\n        self.loss_reg = RegularizationLoss(self.lambda_p, self.max_steps).to(self.device)\n\n        # Training and validation loaders\n        self.train_loader = DataLoader(ParityDataset(self.batch_size * self.n_batches, self.n_elems),\n                                       batch_size=self.batch_size)\n        self.valid_loader = DataLoader(ParityDataset(self.batch_size * 32, self.n_elems),\n                                       batch_size=self.batch_size)",
+    "source": "github_repo:labmlai/annotated_deep_learning_paper_implementations",
+    "file": "labml_nn/adaptive_computation/ponder_net/experiment.py",
+    "license": "MIT",
+    "language": "python"
+}

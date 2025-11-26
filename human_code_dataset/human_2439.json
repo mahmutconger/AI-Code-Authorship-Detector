@@ -1,0 +1,7 @@
+{
+    "code": "def string_to_list(value: str, intify: bool = False) -> Union[List[str], List[int]]:\n    \"\"\"Parse a comma-separated string to a list and account for various\n    formatting options. Mostly used to handle CLI arguments that take a list of\n    comma-separated values.\n\n    value (str): The value to parse.\n    intify (bool): Whether to convert values to ints.\n    RETURNS (Union[List[str], List[int]]): A list of strings or ints.\n    \"\"\"\n    if not value:\n        return []  # type: ignore[return-value]\n    if value.startswith(\"[\") and value.endswith(\"]\"):\n        value = value[1:-1]\n    result = []\n    for p in value.split(\",\"):\n        p = p.strip()\n        if p.startswith(\"'\") and p.endswith(\"'\"):\n            p = p[1:-1]\n        if p.startswith('\"') and p.endswith('\"'):\n            p = p[1:-1]\n        p = p.strip()\n        if intify:\n            p = int(p)  # type: ignore[assignment]\n        result.append(p)\n    return result",
+    "source": "github_repo:explosion/spaCy",
+    "file": "spacy/cli/_util.py",
+    "license": "MIT",
+    "language": "python"
+}

@@ -1,0 +1,7 @@
+{
+    "code": "def soundinput(self):\n        channels = 1 if sys.platform == \"darwin\" else 2\n        with sd.Stream(\n            channels=channels,\n            callback=self.audio_callback,\n            blocksize=self.block_frame,\n            samplerate=self.gui_config.samplerate,\n            dtype=\"float32\",\n        ) as stream:\n            global stream_latency\n            stream_latency = stream.latency[-1]\n            while self.flag_vc:\n                time.sleep(self.gui_config.block_time)\n                logger.info(\"Audio block passed.\")\n        logger.info(\"Ending VC\")",
+    "source": "github_repo:RVC-Project/Retrieval-based-Voice-Conversion-WebUI",
+    "file": "api_240604.py",
+    "license": "MIT",
+    "language": "python"
+}

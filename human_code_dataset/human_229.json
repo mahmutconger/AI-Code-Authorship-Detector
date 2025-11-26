@@ -1,0 +1,7 @@
+{
+    "code": "def __init__(self, vocab_size: int, dim: int):\n        super().__init__()\n        self.vocab_size = vocab_size\n        self.dim = dim\n        assert vocab_size % world_size == 0, f\"Vocabulary size must be divisible by world size (world_size={world_size})\"\n        self.part_vocab_size = (vocab_size // world_size)\n        self.vocab_start_idx = rank * self.part_vocab_size\n        self.vocab_end_idx = self.vocab_start_idx + self.part_vocab_size\n        self.weight = nn.Parameter(torch.empty(self.part_vocab_size, self.dim))",
+    "source": "github_repo:deepseek-ai/DeepSeek-V3",
+    "file": "inference/model.py",
+    "license": "MIT",
+    "language": "python"
+}

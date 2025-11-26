@@ -1,0 +1,7 @@
+{
+    "code": "def _get_required_nullable_fields(self) -> list[str]:\n        \"\"\"Get a list of required nullable fields from the action schema.\"\"\"\n        schema_props, required = self._extract_schema_info(self.action_schema)\n\n        required_nullable_fields = []\n        for param_name in required:\n            param_details = schema_props.get(param_name, {})\n            if self._is_nullable_type(param_details):\n                required_nullable_fields.append(param_name)\n\n        return required_nullable_fields",
+    "source": "github_repo:crewAIInc/crewAI",
+    "file": "lib/crewai-tools/src/crewai_tools/adapters/enterprise_adapter.py",
+    "license": "MIT",
+    "language": "python"
+}

@@ -1,0 +1,7 @@
+{
+    "code": "def make_width_table() -> Iterable[tuple[int, int, int]]:\n    start_codepoint = -1\n    end_codepoint = -1\n    range_width = -2\n    for codepoint in range(0, sys.maxunicode + 1):\n        width = wcwidth.wcwidth(chr(codepoint))\n        if width <= 1:\n            # Ignore narrow characters along with zero-width characters so that\n            # they are treated as single-width.  Note that treating zero-width\n            # characters as single-width is consistent with the heuristics built\n            # on top of str.isascii() in the str_width() function in strings.py.\n            continue\n        if start_codepoint < 0:\n            start_codepoint = codepoint\n            range_width = width\n        elif width != range_width or codepoint != end_codepoint + 1:\n            yield (start_codepoint, end_codepoint, range_width)\n            start_codepoint = codepoint\n            range_width = width\n        end_codepoint = codepoint\n    if start_codepoint >= 0:\n        yield (start_codepoint, end_codepoint, range_width)",
+    "source": "github_repo:psf/black",
+    "file": "scripts/make_width_table.py",
+    "license": "MIT",
+    "language": "python"
+}

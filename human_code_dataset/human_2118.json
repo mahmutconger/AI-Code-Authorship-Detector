@@ -1,0 +1,7 @@
+{
+    "code": "def update():\n    with open(\"studrec.dat\", \"rb+\") as File:\n        value = pickle.load(File)\n        found = False\n        roll = int(input(\"Enter the roll number of the record\"))\n\n        for i in value:\n            if roll == i[0]:\n                print(f\"current name {i[1]}\")\n                print(f\"current marks {i[2]}\")\n                i[1] = input(\"Enter the new name\")\n                i[2] = int(input(\"Enter the new marks\"))\n                found = True\n\n        if not found:\n            print(\"Record not found\")\n\n        else:\n            pickle.dump(value, File)\n            File.seek(0)\n            print(pickle.load(File))",
+    "source": "github_repo:geekcomputers/Python",
+    "file": "1 File handle/File handle binary/Update a binary file2.py",
+    "license": "MIT",
+    "language": "python"
+}

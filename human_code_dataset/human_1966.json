@@ -1,0 +1,7 @@
+{
+    "code": "def download_file(url, path):\n    logger.info(f\"Downloading {url} to {path}\")\n    block_size = 1024 * 1024\n    with urllib.request.urlopen(url) as response, open(path, \"wb\") as file:\n        while True:\n            data = response.read(block_size)\n            if not data:\n                break\n            file.write(data)",
+    "source": "github_repo:ManimCommunity/manim",
+    "file": ".github/scripts/ci_build_cairo.py",
+    "license": "MIT",
+    "language": "python"
+}

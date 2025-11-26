@@ -1,0 +1,7 @@
+{
+    "code": "def run_command(cmd: list[str], check_return: bool = True, capture: bool = False, shell: bool = False) -> Optional[str]:\n    \"\"\"Run a shell command and optionally capture output.\"\"\"\n    try:\n        if capture:\n            result = subprocess.run(cmd, check=check_return, capture_output=True, text=True, shell=shell)\n            return result.stdout.strip()\n        else:\n            subprocess.run(cmd, check=check_return, shell=shell)\n            return None\n    except subprocess.CalledProcessError as e:\n        if check_return:\n            console.print(f\"[red]Error running command:[/red] {' '.join(cmd)}\")\n            console.print(f\"[red]Exit code:[/red] {e.returncode}\")\n            if hasattr(e, 'stderr') and e.stderr:\n                console.print(f\"[red]Error output:[/red] {e.stderr}\")\n            raise\n        return None",
+    "source": "github_repo:github/spec-kit",
+    "file": "src/specify_cli/__init__.py",
+    "license": "MIT",
+    "language": "python"
+}

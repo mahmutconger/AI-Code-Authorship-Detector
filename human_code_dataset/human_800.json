@@ -1,0 +1,7 @@
+{
+    "code": "def update_msgs(self, cur_time: float, msgs: List[capnp.lib.capnp._DynamicStructReader]) -> None:\n    self.frame += 1\n    self.updated = dict.fromkeys(self.services, False)\n    for msg in msgs:\n      if msg is None:\n        continue\n\n      s = msg.which()\n      self.seen[s] = True\n      self.updated[s] = True\n\n      self.freq_tracker[s].record_recv_time(cur_time)\n      self.recv_time[s] = cur_time\n      self.recv_frame[s] = self.frame\n      self.data[s] = getattr(msg, s)\n      self.logMonoTime[s] = msg.logMonoTime\n      self.valid[s] = msg.valid\n\n    for s in self.static_freq_services:\n      # alive if delay is within 10x the expected frequency; checks relaxed in simulator\n      self.alive[s] = (cur_time - self.recv_time[s]) < (10. / SERVICE_LIST[s].frequency) or (self.seen[s] and self.simulation)\n      self.freq_ok[s] = self.freq_tracker[s].valid or self.simulation",
+    "source": "github_repo:commaai/openpilot",
+    "file": "cereal/messaging/__init__.py",
+    "license": "MIT",
+    "language": "python"
+}

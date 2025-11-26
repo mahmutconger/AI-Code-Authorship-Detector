@@ -1,0 +1,7 @@
+{
+    "code": "class _Analytics(_AlibabaCloud):\n    _type = \"analytics\"\n    _icon_dir = \"resources/alibabacloud/analytics\"",
+    "source": "github_repo:mingrammer/diagrams",
+    "file": "diagrams/alibabacloud/analytics.py",
+    "license": "MIT",
+    "language": "python"
+}

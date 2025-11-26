@@ -1,0 +1,7 @@
+{
+    "code": "def _fix_javascript_string(self, js_code: str) -> str:\n\t\t\"\"\"Fix common JavaScript string parsing issues when written as Python string.\"\"\"\n\n\t\t# Just do minimal, safe cleaning\n\t\tjs_code = js_code.strip()\n\n\t\t# Only fix the most common and safe issues:\n\n\t\t# 1. Remove obvious Python string wrapper quotes if they exist\n\t\tif (js_code.startswith('\"') and js_code.endswith('\"')) or (js_code.startswith(\"'\") and js_code.endswith(\"'\")):\n\t\t\t# Check if it's a wrapped string (not part of JS syntax)\n\t\t\tinner = js_code[1:-1]\n\t\t\tif inner.count('\"') + inner.count(\"'\") == 0 or '() =>' in inner:\n\t\t\t\tjs_code = inner\n\n\t\t# 2. Only fix clearly escaped quotes that shouldn't be\n\t\t# But be very conservative - only if we're sure it's a Python string artifact\n\t\tif '\\\\\"' in js_code and js_code.count('\\\\\"') > js_code.count('\"'):\n\t\t\tjs_code = js_code.replace('\\\\\"', '\"')\n\t\tif \"\\\\'\" in js_code and js_code.count(\"\\\\'\") > js_code.count(\"'\"):\n\t\t\tjs_code = js_code.replace(\"\\\\'\", \"'\")\n\n\t\t# 3. Basic whitespace normalization only\n\t\tjs_code = js_code.strip()\n\n\t\t# Final validation - ensure it's not empty\n\t\tif not js_code:\n\t\t\traise ValueError('JavaScript code is empty after cleaning')\n\n\t\treturn js_code",
+    "source": "github_repo:browser-use/browser-use",
+    "file": "browser_use/actor/page.py",
+    "license": "MIT",
+    "language": "python"
+}

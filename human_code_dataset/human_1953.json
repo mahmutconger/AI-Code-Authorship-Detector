@@ -1,0 +1,7 @@
+{
+    "code": "def find_video_files_in_directory(directory: str, limit: int) -> list:\n    video_formats = [\"*.mp4\", \"*.webm\"]\n    video_paths = []\n    for video_format in video_formats:\n        video_paths.extend(glob(os.path.join(directory, video_format)))\n    return video_paths[:limit]",
+    "source": "github_repo:roboflow/supervision",
+    "file": "examples/time_in_zone/scripts/stream_from_file.py",
+    "license": "MIT",
+    "language": "python"
+}

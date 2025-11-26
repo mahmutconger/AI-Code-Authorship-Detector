@@ -1,0 +1,7 @@
+{
+    "code": "def fused_add_tanh_sigmoid_multiply(input_a, input_b, n_channels):\n    n_channels_int = n_channels[0]\n    in_act = input_a + input_b\n    t_act = torch.tanh(in_act[:, :n_channels_int, :])\n    s_act = torch.sigmoid(in_act[:, n_channels_int:, :])\n    acts = t_act * s_act\n    return acts",
+    "source": "github_repo:myshell-ai/OpenVoice",
+    "file": "openvoice/attentions.py",
+    "license": "MIT",
+    "language": "python"
+}

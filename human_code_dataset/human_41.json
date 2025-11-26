@@ -1,0 +1,7 @@
+{
+    "code": "def check_description(line_num: int, description: str) -> List[str]:\n\n    err_msgs = []\n\n    first_char = description[0]\n    if first_char.upper() != first_char:\n        err_msg = error_message(line_num, 'first character of description is not capitalized')\n        err_msgs.append(err_msg)\n\n    last_char = description[-1]\n    if last_char in punctuation:\n        err_msg = error_message(line_num, f'description should not end with {last_char}')\n        err_msgs.append(err_msg)\n\n    desc_length = len(description)\n    if desc_length > max_description_length:\n        err_msg = error_message(line_num, f'description should not exceed {max_description_length} characters (currently {desc_length})')\n        err_msgs.append(err_msg)\n    \n    return err_msgs",
+    "source": "github_repo:public-apis/public-apis",
+    "file": "scripts/validate/format.py",
+    "license": "MIT",
+    "language": "python"
+}

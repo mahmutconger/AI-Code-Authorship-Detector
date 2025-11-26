@@ -1,0 +1,7 @@
+{
+    "code": "class QuestionApp(App[str]):\n    CSS = \"\"\"\n    Screen {\n        layout: grid;\n        grid-size: 2;\n        grid-gutter: 2;\n        padding: 2;\n    }\n    #question {\n        width: 100%;\n        height: 100%;\n        column-span: 2;\n        content-align: center bottom;\n        text-style: bold;\n    }\n\n    Button {\n        width: 100%;\n    }\n    \"\"\"\n\n    def compose(self) -> ComposeResult:\n        yield Label(\"Do you love Textual?\", id=\"question\")\n        yield Button(\"Yes\", id=\"yes\", variant=\"primary\")\n        yield Button(\"No\", id=\"no\", variant=\"error\")\n\n    def on_button_pressed(self, event: Button.Pressed) -> None:\n        self.exit(event.button.id)",
+    "source": "github_repo:Textualize/textual",
+    "file": "docs/examples/app/question03.py",
+    "license": "MIT",
+    "language": "python"
+}

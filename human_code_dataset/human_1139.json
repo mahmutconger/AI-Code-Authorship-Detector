@@ -1,0 +1,7 @@
+{
+    "code": "def get_key():\n    \"\"\"Get a single keypress in a cross-platform way using readchar.\"\"\"\n    key = readchar.readkey()\n\n    if key == readchar.key.UP or key == readchar.key.CTRL_P:\n        return 'up'\n    if key == readchar.key.DOWN or key == readchar.key.CTRL_N:\n        return 'down'\n\n    if key == readchar.key.ENTER:\n        return 'enter'\n\n    if key == readchar.key.ESC:\n        return 'escape'\n\n    if key == readchar.key.CTRL_C:\n        raise KeyboardInterrupt\n\n    return key",
+    "source": "github_repo:github/spec-kit",
+    "file": "src/specify_cli/__init__.py",
+    "license": "MIT",
+    "language": "python"
+}

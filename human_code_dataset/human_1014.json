@@ -1,0 +1,7 @@
+{
+    "code": "def create_launcher():\n    console.print(\"[yellow]* Creating launcher script...[/yellow]\")\n    launcher = INSTALL_DIR / \"hackingtool.sh\"\n    with open(launcher, \"w\") as f:\n        f.write(\"#!/bin/bash\\n\")\n        f.write(f\"source {str(INSTALL_DIR / VENV_DIR_NAME)}/bin/activate\\n\")\n        f.write(f\"python3 {str(INSTALL_DIR / 'hackingtool.py')} \\\"$@\\\"\\n\")\n    os.chmod(launcher, 0o755)\n    # move to /usr/bin/hackingtool\n    if BIN_PATH.exists():\n        BIN_PATH.unlink()\n    shutil.move(str(launcher), str(BIN_PATH))\n    console.print(f\"[green][✔] Launcher installed at {str(BIN_PATH)}[/green]\")",
+    "source": "github_repo:Z4nzu/hackingtool",
+    "file": "install.py",
+    "license": "MIT",
+    "language": "python"
+}

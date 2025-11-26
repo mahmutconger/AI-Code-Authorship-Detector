@@ -1,0 +1,7 @@
+{
+    "code": "def show_options(self, parent=None):\n        clear_screen()\n        self.show_info()\n\n        table = Table(title=\"Available Tools\", box=box.MINIMAL_DOUBLE_HEAD)\n        table.add_column(\"No.\", justify=\"center\", style=\"bold cyan\")\n        table.add_column(\"Tool Name\", style=\"bold yellow\")\n\n        for index, tool in enumerate(self.TOOLS):\n            table.add_row(str(index), tool.TITLE)\n\n        table.add_row(\"99\", f\"Back to {parent.TITLE if parent else 'Exit'}\")\n        console.print(table)\n\n        tool_index = input(\"\\n[?] Choose a tool: \").strip()\n        try:\n            tool_index = int(tool_index)\n            if tool_index in range(len(self.TOOLS)):\n                ret_code = self.TOOLS[tool_index].show_options(parent=self)\n                if ret_code != 99:\n                    input(\"\\nPress [Enter] to continue...\")\n            elif tool_index == 99:\n                if parent is None:\n                    sys.exit()\n                return 99\n        except (TypeError, ValueError):\n            console.print(\"[red]⚠ Please enter a valid option.[/red]\")\n            input(\"\\nPress [Enter] to continue...\")\n        except Exception:\n            console.print_exception(show_locals=True)\n            input(\"\\nPress [Enter] to continue...\")\n        return self.show_options(parent=parent)",
+    "source": "github_repo:Z4nzu/hackingtool",
+    "file": "core.py",
+    "license": "MIT",
+    "language": "python"
+}

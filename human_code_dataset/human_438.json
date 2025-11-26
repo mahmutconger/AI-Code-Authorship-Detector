@@ -1,0 +1,7 @@
+{
+    "code": "def convert_url(\n        self,\n        url: str,\n        *,\n        stream_info: Optional[StreamInfo] = None,\n        file_extension: Optional[str] = None,\n        mock_url: Optional[str] = None,\n        **kwargs: Any,\n    ) -> DocumentConverterResult:\n        \"\"\"Alias for convert_uri()\"\"\"\n        # convert_url will likely be deprecated in the future in favor of convert_uri\n        return self.convert_uri(\n            url,\n            stream_info=stream_info,\n            file_extension=file_extension,\n            mock_url=mock_url,\n            **kwargs,\n        )",
+    "source": "github_repo:microsoft/markitdown",
+    "file": "packages/markitdown/src/markitdown/_markitdown.py",
+    "license": "MIT",
+    "language": "python"
+}

@@ -1,0 +1,7 @@
+{
+    "code": "import os\n\nfrom langchain.callbacks.streaming_stdout import StreamingStdOutCallbackHandler\nfrom langchain_openai import ChatOpenAI\n\nmodel = ChatOpenAI(\n    model=os.getenv(\"MODEL_NAME\"),\n    temperature=0.1,\n    callbacks=[StreamingStdOutCallbackHandler()],\n    streaming=True,\n)\n\nprompt = (\n    \"Provide me with only the code for a simple python function that sums two numbers.\"\n)\n\nmodel.invoke(prompt)",
+    "source": "github_repo:AntonOsika/gpt-engineer",
+    "file": "docs/examples/open_llms/langchain_interface.py",
+    "license": "MIT",
+    "language": "python"
+}

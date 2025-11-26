@@ -1,0 +1,7 @@
+{
+    "code": "def make_peak(\n    frequency: int,\n    samplerate: int,\n    gain_db: float,\n    q_factor: float = 1 / sqrt(2),\n) -> IIRFilter:\n    \"\"\"\n    Creates a peak filter\n\n    >>> filter = make_peak(1000, 48000, 6)\n    >>> filter.a_coeffs + filter.b_coeffs  # doctest: +NORMALIZE_WHITESPACE\n    [1.0653405327119334, -1.9828897227476208, 0.9346594672880666, 1.1303715025601122,\n     -1.9828897227476208, 0.8696284974398878]\n    \"\"\"\n    w0 = tau * frequency / samplerate\n    _sin = sin(w0)\n    _cos = cos(w0)\n    alpha = _sin / (2 * q_factor)\n    big_a = 10 ** (gain_db / 40)\n\n    b0 = 1 + alpha * big_a\n    b1 = -2 * _cos\n    b2 = 1 - alpha * big_a\n    a0 = 1 + alpha / big_a\n    a1 = -2 * _cos\n    a2 = 1 - alpha / big_a\n\n    filt = IIRFilter(2)\n    filt.set_coefficients([a0, a1, a2], [b0, b1, b2])\n    return filt",
+    "source": "github_repo:TheAlgorithms/Python",
+    "file": "audio_filters/butterworth_filter.py",
+    "license": "MIT",
+    "language": "python"
+}

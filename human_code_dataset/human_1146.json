@@ -1,0 +1,7 @@
+{
+    "code": "def is_git_repo(path: Path = None) -> bool:\n    \"\"\"Check if the specified path is inside a git repository.\"\"\"\n    if path is None:\n        path = Path.cwd()\n    \n    if not path.is_dir():\n        return False\n\n    try:\n        # Use git command to check if inside a work tree\n        subprocess.run(\n            [\"git\", \"rev-parse\", \"--is-inside-work-tree\"],\n            check=True,\n            capture_output=True,\n            cwd=path,\n        )\n        return True\n    except (subprocess.CalledProcessError, FileNotFoundError):\n        return False",
+    "source": "github_repo:github/spec-kit",
+    "file": "src/specify_cli/__init__.py",
+    "license": "MIT",
+    "language": "python"
+}

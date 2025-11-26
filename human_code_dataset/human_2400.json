@@ -1,0 +1,7 @@
+{
+    "code": "def set_values(self, values):\n        logger.info(f\"Setting values: {values}\")\n        if not values.pth_path.strip():\n            raise HTTPException(status_code=400, detail=\"Please select a .pth file\")\n        if not values.index_path.strip():\n            raise HTTPException(status_code=400, detail=\"Please select an index file\")\n        self.set_devices(values.sg_input_device, values.sg_output_device)\n        self.config.use_jit = False\n        self.gui_config.pth_path = values.pth_path\n        self.gui_config.index_path = values.index_path\n        self.gui_config.threhold = values.threhold\n        self.gui_config.pitch = values.pitch\n        self.gui_config.formant = values.formant\n        self.gui_config.block_time = values.block_time\n        self.gui_config.crossfade_time = values.crossfade_length\n        self.gui_config.extra_time = values.extra_time\n        self.gui_config.I_noise_reduce = values.I_noise_reduce\n        self.gui_config.O_noise_reduce = values.O_noise_reduce\n        self.gui_config.rms_mix_rate = values.rms_mix_rate\n        self.gui_config.index_rate = values.index_rate\n        self.gui_config.n_cpu = values.n_cpu\n        self.gui_config.use_pv = values.use_pv\n        self.gui_config.f0method = values.f0method\n        return True",
+    "source": "github_repo:RVC-Project/Retrieval-based-Voice-Conversion-WebUI",
+    "file": "api_240604.py",
+    "license": "MIT",
+    "language": "python"
+}

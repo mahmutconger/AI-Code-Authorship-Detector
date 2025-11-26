@@ -1,0 +1,7 @@
+{
+    "code": "def count(self) -> None:\n        for char in self.text:\n            if char.lower():\n                self.count_lower += 1\n            elif char.upper():\n                self.count_upper += 1\n\n        return (self.count_lower, self.count_upper)",
+    "source": "github_repo:geekcomputers/Python",
+    "file": "1 File handle/File handle text/counter.py",
+    "license": "MIT",
+    "language": "python"
+}

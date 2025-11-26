@@ -1,0 +1,7 @@
+{
+    "code": "def pad_or_trim(array, length: int = N_SAMPLES, *, axis: int = -1):\n    \"\"\"\n    Pad or trim the audio array to N_SAMPLES, as expected by the encoder.\n    \"\"\"\n    if torch.is_tensor(array):\n        if array.shape[axis] > length:\n            array = array.index_select(\n                dim=axis, index=torch.arange(length, device=array.device)\n            )\n\n        if array.shape[axis] < length:\n            pad_widths = [(0, 0)] * array.ndim\n            pad_widths[axis] = (0, length - array.shape[axis])\n            array = F.pad(array, [pad for sizes in pad_widths[::-1] for pad in sizes])\n    else:\n        if array.shape[axis] > length:\n            array = array.take(indices=range(length), axis=axis)\n\n        if array.shape[axis] < length:\n            pad_widths = [(0, 0)] * array.ndim\n            pad_widths[axis] = (0, length - array.shape[axis])\n            array = np.pad(array, pad_widths)\n\n    return array",
+    "source": "github_repo:openai/whisper",
+    "file": "whisper/audio.py",
+    "license": "MIT",
+    "language": "python"
+}

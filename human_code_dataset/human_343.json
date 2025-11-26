@@ -1,0 +1,7 @@
+{
+    "code": "def test_read_item_bad_token():\n    response = client.get(\"/items/foo\", headers={\"X-Token\": \"hailhydra\"})\n    assert response.status_code == 400\n    assert response.json() == {\"detail\": \"Invalid X-Token header\"}",
+    "source": "github_repo:fastapi/fastapi",
+    "file": "docs_src/app_testing/app_b_py310/test_main.py",
+    "license": "MIT",
+    "language": "python"
+}

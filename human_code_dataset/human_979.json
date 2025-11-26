@@ -1,0 +1,7 @@
+{
+    "code": "class EmailHighlighter(RegexHighlighter):\n    \"\"\"Apply style to anything that looks like an email.\"\"\"\n\n    base_style = \"example.\"\n    highlights = [r\"(?P<email>[\\w-]+@([\\w-]+\\.)+[\\w-]+)\"]",
+    "source": "github_repo:Textualize/rich",
+    "file": "examples/highlighter.py",
+    "license": "MIT",
+    "language": "python"
+}

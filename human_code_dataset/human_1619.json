@@ -1,0 +1,7 @@
+{
+    "code": "def _set_enterprise_action_token(self, enterprise_action_token: str | None):\n        if enterprise_action_token and not enterprise_action_token.startswith(\"PK_\"):\n            warnings.warn(\n                \"Legacy token detected, please consider using the new Enterprise Action Auth token. Check out our docs for more information https://docs.crewai.com/en/enterprise/features/integrations.\",\n                DeprecationWarning,\n                stacklevel=2,\n            )\n\n        token = enterprise_action_token or os.environ.get(\n            \"CREWAI_ENTERPRISE_TOOLS_TOKEN\"\n        )\n\n        self.enterprise_action_token = token",
+    "source": "github_repo:crewAIInc/crewAI",
+    "file": "lib/crewai-tools/src/crewai_tools/adapters/enterprise_adapter.py",
+    "license": "MIT",
+    "language": "python"
+}

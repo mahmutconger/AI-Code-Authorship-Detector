@@ -1,0 +1,7 @@
+{
+    "code": "def stream_videos(video_files: list) -> None:\n    threads = []\n    for index, video_file in enumerate(video_files):\n        stream_url = f\"{BASE_STREAM_URL}{index}.stream\"\n        print(f\"Streaming {video_file} under {stream_url}\")\n        thread = stream_video_to_url(video_file, stream_url)\n        threads.append(thread)\n    for thread in threads:\n        thread.join()",
+    "source": "github_repo:roboflow/supervision",
+    "file": "examples/time_in_zone/scripts/stream_from_file.py",
+    "license": "MIT",
+    "language": "python"
+}

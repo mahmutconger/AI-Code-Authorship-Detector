@@ -1,0 +1,7 @@
+{
+    "code": "def _load() -> Command:\n        words = name.split(\" \")\n        module = import_module(\"poetry.console.commands.\" + \".\".join(words))\n        command_class = getattr(module, \"\".join(c.title() for c in words) + \"Command\")\n        command: Command = command_class()\n        return command",
+    "source": "github_repo:python-poetry/poetry",
+    "file": "src/poetry/console/application.py",
+    "license": "MIT",
+    "language": "python"
+}

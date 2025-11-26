@@ -1,0 +1,7 @@
+{
+    "code": "class LLMSettings(BaseModel):\n    model: str = Field(..., description=\"Model name\")\n    base_url: str = Field(..., description=\"API base URL\")\n    api_key: str = Field(..., description=\"API key\")\n    max_tokens: int = Field(4096, description=\"Maximum number of tokens per request\")\n    max_input_tokens: Optional[int] = Field(\n        None,\n        description=\"Maximum input tokens to use across all requests (None for unlimited)\",\n    )\n    temperature: float = Field(1.0, description=\"Sampling temperature\")\n    api_type: str = Field(..., description=\"Azure, Openai, or Ollama\")\n    api_version: str = Field(..., description=\"Azure Openai version if AzureOpenai\")",
+    "source": "github_repo:FoundationAgents/OpenManus",
+    "file": "app/config.py",
+    "license": "MIT",
+    "language": "python"
+}

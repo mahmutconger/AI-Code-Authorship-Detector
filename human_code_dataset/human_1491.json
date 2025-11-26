@@ -1,0 +1,7 @@
+{
+    "code": "def start_session(self, width: int = 0, height: int = 0) -> libtmux.Session:\n        self.tmux_server = libtmux.Server()\n        self.tmux_session = self.tmux_server.new_session(\n            session_name=\"asciinema_recorder\", kill_session=True\n        )\n        self.tmux_pane = self.tmux_session.attached_window.attached_pane\n        self.tmux_version = self.tmux_pane.display_message(\"#{version}\", True)\n        if width and height:\n            self.resize_window(width, height)\n        self.pause(3)\n        return self.tmux_session",
+    "source": "github_repo:mitmproxy/mitmproxy",
+    "file": "docs/scripts/clirecording/clidirector.py",
+    "license": "MIT",
+    "language": "python"
+}

@@ -1,0 +1,7 @@
+{
+    "code": "def new_message(service: Optional[str], size: Optional[int] = None, **kwargs) -> capnp.lib.capnp._DynamicStructBuilder:\n  args = {\n    'valid': False,\n    'logMonoTime': int(time.monotonic() * 1e9),\n    **kwargs\n  }\n  dat = log.Event.new_message(**args)\n  if service is not None:\n    if size is None:\n      dat.init(service)\n    else:\n      dat.init(service, size)\n  return dat",
+    "source": "github_repo:commaai/openpilot",
+    "file": "cereal/messaging/__init__.py",
+    "license": "MIT",
+    "language": "python"
+}

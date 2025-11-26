@@ -1,0 +1,7 @@
+{
+    "code": "class build_ext_subclass(build_ext, build_ext_options):\n    def build_extensions(self):\n        if self.parallel is None and os.environ.get(\"SPACY_NUM_BUILD_JOBS\") is not None:\n            self.parallel = int(os.environ.get(\"SPACY_NUM_BUILD_JOBS\"))\n        build_ext_options.build_options(self)\n        build_ext.build_extensions(self)",
+    "source": "github_repo:explosion/spaCy",
+    "file": "setup.py",
+    "license": "MIT",
+    "language": "python"
+}

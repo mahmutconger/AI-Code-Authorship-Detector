@@ -1,0 +1,7 @@
+{
+    "code": "def enable_paddle():\n    try:\n        import paddle\n    except ImportError:\n        default_logger.debug(\"Installing paddle-tiny, please wait a minute......\")\n        os.system(\"pip install paddlepaddle-tiny\")\n        try:\n            import paddle\n        except ImportError:\n            default_logger.debug(\n                \"Import paddle error, please use command to install: pip install paddlepaddle-tiny==1.6.1.\"\n                \"Now, back to jieba basic cut......\")\n    if paddle.__version__ < '1.6.1':\n        default_logger.debug(\"Find your own paddle version doesn't satisfy the minimum requirement (1.6.1), \"\n                             \"please install paddle tiny by 'pip install --upgrade paddlepaddle-tiny', \"\n                             \"or upgrade paddle full version by \"\n                             \"'pip install --upgrade paddlepaddle (-gpu for GPU version)' \")\n    else:\n        try:\n            import jieba.lac_small.predict as predict\n            default_logger.debug(\"Paddle enabled successfully......\")\n            check_paddle_install['is_paddle_installed'] = True\n        except ImportError:\n            default_logger.debug(\"Import error, cannot find paddle.fluid and jieba.lac_small.predict module. \"\n                                 \"Now, back to jieba basic cut......\")",
+    "source": "github_repo:fxsjy/jieba",
+    "file": "jieba/_compat.py",
+    "license": "MIT",
+    "language": "python"
+}

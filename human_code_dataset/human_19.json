@@ -1,0 +1,7 @@
+{
+    "code": "def test_check_entry_with_correct_segments(self):\n        correct_segments = ['[A](https://www.ex.com)', 'Desc', '`apiKey`', 'Yes', 'Yes']\n\n        err_msgs = check_entry(0, correct_segments)\n        \n        self.assertIsInstance(err_msgs, list)\n        self.assertEqual(len(err_msgs), 0)\n        self.assertEqual(err_msgs, [])",
+    "source": "github_repo:public-apis/public-apis",
+    "file": "scripts/tests/test_validate_format.py",
+    "license": "MIT",
+    "language": "python"
+}

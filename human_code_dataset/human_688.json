@@ -1,0 +1,7 @@
+{
+    "code": "def __init__(self, lower_limit: float, upper_limit: float, delta: float, eta: float):\n        \"\"\"\n        :param lower_limit: is the lower limit $l$\n        :param upper_limit: is the upper limit $u$\n        :param delta: is the bin size $\\delta$\n        :param eta: is the parameter $\\eta$ that detemines the softness of the boundaries.\n        \"\"\"\n        super().__init__()\n        # Initialize tiling vector\n        # $$\\mathbf{c} = (l, l + \\delta, l + 2 \\delta, \\dots, u - 2 \\delta, u - \\delta)$$\n        self.c = nn.Parameter(torch.arange(lower_limit, upper_limit, delta), requires_grad=False)\n        # The input vector expands by a factor equal to the number of bins $\\frac{u - l}{\\delta}$\n        self.expansion_factor = len(self.c)\n        # $\\delta$\n        self.delta = delta\n        # $\\eta$\n        self.eta = eta",
+    "source": "github_repo:labmlai/annotated_deep_learning_paper_implementations",
+    "file": "labml_nn/activations/fta/__init__.py",
+    "license": "MIT",
+    "language": "python"
+}

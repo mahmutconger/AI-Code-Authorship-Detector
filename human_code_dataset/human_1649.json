@@ -1,0 +1,7 @@
+{
+    "code": "\"\"\"\nImport all adapters from the current directory\nand make them available for import as\n    adapter_module.AdapterName\n\"\"\"\n\n# pylint: disable=wildcard-import,relative-import\n\nfrom os.path import dirname, basename, isfile, join\nimport glob\n\n__all__ = [\n    basename(f)[:-3]\n    for f in glob.glob(join(dirname(__file__), \"*.py\"))\n    if isfile(f) and not f.endswith(\"__init__.py\")\n]\n\nfrom .adapter import all_adapters\nfrom . import *",
+    "source": "github_repo:chubin/cheat.sh",
+    "file": "lib/adapter/__init__.py",
+    "license": "MIT",
+    "language": "python"
+}

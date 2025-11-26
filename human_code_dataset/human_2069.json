@@ -1,0 +1,7 @@
+{
+    "code": "def enable_parallel(processnum=None):\n    \"\"\"\n    Change the module's `cut` and `cut_for_search` functions to the\n    parallel version.\n\n    Note that this only works using dt, custom Tokenizer\n    instances are not supported.\n    \"\"\"\n    global pool, dt, cut, cut_for_search\n    from multiprocessing import cpu_count\n    if os.name == 'nt':\n        raise NotImplementedError(\n            \"jieba: parallel mode only supports posix system\")\n    else:\n        from multiprocessing import Pool\n    dt.check_initialized()\n    if processnum is None:\n        processnum = cpu_count()\n    pool = Pool(processnum)\n    cut = _pcut\n    cut_for_search = _pcut_for_search",
+    "source": "github_repo:fxsjy/jieba",
+    "file": "jieba/__init__.py",
+    "license": "MIT",
+    "language": "python"
+}

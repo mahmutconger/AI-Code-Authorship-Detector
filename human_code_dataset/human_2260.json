@@ -1,0 +1,7 @@
+{
+    "code": "def to_toml_table(self) -> Table:\n        from tomlkit import nl\n        from tomlkit import table\n\n        source_table: Table = table()\n        for key, value in self.to_dict().items():\n            source_table.add(key, value)\n        source_table.add(nl())\n        return source_table",
+    "source": "github_repo:python-poetry/poetry",
+    "file": "src/poetry/config/source.py",
+    "license": "MIT",
+    "language": "python"
+}

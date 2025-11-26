@@ -1,0 +1,7 @@
+{
+    "code": "def __init__(self, session, is_auto_code, auto_code_type):\n        self.session = session\n        self.randCode = \"\"\n        self.is_auto_code = is_auto_code\n        self.auto_code_type = auto_code_type",
+    "source": "github_repo:testerSunshine/12306",
+    "file": "init/login.py",
+    "license": "MIT",
+    "language": "python"
+}

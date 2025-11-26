@@ -1,0 +1,7 @@
+{
+    "code": "def dns_request(flow: dns.DNSFlow) -> None:\n    q = flow.request.question\n    if q and q.type == dns.types.AAAA:\n        logging.info(f\"Spoofing IPv6 records for {q.name}...\")\n        if q.name == \"example.com\":\n            flow.response = flow.request.succeed(\n                [\n                    dns.ResourceRecord(\n                        name=\"example.com\",\n                        type=dns.types.AAAA,\n                        class_=dns.classes.IN,\n                        ttl=dns.ResourceRecord.DEFAULT_TTL,\n                        data=ipaddress.ip_address(\"::1\").packed,\n                    )\n                ]\n            )\n        elif q.name == \"example.org\":\n            flow.response = flow.request.fail(dns.response_codes.NXDOMAIN)\n        else:\n            flow.response = flow.request.succeed([])",
+    "source": "github_repo:mitmproxy/mitmproxy",
+    "file": "examples/addons/dns-simple.py",
+    "license": "MIT",
+    "language": "python"
+}

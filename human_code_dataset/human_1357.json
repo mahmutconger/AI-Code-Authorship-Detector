@@ -1,0 +1,7 @@
+{
+    "code": "def get_popular_integrations(workflows: List[Dict]) -> List[Dict[str, Any]]:\n    \"\"\"Get list of popular integrations with counts.\"\"\"\n    integration_counts = {}\n\n    for workflow in workflows:\n        for integration in workflow['integrations']:\n            integration_counts[integration] = integration_counts.get(integration, 0) + 1\n\n    # Sort by count and take top 50\n    sorted_integrations = sorted(\n        integration_counts.items(),\n        key=lambda x: x[1],\n        reverse=True\n    )[:50]\n\n    return [\n        {'name': name, 'count': count}\n        for name, count in sorted_integrations\n    ]",
+    "source": "github_repo:Zie619/n8n-workflows",
+    "file": "scripts/generate_search_index.py",
+    "license": "MIT",
+    "language": "python"
+}

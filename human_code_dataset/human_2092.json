@@ -1,0 +1,7 @@
+{
+    "code": "def resolve_filename(f):\n    try:\n        return f.name\n    except AttributeError:\n        return repr(f)",
+    "source": "github_repo:fxsjy/jieba",
+    "file": "jieba/_compat.py",
+    "license": "MIT",
+    "language": "python"
+}

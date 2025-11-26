@@ -1,0 +1,7 @@
+{
+    "code": "class SquareToCircle(Scene):\n    def construct(self):\n        circle = Circle()\n        circle.set_fill(BLUE, opacity=0.5)\n        circle.set_stroke(BLUE_E, width=4)\n        square = Square()\n\n        self.play(ShowCreation(square))\n        self.wait()\n        self.play(ReplacementTransform(square, circle))\n        self.wait()",
+    "source": "github_repo:3b1b/manim",
+    "file": "docs/example.py",
+    "license": "MIT",
+    "language": "python"
+}

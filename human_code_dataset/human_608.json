@@ -1,0 +1,7 @@
+{
+    "code": "# Useful for debugging purposes when you don't want to waste GPT4-Vision credits\n# Setting to True will stream a mock response instead of calling the OpenAI API\n# TODO: Should only be set to true when value is 'True', not any abitrary truthy value\nimport os\n\nNUM_VARIANTS = 4\n\n# LLM-related\nOPENAI_API_KEY = os.environ.get(\"OPENAI_API_KEY\", None)\nANTHROPIC_API_KEY = os.environ.get(\"ANTHROPIC_API_KEY\", None)\nGEMINI_API_KEY = os.environ.get(\"GEMINI_API_KEY\", None)\nOPENAI_BASE_URL = os.environ.get(\"OPENAI_BASE_URL\", None)\n\n# Image generation (optional)\nREPLICATE_API_KEY = os.environ.get(\"REPLICATE_API_KEY\", None)\n\n# Debugging-related\n\nSHOULD_MOCK_AI_RESPONSE = bool(os.environ.get(\"MOCK\", False))\nIS_DEBUG_ENABLED = bool(os.environ.get(\"IS_DEBUG_ENABLED\", False))\nDEBUG_DIR = os.environ.get(\"DEBUG_DIR\", \"\")\n\n# Set to True when running in production (on the hosted version)\n# Used as a feature flag to enable or disable certain features\nIS_PROD = os.environ.get(\"IS_PROD\", False)",
+    "source": "github_repo:abi/screenshot-to-code",
+    "file": "backend/config.py",
+    "license": "MIT",
+    "language": "python"
+}

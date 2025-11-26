@@ -1,0 +1,7 @@
+{
+    "code": "def parseresp(s):\n\twhile True:\n\t\ttyp, ver, pay = recvmsg(s)\n\t\tif typ == None:\n\t\t\tprint('Server closed connection without sending Server Hello.')\n\t\t\treturn 0\n\t\t# Look for server hello done message.\n\t\tif typ == 22 and ord(pay[0]) == 0x0E:\n\t\t\treturn ver",
+    "source": "github_repo:swisskyrepo/PayloadsAllTheThings",
+    "file": "CVE Exploits/Heartbleed CVE-2014-0160.py",
+    "license": "MIT",
+    "language": "python"
+}

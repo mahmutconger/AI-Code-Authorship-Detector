@@ -1,0 +1,7 @@
+{
+    "code": "def __rshift__(self, other: Union[\"Node\", List[\"Node\"], \"Edge\"]):\n        \"\"\"Implements Self >> Node, Self >> [Nodes] and Self Edge.\"\"\"\n        if isinstance(other, list):\n            for node in other:\n                self.connect(node, Edge(self, forward=True))\n            return other\n        elif isinstance(other, Node):\n            return self.connect(other, Edge(self, forward=True))\n        else:\n            other.forward = True\n            other.node = self\n            return other",
+    "source": "github_repo:mingrammer/diagrams",
+    "file": "diagrams/__init__.py",
+    "license": "MIT",
+    "language": "python"
+}

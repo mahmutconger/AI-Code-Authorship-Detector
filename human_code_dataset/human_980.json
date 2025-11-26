@@ -1,0 +1,7 @@
+{
+    "code": "from time import sleep\nfrom rich.panel import Panel\nfrom rich.progress import Progress\n\n\nJOBS = [100, 150, 25, 70, 110, 90]\n\nprogress = Progress(auto_refresh=False)\nmaster_task = progress.add_task(\"overall\", total=sum(JOBS))\njobs_task = progress.add_task(\"jobs\")\n\nprogress.console.print(\n    Panel(\n        \"[bold blue]A demonstration of progress with a current task and overall progress.\",\n        padding=1,\n    )\n)\n\nwith progress:\n    for job_no, job in enumerate(JOBS):\n        progress.log(f\"Starting job #{job_no}\")\n        sleep(0.2)\n        progress.reset(jobs_task, total=job, description=f\"job [bold yellow]#{job_no}\")\n        progress.start_task(jobs_task)\n        for wait in progress.track(range(job), task_id=jobs_task):\n            sleep(0.01)\n        progress.advance(master_task, job)\n        progress.log(f\"Job #{job_no} is complete\")\n    progress.log(\n        Panel(\":sparkle: All done! :sparkle:\", border_style=\"green\", padding=1)\n    )",
+    "source": "github_repo:Textualize/rich",
+    "file": "examples/jobs.py",
+    "license": "MIT",
+    "language": "python"
+}

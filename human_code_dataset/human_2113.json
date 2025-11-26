@@ -1,0 +1,7 @@
+{
+    "code": "def load_model():\n    start_p = pickle.load(get_module_res(\"finalseg\", PROB_START_P))\n    trans_p = pickle.load(get_module_res(\"finalseg\", PROB_TRANS_P))\n    emit_p = pickle.load(get_module_res(\"finalseg\", PROB_EMIT_P))\n    return start_p, trans_p, emit_p",
+    "source": "github_repo:fxsjy/jieba",
+    "file": "jieba/finalseg/__init__.py",
+    "license": "MIT",
+    "language": "python"
+}

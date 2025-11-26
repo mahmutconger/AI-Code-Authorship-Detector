@@ -1,0 +1,7 @@
+{
+    "code": "def training_step(self, batch: Dict, batch_idx: int):\n        opt = self.optimizers()\n        scheduler = self.lr_schedulers()\n        forward = self.model.forward if self.config[\"train\"].get(\"if_dpo\", False) == True else self.model.forward_old\n        loss, acc = forward(\n            batch[\"phoneme_ids\"],\n            batch[\"phoneme_ids_len\"],\n            batch[\"semantic_ids\"],\n            batch[\"semantic_ids_len\"],\n            batch[\"bert_feature\"],\n        )\n        self.manual_backward(loss)\n        if batch_idx > 0 and batch_idx % 4 == 0:\n            opt.step()\n            opt.zero_grad()\n            scheduler.step()\n\n        self.log(\n            \"total_loss\",\n            loss,\n            on_step=True,\n            on_epoch=True,\n            prog_bar=True,\n            sync_dist=True,\n        )\n        self.log(\n            \"lr\",\n            scheduler.get_last_lr()[0],\n            on_epoch=True,\n            prog_bar=True,\n            sync_dist=True,\n        )\n        self.log(\n            f\"top_{self.top_k}_acc\",\n            acc,\n            on_step=True,\n            on_epoch=True,\n            prog_bar=True,\n            sync_dist=True,\n        )",
+    "source": "github_repo:RVC-Boss/GPT-SoVITS",
+    "file": "GPT_SoVITS/AR/models/t2s_lightning_module.py",
+    "license": "MIT",
+    "language": "python"
+}

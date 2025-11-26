@@ -1,0 +1,7 @@
+{
+    "code": "def __rsub__(self, other: Union[List[\"Node\"],\n                 List[\"Edge\"]]) -> List[\"Edge\"]:\n        \"\"\"Called for [Nodes] or [Edges] - Self because list don't have __sub__ operators.\"\"\"\n        return self.append(other)",
+    "source": "github_repo:mingrammer/diagrams",
+    "file": "diagrams/__init__.py",
+    "license": "MIT",
+    "language": "python"
+}

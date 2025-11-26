@@ -1,0 +1,7 @@
+{
+    "code": "def extract_learning(\n    prompt: Prompt,\n    model: str,\n    temperature: float,\n    config: Tuple[str, ...],\n    memory: DiskMemory,\n    review: Review,\n) -> Learning:\n    \"\"\"\n    Constructs a Learning object containing the session's metadata and user feedback.\n\n    Parameters\n    ----------\n    prompt : str\n        The initial prompt provided to the GPT Engineer.\n    model : str\n        The name of the model used during the session.\n    temperature : float\n        The temperature setting used for the model's responses.\n    config : Tuple[str, ...]\n        A tuple representing the configuration settings for the session.\n    memory : DiskMemory\n        An object representing the disk memory used during the session.\n    review : Review\n        The user's review of the generated code.\n\n    Returns\n    -------\n    Learning\n        An instance of Learning containing all the session details and user feedback.\n    \"\"\"\n    return Learning(\n        prompt=prompt.to_json(),\n        model=model,\n        temperature=temperature,\n        config=json.dumps(config),\n        session=get_session(),\n        logs=memory.to_json(),\n        review=review,\n    )",
+    "source": "github_repo:AntonOsika/gpt-engineer",
+    "file": "gpt_engineer/applications/cli/learning.py",
+    "license": "MIT",
+    "language": "python"
+}

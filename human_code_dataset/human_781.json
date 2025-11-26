@@ -1,0 +1,7 @@
+{
+    "code": "def async_reformat_prediction(self, id: str, result: str) -> str:\n        \"\"\"\n        Reformat the prediction asynchronously and extract the answer.\n\n        Args:\n            id (str): The identifier for the question.\n            result (str): The original prediction result.\n\n        Returns:\n            str: The reformatted prediction or the original prediction if extraction fails.\n        \"\"\"\n        question = self.get_question(id)[\"question\"]  # Retrieve the question based on the ID\n        question_format = self.get_question(id)[\"format\"]  # Get the format of the question\n        prediction = asyncio.run(reformat(question, question_format, result))  # Asynchronously reformat the prediction\n\n        # Attempt to extract the answer from the reformatted prediction\n        answer_part = prediction.split(\"Answer{{\") if \"Answer{{\" in prediction else []\n        if len(answer_part) > 1:\n            return answer_part[1].split(\"}}\")[0].strip()  # Return the extracted answer\n\n        return prediction  # If extraction fails, return the original prediction",
+    "source": "github_repo:FoundationAgents/MetaGPT",
+    "file": "examples/di/InfiAgent-DABench/DABench.py",
+    "license": "MIT",
+    "language": "python"
+}

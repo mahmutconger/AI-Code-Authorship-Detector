@@ -1,0 +1,7 @@
+{
+    "code": "def _get_params_from_name(self, name):\n        \"\"\"Returns previously saved parameters given a key.\"\"\"\n        params = self.saved_params\n\n        selected_params = dict(params[name])\n\n        if self._override_w_fixed_params:\n            for k in self.fixed_params:\n                selected_params[k] = self.fixed_params[k]\n\n        return selected_params",
+    "source": "github_repo:microsoft/qlib",
+    "file": "examples/benchmarks/TFT/libs/hyperparam_opt.py",
+    "license": "MIT",
+    "language": "python"
+}

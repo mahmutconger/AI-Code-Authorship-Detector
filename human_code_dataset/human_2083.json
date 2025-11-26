@@ -1,0 +1,7 @@
+{
+    "code": "def load_userdict(self, f):\n        '''\n        Load personalized dict to improve detect rate.\n\n        Parameter:\n            - f : A plain text file contains words and their ocurrences.\n                  Can be a file-like object, or the path of the dictionary file,\n                  whose encoding must be utf-8.\n\n        Structure of dict file:\n        word1 freq1 word_type1\n        word2 freq2 word_type2\n        ...\n        Word type may be ignored\n        '''\n        self.check_initialized()\n        if isinstance(f, string_types):\n            f_name = f\n            f = open(f, 'rb')\n        else:\n            f_name = resolve_filename(f)\n        for lineno, ln in enumerate(f, 1):\n            line = ln.strip()\n            if not isinstance(line, text_type):\n                try:\n                    line = line.decode('utf-8').lstrip('\\ufeff')\n                except UnicodeDecodeError:\n                    raise ValueError('dictionary file %s must be utf-8' % f_name)\n            if not line:\n                continue\n            # match won't be None because there's at least one character\n            word, freq, tag = re_userdict.match(line).groups()\n            if freq is not None:\n                freq = freq.strip()\n            if tag is not None:\n                tag = tag.strip()\n            self.add_word(word, freq, tag)",
+    "source": "github_repo:fxsjy/jieba",
+    "file": "jieba/__init__.py",
+    "license": "MIT",
+    "language": "python"
+}

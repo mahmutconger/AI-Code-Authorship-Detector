@@ -1,0 +1,7 @@
+{
+    "code": "def _extract_env_vars(env_vars_field: dict | None) -> list[dict[str, Any]]:\n        if not env_vars_field:\n            return []\n\n        return [\n            {\n                \"name\": env_var.name,\n                \"description\": env_var.description,\n                \"required\": env_var.required,\n                \"default\": env_var.default,\n            }\n            for env_var in env_vars_field.get(\"schema\", {}).get(\"default\", [])\n            if isinstance(env_var, EnvVar)\n        ]",
+    "source": "github_repo:crewAIInc/crewAI",
+    "file": "lib/crewai-tools/generate_tool_specs.py",
+    "license": "MIT",
+    "language": "python"
+}

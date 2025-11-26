@@ -1,0 +1,7 @@
+{
+    "code": "def test_init(self):\n    sm = messaging.SubMaster(events)\n    for p in [sm.updated, sm.recv_time, sm.recv_frame, sm.alive,\n              sm.sock, sm.data, sm.logMonoTime, sm.valid]:\n      assert len(cast(Sized, p)) == len(events)",
+    "source": "github_repo:commaai/openpilot",
+    "file": "cereal/messaging/tests/test_pub_sub_master.py",
+    "license": "MIT",
+    "language": "python"
+}

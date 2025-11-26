@@ -1,0 +1,7 @@
+{
+    "code": "def _handle_output(args, result: DocumentConverterResult):\n    \"\"\"Handle output to stdout or file\"\"\"\n    if args.output:\n        with open(args.output, \"w\", encoding=\"utf-8\") as f:\n            f.write(result.markdown)\n    else:\n        # Handle stdout encoding errors more gracefully\n        print(\n            result.markdown.encode(sys.stdout.encoding, errors=\"replace\").decode(\n                sys.stdout.encoding\n            )\n        )",
+    "source": "github_repo:microsoft/markitdown",
+    "file": "packages/markitdown/src/markitdown/__main__.py",
+    "license": "MIT",
+    "language": "python"
+}

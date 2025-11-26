@@ -1,0 +1,7 @@
+{
+    "code": "class AddMiDaS(object):\n    def __init__(self, model_type):\n        super().__init__()\n        self.transform = load_midas_transform(model_type)\n\n    def pt2np(self, x):\n        x = ((x + 1.0) * .5).detach().cpu().numpy()\n        return x\n\n    def np2pt(self, x):\n        x = torch.from_numpy(x) * 2 - 1.\n        return x\n\n    def __call__(self, sample):\n        # sample['jpg'] is tensor hwc in [-1, 1] at this point\n        x = self.pt2np(sample['jpg'])\n        x = self.transform({\"image\": x})[\"image\"]\n        sample['midas_in'] = x\n        return sample",
+    "source": "github_repo:Stability-AI/stablediffusion",
+    "file": "ldm/data/util.py",
+    "license": "MIT",
+    "language": "python"
+}

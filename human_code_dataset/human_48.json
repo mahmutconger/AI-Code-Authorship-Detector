@@ -1,0 +1,7 @@
+{
+    "code": "def find_links_in_text(text: str) -> List[str]:\n    \"\"\"Find links in a text and return a list of URLs.\"\"\"\n\n    link_pattern = re.compile(r'((?:https?://|www\\d{0,3}[.]|[a-z0-9.\\-]+[.][a-z]{2,4}/)(?:[^\\s()<>]+|\\(([^\\s()<>]+|(\\([^\\s()<>]+\\)))*\\))+(?:\\(([^\\s()<>]+|(\\([^\\s()<>]+\\)))*\\)|[^\\s`!()\\[\\]{};:\\'\\\".,<>?«»“”‘’]))')\n\n    raw_links = re.findall(link_pattern, text)\n\n    links = [\n        str(raw_link[0]) for raw_link in raw_links\n    ]\n\n    return links",
+    "source": "github_repo:public-apis/public-apis",
+    "file": "scripts/validate/links.py",
+    "license": "MIT",
+    "language": "python"
+}

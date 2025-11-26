@@ -1,0 +1,7 @@
+{
+    "code": "def check_entry(line_num: int, segments: List[str]) -> List[str]:\n\n    raw_title = segments[index_title]\n    description = segments[index_desc]\n    auth = segments[index_auth]\n    https = segments[index_https]\n    cors = segments[index_cors]\n\n    title_err_msgs = check_title(line_num, raw_title)\n    desc_err_msgs = check_description(line_num, description)\n    auth_err_msgs = check_auth(line_num, auth)\n    https_err_msgs = check_https(line_num, https)\n    cors_err_msgs = check_cors(line_num, cors)\n\n    err_msgs = [\n        *title_err_msgs,\n        *desc_err_msgs,\n        *auth_err_msgs,\n        *https_err_msgs,\n        *cors_err_msgs\n    ]\n\n    return err_msgs",
+    "source": "github_repo:public-apis/public-apis",
+    "file": "scripts/validate/format.py",
+    "license": "MIT",
+    "language": "python"
+}

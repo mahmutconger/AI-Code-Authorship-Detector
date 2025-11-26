@@ -1,0 +1,7 @@
+{
+    "code": "def get_api_key(request: Request):\n    api_key = request.headers.get(\"x-api-key\")\n    return api_key",
+    "source": "github_repo:harry0703/MoneyPrinterTurbo",
+    "file": "app/controllers/base.py",
+    "license": "MIT",
+    "language": "python"
+}

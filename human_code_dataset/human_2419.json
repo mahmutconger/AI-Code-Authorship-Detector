@@ -1,0 +1,7 @@
+{
+    "code": "def validate_json(document):\n    universe_file = Path(document)\n    with universe_file.open() as f:\n        universe_data = json.load(f)\n        for entry in universe_data[\"resources\"]:\n            if \"github\" in entry:\n                assert not re.match(\n                    r\"^(http:)|^(https:)\", entry[\"github\"]\n                ), \"Github field should be user/repo, not a url\"",
+    "source": "github_repo:explosion/spaCy",
+    "file": ".github/validate_universe_json.py",
+    "license": "MIT",
+    "language": "python"
+}

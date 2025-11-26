@@ -1,0 +1,7 @@
+{
+    "code": "def is_valid(\n    puzzle: list[list[str]], word: str, row: int, col: int, vertical: bool\n) -> bool:\n    \"\"\"\n    Check if a word can be placed at the given position.\n\n    >>> puzzle = [\n    ...     ['', '', '', ''],\n    ...     ['', '', '', ''],\n    ...     ['', '', '', ''],\n    ...     ['', '', '', '']\n    ... ]\n    >>> is_valid(puzzle, 'word', 0, 0, True)\n    True\n    >>> puzzle = [\n    ...     ['', '', '', ''],\n    ...     ['', '', '', ''],\n    ...     ['', '', '', ''],\n    ...     ['', '', '', '']\n    ... ]\n    >>> is_valid(puzzle, 'word', 0, 0, False)\n    True\n    \"\"\"\n    for i in range(len(word)):\n        if vertical:\n            if row + i >= len(puzzle) or puzzle[row + i][col] != \"\":\n                return False\n        elif col + i >= len(puzzle[0]) or puzzle[row][col + i] != \"\":\n            return False\n    return True",
+    "source": "github_repo:TheAlgorithms/Python",
+    "file": "backtracking/crossword_puzzle_solver.py",
+    "license": "MIT",
+    "language": "python"
+}

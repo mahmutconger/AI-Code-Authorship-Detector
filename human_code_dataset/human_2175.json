@@ -1,0 +1,7 @@
+{
+    "code": "def testVerfyImage(self):\n        \"\"\"\n        测试模型加载识别\n        :return:\n        \"\"\"\n        from verify.localVerifyCode import Verify\n        v = Verify()\n        with open('../tkcode.png', 'rb') as f:\n            base64Image = base64.b64encode(f.read())\n            for i in range(5):\n                t = threading.Thread(target=v.verify, args=(base64Image,))\n                t.start()",
+    "source": "github_repo:testerSunshine/12306",
+    "file": "UnitTest/TestAll.py",
+    "license": "MIT",
+    "language": "python"
+}

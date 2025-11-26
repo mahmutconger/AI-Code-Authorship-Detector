@@ -1,0 +1,7 @@
+{
+    "code": "def setup_default_logging():\n    handler = logging.StreamHandler()\n    handler.setFormatter(ColoredFormatter('%(asctime)s - %(name)s - %(levelname)s - %(message)s'))\n    logging.basicConfig(\n        level=logging.INFO,\n        handlers=[handler]\n    )",
+    "source": "github_repo:karpathy/nanochat",
+    "file": "nanochat/common.py",
+    "license": "MIT",
+    "language": "python"
+}

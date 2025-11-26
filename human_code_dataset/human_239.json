@@ -1,0 +1,7 @@
+{
+    "code": "def find_correction_dim(num_rotations, dim, base, max_seq_len):\n        \"\"\"\n        Computes the correction dimension for a given number of rotations in the rotary positional embedding.\n\n        Args:\n            num_rotations (float): Number of rotations to compute the correction for.\n            dim (int): Dimensionality of the embedding space.\n            base (float): Base value for the exponential computation.\n            max_seq_len (int): Maximum sequence length.\n\n        Returns:\n            float: The correction dimension based on the input parameters.\n        \"\"\"\n        return dim * math.log(max_seq_len / (num_rotations * 2 * math.pi)) / (2 * math.log(base))",
+    "source": "github_repo:deepseek-ai/DeepSeek-V3",
+    "file": "inference/model.py",
+    "license": "MIT",
+    "language": "python"
+}

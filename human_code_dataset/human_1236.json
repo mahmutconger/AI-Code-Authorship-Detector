@@ -1,0 +1,7 @@
+{
+    "code": "def get_all_tasks(request: Request, page: int = Query(1, ge=1), page_size: int = Query(10, ge=1)):\n    request_id = base.get_task_id(request)\n    tasks, total = sm.state.get_all_tasks(page, page_size)\n\n    response = {\n        \"tasks\": tasks,\n        \"total\": total,\n        \"page\": page,\n        \"page_size\": page_size,\n    }\n    return utils.get_response(200, response)",
+    "source": "github_repo:harry0703/MoneyPrinterTurbo",
+    "file": "app/controllers/v1/video.py",
+    "license": "MIT",
+    "language": "python"
+}

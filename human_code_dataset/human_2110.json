@@ -1,0 +1,7 @@
+{
+    "code": "def __init__(self, idf_path=None):\n        self.tokenizer = jieba.dt\n        self.postokenizer = jieba.posseg.dt\n        self.stop_words = self.STOP_WORDS.copy()\n        self.idf_loader = IDFLoader(idf_path or DEFAULT_IDF)\n        self.idf_freq, self.median_idf = self.idf_loader.get_idf()",
+    "source": "github_repo:fxsjy/jieba",
+    "file": "jieba/analyse/tfidf.py",
+    "license": "MIT",
+    "language": "python"
+}

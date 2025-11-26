@@ -1,0 +1,7 @@
+{
+    "code": "def load_model_from_dir(checkpoints_dir, device, phase, model_tag=None, step=None):\n    if model_tag is None:\n        # guess the model tag by defaulting to the largest model\n        model_tag = find_largest_model(checkpoints_dir)\n        log0(f\"No model tag provided, guessing model tag: {model_tag}\")\n    checkpoint_dir = os.path.join(checkpoints_dir, model_tag)\n    if step is None:\n        # guess the step by defaulting to the last step\n        step = find_last_step(checkpoint_dir)\n    assert step is not None, f\"No checkpoints found in {checkpoint_dir}\"\n    # build the model\n    log0(f\"Loading model from {checkpoint_dir} with step {step}\")\n    model, tokenizer, meta_data = build_model(checkpoint_dir, step, device, phase)\n    return model, tokenizer, meta_data",
+    "source": "github_repo:karpathy/nanochat",
+    "file": "nanochat/checkpoint_manager.py",
+    "license": "MIT",
+    "language": "python"
+}

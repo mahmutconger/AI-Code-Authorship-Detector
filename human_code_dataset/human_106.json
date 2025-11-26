@@ -1,0 +1,7 @@
+{
+    "code": "def main():\n    \"\"\"Main entry point for building the component index.\"\"\"\n    # Build the index\n    index = build_component_index()\n\n    if not index:\n        print(\"Failed to build component index\", file=sys.stderr)\n        sys.exit(1)\n\n    # Determine output path relative to script location (repo structure)\n    # This script is run during development/CI, not from installed package\n    output_path = Path(__file__).parent.parent / \"src\" / \"lfx\" / \"src\" / \"lfx\" / \"_assets\" / \"component_index.json\"\n\n    # Create directory if it doesn't exist\n    output_path.parent.mkdir(parents=True, exist_ok=True)\n\n    # Always minify to reduce file size and git history bloat (from 83k to ~5k lines)\n    # The index is auto-generated and can be inspected with `jq` if needed\n    print(f\"\\nWriting minified index to {output_path}\")\n    json_bytes = orjson.dumps(index, option=orjson.OPT_SORT_KEYS)\n    output_path.write_text(json_bytes.decode(\"utf-8\"), encoding=\"utf-8\")\n\n    print(\"\\nIndex successfully written!\")\n    print(f\"  Version: {index['version']}\")\n    print(f\"  Modules: {index['metadata']['num_modules']}\")\n    print(f\"  Components: {index['metadata']['num_components']}\")\n    print(f\"  SHA256: {index['sha256']}\")",
+    "source": "github_repo:langflow-ai/langflow",
+    "file": "scripts/build_component_index.py",
+    "license": "MIT",
+    "language": "python"
+}

@@ -1,0 +1,7 @@
+{
+    "code": "def extract_keywords(self, query: str) -> List[str]:\n        \"\"\"Extract relevant keywords from user query.\"\"\"\n        # Common automation terms\n        automation_terms = {\n            'email': ['email', 'gmail', 'mail'],\n            'social': ['twitter', 'facebook', 'instagram', 'linkedin', 'social'],\n            'data': ['data', 'database', 'spreadsheet', 'csv', 'excel'],\n            'ai': ['ai', 'openai', 'chatgpt', 'artificial', 'intelligence'],\n            'notification': ['notification', 'alert', 'slack', 'telegram', 'discord'],\n            'automation': ['automation', 'workflow', 'process', 'automate'],\n            'integration': ['integration', 'connect', 'sync', 'api']\n        }\n        \n        query_lower = query.lower()\n        keywords = []\n        \n        for category, terms in automation_terms.items():\n            for term in terms:\n                if term in query_lower:\n                    keywords.append(term)\n        \n        # Extract specific service names\n        services = ['slack', 'telegram', 'openai', 'google', 'microsoft', 'shopify', 'airtable']\n        for service in services:\n            if service in query_lower:\n                keywords.append(service)\n        \n        return list(set(keywords))",
+    "source": "github_repo:Zie619/n8n-workflows",
+    "file": "src/ai_assistant.py",
+    "license": "MIT",
+    "language": "python"
+}

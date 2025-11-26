@@ -1,0 +1,7 @@
+{
+    "code": "def get_organization_id(self):\n        url = \"https://claude.ai/api/organizations\"\n        headers = {\n            'User-Agent':\n                'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:109.0) Gecko/20100101 Firefox/115.0',\n            'Accept-Language': 'en-US,en;q=0.5',\n            'Referer': 'https://claude.ai/chats',\n            'Content-Type': 'application/json',\n            'Sec-Fetch-Dest': 'empty',\n            'Sec-Fetch-Mode': 'cors',\n            'Sec-Fetch-Site': 'same-origin',\n            'Connection': 'keep-alive',\n            'Cookie': f'{self.claude_api_cookie}'\n        }\n        try:\n            response = requests.get(url, headers=headers, impersonate=\"chrome110\", proxies =self.proxies, timeout=400)\n            res = json.loads(response.text)\n            uuid = res[0]['uuid']\n        except:\n            if \"App unavailable\" in response.text:\n                logger.error(\"IP error: The IP is not allowed to be used on Claude\")\n                self.error = \"ip所在地区不被claude支持\"\n            elif \"Invalid authorization\" in response.text:\n                logger.error(\"Cookie error: Invalid authorization of claude, check cookie please.\")\n                self.error = \"无法通过claude身份验证，请检查cookie\"\n            return None\n        return uuid",
+    "source": "github_repo:zhayujie/chatgpt-on-wechat",
+    "file": "bot/claude/claude_ai_bot.py",
+    "license": "MIT",
+    "language": "python"
+}

@@ -1,0 +1,7 @@
+{
+    "code": "def set_dictionary(self, dictionary_path):\n        with self.lock:\n            abs_path = _get_abs_path(dictionary_path)\n            if not os.path.isfile(abs_path):\n                raise Exception(\"jieba: file does not exist: \" + abs_path)\n            self.dictionary = abs_path\n            self.initialized = False",
+    "source": "github_repo:fxsjy/jieba",
+    "file": "jieba/__init__.py",
+    "license": "MIT",
+    "language": "python"
+}

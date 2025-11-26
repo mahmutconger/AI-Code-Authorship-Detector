@@ -1,0 +1,7 @@
+{
+    "code": "def open_cdn_file(cdnFile):\n    cdn = []\n    path = os.path.join(os.path.dirname(__file__), f'../{cdnFile}')\n    try:\n        with open(path, \"r\", encoding=\"utf-8\") as f:\n            for i in f.readlines():\n                if i and \"kyfw.12306.cn:443\" not in i:\n                    cdn.append(i.replace(\"\\n\", \"\"))\n            return cdn\n    except Exception:\n        with open(path, \"r\") as f:\n            for i in f.readlines():\n                if i and \"kyfw.12306.cn:443\" not in i:\n                    cdn.append(i.replace(\"\\n\", \"\"))\n            return cdn",
+    "source": "github_repo:testerSunshine/12306",
+    "file": "agency/cdn_utils.py",
+    "license": "MIT",
+    "language": "python"
+}

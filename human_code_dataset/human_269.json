@@ -1,0 +1,7 @@
+{
+    "code": "def usage_tracker_io(usage_tracker):\n    io = StringIO()\n    usage_tracker.return_value \\\n                 .open.return_value \\\n                 .__enter__.return_value = io\n    return io",
+    "source": "github_repo:nvbn/thefuck",
+    "file": "tests/entrypoints/test_not_configured.py",
+    "license": "MIT",
+    "language": "python"
+}

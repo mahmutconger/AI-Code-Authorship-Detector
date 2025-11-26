@@ -1,0 +1,7 @@
+{
+    "code": "def create_task(\n    request: Request,\n    body: Union[TaskVideoRequest, SubtitleRequest, AudioRequest],\n    stop_at: str,\n):\n    task_id = utils.get_uuid()\n    request_id = base.get_task_id(request)\n    try:\n        task = {\n            \"task_id\": task_id,\n            \"request_id\": request_id,\n            \"params\": body.model_dump(),\n        }\n        sm.state.update_task(task_id)\n        task_manager.add_task(tm.start, task_id=task_id, params=body, stop_at=stop_at)\n        logger.success(f\"Task created: {utils.to_json(task)}\")\n        return utils.get_response(200, task)\n    except ValueError as e:\n        raise HttpException(\n            task_id=task_id, status_code=400, message=f\"{request_id}: {str(e)}\"\n        )",
+    "source": "github_repo:harry0703/MoneyPrinterTurbo",
+    "file": "app/controllers/v1/video.py",
+    "license": "MIT",
+    "language": "python"
+}

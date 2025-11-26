@@ -1,0 +1,7 @@
+{
+    "code": "def weight_dequant(x: torch.Tensor, s: torch.Tensor, block_size: int = 128) -> torch.Tensor:\n    \"\"\"\n    Dequantizes the given weight tensor using the provided scale tensor.\n\n    Args:\n        x (torch.Tensor): The quantized weight tensor of shape (M, N).\n        s (torch.Tensor): The scale tensor of shape (M//block_size, N//block_size).\n        block_size (int, optional): The block size to use for dequantization. Defaults to 128.\n\n    Returns:\n        torch.Tensor: The dequantized weight tensor of the same shape as `x`.\n\n    Raises:\n        AssertionError: If `x` or `s` are not contiguous or if their dimensions are not 2.\n    \"\"\"\n    assert x.is_contiguous() and s.is_contiguous(), 'Input tensors must be contiguous'\n    assert x.dim() == 2 and s.dim() == 2, 'Input tensors must have 2 dimensions'\n    M, N = x.size()\n    y = torch.empty_like(x, dtype=torch.get_default_dtype())\n    grid = lambda meta: (triton.cdiv(M, meta['BLOCK_SIZE']), triton.cdiv(N, meta['BLOCK_SIZE']))\n    weight_dequant_kernel[grid](x, s, y, M, N, BLOCK_SIZE=block_size)\n    return y",
+    "source": "github_repo:deepseek-ai/DeepSeek-V3",
+    "file": "inference/kernel.py",
+    "license": "MIT",
+    "language": "python"
+}

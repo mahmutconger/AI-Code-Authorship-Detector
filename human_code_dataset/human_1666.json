@@ -1,0 +1,7 @@
+{
+    "code": "def fetch_command(cls):\n        \"\"\"\n        Initial fetch of the repository.\n        Return cmdline that has to be executed to fetch the repository.\n        Skipping if `self._repository_url` is not specified\n        \"\"\"\n        if not cls._repository_url:\n            return None\n\n        # in this case `fetch` has to be implemented\n        # in the distinct adapter subclass\n        raise RuntimeError(\n            \"Do not known how to handle this repository: %s\" % cls._repository_url\n        )",
+    "source": "github_repo:chubin/cheat.sh",
+    "file": "lib/adapter/adapter.py",
+    "license": "MIT",
+    "language": "python"
+}

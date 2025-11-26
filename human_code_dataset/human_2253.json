@@ -1,0 +1,7 @@
+{
+    "code": "def get_property(self, key: str) -> Any:\n        keys = key.split(\".\")\n\n        config = self.file.read() if self.file.exists() else {}\n\n        for i, key in enumerate(keys):\n            if key not in config:\n                raise PropertyNotFoundError(f\"Key {'.'.join(keys)} not in config\")\n\n            if i == len(keys) - 1:\n                return config[key]\n\n            config = config[key]",
+    "source": "github_repo:python-poetry/poetry",
+    "file": "src/poetry/config/file_config_source.py",
+    "license": "MIT",
+    "language": "python"
+}

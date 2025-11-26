@@ -1,0 +1,7 @@
+{
+    "code": "def batch_sequences_schema(tokenizer, prompts):\n    # In schema tasks, contexts vary but continuation is the same (common suffix)\n    tokens = tokenizer(prompts, prepend=tokenizer.get_bos_token_id())\n    # figure out the start and end of each context\n    suffix_length = find_common_length(tokens, direction='right')\n    end_indices = [len(x) for x in tokens]\n    start_indices = [ei - suffix_length for ei in end_indices]\n    return tokens, start_indices, end_indices",
+    "source": "github_repo:karpathy/nanochat",
+    "file": "nanochat/core_eval.py",
+    "license": "MIT",
+    "language": "python"
+}

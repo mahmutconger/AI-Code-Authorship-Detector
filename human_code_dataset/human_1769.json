@@ -1,0 +1,7 @@
+{
+    "code": "def func(_signo, _stack_frame):\n        logger.info(\"signal {} received, exiting...\".format(_signo))\n        conf().save_user_datas()\n        if callable(old_handler):  #  check old_handler\n            return old_handler(_signo, _stack_frame)\n        sys.exit(0)",
+    "source": "github_repo:zhayujie/chatgpt-on-wechat",
+    "file": "app.py",
+    "license": "MIT",
+    "language": "python"
+}

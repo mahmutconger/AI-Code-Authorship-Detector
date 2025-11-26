@@ -1,0 +1,7 @@
+{
+    "code": "def ema_scope(self, context=None):\n        if self.use_ema:\n            self.model_ema.store(self.parameters())\n            self.model_ema.copy_to(self)\n            if context is not None:\n                print(f\"{context}: Switched to EMA weights\")\n        try:\n            yield None\n        finally:\n            if self.use_ema:\n                self.model_ema.restore(self.parameters())\n                if context is not None:\n                    print(f\"{context}: Restored training weights\")",
+    "source": "github_repo:Stability-AI/stablediffusion",
+    "file": "ldm/models/autoencoder.py",
+    "license": "MIT",
+    "language": "python"
+}

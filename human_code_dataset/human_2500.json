@@ -1,0 +1,7 @@
+{
+    "code": "class WelcomeApp(App):\n    def on_key(self) -> None:\n        self.mount(Welcome())\n\n    def on_button_pressed(self) -> None:\n        self.exit()",
+    "source": "github_repo:Textualize/textual",
+    "file": "docs/examples/app/widgets02.py",
+    "license": "MIT",
+    "language": "python"
+}

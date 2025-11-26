@@ -1,0 +1,7 @@
+{
+    "code": "def _set_header_default():\n    header_dict = OrderedDict()\n    header_dict[\"Accept\"] = \"*/*\"\n    header_dict[\"Accept-Encoding\"] = \"gzip, deflate\"\n    header_dict[\"X-Requested-With\"] = \"superagent\"\n\n    header_dict[\n        \"User-Agent\"] = \"Mozilla/5.0 (iPhone; CPU iPhone OS 11_0 like Mac OS X) AppleWebKit/604.1.38 (KHTML, like Gecko) Version/11.0 Mobile/15A372 Safari/604.1\"\n    header_dict[\"Content-Type\"] = \"application/x-www-form-urlencoded; charset=UTF-8\"",
+    "source": "github_repo:testerSunshine/12306",
+    "file": "UnitTest/TestAll.py",
+    "license": "MIT",
+    "language": "python"
+}

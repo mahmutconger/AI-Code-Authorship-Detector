@@ -1,0 +1,7 @@
+{
+    "code": "def remote_schema():\n    schema_url: str = 'https://raw.githubusercontent.com/sherlock-project/sherlock/master/sherlock_project/resources/data.schema.json'\n    with urllib.request.urlopen(schema_url) as remoteschema:\n        schemadat = json.load(remoteschema)\n    yield schemadat",
+    "source": "github_repo:sherlock-project/sherlock",
+    "file": "tests/conftest.py",
+    "license": "MIT",
+    "language": "python"
+}

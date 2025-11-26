@@ -1,0 +1,7 @@
+{
+    "code": "def search():\n    with open(\"student_records.pkl\", \"rb\") as F:\n        # your file path will be different\n        search = True\n        rno = int(input(\"Enter the roll number of the student\"))\n\n        for i in pickle.load(F):\n            if i[0] == rno:\n                print(f\"Record found successfully\\n{i}\")\n                search = False\n\n        if search:\n            print(\"Sorry! record not found\")",
+    "source": "github_repo:geekcomputers/Python",
+    "file": "1 File handle/File handle binary/search record in binary file.py",
+    "license": "MIT",
+    "language": "python"
+}

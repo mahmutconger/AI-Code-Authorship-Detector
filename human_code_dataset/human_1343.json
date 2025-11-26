@@ -1,0 +1,7 @@
+{
+    "code": "def convert_active(cls, v):\n        if isinstance(v, int):\n            return bool(v)\n        return v",
+    "source": "github_repo:Zie619/n8n-workflows",
+    "file": "api_server.py",
+    "license": "MIT",
+    "language": "python"
+}

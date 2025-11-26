@@ -1,0 +1,7 @@
+{
+    "code": "def setup_database(force_reindex: bool = False, skip_index: bool = False) -> str:\n    \"\"\"Setup and initialize the database.\"\"\"\n    from workflow_db import WorkflowDatabase\n\n    db_path = \"database/workflows.db\"\n\n    print(f\"🔄 Setting up database: {db_path}\")\n    db = WorkflowDatabase(db_path)\n\n    # Skip indexing in CI mode or if explicitly requested\n    if skip_index:\n        print(\"⏭️  Skipping workflow indexing (CI mode)\")\n        stats = db.get_stats()\n        print(f\"✅ Database ready: {stats['total']} workflows\")\n        return db_path\n\n    # Check if database has data or force reindex\n    stats = db.get_stats()\n    if stats['total'] == 0 or force_reindex:\n        print(\"📚 Indexing workflows...\")\n        index_stats = db.index_all_workflows(force_reindex=True)\n        print(f\"✅ Indexed {index_stats['processed']} workflows\")\n\n        # Show final stats\n        final_stats = db.get_stats()\n        print(f\"📊 Database contains {final_stats['total']} workflows\")\n    else:\n        print(f\"✅ Database ready: {stats['total']} workflows\")\n\n    return db_path",
+    "source": "github_repo:Zie619/n8n-workflows",
+    "file": "run.py",
+    "license": "MIT",
+    "language": "python"
+}

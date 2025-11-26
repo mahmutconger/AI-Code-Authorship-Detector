@@ -1,0 +1,7 @@
+{
+    "code": "def solve_crossword(puzzle: list[list[str]], words: list[str]) -> bool:\n    \"\"\"\n    Solve the crossword puzzle using backtracking.\n\n    >>> puzzle = [\n    ...     ['', '', '', ''],\n    ...     ['', '', '', ''],\n    ...     ['', '', '', ''],\n    ...     ['', '', '', '']\n    ... ]\n\n    >>> words = ['word', 'four', 'more', 'last']\n    >>> solve_crossword(puzzle, words)\n    True\n    >>> puzzle = [\n    ...     ['', '', '', ''],\n    ...     ['', '', '', ''],\n    ...     ['', '', '', ''],\n    ...     ['', '', '', '']\n    ... ]\n    >>> words = ['word', 'four', 'more', 'paragraphs']\n    >>> solve_crossword(puzzle, words)\n    False\n    \"\"\"\n    for row in range(len(puzzle)):\n        for col in range(len(puzzle[0])):\n            if puzzle[row][col] == \"\":\n                for word in words:\n                    for vertical in [True, False]:\n                        if is_valid(puzzle, word, row, col, vertical):\n                            place_word(puzzle, word, row, col, vertical)\n                            words.remove(word)\n                            if solve_crossword(puzzle, words):\n                                return True\n                            words.append(word)\n                            remove_word(puzzle, word, row, col, vertical)\n                return False\n    return True",
+    "source": "github_repo:TheAlgorithms/Python",
+    "file": "backtracking/crossword_puzzle_solver.py",
+    "license": "MIT",
+    "language": "python"
+}

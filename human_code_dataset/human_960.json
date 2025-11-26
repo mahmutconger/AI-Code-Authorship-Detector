@@ -1,0 +1,7 @@
+{
+    "code": "class Triangle:\n    point1: Point3D\n    point2: Point3D\n    point3: Point3D",
+    "source": "github_repo:Textualize/rich",
+    "file": "examples/attrs.py",
+    "license": "MIT",
+    "language": "python"
+}

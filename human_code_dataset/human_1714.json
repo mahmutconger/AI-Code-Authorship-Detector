@@ -1,0 +1,7 @@
+{
+    "code": "def _publish(self, title, args):\n        event_funcs = []\n        self._eventDictMutex.lock()  # 上锁\n        if title in self._eventDict:\n            event_funcs = self._eventDict[title].copy()  # 拷贝一份\n        self._eventDictMutex.unlock()  # 解锁\n        for func in event_funcs:\n            try:\n                func(*args)\n            except Exception:\n                logger.error(\n                    f\"发送事件异常。 title: {title}, args: {args}, func: {func}\",\n                    exc_info=True,\n                    stack_info=True,\n                )",
+    "source": "github_repo:hiroi-sora/Umi-OCR",
+    "file": "UmiOCR-data/py_src/event_bus/pubsub_service.py",
+    "license": "MIT",
+    "language": "python"
+}

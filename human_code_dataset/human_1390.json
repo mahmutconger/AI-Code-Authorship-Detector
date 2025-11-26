@@ -1,0 +1,7 @@
+{
+    "code": "class IdentityFirstStage(torch.nn.Module):\n    def __init__(self, *args, vq_interface=False, **kwargs):\n        self.vq_interface = vq_interface\n        super().__init__()\n\n    def encode(self, x, *args, **kwargs):\n        return x\n\n    def decode(self, x, *args, **kwargs):\n        return x\n\n    def quantize(self, x, *args, **kwargs):\n        if self.vq_interface:\n            return x, None, [None, None, None]\n        return x\n\n    def forward(self, x, *args, **kwargs):\n        return x",
+    "source": "github_repo:Stability-AI/stablediffusion",
+    "file": "ldm/models/autoencoder.py",
+    "license": "MIT",
+    "language": "python"
+}

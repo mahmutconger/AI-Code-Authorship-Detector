@@ -1,0 +1,7 @@
+{
+    "code": "class SimpleInlineFullScreenQuad(Scene):\n    def construct(self):\n        surface = FullScreenQuad(\n            self.renderer.context,\n            \"\"\"\n            #version 330\n\n            uniform float v_red;\n            uniform float v_green;\n            uniform float v_blue;\n            out vec4 frag_color;\n\n            void main() {\n              frag_color = vec4(v_red, v_green, v_blue, 1);\n            }\n            \"\"\",\n        )\n        surface.shader.set_uniform(\"v_red\", 0)\n        surface.shader.set_uniform(\"v_green\", 0)\n        surface.shader.set_uniform(\"v_blue\", 0)\n\n        increase = True\n        val = 0.5\n        surface.shader.set_uniform(\"v_red\", val)\n        surface.shader.set_uniform(\"v_green\", val)\n        surface.shader.set_uniform(\"v_blue\", val)\n\n        def update_surface(mesh, dt):\n            nonlocal increase\n            nonlocal val\n            if increase:\n                val += dt\n            else:\n                val -= dt\n            if val >= 1:\n                increase = False\n            elif val <= 0:\n                increase = True\n            surface.shader.set_uniform(\"v_red\", val)\n            surface.shader.set_uniform(\"v_green\", val)\n            surface.shader.set_uniform(\"v_blue\", val)\n\n        surface.add_updater(update_surface)\n\n        self.add(surface)\n        self.wait(5)",
+    "source": "github_repo:ManimCommunity/manim",
+    "file": "example_scenes/opengl.py",
+    "license": "MIT",
+    "language": "python"
+}

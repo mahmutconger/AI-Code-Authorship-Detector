@@ -1,0 +1,7 @@
+{
+    "code": "def choose_path():\n    fpath = os.path.expanduser(\"~/hackingtoolpath.txt\")\n    if not os.path.exists(fpath):\n        os.system(\"clear\" if system() == \"Linux\" else \"cls\")\n        build_menu()\n        console.print(Panel(\"Setup path for tool installations\", border_style=\"magenta\"))\n        choice = Prompt.ask(\"[magenta]Set Path[/magenta]\", choices=[\"1\", \"2\"], default=\"2\")\n        if choice == \"1\":\n            inpath = Prompt.ask(\"[magenta]Enter Path (with Directory Name)[/magenta]\")\n            with open(fpath, \"w\") as f:\n                f.write(inpath)\n            console.print(f\"[green]Successfully Set Path to:[/green] {inpath}\")\n        else:\n            autopath = \"/home/hackingtool/\"\n            with open(fpath, \"w\") as f:\n                f.write(autopath)\n            console.print(f\"[green]Your Default Path Is:[/green] {autopath}\")\n            sleep(1)\n    return fpath",
+    "source": "github_repo:Z4nzu/hackingtool",
+    "file": "hackingtool.py",
+    "license": "MIT",
+    "language": "python"
+}

@@ -1,0 +1,7 @@
+{
+    "code": "def convert_pad_shape(pad_shape):\n    layer = pad_shape[::-1]\n    pad_shape = [item for sublist in layer for item in sublist]\n    return pad_shape",
+    "source": "github_repo:myshell-ai/OpenVoice",
+    "file": "openvoice/commons.py",
+    "license": "MIT",
+    "language": "python"
+}

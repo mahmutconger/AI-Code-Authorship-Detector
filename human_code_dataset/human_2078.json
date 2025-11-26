@@ -1,0 +1,7 @@
+{
+    "code": "def __cut_DAG_NO_HMM(self, sentence):\n        DAG = self.get_DAG(sentence)\n        route = {}\n        self.calc(sentence, DAG, route)\n        x = 0\n        N = len(sentence)\n        buf = ''\n        while x < N:\n            y = route[x][1] + 1\n            l_word = sentence[x:y]\n            if re_eng.match(l_word) and len(l_word) == 1:\n                buf += l_word\n                x = y\n            else:\n                if buf:\n                    yield buf\n                    buf = ''\n                yield l_word\n                x = y\n        if buf:\n            yield buf\n            buf = ''",
+    "source": "github_repo:fxsjy/jieba",
+    "file": "jieba/__init__.py",
+    "license": "MIT",
+    "language": "python"
+}

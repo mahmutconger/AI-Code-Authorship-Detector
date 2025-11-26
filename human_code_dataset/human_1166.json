@@ -1,0 +1,7 @@
+{
+    "code": "def get_batch(split):\n        data = train_data # note ignore split in benchmarking script\n        ix = torch.randint(len(data) - block_size, (batch_size,))\n        x = torch.stack([torch.from_numpy((data[i:i+block_size]).astype(np.int64)) for i in ix])\n        y = torch.stack([torch.from_numpy((data[i+1:i+1+block_size]).astype(np.int64)) for i in ix])\n        x, y = x.pin_memory().to(device, non_blocking=True), y.pin_memory().to(device, non_blocking=True)\n        return x, y",
+    "source": "github_repo:karpathy/nanoGPT",
+    "file": "bench.py",
+    "license": "MIT",
+    "language": "python"
+}

@@ -1,0 +1,7 @@
+{
+    "code": "def get_best_params(self):\n        \"\"\"Returns the optimal hyperparameters thus far.\"\"\"\n\n        optimal_name = self.optimal_name\n\n        return self._get_params_from_name(optimal_name)",
+    "source": "github_repo:microsoft/qlib",
+    "file": "examples/benchmarks/TFT/libs/hyperparam_opt.py",
+    "license": "MIT",
+    "language": "python"
+}

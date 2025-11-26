@@ -1,0 +1,7 @@
+{
+    "code": "def __init__(self, dim: int, inter_dim: int):\n        \"\"\"\n        Initializes the Expert layer.\n\n        Args:\n            dim (int): Input and output dimensionality.\n            inter_dim (int): Hidden layer dimensionality.\n        \"\"\"\n        super().__init__()\n        self.w1 = Linear(dim, inter_dim)\n        self.w2 = Linear(inter_dim, dim)\n        self.w3 = Linear(dim, inter_dim)",
+    "source": "github_repo:deepseek-ai/DeepSeek-V3",
+    "file": "inference/model.py",
+    "license": "MIT",
+    "language": "python"
+}

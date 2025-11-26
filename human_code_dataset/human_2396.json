@@ -1,0 +1,7 @@
+{
+    "code": "def run(self):\n        import numpy as np\n        import pyworld\n        while True:\n            idx, x, res_f0, n_cpu, ts = self.inp_q.get()\n            f0, t = pyworld.harvest(\n                x.astype(np.double),\n                fs=16000,\n                f0_ceil=1100,\n                f0_floor=50,\n                frame_period=10,\n            )\n            res_f0[idx] = f0\n            if len(res_f0.keys()) >= n_cpu:\n                self.opt_q.put(ts)",
+    "source": "github_repo:RVC-Project/Retrieval-based-Voice-Conversion-WebUI",
+    "file": "api_240604.py",
+    "license": "MIT",
+    "language": "python"
+}

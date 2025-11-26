@@ -1,0 +1,7 @@
+{
+    "code": "def query(self, question: str) -> str:  # type: ignore[override]\n        query = self.embedding_function([question])[0]\n        results = (\n            self._table.search(query, vector_column_name=self.vector_column_name)\n            .limit(self.top_k)\n            .select([self.text_column_name])\n            .to_list()\n        )\n        values = [result[self.text_column_name] for result in results]\n        return \"\\n\".join(values)",
+    "source": "github_repo:crewAIInc/crewAI",
+    "file": "lib/crewai-tools/src/crewai_tools/adapters/lancedb_adapter.py",
+    "license": "MIT",
+    "language": "python"
+}

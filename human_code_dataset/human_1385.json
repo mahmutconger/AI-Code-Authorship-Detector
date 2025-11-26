@@ -1,0 +1,7 @@
+{
+    "code": "def __init__(self, model_type):\n        super().__init__()\n        self.transform = load_midas_transform(model_type)",
+    "source": "github_repo:Stability-AI/stablediffusion",
+    "file": "ldm/data/util.py",
+    "license": "MIT",
+    "language": "python"
+}

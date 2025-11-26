@@ -1,0 +1,7 @@
+{
+    "code": "def test_create_item_bad_token():\n    response = client.post(\n        \"/items/\",\n        headers={\"X-Token\": \"hailhydra\"},\n        json={\"id\": \"bazz\", \"title\": \"Bazz\", \"description\": \"Drop the bazz\"},\n    )\n    assert response.status_code == 400\n    assert response.json() == {\"detail\": \"Invalid X-Token header\"}",
+    "source": "github_repo:fastapi/fastapi",
+    "file": "docs_src/app_testing/app_b/test_main.py",
+    "license": "MIT",
+    "language": "python"
+}

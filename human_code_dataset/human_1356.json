@@ -1,0 +1,7 @@
+{
+    "code": "def get_category_list(categories: Dict[str, List[str]]) -> List[str]:\n    \"\"\"Get formatted list of all categories.\"\"\"\n    formatted_categories = set()\n    for category_key in categories.keys():\n        formatted_categories.add(format_category_name(category_key))\n\n    # Add categories from the create_categories.py system\n    additional_categories = [\n        \"Business Process Automation\",\n        \"Web Scraping & Data Extraction\",\n        \"Marketing & Advertising Automation\",\n        \"Creative Content & Video Automation\",\n        \"Creative Design Automation\",\n        \"CRM & Sales\",\n        \"Financial & Accounting\"\n    ]\n\n    for cat in additional_categories:\n        formatted_categories.add(cat)\n\n    return sorted(list(formatted_categories))",
+    "source": "github_repo:Zie619/n8n-workflows",
+    "file": "scripts/generate_search_index.py",
+    "license": "MIT",
+    "language": "python"
+}

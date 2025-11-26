@@ -1,0 +1,7 @@
+{
+    "code": "#!/usr/bin/env python3\nimport screenplays\nfrom clidirector import CliDirector\n\nif __name__ == \"__main__\":\n    director = CliDirector()\n    screenplays.record_user_interface(director)\n    screenplays.record_intercept_requests(director)\n    screenplays.record_modify_requests(director)\n    screenplays.record_replay_requests(director)",
+    "source": "github_repo:mitmproxy/mitmproxy",
+    "file": "docs/scripts/clirecording/record.py",
+    "license": "MIT",
+    "language": "python"
+}

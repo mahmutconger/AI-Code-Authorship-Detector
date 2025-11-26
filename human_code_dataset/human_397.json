@@ -1,0 +1,7 @@
+{
+    "code": "def update(\n        self, tokens: Tensor, logits: Tensor, sum_logprobs: Tensor\n    ) -> Tuple[Tensor, bool]:\n        if self.temperature == 0:\n            next_tokens = logits.argmax(dim=-1)\n        else:\n            next_tokens = Categorical(logits=logits / self.temperature).sample()\n\n        logprobs = F.log_softmax(logits.float(), dim=-1)\n        current_logprobs = logprobs[torch.arange(logprobs.shape[0]), next_tokens]\n        sum_logprobs += current_logprobs * (tokens[:, -1] != self.eot)\n\n        next_tokens[tokens[:, -1] == self.eot] = self.eot\n        tokens = torch.cat([tokens, next_tokens[:, None]], dim=-1)\n\n        completed = (tokens[:, -1] == self.eot).all()\n        return tokens, completed",
+    "source": "github_repo:openai/whisper",
+    "file": "whisper/decoding.py",
+    "license": "MIT",
+    "language": "python"
+}

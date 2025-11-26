@@ -1,0 +1,7 @@
+{
+    "code": "def proc(request, spawnu, TIMEOUT):\n    proc = spawnu(*request.param)\n    proc.sendline(u'tcsh')\n    proc.sendline(u'setenv PYTHONIOENCODING utf8')\n    proc.sendline(u'eval `thefuck --alias`')\n    return proc",
+    "source": "github_repo:nvbn/thefuck",
+    "file": "tests/functional/test_tcsh.py",
+    "license": "MIT",
+    "language": "python"
+}

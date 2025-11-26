@@ -1,0 +1,7 @@
+{
+    "code": "def __call__(self, text, **kargs):\n        words = jieba.tokenize(text, mode=\"search\")\n        token = Token()\n        for (w, start_pos, stop_pos) in words:\n            if not accepted_chars.match(w) and len(w) <= 1:\n                continue\n            token.original = token.text = w\n            token.pos = start_pos\n            token.startchar = start_pos\n            token.endchar = stop_pos\n            yield token",
+    "source": "github_repo:fxsjy/jieba",
+    "file": "jieba/analyse/analyzer.py",
+    "license": "MIT",
+    "language": "python"
+}

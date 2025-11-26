@@ -1,0 +1,7 @@
+{
+    "code": "def repository_url(cls):\n        \"\"\"\n        Return URL of the upstream repository\n        \"\"\"\n        return cls._repository_url",
+    "source": "github_repo:chubin/cheat.sh",
+    "file": "lib/adapter/adapter.py",
+    "license": "MIT",
+    "language": "python"
+}

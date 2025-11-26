@@ -1,0 +1,7 @@
+{
+    "code": "class TexTemplateFromCLI(Scene):\n    \"\"\"This scene uses a custom TexTemplate file.\n    The path of the TexTemplate _must_ be passed with the command line\n    argument `--tex_template <path to template>`.\n    For this scene, you can use the custom_template.tex file next to it.\n    This scene will fail to render if a tex_template.tex that doesn't\n    import esvect is passed, and will throw a LaTeX error in that case.\n    \"\"\"\n\n    def construct(self):\n        text = MathTex(r\"\\vv{vb}\")\n        self.play(Write(text))\n        self.wait(1)",
+    "source": "github_repo:ManimCommunity/manim",
+    "file": "example_scenes/customtex.py",
+    "license": "MIT",
+    "language": "python"
+}

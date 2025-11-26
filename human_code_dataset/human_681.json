@@ -1,0 +1,7 @@
+{
+    "code": "class Interactives:\n    def run_cli(args:str = \"\") -> str:\n        \"\"\"Pass arguments to Sherlock as a normal user on the command line\"\"\"\n        # Adapt for platform differences (Windows likes to be special)\n        if platform.system() == \"Windows\":\n            command:str = f\"py -m sherlock_project {args}\"\n        else:\n            command:str = f\"sherlock {args}\"\n\n        proc_out:str = \"\"\n        try:\n            proc_out = subprocess.check_output(command, shell=True, stderr=subprocess.STDOUT)\n            return proc_out.decode()\n        except subprocess.CalledProcessError as e:\n            raise InteractivesSubprocessError(e.output.decode())\n\n\n    def walk_sherlock_for_files_with(pattern: str) -> list[str]:\n        \"\"\"Check all files within the Sherlock package for matching patterns\"\"\"\n        pattern:re.Pattern = re.compile(pattern)\n        matching_files:list[str] = []\n        for root, dirs, files in os.walk(\"sherlock_project\"):\n            for file in files:\n                file_path = os.path.join(root,file)\n                if \"__pycache__\" in file_path:\n                    continue\n                with open(file_path, 'r', errors='ignore') as f:\n                    if pattern.search(f.read()):\n                        matching_files.append(file_path)\n        return matching_files",
+    "source": "github_repo:sherlock-project/sherlock",
+    "file": "tests/sherlock_interactives.py",
+    "license": "MIT",
+    "language": "python"
+}

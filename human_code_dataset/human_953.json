@@ -1,0 +1,7 @@
+{
+    "code": "def setup(self):\n        self.console = Console(\n            file=StringIO(), color_system=\"truecolor\", legacy_windows=False, width=100\n        )\n        self.style1 = Style.parse(\"blue on red\")\n        self.style2 = Style.parse(\"green italic bold\")",
+    "source": "github_repo:Textualize/rich",
+    "file": "benchmarks/benchmarks.py",
+    "license": "MIT",
+    "language": "python"
+}

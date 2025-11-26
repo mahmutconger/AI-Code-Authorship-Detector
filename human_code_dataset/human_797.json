@@ -1,0 +1,7 @@
+{
+    "code": "def valid(self) -> bool:\n    if self.avg_dt.count == 0:\n      return False\n\n    avg_freq = 1.0 / self.avg_dt.get_average()\n    if self.min_freq <= avg_freq <= self.max_freq:\n      return True\n\n    avg_freq_recent = 1.0 / self.recent_avg_dt.get_average()\n    return self.min_freq <= avg_freq_recent <= self.max_freq",
+    "source": "github_repo:commaai/openpilot",
+    "file": "cereal/messaging/__init__.py",
+    "license": "MIT",
+    "language": "python"
+}

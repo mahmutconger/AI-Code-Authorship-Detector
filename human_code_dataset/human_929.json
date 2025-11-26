@@ -1,0 +1,7 @@
+{
+    "code": "def get_installed_packages():\n    try:\n        result = subprocess.run(\n            [sys.executable, \"-m\", \"pip\", \"list\", \"--format=json\"],\n            capture_output=True,\n            text=True,\n        )\n        packages = json.loads(result.stdout)\n        return {pkg[\"name\"]: pkg[\"version\"] for pkg in packages}\n    except Exception as e:\n        return str(e)",
+    "source": "github_repo:AntonOsika/gpt-engineer",
+    "file": "gpt_engineer/applications/cli/main.py",
+    "license": "MIT",
+    "language": "python"
+}

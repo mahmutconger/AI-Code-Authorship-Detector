@@ -1,0 +1,7 @@
+{
+    "code": "def construct_doc(members: dict) -> str:\n    full_doc = \"\"\"\\\n.. _api_reference:\n\n=============\nAPI Reference\n=============\n\n\"\"\"\n    for module, _members in sorted(members.items(), key=lambda kv: kv[0]):\n        classes = _members[\"classes\"]\n        functions = _members[\"functions\"]\n        if not (classes or functions):\n            continue\n\n        module_title = module.replace(\"_\", \" \").title()\n        if module_title == \"Llms\":\n            module_title = \"LLMs\"\n        section = f\":mod:`gpt_engineer.{module}`: {module_title}\"\n        full_doc += f\"\"\"\\\n{section}\n{'=' * (len(section) + 1)}\n\n.. automodule:: gpt_engineer.{module}\n    :no-members:\n    :no-inherited-members:\n\n\"\"\"\n\n        if classes:\n            cstring = \"\\n    \".join(sorted(classes))\n            full_doc += f\"\"\"\\\nClasses\n--------------\n.. currentmodule:: gpt_engineer\n\n.. autosummary::\n    :toctree: {module}\n    :template: class.rst\n\n    {cstring}\n\n\"\"\"\n        if functions:\n            fstring = \"\\n    \".join(sorted(functions))\n            full_doc += f\"\"\"\\\nFunctions\n--------------\n.. currentmodule:: gpt_engineer\n\n.. autosummary::\n    :toctree: {module}\n\n    {fstring}\n\n\"\"\"\n    return full_doc",
+    "source": "github_repo:AntonOsika/gpt-engineer",
+    "file": "docs/create_api_rst.py",
+    "license": "MIT",
+    "language": "python"
+}

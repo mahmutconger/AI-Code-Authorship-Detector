@@ -1,0 +1,7 @@
+{
+    "code": "def __init__(\n        self,\n        config,\n        train_semantic_path,\n        train_phoneme_path,\n        dev_semantic_path=None,\n        dev_phoneme_path=None,\n    ):\n        super().__init__()\n        self.config = config\n        self.train_semantic_path = train_semantic_path\n        self.train_phoneme_path = train_phoneme_path\n        self.dev_semantic_path = dev_semantic_path\n        self.dev_phoneme_path = dev_phoneme_path\n        self.num_workers = self.config[\"data\"][\"num_workers\"]",
+    "source": "github_repo:RVC-Boss/GPT-SoVITS",
+    "file": "GPT_SoVITS/AR/data/data_module.py",
+    "license": "MIT",
+    "language": "python"
+}

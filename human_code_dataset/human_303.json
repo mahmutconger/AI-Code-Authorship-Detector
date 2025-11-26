@@ -1,0 +1,7 @@
+{
+    "code": "class Item(BaseModel):\n    id: str\n    value: str",
+    "source": "github_repo:fastapi/fastapi",
+    "file": "docs_src/additional_responses/tutorial003.py",
+    "license": "MIT",
+    "language": "python"
+}

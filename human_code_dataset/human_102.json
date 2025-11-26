@@ -1,0 +1,7 @@
+{
+    "code": "def main():\n    \"\"\"Main entry point.\"\"\"\n    if len(sys.argv) < MIN_ARGS:\n        sys.stderr.write(\"Usage: python clean_openapi_formatting.py <input_file> [output_file]\\n\")\n        sys.exit(1)\n\n    input_file = sys.argv[1]\n    output_file = sys.argv[2] if len(sys.argv) > MIN_ARGS else None\n\n    clean_openapi_formatting(input_file, output_file)",
+    "source": "github_repo:langflow-ai/langflow",
+    "file": "docs/scripts/clean_openapi_formatting.py",
+    "license": "MIT",
+    "language": "python"
+}

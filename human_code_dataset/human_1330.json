@@ -1,0 +1,7 @@
+{
+    "code": "def unload(self):\n        if not self._unloaded and self._dp_doc is not None:\n            self._dp_doc.unload_pages((self._page_no + 1, self._page_no + 2))\n            self._unloaded = True\n\n        self._ppage = None\n        self._dpage = None\n        self._dp_doc = None",
+    "source": "github_repo:docling-project/docling",
+    "file": "docling/backend/docling_parse_v4_backend.py",
+    "license": "MIT",
+    "language": "python"
+}

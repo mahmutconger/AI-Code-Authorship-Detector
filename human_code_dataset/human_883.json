@@ -1,0 +1,7 @@
+{
+    "code": "def test_image(image_to_check, model, upsample):\n    unknown_image = face_recognition.load_image_file(image_to_check)\n    face_locations = face_recognition.face_locations(unknown_image, number_of_times_to_upsample=upsample, model=model)\n\n    for face_location in face_locations:\n        print_result(image_to_check, face_location)",
+    "source": "github_repo:ageitgey/face_recognition",
+    "file": "face_recognition/face_detection_cli.py",
+    "license": "MIT",
+    "language": "python"
+}

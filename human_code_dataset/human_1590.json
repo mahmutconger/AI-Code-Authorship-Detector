@@ -1,0 +1,7 @@
+{
+    "code": "def _extract_field_default(\n        field: dict | None, fallback: str | list[Any] = \"\"\n    ) -> str | list[Any] | int:\n        if not field:\n            return fallback\n\n        schema = field.get(\"schema\", {})\n        default = schema.get(\"default\")\n        return default if isinstance(default, (list, str, int)) else fallback",
+    "source": "github_repo:crewAIInc/crewAI",
+    "file": "lib/crewai-tools/generate_tool_specs.py",
+    "license": "MIT",
+    "language": "python"
+}

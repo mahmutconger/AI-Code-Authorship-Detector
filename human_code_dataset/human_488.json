@@ -1,0 +1,7 @@
+{
+    "code": "def main():\n    \"\"\"\n    Main entry point for ManimGL.\n    \"\"\"\n    print(f\"ManimGL \\033[32mv{__version__}\\033[0m\")\n\n    args = parse_cli()\n    if args.version and args.file is None:\n        return\n    if args.clear_cache:\n        clear_cache()\n\n    run_scenes()",
+    "source": "github_repo:3b1b/manim",
+    "file": "manimlib/__main__.py",
+    "license": "MIT",
+    "language": "python"
+}

@@ -1,0 +1,7 @@
+{
+    "code": "def get_preprompts_path(use_custom_preprompts: bool, input_path: Path) -> Path:\n    \"\"\"\n    Get the path to the preprompts, using custom ones if specified.\n\n    Parameters\n    ----------\n    use_custom_preprompts : bool\n        Flag indicating whether to use custom preprompts.\n    input_path : Path\n        The path to the project directory.\n\n    Returns\n    -------\n    Path\n        The path to the directory containing the preprompts.\n    \"\"\"\n    original_preprompts_path = PREPROMPTS_PATH\n    if not use_custom_preprompts:\n        return original_preprompts_path\n\n    custom_preprompts_path = input_path / \"preprompts\"\n    if not custom_preprompts_path.exists():\n        custom_preprompts_path.mkdir()\n\n    for file in original_preprompts_path.glob(\"*\"):\n        if not (custom_preprompts_path / file.name).exists():\n            (custom_preprompts_path / file.name).write_text(file.read_text())\n    return custom_preprompts_path",
+    "source": "github_repo:AntonOsika/gpt-engineer",
+    "file": "gpt_engineer/applications/cli/main.py",
+    "license": "MIT",
+    "language": "python"
+}

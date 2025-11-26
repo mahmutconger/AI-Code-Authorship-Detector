@@ -1,0 +1,7 @@
+{
+    "code": "def __init__(self, in_caps: int, out_caps: int, in_d: int, out_d: int, iterations: int):\n        \"\"\"\n        `in_caps` is the number of capsules, and `in_d` is the number of features per capsule from the layer below.\n        `out_caps` and `out_d` are the same for this layer.\n\n        `iterations` is the number of routing iterations, symbolized by $r$ in the paper.\n        \"\"\"\n        super().__init__()\n        self.in_caps = in_caps\n        self.out_caps = out_caps\n        self.iterations = iterations\n        self.softmax = nn.Softmax(dim=1)\n        self.squash = Squash()\n\n        # This is the weight matrix $\\mathbf{W}_{ij}$. It maps each capsule in the\n        # lower layer to each capsule in this layer\n        self.weight = nn.Parameter(torch.randn(in_caps, out_caps, in_d, out_d), requires_grad=True)",
+    "source": "github_repo:labmlai/annotated_deep_learning_paper_implementations",
+    "file": "labml_nn/capsule_networks/__init__.py",
+    "license": "MIT",
+    "language": "python"
+}

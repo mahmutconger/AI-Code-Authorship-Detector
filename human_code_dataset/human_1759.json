@@ -1,0 +1,7 @@
+{
+    "code": "# -*- coding: utf-8 -*-\n\nimport asyncio\nimport ccxt.pro\n\nfrom datetime import datetime\n\nasync def loop(exchange, symbol):\n    since = datetime.utcnow()\n    timestamp = int(since.timestamp() * 1000)\n    while True:\n        trades = await exchange.watch_trades(symbol, since=timestamp)\n        print('--------------------------------------------------------------')\n        print('Received', len(trades), 'after', exchange.iso8601 (timestamp))\n        print('waiting for next update...')\n\n\nasync def main():\n    exchange = ccxt.pro.gateio()\n    await loop(exchange, 'BTC/USDT')\n    await exchange.close()\n\n\nif __name__ == '__main__':\n    asyncio.run(main())",
+    "source": "github_repo:ccxt/ccxt",
+    "file": "examples/ccxt.pro/py/gateio-watch-trades.py",
+    "license": "MIT",
+    "language": "python"
+}

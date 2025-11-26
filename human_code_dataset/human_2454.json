@@ -1,0 +1,7 @@
+{
+    "code": "def bootstrap(x, statistic=numpy.mean, iterations=10000) -> numpy.ndarray:\n    \"\"\"Apply a statistic to repeated random samples of an array.\"\"\"\n    return numpy.fromiter(\n        (\n            statistic(numpy.random.choice(x, len(x), replace=True))\n            for _ in range(iterations)\n        ),\n        numpy.float64,\n    )",
+    "source": "github_repo:explosion/spaCy",
+    "file": "spacy/cli/benchmark_speed.py",
+    "license": "MIT",
+    "language": "python"
+}

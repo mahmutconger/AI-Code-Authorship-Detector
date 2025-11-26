@@ -1,0 +1,7 @@
+{
+    "code": "def prompt_yesno() -> bool:\n    TERM_CHOICES = colored(\"y\", \"green\") + \"/\" + colored(\"n\", \"red\") + \" \"\n    while True:\n        response = input(TERM_CHOICES).strip().lower()\n        if response in [\"y\", \"yes\"]:\n            return True\n        if response in [\"n\", \"no\"]:\n            break\n        print(\"Please respond with 'y' or 'n'\")",
+    "source": "github_repo:AntonOsika/gpt-engineer",
+    "file": "gpt_engineer/applications/cli/main.py",
+    "license": "MIT",
+    "language": "python"
+}

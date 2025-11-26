@@ -1,0 +1,7 @@
+{
+    "code": "def enable_plugins(self, **kwargs) -> None:\n        \"\"\"\n        Enable and register converters provided by plugins.\n        Plugins are disabled by default.\n        This method should only be called once, if plugins were initially disabled.\n        \"\"\"\n        if not self._plugins_enabled:\n            # Load plugins\n            plugins = _load_plugins()\n            assert plugins is not None\n            for plugin in plugins:\n                try:\n                    plugin.register_converters(self, **kwargs)\n                except Exception:\n                    tb = traceback.format_exc()\n                    warn(f\"Plugin '{plugin}' failed to register converters:\\n{tb}\")\n            self._plugins_enabled = True\n        else:\n            warn(\"Plugins converters are already enabled.\", RuntimeWarning)",
+    "source": "github_repo:microsoft/markitdown",
+    "file": "packages/markitdown/src/markitdown/_markitdown.py",
+    "license": "MIT",
+    "language": "python"
+}

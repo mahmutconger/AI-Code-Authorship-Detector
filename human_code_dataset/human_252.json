@@ -1,0 +1,7 @@
+{
+    "code": "def main():\n    import os\n    import re\n    import shutil\n    import sys\n    dests = sys.argv[1:] or ['.']\n    filename = re.sub(r'\\.pyc$', '.py', __file__)\n\n    for dst in dests:\n        shutil.copy(filename, dst)\n        manifest_path = os.path.join(dst, 'MANIFEST.in')\n        setup_path = os.path.join(dst, 'setup.py')\n\n        # Insert the include statement to MANIFEST.in if not present\n        with open(manifest_path, 'a+') as manifest:\n            manifest.seek(0)\n            manifest_content = manifest.read()\n            if not 'include fastentrypoints.py' in manifest_content:\n                manifest.write(('\\n' if manifest_content else '')\n                               + 'include fastentrypoints.py')\n\n        # Insert the import statement to setup.py if not present\n        with open(setup_path, 'a+') as setup:\n            setup.seek(0)\n            setup_content = setup.read()\n            if not 'import fastentrypoints' in setup_content:\n                setup.seek(0)\n                setup.truncate()\n                setup.write('import fastentrypoints\\n' + setup_content)",
+    "source": "github_repo:nvbn/thefuck",
+    "file": "fastentrypoints.py",
+    "license": "MIT",
+    "language": "python"
+}

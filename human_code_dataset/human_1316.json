@@ -1,0 +1,7 @@
+{
+    "code": "def __init__(self, in_doc: \"InputDocument\", path_or_stream: Union[BytesIO, Path]):\n        super().__init__(in_doc, path_or_stream)\n\n        with pypdfium2_lock:\n            self._pdoc = pdfium.PdfDocument(self.path_or_stream)\n            self.parser = pdf_parser_v2(\"fatal\")\n\n            success = False\n            if isinstance(self.path_or_stream, BytesIO):\n                success = self.parser.load_document_from_bytesio(\n                    self.document_hash, self.path_or_stream\n                )\n            elif isinstance(self.path_or_stream, Path):\n                success = self.parser.load_document(\n                    self.document_hash, str(self.path_or_stream)\n                )\n\n            if not success:\n                raise RuntimeError(\n                    f\"docling-parse v2 could not load document {self.document_hash}.\"\n                )",
+    "source": "github_repo:docling-project/docling",
+    "file": "docling/backend/docling_parse_v2_backend.py",
+    "license": "MIT",
+    "language": "python"
+}

@@ -1,0 +1,7 @@
+{
+    "code": "class LanceDBAdapter(Adapter):\n    uri: str | Path\n    table_name: str\n    embedding_function: Callable = Field(default_factory=_default_embedding_function)\n    top_k: int = 3\n    vector_column_name: str = \"vector\"\n    text_column_name: str = \"text\"\n\n    _db: LanceDBConnection = PrivateAttr()\n    _table: LanceDBTable = PrivateAttr()\n\n    def model_post_init(self, __context: Any) -> None:\n        self._db = lancedb_connect(self.uri)\n        self._table = self._db.open_table(self.table_name)\n\n        super().model_post_init(__context)\n\n    def query(self, question: str) -> str:  # type: ignore[override]\n        query = self.embedding_function([question])[0]\n        results = (\n            self._table.search(query, vector_column_name=self.vector_column_name)\n            .limit(self.top_k)\n            .select([self.text_column_name])\n            .to_list()\n        )\n        values = [result[self.text_column_name] for result in results]\n        return \"\\n\".join(values)\n\n    def add(\n        self,\n        *args: Any,\n        **kwargs: Any,\n    ) -> None:\n        self._table.add(*args, **kwargs)",
+    "source": "github_repo:crewAIInc/crewAI",
+    "file": "lib/crewai-tools/src/crewai_tools/adapters/lancedb_adapter.py",
+    "license": "MIT",
+    "language": "python"
+}

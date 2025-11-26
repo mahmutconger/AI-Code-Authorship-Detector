@@ -1,0 +1,7 @@
+{
+    "code": "def __init__(self, result=None, verbose=False, print_all=False, browse=False):\n        \"\"\"Create Query Notify Print Object.\n\n        Contains information about a specific method of notifying the results\n        of a query.\n\n        Keyword Arguments:\n        self                   -- This object.\n        result                 -- Object of type QueryResult() containing\n                                  results for this query.\n        verbose                -- Boolean indicating whether to give verbose output.\n        print_all              -- Boolean indicating whether to only print all sites, including not found.\n        browse                 -- Boolean indicating whether to open found sites in a web browser.\n\n        Return Value:\n        Nothing.\n        \"\"\"\n\n        super().__init__(result)\n        self.verbose = verbose\n        self.print_all = print_all\n        self.browse = browse\n\n        return",
+    "source": "github_repo:sherlock-project/sherlock",
+    "file": "sherlock_project/notify.py",
+    "license": "MIT",
+    "language": "python"
+}

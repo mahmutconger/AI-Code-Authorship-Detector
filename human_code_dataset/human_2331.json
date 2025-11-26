@@ -1,0 +1,7 @@
+{
+    "code": "class InputTypes(enum.IntEnum):\n    \"\"\"Defines input types of each column.\"\"\"\n\n    TARGET = 0\n    OBSERVED_INPUT = 1\n    KNOWN_INPUT = 2\n    STATIC_INPUT = 3\n    ID = 4  # Single column used as an entity identifier\n    TIME = 5  # Single column exclusively used as a time index",
+    "source": "github_repo:microsoft/qlib",
+    "file": "examples/benchmarks/TFT/data_formatters/base.py",
+    "license": "MIT",
+    "language": "python"
+}

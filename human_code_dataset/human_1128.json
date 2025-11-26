@@ -1,0 +1,7 @@
+{
+    "code": "class DaytonaSettings(BaseModel):\n    daytona_api_key: str\n    daytona_server_url: Optional[str] = Field(\n        \"https://app.daytona.io/api\", description=\"\"\n    )\n    daytona_target: Optional[str] = Field(\"us\", description=\"enum ['eu', 'us']\")\n    sandbox_image_name: Optional[str] = Field(\"whitezxj/sandbox:0.1.0\", description=\"\")\n    sandbox_entrypoint: Optional[str] = Field(\n        \"/usr/bin/supervisord -n -c /etc/supervisor/conf.d/supervisord.conf\",\n        description=\"\",\n    )\n    # sandbox_id: Optional[str] = Field(\n    #     None, description=\"ID of the daytona sandbox to use, if any\"\n    # )\n    VNC_password: Optional[str] = Field(\n        \"123456\", description=\"VNC password for the vnc service in sandbox\"\n    )",
+    "source": "github_repo:FoundationAgents/OpenManus",
+    "file": "app/config.py",
+    "license": "MIT",
+    "language": "python"
+}

@@ -1,0 +1,7 @@
+{
+    "code": "def get_bitmap_rects(self, scale: float = 1) -> Iterable[BoundingBox]:\n        AREA_THRESHOLD = 0  # 32 * 32\n\n        images = self._dpage[\"sanitized\"][\"images\"][\"data\"]\n        images_header = self._dpage[\"sanitized\"][\"images\"][\"header\"]\n\n        for row in images:\n            x0 = row[images_header.index(\"x0\")]\n            y0 = row[images_header.index(\"y0\")]\n            x1 = row[images_header.index(\"x1\")]\n            y1 = row[images_header.index(\"y1\")]\n\n            cropbox = BoundingBox.from_tuple(\n                (x0, y0, x1, y1), origin=CoordOrigin.BOTTOMLEFT\n            ).to_top_left_origin(self.get_size().height)\n\n            if cropbox.area() > AREA_THRESHOLD:\n                cropbox = cropbox.scaled(scale=scale)\n\n                yield cropbox",
+    "source": "github_repo:docling-project/docling",
+    "file": "docling/backend/docling_parse_v2_backend.py",
+    "license": "MIT",
+    "language": "python"
+}

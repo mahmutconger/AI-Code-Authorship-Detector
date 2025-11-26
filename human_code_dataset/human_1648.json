@@ -1,0 +1,7 @@
+{
+    "code": "#!/usr/bin/env python\n#\n# Serving cheat.sh with `gevent`\n#\n\nfrom gevent.monkey import patch_all\nfrom gevent.pywsgi import WSGIServer\n\npatch_all()\n\nimport os\nimport sys\n\nfrom app import app, CONFIG\n\n\nif \"--debug\" in sys.argv:\n    # Not all debug mode features are available under `gevent`\n    # https://github.com/pallets/flask/issues/3825\n    app.debug = True\n\nif \"CHEATSH_PORT\" in os.environ:\n    port = int(os.environ.get(\"CHEATSH_PORT\"))\nelse:\n    port = CONFIG[\"server.port\"]\n\nsrv = WSGIServer((CONFIG[\"server.bind\"], port), app)\nprint(\"Starting gevent server on {}:{}\".format(srv.address[0], srv.address[1]))\nsrv.serve_forever()",
+    "source": "github_repo:chubin/cheat.sh",
+    "file": "bin/srv.py",
+    "license": "MIT",
+    "language": "python"
+}

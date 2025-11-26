@@ -1,0 +1,7 @@
+{
+    "code": "def convert(self, audio_src_path, src_se, tgt_se, output_path=None, tau=0.3, message=\"default\"):\n        hps = self.hps\n        # load audio\n        audio, sample_rate = librosa.load(audio_src_path, sr=hps.data.sampling_rate)\n        audio = torch.tensor(audio).float()\n        \n        with torch.no_grad():\n            y = torch.FloatTensor(audio).to(self.device)\n            y = y.unsqueeze(0)\n            spec = spectrogram_torch(y, hps.data.filter_length,\n                                    hps.data.sampling_rate, hps.data.hop_length, hps.data.win_length,\n                                    center=False).to(self.device)\n            spec_lengths = torch.LongTensor([spec.size(-1)]).to(self.device)\n            audio = self.model.voice_conversion(spec, spec_lengths, sid_src=src_se, sid_tgt=tgt_se, tau=tau)[0][\n                        0, 0].data.cpu().float().numpy()\n            audio = self.add_watermark(audio, message)\n            if output_path is None:\n                return audio\n            else:\n                soundfile.write(output_path, audio, hps.data.sampling_rate)",
+    "source": "github_repo:myshell-ai/OpenVoice",
+    "file": "openvoice/api.py",
+    "license": "MIT",
+    "language": "python"
+}

@@ -1,0 +1,7 @@
+{
+    "code": "from time import sleep\nfrom urllib.request import urlopen\n\nfrom rich.progress import wrap_file\n\n# Read a URL with urlopen\nresponse = urlopen(\"https://www.textualize.io\")\n# Get the size from the headers\nsize = int(response.headers[\"Content-Length\"])\n\n# Wrap the response so that it update progress\n\nwith wrap_file(response, size) as file:\n    for line in file:\n        print(line.decode(\"utf-8\"), end=\"\")\n        sleep(0.1)",
+    "source": "github_repo:Textualize/rich",
+    "file": "examples/file_progress.py",
+    "license": "MIT",
+    "language": "python"
+}

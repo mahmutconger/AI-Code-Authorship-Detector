@@ -1,0 +1,7 @@
+{
+    "code": "def make_sponsor_message() -> Panel:\n    \"\"\"Some example content.\"\"\"\n    sponsor_message = Table.grid(padding=1)\n    sponsor_message.add_column(style=\"green\", justify=\"right\")\n    sponsor_message.add_column(no_wrap=True)\n    sponsor_message.add_row(\n        \"Twitter\",\n        \"[u blue link=https://twitter.com/textualize]https://twitter.com/textualize\",\n    )\n    sponsor_message.add_row(\n        \"CEO\",\n        \"[u blue link=https://twitter.com/willmcgugan]https://twitter.com/willmcgugan\",\n    )\n    sponsor_message.add_row(\n        \"Textualize\", \"[u blue link=https://www.textualize.io]https://www.textualize.io\"\n    )\n\n    message = Table.grid(padding=1)\n    message.add_column()\n    message.add_column(no_wrap=True)\n    message.add_row(sponsor_message)\n\n    message_panel = Panel(\n        Align.center(\n            Group(\"\\n\", Align.center(sponsor_message)),\n            vertical=\"middle\",\n        ),\n        box=box.ROUNDED,\n        padding=(1, 2),\n        title=\"[b red]Thanks for trying out Rich!\",\n        border_style=\"bright_blue\",\n    )\n    return message_panel",
+    "source": "github_repo:Textualize/rich",
+    "file": "examples/fullscreen.py",
+    "license": "MIT",
+    "language": "python"
+}

@@ -1,0 +1,7 @@
+{
+    "code": "def __init__(self, name: str, lfx_module_name: str):\n        super().__init__(name)\n        self._lfx_module_name = lfx_module_name\n        self._lfx_module = None",
+    "source": "github_repo:langflow-ai/langflow",
+    "file": "src/backend/base/langflow/__init__.py",
+    "license": "MIT",
+    "language": "python"
+}

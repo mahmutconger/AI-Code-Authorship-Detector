@@ -1,0 +1,7 @@
+{
+    "code": "def available_models() -> List[str]:\n    \"\"\"Returns the names of available models\"\"\"\n    return list(_MODELS.keys())",
+    "source": "github_repo:openai/whisper",
+    "file": "whisper/__init__.py",
+    "license": "MIT",
+    "language": "python"
+}

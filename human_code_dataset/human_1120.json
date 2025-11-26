@@ -1,0 +1,7 @@
+{
+    "code": "def create(\n        self,\n        model: str,\n        messages: List[Dict[str, str]],\n        max_tokens: int,\n        temperature: float,\n        stream: Optional[bool] = True,\n        tools: Optional[List[dict]] = None,\n        tool_choice: Literal[\"none\", \"auto\", \"required\"] = \"auto\",\n        **kwargs,\n    ) -> OpenAIResponse:\n        # Main entry point for chat completion\n        bedrock_tools = []\n        if tools is not None:\n            bedrock_tools = self._convert_openai_tools_to_bedrock_format(tools)\n        if stream:\n            return self._invoke_bedrock_stream(\n                model,\n                messages,\n                max_tokens,\n                temperature,\n                bedrock_tools,\n                tool_choice,\n                **kwargs,\n            )\n        else:\n            return self._invoke_bedrock(\n                model,\n                messages,\n                max_tokens,\n                temperature,\n                bedrock_tools,\n                tool_choice,\n                **kwargs,\n            )",
+    "source": "github_repo:FoundationAgents/OpenManus",
+    "file": "app/bedrock.py",
+    "license": "MIT",
+    "language": "python"
+}

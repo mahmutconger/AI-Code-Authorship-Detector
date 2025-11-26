@@ -1,0 +1,7 @@
+{
+    "code": "def compose(self) -> ComposeResult:\n        yield Header()\n        yield Label(\"Do you love Textual?\", id=\"question\")\n        yield Button(\"Yes\", id=\"yes\", variant=\"primary\")\n        yield Button(\"No\", id=\"no\", variant=\"error\")",
+    "source": "github_repo:Textualize/textual",
+    "file": "docs/examples/app/question_title02.py",
+    "license": "MIT",
+    "language": "python"
+}

@@ -1,0 +1,7 @@
+{
+    "code": "def find_black_version_in_array(array: object) -> str | None:\n    if not isinstance(array, list):\n        return None\n    try:\n        for item in array:\n            # Rudimentary PEP 508 parsing.\n            item = item.split(\";\")[0]\n            item = EXTRAS_RE.sub(\"\", item).strip()\n            if item == \"black\":\n                print(\n                    \"::error::Version specifier missing for 'black' dependency in \"\n                    \"pyproject.toml.\",\n                    file=sys.stderr,\n                    flush=True,\n                )\n                sys.exit(1)\n            elif m := BLACK_VERSION_RE.match(item):\n                return m.group(1).strip()\n    except TypeError:\n        pass\n\n    return None",
+    "source": "github_repo:psf/black",
+    "file": "action/main.py",
+    "license": "MIT",
+    "language": "python"
+}

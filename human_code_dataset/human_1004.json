@@ -1,0 +1,7 @@
+{
+    "code": "def main():\n    try:\n        if system() == \"Linux\":\n            fpath = choose_path()\n            with open(fpath) as f:\n                archive = f.readline().strip()\n                os.makedirs(archive, exist_ok=True)\n                os.chdir(archive)\n                AllTools().show_info()\n                interact_menu()\n        elif system() == \"Windows\":\n            console.print(Panel(\"[bold red]Please run this tool on a Debian/Linux system for best results[/bold red]\"))\n            if Confirm.ask(\"Open guidance link in your browser?\", default=True):\n                webbrowser.open_new_tab(\"https://tinyurl.com/y522modc\")\n            sleep(2)\n        else:\n            console.print(\"[yellow]Please Check Your System or Open New Issue ...[/yellow]\")\n    except KeyboardInterrupt:\n        console.print(\"\\n[bold red]Exiting ..!!![/bold red]\")\n        sleep(1)",
+    "source": "github_repo:Z4nzu/hackingtool",
+    "file": "hackingtool.py",
+    "license": "MIT",
+    "language": "python"
+}

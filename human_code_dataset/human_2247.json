@@ -1,0 +1,7 @@
+{
+    "code": "def apply(self, config_source: ConfigSource) -> None:\n        try:\n            old_value = config_source.get_property(self.old_key)\n        except PropertyNotFoundError:\n            return\n\n        new_value = (\n            self.value_migration[old_value] if self.value_migration else old_value\n        )\n\n        config_source.remove_property(self.old_key)\n\n        if self.new_key is not None and new_value is not UNSET:\n            config_source.add_property(self.new_key, new_value)",
+    "source": "github_repo:python-poetry/poetry",
+    "file": "src/poetry/config/config_source.py",
+    "license": "MIT",
+    "language": "python"
+}

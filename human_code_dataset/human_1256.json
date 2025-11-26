@@ -1,0 +1,7 @@
+{
+    "code": "def naughty_strings(filepath=FILEPATH):\n    \"\"\"Get the list of naughty_strings.\n\n    By default this will get the strings from the blns.txt file\n\n    Code is a simple port of what is already in the /scripts directory\n\n    :param filepath: Optional filepath the the blns.txt file\n    :returns: The list of naughty strings\n    \"\"\"\n\n    strings = []\n    with open(filepath, 'r') as f:\n\n        # put all lines in the file into a Python list\n        strings = f.readlines()\n        \n        # above line leaves trailing newline characters; strip them out\n        strings = [x.strip(u'\\n') for x in strings]\n        \n        # remove empty-lines and comments\n        strings = [x for x in strings if x and not x.startswith(u'#')]\n        \n        # insert empty string since all are being removed\n        strings.insert(0, u\"\")\n\n    return strings",
+    "source": "github_repo:minimaxir/big-list-of-naughty-strings",
+    "file": "naughtystrings/__init__.py",
+    "license": "MIT",
+    "language": "python"
+}

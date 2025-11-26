@@ -1,0 +1,7 @@
+{
+    "code": "def run_steps(name, step_times, app_steps_task_id):\n    \"\"\"Run steps for a single app, and update corresponding progress bars.\"\"\"\n\n    for idx, step_time in enumerate(step_times):\n        # add progress bar for this step (time elapsed + spinner)\n        action = step_actions[idx]\n        step_task_id = step_progress.add_task(\"\", action=action, name=name)\n\n        # run steps, update progress\n        for _ in range(step_time):\n            time.sleep(0.5)\n            step_progress.update(step_task_id, advance=1)\n\n        # stop and hide progress bar for this step when done\n        step_progress.stop_task(step_task_id)\n        step_progress.update(step_task_id, visible=False)\n\n        # also update progress bar for current app when step is done\n        app_steps_progress.update(app_steps_task_id, advance=1)",
+    "source": "github_repo:Textualize/rich",
+    "file": "examples/dynamic_progress.py",
+    "license": "MIT",
+    "language": "python"
+}

@@ -1,0 +1,7 @@
+{
+    "code": "def main() -> int:\n    exit_code: int = Application().run()\n    return exit_code",
+    "source": "github_repo:python-poetry/poetry",
+    "file": "src/poetry/console/application.py",
+    "license": "MIT",
+    "language": "python"
+}

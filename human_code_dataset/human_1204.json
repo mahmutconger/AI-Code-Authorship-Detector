@@ -1,0 +1,7 @@
+{
+    "code": "def toaster_exists_good(toaster_id):\n    session = Session()\n    query = session.query(Toaster).filter_by(id=toaster_id)\n    return session.query(query.exists()).scalar()",
+    "source": "github_repo:charlax/professional-programming",
+    "file": "antipatterns/sqlalchemy-examples/exists.py",
+    "license": "MIT",
+    "language": "python"
+}

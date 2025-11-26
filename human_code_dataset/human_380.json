@@ -1,0 +1,7 @@
+{
+    "code": "class SuppressBlank(LogitFilter):\n    def __init__(self, tokenizer: Tokenizer, sample_begin: int):\n        self.tokenizer = tokenizer\n        self.sample_begin = sample_begin\n\n    def apply(self, logits: Tensor, tokens: Tensor):\n        if tokens.shape[1] == self.sample_begin:\n            logits[:, self.tokenizer.encode(\" \") + [self.tokenizer.eot]] = -np.inf",
+    "source": "github_repo:openai/whisper",
+    "file": "whisper/decoding.py",
+    "license": "MIT",
+    "language": "python"
+}

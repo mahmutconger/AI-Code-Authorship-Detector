@@ -1,0 +1,7 @@
+{
+    "code": "def compute_cleanup():\n    \"\"\"Companion function to compute_init, to clean things up before script exit\"\"\"\n    if is_ddp():\n        dist.destroy_process_group()",
+    "source": "github_repo:karpathy/nanochat",
+    "file": "nanochat/common.py",
+    "license": "MIT",
+    "language": "python"
+}

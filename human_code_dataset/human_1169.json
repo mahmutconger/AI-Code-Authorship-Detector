@@ -1,0 +1,7 @@
+{
+    "code": "# train a miniature character-level shakespeare model\n# good for debugging and playing on macbooks and such\n\nout_dir = 'out-shakespeare-char'\neval_interval = 250 # keep frequent because we'll overfit\neval_iters = 200\nlog_interval = 10 # don't print too too often\n\n# we expect to overfit on this small dataset, so only save when val improves\nalways_save_checkpoint = False\n\nwandb_log = False # override via command line if you like\nwandb_project = 'shakespeare-char'\nwandb_run_name = 'mini-gpt'\n\ndataset = 'shakespeare_char'\ngradient_accumulation_steps = 1\nbatch_size = 64\nblock_size = 256 # context of up to 256 previous characters\n\n# baby GPT model :)\nn_layer = 6\nn_head = 6\nn_embd = 384\ndropout = 0.2\n\nlearning_rate = 1e-3 # with baby networks can afford to go a bit higher\nmax_iters = 5000\nlr_decay_iters = 5000 # make equal to max_iters usually\nmin_lr = 1e-4 # learning_rate / 10 usually\nbeta2 = 0.99 # make a bit bigger because number of tokens per iter is small\n\nwarmup_iters = 100 # not super necessary potentially\n\n# on macbook also add\n# device = 'cpu'  # run on cpu only\n# compile = False # do not torch compile the model",
+    "source": "github_repo:karpathy/nanoGPT",
+    "file": "config/train_shakespeare_char.py",
+    "license": "MIT",
+    "language": "python"
+}

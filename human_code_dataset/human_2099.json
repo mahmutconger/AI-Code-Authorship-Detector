@@ -1,0 +1,7 @@
+{
+    "code": "def addEdge(self, start, end, weight):\n        # use a tuple (start, end, weight) instead of a Edge object\n        self.graph[start].append((start, end, weight))\n        self.graph[end].append((end, start, weight))",
+    "source": "github_repo:fxsjy/jieba",
+    "file": "jieba/analyse/textrank.py",
+    "license": "MIT",
+    "language": "python"
+}

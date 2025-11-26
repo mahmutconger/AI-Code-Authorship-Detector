@@ -1,0 +1,7 @@
+{
+    "code": "def test_has_cloudflare_protection_when_there_is_no_protection(self):\n        resp_without_cloudflare_protection1 = FakeResponse(\n            code=self.code_200,\n            headers=self.no_cloudflare_headers,\n            text=self.text_without_cloudflare_flags\n        )\n\n        resp_without_cloudflare_protection2 = FakeResponse(\n            code=self.code_403,\n            headers=self.no_cloudflare_headers,\n            text=self.text_without_cloudflare_flags\n        )\n\n        resp_without_cloudflare_protection3 = FakeResponse(\n            code=self.code_503,\n            headers=self.no_cloudflare_headers,\n            text=self.text_without_cloudflare_flags\n        )\n\n        result1 = has_cloudflare_protection(resp_without_cloudflare_protection1)\n        result2 = has_cloudflare_protection(resp_without_cloudflare_protection2)\n        result3 = has_cloudflare_protection(resp_without_cloudflare_protection3)\n\n        self.assertFalse(result1)\n        self.assertFalse(result2)\n        self.assertFalse(result3)",
+    "source": "github_repo:public-apis/public-apis",
+    "file": "scripts/tests/test_validate_links.py",
+    "license": "MIT",
+    "language": "python"
+}

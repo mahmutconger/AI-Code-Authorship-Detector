@@ -1,0 +1,7 @@
+{
+    "code": "def initialize_queues(self):\n        self.inp_q = Queue()\n        self.opt_q = Queue()\n        for _ in range(self.n_cpu):\n            p = Harvest(self.inp_q, self.opt_q)\n            p.daemon = True\n            p.start()",
+    "source": "github_repo:RVC-Project/Retrieval-based-Voice-Conversion-WebUI",
+    "file": "api_240604.py",
+    "license": "MIT",
+    "language": "python"
+}

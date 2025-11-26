@@ -1,0 +1,7 @@
+{
+    "code": "class Inference:\n    def logits(self, tokens: Tensor, audio_features: Tensor) -> Tensor:\n        \"\"\"Perform a forward pass on the decoder and return per-token logits\"\"\"\n        raise NotImplementedError\n\n    def rearrange_kv_cache(self, source_indices) -> None:\n        \"\"\"Update the key-value cache according to the updated beams\"\"\"\n        raise NotImplementedError\n\n    def cleanup_caching(self) -> None:\n        \"\"\"Clean up any resources or hooks after decoding is finished\"\"\"\n        pass",
+    "source": "github_repo:openai/whisper",
+    "file": "whisper/decoding.py",
+    "license": "MIT",
+    "language": "python"
+}

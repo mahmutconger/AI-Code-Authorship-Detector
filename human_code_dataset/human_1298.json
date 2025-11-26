@@ -1,0 +1,7 @@
+{
+    "code": "def _parse_table_line(line):\n        # Split table cells and trim extra spaces\n        return [cell.strip() for cell in line.split(\"|\") if cell.strip()]",
+    "source": "github_repo:docling-project/docling",
+    "file": "docling/backend/asciidoc_backend.py",
+    "license": "MIT",
+    "language": "python"
+}

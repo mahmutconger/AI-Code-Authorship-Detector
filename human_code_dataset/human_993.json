@@ -1,0 +1,7 @@
+{
+    "code": "def is_installed(self, dir_to_check=None):\n        console.print(\"[yellow]⚠ Unimplemented: DO NOT USE[/yellow]\")\n        return \"?\"",
+    "source": "github_repo:Z4nzu/hackingtool",
+    "file": "core.py",
+    "license": "MIT",
+    "language": "python"
+}

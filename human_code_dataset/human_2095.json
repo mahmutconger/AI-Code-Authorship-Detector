@@ -1,0 +1,7 @@
+{
+    "code": "def ChineseAnalyzer(stoplist=STOP_WORDS, minsize=1, stemfn=stem, cachesize=50000):\n    return (ChineseTokenizer() | LowercaseFilter() |\n            StopFilter(stoplist=stoplist, minsize=minsize) |\n            StemFilter(stemfn=stemfn, ignore=None, cachesize=cachesize))",
+    "source": "github_repo:fxsjy/jieba",
+    "file": "jieba/analyse/analyzer.py",
+    "license": "MIT",
+    "language": "python"
+}

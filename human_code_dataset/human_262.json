@@ -1,0 +1,7 @@
+{
+    "code": "def test_get_alias(monkeypatch, mocker, py2,\n                   enable_experimental_instant_mode,\n                   which, is_instant):\n    monkeypatch.setattr('six.PY2', py2)\n    args = Mock(\n        enable_experimental_instant_mode=enable_experimental_instant_mode,\n        alias='fuck', )\n    mocker.patch('thefuck.entrypoints.alias.which', return_value=which)\n    shell = Mock(app_alias=lambda _: 'app_alias',\n                 instant_mode_alias=lambda _: 'instant_mode_alias')\n    monkeypatch.setattr('thefuck.entrypoints.alias.shell', shell)\n\n    alias = _get_alias(args)\n    if is_instant:\n        assert alias == 'instant_mode_alias'\n    else:\n        assert alias == 'app_alias'",
+    "source": "github_repo:nvbn/thefuck",
+    "file": "tests/entrypoints/test_alias.py",
+    "license": "MIT",
+    "language": "python"
+}

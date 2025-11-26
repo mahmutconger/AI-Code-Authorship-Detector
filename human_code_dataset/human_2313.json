@@ -1,0 +1,7 @@
+{
+    "code": "def process_data(self) -> None:\n        \"\"\"\n        Process data\n        \"\"\"\n        # Generate inference data\n        for processor in self.infer_processors:\n            self.infer_df = processor(df=self.infer_df)\n\n        # Generate learning data\n        if self.process_type == \"append\":\n            self.learn_df = self.infer_df\n\n        for processor in self.learn_processors:\n            self.learn_df = processor(df=self.learn_df)",
+    "source": "github_repo:vnpy/vnpy",
+    "file": "vnpy/alpha/dataset/template.py",
+    "license": "MIT",
+    "language": "python"
+}

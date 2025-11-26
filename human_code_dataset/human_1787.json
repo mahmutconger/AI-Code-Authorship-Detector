@@ -1,0 +1,7 @@
+{
+    "code": "def __init__(self):\n        super().__init__()\n        wenxin_model = conf().get(\"baidu_wenxin_model\")\n        self.prompt_enabled = conf().get(\"baidu_wenxin_prompt_enabled\")\n        if self.prompt_enabled:\n            self.prompt = conf().get(\"character_desc\", \"\")\n            if self.prompt == \"\":\n                logger.warn(\"[BAIDU] Although you enabled model prompt, character_desc is not specified.\")\n        if wenxin_model is not None:\n            wenxin_model = conf().get(\"baidu_wenxin_model\") or \"eb-instant\"\n        else:\n            if conf().get(\"model\") and conf().get(\"model\") == const.WEN_XIN:\n                wenxin_model = \"completions\"\n            elif conf().get(\"model\") and conf().get(\"model\") == const.WEN_XIN_4:\n                wenxin_model = \"completions_pro\"\n\n        self.sessions = SessionManager(BaiduWenxinSession, model=wenxin_model)",
+    "source": "github_repo:zhayujie/chatgpt-on-wechat",
+    "file": "bot/baidu/baidu_wenxin.py",
+    "license": "MIT",
+    "language": "python"
+}

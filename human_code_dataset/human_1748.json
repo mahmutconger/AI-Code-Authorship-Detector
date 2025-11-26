@@ -1,0 +1,7 @@
+{
+    "code": "def handle_order_book_message(self, client, message, orderbook):\n        asks = self.safe_value(message, 'a', [])\n        bids = self.safe_value(message, 'b', [])\n        # printing high-frequency updates is a resource-heavy task\n        # this print statement is here just to demonstrate the work of it\n        # replace it with you logic for processing individual updates\n        print('Updates:', {\n            'asks': asks,\n            'bids': bids,\n        })\n        return super(MyBinance, self).handle_order_book_message(client, message, orderbook);",
+    "source": "github_repo:ccxt/ccxt",
+    "file": "examples/ccxt.pro/py/binance-watch-order-book-individual-updates.py",
+    "license": "MIT",
+    "language": "python"
+}

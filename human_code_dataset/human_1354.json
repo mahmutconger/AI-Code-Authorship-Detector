@@ -1,0 +1,7 @@
+{
+    "code": "def determine_category(integrations: List[str], categories: Dict[str, List[str]]) -> str:\n    \"\"\"Determine the category for a workflow based on its integrations.\"\"\"\n    if not integrations:\n        return \"Uncategorized\"\n\n    # Check each category for matching integrations\n    for category, services in categories.items():\n        for integration in integrations:\n            if integration in services:\n                return format_category_name(category)\n\n    return \"Uncategorized\"",
+    "source": "github_repo:Zie619/n8n-workflows",
+    "file": "scripts/generate_search_index.py",
+    "license": "MIT",
+    "language": "python"
+}

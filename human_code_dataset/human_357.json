@@ -1,0 +1,7 @@
+{
+    "code": "def test_median_filter_equivalence(shape):\n    x = torch.randn(*shape)\n\n    for filter_width in [3, 5, 7, 13]:\n        filtered_cpu = median_filter(x, filter_width)\n        filtered_gpu = median_filter(x.cuda(), filter_width).cpu()\n\n        assert np.allclose(filtered_cpu, filtered_gpu)",
+    "source": "github_repo:openai/whisper",
+    "file": "tests/test_timing.py",
+    "license": "MIT",
+    "language": "python"
+}

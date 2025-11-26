@@ -1,0 +1,7 @@
+{
+    "code": "class InstructionSpec(NamedTuple):\n    instruction: str\n    time_from: float\n    time_to: float",
+    "source": "github_repo:mitmproxy/mitmproxy",
+    "file": "docs/scripts/clirecording/clidirector.py",
+    "license": "MIT",
+    "language": "python"
+}

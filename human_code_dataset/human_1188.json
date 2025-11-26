@@ -1,0 +1,7 @@
+{
+    "code": "def get_num_params(self, non_embedding=True):\n        \"\"\"\n        Return the number of parameters in the model.\n        For non-embedding count (default), the position embeddings get subtracted.\n        The token embeddings would too, except due to the parameter sharing these\n        params are actually used as weights in the final layer, so we include them.\n        \"\"\"\n        n_params = sum(p.numel() for p in self.parameters())\n        if non_embedding:\n            n_params -= self.transformer.wpe.weight.numel()\n        return n_params",
+    "source": "github_repo:karpathy/nanoGPT",
+    "file": "model.py",
+    "license": "MIT",
+    "language": "python"
+}

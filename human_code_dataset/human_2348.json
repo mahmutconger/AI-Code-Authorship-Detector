@@ -1,0 +1,7 @@
+{
+    "code": "def split_data(self, df, valid_boundary=2016, test_boundary=2018):\n        \"\"\"Splits data frame into training-validation-test data frames.\n\n        This also calibrates scaling object, and transforms data for each split.\n\n        Args:\n          df: Source data frame to split.\n          valid_boundary: Starting year for validation data\n          test_boundary: Starting year for test data\n\n        Returns:\n          Tuple of transformed (train, valid, test) data.\n        \"\"\"\n\n        print(\"Formatting train-valid-test splits.\")\n\n        index = df[\"year\"]\n        train = df.loc[index < valid_boundary]\n        valid = df.loc[(index >= valid_boundary) & (index < test_boundary)]\n        test = df.loc[index >= test_boundary]\n\n        self.set_scalers(train)\n\n        return (self.transform_inputs(data) for data in [train, valid, test])",
+    "source": "github_repo:microsoft/qlib",
+    "file": "examples/benchmarks/TFT/data_formatters/qlib_Alpha158.py",
+    "license": "MIT",
+    "language": "python"
+}

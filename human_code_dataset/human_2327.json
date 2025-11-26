@@ -1,0 +1,7 @@
+{
+    "code": "def __init__(\n        self,\n        instruments=\"csi500\",\n        start_time=None,\n        end_time=None,\n        freq=\"day\",\n        infer_processors=[],\n        learn_processors=_DEFAULT_LEARN_PROCESSORS,\n        fit_start_time=None,\n        fit_end_time=None,\n        process_type=DataHandlerLP.PTYPE_A,\n        filter_pipe=None,\n        inst_processors=None,\n        **kwargs,\n    ):\n        infer_processors = check_transform_proc(infer_processors, fit_start_time, fit_end_time)\n        learn_processors = check_transform_proc(learn_processors, fit_start_time, fit_end_time)\n        data_loader = Avg15minLoader(\n            config=self.loader_config(), filter_pipe=filter_pipe, freq=freq, inst_processors=inst_processors\n        )\n        super().__init__(\n            instruments=instruments,\n            start_time=start_time,\n            end_time=end_time,\n            data_loader=data_loader,\n            infer_processors=infer_processors,\n            learn_processors=learn_processors,\n            process_type=process_type,\n        )",
+    "source": "github_repo:microsoft/qlib",
+    "file": "examples/benchmarks/LightGBM/multi_freq_handler.py",
+    "license": "MIT",
+    "language": "python"
+}

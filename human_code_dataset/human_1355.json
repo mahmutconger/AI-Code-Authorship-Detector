@@ -1,0 +1,7 @@
+{
+    "code": "def format_category_name(category_key: str) -> str:\n    \"\"\"Format category key to display name.\"\"\"\n    category_mapping = {\n        'messaging': 'Communication & Messaging',\n        'email': 'Communication & Messaging',\n        'cloud_storage': 'Cloud Storage & File Management',\n        'database': 'Data Processing & Analysis',\n        'project_management': 'Project Management',\n        'ai_ml': 'AI Agent Development',\n        'social_media': 'Social Media Management',\n        'ecommerce': 'E-commerce & Retail',\n        'analytics': 'Data Processing & Analysis',\n        'calendar_tasks': 'Project Management',\n        'forms': 'Data Processing & Analysis',\n        'development': 'Technical Infrastructure & DevOps'\n    }\n    return category_mapping.get(category_key, category_key.replace('_', ' ').title())",
+    "source": "github_repo:Zie619/n8n-workflows",
+    "file": "scripts/generate_search_index.py",
+    "license": "MIT",
+    "language": "python"
+}

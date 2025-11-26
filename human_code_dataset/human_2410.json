@@ -1,0 +1,7 @@
+{
+    "code": "def load_config_json() -> dict:\n        d = {}\n        for config_file in version_config_list:\n            p = f\"configs/inuse/{config_file}\"\n            if not os.path.exists(p):\n                shutil.copy(f\"configs/{config_file}\", p)\n            with open(f\"configs/inuse/{config_file}\", \"r\") as f:\n                d[config_file] = json.load(f)\n        return d",
+    "source": "github_repo:RVC-Project/Retrieval-based-Voice-Conversion-WebUI",
+    "file": "configs/config.py",
+    "license": "MIT",
+    "language": "python"
+}

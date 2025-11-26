@@ -1,0 +1,7 @@
+{
+    "code": "from rich import print\nfrom rich.console import Group\nfrom rich.panel import Panel\n\npanel_group = Group(\n    Panel(\"Hello\", style=\"on blue\"),\n    Panel(\"World\", style=\"on red\"),\n)\nprint(Panel(panel_group))",
+    "source": "github_repo:Textualize/rich",
+    "file": "examples/group.py",
+    "license": "MIT",
+    "language": "python"
+}

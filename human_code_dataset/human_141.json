@@ -1,0 +1,7 @@
+{
+    "code": "def _get_lfx_module(self):\n        \"\"\"Lazily import and cache the lfx module.\"\"\"\n        if self._lfx_module is None:\n            try:\n                self._lfx_module = importlib.import_module(self._lfx_module_name)\n            except ImportError as e:\n                msg = f\"Cannot import {self._lfx_module_name} for backwards compatibility with {self.__name__}\"\n                raise ImportError(msg) from e\n        return self._lfx_module",
+    "source": "github_repo:langflow-ai/langflow",
+    "file": "src/backend/base/langflow/__init__.py",
+    "license": "MIT",
+    "language": "python"
+}

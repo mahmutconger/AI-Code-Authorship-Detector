@@ -1,0 +1,7 @@
+{
+    "code": "def _readRunning(self):\n        names = _KeyTranslator.set2names(self._pressSet)\n        PubSubService.publish(self._readRunningTitle, names)",
+    "source": "github_repo:hiroi-sora/Umi-OCR",
+    "file": "UmiOCR-data/py_src/event_bus/key_mouse/keyboard.py",
+    "license": "MIT",
+    "language": "python"
+}

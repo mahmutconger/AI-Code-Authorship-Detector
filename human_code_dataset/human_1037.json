@@ -1,0 +1,7 @@
+{
+    "code": "def make_buckets(self, bucket_width: float = 2.0):\n        buckets = []\n        cur = []\n        max_sec = bucket_width\n        for id, sec in self.id_with_length:\n            if sec < max_sec:\n                cur.append(id)\n            else:\n                buckets.append(cur)\n                cur = [id]\n                max_sec += bucket_width\n        if len(cur) > 0:\n            buckets.append(cur)\n        return buckets",
+    "source": "github_repo:RVC-Boss/GPT-SoVITS",
+    "file": "GPT_SoVITS/AR/data/bucket_sampler.py",
+    "license": "MIT",
+    "language": "python"
+}

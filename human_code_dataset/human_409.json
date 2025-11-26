@@ -1,0 +1,7 @@
+{
+    "code": "def test_markitdown() -> None:\n    \"\"\"Tests that MarkItDown correctly loads the plugin.\"\"\"\n    md = MarkItDown(enable_plugins=True)\n    result = md.convert(os.path.join(TEST_FILES_DIR, \"test.rtf\"))\n\n    for test_string in RTF_TEST_STRINGS:\n        assert test_string in result.text_content",
+    "source": "github_repo:microsoft/markitdown",
+    "file": "packages/markitdown-sample-plugin/tests/test_sample_plugin.py",
+    "license": "MIT",
+    "language": "python"
+}

@@ -1,0 +1,7 @@
+{
+    "code": "def print_banner():\n    \"\"\"Print application banner.\"\"\"\n    print(\"🚀 n8n-workflows Advanced Search Engine\")\n    print(\"=\" * 50)",
+    "source": "github_repo:Zie619/n8n-workflows",
+    "file": "run.py",
+    "license": "MIT",
+    "language": "python"
+}

@@ -1,0 +1,7 @@
+{
+    "code": "def __init__(self, n_samples: int, n_elems: int = 64):\n        \"\"\"\n        * `n_samples` is the number of samples\n        * `n_elems` is the number of elements in the input vector\n        \"\"\"\n        self.n_samples = n_samples\n        self.n_elems = n_elems",
+    "source": "github_repo:labmlai/annotated_deep_learning_paper_implementations",
+    "file": "labml_nn/adaptive_computation/parity.py",
+    "license": "MIT",
+    "language": "python"
+}

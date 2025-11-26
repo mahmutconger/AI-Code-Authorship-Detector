@@ -1,0 +1,7 @@
+{
+    "code": "class FakeResponse():\n    def __init__(self, code: int, headers: dict, text: str) -> None:\n        self.status_code = code\n        self.headers = headers\n        self.text = text",
+    "source": "github_repo:public-apis/public-apis",
+    "file": "scripts/tests/test_validate_links.py",
+    "license": "MIT",
+    "language": "python"
+}

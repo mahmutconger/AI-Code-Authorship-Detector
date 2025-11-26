@@ -1,0 +1,7 @@
+{
+    "code": "def cleanup_caching(self) -> None:\n        \"\"\"Clean up any resources or hooks after decoding is finished\"\"\"\n        pass",
+    "source": "github_repo:openai/whisper",
+    "file": "whisper/decoding.py",
+    "license": "MIT",
+    "language": "python"
+}

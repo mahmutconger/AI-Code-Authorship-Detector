@@ -1,0 +1,7 @@
+{
+    "code": "import sys\nimport traceback\nfrom importlib.machinery import SourceFileLoader\n\nif __name__ == \"__main__\":\n    files = sys.argv[1:]\n    has_failure = False\n    for file in files:\n        try:\n            SourceFileLoader(\"x\", file).load_module()\n        except Exception:\n            has_failure = True\n            print(file)  # noqa: T201\n            traceback.print_exc()\n            print()  # noqa: T201\n\n    sys.exit(1 if has_failure else 0)",
+    "source": "github_repo:langchain-ai/langchain",
+    "file": "libs/cli/langchain_cli/integration_template/scripts/check_imports.py",
+    "license": "MIT",
+    "language": "python"
+}

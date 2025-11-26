@@ -1,0 +1,7 @@
+{
+    "code": "def start_recording(self, filename: str) -> None:\n        self.asciinema_proc = subprocess.Popen(\n            [\n                \"asciinema\",\n                \"rec\",\n                \"-y\",\n                \"--overwrite\",\n                \"-c\",\n                \"tmux attach -t asciinema_recorder\",\n                filename,\n            ]\n        )\n        self.pause(1.5)\n        self.record_start = time.time()",
+    "source": "github_repo:mitmproxy/mitmproxy",
+    "file": "docs/scripts/clirecording/clidirector.py",
+    "license": "MIT",
+    "language": "python"
+}

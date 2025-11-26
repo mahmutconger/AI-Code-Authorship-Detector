@@ -1,0 +1,7 @@
+{
+    "code": "\"\"\"CDP-Use High-Level Library\n\nA Playwright-like library built on top of CDP (Chrome DevTools Protocol).\n\"\"\"\n\nfrom .element import Element\nfrom .mouse import Mouse\nfrom .page import Page\nfrom .utils import Utils\n\n__all__ = ['Page', 'Element', 'Mouse', 'Utils']",
+    "source": "github_repo:browser-use/browser-use",
+    "file": "browser_use/actor/__init__.py",
+    "license": "MIT",
+    "language": "python"
+}

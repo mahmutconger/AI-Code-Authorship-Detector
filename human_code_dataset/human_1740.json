@@ -1,0 +1,7 @@
+{
+    "code": "import ccxt.pro\nfrom asyncio import run\n\n\nasync def main():\n    exchange = ccxt.pro.binance({\n        'options': {\n            'defaultType': 'future',\n        },\n    })\n    symbol = 'BTC/USDT'\n    while True:\n        try:\n            orderbook = await exchange.watch_order_book(symbol)\n            print(orderbook['bids'][0], orderbook['asks'][0])\n        except Exception as e:\n            print(type(e).__name__, str(e))\n    await exchange.close()\n\n\nrun(main())",
+    "source": "github_repo:ccxt/ccxt",
+    "file": "examples/ccxt.pro/py/binance-futures-watch-order-book.py",
+    "license": "MIT",
+    "language": "python"
+}

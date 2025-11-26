@@ -1,0 +1,7 @@
+{
+    "code": "def process_drop_na(df: pl.DataFrame, names: list[str] | None = None) -> pl.DataFrame:\n    \"\"\"Remove rows with missing values\"\"\"\n    if names is None:\n        names = df.columns[2:-1]\n\n    for name in names:\n        df = df.with_columns(\n            pl.col(name).fill_nan(None)\n        )\n    df = df.drop_nulls(subset=names)\n    return df",
+    "source": "github_repo:vnpy/vnpy",
+    "file": "vnpy/alpha/dataset/processor.py",
+    "license": "MIT",
+    "language": "python"
+}

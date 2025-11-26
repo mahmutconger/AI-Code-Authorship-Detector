@@ -1,0 +1,7 @@
+{
+    "code": "def _check_python_version_from_requirement(\n    requirement: Requirement, python_version: str\n) -> bool:\n    if not requirement.marker:\n        return True\n    else:\n        marker_str = str(requirement.marker)\n        if \"python_version\" in marker_str or \"python_full_version\" in marker_str:\n            python_version_str = \"\".join(\n                char\n                for char in marker_str\n                if char.isdigit() or char in (\".\", \"<\", \">\", \"=\", \",\")\n            )\n            return check_python_version(python_version, python_version_str)\n        return True",
+    "source": "github_repo:langchain-ai/langchain",
+    "file": ".github/scripts/get_min_versions.py",
+    "license": "MIT",
+    "language": "python"
+}

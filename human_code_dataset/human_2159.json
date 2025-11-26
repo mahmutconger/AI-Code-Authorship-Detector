@@ -1,0 +1,7 @@
+{
+    "code": "def is_armstrong_number(number: str):\n    total: int = 0\n    exp: int = len(\n        number\n    )  # get the number of digits, this will determinate the exponent\n\n    digits: list[int] = []\n    for digit in number:\n        digits.append(int(digit))  # get the single digits\n    for x in digits:\n        total += x**exp  # get the power of each digit and sum it to the total\n\n    # display the result\n    if int(number) == total:\n        print(number, \"is an Armstrong number\")\n    else:\n        print(number, \"is not an Armstrong number\")",
+    "source": "github_repo:geekcomputers/Python",
+    "file": "Armstrong_number.py",
+    "license": "MIT",
+    "language": "python"
+}

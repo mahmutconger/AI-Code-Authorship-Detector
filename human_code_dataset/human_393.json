@@ -1,0 +1,7 @@
+{
+    "code": "def rank(self, tokens: List[List[Tensor]], sum_logprobs: List[List[float]]):\n        def scores(logprobs, lengths):\n            result = []\n            for logprob, length in zip(logprobs, lengths):\n                if self.length_penalty is None:\n                    penalty = length\n                else:\n                    # from the Google NMT paper\n                    penalty = ((5 + length) / 6) ** self.length_penalty\n                result.append(logprob / penalty)\n            return result\n\n        # get the sequence with the highest score\n        lengths = [[len(t) for t in s] for s in tokens]\n        return [np.argmax(scores(p, l)) for p, l in zip(sum_logprobs, lengths)]",
+    "source": "github_repo:openai/whisper",
+    "file": "whisper/decoding.py",
+    "license": "MIT",
+    "language": "python"
+}

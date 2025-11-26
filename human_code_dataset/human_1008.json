@@ -1,0 +1,7 @@
+{
+    "code": "def choose_distro():\n    console.print(Panel(\"[bold magenta]Select installation target[/bold magenta]\\n\\n[1] Kali / Parrot (apt)\\n[2] Arch (pacman)\\n[0] Exit\", border_style=\"bright_magenta\"))\n    choice = IntPrompt.ask(\"Choice\", choices=[\"0\", \"1\", \"2\"], default=1)\n    return choice",
+    "source": "github_repo:Z4nzu/hackingtool",
+    "file": "install.py",
+    "license": "MIT",
+    "language": "python"
+}

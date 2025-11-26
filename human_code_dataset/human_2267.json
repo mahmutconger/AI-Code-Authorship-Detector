@@ -1,0 +1,7 @@
+{
+    "code": "def poetry(self) -> Poetry:\n        from poetry.factory import Factory\n\n        if self._poetry is not None:\n            return self._poetry\n\n        self._poetry = Factory().create_poetry(\n            cwd=self.project_directory,\n            io=self._io,\n            disable_plugins=self._disable_plugins,\n            disable_cache=self._disable_cache,\n        )\n\n        return self._poetry",
+    "source": "github_repo:python-poetry/poetry",
+    "file": "src/poetry/console/application.py",
+    "license": "MIT",
+    "language": "python"
+}

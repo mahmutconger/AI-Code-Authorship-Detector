@@ -1,0 +1,7 @@
+{
+    "code": "import ccxt.pro\nfrom pprint import pprint\nfrom asyncio import run\n\n\nprint('CCXT Version:', ccxt.__version__)\n\n\nasync def main():\n    exchange = ccxt.pro.binance({\n        'apiKey': 'YOUR_API_KEY',\n        'secret': 'YOUR_SECRET',\n    })\n\n    markets = await exchange.load_markets()\n\n    # exchange.verbose = True  # uncomment for debugging purposes if necessary\n\n    symbol = 'ETH/BTC'\n    type = 'limit'  # or 'market'\n    side = 'sell'  # or 'buy'\n    amount = 1.0\n    price = 0.060154  # or None\n\n    order = await exchange.create_order(symbol, type, side, amount, price)\n    canceled = await exchange.cancel_order(order['id'], order['symbol'])\n\n    pprint(canceled)\n\n    await exchange.close()\n\n\nrun(main())",
+    "source": "github_repo:ccxt/ccxt",
+    "file": "examples/ccxt.pro/py/binance-create-order-cancel-order.py",
+    "license": "MIT",
+    "language": "python"
+}

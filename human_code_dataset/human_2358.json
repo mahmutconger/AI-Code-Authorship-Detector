@@ -1,0 +1,7 @@
+{
+    "code": "def make_data_formatter(self):\n        \"\"\"Gets a data formatter object for experiment.\n\n        Returns:\n          Default DataFormatter per experiment.\n        \"\"\"\n\n        data_formatter_class = {\n            \"Alpha158\": data_formatters.qlib_Alpha158.Alpha158Formatter,\n        }\n\n        return data_formatter_class[self.experiment]()",
+    "source": "github_repo:microsoft/qlib",
+    "file": "examples/benchmarks/TFT/expt_settings/configs.py",
+    "license": "MIT",
+    "language": "python"
+}

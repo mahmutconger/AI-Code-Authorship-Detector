@@ -1,0 +1,7 @@
+{
+    "code": "def get_base_dir():\n    # co-locate nanochat intermediates with other cached data in ~/.cache (by default)\n    if os.environ.get(\"NANOCHAT_BASE_DIR\"):\n        nanochat_dir = os.environ.get(\"NANOCHAT_BASE_DIR\")\n    else:\n        home_dir = os.path.expanduser(\"~\")\n        cache_dir = os.path.join(home_dir, \".cache\")\n        nanochat_dir = os.path.join(cache_dir, \"nanochat\")\n    os.makedirs(nanochat_dir, exist_ok=True)\n    return nanochat_dir",
+    "source": "github_repo:karpathy/nanochat",
+    "file": "nanochat/common.py",
+    "license": "MIT",
+    "language": "python"
+}

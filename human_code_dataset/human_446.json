@@ -1,0 +1,7 @@
+{
+    "code": "class StreamInfo:\n    \"\"\"The StreamInfo class is used to store information about a file stream.\n    All fields can be None, and will depend on how the stream was opened.\n    \"\"\"\n\n    mimetype: Optional[str] = None\n    extension: Optional[str] = None\n    charset: Optional[str] = None\n    filename: Optional[\n        str\n    ] = None  # From local path, url, or Content-Disposition header\n    local_path: Optional[str] = None  # If read from disk\n    url: Optional[str] = None  # If read from url\n\n    def copy_and_update(self, *args, **kwargs):\n        \"\"\"Copy the StreamInfo object and update it with the given StreamInfo\n        instance and/or other keyword arguments.\"\"\"\n        new_info = asdict(self)\n\n        for si in args:\n            assert isinstance(si, StreamInfo)\n            new_info.update({k: v for k, v in asdict(si).items() if v is not None})\n\n        if len(kwargs) > 0:\n            new_info.update(kwargs)\n\n        return StreamInfo(**new_info)",
+    "source": "github_repo:microsoft/markitdown",
+    "file": "packages/markitdown/src/markitdown/_stream_info.py",
+    "license": "MIT",
+    "language": "python"
+}

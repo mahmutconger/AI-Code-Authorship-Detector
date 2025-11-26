@@ -1,0 +1,7 @@
+{
+    "code": "def forward(self, x):\n        x = F.relu(F.linear(x, self.w1, self.b1))\n        x = F.linear(x, self.w2, self.b2)\n        return x",
+    "source": "github_repo:RVC-Boss/GPT-SoVITS",
+    "file": "GPT_SoVITS/AR/models/t2s_model.py",
+    "license": "MIT",
+    "language": "python"
+}

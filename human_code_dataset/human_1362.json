@@ -1,0 +1,7 @@
+{
+    "code": "def update_api_timestamp(api_dir: str):\n    \"\"\"Update timestamp in API JSON files.\"\"\"\n    api_path = Path(api_dir)\n\n    if not api_path.exists():\n        api_path.mkdir(parents=True, exist_ok=True)\n\n    # Create or update a metadata file with current timestamp\n    metadata = {\n        \"last_updated\": datetime.now().isoformat(),\n        \"last_updated_readable\": datetime.now().strftime(\"%B %d, %Y at %H:%M UTC\"),\n        \"version\": \"2.0.1\",\n        \"deployment_type\": \"github_pages\"\n    }\n\n    metadata_file = api_path / 'metadata.json'\n    with open(metadata_file, 'w', encoding='utf-8') as f:\n        json.dump(metadata, f, indent=2)\n\n    print(f\"✅ Created metadata file: {metadata_file}\")\n\n    # Update stats.json if it exists\n    stats_file = api_path / 'stats.json'\n    if stats_file.exists():\n        with open(stats_file, 'r', encoding='utf-8') as f:\n            stats = json.load(f)\n\n        stats['last_updated'] = datetime.now().isoformat()\n\n        with open(stats_file, 'w', encoding='utf-8') as f:\n            json.dump(stats, f, indent=2)\n\n        print(f\"✅ Updated stats file: {stats_file}\")\n\n    return True",
+    "source": "github_repo:Zie619/n8n-workflows",
+    "file": "scripts/update_github_pages.py",
+    "license": "MIT",
+    "language": "python"
+}

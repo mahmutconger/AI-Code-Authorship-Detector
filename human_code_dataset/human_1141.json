@@ -1,0 +1,7 @@
+{
+    "code": "class BannerGroup(TyperGroup):\n    \"\"\"Custom group that shows banner before help.\"\"\"\n\n    def format_help(self, ctx, formatter):\n        # Show banner before help\n        show_banner()\n        super().format_help(ctx, formatter)",
+    "source": "github_repo:github/spec-kit",
+    "file": "src/specify_cli/__init__.py",
+    "license": "MIT",
+    "language": "python"
+}

@@ -1,0 +1,7 @@
+{
+    "code": "def forward(self, p: torch.Tensor):\n        \"\"\"\n        * `p` is $p_1 \\dots p_N$ in a tensor of shape `[N, batch_size]`\n        \"\"\"\n        # Transpose `p` to `[batch_size, N]`\n        p = p.transpose(0, 1)\n        # Get $Pr_{p_G(\\lambda_p)}$ upto $N$ and expand it across the batch dimension\n        p_g = self.p_g[None, :p.shape[1]].expand_as(p)\n\n        # Calculate the KL-divergence.\n        # *The [PyTorch KL-divergence](https://pytorch.org/docs/stable/generated/torch.nn.KLDivLoss.html)\n        # implementation accepts log probabilities.*\n        return self.kl_div(p.log(), p_g)",
+    "source": "github_repo:labmlai/annotated_deep_learning_paper_implementations",
+    "file": "labml_nn/adaptive_computation/ponder_net/__init__.py",
+    "license": "MIT",
+    "language": "python"
+}

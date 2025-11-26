@@ -1,0 +1,7 @@
+{
+    "code": "def display_name(self) -> str:\n        \"\"\"\n        Get the display name of the file or directory.\n        \"\"\"\n        if self.path.is_dir():\n            return self.path.name + \"/\"\n        return self.path.name",
+    "source": "github_repo:AntonOsika/gpt-engineer",
+    "file": "gpt_engineer/applications/cli/file_selector.py",
+    "license": "MIT",
+    "language": "python"
+}

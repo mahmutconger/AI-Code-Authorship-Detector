@@ -1,0 +1,7 @@
+{
+    "code": "def _get_configs_for_single_dir(job: str, dir_: str) -> List[Dict[str, str]]:\n    if job == \"test-pydantic\":\n        return _get_pydantic_test_configs(dir_)\n\n    if job == \"codspeed\":\n        py_versions = [\"3.13\"]\n    elif dir_ == \"libs/core\":\n        py_versions = [\"3.10\", \"3.11\", \"3.12\", \"3.13\", \"3.14\"]\n    # custom logic for specific directories\n    elif dir_ in {\"libs/partners/chroma\"}:\n        py_versions = [\"3.10\", \"3.13\"]\n    else:\n        py_versions = [\"3.10\", \"3.14\"]\n\n    return [{\"working-directory\": dir_, \"python-version\": py_v} for py_v in py_versions]",
+    "source": "github_repo:langchain-ai/langchain",
+    "file": ".github/scripts/check_diff.py",
+    "license": "MIT",
+    "language": "python"
+}

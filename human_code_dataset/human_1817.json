@@ -1,0 +1,7 @@
+{
+    "code": "def upload():\n    import os\n    from huggingface_hub import HfApi\n    token = os.getenv(\"HF_TOKEN\")\n    api = HfApi(token=token)\n    api.upload_large_folder(\n        folder_path=output_dir,\n        repo_id=\"karpathy/fineweb-edu-100b-shuffle\",\n        repo_type=\"dataset\",\n    )",
+    "source": "github_repo:karpathy/nanochat",
+    "file": "dev/repackage_data_reference.py",
+    "license": "MIT",
+    "language": "python"
+}

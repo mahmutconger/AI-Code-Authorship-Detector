@@ -1,0 +1,7 @@
+{
+    "code": "def finalize(\n        self, tokens: Tensor, sum_logprobs: Tensor\n    ) -> Tuple[Sequence[Sequence[Tensor]], List[List[float]]]:\n        \"\"\"Finalize search and return the final candidate sequences\n\n        Parameters\n        ----------\n        tokens : Tensor, shape = (n_audio, n_group, current_sequence_length)\n            all tokens in the context so far, including the prefix and sot_sequence\n\n        sum_logprobs : Tensor, shape = (n_audio, n_group)\n            cumulative log probabilities for each sequence\n\n        Returns\n        -------\n        tokens : Sequence[Sequence[Tensor]], length = n_audio\n            sequence of Tensors containing candidate token sequences, for each audio input\n\n        sum_logprobs : List[List[float]], length = n_audio\n            sequence of cumulative log probabilities corresponding to the above\n\n        \"\"\"\n        raise NotImplementedError",
+    "source": "github_repo:openai/whisper",
+    "file": "whisper/decoding.py",
+    "license": "MIT",
+    "language": "python"
+}

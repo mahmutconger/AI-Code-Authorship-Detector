@@ -1,0 +1,7 @@
+{
+    "code": "def isAnotherDay(s):\n\tglobal dateStr\n\treturn dateStr != s",
+    "source": "github_repo:testerSunshine/12306",
+    "file": "config/logger.py",
+    "license": "MIT",
+    "language": "python"
+}

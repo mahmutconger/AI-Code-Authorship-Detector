@@ -1,0 +1,7 @@
+{
+    "code": "class FeedForwardFTA(nn.Module):\n    \"\"\"\n    ## FFN module with [FTA](index.html) activation\n    \"\"\"\n\n    def __init__(self, d_model: int, d_ff: int,\n                 activation: FTA,\n                 dropout: float = 0.1):\n        \"\"\"\n        * `d_model` is the number of features in a token embedding\n        * `d_ff` is the number of features in the hidden layer of the FFN\n        * `activation` is FTA activation module\n        * `dropout` is dropout probability for the hidden layer\n        \"\"\"\n        super().__init__()\n        # Layer one parameterized by weight $W_1$ and bias $b_1$\n        self.layer1 = nn.Linear(d_model, d_ff)\n        # Layer two parameterized by weight $W_1$ and bias $b_1$\n        self.layer2 = nn.Linear(d_ff * activation.expansion_factor, d_model)\n        # Hidden layer dropout\n        self.dropout = nn.Dropout(dropout)\n        # Activation function $f$\n        self.activation = activation\n\n    def forward(self, x: torch.Tensor):\n        # $f(x W_1 + b_1)$\n        x = self.activation(self.layer1(x))\n        # Apply dropout\n        x = self.dropout(x)\n        #\n        return self.layer2(x)",
+    "source": "github_repo:labmlai/annotated_deep_learning_paper_implementations",
+    "file": "labml_nn/activations/fta/experiment.py",
+    "license": "MIT",
+    "language": "python"
+}

@@ -1,0 +1,7 @@
+{
+    "code": "def __init__(self, *args, vq_interface=False, **kwargs):\n        self.vq_interface = vq_interface\n        super().__init__()",
+    "source": "github_repo:Stability-AI/stablediffusion",
+    "file": "ldm/models/autoencoder.py",
+    "license": "MIT",
+    "language": "python"
+}

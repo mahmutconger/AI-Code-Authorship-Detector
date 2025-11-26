@@ -1,0 +1,7 @@
+{
+    "code": "def combination_sum(candidates: list, target: int) -> list:\n    \"\"\"\n    >>> combination_sum([2, 3, 5], 8)\n    [[2, 2, 2, 2], [2, 3, 3], [3, 5]]\n    >>> combination_sum([2, 3, 6, 7], 7)\n    [[2, 2, 3], [7]]\n    >>> combination_sum([-8, 2.3, 0], 1)\n    Traceback (most recent call last):\n        ...\n    ValueError: All elements in candidates must be non-negative\n    >>> combination_sum([], 1)\n    Traceback (most recent call last):\n        ...\n    ValueError: Candidates list should not be empty\n    \"\"\"\n    if not candidates:\n        raise ValueError(\"Candidates list should not be empty\")\n\n    if any(x < 0 for x in candidates):\n        raise ValueError(\"All elements in candidates must be non-negative\")\n\n    path = []  # type: list[int]\n    answer = []  # type: list[int]\n    backtrack(candidates, path, answer, target, 0)\n    return answer",
+    "source": "github_repo:TheAlgorithms/Python",
+    "file": "backtracking/combination_sum.py",
+    "license": "MIT",
+    "language": "python"
+}

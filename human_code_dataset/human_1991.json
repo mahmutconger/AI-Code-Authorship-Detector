@@ -1,0 +1,7 @@
+{
+    "code": "def construct(self):\n        decimal = DecimalNumber(\n            0,\n            show_ellipsis=True,\n            num_decimal_places=3,\n            include_sign=True,\n        )\n        square = Square().to_edge(UP)\n\n        decimal.add_updater(lambda d: d.next_to(square, RIGHT))\n        decimal.add_updater(lambda d: d.set_value(square.get_center()[1]))\n        self.add(square, decimal)\n        self.play(\n            square.animate.to_edge(DOWN),\n            rate_func=there_and_back,\n            run_time=5,\n        )\n        self.wait()",
+    "source": "github_repo:ManimCommunity/manim",
+    "file": "example_scenes/basic.py",
+    "license": "MIT",
+    "language": "python"
+}

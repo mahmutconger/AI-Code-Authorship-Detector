@@ -1,0 +1,7 @@
+{
+    "code": "def load_audio(file: str, sr: int = SAMPLE_RATE):\n    \"\"\"\n    Open an audio file and read as mono waveform, resampling as necessary\n\n    Parameters\n    ----------\n    file: str\n        The audio file to open\n\n    sr: int\n        The sample rate to resample the audio if necessary\n\n    Returns\n    -------\n    A NumPy array containing the audio waveform, in float32 dtype.\n    \"\"\"\n\n    # This launches a subprocess to decode audio while down-mixing\n    # and resampling as necessary.  Requires the ffmpeg CLI in PATH.\n    # fmt: off\n    cmd = [\n        \"ffmpeg\",\n        \"-nostdin\",\n        \"-threads\", \"0\",\n        \"-i\", file,\n        \"-f\", \"s16le\",\n        \"-ac\", \"1\",\n        \"-acodec\", \"pcm_s16le\",\n        \"-ar\", str(sr),\n        \"-\"\n    ]\n    # fmt: on\n    try:\n        out = run(cmd, capture_output=True, check=True).stdout\n    except CalledProcessError as e:\n        raise RuntimeError(f\"Failed to load audio: {e.stderr.decode()}\") from e\n\n    return np.frombuffer(out, np.int16).flatten().astype(np.float32) / 32768.0",
+    "source": "github_repo:openai/whisper",
+    "file": "whisper/audio.py",
+    "license": "MIT",
+    "language": "python"
+}

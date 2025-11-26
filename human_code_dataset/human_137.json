@@ -1,0 +1,7 @@
+{
+    "code": "def main():\n    \"\"\"Main function.\"\"\"\n    # Determine project root (script is in scripts/ directory)\n    script_dir = Path(__file__).parent\n    project_root = script_dir.parent\n\n    # Paths\n    frontend_path = project_root / \"src\" / \"frontend\"\n    backend_components_path = project_root / \"src\" / \"backend\" / \"base\" / \"langflow\" / \"components\"\n    output_path = project_root / \"src\" / \"backend\" / \".coveragerc\"\n\n    print(f\"Project root: {project_root}\")\n    print(f\"Frontend path: {frontend_path}\")\n    print(f\"Backend components path: {backend_components_path}\")\n    print(f\"Output path: {output_path}\")\n    print()\n\n    # Extract bundled component names\n    bundle_names = extract_sidebar_bundles(frontend_path)\n\n    # Find legacy components\n    legacy_files = find_legacy_components(backend_components_path)\n\n    # Generate .coveragerc file\n    generate_coveragerc(bundle_names, legacy_files, output_path)\n\n    print(\"\\nDone! You can now run backend tests with coverage using:\")\n    print(\"cd src/backend && python -m pytest --cov=src/backend/base/langflow --cov-config=.coveragerc\")",
+    "source": "github_repo:langflow-ai/langflow",
+    "file": "scripts/generate_coverage_config.py",
+    "license": "MIT",
+    "language": "python"
+}

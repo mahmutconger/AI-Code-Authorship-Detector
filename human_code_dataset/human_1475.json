@@ -1,0 +1,7 @@
+{
+    "code": "class _Communication(_AlibabaCloud):\n    _type = \"communication\"\n    _icon_dir = \"resources/alibabacloud/communication\"",
+    "source": "github_repo:mingrammer/diagrams",
+    "file": "diagrams/alibabacloud/communication.py",
+    "license": "MIT",
+    "language": "python"
+}

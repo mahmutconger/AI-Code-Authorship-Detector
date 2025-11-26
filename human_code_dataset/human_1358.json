@@ -1,0 +1,7 @@
+{
+    "code": "def extract_folder_from_filename(filename: str) -> str:\n    \"\"\"Extract folder name from workflow filename.\"\"\"\n    # Most workflows follow pattern: ID_Service_Purpose_Trigger.json\n    # Extract the service name as folder\n    parts = filename.replace('.json', '').split('_')\n    if len(parts) >= 2:\n        return parts[1].capitalize()  # Second part is usually the service\n    return 'Misc'",
+    "source": "github_repo:Zie619/n8n-workflows",
+    "file": "scripts/generate_search_index.py",
+    "license": "MIT",
+    "language": "python"
+}

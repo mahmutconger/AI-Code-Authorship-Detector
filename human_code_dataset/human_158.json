@@ -1,0 +1,7 @@
+{
+    "code": "def get_pypi_versions(package_name: str) -> List[str]:\n    \"\"\"Fetch all available versions for a package from PyPI.\n\n    Args:\n        package_name: Name of the package\n\n    Returns:\n        List of all available versions\n\n    Raises:\n        requests.exceptions.RequestException: If PyPI API request fails\n        KeyError: If package not found or response format unexpected\n    \"\"\"\n    pypi_url = f\"https://pypi.org/pypi/{package_name}/json\"\n    response = requests.get(pypi_url)\n    response.raise_for_status()\n    return list(response.json()[\"releases\"].keys())",
+    "source": "github_repo:langchain-ai/langchain",
+    "file": ".github/scripts/get_min_versions.py",
+    "license": "MIT",
+    "language": "python"
+}

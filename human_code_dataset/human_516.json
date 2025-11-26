@@ -1,0 +1,7 @@
+{
+    "code": "import asyncio\n\nfrom browser_use import Agent, Browser, ChatOpenAI\n\nllm = ChatOpenAI('gpt-4.1-mini')\n\n\nasync def main():\n\t\"\"\"\n\tMain function demonstrating mixed automation with Browser-Use and Playwright.\n\t\"\"\"\n\tprint('🚀 Mixed Automation with Browser-Use and Actor API')\n\n\tbrowser = Browser(keep_alive=True)\n\tawait browser.start()\n\n\tpage = await browser.get_current_page() or await browser.new_page()\n\n\t# Go to apple wikipedia page\n\tawait page.goto('https://www.google.com/travel/flights')\n\n\tawait asyncio.sleep(1)\n\n\tround_trip_button = await page.must_get_element_by_prompt('round trip button', llm)\n\tawait round_trip_button.click()\n\n\tone_way_button = await page.must_get_element_by_prompt('one way button', llm)\n\tawait one_way_button.click()\n\n\tawait asyncio.sleep(1)\n\n\tagent = Agent(task='Find the cheapest flight from London to Paris on 2025-10-15', llm=llm, browser_session=browser)\n\tawait agent.run()\n\n\tinput('Press Enter to continue...')\n\n\tawait browser.stop()\n\n\nif __name__ == '__main__':\n\tasyncio.run(main())",
+    "source": "github_repo:browser-use/browser-use",
+    "file": "browser_use/actor/playground/flights.py",
+    "license": "MIT",
+    "language": "python"
+}

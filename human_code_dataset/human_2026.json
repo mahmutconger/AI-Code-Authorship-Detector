@@ -1,0 +1,7 @@
+{
+    "code": "def extract_se(self, ref_wav_list, se_save_path=None):\n        if isinstance(ref_wav_list, str):\n            ref_wav_list = [ref_wav_list]\n        \n        device = self.device\n        hps = self.hps\n        gs = []\n        \n        for fname in ref_wav_list:\n            audio_ref, sr = librosa.load(fname, sr=hps.data.sampling_rate)\n            y = torch.FloatTensor(audio_ref)\n            y = y.to(device)\n            y = y.unsqueeze(0)\n            y = spectrogram_torch(y, hps.data.filter_length,\n                                        hps.data.sampling_rate, hps.data.hop_length, hps.data.win_length,\n                                        center=False).to(device)\n            with torch.no_grad():\n                g = self.model.ref_enc(y.transpose(1, 2)).unsqueeze(-1)\n                gs.append(g.detach())\n        gs = torch.stack(gs).mean(0)\n\n        if se_save_path is not None:\n            os.makedirs(os.path.dirname(se_save_path), exist_ok=True)\n            torch.save(gs.cpu(), se_save_path)\n\n        return gs",
+    "source": "github_repo:myshell-ai/OpenVoice",
+    "file": "openvoice/api.py",
+    "license": "MIT",
+    "language": "python"
+}

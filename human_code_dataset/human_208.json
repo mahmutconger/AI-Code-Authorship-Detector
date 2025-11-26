@@ -1,0 +1,7 @@
+{
+    "code": "def act_quant(x: torch.Tensor, block_size: int = 128, scale_fmt: Optional[str] = None) -> Tuple[torch.Tensor, torch.Tensor]:\n    \"\"\"\n    Quantizes the input tensor `x` using block-wise quantization.\n\n    Args:\n        x (torch.Tensor): The input tensor to be quantized. Must be contiguous and its last dimension size must be divisible by `block_size`.\n        block_size (int, optional): The size of the blocks to be used for quantization. Default is 128.\n        scale_fmt (Optional[str], optional): The format of the scale. Default is None.\n    Returns:\n        Tuple[torch.Tensor, torch.Tensor]: A tuple containing:\n            - The quantized tensor with dtype `torch.float8_e4m3fn`.\n            - A tensor of scaling factors with dtype `torch.float32`.\n    \"\"\"\n    assert x.is_contiguous(), 'Input tensor must be contiguous'\n    assert x.size(-1) % block_size == 0, f'Last dimension size must be divisible by block_size (block_size={block_size})'\n    y = torch.empty_like(x, dtype=torch.float8_e4m3fn)\n    s = x.new_empty(*x.size()[:-1], x.size(-1) // block_size, dtype=torch.float32)\n    grid = lambda meta: (triton.cdiv(x.numel(), meta['BLOCK_SIZE']), )\n    act_quant_kernel[grid](x, y, s, BLOCK_SIZE=block_size, scale_fmt=scale_fmt)\n    return y, s",
+    "source": "github_repo:deepseek-ai/DeepSeek-V3",
+    "file": "inference/kernel.py",
+    "license": "MIT",
+    "language": "python"
+}

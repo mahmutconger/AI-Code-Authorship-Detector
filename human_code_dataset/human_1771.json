@@ -1,0 +1,7 @@
+{
+    "code": "def __init__(self):\n        super().__init__()\n        self.api_key_expired_time = self.set_api_key()\n        self.sessions = SessionManager(AliQwenSession, model=conf().get(\"model\", const.QWEN))",
+    "source": "github_repo:zhayujie/chatgpt-on-wechat",
+    "file": "bot/ali/ali_qwen_bot.py",
+    "license": "MIT",
+    "language": "python"
+}

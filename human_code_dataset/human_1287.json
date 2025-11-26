@@ -1,0 +1,7 @@
+{
+    "code": "def __init__(\n        self,\n        in_doc: \"InputDocument\",\n        path_or_stream: Union[BytesIO, Path],\n        options: BaseBackendOptions = BaseBackendOptions(),\n    ):\n        self.file = in_doc.file\n        self.path_or_stream = path_or_stream\n        self.document_hash = in_doc.document_hash\n        self.input_format = in_doc.format\n        self.options = options",
+    "source": "github_repo:docling-project/docling",
+    "file": "docling/backend/abstract_backend.py",
+    "license": "MIT",
+    "language": "python"
+}

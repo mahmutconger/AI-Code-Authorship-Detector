@@ -1,0 +1,7 @@
+{
+    "code": "def model_dump(self, *args, **kwargs):\n        # Convert object to dict and add timestamp\n        data = self.__dict__\n        data[\"created_at\"] = datetime.now().isoformat()\n        return data",
+    "source": "github_repo:FoundationAgents/OpenManus",
+    "file": "app/bedrock.py",
+    "license": "MIT",
+    "language": "python"
+}

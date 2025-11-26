@@ -1,0 +1,7 @@
+{
+    "code": "def act_quant_kernel(x_ptr, y_ptr, s_ptr, BLOCK_SIZE: tl.constexpr, scale_fmt: tl.constexpr):\n    \"\"\"\n    Quantizes the input tensor `x_ptr` and stores the result in `y_ptr` and the scaling factor in `s_ptr`.\n\n    Args:\n        x_ptr (triton.Pointer): Pointer to the input tensor.\n        y_ptr (triton.Pointer): Pointer to the output tensor where quantized values will be stored.\n        s_ptr (triton.Pointer): Pointer to the output tensor where scaling factors will be stored.\n        BLOCK_SIZE (tl.constexpr): The size of the block to be processed by each program instance.\n\n    Returns:\n        None\n    \"\"\"\n    pid = tl.program_id(axis=0)\n    offs = pid * BLOCK_SIZE + tl.arange(0, BLOCK_SIZE)\n    x = tl.load(x_ptr + offs).to(tl.float32)\n    amax = tl.max(tl.abs(x)) # reduction\n    amax = tl.maximum(amax, 1e-4) # clamp to 1e-4\n    s = amax / 448.\n    if scale_fmt == \"ue8m0\":\n        exp = tl.math.ceil(tl.math.log2(s))\n        s = tl.math.exp2(exp)\n    y = x / s\n    y = y.to(y_ptr.dtype.element_ty)\n    tl.store(y_ptr + offs, y)\n    tl.store(s_ptr + pid, s)",
+    "source": "github_repo:deepseek-ai/DeepSeek-V3",
+    "file": "inference/kernel.py",
+    "license": "MIT",
+    "language": "python"
+}

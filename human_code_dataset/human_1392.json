@@ -1,0 +1,7 @@
+{
+    "code": "def init_from_ckpt(self, path, ignore_keys=list()):\n        sd = torch.load(path, map_location=\"cpu\")[\"state_dict\"]\n        keys = list(sd.keys())\n        for k in keys:\n            for ik in ignore_keys:\n                if k.startswith(ik):\n                    print(\"Deleting key {} from state_dict.\".format(k))\n                    del sd[k]\n        self.load_state_dict(sd, strict=False)\n        print(f\"Restored from {path}\")",
+    "source": "github_repo:Stability-AI/stablediffusion",
+    "file": "ldm/models/autoencoder.py",
+    "license": "MIT",
+    "language": "python"
+}

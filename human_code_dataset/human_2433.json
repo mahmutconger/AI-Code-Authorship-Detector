@@ -1,0 +1,7 @@
+{
+    "code": "def parse_config_overrides(\n    args: List[str], env_var: Optional[str] = ENV_VARS.CONFIG_OVERRIDES\n) -> Dict[str, Any]:\n    \"\"\"Generate a dictionary of config overrides based on the extra arguments\n    provided on the CLI, e.g. --training.batch_size to override\n    \"training.batch_size\". Arguments without a \".\" are considered invalid,\n    since the config only allows top-level sections to exist.\n\n    env_vars (Optional[str]): Optional environment variable to read from.\n    RETURNS (Dict[str, Any]): The parsed dict, keyed by nested config setting.\n    \"\"\"\n    env_string = os.environ.get(env_var, \"\") if env_var else \"\"\n    env_overrides = _parse_overrides(split_arg_string(env_string))\n    cli_overrides = _parse_overrides(args, is_cli=True)\n    if cli_overrides:\n        keys = [k for k in cli_overrides if k not in env_overrides]\n        logger.debug(\"Config overrides from CLI: %s\", keys)\n    if env_overrides:\n        logger.debug(\"Config overrides from env variables: %s\", list(env_overrides))\n    return {**cli_overrides, **env_overrides}",
+    "source": "github_repo:explosion/spaCy",
+    "file": "spacy/cli/_util.py",
+    "license": "MIT",
+    "language": "python"
+}

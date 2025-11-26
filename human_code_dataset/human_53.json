@@ -1,0 +1,7 @@
+{
+    "code": "def make_bandpass(\n    frequency: int,\n    samplerate: int,\n    q_factor: float = 1 / sqrt(2),\n) -> IIRFilter:\n    \"\"\"\n    Creates a band-pass filter\n\n    >>> filter = make_bandpass(1000, 48000)\n    >>> filter.a_coeffs + filter.b_coeffs  # doctest: +NORMALIZE_WHITESPACE\n    [1.0922959556412573, -1.9828897227476208, 0.9077040443587427, 0.06526309611002579,\n     0, -0.06526309611002579]\n    \"\"\"\n    w0 = tau * frequency / samplerate\n    _sin = sin(w0)\n    _cos = cos(w0)\n    alpha = _sin / (2 * q_factor)\n\n    b0 = _sin / 2\n    b1 = 0\n    b2 = -b0\n\n    a0 = 1 + alpha\n    a1 = -2 * _cos\n    a2 = 1 - alpha\n\n    filt = IIRFilter(2)\n    filt.set_coefficients([a0, a1, a2], [b0, b1, b2])\n    return filt",
+    "source": "github_repo:TheAlgorithms/Python",
+    "file": "audio_filters/butterworth_filter.py",
+    "license": "MIT",
+    "language": "python"
+}

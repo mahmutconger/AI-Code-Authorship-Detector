@@ -1,0 +1,7 @@
+{
+    "code": "def open_knight_tour_helper(\n    board: list[list[int]], pos: tuple[int, int], curr: int\n) -> bool:\n    \"\"\"\n    Helper function to solve knight tour problem.\n    \"\"\"\n\n    if is_complete(board):\n        return True\n\n    for position in get_valid_pos(pos, len(board)):\n        y, x = position\n\n        if board[y][x] == 0:\n            board[y][x] = curr + 1\n            if open_knight_tour_helper(board, position, curr + 1):\n                return True\n            board[y][x] = 0\n\n    return False",
+    "source": "github_repo:TheAlgorithms/Python",
+    "file": "backtracking/knight_tour.py",
+    "license": "MIT",
+    "language": "python"
+}

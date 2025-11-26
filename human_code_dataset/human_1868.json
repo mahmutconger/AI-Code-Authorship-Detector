@@ -1,0 +1,7 @@
+{
+    "code": "def read_ver(db):\n    for tab in [\"ki\", \"kv\"]:\n        try:\n            c = db.execute(r\"select v from {} where k = 'sver'\".format(tab))\n        except:\n            continue\n\n        rows = c.fetchall()\n        if rows:\n            return int(rows[0][0])\n\n    return \"corrupt\"",
+    "source": "github_repo:9001/copyparty",
+    "file": "bin/dbtool.py",
+    "license": "MIT",
+    "language": "python"
+}

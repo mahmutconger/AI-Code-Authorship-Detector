@@ -1,0 +1,7 @@
+{
+    "code": "def register_converters(markitdown: MarkItDown, **kwargs):\n    \"\"\"\n    Called during construction of MarkItDown instances to register converters provided by plugins.\n    \"\"\"\n\n    # Simply create and attach an RtfConverter instance\n    markitdown.register_converter(RtfConverter())",
+    "source": "github_repo:microsoft/markitdown",
+    "file": "packages/markitdown-sample-plugin/src/markitdown_sample_plugin/_plugin.py",
+    "license": "MIT",
+    "language": "python"
+}

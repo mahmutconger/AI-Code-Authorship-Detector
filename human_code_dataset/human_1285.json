@@ -1,0 +1,7 @@
+{
+    "code": "class PaginatedDocumentBackend(AbstractDocumentBackend):\n    \"\"\"DeclarativeDocumentBackend.\n\n    A declarative document backend is a backend that can transform to DoclingDocument\n    straight without a recognition pipeline.\n    \"\"\"\n\n    @abstractmethod\n    def page_count(self) -> int:\n        pass",
+    "source": "github_repo:docling-project/docling",
+    "file": "docling/backend/abstract_backend.py",
+    "license": "MIT",
+    "language": "python"
+}

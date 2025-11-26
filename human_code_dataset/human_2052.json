@@ -1,0 +1,7 @@
+{
+    "code": "def forward(self, x, x_mask):\n        x = self.conv_1(self.padding(x * x_mask))\n        if self.activation == \"gelu\":\n            x = x * torch.sigmoid(1.702 * x)\n        else:\n            x = torch.relu(x)\n        x = self.drop(x)\n        x = self.conv_2(self.padding(x * x_mask))\n        return x * x_mask",
+    "source": "github_repo:myshell-ai/OpenVoice",
+    "file": "openvoice/attentions.py",
+    "license": "MIT",
+    "language": "python"
+}

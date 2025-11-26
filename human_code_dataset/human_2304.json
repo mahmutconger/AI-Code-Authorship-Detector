@@ -1,0 +1,7 @@
+{
+    "code": "def ta_atr(high: DataProxy, low: DataProxy, close: DataProxy, window: int) -> DataProxy:\n    \"\"\"Calculate ATR indicator by contract\"\"\"\n    high_: pd.Series = to_pd_series(high)\n    low_: pd.Series = to_pd_series(low)\n    close_: pd.Series = to_pd_series(close)\n\n    result: pd.Series = talib.ATR(high_, low_, close_, timeperiod=window)   # type: ignore\n\n    df: pl.DataFrame = to_pl_dataframe(result)\n    return DataProxy(df)",
+    "source": "github_repo:vnpy/vnpy",
+    "file": "vnpy/alpha/dataset/ta_function.py",
+    "license": "MIT",
+    "language": "python"
+}

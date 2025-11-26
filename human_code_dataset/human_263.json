@@ -1,0 +1,7 @@
+{
+    "code": "def test_print_alias(mocker):\n    settings_mock = mocker.patch('thefuck.entrypoints.alias.settings')\n    _get_alias_mock = mocker.patch('thefuck.entrypoints.alias._get_alias')\n    known_args = Mock()\n    print_alias(known_args)\n    settings_mock.init.assert_called_once_with(known_args)\n    _get_alias_mock.assert_called_once_with(known_args)",
+    "source": "github_repo:nvbn/thefuck",
+    "file": "tests/entrypoints/test_alias.py",
+    "license": "MIT",
+    "language": "python"
+}

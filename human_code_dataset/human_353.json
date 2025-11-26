@@ -1,0 +1,7 @@
+{
+    "code": "def test_text_normalizer():\n    std = EnglishTextNormalizer()\n    assert std(\"Let's\") == \"let us\"\n    assert std(\"he's like\") == \"he is like\"\n    assert std(\"she's been like\") == \"she has been like\"\n    assert std(\"10km\") == \"10 km\"\n    assert std(\"10mm\") == \"10 mm\"\n    assert std(\"RC232\") == \"rc 232\"\n\n    assert (\n        std(\"Mr. Park visited Assoc. Prof. Kim Jr.\")\n        == \"mister park visited associate professor kim junior\"\n    )",
+    "source": "github_repo:openai/whisper",
+    "file": "tests/test_normalizer.py",
+    "license": "MIT",
+    "language": "python"
+}

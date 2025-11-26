@@ -1,0 +1,7 @@
+{
+    "code": "def test_doctype_text(self):\n        text = '<!DOCTYPE html><html lang=\"en\"><head></head><body></body></html>'\n        expected = '<html lang=\"en\"><head></head><body></body></html>'\n        result = extract_html_content(text)\n        self.assertEqual(result, expected)",
+    "source": "github_repo:abi/screenshot-to-code",
+    "file": "backend/codegen/test_utils.py",
+    "license": "MIT",
+    "language": "python"
+}

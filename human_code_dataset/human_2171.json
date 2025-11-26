@@ -1,0 +1,7 @@
+{
+    "code": "def testProxy(self):\n        \"\"\"\n        测试代理是否可用\n        :return:\n        \"\"\"\n        _proxy = proxy()\n        proxie = _proxy.setProxy()\n        url = \"http://httpbin.org/ip\"\n        rsp = requests.get(url, proxies=proxie, timeout=5, headers=_set_header_default()).content\n        print(u\"当前代理ip地址为: {}\".format(rsp))",
+    "source": "github_repo:testerSunshine/12306",
+    "file": "UnitTest/TestAll.py",
+    "license": "MIT",
+    "language": "python"
+}

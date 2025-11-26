@@ -1,0 +1,7 @@
+{
+    "code": "def apply(\n    data_path: Path,\n    output_file: Path,\n    model: str,\n    json_field: str,\n    batch_size: int,\n    n_process: int,\n):\n    docbin = DocBin(store_user_data=True)\n    paths = walk_directory(data_path)\n    if len(paths) == 0:\n        docbin.to_disk(output_file)\n        msg.warn(\n            \"Did not find data to process,\"\n            f\" {data_path} seems to be an empty directory.\"\n        )\n        return\n    nlp = load_model(model)\n    msg.good(f\"Loaded model {model}\")\n    vocab = nlp.vocab\n    streams: List[DocOrStrStream] = []\n    text_files = []\n    for path in paths:\n        if path.suffix == \".spacy\":\n            streams.append(_stream_docbin(path, vocab))\n        elif path.suffix == \".jsonl\":\n            streams.append(_stream_jsonl(path, json_field))\n        else:\n            text_files.append(path)\n    if len(text_files) > 0:\n        streams.append(_stream_texts(text_files))\n    datagen = cast(DocOrStrStream, chain(*streams))\n    for doc in tqdm.tqdm(\n        nlp.pipe(datagen, batch_size=batch_size, n_process=n_process), disable=None\n    ):\n        docbin.add(doc)\n    if output_file.suffix == \"\":\n        output_file = output_file.with_suffix(\".spacy\")\n    docbin.to_disk(output_file)",
+    "source": "github_repo:explosion/spaCy",
+    "file": "spacy/cli/apply.py",
+    "license": "MIT",
+    "language": "python"
+}

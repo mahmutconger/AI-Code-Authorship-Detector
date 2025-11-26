@@ -1,0 +1,7 @@
+{
+    "code": "def __init__(self, temperature: float, eot: int):\n        self.temperature = temperature\n        self.eot = eot",
+    "source": "github_repo:openai/whisper",
+    "file": "whisper/decoding.py",
+    "license": "MIT",
+    "language": "python"
+}

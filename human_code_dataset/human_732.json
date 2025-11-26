@@ -1,0 +1,7 @@
+{
+    "code": "def main():\n    \"\"\"\n    Run the experiment\n    \"\"\"\n    experiment.create(name='capsule_network_mnist')\n    conf = Configs()\n    experiment.configs(conf, {'optimizer.optimizer': 'Adam',\n                              'optimizer.learning_rate': 1e-3})\n\n    experiment.add_pytorch_models({'model': conf.model})\n\n    with experiment.start():\n        conf.run()",
+    "source": "github_repo:labmlai/annotated_deep_learning_paper_implementations",
+    "file": "labml_nn/capsule_networks/mnist.py",
+    "license": "MIT",
+    "language": "python"
+}

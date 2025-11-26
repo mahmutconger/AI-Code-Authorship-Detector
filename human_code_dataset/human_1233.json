@@ -1,0 +1,7 @@
+{
+    "code": "def create_subtitle(\n    background_tasks: BackgroundTasks, request: Request, body: SubtitleRequest\n):\n    return create_task(request, body, stop_at=\"subtitle\")",
+    "source": "github_repo:harry0703/MoneyPrinterTurbo",
+    "file": "app/controllers/v1/video.py",
+    "license": "MIT",
+    "language": "python"
+}

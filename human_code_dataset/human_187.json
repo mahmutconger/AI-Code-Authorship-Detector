@@ -1,0 +1,7 @@
+{
+    "code": "def __init__(self, embedding: Embeddings) -> None:\n        \"\"\"Initialize with the given embedding function.\n\n        Args:\n            embedding: embedding function to use.\n        \"\"\"\n        self._database: dict[str, dict[str, Any]] = {}\n        self.embedding = embedding",
+    "source": "github_repo:langchain-ai/langchain",
+    "file": "libs/cli/langchain_cli/integration_template/integration_template/vectorstores.py",
+    "license": "MIT",
+    "language": "python"
+}

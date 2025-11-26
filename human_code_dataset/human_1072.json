@@ -1,0 +1,7 @@
+{
+    "code": "def __init__(self, num_blocks: int, blocks: List[T2SBlock]):\n        self.num_blocks: int = num_blocks\n        self.blocks = blocks",
+    "source": "github_repo:RVC-Boss/GPT-SoVITS",
+    "file": "GPT_SoVITS/AR/models/t2s_model.py",
+    "license": "MIT",
+    "language": "python"
+}

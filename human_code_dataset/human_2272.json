@@ -1,0 +1,7 @@
+{
+    "code": "def process_log_event(event: Event) -> None:\n    \"\"\"\"\"\"\n    log: LogData = event.data\n    msg: str = f\"{log.time}\\t{log.msg}\"\n    print(msg)",
+    "source": "github_repo:vnpy/vnpy",
+    "file": "examples/client_server/run_server.py",
+    "license": "MIT",
+    "language": "python"
+}

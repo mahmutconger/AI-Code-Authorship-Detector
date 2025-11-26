@@ -1,0 +1,7 @@
+{
+    "code": "def test_placeholder() -> None:\n    \"\"\"Used for compiling integration tests without running any real tests.\"\"\"\n    pass",
+    "source": "github_repo:langchain-ai/langchain",
+    "file": "libs/cli/langchain_cli/integration_template/tests/integration_tests/test_compile.py",
+    "license": "MIT",
+    "language": "python"
+}

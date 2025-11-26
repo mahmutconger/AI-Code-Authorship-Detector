@@ -1,0 +1,7 @@
+{
+    "code": "def training_step(self, batch, batch_idx, optimizer_idx):\n        inputs = self.get_input(batch, self.image_key)\n        reconstructions, posterior = self(inputs)\n\n        if optimizer_idx == 0:\n            # train encoder+decoder+logvar\n            aeloss, log_dict_ae = self.loss(inputs, reconstructions, posterior, optimizer_idx, self.global_step,\n                                            last_layer=self.get_last_layer(), split=\"train\")\n            self.log(\"aeloss\", aeloss, prog_bar=True, logger=True, on_step=True, on_epoch=True)\n            self.log_dict(log_dict_ae, prog_bar=False, logger=True, on_step=True, on_epoch=False)\n            return aeloss\n\n        if optimizer_idx == 1:\n            # train the discriminator\n            discloss, log_dict_disc = self.loss(inputs, reconstructions, posterior, optimizer_idx, self.global_step,\n                                                last_layer=self.get_last_layer(), split=\"train\")\n\n            self.log(\"discloss\", discloss, prog_bar=True, logger=True, on_step=True, on_epoch=True)\n            self.log_dict(log_dict_disc, prog_bar=False, logger=True, on_step=True, on_epoch=False)\n            return discloss",
+    "source": "github_repo:Stability-AI/stablediffusion",
+    "file": "ldm/models/autoencoder.py",
+    "license": "MIT",
+    "language": "python"
+}

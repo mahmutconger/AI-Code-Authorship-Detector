@@ -1,0 +1,7 @@
+{
+    "code": "class Node(BaseModel):\n    \"\"\"\n    Class representing a single node in a filesystem. Can be either a file or a folder.\n    Note that a file cannot have children, but a folder can.\n\n    Args:\n        name (str): The name of the node.\n        children (List[Node]): The list of child nodes (if any).\n        node_type (NodeType): The type of the node, either a file or a folder.\n\n    \"\"\"\n\n    name: str = Field(..., description=\"Name of the folder\")\n    children: List[\"Node\"] = Field(\n        default_factory=list,\n        description=(\n            \"List of children nodes, only applicable for folders, files cannot\"\n            \" have children\"\n        ),\n    )\n    node_type: NodeType = Field(\n        default=NodeType.FILE,\n        description=(\n            \"Either a file or folder, use the name to determine which it\"\n            \" could be\"\n        ),\n    )",
+    "source": "github_repo:run-llama/llama_index",
+    "file": "docs/examples/output_parsing/directory.py",
+    "license": "MIT",
+    "language": "python"
+}

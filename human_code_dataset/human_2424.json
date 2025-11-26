@@ -1,0 +1,7 @@
+{
+    "code": "def clean(path):\n    for path in path.glob(\"**/*\"):\n        if path.is_file() and path.suffix in (\".so\", \".cpp\", \".html\"):\n            print(f\"Deleting {path.name}\")\n            path.unlink()",
+    "source": "github_repo:explosion/spaCy",
+    "file": "setup.py",
+    "license": "MIT",
+    "language": "python"
+}

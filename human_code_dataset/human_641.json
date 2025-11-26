@@ -1,0 +1,7 @@
+{
+    "code": "def start(self, message=None):\n        \"\"\"Notify Start.\n\n        Notify method for start of query.  This method will be called before\n        any queries are performed.  This method will typically be\n        overridden by higher level classes that will inherit from it.\n\n        Keyword Arguments:\n        self                   -- This object.\n        message                -- Object that is used to give context to start\n                                  of query.\n                                  Default is None.\n\n        Return Value:\n        Nothing.\n        \"\"\"",
+    "source": "github_repo:sherlock-project/sherlock",
+    "file": "sherlock_project/notify.py",
+    "license": "MIT",
+    "language": "python"
+}

@@ -1,0 +1,7 @@
+{
+    "code": "def get_question(self, question_id: str) -> dict:\n        \"\"\"\n        Retrieve the question associated with the given ID.\n\n        This method looks up a question by its unique identifier. If the question\n        is found, it returns the question data; otherwise, it returns a message\n        indicating that the question was not found.\n\n        Args:\n            question_id (str): The unique identifier for the question.\n\n        Returns:\n            dict: The question data if found, otherwise a \"Question not found.\" message.\n        \"\"\"\n        return self.questions.get(question_id, \"Question not found.\")  # Return the question or an error message",
+    "source": "github_repo:FoundationAgents/MetaGPT",
+    "file": "examples/di/InfiAgent-DABench/DABench.py",
+    "license": "MIT",
+    "language": "python"
+}

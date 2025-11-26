@@ -1,0 +1,7 @@
+{
+    "code": "def check_requirements() -> bool:\n    \"\"\"Check if required dependencies are installed.\"\"\"\n    missing_deps = []\n    \n    try:\n        import sqlite3\n    except ImportError:\n        missing_deps.append(\"sqlite3\")\n    \n    try:\n        import uvicorn\n    except ImportError:\n        missing_deps.append(\"uvicorn\")\n    \n    try:\n        import fastapi\n    except ImportError:\n        missing_deps.append(\"fastapi\")\n    \n    if missing_deps:\n        print(f\"❌ Missing dependencies: {', '.join(missing_deps)}\")\n        print(\"💡 Install with: pip install -r requirements.txt\")\n        return False\n    \n    print(\"✅ Dependencies verified\")\n    return True",
+    "source": "github_repo:Zie619/n8n-workflows",
+    "file": "run.py",
+    "license": "MIT",
+    "language": "python"
+}

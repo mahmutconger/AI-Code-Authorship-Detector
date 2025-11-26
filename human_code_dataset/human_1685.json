@@ -1,0 +1,7 @@
+{
+    "code": "def initRuntimeEnvironment():\n    \"\"\"初始化运行环境\"\"\"\n\n    # 尝试获取控制台的输出对象\n    try:\n        fd = os.open(\"CONOUT$\", os.O_RDWR | os.O_BINARY)\n        fp = os.fdopen(fd, \"w\", encoding=\"utf-8\")\n    except Exception as e:\n        fp = open(os.devnull, \"w\", encoding=\"utf-8\")\n    # 输出流不存在时，重定向到控制台\n    if not sys.stdout:\n        sys.stdout = fp\n    if not sys.stderr:\n        sys.stderr = fp\n    # def except_hook(cls, exception, traceback):\n    #     sys.__excepthook__(cls, exception, traceback)\n    # sys.excepthook = except_hook\n\n    # 初始化工作目录和Python搜索路径\n    script = os.path.abspath(__file__)  # 启动脚本.py的路径\n    cwd = os.path.dirname(script)  # 工作目录\n    os.chdir(cwd)  # 重新设定工作目录（不在最顶层，而在 UmiOCR-data 文件夹下）\n    for n in [\".\", \"site-packages\"]:  # 将模块目录添加到 Python 搜索路径中\n        path = os.path.abspath(os.path.join(cwd, n))\n        if os.path.exists(path):\n            site.addsitedir(path)\n    # 初始化Qt搜索路径为相对路径，避免上层目录存在中文编码\n    from PySide2.QtCore import QCoreApplication\n\n    QCoreApplication.addLibraryPath(\"./site-packages/PySide2/plugins\")",
+    "source": "github_repo:hiroi-sora/Umi-OCR",
+    "file": "UmiOCR-data/main.py",
+    "license": "MIT",
+    "language": "python"
+}

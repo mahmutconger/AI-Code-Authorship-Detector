@@ -1,0 +1,7 @@
+{
+    "code": "def die(msg):\n    print(\"\\033[31m\\n\" + msg + \"\\n\\033[0m\")\n    sys.exit(1)",
+    "source": "github_repo:9001/copyparty",
+    "file": "bin/dbtool.py",
+    "license": "MIT",
+    "language": "python"
+}

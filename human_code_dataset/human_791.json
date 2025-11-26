@@ -1,0 +1,7 @@
+{
+    "code": "def recv_one_retry(sock: SubSocket) -> capnp.lib.capnp._DynamicStructReader:\n  \"\"\"Keep receiving until we get a message\"\"\"\n  while True:\n    dat = sock.receive()\n    if dat is not None:\n      return log_from_bytes(dat)",
+    "source": "github_repo:commaai/openpilot",
+    "file": "cereal/messaging/__init__.py",
+    "license": "MIT",
+    "language": "python"
+}

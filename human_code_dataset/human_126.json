@@ -1,0 +1,7 @@
+{
+    "code": "def main() -> None:\n    if len(sys.argv) != ARGUMENT_NUMBER:\n        msg = \"Must specify project name and build type, e.g. langflow-nightly base\"\n        raise ValueError(msg)\n    new_project_name = sys.argv[1]\n    build_type = sys.argv[2]\n\n    if build_type == \"base\":\n        update_pyproject_name(\"src/backend/base/pyproject.toml\", new_project_name)\n        update_uv_dep(\"pyproject.toml\", new_project_name)\n    elif build_type == \"main\":\n        update_pyproject_name(\"pyproject.toml\", new_project_name)\n        update_uv_dep(\"pyproject.toml\", new_project_name)\n    else:\n        msg = f\"Invalid build type: {build_type}\"\n        raise ValueError(msg)",
+    "source": "github_repo:langflow-ai/langflow",
+    "file": "scripts/ci/update_pyproject_name.py",
+    "license": "MIT",
+    "language": "python"
+}

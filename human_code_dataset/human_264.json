@@ -1,0 +1,7 @@
+{
+    "code": "class TestGetRawCommand(object):\n    def test_from_force_command_argument(self):\n        known_args = Mock(force_command='git brunch')\n        assert _get_raw_command(known_args) == ['git brunch']\n\n    def test_from_command_argument(self, os_environ):\n        os_environ['TF_HISTORY'] = None\n        known_args = Mock(force_command=None,\n                          command=['sl'])\n        assert _get_raw_command(known_args) == ['sl']\n\n    @pytest.mark.parametrize('history, result', [\n        ('git br', 'git br'),\n        ('git br\\nfcuk', 'git br'),\n        ('git br\\nfcuk\\nls', 'ls'),\n        ('git br\\nfcuk\\nls\\nfuk', 'ls')])\n    def test_from_history(self, os_environ, history, result):\n        os_environ['TF_HISTORY'] = history\n        known_args = Mock(force_command=None,\n                          command=None)\n        assert _get_raw_command(known_args) == [result]",
+    "source": "github_repo:nvbn/thefuck",
+    "file": "tests/entrypoints/test_fix_command.py",
+    "license": "MIT",
+    "language": "python"
+}

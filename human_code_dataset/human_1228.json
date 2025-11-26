@@ -1,0 +1,7 @@
+{
+    "code": "from fastapi import APIRouter, Request\n\nrouter = APIRouter()\n\n\n@router.get(\n    \"/ping\",\n    tags=[\"Health Check\"],\n    description=\"检查服务可用性\",\n    response_description=\"pong\",\n)\ndef ping(request: Request) -> str:\n    return \"pong\"",
+    "source": "github_repo:harry0703/MoneyPrinterTurbo",
+    "file": "app/controllers/ping.py",
+    "license": "MIT",
+    "language": "python"
+}

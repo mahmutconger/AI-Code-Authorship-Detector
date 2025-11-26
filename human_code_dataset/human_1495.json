@@ -1,0 +1,7 @@
+{
+    "code": "def end_recording(self) -> None:\n        self.asciinema_proc.terminate()\n        self.asciinema_proc.wait(timeout=5)\n        self.record_start = None\n        self.instructions = []",
+    "source": "github_repo:mitmproxy/mitmproxy",
+    "file": "docs/scripts/clirecording/clidirector.py",
+    "license": "MIT",
+    "language": "python"
+}

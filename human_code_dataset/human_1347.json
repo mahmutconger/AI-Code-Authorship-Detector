@@ -1,0 +1,7 @@
+{
+    "code": "def setup_directories():\n    \"\"\"Create necessary directories.\"\"\"\n    directories = [\"database\", \"static\", \"workflows\"]\n    \n    for directory in directories:\n        os.makedirs(directory, exist_ok=True)\n    \n    print(\"✅ Directories verified\")",
+    "source": "github_repo:Zie619/n8n-workflows",
+    "file": "run.py",
+    "license": "MIT",
+    "language": "python"
+}

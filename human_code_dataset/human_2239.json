@@ -1,0 +1,7 @@
+{
+    "code": "def _get_normalizer(name: str) -> Callable[[str], Any]:\n        if name in {\n            \"virtualenvs.create\",\n            \"virtualenvs.in-project\",\n            \"virtualenvs.options.always-copy\",\n            \"virtualenvs.options.no-pip\",\n            \"virtualenvs.options.system-site-packages\",\n            \"virtualenvs.use-poetry-python\",\n            \"installer.re-resolve\",\n            \"installer.parallel\",\n            \"solver.lazy-wheel\",\n            \"system-git-client\",\n            \"keyring.enabled\",\n        }:\n            return boolean_normalizer\n\n        if name == \"virtualenvs.path\":\n            return lambda val: str(Path(val))\n\n        if name in {\n            \"installer.max-workers\",\n            \"requests.max-retries\",\n        }:\n            return int_normalizer\n\n        if name in [\"installer.no-binary\", \"installer.only-binary\"]:\n            return PackageFilterPolicy.normalize\n\n        if name.startswith(\"installer.build-config-settings.\"):\n            return build_config_setting_normalizer\n\n        return lambda val: val",
+    "source": "github_repo:python-poetry/poetry",
+    "file": "src/poetry/config/config.py",
+    "license": "MIT",
+    "language": "python"
+}

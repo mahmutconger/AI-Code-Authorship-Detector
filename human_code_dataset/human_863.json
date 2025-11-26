@@ -1,0 +1,7 @@
+{
+    "code": "def allowed_file(filename):\n    return '.' in filename and \\\n           filename.rsplit('.', 1)[1].lower() in ALLOWED_EXTENSIONS",
+    "source": "github_repo:ageitgey/face_recognition",
+    "file": "examples/web_service_example.py",
+    "license": "MIT",
+    "language": "python"
+}

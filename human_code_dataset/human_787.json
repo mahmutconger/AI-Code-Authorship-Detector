@@ -1,0 +1,7 @@
+{
+    "code": "def drain_sock(sock: SubSocket, wait_for_one: bool = False) -> List[capnp.lib.capnp._DynamicStructReader]:\n  \"\"\"Receive all message currently available on the queue\"\"\"\n  msgs = drain_sock_raw(sock, wait_for_one=wait_for_one)\n  return [log_from_bytes(m) for m in msgs]",
+    "source": "github_repo:commaai/openpilot",
+    "file": "cereal/messaging/__init__.py",
+    "license": "MIT",
+    "language": "python"
+}

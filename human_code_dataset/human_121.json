@@ -1,0 +1,7 @@
+{
+    "code": "def update_lfx_for_nightly(lfx_tag: str):\n    \"\"\"Update LFX package for nightly build.\n\n    Args:\n        lfx_tag: The nightly tag for LFX (e.g., \"v0.1.0.dev0\")\n    \"\"\"\n    lfx_pyproject_path = \"src/lfx/pyproject.toml\"\n\n    # Update name to lfx-nightly\n    update_pyproject_name(lfx_pyproject_path, \"lfx-nightly\")\n\n    # Update version (strip 'v' prefix if present)\n    version = lfx_tag.lstrip(\"v\")\n    update_pyproject_version(lfx_pyproject_path, version)\n\n    # Update workspace dependency in root pyproject.toml\n    update_lfx_workspace_dep(\"pyproject.toml\", \"lfx-nightly\")\n\n    print(f\"Updated LFX package to lfx-nightly version {version}\")",
+    "source": "github_repo:langflow-ai/langflow",
+    "file": "scripts/ci/update_lfx_version.py",
+    "license": "MIT",
+    "language": "python"
+}

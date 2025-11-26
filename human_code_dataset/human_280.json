@@ -1,0 +1,7 @@
+{
+    "code": "def test_on_first_run_from_current_shell(usage_tracker_io, shell_pid,\n                                         shell, logs):\n    shell.get_history.return_value = ['fuck']\n    shell_pid.return_value = 12\n    main()\n    _assert_tracker_updated(usage_tracker_io, 12)\n    logs.how_to_configure_alias.assert_called_once()",
+    "source": "github_repo:nvbn/thefuck",
+    "file": "tests/entrypoints/test_not_configured.py",
+    "license": "MIT",
+    "language": "python"
+}

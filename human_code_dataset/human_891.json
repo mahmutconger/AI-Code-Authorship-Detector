@@ -1,0 +1,7 @@
+{
+    "code": "def __init__(\n        self,\n        memory: BaseMemory,\n        execution_env: BaseExecutionEnv,\n        ai: AI = None,\n        code_gen_fn: CodeGenType = gen_code,\n        improve_fn: ImproveType = improve_fn,\n        process_code_fn: CodeProcessor = execute_entrypoint,\n        preprompts_holder: PrepromptsHolder = None,\n    ):\n        self.memory = memory\n        self.execution_env = execution_env\n        self.ai = ai or AI()\n        self.code_gen_fn = code_gen_fn\n        self.process_code_fn = process_code_fn\n        self.improve_fn = improve_fn\n        self.preprompts_holder = preprompts_holder or PrepromptsHolder(PREPROMPTS_PATH)",
+    "source": "github_repo:AntonOsika/gpt-engineer",
+    "file": "gpt_engineer/applications/cli/cli_agent.py",
+    "license": "MIT",
+    "language": "python"
+}

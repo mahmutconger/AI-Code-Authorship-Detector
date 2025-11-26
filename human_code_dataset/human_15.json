@@ -1,0 +1,7 @@
+{
+    "code": "def test_check_https_with_valid_https(self):\n        for https in https_keys:\n            with self.subTest():\n                err_msgs = check_https(0, https)\n                self.assertIsInstance(err_msgs, list)\n                self.assertEqual(len(err_msgs), 0)\n                self.assertEqual(err_msgs, [])",
+    "source": "github_repo:public-apis/public-apis",
+    "file": "scripts/tests/test_validate_format.py",
+    "license": "MIT",
+    "language": "python"
+}

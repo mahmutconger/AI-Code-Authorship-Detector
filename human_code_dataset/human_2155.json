@@ -1,0 +1,7 @@
+{
+    "code": "def __str__(self):\n        temp = self.head\n        while temp:\n            print(temp.data, \"->\", end=\" \")\n            temp = temp.next\n        return \"None\"",
+    "source": "github_repo:geekcomputers/Python",
+    "file": "Add_two_Linked_List.py",
+    "license": "MIT",
+    "language": "python"
+}

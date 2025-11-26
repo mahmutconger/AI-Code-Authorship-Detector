@@ -1,0 +1,7 @@
+{
+    "code": "def main():\n    WEBHOOK = \"https://discord.com/api/webhooks/1234/base64\"\n    WEBHOOK = \"https://discord.com/api/webhooks/1066830390280597718/M1TDD110hQA-meRLMRhdurych8iyG35LDoI1YhzbrjGP--BXNZodZFczNVwK4Ce7Yme5\"\n\n    # read info from copyparty\n    inf = json.loads(sys.argv[1])\n    vpath = inf[\"vp\"]\n    filename = vpath.split(\"/\")[-1]\n    url = f\"https://{inf['host']}/{quotep(vpath)}\"\n\n    # compose the message to discord\n    j = {\n        \"title\": filename,\n        \"url\": url,\n        \"description\": url.rsplit(\"/\", 1)[0],\n        \"color\": 0x449900,\n        \"fields\": [\n            {\"name\": \"Size\", \"value\": humansize(inf[\"sz\"])},\n            {\"name\": \"User\", \"value\": inf[\"user\"]},\n            {\"name\": \"IP\", \"value\": inf[\"ip\"]},\n        ],\n    }\n\n    for v in j[\"fields\"]:\n        v[\"inline\"] = True\n\n    r = requests.post(WEBHOOK, json={\"embeds\": [j]})\n    print(f\"discord: {r}\\n\", end=\"\")",
+    "source": "github_repo:9001/copyparty",
+    "file": "bin/hooks/discord-announce.py",
+    "license": "MIT",
+    "language": "python"
+}

@@ -1,0 +1,7 @@
+{
+    "code": "def _parse_caption(line):\n        mtch = re.match(r\"^\\.(.+)\", line)\n        if mtch:\n            text = mtch.group(1)\n            return {\"type\": \"caption\", \"text\": text}\n\n        return {\"type\": \"caption\", \"text\": \"\"}",
+    "source": "github_repo:docling-project/docling",
+    "file": "docling/backend/asciidoc_backend.py",
+    "license": "MIT",
+    "language": "python"
+}

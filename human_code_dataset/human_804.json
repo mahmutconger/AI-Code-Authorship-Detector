@@ -1,0 +1,7 @@
+{
+    "code": "def zmq_sleep(t=1):\n  if \"ZMQ\" in os.environ:\n    time.sleep(t)",
+    "source": "github_repo:commaai/openpilot",
+    "file": "cereal/messaging/tests/test_messaging.py",
+    "license": "MIT",
+    "language": "python"
+}

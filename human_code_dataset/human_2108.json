@@ -1,0 +1,7 @@
+{
+    "code": "def __init__(self, idf_path=None):\n        self.path = \"\"\n        self.idf_freq = {}\n        self.median_idf = 0.0\n        if idf_path:\n            self.set_new_path(idf_path)",
+    "source": "github_repo:fxsjy/jieba",
+    "file": "jieba/analyse/tfidf.py",
+    "license": "MIT",
+    "language": "python"
+}

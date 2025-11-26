@@ -1,0 +1,7 @@
+{
+    "code": "def main(\n    rtsp_url: str,\n    zone_configuration_path: str,\n    weights: str,\n    device: str,\n    confidence: float,\n    iou: float,\n    classes: list[int],\n) -> None:\n    model = YOLO(weights)\n\n    def inference_callback(frame: VideoFrame) -> sv.Detections:\n        results = model(frame.image, verbose=False, conf=confidence, device=device)[0]\n        return sv.Detections.from_ultralytics(results).with_nms(threshold=iou)\n\n    sink = CustomSink(zone_configuration_path=zone_configuration_path, classes=classes)\n\n    pipeline = InferencePipeline.init_with_custom_logic(\n        video_reference=rtsp_url,\n        on_video_frame=inference_callback,\n        on_prediction=sink.on_prediction,\n    )\n\n    pipeline.start()\n\n    try:\n        pipeline.join()\n    except KeyboardInterrupt:\n        pipeline.terminate()",
+    "source": "github_repo:roboflow/supervision",
+    "file": "examples/time_in_zone/ultralytics_stream_example.py",
+    "license": "MIT",
+    "language": "python"
+}

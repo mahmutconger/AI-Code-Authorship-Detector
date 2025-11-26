@@ -1,0 +1,7 @@
+{
+    "code": "class ThreeDMobjectTest(Scene):\n    def construct(self):\n        # config[\"background_color\"] = \"#333333\"\n\n        s = Square(fill_opacity=0.5).shift(2 * RIGHT)\n        self.add(s)\n\n        sp = Sphere().shift(2 * LEFT)\n        self.add(sp)\n\n        mesh = get_plane_mesh(self.renderer.context)\n        self.add(mesh)\n\n        def update_mesh(mesh, dt):\n            mesh.model_matrix = np.matmul(\n                opengl.rotation_matrix(z=dt),\n                mesh.model_matrix,\n            )\n\n        mesh.add_updater(update_mesh)\n\n        self.interactive_embed()",
+    "source": "github_repo:ManimCommunity/manim",
+    "file": "example_scenes/opengl.py",
+    "license": "MIT",
+    "language": "python"
+}

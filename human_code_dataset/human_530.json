@@ -1,0 +1,7 @@
+{
+    "code": "def validate_screenshot_size(cls, v: str | None) -> str | None:\n\t\t\"\"\"Validate screenshot URL or base64 content size.\"\"\"\n\t\tif v is None or not v.startswith('data:'):\n\t\t\treturn v\n\t\t# It's base64 data, check size\n\t\tif ',' in v:\n\t\t\tbase64_part = v.split(',')[1]\n\t\t\testimated_size = len(base64_part) * 3 / 4\n\t\t\tif estimated_size > MAX_FILE_CONTENT_SIZE:\n\t\t\t\traise ValueError(f'Screenshot content exceeds maximum size of {MAX_FILE_CONTENT_SIZE / 1024 / 1024}MB')\n\t\treturn v",
+    "source": "github_repo:browser-use/browser-use",
+    "file": "browser_use/agent/cloud_events.py",
+    "license": "MIT",
+    "language": "python"
+}

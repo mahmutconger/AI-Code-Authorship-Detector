@@ -1,0 +1,7 @@
+{
+    "code": "def replace_pr_numbers_with_links(content: str) -> str:\n    \"\"\"Replaces all PR numbers with the corresponding GitHub link.\"\"\"\n    return re.sub(r\"#(\\d+)\", r\"[#\\1](https://github.com/psf/black/pull/\\1)\", content)",
+    "source": "github_repo:psf/black",
+    "file": "docs/conf.py",
+    "license": "MIT",
+    "language": "python"
+}

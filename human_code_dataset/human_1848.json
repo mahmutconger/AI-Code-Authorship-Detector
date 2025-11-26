@@ -1,0 +1,7 @@
+{
+    "code": "def batch_sequences_mc(tokenizer, prompts):\n    # In multiple choice, contexts are the same but the continuation is different (common prefix)\n    tokens = tokenizer(prompts, prepend=tokenizer.get_bos_token_id())\n    # figure out the start and end of each continuation\n    answer_start_idx = find_common_length(tokens, direction='left')\n    start_indices = [answer_start_idx] * len(prompts)\n    end_indices = [len(x) for x in tokens]\n    return tokens, start_indices, end_indices",
+    "source": "github_repo:karpathy/nanochat",
+    "file": "nanochat/core_eval.py",
+    "license": "MIT",
+    "language": "python"
+}

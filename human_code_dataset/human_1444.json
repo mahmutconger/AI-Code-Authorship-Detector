@@ -1,0 +1,7 @@
+{
+    "code": "def node(self, nodeid: str, label: str, **attrs) -> None:\n        \"\"\"Create a new node.\"\"\"\n        self.dot.node(nodeid, label=label, **attrs)",
+    "source": "github_repo:mingrammer/diagrams",
+    "file": "diagrams/__init__.py",
+    "license": "MIT",
+    "language": "python"
+}

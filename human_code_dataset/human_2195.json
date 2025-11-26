@@ -1,0 +1,7 @@
+{
+    "code": "def checkDate(station_dates):\n    \"\"\"\n    检查日期是否合法\n    :param station_dates:\n    :return:\n    \"\"\"\n    today = datetime.datetime.now()\n    maxDay = (today + datetime.timedelta(maxDate)).strftime(\"%Y-%m-%d\")\n    for station_date in station_dates[::-1]:\n        date = datetime.datetime.strftime(datetime.datetime.strptime(station_date, \"%Y-%m-%d\"), \"%Y-%m-%d\")\n        if date < today.strftime(\"%Y-%m-%d\") or date > maxDay:\n            print(u\"警告：当前时间配置有小于当前时间或者大于最大时间: {}, 已自动忽略\".format(station_date))\n            station_dates.remove(station_date)\n            if not station_dates:\n                print(u\"当前日期设置无符合查询条件的，已被全部删除，请查证后添加!!!\")\n                raise ticketConfigException(u\"当前日期设置无符合查询条件的，已被全部删除，请查证后添加!!!\")\n        else:\n            station_dates[station_dates.index(station_date)] = date\n    return station_dates",
+    "source": "github_repo:testerSunshine/12306",
+    "file": "config/configCommon.py",
+    "license": "MIT",
+    "language": "python"
+}

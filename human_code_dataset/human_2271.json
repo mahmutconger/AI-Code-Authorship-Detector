@@ -1,0 +1,7 @@
+{
+    "code": "def main_ui() -> None:\n    \"\"\"\"\"\"\n    qapp = create_qapp()\n\n    event_engine = EventEngine()\n\n    main_engine = MainEngine(event_engine)\n\n    main_engine.add_gateway(CtpGateway)\n    main_engine.add_app(RpcServiceApp)\n\n    main_window = MainWindow(main_engine, event_engine)\n    main_window.showMaximized()\n\n    qapp.exec()",
+    "source": "github_repo:vnpy/vnpy",
+    "file": "examples/client_server/run_server.py",
+    "license": "MIT",
+    "language": "python"
+}

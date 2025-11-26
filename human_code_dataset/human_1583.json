@@ -1,0 +1,7 @@
+{
+    "code": "def parse_args() -> argparse.Namespace:\n    parser = argparse.ArgumentParser()\n    parser.add_argument(\n        \"-a\",\n        \"--add-changes-template\",\n        action=\"store_true\",\n        help=\"Add the Unreleased template to CHANGES.md\",\n    )\n    parser.add_argument(\n        \"-d\", \"--debug\", action=\"store_true\", help=\"Verbose debug output\"\n    )\n    args = parser.parse_args()\n    _handle_debug(args.debug)\n    return args",
+    "source": "github_repo:psf/black",
+    "file": "scripts/release.py",
+    "license": "MIT",
+    "language": "python"
+}

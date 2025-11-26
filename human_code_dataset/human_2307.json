@@ -1,0 +1,7 @@
+{
+    "code": "def calculate_feature(args: tuple[pl.DataFrame, str, str | pl.expr.expr.Expr]) -> pl.Series:\n    \"\"\"\n    Calculate feature by expression\n    \"\"\"\n    start = time.time()\n\n    df, name, expression = args\n\n    if isinstance(expression, pl.expr.expr.Expr):\n        result = calculate_by_polars(df, expression)[\"data\"].alias(name)\n    else:\n        result = calculate_by_expression(df, expression)[\"data\"].alias(name)\n\n    end = time.time()\n    print(f\"Feature calculation {name} took: {end - start} seconds | {expression}\")\n\n    return result",
+    "source": "github_repo:vnpy/vnpy",
+    "file": "vnpy/alpha/dataset/template.py",
+    "license": "MIT",
+    "language": "python"
+}

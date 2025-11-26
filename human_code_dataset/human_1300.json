@@ -1,0 +1,7 @@
+{
+    "code": "def _parse_picture(line):\n        \"\"\"\n        Parse an image macro, extracting its path and attributes.\n        Syntax: image::path/to/image.png[Alt Text, width=200, height=150, align=center]\n        \"\"\"\n        mtch = re.match(r\"^image::(.+)\\[(.*)\\]$\", line)\n        if mtch:\n            picture_path = mtch.group(1).strip()\n            attributes = mtch.group(2).split(\",\")\n            picture_info = {\"type\": \"picture\", \"uri\": picture_path}\n\n            # Extract optional attributes (alt text, width, height, alignment)\n            if attributes:\n                picture_info[\"alt\"] = attributes[0].strip() if attributes[0] else \"\"\n                for attr in attributes[1:]:\n                    key, value = attr.split(\"=\")\n                    picture_info[key.strip()] = value.strip()\n\n            return picture_info\n\n        return {\"type\": \"picture\", \"uri\": line}",
+    "source": "github_repo:docling-project/docling",
+    "file": "docling/backend/asciidoc_backend.py",
+    "license": "MIT",
+    "language": "python"
+}

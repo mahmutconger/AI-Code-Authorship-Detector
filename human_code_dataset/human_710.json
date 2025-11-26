@@ -1,0 +1,7 @@
+{
+    "code": "def __init__(self, n_elems: int, n_hidden: int, max_steps: int):\n        \"\"\"\n        * `n_elems` is the number of elements in the input vector\n        * `n_hidden` is the state vector size of the GRU\n        * `max_steps` is the maximum number of steps $N$\n        \"\"\"\n        super().__init__()\n\n        self.max_steps = max_steps\n        self.n_hidden = n_hidden\n\n        # GRU\n        # $$h_{n+1} = s_h(x, h_n)$$\n        self.gru = nn.GRUCell(n_elems, n_hidden)\n        # $$\\hat{y}_n = s_y(h_n)$$\n        # We could use a layer that takes the concatenation of $h$ and $x$ as input\n        # but we went with this for simplicity.\n        self.output_layer = nn.Linear(n_hidden, 1)\n        # $$\\lambda_n = s_\\lambda(h_n)$$\n        self.lambda_layer = nn.Linear(n_hidden, 1)\n        self.lambda_prob = nn.Sigmoid()\n        # An option to set during inference so that computation is actually halted at inference time\n        self.is_halt = False",
+    "source": "github_repo:labmlai/annotated_deep_learning_paper_implementations",
+    "file": "labml_nn/adaptive_computation/ponder_net/__init__.py",
+    "license": "MIT",
+    "language": "python"
+}

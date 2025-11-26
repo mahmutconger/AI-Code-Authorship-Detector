@@ -1,0 +1,7 @@
+{
+    "code": "def all_package_dirs() -> Set[str]:\n    return {\n        \"/\".join(path.split(\"/\")[:-1]).lstrip(\"./\")\n        for path in glob.glob(\"./libs/**/pyproject.toml\", recursive=True)\n        if \"libs/cli\" not in path and \"libs/standard-tests\" not in path\n    }",
+    "source": "github_repo:langchain-ai/langchain",
+    "file": ".github/scripts/check_diff.py",
+    "license": "MIT",
+    "language": "python"
+}

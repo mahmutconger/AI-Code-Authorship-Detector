@@ -1,0 +1,7 @@
+{
+    "code": "def split_data(self, df):\n        \"\"\"Performs the default train, validation and test splits.\"\"\"\n        raise NotImplementedError()",
+    "source": "github_repo:microsoft/qlib",
+    "file": "examples/benchmarks/TFT/data_formatters/base.py",
+    "license": "MIT",
+    "language": "python"
+}

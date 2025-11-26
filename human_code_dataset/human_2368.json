@@ -1,0 +1,7 @@
+{
+    "code": "class GUIConfig:\n    def __init__(self) -> None:\n        self.pth_path: str = \"\"\n        self.index_path: str = \"\"\n        self.pitch: int = 0\n        self.samplerate: int = 40000\n        self.block_time: float = 1.0  # s\n        self.buffer_num: int = 1\n        self.threhold: int = -60\n        self.crossfade_time: float = 0.05\n        self.extra_time: float = 2.5\n        self.I_noise_reduce = False\n        self.O_noise_reduce = False\n        self.rms_mix_rate = 0.0\n        self.index_rate = 0.3\n        self.f0method = \"rmvpe\"\n        self.sg_input_device = \"\"\n        self.sg_output_device = \"\"",
+    "source": "github_repo:RVC-Project/Retrieval-based-Voice-Conversion-WebUI",
+    "file": "api_231006.py",
+    "license": "MIT",
+    "language": "python"
+}

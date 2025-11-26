@@ -1,0 +1,7 @@
+{
+    "code": "def __sub__(self, other: Union[\"Node\", \"Edge\", List[\"Node\"]]):\n        \"\"\"Implement Self - Node or Edge and Self - [Nodes]\"\"\"\n        return self.connect(other)",
+    "source": "github_repo:mingrammer/diagrams",
+    "file": "diagrams/__init__.py",
+    "license": "MIT",
+    "language": "python"
+}

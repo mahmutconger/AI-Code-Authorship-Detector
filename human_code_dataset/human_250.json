@@ -1,0 +1,7 @@
+{
+    "code": "def __init__(self, args: ModelArgs):\n        \"\"\"\n        Initializes the MoE module.\n\n        Args:\n            args (ModelArgs): Model arguments containing MoE parameters.\n        \"\"\"\n        super().__init__()\n        self.dim = args.dim\n        assert args.n_routed_experts % world_size == 0, f\"Number of experts must be divisible by world size (world_size={world_size})\"\n        self.n_routed_experts = args.n_routed_experts\n        self.n_local_experts = args.n_routed_experts // world_size\n        self.n_activated_experts = args.n_activated_experts\n        self.experts_start_idx = rank * self.n_local_experts\n        self.experts_end_idx = self.experts_start_idx + self.n_local_experts\n        self.gate = Gate(args)\n        self.experts = nn.ModuleList([Expert(args.dim, args.moe_inter_dim) if self.experts_start_idx <= i < self.experts_end_idx else None\n                                      for i in range(self.n_routed_experts)])\n        self.shared_experts = MLP(args.dim, args.n_shared_experts * args.moe_inter_dim)",
+    "source": "github_repo:deepseek-ai/DeepSeek-V3",
+    "file": "inference/model.py",
+    "license": "MIT",
+    "language": "python"
+}

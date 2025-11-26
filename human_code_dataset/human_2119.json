@@ -1,0 +1,7 @@
+{
+    "code": "def b_read():\n    # Opening a file & loading it\n    if not os.path.exists(student_record):\n        logging.warning(\"File not found\")\n        return\n\n    with open(student_record, \"rb\") as F:\n        student = pickle.load(F)\n        logging.info(\"File opened successfully\")\n        logging.info(\"Records in the file are:\")\n        for i in student:\n            logging.info(i)",
+    "source": "github_repo:geekcomputers/Python",
+    "file": "1 File handle/File handle binary/delete.py",
+    "license": "MIT",
+    "language": "python"
+}

@@ -1,0 +1,7 @@
+{
+    "code": "def __init__(self, d_model: int, d_ff: int,\n                 activation: FTA,\n                 dropout: float = 0.1):\n        \"\"\"\n        * `d_model` is the number of features in a token embedding\n        * `d_ff` is the number of features in the hidden layer of the FFN\n        * `activation` is FTA activation module\n        * `dropout` is dropout probability for the hidden layer\n        \"\"\"\n        super().__init__()\n        # Layer one parameterized by weight $W_1$ and bias $b_1$\n        self.layer1 = nn.Linear(d_model, d_ff)\n        # Layer two parameterized by weight $W_1$ and bias $b_1$\n        self.layer2 = nn.Linear(d_ff * activation.expansion_factor, d_model)\n        # Hidden layer dropout\n        self.dropout = nn.Dropout(dropout)\n        # Activation function $f$\n        self.activation = activation",
+    "source": "github_repo:labmlai/annotated_deep_learning_paper_implementations",
+    "file": "labml_nn/activations/fta/experiment.py",
+    "license": "MIT",
+    "language": "python"
+}

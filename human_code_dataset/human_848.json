@@ -1,0 +1,7 @@
+{
+    "code": "def next_id(current_id, worker_num):\n    if current_id == worker_num:\n        return 1\n    else:\n        return current_id + 1",
+    "source": "github_repo:ageitgey/face_recognition",
+    "file": "examples/facerec_from_webcam_multiprocessing.py",
+    "license": "MIT",
+    "language": "python"
+}

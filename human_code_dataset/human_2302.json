@@ -1,0 +1,7 @@
+{
+    "code": "def to_pl_dataframe(series: pd.Series) -> pl.DataFrame:\n    \"\"\"Convert to polars.DataFrame data structure\"\"\"\n    return pl.from_pandas(series.reset_index().rename(columns={0: \"data\"}))",
+    "source": "github_repo:vnpy/vnpy",
+    "file": "vnpy/alpha/dataset/ta_function.py",
+    "license": "MIT",
+    "language": "python"
+}

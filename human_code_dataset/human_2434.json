@@ -1,0 +1,7 @@
+{
+    "code": "def _parse_overrides(args: List[str], is_cli: bool = False) -> Dict[str, Any]:\n    result = {}\n    while args:\n        opt = args.pop(0)\n        err = f\"Invalid config override '{opt}'\"\n        if opt.startswith(\"--\"):  # new argument\n            orig_opt = opt\n            opt = opt.replace(\"--\", \"\")\n            if \".\" not in opt:\n                if is_cli:\n                    raise NoSuchOption(orig_opt)\n                else:\n                    msg.fail(f\"{err}: can't override top-level sections\", exits=1)\n            if \"=\" in opt:  # we have --opt=value\n                opt, value = opt.split(\"=\", 1)\n                opt = opt.replace(\"-\", \"_\")\n            else:\n                if not args or args[0].startswith(\"--\"):  # flag with no value\n                    value = \"true\"\n                else:\n                    value = args.pop(0)\n            result[opt] = _parse_override(value)\n        else:\n            msg.fail(f\"{err}: name should start with --\", exits=1)\n    return result",
+    "source": "github_repo:explosion/spaCy",
+    "file": "spacy/cli/_util.py",
+    "license": "MIT",
+    "language": "python"
+}

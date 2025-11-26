@@ -1,0 +1,7 @@
+{
+    "code": "def check_duplicate_links(links: List[str]) -> Tuple[bool, List]:\n    \"\"\"Check for duplicated links.\n\n    Returns a tuple with True or False and duplicate list.\n    \"\"\"\n\n    seen = {}\n    duplicates = []\n    has_duplicate = False\n\n    for link in links:\n        link = link.rstrip('/')\n        if link not in seen:\n            seen[link] = 1\n        else:\n            if seen[link] == 1:\n                duplicates.append(link)\n\n    if duplicates:\n        has_duplicate = True\n\n    return (has_duplicate, duplicates)",
+    "source": "github_repo:public-apis/public-apis",
+    "file": "scripts/validate/links.py",
+    "license": "MIT",
+    "language": "python"
+}

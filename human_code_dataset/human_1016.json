@@ -1,0 +1,7 @@
+{
+    "code": "def main():\n    check_root()\n    console.clear()\n    colorful_logo()\n    choice = choose_distro()\n    if choice == 0:\n        console.print(\"[red]Exiting...[/red]\")\n        sys.exit(0)\n    if not check_internet():\n        sys.exit(1)\n\n    with Progress(SpinnerColumn(), TextColumn(\"[progress.description]{task.description}\")) as progress:\n        progress.add_task(description=\"Preparing system...\", total=None)\n        system_update_and_install(choice)\n\n    prepare_install_dir()\n    ok = git_clone()\n    if not ok:\n        sys.exit(1)\n\n    with Progress(SpinnerColumn(), TextColumn(\"[progress.description]{task.description}\")) as progress:\n        progress.add_task(description=\"Setting up virtualenv & requirements...\", total=None)\n        create_venv_and_install(choice)\n\n    create_launcher()\n    final_messages()",
+    "source": "github_repo:Z4nzu/hackingtool",
+    "file": "install.py",
+    "license": "MIT",
+    "language": "python"
+}

@@ -1,0 +1,7 @@
+{
+    "code": "def countResults(self):\n        \"\"\"This function counts the number of results. Every time the function is called,\n        the number of results is increasing.\n\n        Keyword Arguments:\n        self                   -- This object.\n\n        Return Value:\n        The number of results by the time we call the function.\n        \"\"\"\n        global globvar\n        globvar += 1\n        return globvar",
+    "source": "github_repo:sherlock-project/sherlock",
+    "file": "sherlock_project/notify.py",
+    "license": "MIT",
+    "language": "python"
+}

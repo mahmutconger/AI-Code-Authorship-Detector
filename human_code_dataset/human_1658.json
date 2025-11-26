@@ -1,0 +1,7 @@
+{
+    "code": "def is_cache_needed(self):\n        \"\"\"\n        Return True if answers should be cached.\n        Return False if answers should not be cached.\n        \"\"\"\n        return self._cache_needed",
+    "source": "github_repo:chubin/cheat.sh",
+    "file": "lib/adapter/adapter.py",
+    "license": "MIT",
+    "language": "python"
+}

@@ -1,0 +1,7 @@
+{
+    "code": "def get_updates_list(cls, updated_files_list):\n        \"\"\"\n        Return the pages that have to be invalidated if the files `updates_files_list`\n        were updated in the repository.\n        \"\"\"\n        if not cls._cheatsheet_files_prefix:\n            return updated_files_list\n\n        answer = []\n        cut_len = len(cls._cheatsheet_files_prefix)\n        for entry in updated_files_list:\n            if entry.startswith(cls._cheatsheet_files_prefix):\n                answer.append(entry[cut_len:])\n            else:\n                answer.append(entry)\n        return answer",
+    "source": "github_repo:chubin/cheat.sh",
+    "file": "lib/adapter/adapter.py",
+    "license": "MIT",
+    "language": "python"
+}

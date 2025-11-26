@@ -1,0 +1,7 @@
+{
+    "code": "def _extract_params(args_schema_field: dict | None) -> dict[str, Any]:\n        if not args_schema_field:\n            return {}\n\n        args_schema_class = args_schema_field.get(\"schema\", {}).get(\"default\")\n        if not (\n            inspect.isclass(args_schema_class)\n            and issubclass(args_schema_class, BaseModel)\n        ):\n            return {}\n\n        # Cast to type[BaseModel] after runtime check\n        schema_class = cast(type[BaseModel], args_schema_class)\n        try:\n            return schema_class.model_json_schema(schema_generator=SchemaGenerator)\n        except Exception:\n            return {}",
+    "source": "github_repo:crewAIInc/crewAI",
+    "file": "lib/crewai-tools/generate_tool_specs.py",
+    "license": "MIT",
+    "language": "python"
+}

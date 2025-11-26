@@ -1,0 +1,7 @@
+{
+    "code": "def download(urls: Iterable[str], dest_dir: str):\n    \"\"\"Download multiple files to the given directory.\"\"\"\n\n    with progress:\n        with ThreadPoolExecutor(max_workers=4) as pool:\n            for url in urls:\n                filename = url.split(\"/\")[-1]\n                dest_path = os.path.join(dest_dir, filename)\n                task_id = progress.add_task(\"download\", filename=filename, start=False)\n                pool.submit(copy_url, task_id, url, dest_path)",
+    "source": "github_repo:Textualize/rich",
+    "file": "examples/downloader.py",
+    "license": "MIT",
+    "language": "python"
+}

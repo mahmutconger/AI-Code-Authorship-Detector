@@ -1,0 +1,7 @@
+{
+    "code": "def _checkKeyEvent(self, press, nowKey):\n        # 对比每组按键集合。一致触发，则发送事件\n        if self._strict:  # 严格模式，要求完全一致\n            for k in self._hotkeyList[press]:\n                if k[\"keySet\"] == self._pressSet:\n                    PubSubService.publish(k[\"title\"])\n        else:  # 宽松模式，只要求当前组合中包含指定按键，且当前按下的按键在指定按键中\n            for k in self._hotkeyList[press]:\n                if k[\"keySet\"] <= self._pressSet and nowKey in k[\"keySet\"]:\n                    PubSubService.publish(k[\"title\"])",
+    "source": "github_repo:hiroi-sora/Umi-OCR",
+    "file": "UmiOCR-data/py_src/event_bus/key_mouse/keyboard.py",
+    "license": "MIT",
+    "language": "python"
+}

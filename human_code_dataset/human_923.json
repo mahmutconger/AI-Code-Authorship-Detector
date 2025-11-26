@@ -1,0 +1,7 @@
+{
+    "code": "def concatenate_paths(base_path, sub_path):\n    # Compute the relative path from base_path to sub_path\n    relative_path = os.path.relpath(sub_path, base_path)\n\n    # If the relative path is not in the parent directory, use the original sub_path\n    if not relative_path.startswith(\"..\"):\n        return sub_path\n\n    # Otherwise, concatenate base_path and sub_path\n    return os.path.normpath(os.path.join(base_path, sub_path))",
+    "source": "github_repo:AntonOsika/gpt-engineer",
+    "file": "gpt_engineer/applications/cli/main.py",
+    "license": "MIT",
+    "language": "python"
+}

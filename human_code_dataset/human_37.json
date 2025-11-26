@@ -1,0 +1,7 @@
+{
+    "code": "def error_message(line_number: int, message: str) -> str:\n    line = line_number + 1\n    return f'(L{line:03d}) {message}'",
+    "source": "github_repo:public-apis/public-apis",
+    "file": "scripts/validate/format.py",
+    "license": "MIT",
+    "language": "python"
+}

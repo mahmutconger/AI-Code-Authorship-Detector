@@ -1,0 +1,7 @@
+{
+    "code": "def main():\n    zb = sys.stdin.buffer.read()\n    zs = zb.decode(\"utf-8\", \"replace\")\n    inf = json.loads(zs)\n\n    # root directory (where to put the sha512 file);\n    # di = find_files_root(inf)  # next to the file closest to volume root\n    di = find_vol_root(inf)  # top of the entire volume\n\n    ret = []\n    total_sz = 0\n    for md in inf:\n        ap = md[\"ap\"]\n        rp = ap[di:]\n        total_sz += md[\"sz\"]\n        fsize = \"{:,}\".format(md[\"sz\"])\n        mtime = humantime(md[\"mt\"])\n        up_ts = humantime(md[\"at\"])\n\n        h = hashlib.sha512()\n        with open(fsenc(md[\"ap\"]), \"rb\", 512 * 1024) as f:\n            while True:\n                buf = f.read(512 * 1024)\n                if not buf:\n                    break\n\n                h.update(buf)\n\n        cksum = h.hexdigest()\n        meta = \" | \".join([md[\"wark\"], up_ts, mtime, fsize, md[\"ip\"]])\n        ret.append(\"# {}\\n{} *{}\".format(meta, cksum, rp))\n\n    ret.append(\"# {} files, {} bytes total\".format(len(inf), total_sz))\n    ret.append(\"\")\n    ftime = datetime.now(UTC).strftime(\"%Y-%m%d-%H%M%S.%f\")\n    fp = \"{}xfer-{}.sha512\".format(inf[0][\"ap\"][:di], ftime)\n    with open(fsenc(fp), \"wb\") as f:\n        f.write(\"\\n\".join(ret).encode(\"utf-8\", \"replace\"))\n\n    print(\"wrote checksums to {}\".format(fp))",
+    "source": "github_repo:9001/copyparty",
+    "file": "bin/hooks/xiu-sha.py",
+    "license": "MIT",
+    "language": "python"
+}

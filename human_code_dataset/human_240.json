@@ -1,0 +1,7 @@
+{
+    "code": "def find_correction_range(low_rot, high_rot, dim, base, max_seq_len):\n        \"\"\"\n        Computes the range of correction dimensions for rotary positional embeddings.\n\n        Args:\n            low_rot (float): Lower bound for the number of rotations.\n            high_rot (float): Upper bound for the number of rotations.\n            dim (int): Dimensionality of the embedding space.\n            base (float): Base value for the exponential computation.\n            max_seq_len (int): Maximum sequence length.\n\n        Returns:\n            Tuple[int, int]: The range of correction dimensions (low, high), clamped to valid indices.\n        \"\"\"\n        low = math.floor(find_correction_dim(low_rot, dim, base, max_seq_len))\n        high = math.ceil(find_correction_dim(high_rot, dim, base, max_seq_len))\n        return max(low, 0), min(high, dim-1)",
+    "source": "github_repo:deepseek-ai/DeepSeek-V3",
+    "file": "inference/model.py",
+    "license": "MIT",
+    "language": "python"
+}

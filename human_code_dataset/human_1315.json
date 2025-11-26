@@ -1,0 +1,7 @@
+{
+    "code": "def unload(self):\n        self._ppage = None\n        self._dpage = None",
+    "source": "github_repo:docling-project/docling",
+    "file": "docling/backend/docling_parse_v2_backend.py",
+    "license": "MIT",
+    "language": "python"
+}

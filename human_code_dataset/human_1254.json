@@ -1,0 +1,7 @@
+{
+    "code": "class VideoTermsParams:\n    \"\"\"\n    {\n      \"video_subject\": \"\",\n      \"video_script\": \"\",\n      \"amount\": 5\n    }\n    \"\"\"\n\n    video_subject: Optional[str] = \"春天的花海\"\n    video_script: Optional[str] = (\n        \"春天的花海，如诗如画般展现在眼前。万物复苏的季节里，大地披上了一袭绚丽多彩的盛装。金黄的迎春、粉嫩的樱花、洁白的梨花、艳丽的郁金香……\"\n    )\n    amount: Optional[int] = 5",
+    "source": "github_repo:harry0703/MoneyPrinterTurbo",
+    "file": "app/models/schema.py",
+    "license": "MIT",
+    "language": "python"
+}

@@ -1,0 +1,7 @@
+{
+    "code": "class Mock(MagicMock):\n    @classmethod\n    def __getattr__(cls, name):\n            return MagicMock()",
+    "source": "github_repo:ageitgey/face_recognition",
+    "file": "docs/conf.py",
+    "license": "MIT",
+    "language": "python"
+}

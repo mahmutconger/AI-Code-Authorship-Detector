@@ -1,0 +1,7 @@
+{
+    "code": "def _github_token(cli_token: str | None = None) -> str | None:\n    \"\"\"Return sanitized GitHub token (cli arg takes precedence) or None.\"\"\"\n    return ((cli_token or os.getenv(\"GH_TOKEN\") or os.getenv(\"GITHUB_TOKEN\") or \"\").strip()) or None",
+    "source": "github_repo:github/spec-kit",
+    "file": "src/specify_cli/__init__.py",
+    "license": "MIT",
+    "language": "python"
+}

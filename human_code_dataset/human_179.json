@@ -1,0 +1,7 @@
+{
+    "code": "def embed_query(self, text: str) -> List[float]:\n        \"\"\"Embed query text.\"\"\"\n        return self.embed_documents([text])[0]",
+    "source": "github_repo:langchain-ai/langchain",
+    "file": "libs/cli/langchain_cli/integration_template/integration_template/embeddings.py",
+    "license": "MIT",
+    "language": "python"
+}

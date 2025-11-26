@@ -1,0 +1,7 @@
+{
+    "code": "def delHotkey(self, keysName=\"\", title=\"\", press=0):\n        if press != 0 and press != 1:\n            logger.error(f\"press只能为0按下或1抬起，不能为 {press} 。\")\n            return\n        keySet = _KeyTranslator.names2set(keysName)\n        self._hotkeyMutex.lock()\n        kListOld = self._hotkeyList[press]  # 旧列表\n        kListNew = []  # 新列表\n        for k in kListOld:\n            # 忽略键集合相同或标题相同\n            if (keysName and k[\"keySet\"] == keySet) or (title and title == k[\"title\"]):\n                pass\n            # 其余键写入新列表\n            else:\n                kListNew.append(k)\n        self._hotkeyList[press] = kListNew\n        self._hotkeyMutex.unlock()",
+    "source": "github_repo:hiroi-sora/Umi-OCR",
+    "file": "UmiOCR-data/py_src/event_bus/key_mouse/keyboard.py",
+    "license": "MIT",
+    "language": "python"
+}

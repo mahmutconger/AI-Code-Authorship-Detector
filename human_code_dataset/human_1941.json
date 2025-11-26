@@ -1,0 +1,7 @@
+{
+    "code": "def main(\n    rtsp_url: str,\n    zone_configuration_path: str,\n    model_id: str,\n    confidence: float,\n    iou: float,\n    classes: list[int],\n) -> None:\n    sink = CustomSink(zone_configuration_path=zone_configuration_path, classes=classes)\n\n    pipeline = InferencePipeline.init(\n        model_id=model_id,\n        video_reference=rtsp_url,\n        on_prediction=sink.on_prediction,\n        confidence=confidence,\n        iou_threshold=iou,\n    )\n\n    pipeline.start()\n\n    try:\n        pipeline.join()\n    except KeyboardInterrupt:\n        pipeline.terminate()",
+    "source": "github_repo:roboflow/supervision",
+    "file": "examples/time_in_zone/inference_stream_example.py",
+    "license": "MIT",
+    "language": "python"
+}

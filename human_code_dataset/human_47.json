@@ -1,0 +1,7 @@
+{
+    "code": "def main(filename: str) -> None:\n\n    with open(filename, mode='r', encoding='utf-8') as file:\n        lines = list(line.rstrip() for line in file)\n\n    file_format_err_msgs = check_file_format(lines)\n\n    if file_format_err_msgs:\n        for err_msg in file_format_err_msgs:\n            print(err_msg)\n        sys.exit(1)",
+    "source": "github_repo:public-apis/public-apis",
+    "file": "scripts/validate/format.py",
+    "license": "MIT",
+    "language": "python"
+}

@@ -1,0 +1,7 @@
+{
+    "code": "def cut_for_search(self, sentence, HMM=True):\n        \"\"\"\n        Finer segmentation for search engines.\n        \"\"\"\n        words = self.cut(sentence, HMM=HMM)\n        for w in words:\n            if len(w) > 2:\n                for i in xrange(len(w) - 1):\n                    gram2 = w[i:i + 2]\n                    if self.FREQ.get(gram2):\n                        yield gram2\n            if len(w) > 3:\n                for i in xrange(len(w) - 2):\n                    gram3 = w[i:i + 3]\n                    if self.FREQ.get(gram3):\n                        yield gram3\n            yield w",
+    "source": "github_repo:fxsjy/jieba",
+    "file": "jieba/__init__.py",
+    "license": "MIT",
+    "language": "python"
+}

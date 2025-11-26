@@ -1,0 +1,7 @@
+{
+    "code": "def timeout(duration, formula):\n    def timeout_handler(signum, frame):\n        raise Exception(f\"'{formula}': timed out after {duration} seconds\")\n\n    signal.signal(signal.SIGALRM, timeout_handler)\n    signal.alarm(duration)\n    yield\n    signal.alarm(0)",
+    "source": "github_repo:karpathy/nanochat",
+    "file": "nanochat/engine.py",
+    "license": "MIT",
+    "language": "python"
+}

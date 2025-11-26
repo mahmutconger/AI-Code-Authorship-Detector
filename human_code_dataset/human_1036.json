@@ -1,0 +1,7 @@
+{
+    "code": "def _get_sample_lengths(self):\n        id_with_lengths = []\n        for i in range(len(self.dataset)):\n            id_with_lengths.append((i, self.dataset.get_sample_length(i)))\n        id_with_lengths.sort(key=lambda x: x[1])\n        return id_with_lengths",
+    "source": "github_repo:RVC-Boss/GPT-SoVITS",
+    "file": "GPT_SoVITS/AR/data/bucket_sampler.py",
+    "license": "MIT",
+    "language": "python"
+}

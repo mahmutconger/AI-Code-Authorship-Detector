@@ -1,0 +1,7 @@
+{
+    "code": "class SyntaxWrappingSuite:\n    def setup(self):\n        self.console = Console(\n            file=StringIO(), color_system=\"truecolor\", legacy_windows=False\n        )\n        self.syntax = Syntax(\n            code=snippets.PYTHON_SNIPPET, lexer=\"python\", word_wrap=True\n        )\n\n    def time_text_thin_terminal_heavy_wrapping(self):\n        self._print_with_width(20)\n\n    def time_text_thin_terminal_medium_wrapping(self):\n        self._print_with_width(60)\n\n    def time_text_wide_terminal_no_wrapping(self):\n        self._print_with_width(100)\n\n    def _print_with_width(self, width):\n        self.console.print(self.syntax, width)",
+    "source": "github_repo:Textualize/rich",
+    "file": "benchmarks/benchmarks.py",
+    "license": "MIT",
+    "language": "python"
+}

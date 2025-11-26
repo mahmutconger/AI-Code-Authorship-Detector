@@ -1,0 +1,7 @@
+{
+    "code": "def get_DAG(self, sentence):\n        self.check_initialized()\n        DAG = {}\n        N = len(sentence)\n        for k in xrange(N):\n            tmplist = []\n            i = k\n            frag = sentence[k]\n            while i < N and frag in self.FREQ:\n                if self.FREQ[frag]:\n                    tmplist.append(i)\n                i += 1\n                frag = sentence[k:i + 1]\n            if not tmplist:\n                tmplist.append(k)\n            DAG[k] = tmplist\n        return DAG",
+    "source": "github_repo:fxsjy/jieba",
+    "file": "jieba/__init__.py",
+    "license": "MIT",
+    "language": "python"
+}

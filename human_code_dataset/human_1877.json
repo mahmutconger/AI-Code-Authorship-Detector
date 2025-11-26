@@ -1,0 +1,7 @@
+{
+    "code": "def say_no():\n    yield b\"n\"\n    while True:\n        yield b\"o\" * 4096",
+    "source": "github_repo:9001/copyparty",
+    "file": "bin/handlers/nooo.py",
+    "license": "MIT",
+    "language": "python"
+}

@@ -1,0 +1,7 @@
+{
+    "code": "def __init__(self, db_path: str = \"workflows.db\"):\n        self.db_path = db_path\n        self.conversation_history = {}",
+    "source": "github_repo:Zie619/n8n-workflows",
+    "file": "src/ai_assistant.py",
+    "license": "MIT",
+    "language": "python"
+}

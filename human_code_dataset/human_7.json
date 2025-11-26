@@ -1,0 +1,7 @@
+{
+    "code": "def test_check_title_with_api_at_the_end_of_the_title(self):\n        raw_title = '[A API](https://www.ex.com)'\n\n        err_msgs = check_title(0, raw_title)\n        \n        self.assertIsInstance(err_msgs, list)\n        self.assertEqual(len(err_msgs), 1)\n        \n        err_msg = err_msgs[0]\n        expected_err_msg = '(L001) Title should not end with \"... API\". Every entry is an API here!'\n\n        self.assertEqual(err_msg, expected_err_msg)",
+    "source": "github_repo:public-apis/public-apis",
+    "file": "scripts/tests/test_validate_format.py",
+    "license": "MIT",
+    "language": "python"
+}

@@ -1,0 +1,7 @@
+{
+    "code": "def remove_word(\n    puzzle: list[list[str]], word: str, row: int, col: int, vertical: bool\n) -> None:\n    \"\"\"\n    Remove a word from the given position.\n\n    >>> puzzle = [\n    ...     ['w', '', '', ''],\n    ...     ['o', '', '', ''],\n    ...     ['r', '', '', ''],\n    ...     ['d', '', '', '']\n    ... ]\n    >>> remove_word(puzzle, 'word', 0, 0, True)\n    >>> puzzle\n    [['', '', '', ''], ['', '', '', ''], ['', '', '', ''], ['', '', '', '']]\n    \"\"\"\n    for i in range(len(word)):\n        if vertical:\n            puzzle[row + i][col] = \"\"\n        else:\n            puzzle[row][col + i] = \"\"",
+    "source": "github_repo:TheAlgorithms/Python",
+    "file": "backtracking/crossword_puzzle_solver.py",
+    "license": "MIT",
+    "language": "python"
+}

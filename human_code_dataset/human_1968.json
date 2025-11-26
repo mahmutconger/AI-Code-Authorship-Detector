@@ -1,0 +1,7 @@
+{
+    "code": "def extract_tar_xz(path, directory):\n    with tarfile.open(path) as file:\n        file.extractall(directory)",
+    "source": "github_repo:ManimCommunity/manim",
+    "file": ".github/scripts/ci_build_cairo.py",
+    "license": "MIT",
+    "language": "python"
+}

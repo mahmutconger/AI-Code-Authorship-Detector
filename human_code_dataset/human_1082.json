@@ -1,0 +1,7 @@
+{
+    "code": "def infer_panel_naive_batched(\n        self,\n        x: List[torch.LongTensor],  #####全部文本token\n        x_lens: torch.LongTensor,\n        prompts: torch.LongTensor,  ####参考音频token\n        bert_feature: List[torch.LongTensor],\n        top_k: int = -100,\n        top_p: int = 100,\n        early_stop_num: int = -1,\n        temperature: float = 1.0,\n        repetition_penalty: float = 1.35,\n        **kwargs,\n    ):\n        y_list = []\n        idx_list = []\n        for i in range(len(x)):\n            y, idx = self.infer_panel_naive(\n                x[i].unsqueeze(0),\n                x_lens[i],\n                prompts[i].unsqueeze(0) if prompts is not None else None,\n                bert_feature[i].unsqueeze(0),\n                top_k,\n                top_p,\n                early_stop_num,\n                temperature,\n                repetition_penalty,\n                **kwargs,\n            )\n            y_list.append(y[0])\n            idx_list.append(idx)\n\n        return y_list, idx_list",
+    "source": "github_repo:RVC-Boss/GPT-SoVITS",
+    "file": "GPT_SoVITS/AR/models/t2s_model.py",
+    "license": "MIT",
+    "language": "python"
+}

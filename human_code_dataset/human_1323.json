@@ -1,0 +1,7 @@
+{
+    "code": "def _ensure_parsed(self) -> None:\n        if self._dpage is not None:\n            return\n\n        seg_page = self._dp_doc.get_page(\n            self._page_no + 1,\n            keep_chars=self._keep_chars,\n            keep_lines=self._keep_lines,\n            keep_bitmaps=self._keep_images,\n            create_words=self._create_words,\n            create_textlines=self._create_textlines,\n            enforce_same_font=True,\n        )\n\n        # In Docling, all TextCell instances are expected with top-left origin.\n        [\n            tc.to_top_left_origin(seg_page.dimension.height)\n            for tc in seg_page.textline_cells\n        ]\n        [tc.to_top_left_origin(seg_page.dimension.height) for tc in seg_page.char_cells]\n        [tc.to_top_left_origin(seg_page.dimension.height) for tc in seg_page.word_cells]\n\n        self._dpage = seg_page",
+    "source": "github_repo:docling-project/docling",
+    "file": "docling/backend/docling_parse_v4_backend.py",
+    "license": "MIT",
+    "language": "python"
+}

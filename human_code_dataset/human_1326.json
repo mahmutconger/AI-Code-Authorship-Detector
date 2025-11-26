@@ -1,0 +1,7 @@
+{
+    "code": "def get_text_cells(self) -> Iterable[TextCell]:\n        self._ensure_parsed()\n        assert self._dpage is not None\n\n        return self._dpage.textline_cells",
+    "source": "github_repo:docling-project/docling",
+    "file": "docling/backend/docling_parse_v4_backend.py",
+    "license": "MIT",
+    "language": "python"
+}

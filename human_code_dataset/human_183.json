@@ -1,0 +1,7 @@
+{
+    "code": "class __ModuleName__ToolInput(BaseModel):\n    \"\"\"Input schema for __ModuleName__ tool.\n\n    This docstring is **not** part of what is sent to the model when performing tool\n    calling. The Field default values and descriptions **are** part of what is sent to\n    the model when performing tool calling.\n    \"\"\"\n\n    # TODO: Add input args and descriptions.\n    a: int = Field(..., description=\"first number to add\")\n    b: int = Field(..., description=\"second number to add\")",
+    "source": "github_repo:langchain-ai/langchain",
+    "file": "libs/cli/langchain_cli/integration_template/integration_template/tools.py",
+    "license": "MIT",
+    "language": "python"
+}

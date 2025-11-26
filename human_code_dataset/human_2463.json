@@ -1,0 +1,7 @@
+{
+    "code": "def _print_docs_to_stdout(data: Any, output_type: str) -> None:\n    if output_type == \"json\":\n        srsly.write_json(\"-\", data)\n    else:\n        sys.stdout.buffer.write(data)",
+    "source": "github_repo:explosion/spaCy",
+    "file": "spacy/cli/convert.py",
+    "license": "MIT",
+    "language": "python"
+}

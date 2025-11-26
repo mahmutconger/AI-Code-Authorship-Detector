@@ -1,0 +1,7 @@
+{
+    "code": "def __init__(self, session_id, system_prompt=None, model=\"qianwen\"):\n        super().__init__(session_id, system_prompt)\n        self.model = model\n        self.reset()",
+    "source": "github_repo:zhayujie/chatgpt-on-wechat",
+    "file": "bot/ali/ali_qwen_session.py",
+    "license": "MIT",
+    "language": "python"
+}

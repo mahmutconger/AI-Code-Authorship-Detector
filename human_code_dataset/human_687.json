@@ -1,0 +1,7 @@
+{
+    "code": "def _test():\n    \"\"\"\n    #### Code to test the FTA module\n    \"\"\"\n    from labml.logger import inspect\n\n    # Initialize\n    a = FTA(-10, 10, 2., 0.5)\n    # Print $\\mathbf{c}$\n    inspect(a.c)\n    # Print number of bins $\\frac{u - l}{\\delta}$\n    inspect(a.expansion_factor)\n\n    # Input $z$\n    z = torch.tensor([1.1, 2.2, 3.3, 4.4, 5.5, 6.6, 7.7, 8.8, 9., 10., 11.])\n    # Print $z$\n    inspect(z)\n    # Print $\\phi_\\eta(z)$\n    inspect(a(z))",
+    "source": "github_repo:labmlai/annotated_deep_learning_paper_implementations",
+    "file": "labml_nn/activations/fta/__init__.py",
+    "license": "MIT",
+    "language": "python"
+}

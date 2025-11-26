@@ -1,0 +1,7 @@
+{
+    "code": "def build_config_setting_normalizer(val: str) -> Mapping[str, str | Sequence[str]]:\n    value: Mapping[str, str | Sequence[str]] = json.loads(val)\n    return value",
+    "source": "github_repo:python-poetry/poetry",
+    "file": "src/poetry/config/config.py",
+    "license": "MIT",
+    "language": "python"
+}

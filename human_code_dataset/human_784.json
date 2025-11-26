@@ -1,0 +1,7 @@
+{
+    "code": "import os\nimport capnp\nfrom importlib.resources import as_file, files\n\ncapnp.remove_import_hook()\n\nwith as_file(files(\"cereal\")) as fspath:\n  CEREAL_PATH = fspath.as_posix()\n  log = capnp.load(os.path.join(CEREAL_PATH, \"log.capnp\"))\n  car = capnp.load(os.path.join(CEREAL_PATH, \"car.capnp\"))\n  custom = capnp.load(os.path.join(CEREAL_PATH, \"custom.capnp\"))",
+    "source": "github_repo:commaai/openpilot",
+    "file": "cereal/__init__.py",
+    "license": "MIT",
+    "language": "python"
+}

@@ -1,0 +1,7 @@
+{
+    "code": "def get_changed_files_from_stdin() -> list[str]:\n    \"\"\"Get list of changed files from stdin (one per line), filtered to src/frontend only.\"\"\"\n    files = []\n    for line in sys.stdin:\n        stripped = line.strip()\n        if stripped and stripped.startswith(\"src/frontend/\"):\n            files.append(stripped)\n    return files",
+    "source": "github_repo:langflow-ai/langflow",
+    "file": "scripts/check_changes_filter.py",
+    "license": "MIT",
+    "language": "python"
+}

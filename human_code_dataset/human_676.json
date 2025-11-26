@@ -1,0 +1,7 @@
+{
+    "code": "def fetch_local_manifest(honor_exclusions: bool = True) -> dict[str, dict[str, str]]:\n    sites_obj = SitesInformation(data_file_path=os.path.join(os.path.dirname(__file__), \"../sherlock_project/resources/data.json\"), honor_exclusions=honor_exclusions)\n    sites_iterable: dict[str, dict[str, str]] = {site.name: site.information for site in sites_obj}\n    return sites_iterable",
+    "source": "github_repo:sherlock-project/sherlock",
+    "file": "tests/conftest.py",
+    "license": "MIT",
+    "language": "python"
+}

@@ -1,0 +1,7 @@
+{
+    "code": "def q_mean_variance(self, x_start, t):\n        \"\"\"\n        Get the distribution q(x_t | x_0).\n        :param x_start: the [N x C x ...] tensor of noiseless inputs.\n        :param t: the number of diffusion steps (minus 1). Here, 0 means one step.\n        :return: A tuple (mean, variance, log_variance), all of x_start's shape.\n        \"\"\"\n        mean = (extract_into_tensor(self.sqrt_alphas_cumprod, t, x_start.shape) * x_start)\n        variance = extract_into_tensor(1.0 - self.alphas_cumprod, t, x_start.shape)\n        log_variance = extract_into_tensor(self.log_one_minus_alphas_cumprod, t, x_start.shape)\n        return mean, variance, log_variance",
+    "source": "github_repo:Stability-AI/stablediffusion",
+    "file": "ldm/models/diffusion/ddpm.py",
+    "license": "MIT",
+    "language": "python"
+}

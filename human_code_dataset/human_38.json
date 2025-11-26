@@ -1,0 +1,7 @@
+{
+    "code": "def get_categories_content(contents: List[str]) -> Tuple[Categories, CategoriesLineNumber]:\n\n    categories = {}\n    category_line_num = {}\n\n    for line_num, line_content in enumerate(contents):\n\n        if line_content.startswith(anchor):\n            category = line_content.split(anchor)[1].strip()\n            categories[category] = []\n            category_line_num[category] = line_num\n            continue\n\n        if not line_content.startswith('|') or line_content.startswith('|---'):\n            continue\n\n        raw_title = [\n            raw_content.strip() for raw_content in line_content.split('|')[1:-1]\n        ][0]\n\n        title_match = link_re.match(raw_title)\n        if title_match:\n                title = title_match.group(1).upper()\n                categories[category].append(title)\n\n    return (categories, category_line_num)",
+    "source": "github_repo:public-apis/public-apis",
+    "file": "scripts/validate/format.py",
+    "license": "MIT",
+    "language": "python"
+}

@@ -1,0 +1,7 @@
+{
+    "code": "def use_calculator(expr):\n    \"\"\"\n    Evaluate a Python expression safely.\n    Supports both math expressions and string operations like .count()\n    \"\"\"\n    # Remove commas from numbers\n    expr = expr.replace(\",\", \"\")\n\n    # Check if it's a pure math expression (old behavior)\n    if all([x in \"0123456789*+-/.() \" for x in expr]):\n        if \"**\" in expr:  # disallow power operator\n            return None\n        return eval_with_timeout(expr)\n\n    # Check if it's a string operation we support\n    # Allow: strings (single/double quotes), .count(), letters, numbers, spaces, parens\n    allowed_chars = \"abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789'\\\"()._ \"\n    if not all([x in allowed_chars for x in expr]):\n        return None\n\n    # Disallow dangerous patterns\n    dangerous_patterns = ['__', 'import', 'exec', 'eval', 'compile', 'open', 'file',\n                         'input', 'raw_input', 'globals', 'locals', 'vars', 'dir',\n                         'getattr', 'setattr', 'delattr', 'hasattr']\n    expr_lower = expr.lower()\n    if any(pattern in expr_lower for pattern in dangerous_patterns):\n        return None\n\n    # Only allow .count() method for now (can expand later)\n    if '.count(' not in expr:\n        return None\n\n    # Evaluate with timeout\n    return eval_with_timeout(expr)",
+    "source": "github_repo:karpathy/nanochat",
+    "file": "nanochat/engine.py",
+    "license": "MIT",
+    "language": "python"
+}

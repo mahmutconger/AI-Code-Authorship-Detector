@@ -1,0 +1,7 @@
+{
+    "code": "class InteractiveDevelopment(Scene):\n    def construct(self):\n        circle = Circle()\n        circle.set_fill(BLUE, opacity=0.5)\n        circle.set_stroke(BLUE_E, width=4)\n        square = Square()\n\n        self.play(Create(square))\n        self.wait()\n\n        # This opens an iPython terminal where you can keep writing\n        # lines as if they were part of this construct method.\n        # In particular, 'square', 'circle' and 'self' will all be\n        # part of the local namespace in that terminal.\n        # self.embed()\n\n        # Try copying and pasting some of the lines below into\n        # the interactive shell\n        self.play(ReplacementTransform(square, circle))\n        self.wait()\n        self.play(circle.animate.stretch(4, 0))\n        self.play(Rotate(circle, 90 * DEGREES))\n        self.play(circle.animate.shift(2 * RIGHT).scale(0.25))",
+    "source": "github_repo:ManimCommunity/manim",
+    "file": "example_scenes/opengl.py",
+    "license": "MIT",
+    "language": "python"
+}

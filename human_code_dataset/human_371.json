@@ -1,0 +1,7 @@
+{
+    "code": "class DecodingResult:\n    audio_features: Tensor\n    language: str\n    language_probs: Optional[Dict[str, float]] = None\n    tokens: List[int] = field(default_factory=list)\n    text: str = \"\"\n    avg_logprob: float = np.nan\n    no_speech_prob: float = np.nan\n    temperature: float = np.nan\n    compression_ratio: float = np.nan",
+    "source": "github_repo:openai/whisper",
+    "file": "whisper/decoding.py",
+    "license": "MIT",
+    "language": "python"
+}

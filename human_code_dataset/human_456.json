@@ -1,0 +1,7 @@
+{
+    "code": "def run(self):\n        hide_code = \"hide_code\" in self.options\n        scene_name = self.arguments[0]\n        media_file_name = self.options[\"media\"]\n\n        source_block = [\n            \".. code-block:: python\",\n            \"\",\n            *[\"    \" + line for line in self.content],\n        ]\n        source_block = \"\\n\".join(source_block)\n\n        state_machine = self.state_machine\n        document = state_machine.document\n\n        if any(media_file_name.endswith(ext) for ext in [\".png\", \".jpg\", \".gif\"]):\n            is_video = False\n        else:\n            is_video = True\n\n        rendered_template = jinja2.Template(TEMPLATE).render(\n            scene_name=scene_name,\n            scene_name_lowercase=scene_name.lower(),\n            hide_code=hide_code,\n            is_video=is_video,\n            media_file_name=media_file_name,\n            source_block=source_block,\n        )\n        state_machine.insert_input(\n            rendered_template.split(\"\\n\"), source=document.attributes[\"source\"]\n        )\n\n        return []",
+    "source": "github_repo:3b1b/manim",
+    "file": "docs/source/manim_example_ext.py",
+    "license": "MIT",
+    "language": "python"
+}

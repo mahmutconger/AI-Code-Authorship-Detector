@@ -1,0 +1,7 @@
+{
+    "code": "class TestServer(RpcServer):\n    \"\"\"\n    Test RpcServer\n    \"\"\"\n\n    def __init__(self):\n        \"\"\"\n        Constructor\n        \"\"\"\n        super().__init__()\n\n        self.register(self.add)\n\n    def add(self, a, b):\n        \"\"\"\n        Test function\n        \"\"\"\n        print(f\"receiving:{a} {b}\")\n        return a + b",
+    "source": "github_repo:vnpy/vnpy",
+    "file": "examples/simple_rpc/test_server.py",
+    "license": "MIT",
+    "language": "python"
+}

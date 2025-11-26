@@ -1,0 +1,7 @@
+{
+    "code": "def test_converter() -> None:\n    \"\"\"Tests the RTF converter dirctly.\"\"\"\n    with open(os.path.join(TEST_FILES_DIR, \"test.rtf\"), \"rb\") as file_stream:\n        converter = RtfConverter()\n        result = converter.convert(\n            file_stream=file_stream,\n            stream_info=StreamInfo(\n                mimetype=\"text/rtf\", extension=\".rtf\", filename=\"test.rtf\"\n            ),\n        )\n\n        for test_string in RTF_TEST_STRINGS:\n            assert test_string in result.text_content",
+    "source": "github_repo:microsoft/markitdown",
+    "file": "packages/markitdown-sample-plugin/tests/test_sample_plugin.py",
+    "license": "MIT",
+    "language": "python"
+}

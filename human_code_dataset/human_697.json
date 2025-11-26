@@ -1,0 +1,7 @@
+{
+    "code": "def forward(self, x: torch.Tensor):\n        # $f(x W_1 + b_1)$\n        x = self.activation(self.layer1(x))\n        # Apply dropout\n        x = self.dropout(x)\n        #\n        return self.layer2(x)",
+    "source": "github_repo:labmlai/annotated_deep_learning_paper_implementations",
+    "file": "labml_nn/activations/fta/experiment.py",
+    "license": "MIT",
+    "language": "python"
+}

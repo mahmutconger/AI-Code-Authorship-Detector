@@ -1,0 +1,7 @@
+{
+    "code": "def get_response(request_future, error_type, social_network):\n    # Default for Response object if some failure occurs.\n    response = None\n\n    error_context = \"General Unknown Error\"\n    exception_text = None\n    try:\n        response = request_future.result()\n        if response.status_code:\n            # Status code exists in response object\n            error_context = None\n    except requests.exceptions.HTTPError as errh:\n        error_context = \"HTTP Error\"\n        exception_text = str(errh)\n    except requests.exceptions.ProxyError as errp:\n        error_context = \"Proxy Error\"\n        exception_text = str(errp)\n    except requests.exceptions.ConnectionError as errc:\n        error_context = \"Error Connecting\"\n        exception_text = str(errc)\n    except requests.exceptions.Timeout as errt:\n        error_context = \"Timeout Error\"\n        exception_text = str(errt)\n    except requests.exceptions.RequestException as err:\n        error_context = \"Unknown Error\"\n        exception_text = str(err)\n\n    return response, error_context, exception_text",
+    "source": "github_repo:sherlock-project/sherlock",
+    "file": "sherlock_project/sherlock.py",
+    "license": "MIT",
+    "language": "python"
+}

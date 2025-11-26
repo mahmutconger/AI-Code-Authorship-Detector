@@ -1,0 +1,7 @@
+{
+    "code": "def black_runner(version: str, black_repo: Path) -> Path:\n    directory = tempfile.TemporaryDirectory()\n    venv.create(directory.name, with_pip=True)\n\n    python = Path(directory.name) / \"bin\" / \"python\"\n    subprocess.run([python, \"-m\", \"pip\", \"install\", \"-e\", black_repo])\n\n    atexit.register(directory.cleanup)\n    return python",
+    "source": "github_repo:psf/black",
+    "file": "gallery/gallery.py",
+    "license": "MIT",
+    "language": "python"
+}

@@ -1,0 +1,7 @@
+{
+    "code": "def __init__(self) -> None:\n        self.pth_path: str = \"\"\n        self.index_path: str = \"\"\n        self.pitch: int = 0\n        self.formant: float = 0.0\n        self.sr_type: str = \"sr_model\"\n        self.block_time: float = 0.25  # s\n        self.threhold: int = -60\n        self.crossfade_time: float = 0.05\n        self.extra_time: float = 2.5\n        self.I_noise_reduce: bool = False\n        self.O_noise_reduce: bool = False\n        self.use_pv: bool = False\n        self.rms_mix_rate: float = 0.0\n        self.index_rate: float = 0.0\n        self.n_cpu: int = 4\n        self.f0method: str = \"fcpe\"\n        self.sg_input_device: str = \"\"\n        self.sg_output_device: str = \"\"",
+    "source": "github_repo:RVC-Project/Retrieval-based-Voice-Conversion-WebUI",
+    "file": "api_240604.py",
+    "license": "MIT",
+    "language": "python"
+}

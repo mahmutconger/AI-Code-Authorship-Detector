@@ -1,0 +1,7 @@
+{
+    "code": "def test_send(self):\n    socks = random_socks()\n    pm = messaging.PubMaster(socks)\n    sub_socks = {s: messaging.sub_sock(s, conflate=True, timeout=1000) for s in socks}\n    zmq_sleep()\n\n    # PubMaster accepts either a capnp msg builder or bytes\n    for capnp in [True, False]:\n      for i in range(100):\n        sock = socks[i % len(socks)]\n\n        if capnp:\n          try:\n            msg = messaging.new_message(sock)\n          except Exception:\n            msg = messaging.new_message(sock, random.randrange(50))\n        else:\n          msg = random_bytes()\n\n        pm.send(sock, msg)\n        recvd = sub_socks[sock].receive()\n\n        if capnp:\n          msg.clear_write_flag()\n          msg = msg.to_bytes()\n        assert msg == recvd, i",
+    "source": "github_repo:commaai/openpilot",
+    "file": "cereal/messaging/tests/test_pub_sub_master.py",
+    "license": "MIT",
+    "language": "python"
+}

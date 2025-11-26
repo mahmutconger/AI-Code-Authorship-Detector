@@ -1,0 +1,7 @@
+{
+    "code": "class _AWS(Node):\n    _provider = \"aws\"\n    _icon_dir = \"resources/aws\"\n\n    fontcolor = \"#ffffff\"",
+    "source": "github_repo:mingrammer/diagrams",
+    "file": "diagrams/aws/__init__.py",
+    "license": "MIT",
+    "language": "python"
+}

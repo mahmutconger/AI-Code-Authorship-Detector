@@ -1,0 +1,7 @@
+{
+    "code": "def getdiagram() -> \"Diagram\":\n    try:\n        return __diagram.get()\n    except LookupError:\n        return None",
+    "source": "github_repo:mingrammer/diagrams",
+    "file": "diagrams/__init__.py",
+    "license": "MIT",
+    "language": "python"
+}

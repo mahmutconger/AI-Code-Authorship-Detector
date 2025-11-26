@@ -1,0 +1,7 @@
+{
+    "code": "class MarkItDownException(Exception):\n    \"\"\"\n    Base exception class for MarkItDown.\n    \"\"\"\n\n    pass",
+    "source": "github_repo:microsoft/markitdown",
+    "file": "packages/markitdown/src/markitdown/_exceptions.py",
+    "license": "MIT",
+    "language": "python"
+}

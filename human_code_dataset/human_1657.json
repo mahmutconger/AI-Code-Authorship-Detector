@@ -1,0 +1,7 @@
+{
+    "code": "def is_found(self, topic):\n        \"\"\"\n        check if `topic` is available\n        CAUTION: only root is checked\n        \"\"\"\n        return topic in self._list[None]",
+    "source": "github_repo:chubin/cheat.sh",
+    "file": "lib/adapter/adapter.py",
+    "license": "MIT",
+    "language": "python"
+}

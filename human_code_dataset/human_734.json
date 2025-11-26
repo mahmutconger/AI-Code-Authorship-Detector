@@ -1,0 +1,7 @@
+{
+    "code": "class ExperimentConfig:\n    def __init__(self, dataset: str, question_type: str, operators: List[str]):\n        self.dataset = dataset\n        self.question_type = question_type\n        self.operators = operators",
+    "source": "github_repo:FoundationAgents/MetaGPT",
+    "file": "examples/aflow/optimize.py",
+    "license": "MIT",
+    "language": "python"
+}

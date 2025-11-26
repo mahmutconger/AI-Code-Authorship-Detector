@@ -1,0 +1,7 @@
+{
+    "code": "def b_modify():\n    # Deleting the Roll no. entered by user\n    if not os.path.exists(student_record):\n        logging.warning(\"File not found\")\n        return\n    roll_no = int(input(\"Enter the Roll No. to be deleted: \"))\n    student = 0\n    with open(student_record, \"rb\") as F:\n        student = pickle.load(F)\n\n    with open(student_record, \"wb\") as F:\n        rec = [i for i in student if i[0] != roll_no]\n        pickle.dump(rec, F)",
+    "source": "github_repo:geekcomputers/Python",
+    "file": "1 File handle/File handle binary/delete.py",
+    "license": "MIT",
+    "language": "python"
+}

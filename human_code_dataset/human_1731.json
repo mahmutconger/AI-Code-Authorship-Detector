@@ -1,0 +1,7 @@
+{
+    "code": "def getPilImage(self, imgID):\n        im = self.getPixmap(imgID)\n        if not im:\n            return None\n        try:\n            return ImageQt.fromqimage(im)\n        except Exception:\n            logger.error(\"QPixmap 转 PIL 失败。\", exc_info=True, stack_info=True)\n            return None",
+    "source": "github_repo:hiroi-sora/Umi-OCR",
+    "file": "UmiOCR-data/py_src/image_controller/image_provider.py",
+    "license": "MIT",
+    "language": "python"
+}

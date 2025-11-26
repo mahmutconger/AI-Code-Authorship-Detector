@@ -1,0 +1,7 @@
+{
+    "code": "def get_bitmap_rects(self, scale: float = 1) -> Iterable[BoundingBox]:\n        self._ensure_parsed()\n        assert self._dpage is not None\n\n        AREA_THRESHOLD = 0  # 32 * 32\n\n        images = self._dpage.bitmap_resources\n\n        for img in images:\n            cropbox = img.rect.to_bounding_box().to_top_left_origin(\n                self.get_size().height\n            )\n\n            if cropbox.area() > AREA_THRESHOLD:\n                cropbox = cropbox.scaled(scale=scale)\n\n                yield cropbox",
+    "source": "github_repo:docling-project/docling",
+    "file": "docling/backend/docling_parse_v4_backend.py",
+    "license": "MIT",
+    "language": "python"
+}

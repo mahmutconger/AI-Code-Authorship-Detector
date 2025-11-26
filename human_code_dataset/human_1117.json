@@ -1,0 +1,7 @@
+{
+    "code": "def _convert_openai_tools_to_bedrock_format(self, tools):\n        # Convert OpenAI function calling format to Bedrock tool format\n        bedrock_tools = []\n        for tool in tools:\n            if tool.get(\"type\") == \"function\":\n                function = tool.get(\"function\", {})\n                bedrock_tool = {\n                    \"toolSpec\": {\n                        \"name\": function.get(\"name\", \"\"),\n                        \"description\": function.get(\"description\", \"\"),\n                        \"inputSchema\": {\n                            \"json\": {\n                                \"type\": \"object\",\n                                \"properties\": function.get(\"parameters\", {}).get(\n                                    \"properties\", {}\n                                ),\n                                \"required\": function.get(\"parameters\", {}).get(\n                                    \"required\", []\n                                ),\n                            }\n                        },\n                    }\n                }\n                bedrock_tools.append(bedrock_tool)\n        return bedrock_tools",
+    "source": "github_repo:FoundationAgents/OpenManus",
+    "file": "app/bedrock.py",
+    "license": "MIT",
+    "language": "python"
+}

@@ -1,0 +1,7 @@
+{
+    "code": "def calc(self, sentence, DAG, route):\n        N = len(sentence)\n        route[N] = (0, 0)\n        logtotal = log(self.total)\n        for idx in xrange(N - 1, -1, -1):\n            route[idx] = max((log(self.FREQ.get(sentence[idx:x + 1]) or 1) -\n                              logtotal + route[x + 1][0], x) for x in DAG[idx])",
+    "source": "github_repo:fxsjy/jieba",
+    "file": "jieba/__init__.py",
+    "license": "MIT",
+    "language": "python"
+}

@@ -1,0 +1,7 @@
+{
+    "code": "def split_sentences_into_pieces(text, language_str):\n        texts = utils.split_sentence(text, language_str=language_str)\n        print(\" > Text splitted to sentences.\")\n        print('\\n'.join(texts))\n        print(\" > ===========================\")\n        return texts",
+    "source": "github_repo:myshell-ai/OpenVoice",
+    "file": "openvoice/api.py",
+    "license": "MIT",
+    "language": "python"
+}

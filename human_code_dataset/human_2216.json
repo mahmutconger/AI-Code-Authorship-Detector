@@ -1,0 +1,7 @@
+{
+    "code": "def baseLogin(self, user, passwd):\n        \"\"\"\n        登录过程\n        :param user:\n        :param passwd:\n        :return: 权限校验码\n        \"\"\"\n        logurl = self.session.urls[\"login\"]\n\n        loginData = OrderedDict()\n        loginData[\"username\"] = user,\n        loginData[\"password\"] = passwd,\n        loginData[\"appid\"] = \"otn\",\n        loginData[\"answer\"] = self.randCode,\n\n        tresult = self.session.httpClint.send(logurl, loginData)\n        if 'result_code' in tresult and tresult[\"result_code\"] == 0:\n            print(u\"登录成功\")\n            tk = self.auth()\n            if \"newapptk\" in tk and tk[\"newapptk\"]:\n                return tk[\"newapptk\"]\n            else:\n                return False\n        elif 'result_message' in tresult and tresult['result_message']:\n            messages = tresult['result_message']\n            if messages.find(u\"密码输入错误\") is not -1:\n                raise UserPasswordException(\"{0}\".format(messages))\n            else:\n                print(u\"登录失败: {0}\".format(messages))\n                print(u\"尝试重新登陆\")\n                return False\n        else:\n            return False",
+    "source": "github_repo:testerSunshine/12306",
+    "file": "init/login.py",
+    "license": "MIT",
+    "language": "python"
+}

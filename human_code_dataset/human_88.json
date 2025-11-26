@@ -1,0 +1,7 @@
+{
+    "code": "def is_complete(board: list[list[int]]) -> bool:\n    \"\"\"\n    Check if the board (matrix) has been completely filled with non-zero values.\n\n    >>> is_complete([[1]])\n    True\n\n    >>> is_complete([[1, 2], [3, 0]])\n    False\n    \"\"\"\n\n    return not any(elem == 0 for row in board for elem in row)",
+    "source": "github_repo:TheAlgorithms/Python",
+    "file": "backtracking/knight_tour.py",
+    "license": "MIT",
+    "language": "python"
+}

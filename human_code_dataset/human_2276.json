@@ -1,0 +1,7 @@
+{
+    "code": "def print_log(event: Event) -> None:\n        \"\"\"\n        处理数据录制模块的日志事件\n\n        将数据录制模块产生的日志信息输出到控制台和日志文件中，\n        便于监控录制过程和排查问题。\n\n        参数:\n            event: 包含日志信息的事件对象\n        \"\"\"\n        log_engine.logger.log(INFO, event.data)",
+    "source": "github_repo:vnpy/vnpy",
+    "file": "examples/data_recorder/data_recorder.py",
+    "license": "MIT",
+    "language": "python"
+}

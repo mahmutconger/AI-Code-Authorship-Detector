@@ -1,0 +1,7 @@
+{
+    "code": "def main(video_directory: str, number_of_streams: int) -> None:\n    video_files = find_video_files_in_directory(video_directory, number_of_streams)\n    try:\n        with tempfile.TemporaryDirectory() as temporary_directory:\n            config_file_path = create_server_config_file(temporary_directory)\n            run_rtsp_server(config_path=config_file_path)\n            stream_videos(video_files)\n    finally:\n        stop_rtsp_server()",
+    "source": "github_repo:roboflow/supervision",
+    "file": "examples/time_in_zone/scripts/stream_from_file.py",
+    "license": "MIT",
+    "language": "python"
+}

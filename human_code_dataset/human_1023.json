@@ -1,0 +1,7 @@
+{
+    "code": "def pretty_print(self):\n        table = Table(title=\"Anonymously Hiding Tools\", show_lines=True, expand=True)\n        table.add_column(\"Title\", style=\"magenta\", no_wrap=True)\n        table.add_column(\"Description\", style=\"magenta\")\n        table.add_column(\"Project URL\", style=\"magenta\", no_wrap=True)\n\n        for t in self.TOOLS:\n            title = self._get_attr(t, \"TITLE\", \"Title\", \"title\", default=t.__class__.__name__)\n            desc = self._get_attr(t, \"DESCRIPTION\", \"Description\", \"description\", default=\"\")\n            url = self._get_attr(t, \"PROJECT_URL\", \"PROJECT_URL\", \"PROJECT\", \"project_url\", \"projectUrl\", default=\"\")\n            table.add_row(str(title), str(desc).strip().replace(\"\\n\", \" \"), str(url))\n\n        panel = Panel(table, title=f\"[{P_COLOR}]Available Tools[/ {P_COLOR}]\", border_style=P_COLOR)\n        console.print(panel)",
+    "source": "github_repo:Z4nzu/hackingtool",
+    "file": "tools/anonsurf.py",
+    "license": "MIT",
+    "language": "python"
+}

@@ -1,0 +1,7 @@
+{
+    "code": "def run_task(self, func: Callable, *args: Any, **kwargs: Any):\n        try:\n            with self.lock:\n                self.current_tasks += 1\n            func(*args, **kwargs)  # call the function here, passing *args and **kwargs.\n        finally:\n            self.task_done()",
+    "source": "github_repo:harry0703/MoneyPrinterTurbo",
+    "file": "app/controllers/manager/base_manager.py",
+    "license": "MIT",
+    "language": "python"
+}

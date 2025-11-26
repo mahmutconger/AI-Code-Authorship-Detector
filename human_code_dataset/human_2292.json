@@ -1,0 +1,7 @@
+{
+    "code": "def cs_mean(feature: DataProxy) -> DataProxy:\n    \"\"\"Calculate cross-sectional mean\"\"\"\n    df: pl.DataFrame = feature.df.select(\n        pl.col(\"datetime\"),\n        pl.col(\"vt_symbol\"),\n        pl.col(\"data\").mean().over(\"datetime\")\n    )\n    return DataProxy(df)",
+    "source": "github_repo:vnpy/vnpy",
+    "file": "vnpy/alpha/dataset/cs_function.py",
+    "license": "MIT",
+    "language": "python"
+}

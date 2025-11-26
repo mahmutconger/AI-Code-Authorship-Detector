@@ -1,0 +1,7 @@
+{
+    "code": "def connect(self, node: \"Node\", node2: \"Node\", edge: \"Edge\") -> None:\n        \"\"\"Connect the two Nodes.\"\"\"\n        self.dot.edge(node.nodeid, node2.nodeid, **edge.attrs)",
+    "source": "github_repo:mingrammer/diagrams",
+    "file": "diagrams/__init__.py",
+    "license": "MIT",
+    "language": "python"
+}

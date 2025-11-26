@@ -1,0 +1,7 @@
+{
+    "code": "class ColorSuite:\n    def setup(self):\n        self.console = Console(\n            file=StringIO(), color_system=\"truecolor\", legacy_windows=False, width=100\n        )\n        self.color = Color.parse(\"#0d1da0\")\n\n    def time_downgrade_to_eight_bit(self):\n        self.color.downgrade(ColorSystem.EIGHT_BIT)\n\n    def time_downgrade_to_standard(self):\n        self.color.downgrade(ColorSystem.STANDARD)\n\n    def time_downgrade_to_windows(self):\n        self.color.downgrade(ColorSystem.WINDOWS)",
+    "source": "github_repo:Textualize/rich",
+    "file": "benchmarks/benchmarks.py",
+    "license": "MIT",
+    "language": "python"
+}

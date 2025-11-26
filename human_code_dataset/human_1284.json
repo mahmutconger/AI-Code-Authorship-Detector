@@ -1,0 +1,7 @@
+{
+    "code": "class AbstractDocumentBackend(ABC):\n    @abstractmethod\n    def __init__(\n        self,\n        in_doc: \"InputDocument\",\n        path_or_stream: Union[BytesIO, Path],\n        options: BaseBackendOptions = BaseBackendOptions(),\n    ):\n        self.file = in_doc.file\n        self.path_or_stream = path_or_stream\n        self.document_hash = in_doc.document_hash\n        self.input_format = in_doc.format\n        self.options = options\n\n    @abstractmethod\n    def is_valid(self) -> bool:\n        pass\n\n    @classmethod\n    @abstractmethod\n    def supports_pagination(cls) -> bool:\n        pass\n\n    def unload(self):\n        if isinstance(self.path_or_stream, BytesIO):\n            self.path_or_stream.close()\n\n        self.path_or_stream = None\n\n    @classmethod\n    @abstractmethod\n    def supported_formats(cls) -> set[\"InputFormat\"]:\n        pass",
+    "source": "github_repo:docling-project/docling",
+    "file": "docling/backend/abstract_backend.py",
+    "license": "MIT",
+    "language": "python"
+}

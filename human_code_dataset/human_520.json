@@ -1,0 +1,7 @@
+{
+    "code": "def get_key_info(key: str) -> tuple[str, int | None]:\n\t\"\"\"Get the code and windowsVirtualKeyCode for a key.\n\n\tArgs:\n\t\tkey: Key name (e.g., 'Enter', 'ArrowUp', 'a', 'A')\n\n\tReturns:\n\t\tTuple of (code, windowsVirtualKeyCode)\n\n\tReference: Windows Virtual Key Codes\n\thttps://docs.microsoft.com/en-us/windows/win32/inputdev/virtual-key-codes\n\t\"\"\"\n\treturn Utils.get_key_info(key)",
+    "source": "github_repo:browser-use/browser-use",
+    "file": "browser_use/actor/utils.py",
+    "license": "MIT",
+    "language": "python"
+}

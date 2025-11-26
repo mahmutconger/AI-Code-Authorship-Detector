@@ -1,0 +1,7 @@
+{
+    "code": "def get_dict_file(self):\n        if self.dictionary == DEFAULT_DICT:\n            return get_module_res(DEFAULT_DICT_NAME)\n        else:\n            return open(self.dictionary, 'rb')",
+    "source": "github_repo:fxsjy/jieba",
+    "file": "jieba/__init__.py",
+    "license": "MIT",
+    "language": "python"
+}

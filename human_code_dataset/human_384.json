@@ -1,0 +1,7 @@
+{
+    "code": "def decode(\n    model: \"Whisper\",\n    mel: Tensor,\n    options: DecodingOptions = DecodingOptions(),\n    **kwargs,\n) -> Union[DecodingResult, List[DecodingResult]]:\n    \"\"\"\n    Performs decoding of 30-second audio segment(s), provided as Mel spectrogram(s).\n\n    Parameters\n    ----------\n    model: Whisper\n        the Whisper model instance\n\n    mel: torch.Tensor, shape = (80, 3000) or (*, 80, 3000)\n        A tensor containing the Mel spectrogram(s)\n\n    options: DecodingOptions\n        A dataclass that contains all necessary options for decoding 30-second segments\n\n    Returns\n    -------\n    result: Union[DecodingResult, List[DecodingResult]]\n        The result(s) of decoding contained in `DecodingResult` dataclass instance(s)\n    \"\"\"\n    if single := mel.ndim == 2:\n        mel = mel.unsqueeze(0)\n\n    if kwargs:\n        options = replace(options, **kwargs)\n\n    result = DecodingTask(model, options).run(mel)\n\n    return result[0] if single else result",
+    "source": "github_repo:openai/whisper",
+    "file": "whisper/decoding.py",
+    "license": "MIT",
+    "language": "python"
+}

@@ -1,0 +1,7 @@
+{
+    "code": "def tools(self) -> ToolCollection[BaseTool]:\n        \"\"\"The CrewAI tools available from the MCP server.\n\n        Raises:\n            ValueError: If the MCP server is not started.\n\n        Returns:\n            The CrewAI tools available from the MCP server.\n        \"\"\"\n        if self._tools is None:\n            raise ValueError(\n                \"MCP server not started, run `mcp_server.start()` first before accessing `tools`\"\n            )\n\n        tools_collection = ToolCollection(self._tools)\n        if self._tool_names:\n            return tools_collection.filter_by_names(self._tool_names)\n        return tools_collection",
+    "source": "github_repo:crewAIInc/crewAI",
+    "file": "lib/crewai-tools/src/crewai_tools/adapters/mcp_adapter.py",
+    "license": "MIT",
+    "language": "python"
+}

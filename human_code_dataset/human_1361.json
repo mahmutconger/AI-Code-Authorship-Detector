@@ -1,0 +1,7 @@
+{
+    "code": "def update_html_timestamp(html_file: str):\n    \"\"\"Update the timestamp in the HTML file to current date.\"\"\"\n    file_path = Path(html_file)\n\n    if not file_path.exists():\n        print(f\"Warning: {html_file} not found\")\n        return False\n\n    # Read the HTML file\n    with open(file_path, 'r', encoding='utf-8') as f:\n        content = f.read()\n\n    # Get current month and year\n    current_date = datetime.now().strftime(\"%B %Y\")\n\n    # Replace the hardcoded timestamp\n    # Look for pattern like \"Last updated: Month Year\"\n    pattern = r'(<p class=\"footer-meta\">Last updated:)\\s*([^<]+)'\n    replacement = f'\\\\1 {current_date}'\n\n    updated_content = re.sub(pattern, replacement, content)\n\n    # Also add a meta tag with the exact timestamp for better tracking\n    if '<meta name=\"last-updated\"' not in updated_content:\n        timestamp_meta = f'    <meta name=\"last-updated\" content=\"{datetime.now().isoformat()}\">\\n'\n        updated_content = updated_content.replace('</head>', f'{timestamp_meta}</head>')\n\n    # Write back the updated content\n    with open(file_path, 'w', encoding='utf-8') as f:\n        f.write(updated_content)\n\n    print(f\"✅ Updated timestamp in {html_file} to: {current_date}\")\n    return True",
+    "source": "github_repo:Zie619/n8n-workflows",
+    "file": "scripts/update_github_pages.py",
+    "license": "MIT",
+    "language": "python"
+}

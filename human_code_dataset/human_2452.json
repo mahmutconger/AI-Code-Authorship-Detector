@@ -1,0 +1,7 @@
+{
+    "code": "def annotate(\n    nlp: Language, docs: List[Doc], batch_size: Optional[int]\n) -> numpy.ndarray:\n    docs = nlp.pipe(tqdm(docs, unit=\"doc\", disable=None), batch_size=batch_size)\n    wps = []\n    while True:\n        with time_context() as elapsed:\n            batch_docs = list(\n                islice(docs, batch_size if batch_size else nlp.batch_size)\n            )\n        if len(batch_docs) == 0:\n            break\n        n_tokens = count_tokens(batch_docs)\n        wps.append(n_tokens / elapsed.elapsed)\n\n    return numpy.array(wps)",
+    "source": "github_repo:explosion/spaCy",
+    "file": "spacy/cli/benchmark_speed.py",
+    "license": "MIT",
+    "language": "python"
+}

@@ -1,0 +1,7 @@
+{
+    "code": "def __init__(self, n_tokens: int, d_model: int, n_layers: int, layer: TransformerLayer):\n        \"\"\"\n        :param n_tokens: is the number of tokens in the vocabulary\n        :param d_model: is the embedding size\n        :param n_layers: is the number of transformer layers\n        :param layer: is the layer. We use `n_layers` copies of this for the transformer.\n        \"\"\"\n        super().__init__()\n        # Transformer with `n_layers` layers\n        self.transformer_layers = nn.ModuleList([copy.deepcopy(layer) for _ in range(n_layers)])\n\n        # Token embedding layer\n        self.emb = nn.Embedding(n_tokens, d_model)\n        # Readout layer\n        self.readout = nn.Linear(d_model, n_tokens)\n\n        # The mask will be initialized on the first call\n        self.mask = None",
+    "source": "github_repo:labmlai/annotated_deep_learning_paper_implementations",
+    "file": "labml_nn/activations/fta/experiment.py",
+    "license": "MIT",
+    "language": "python"
+}

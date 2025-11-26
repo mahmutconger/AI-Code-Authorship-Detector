@@ -1,0 +1,7 @@
+{
+    "code": "def http_get(url: str, *, is_json: bool = True, **kwargs: Any) -> Any:\n    headers = kwargs.get(\"headers\") or {}\n    headers[\"User-Agent\"] = USER_AGENT\n    if \"github\" in url:\n        if GH_API_TOKEN:\n            headers[\"Authorization\"] = f\"token {GH_API_TOKEN}\"\n        headers[\"Accept\"] = \"application/vnd.github.v3+json\"\n    kwargs[\"headers\"] = headers\n\n    r = http.request(\"GET\", url, **kwargs)\n    if is_json:\n        data = json.loads(r.data.decode(\"utf-8\"))\n    else:\n        data = r.data\n    print(f\"[INFO]: issued GET request for {r.geturl()}\")\n    if not (200 <= r.status < 300):\n        pprint.pprint(dict(r.info()))\n        pprint.pprint(data)\n        raise RuntimeError(f\"unexpected status code: {r.status}\")\n\n    return data",
+    "source": "github_repo:psf/black",
+    "file": "scripts/diff_shades_gha_helper.py",
+    "license": "MIT",
+    "language": "python"
+}

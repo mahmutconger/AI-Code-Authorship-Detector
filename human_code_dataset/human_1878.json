@@ -1,0 +1,7 @@
+{
+    "code": "def main(cli, vn, rem):\n    cli.send_headers(None, 404, \"text/plain\")\n\n    for chunk in say_no():\n        cli.s.sendall(chunk)\n\n    return \"false\"",
+    "source": "github_repo:9001/copyparty",
+    "file": "bin/handlers/nooo.py",
+    "license": "MIT",
+    "language": "python"
+}

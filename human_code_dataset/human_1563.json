@@ -1,0 +1,7 @@
+{
+    "code": "def main(changes: str, source_version_control: str) -> None:\n    changes_html = commonmark.commonmark(changes)\n    changes_soup = BeautifulSoup(changes_html, \"html.parser\")\n    headers = changes_soup.find_all(\"h2\")\n    latest_tag, *_ = (\n        header.string for header in headers if header.string != \"Unreleased\"\n    )\n\n    source_version_control_html = commonmark.commonmark(source_version_control)\n    source_version_control_soup = BeautifulSoup(\n        source_version_control_html, \"html.parser\"\n    )\n    pre_commit_repos = yaml.safe_load(\n        source_version_control_soup.find(class_=\"language-yaml\").string\n    )[\"repos\"]\n\n    for repo in pre_commit_repos:\n        pre_commit_rev = repo[\"rev\"]\n        if not pre_commit_rev == latest_tag:\n            print(\n                \"Please set the rev in ``source_version_control.md`` to be the latest \"\n                f\"one.\\nExpected {latest_tag}, got {pre_commit_rev}.\\n\"\n            )\n            sys.exit(1)",
+    "source": "github_repo:psf/black",
+    "file": "scripts/check_pre_commit_rev_in_example.py",
+    "license": "MIT",
+    "language": "python"
+}

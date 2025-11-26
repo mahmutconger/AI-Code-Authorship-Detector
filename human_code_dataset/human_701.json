@@ -1,0 +1,7 @@
+{
+    "code": "def __init__(self):\n        super().__init__()\n        self.sigmoid = nn.Sigmoid()",
+    "source": "github_repo:labmlai/annotated_deep_learning_paper_implementations",
+    "file": "labml_nn/activations/swish.py",
+    "license": "MIT",
+    "language": "python"
+}

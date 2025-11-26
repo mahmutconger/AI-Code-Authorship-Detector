@@ -1,0 +1,7 @@
+{
+    "code": "class MCPSettings(BaseModel):\n    \"\"\"Configuration for MCP (Model Context Protocol)\"\"\"\n\n    server_reference: str = Field(\n        \"app.mcp.server\", description=\"Module reference for the MCP server\"\n    )\n    servers: Dict[str, MCPServerConfig] = Field(\n        default_factory=dict, description=\"MCP server configurations\"\n    )\n\n    @classmethod\n    def load_server_config(cls) -> Dict[str, MCPServerConfig]:\n        \"\"\"Load MCP server configuration from JSON file\"\"\"\n        config_path = PROJECT_ROOT / \"config\" / \"mcp.json\"\n\n        try:\n            config_file = config_path if config_path.exists() else None\n            if not config_file:\n                return {}\n\n            with config_file.open() as f:\n                data = json.load(f)\n                servers = {}\n\n                for server_id, server_config in data.get(\"mcpServers\", {}).items():\n                    servers[server_id] = MCPServerConfig(\n                        type=server_config[\"type\"],\n                        url=server_config.get(\"url\"),\n                        command=server_config.get(\"command\"),\n                        args=server_config.get(\"args\", []),\n                    )\n                return servers\n        except Exception as e:\n            raise ValueError(f\"Failed to load MCP server config: {e}\")",
+    "source": "github_repo:FoundationAgents/OpenManus",
+    "file": "app/config.py",
+    "license": "MIT",
+    "language": "python"
+}

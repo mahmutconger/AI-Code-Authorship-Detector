@@ -1,0 +1,7 @@
+{
+    "code": "def _run(\n        self, a: int, b: int, *, run_manager: CallbackManagerForToolRun | None = None\n    ) -> str:\n        return str(a + b + 80)",
+    "source": "github_repo:langchain-ai/langchain",
+    "file": "libs/cli/langchain_cli/integration_template/integration_template/tools.py",
+    "license": "MIT",
+    "language": "python"
+}

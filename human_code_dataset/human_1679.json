@@ -1,0 +1,7 @@
+{
+    "code": "def _get_list(self, prefix=None):\n        \"\"\"\n        Return all files on the first and the second level,\n        excluding directories and hidden files\n        \"\"\"\n\n        hidden_files = [\"_info.yaml\"]\n        answer = []\n        prefix = os.path.join(\n            self.local_repository_location(), self._cheatsheet_files_prefix\n        )\n        for mask in [\"*\", \"*/*\"]:\n            template = os.path.join(prefix, mask)\n\n            answer += [\n                _sanitize_dirnames(f_name[len(prefix) :])\n                for f_name in glob.glob(template)\n                if not os.path.isdir(f_name)\n                and os.path.basename(f_name) not in hidden_files\n            ]\n\n        return sorted(answer)",
+    "source": "github_repo:chubin/cheat.sh",
+    "file": "lib/adapter/cheat_sheets.py",
+    "license": "MIT",
+    "language": "python"
+}

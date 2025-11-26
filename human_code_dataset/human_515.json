@@ -1,0 +1,7 @@
+{
+    "code": "class ElementResponse(BaseModel):\n\t\t\t# thinking: str\n\t\t\telement_highlight_index: int | None",
+    "source": "github_repo:browser-use/browser-use",
+    "file": "browser_use/actor/page.py",
+    "license": "MIT",
+    "language": "python"
+}

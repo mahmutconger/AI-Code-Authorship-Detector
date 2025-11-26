@@ -1,0 +1,7 @@
+{
+    "code": "def _create_field_definition(\n        self, field_type: type[Any] | _SpecialForm, is_required: bool, description: str\n    ) -> tuple:\n        \"\"\"Create Pydantic field definition based on type and requirement.\"\"\"\n        if is_required:\n            return (field_type, Field(description=description))\n        if get_origin(field_type) is Union:\n            return (field_type, Field(default=None, description=description))\n        return (\n            Optional[field_type],  # noqa: UP045\n            Field(default=None, description=description),\n        )",
+    "source": "github_repo:crewAIInc/crewAI",
+    "file": "lib/crewai-tools/src/crewai_tools/adapters/enterprise_adapter.py",
+    "license": "MIT",
+    "language": "python"
+}

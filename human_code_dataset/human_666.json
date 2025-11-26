@@ -1,0 +1,7 @@
+{
+    "code": "def response_time(resp, *args, **kwargs):\n            \"\"\"Response Time Hook.\n\n            Keyword Arguments:\n            resp                   -- Response object.\n            args                   -- Arguments.\n            kwargs                 -- Keyword arguments.\n\n            Return Value:\n            Nothing.\n            \"\"\"\n            resp.elapsed = monotonic() - start\n\n            return",
+    "source": "github_repo:sherlock-project/sherlock",
+    "file": "sherlock_project/sherlock.py",
+    "license": "MIT",
+    "language": "python"
+}

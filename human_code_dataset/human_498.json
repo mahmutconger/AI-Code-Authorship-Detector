@@ -1,0 +1,7 @@
+{
+    "code": "def get_all_families_zipped(self) -> zip[tuple[Mobject]]:\n        return zip(*[\n            mob.get_family()\n            for mob in self.get_all_mobjects()\n        ])",
+    "source": "github_repo:3b1b/manim",
+    "file": "manimlib/animation/animation.py",
+    "license": "MIT",
+    "language": "python"
+}

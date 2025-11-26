@@ -1,0 +1,7 @@
+{
+    "code": "def add_documents(\n        self,\n        documents: List[Document],\n        ids: list[str] | None = None,\n        **kwargs: Any,\n    ) -> List[str]:\n        \"\"\"Add documents to the store.\"\"\"\n        texts = [doc.page_content for doc in documents]\n        vectors = self.embedding.embed_documents(texts)\n\n        if ids and len(ids) != len(texts):\n            msg = (\n                f\"ids must be the same length as texts. \"\n                f\"Got {len(ids)} ids and {len(texts)} texts.\"\n            )\n            raise ValueError(msg)\n\n        id_iterator: Iterator[str | None] = (\n            iter(ids) if ids else iter(doc.id for doc in documents)\n        )\n\n        ids_ = []\n\n        for doc, vector in zip(documents, vectors):\n            doc_id = next(id_iterator)\n            doc_id_ = doc_id if doc_id else str(uuid.uuid4())\n            ids_.append(doc_id_)\n            self._database[doc_id_] = {\n                \"id\": doc_id_,\n                \"vector\": vector,\n                \"text\": doc.page_content,\n                \"metadata\": doc.metadata,\n            }\n\n        return ids_",
+    "source": "github_repo:langchain-ai/langchain",
+    "file": "libs/cli/langchain_cli/integration_template/integration_template/vectorstores.py",
+    "license": "MIT",
+    "language": "python"
+}

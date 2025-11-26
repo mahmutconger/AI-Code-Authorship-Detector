@@ -1,0 +1,7 @@
+{
+    "code": "def get_main_revision() -> str:\n    data = http_get(\n        f\"https://api.github.com/repos/{REPO}/commits\",\n        fields={\"per_page\": \"1\", \"sha\": \"main\"},\n    )\n    assert isinstance(data[0][\"sha\"], str)\n    return data[0][\"sha\"]",
+    "source": "github_repo:psf/black",
+    "file": "scripts/diff_shades_gha_helper.py",
+    "license": "MIT",
+    "language": "python"
+}

@@ -1,0 +1,7 @@
+{
+    "code": "def get_all_mobjects(self) -> tuple[Mobject, Mobject]:\n        \"\"\"\n        Ordering must match the ording of arguments to interpolate_submobject\n        \"\"\"\n        return self.mobject, self.starting_mobject",
+    "source": "github_repo:3b1b/manim",
+    "file": "manimlib/animation/animation.py",
+    "license": "MIT",
+    "language": "python"
+}

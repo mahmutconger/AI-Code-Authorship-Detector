@@ -1,0 +1,7 @@
+{
+    "code": "def test_check_cors_with_invalid_cors(self):\n        invalid_cors_keys = ['yes', 'no', 'unknown', 'cors']\n\n        for cors in invalid_cors_keys:\n            with self.subTest():\n                err_msgs = check_cors(0, cors)\n                self.assertIsInstance(err_msgs, list)\n                self.assertEqual(len(err_msgs), 1)\n\n                err_msg = err_msgs[0]\n                expected_err_msg = f'(L001) {cors} is not a valid CORS option'\n\n                self.assertIsInstance(err_msg, str)\n                self.assertEqual(err_msg, expected_err_msg)",
+    "source": "github_repo:public-apis/public-apis",
+    "file": "scripts/tests/test_validate_format.py",
+    "license": "MIT",
+    "language": "python"
+}

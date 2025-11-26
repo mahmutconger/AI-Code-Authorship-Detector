@@ -1,0 +1,7 @@
+{
+    "code": "def arg_parse() -> tuple:\n        exe = sys.executable or \"python\"\n        parser = argparse.ArgumentParser()\n        parser.add_argument(\"--port\", type=int, default=7865, help=\"Listen port\")\n        parser.add_argument(\"--pycmd\", type=str, default=exe, help=\"Python command\")\n        parser.add_argument(\"--colab\", action=\"store_true\", help=\"Launch in colab\")\n        parser.add_argument(\n            \"--noparallel\", action=\"store_true\", help=\"Disable parallel processing\"\n        )\n        parser.add_argument(\n            \"--noautoopen\",\n            action=\"store_true\",\n            help=\"Do not open in browser automatically\",\n        )\n        parser.add_argument(\n            \"--dml\",\n            action=\"store_true\",\n            help=\"torch_dml\",\n        )\n        cmd_opts = parser.parse_args()\n\n        cmd_opts.port = cmd_opts.port if 0 <= cmd_opts.port <= 65535 else 7865\n\n        return (\n            cmd_opts.pycmd,\n            cmd_opts.port,\n            cmd_opts.colab,\n            cmd_opts.noparallel,\n            cmd_opts.noautoopen,\n            cmd_opts.dml,\n        )",
+    "source": "github_repo:RVC-Project/Retrieval-based-Voice-Conversion-WebUI",
+    "file": "configs/config.py",
+    "license": "MIT",
+    "language": "python"
+}

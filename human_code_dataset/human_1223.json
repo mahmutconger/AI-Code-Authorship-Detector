@@ -1,0 +1,7 @@
+{
+    "code": "class InMemoryTaskManager(TaskManager):\n    def create_queue(self):\n        return Queue()\n\n    def enqueue(self, task: Dict):\n        self.queue.put(task)\n\n    def dequeue(self):\n        return self.queue.get()\n\n    def is_queue_empty(self):\n        return self.queue.empty()",
+    "source": "github_repo:harry0703/MoneyPrinterTurbo",
+    "file": "app/controllers/manager/memory_manager.py",
+    "license": "MIT",
+    "language": "python"
+}

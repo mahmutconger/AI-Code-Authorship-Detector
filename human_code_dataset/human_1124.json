@@ -1,0 +1,7 @@
+{
+    "code": "class SearchSettings(BaseModel):\n    engine: str = Field(default=\"Google\", description=\"Search engine the llm to use\")\n    fallback_engines: List[str] = Field(\n        default_factory=lambda: [\"DuckDuckGo\", \"Baidu\", \"Bing\"],\n        description=\"Fallback search engines to try if the primary engine fails\",\n    )\n    retry_delay: int = Field(\n        default=60,\n        description=\"Seconds to wait before retrying all engines again after they all fail\",\n    )\n    max_retries: int = Field(\n        default=3,\n        description=\"Maximum number of times to retry all engines when all fail\",\n    )\n    lang: str = Field(\n        default=\"en\",\n        description=\"Language code for search results (e.g., en, zh, fr)\",\n    )\n    country: str = Field(\n        default=\"us\",\n        description=\"Country code for search results (e.g., us, cn, uk)\",\n    )",
+    "source": "github_repo:FoundationAgents/OpenManus",
+    "file": "app/config.py",
+    "license": "MIT",
+    "language": "python"
+}

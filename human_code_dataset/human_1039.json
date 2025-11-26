@@ -1,0 +1,7 @@
+{
+    "code": "def set_epoch(self, epoch: int) -> None:\n        r\"\"\"\n        Sets the epoch for this sampler. When :attr:`shuffle=True`, this ensures all replicas\n        use a different random ordering for each epoch. Otherwise, the next iteration of this\n        sampler will yield the same ordering.\n\n        Args:\n            epoch (int): Epoch number.\n        \"\"\"\n        self.epoch = epoch",
+    "source": "github_repo:RVC-Boss/GPT-SoVITS",
+    "file": "GPT_SoVITS/AR/data/bucket_sampler.py",
+    "license": "MIT",
+    "language": "python"
+}

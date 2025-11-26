@@ -1,0 +1,7 @@
+{
+    "code": "def get_archive_manager(local_file: str) -> ArchiveKind:\n    if tarfile.is_tarfile(local_file):\n        return tarfile.open(local_file)\n    elif zipfile.is_zipfile(local_file):\n        return zipfile.ZipFile(local_file)\n    else:\n        raise ValueError(\"Unknown archive kind.\")",
+    "source": "github_repo:psf/black",
+    "file": "gallery/gallery.py",
+    "license": "MIT",
+    "language": "python"
+}

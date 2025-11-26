@@ -1,0 +1,7 @@
+{
+    "code": "class _Web(_AlibabaCloud):\n    _type = \"web\"\n    _icon_dir = \"resources/alibabacloud/web\"",
+    "source": "github_repo:mingrammer/diagrams",
+    "file": "diagrams/alibabacloud/web.py",
+    "license": "MIT",
+    "language": "python"
+}

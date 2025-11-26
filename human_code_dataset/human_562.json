@@ -1,0 +1,7 @@
+{
+    "code": "def main(url=url, usedlist=usedlist, cmd=cmd, do_exploit=do_exploit):\n    if url:\n        if not do_exploit:\n            check(url)\n        else:\n            exploit(url, cmd)\n\n    if usedlist:\n        URLs_List = []\n        try:\n            f_file = open(str(usedlist), \"r\")\n            URLs_List = f_file.read().replace(\"\\r\", \"\").split(\"\\n\")\n            try:\n                URLs_List.remove(\"\")\n            except ValueError:\n                pass\n            f_file.close()\n        except Exception as e:\n            print(\"Error: There was an error in reading list file.\")\n            print(\"Exception: \" + str(e))\n            exit(1)\n        for url in URLs_List:\n            if not do_exploit:\n                check(url)\n            else:\n                exploit(url, cmd)\n\n    print(\"[%] Done.\")",
+    "source": "github_repo:swisskyrepo/PayloadsAllTheThings",
+    "file": "CVE Exploits/Apache Struts 2 CVE-2018-11776.py",
+    "license": "MIT",
+    "language": "python"
+}

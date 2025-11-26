@@ -1,0 +1,7 @@
+{
+    "code": "class KeyMouseConnector(QObject):\n    # ========================= 【热键】 =========================\n\n    # 注册热键\n    @Slot(str, str, int, result=str)\n    def addHotkey(self, keysName, title, press):\n        return HotkeyCtrl.addHotkey(keysName, title, press)\n\n    # 取消热键\n    @Slot(str, str, int)\n    def delHotkey(self, keysName, title, press):\n        return HotkeyCtrl.delHotkey(keysName, title, press)\n\n    # 开始录制热键\n    @Slot(str, str, result=str)\n    def readHotkey(self, runningTitle, finishTitle):\n        return HotkeyCtrl.readHotkey(runningTitle, finishTitle)",
+    "source": "github_repo:hiroi-sora/Umi-OCR",
+    "file": "UmiOCR-data/py_src/event_bus/key_mouse/key_mouse_connector.py",
+    "license": "MIT",
+    "language": "python"
+}

@@ -1,0 +1,7 @@
+{
+    "code": "def _llm_type(self) -> str:\n        \"\"\"Return type of chat model.\"\"\"\n        return \"chat-__package_name_short__\"",
+    "source": "github_repo:langchain-ai/langchain",
+    "file": "libs/cli/langchain_cli/integration_template/integration_template/chat_models.py",
+    "license": "MIT",
+    "language": "python"
+}

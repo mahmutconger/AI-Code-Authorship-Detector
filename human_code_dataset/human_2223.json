@@ -1,0 +1,7 @@
+{
+    "code": "def __post_init__(self, policy: str | list[str] | None) -> None:\n        if not policy:\n            policy = []\n        elif isinstance(policy, str):\n            policy = self.normalize(policy)\n        self.packages = policy",
+    "source": "github_repo:python-poetry/poetry",
+    "file": "src/poetry/config/config.py",
+    "license": "MIT",
+    "language": "python"
+}

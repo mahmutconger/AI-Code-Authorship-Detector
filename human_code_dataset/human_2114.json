@@ -1,0 +1,7 @@
+{
+    "code": "def viterbi(obs, states, start_p, trans_p, emit_p):\n    V = [{}]  # tabular\n    path = {}\n    for y in states:  # init\n        V[0][y] = start_p[y] + emit_p[y].get(obs[0], MIN_FLOAT)\n        path[y] = [y]\n    for t in xrange(1, len(obs)):\n        V.append({})\n        newpath = {}\n        for y in states:\n            em_p = emit_p[y].get(obs[t], MIN_FLOAT)\n            (prob, state) = max(\n                [(V[t - 1][y0] + trans_p[y0].get(y, MIN_FLOAT) + em_p, y0) for y0 in PrevStatus[y]])\n            V[t][y] = prob\n            newpath[y] = path[state] + [y]\n        path = newpath\n\n    (prob, state) = max((V[len(obs) - 1][y], y) for y in 'ES')\n\n    return (prob, path[state])",
+    "source": "github_repo:fxsjy/jieba",
+    "file": "jieba/finalseg/__init__.py",
+    "license": "MIT",
+    "language": "python"
+}

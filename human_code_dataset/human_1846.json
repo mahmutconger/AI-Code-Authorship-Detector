@@ -1,0 +1,7 @@
+{
+    "code": "def find_common_length(token_sequences, direction='left'):\n    \"\"\"\n    Find the length of the common prefix or suffix across token sequences\n    - direction: 'left' for prefix, 'right' for suffix\n    \"\"\"\n    min_len = min(len(seq) for seq in token_sequences)\n    indices = {\n        'left': range(min_len),\n        'right': range(-1, -min_len-1, -1)\n    }[direction]\n    # Find the first position where the token sequences differ\n    for i, idx in enumerate(indices):\n        token = token_sequences[0][idx]\n        if not all(seq[idx] == token for seq in token_sequences):\n            return i\n    return min_len",
+    "source": "github_repo:karpathy/nanochat",
+    "file": "nanochat/core_eval.py",
+    "license": "MIT",
+    "language": "python"
+}

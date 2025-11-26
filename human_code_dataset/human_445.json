@@ -1,0 +1,7 @@
+{
+    "code": "def _normalize_charset(self, charset: str | None) -> str | None:\n        \"\"\"\n        Normalize a charset string to a canonical form.\n        \"\"\"\n        if charset is None:\n            return None\n        try:\n            return codecs.lookup(charset).name\n        except LookupError:\n            return charset",
+    "source": "github_repo:microsoft/markitdown",
+    "file": "packages/markitdown/src/markitdown/_markitdown.py",
+    "license": "MIT",
+    "language": "python"
+}

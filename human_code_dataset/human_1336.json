@@ -1,0 +1,7 @@
+{
+    "code": "class WorkflowSummary(BaseModel):\n    id: Optional[int] = None\n    filename: str\n    name: str\n    active: bool\n    description: str = \"\"\n    trigger_type: str = \"Manual\"\n    complexity: str = \"low\"\n    node_count: int = 0\n    integrations: List[str] = []\n    tags: List[str] = []\n    created_at: Optional[str] = None\n    updated_at: Optional[str] = None\n    \n    class Config:\n        # Allow conversion of int to bool for active field\n        validate_assignment = True\n        \n    @field_validator('active', mode='before')\n    @classmethod\n    def convert_active(cls, v):\n        if isinstance(v, int):\n            return bool(v)\n        return v",
+    "source": "github_repo:Zie619/n8n-workflows",
+    "file": "api_server.py",
+    "license": "MIT",
+    "language": "python"
+}

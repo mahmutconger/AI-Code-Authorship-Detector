@@ -1,0 +1,7 @@
+{
+    "code": "from textual.app import App\n\n\nclass MyApp(App):\n    pass\n\n\nif __name__ == \"__main__\":\n    app = MyApp()\n    app.run()",
+    "source": "github_repo:Textualize/textual",
+    "file": "docs/examples/app/simple02.py",
+    "license": "MIT",
+    "language": "python"
+}

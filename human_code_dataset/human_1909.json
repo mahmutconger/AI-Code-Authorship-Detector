@@ -1,0 +1,7 @@
+{
+    "code": "def main():\n    zb = sys.stdin.buffer.read()\n    zs = zb.decode(\"utf-8\", \"replace\")\n    inf = json.loads(zs)\n\n    total_sz = 0\n    for upload in inf:\n        sz = upload[\"sz\"]\n        total_sz += sz\n        print(\"{:9} {}\".format(sz, upload[\"ap\"]))\n\n    print(\"{} files, {} bytes total\".format(len(inf), total_sz))",
+    "source": "github_repo:9001/copyparty",
+    "file": "bin/hooks/xiu.py",
+    "license": "MIT",
+    "language": "python"
+}

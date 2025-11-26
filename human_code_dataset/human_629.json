@@ -1,0 +1,7 @@
+{
+    "code": "def assemble_prompt(\n    image_data_url: str,\n    stack: Stack,\n) -> list[ChatCompletionMessageParam]:\n    system_content = SYSTEM_PROMPTS[stack]\n    user_prompt = USER_PROMPT if stack != \"svg\" else SVG_USER_PROMPT\n\n    user_content: list[ChatCompletionContentPartParam] = [\n        {\n            \"type\": \"image_url\",\n            \"image_url\": {\"url\": image_data_url, \"detail\": \"high\"},\n        },\n        {\n            \"type\": \"text\",\n            \"text\": user_prompt,\n        },\n    ]\n    return [\n        {\n            \"role\": \"system\",\n            \"content\": system_content,\n        },\n        {\n            \"role\": \"user\",\n            \"content\": user_content,\n        },\n    ]",
+    "source": "github_repo:abi/screenshot-to-code",
+    "file": "backend/prompts/__init__.py",
+    "license": "MIT",
+    "language": "python"
+}

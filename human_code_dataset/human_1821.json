@@ -1,0 +1,7 @@
+{
+    "code": "def log0(message):\n    if int(os.environ.get('RANK', 0)) == 0:\n        logger.info(message)",
+    "source": "github_repo:karpathy/nanochat",
+    "file": "nanochat/checkpoint_manager.py",
+    "license": "MIT",
+    "language": "python"
+}

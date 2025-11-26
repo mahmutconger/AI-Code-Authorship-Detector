@@ -1,0 +1,7 @@
+{
+    "code": "def get_db_connection(self):\n        conn = sqlite3.connect(self.db_path)\n        conn.row_factory = sqlite3.Row\n        return conn",
+    "source": "github_repo:Zie619/n8n-workflows",
+    "file": "src/ai_assistant.py",
+    "license": "MIT",
+    "language": "python"
+}

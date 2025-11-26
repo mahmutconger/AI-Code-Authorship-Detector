@@ -1,0 +1,7 @@
+{
+    "code": "def get_state(cls):\n        \"\"\"\n        Return the saved `state` of the repository.\n        If state cannot be read, return None\n        \"\"\"\n\n        local_repository_dir = cls.local_repository_location()\n        state_filename = os.path.join(local_repository_dir, \".cached_revision\")\n        state = None\n        if os.path.exists(state_filename):\n            state = open(state_filename, \"r\").read()\n        return state",
+    "source": "github_repo:chubin/cheat.sh",
+    "file": "lib/adapter/adapter.py",
+    "license": "MIT",
+    "language": "python"
+}

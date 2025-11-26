@@ -1,0 +1,7 @@
+{
+    "code": "def cli(ctx, repo_root: str, debug: bool):\n    \"\"\"The official CLI for development, testing, and automation in the LlamaIndex monorepo.\"\"\"\n    ctx.obj = {\n        \"console\": Console(theme=LLAMA_DEV_THEME, soft_wrap=True),\n        \"repo_root\": Path(repo_root).resolve(),\n        \"debug\": debug,\n    }",
+    "source": "github_repo:run-llama/llama_index",
+    "file": "llama-dev/llama_dev/cli.py",
+    "license": "MIT",
+    "language": "python"
+}

@@ -1,0 +1,7 @@
+{
+    "code": "def check_initialized(self):\n        if not self.initialized:\n            self.initialize()",
+    "source": "github_repo:fxsjy/jieba",
+    "file": "jieba/__init__.py",
+    "license": "MIT",
+    "language": "python"
+}

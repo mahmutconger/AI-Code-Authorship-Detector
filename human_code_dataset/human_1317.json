@@ -1,0 +1,7 @@
+{
+    "code": "def page_count(self) -> int:\n        # return len(self._pdoc)  # To be replaced with docling-parse API\n\n        len_1 = len(self._pdoc)\n        len_2 = self.parser.number_of_pages(self.document_hash)\n\n        if len_1 != len_2:\n            _log.error(f\"Inconsistent number of pages: {len_1}!={len_2}\")\n\n        return len_2",
+    "source": "github_repo:docling-project/docling",
+    "file": "docling/backend/docling_parse_v2_backend.py",
+    "license": "MIT",
+    "language": "python"
+}

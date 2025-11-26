@@ -1,0 +1,7 @@
+{
+    "code": "def test_check_description_with_correct_description(self):\n        desc = 'This is a fake description'\n\n        err_msgs = check_description(0, desc)\n\n        self.assertIsInstance(err_msgs, list)\n        self.assertEqual(len(err_msgs), 0)\n        self.assertEqual(err_msgs, [])",
+    "source": "github_repo:public-apis/public-apis",
+    "file": "scripts/tests/test_validate_format.py",
+    "license": "MIT",
+    "language": "python"
+}

@@ -1,0 +1,7 @@
+{
+    "code": "def delPixmap(self, imgIDs):\n        if isinstance(imgIDs, str):\n            imgIDs = [imgIDs]\n        for i in imgIDs:\n            if i in self.pixmapDict:\n                del self.pixmapDict[i]\n        logger.debug(f\"删除图片缓存，剩余：{len(self.pixmapDict)}\")",
+    "source": "github_repo:hiroi-sora/Umi-OCR",
+    "file": "UmiOCR-data/py_src/image_controller/image_provider.py",
+    "license": "MIT",
+    "language": "python"
+}

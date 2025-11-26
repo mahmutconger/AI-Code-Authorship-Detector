@@ -1,0 +1,7 @@
+{
+    "code": "def handle_vscode_settings(sub_item, dest_file, rel_path, verbose=False, tracker=None) -> None:\n    \"\"\"Handle merging or copying of .vscode/settings.json files.\"\"\"\n    def log(message, color=\"green\"):\n        if verbose and not tracker:\n            console.print(f\"[{color}]{message}[/] {rel_path}\")\n\n    try:\n        with open(sub_item, 'r', encoding='utf-8') as f:\n            new_settings = json.load(f)\n\n        if dest_file.exists():\n            merged = merge_json_files(dest_file, new_settings, verbose=verbose and not tracker)\n            with open(dest_file, 'w', encoding='utf-8') as f:\n                json.dump(merged, f, indent=4)\n                f.write('\\n')\n            log(\"Merged:\", \"green\")\n        else:\n            shutil.copy2(sub_item, dest_file)\n            log(\"Copied (no existing settings.json):\", \"blue\")\n\n    except Exception as e:\n        log(f\"Warning: Could not merge, copying instead: {e}\", \"yellow\")\n        shutil.copy2(sub_item, dest_file)",
+    "source": "github_repo:github/spec-kit",
+    "file": "src/specify_cli/__init__.py",
+    "license": "MIT",
+    "language": "python"
+}

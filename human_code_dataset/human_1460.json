@@ -1,0 +1,7 @@
+{
+    "code": "def connect(self, node: \"Node\", edge: \"Edge\"):\n        \"\"\"Connect to other node.\n\n        :param node: Other node instance.\n        :param edge: Type of the edge.\n        :return: Connected node.\n        \"\"\"\n        if not isinstance(node, Node):\n            ValueError(f\"{node} is not a valid Node\")\n        if not isinstance(edge, Edge):\n            ValueError(f\"{edge} is not a valid Edge\")\n        # An edge must be added on the global diagrams, not a cluster.\n        self._diagram.connect(self, node, edge)\n        return node",
+    "source": "github_repo:mingrammer/diagrams",
+    "file": "diagrams/__init__.py",
+    "license": "MIT",
+    "language": "python"
+}

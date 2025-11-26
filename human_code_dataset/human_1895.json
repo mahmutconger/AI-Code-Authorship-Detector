@@ -1,0 +1,7 @@
+{
+    "code": "def main():\n    fp = sys.argv[1]\n    dp, fn = os.path.split(fp)\n    try:\n        sz = humansize(os.path.getsize(fp))\n    except:\n        sz = \"?\"\n\n    msg = \"{} ({})\\n📁 {}\".format(fn, sz, dp)\n    title = \"File received\"\n\n    if \"com.termux\" in sys.executable:\n        sp.run([\"termux-notification\", \"-t\", title, \"-c\", msg])\n        return\n\n    icon = \"emblem-documents-symbolic\" if sys.platform == \"linux\" else \"\"\n    notification.notify(\n        title=title,\n        message=msg,\n        app_icon=icon,\n        timeout=10,\n    )",
+    "source": "github_repo:9001/copyparty",
+    "file": "bin/hooks/notify.py",
+    "license": "MIT",
+    "language": "python"
+}

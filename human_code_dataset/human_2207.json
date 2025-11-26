@@ -1,0 +1,7 @@
+{
+    "code": "def getLogFile():\n\tglobal dateStr, suffix\n\trtn = os.path.join(configCommon.getLogDir(), dateStr)\n\tif suffix:\n\t\trtn += \"_\" + suffix\n\treturn rtn + \".log\"",
+    "source": "github_repo:testerSunshine/12306",
+    "file": "config/logger.py",
+    "license": "MIT",
+    "language": "python"
+}

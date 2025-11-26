@@ -1,0 +1,7 @@
+{
+    "code": "def __rrshift__(self, other: Union[List[\"Node\"], List[\"Edge\"]]):\n        \"\"\"Called for [Nodes] and [Edges] >> Self because list don't have __rshift__ operators.\"\"\"\n        for o in other:\n            if isinstance(o, Edge):\n                o.forward = True\n                o.connect(self)\n            else:\n                o.connect(self, Edge(self, forward=True))\n        return self",
+    "source": "github_repo:mingrammer/diagrams",
+    "file": "diagrams/__init__.py",
+    "license": "MIT",
+    "language": "python"
+}

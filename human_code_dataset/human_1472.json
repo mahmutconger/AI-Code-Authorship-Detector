@@ -1,0 +1,7 @@
+{
+    "code": "class _AlibabaCloud(Node):\n    _provider = \"alibabacloud\"\n    _icon_dir = \"resources/alibabacloud\"\n\n    fontcolor = \"#ffffff\"",
+    "source": "github_repo:mingrammer/diagrams",
+    "file": "diagrams/alibabacloud/__init__.py",
+    "license": "MIT",
+    "language": "python"
+}

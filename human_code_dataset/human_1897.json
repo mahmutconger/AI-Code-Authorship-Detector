@@ -1,0 +1,7 @@
+{
+    "code": "def main():\n    # read info from copyparty\n    inf = json.loads(sys.argv[1])\n    vpath = inf[\"vp\"]\n    abspath = inf[\"ap\"]\n\n    # check if the file-extension is on the to-be-processed list\n    ext = abspath.lower().split(\".\")[-1]\n    if ext not in EXTS.split():\n        return\n\n    # jump into the folder where the file was uploaded\n    # and create the subfolder to place the normalized copy inside\n    dirpath, filename = os.path.split(abspath)\n    os.chdir(fsenc(dirpath))\n    os.makedirs(SUBDIR, exist_ok=True)\n\n    # the input and output filenames to give ffmpeg\n    fname_in = fsenc(f\"./{filename}\")\n    fname_out = fsenc(f\"{SUBDIR}/{filename}.opus\")\n\n    # fmt: off\n    # create and run the ffmpeg command\n    cmd = [\n        b\"ffmpeg\",\n        b\"-nostdin\",\n        b\"-hide_banner\",\n        b\"-i\", fname_in,\n        b\"-af\", b\"dynaudnorm=f=100:g=9\",  # the normalizer config\n        b\"-c:a\", b\"libopus\",\n        b\"-b:a\", b\"128k\",\n        fname_out,\n    ]\n    # fmt: on\n    sp.check_output(cmd)\n\n    # and finally, tell copyparty about the new file\n    # so it appears in the database and rss-feed:\n    vpath = f\"{SUBDIR}/{filename}.opus\"\n    print(json.dumps({\"idx\": {\"vp\": [vpath]}}))",
+    "source": "github_repo:9001/copyparty",
+    "file": "bin/hooks/podcast-normalizer.py",
+    "license": "MIT",
+    "language": "python"
+}

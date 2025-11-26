@@ -1,0 +1,7 @@
+{
+    "code": "def verify_github_pages_structure():\n    \"\"\"Verify that all necessary files exist for GitHub Pages deployment.\"\"\"\n\n    required_files = [\n        'docs/index.html',\n        'docs/css/styles.css',\n        'docs/js/app.js',\n        'docs/js/search.js',\n        'docs/api/search-index.json',\n        'docs/api/stats.json',\n        'docs/api/categories.json',\n        'docs/api/integrations.json'\n    ]\n\n    missing_files = []\n    for file_path in required_files:\n        if not Path(file_path).exists():\n            missing_files.append(file_path)\n            print(f\"❌ Missing: {file_path}\")\n        else:\n            print(f\"✅ Found: {file_path}\")\n\n    if missing_files:\n        print(f\"\\n⚠️  Warning: {len(missing_files)} required files are missing\")\n        print(\"Run the following commands to generate them:\")\n        print(\"  python workflow_db.py --index --force\")\n        print(\"  python create_categories.py\")\n        print(\"  python scripts/generate_search_index.py\")\n        return False\n\n    print(\"\\n✅ All required files present for GitHub Pages deployment\")\n    return True",
+    "source": "github_repo:Zie619/n8n-workflows",
+    "file": "scripts/update_github_pages.py",
+    "license": "MIT",
+    "language": "python"
+}

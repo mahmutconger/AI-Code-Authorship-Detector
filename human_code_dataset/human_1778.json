@@ -1,0 +1,7 @@
+{
+    "code": "def calc_tokens(self, messages, completion_content):\n        completion_tokens = len(completion_content)\n        prompt_tokens = 0\n        for message in messages:\n            prompt_tokens += len(message[\"content\"])\n        return completion_tokens, prompt_tokens + completion_tokens",
+    "source": "github_repo:zhayujie/chatgpt-on-wechat",
+    "file": "bot/ali/ali_qwen_bot.py",
+    "license": "MIT",
+    "language": "python"
+}

@@ -1,0 +1,7 @@
+{
+    "code": "class SchemaGenerator(GenerateJsonSchema):\n    def handle_invalid_for_json_schema(self, schema, error_info):\n        raise PydanticOmit",
+    "source": "github_repo:crewAIInc/crewAI",
+    "file": "lib/crewai-tools/generate_tool_specs.py",
+    "license": "MIT",
+    "language": "python"
+}

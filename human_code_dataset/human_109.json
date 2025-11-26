@@ -1,0 +1,7 @@
+{
+    "code": "def matches_pattern(file_path: str, pattern: str) -> bool:\n    \"\"\"Check if a file matches a glob pattern using pathlib semantics.\n\n    Supports ** and a simple one-level {a,b} brace expansion.\n    \"\"\"\n    import re\n    from pathlib import PurePosixPath\n\n    # Normalize\n    file_path = file_path.lstrip(\"./\").replace(\"\\\\\", \"/\")\n    pattern = pattern.lstrip(\"./\")\n\n    # Simple one-level brace expansion: foo.{ts,tsx} -> [foo.ts, foo.tsx]\n    patterns = [pattern]\n    m = re.search(r\"\\{([^{}]+)\\}\", pattern)\n    if m:\n        opts = [opt.strip() for opt in m.group(1).split(\",\")]\n        pre, post = pattern[: m.start()], pattern[m.end() :]\n        patterns = [f\"{pre}{opt}{post}\" for opt in opts]\n\n    # PurePosixPath.match() only does relative matching from the right\n    # For patterns with **, we need full path matching\n    for pat in patterns:\n        if \"**\" in pat:\n            # Use fnmatch-style matching for ** patterns\n            # Convert ** to match any depth\n            import fnmatch\n\n            regex_pattern = pat.replace(\"**\", \"*\")\n            if fnmatch.fnmatch(file_path, regex_pattern):\n                return True\n        else:\n            # Use pathlib matching for non-** patterns\n            p = PurePosixPath(file_path)\n            if p.match(pat):\n                return True\n\n    return False",
+    "source": "github_repo:langflow-ai/langflow",
+    "file": "scripts/check_changes_filter.py",
+    "license": "MIT",
+    "language": "python"
+}

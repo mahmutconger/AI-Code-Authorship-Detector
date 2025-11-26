@@ -1,0 +1,7 @@
+{
+    "code": "def handle_include_read(\n    app: Sphinx,\n    relative_path: Path,\n    parent_docname: str,\n    content: list[str],\n) -> None:\n    \"\"\"Handler for the include-read sphinx event.\"\"\"\n    if parent_docname == \"change_log\":\n        content[0] = replace_pr_numbers_with_links(content[0])",
+    "source": "github_repo:psf/black",
+    "file": "docs/conf.py",
+    "license": "MIT",
+    "language": "python"
+}

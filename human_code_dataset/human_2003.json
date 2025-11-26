@@ -1,0 +1,7 @@
+{
+    "code": "class NamedFullScreenQuad(Scene):\n    def construct(self):\n        surface = FullScreenQuad(self.renderer.context, fragment_shader_name=\"design_3\")\n        surface.shader.set_uniform(\n            \"u_resolution\",\n            (config[\"pixel_width\"], config[\"pixel_height\"], 0.0),\n        )\n        surface.shader.set_uniform(\"u_time\", 0)\n        self.add(surface)\n\n        t = 0\n\n        def update_surface(surface, dt):\n            nonlocal t\n            t += dt\n            surface.shader.set_uniform(\"u_time\", t / 4)\n\n        surface.add_updater(update_surface)\n\n        # self.wait()\n        self.interactive_embed()",
+    "source": "github_repo:ManimCommunity/manim",
+    "file": "example_scenes/opengl.py",
+    "license": "MIT",
+    "language": "python"
+}

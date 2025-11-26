@@ -1,0 +1,7 @@
+{
+    "code": "def parse_arguments() -> argparse.Namespace:\n    parser = argparse.ArgumentParser(\n        description=\"Vehicle Speed Estimation using YOLO-NAS and Supervision\"\n    )\n    parser.add_argument(\n        \"--source_video_path\",\n        required=True,\n        help=\"Path to the source video file\",\n        type=str,\n    )\n    parser.add_argument(\n        \"--target_video_path\",\n        required=True,\n        help=\"Path to the target video file (output)\",\n        type=str,\n    )\n    parser.add_argument(\n        \"--confidence_threshold\",\n        default=0.3,\n        help=\"Confidence threshold for the model\",\n        type=float,\n    )\n    parser.add_argument(\n        \"--iou_threshold\", default=0.7, help=\"IOU threshold for the model\", type=float\n    )\n\n    return parser.parse_args()",
+    "source": "github_repo:roboflow/supervision",
+    "file": "examples/speed_estimation/yolo_nas_example.py",
+    "license": "MIT",
+    "language": "python"
+}

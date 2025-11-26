@@ -1,0 +1,7 @@
+{
+    "code": "from importlib import metadata\n\ntry:\n    __version__ = metadata.version(__package__)\nexcept metadata.PackageNotFoundError:\n    # Case where package metadata is not available.\n    __version__ = \"\"\ndel metadata  # optional, avoids polluting the results of dir(__package__)\n\n__all__ = [\"__version__\"]",
+    "source": "github_repo:langchain-ai/langchain",
+    "file": "libs/cli/langchain_cli/_version.py",
+    "license": "MIT",
+    "language": "python"
+}

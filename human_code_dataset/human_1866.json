@@ -1,0 +1,7 @@
+{
+    "code": "#!/usr/bin/env python3\n\n# takes arguments from launch.json\n# is used by no_dbg in tasks.json\n# launches 10x faster than mspython debugpy\n# and is stoppable with ^C\n\nimport re\nimport os\nimport sys\n\nprint(sys.executable)\n\nimport json5\nimport shlex\nimport subprocess as sp\n\n\nwith open(\".vscode/launch.json\", \"r\", encoding=\"utf-8\") as f:\n    tj = f.read()\n\noj = json5.loads(tj)\nargv = oj[\"configurations\"][0][\"args\"]\n\ntry:\n    sargv = \" \".join([shlex.quote(x) for x in argv])\n    print(sys.executable + \" -m copyparty \" + sargv + \"\\n\")\nexcept:\n    pass\n\nargv = [os.path.expanduser(x) if x.startswith(\"~\") else x for x in argv]\n\nsfx = \"\"\nif len(sys.argv) > 1 and os.path.isfile(sys.argv[1]):\n    sfx = sys.argv[1]\n    sys.argv = [sys.argv[0]] + sys.argv[2:]\n\nargv += sys.argv[1:]\n\nif sfx:\n    argv = [sys.executable, sfx] + argv\n    sp.check_call(argv)\nelif re.search(\" -j ?[0-9]\", \" \".join(argv)):\n    argv = [sys.executable, \"-Wa\", \"-m\", \"copyparty\"] + argv\n    sp.check_call(argv)\nelse:\n    sys.path.insert(0, os.getcwd())\n    from copyparty.__main__ import main as copyparty\n\n    try:\n        copyparty([\"a\"] + argv)\n    except SystemExit as ex:\n        if ex.code:\n            raise\n\nprint(\"\\n\\033[32mokke\\033[0m\")\nsys.exit(1)",
+    "source": "github_repo:9001/copyparty",
+    "file": ".vscode/launch.py",
+    "license": "MIT",
+    "language": "python"
+}

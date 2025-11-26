@@ -1,0 +1,7 @@
+{
+    "code": "def annotate(\n    frame: np.ndarray,\n    zones: list[sv.PolygonZone],\n    zone_annotators: list[sv.PolygonZoneAnnotator],\n    box_annotators: list[sv.BoxAnnotator],\n    detections: sv.Detections,\n) -> np.ndarray:\n    \"\"\"\n    Annotate a frame with zone and box annotations based on given detections.\n\n    Args:\n        frame (np.ndarray): The original frame to be annotated.\n        zones (List[sv.PolygonZone]): A list of polygon zones used for detection.\n        zone_annotators (List[sv.PolygonZoneAnnotator]): A list of annotators for\n            drawing zone annotations.\n        box_annotators (List[sv.BoxAnnotator]): A list of annotators for\n            drawing box annotations.\n        detections (sv.Detections): Detections to be used for annotation.\n\n    Returns:\n        np.ndarray: The annotated frame.\n    \"\"\"\n    annotated_frame = frame.copy()\n    for zone, zone_annotator, box_annotator in zip(\n        zones, zone_annotators, box_annotators\n    ):\n        detections_in_zone = detections[zone.trigger(detections=detections)]\n        annotated_frame = zone_annotator.annotate(scene=annotated_frame)\n        annotated_frame = box_annotator.annotate(\n            scene=annotated_frame, detections=detections_in_zone\n        )\n    return annotated_frame",
+    "source": "github_repo:roboflow/supervision",
+    "file": "examples/count_people_in_zone/ultralytics_example.py",
+    "license": "MIT",
+    "language": "python"
+}

@@ -1,0 +1,7 @@
+{
+    "code": "def test_from_force_command_argument(self):\n        known_args = Mock(force_command='git brunch')\n        assert _get_raw_command(known_args) == ['git brunch']",
+    "source": "github_repo:nvbn/thefuck",
+    "file": "tests/entrypoints/test_fix_command.py",
+    "license": "MIT",
+    "language": "python"
+}

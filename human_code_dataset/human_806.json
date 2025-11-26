@@ -1,0 +1,7 @@
+{
+    "code": "def assert_carstate(cs1, cs2):\n  for f in car.CarState.schema.non_union_fields:\n    # TODO: check all types\n    val1, val2 = getattr(cs1, f), getattr(cs2, f)\n    if isinstance(val1, numbers.Number):\n      assert val1 == val2, f\"{f}: sent '{val1}' vs recvd '{val2}'\"",
+    "source": "github_repo:commaai/openpilot",
+    "file": "cereal/messaging/tests/test_messaging.py",
+    "license": "MIT",
+    "language": "python"
+}

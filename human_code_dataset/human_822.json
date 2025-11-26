@@ -1,0 +1,7 @@
+{
+    "code": "def test_update(self):\n    sock = \"carState\"\n    pub_sock = messaging.pub_sock(sock)\n    sm = messaging.SubMaster([sock,])\n    zmq_sleep()\n\n    for i in range(10):\n      msg = messaging.new_message(sock)\n      pub_sock.send(msg.to_bytes())\n      sm.update(1000)\n      assert sm.frame == i\n      assert all(sm.updated.values())",
+    "source": "github_repo:commaai/openpilot",
+    "file": "cereal/messaging/tests/test_pub_sub_master.py",
+    "license": "MIT",
+    "language": "python"
+}

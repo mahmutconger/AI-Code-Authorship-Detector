@@ -1,0 +1,7 @@
+{
+    "code": "def insert_at_beginning(self, new_data):\n        new_node = Node(new_data)\n        if self.head is None:\n            self.head = new_node\n            return\n        new_node.next = self.head\n        self.head = new_node",
+    "source": "github_repo:geekcomputers/Python",
+    "file": "Add_two_Linked_List.py",
+    "license": "MIT",
+    "language": "python"
+}

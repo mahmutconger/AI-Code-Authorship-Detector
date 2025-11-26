@@ -1,0 +1,7 @@
+{
+    "code": "def main(cli, vn, rem):\n    \"\"\"\n    this is the function that gets called by copyparty;\n    note that vn.vpath and cli.vpath does not have a leading '/'\n    so we're adding the slash in the debug messages below\n    \"\"\"\n    print(f\"this client just hit a 404: {cli.ip}\")\n    print(f\"they were accessing this volume: /{vn.vpath}\")\n    print(f\"and the original request-path (straight from the URL) was /{cli.vpath}\")\n    print(f\"...which resolves to the following filesystem path: {vn.canonical(rem)}\")\n\n    new_path = \"/foo/bar/\"\n    print(f\"will now redirect the client to {new_path}\")\n\n    # uncomment one of these:\n    send_http_302_temporary_redirect(cli, new_path)\n    # send_http_301_permanent_redirect(cli, new_path)\n    # send_errorpage_with_redirect_link(cli, new_path)\n\n    return \"true\"",
+    "source": "github_repo:9001/copyparty",
+    "file": "bin/handlers/redirect.py",
+    "license": "MIT",
+    "language": "python"
+}

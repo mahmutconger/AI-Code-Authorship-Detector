@@ -1,0 +1,7 @@
+{
+    "code": "from __future__ import annotations\n\nimport sys\n\n\nif __name__ == \"__main__\":\n    from poetry.console.application import main\n\n    sys.exit(main())",
+    "source": "github_repo:python-poetry/poetry",
+    "file": "src/poetry/__main__.py",
+    "license": "MIT",
+    "language": "python"
+}

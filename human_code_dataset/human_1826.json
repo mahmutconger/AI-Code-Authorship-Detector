@@ -1,0 +1,7 @@
+{
+    "code": "def find_last_step(checkpoint_dir):\n    # Look into checkpoint_dir and find model_<step>.pt with the highest step\n    checkpoint_files = glob.glob(os.path.join(checkpoint_dir, \"model_*.pt\"))\n    if not checkpoint_files:\n        raise FileNotFoundError(f\"No checkpoints found in {checkpoint_dir}\")\n    last_step = int(max(os.path.basename(f).split(\"_\")[-1].split(\".\")[0] for f in checkpoint_files))\n    return last_step",
+    "source": "github_repo:karpathy/nanochat",
+    "file": "nanochat/checkpoint_manager.py",
+    "license": "MIT",
+    "language": "python"
+}

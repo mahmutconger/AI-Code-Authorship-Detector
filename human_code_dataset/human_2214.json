@@ -1,0 +1,7 @@
+{
+    "code": "def auth(self):\n        \"\"\"\n        :return:\n        \"\"\"\n        self.session.httpClint.send(self.session.urls[\"loginInitCdn1\"])\n        uamtkStaticUrl = self.session.urls[\"uamtk-static\"]\n        uamtkStaticData = {\"appid\": \"otn\"}\n        return self.session.httpClint.send(uamtkStaticUrl, uamtkStaticData)",
+    "source": "github_repo:testerSunshine/12306",
+    "file": "init/login.py",
+    "license": "MIT",
+    "language": "python"
+}

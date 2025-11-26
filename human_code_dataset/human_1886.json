@@ -1,0 +1,7 @@
+{
+    "code": "def main():\n    fp = sys.argv[1]\n    ext = fp.lower().split(\".\")[-1]\n    if ext not in EXTS:\n        return\n\n    cwd, fn = os.path.split(fp)\n    os.chdir(cwd)\n    f1 = fsenc(fn)\n    cmd = [\n        b\"exiftool\",\n        b\"-exif:all=\",\n        b\"-iptc:all=\",\n        b\"-xmp:all=\",\n        b\"-P\",\n        b\"-overwrite_original\",\n        b\"--\",\n        f1,\n    ]\n    sp.check_output(cmd)\n    print(\"image-noexif: stripped\")",
+    "source": "github_repo:9001/copyparty",
+    "file": "bin/hooks/image-noexif.py",
+    "license": "MIT",
+    "language": "python"
+}

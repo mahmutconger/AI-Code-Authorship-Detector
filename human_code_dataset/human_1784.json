@@ -1,0 +1,7 @@
+{
+    "code": "def reply(self, query, context=None):\n        token = self.get_token()\n        url = \"https://aip.baidubce.com/rpc/2.0/unit/service/v3/chat?access_token=\" + token\n        post_data = (\n            '{\"version\":\"3.0\",\"service_id\":\"S73177\",\"session_id\":\"\",\"log_id\":\"7758521\",\"skill_ids\":[\"1221886\"],\"request\":{\"terminal_id\":\"88888\",\"query\":\"'\n            + query\n            + '\", \"hyper_params\": {\"chat_custom_bot_profile\": 1}}}'\n        )\n        print(post_data)\n        headers = {\"content-type\": \"application/x-www-form-urlencoded\"}\n        response = requests.post(url, data=post_data.encode(), headers=headers)\n        if response:\n            reply = Reply(\n                ReplyType.TEXT,\n                response.json()[\"result\"][\"context\"][\"SYS_PRESUMED_HIST\"][1],\n            )\n            return reply",
+    "source": "github_repo:zhayujie/chatgpt-on-wechat",
+    "file": "bot/baidu/baidu_unit_bot.py",
+    "license": "MIT",
+    "language": "python"
+}

@@ -1,0 +1,7 @@
+{
+    "code": "def __init__(\n        self, parser: pdf_parser_v2, document_hash: str, page_no: int, page_obj: PdfPage\n    ):\n        self._ppage = page_obj\n        parsed_page = parser.parse_pdf_from_key_on_page(document_hash, page_no)\n\n        self.valid = \"pages\" in parsed_page and len(parsed_page[\"pages\"]) == 1\n        if self.valid:\n            self._dpage = parsed_page[\"pages\"][0]\n        else:\n            _log.info(\n                f\"An error occurred when loading page {page_no} of document {document_hash}.\"\n            )",
+    "source": "github_repo:docling-project/docling",
+    "file": "docling/backend/docling_parse_v2_backend.py",
+    "license": "MIT",
+    "language": "python"
+}

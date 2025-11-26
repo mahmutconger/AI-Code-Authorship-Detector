@@ -1,0 +1,7 @@
+{
+    "code": "def run_parent() -> None:\n    \"\"\"\n    Running in the parent process.\n    \"\"\"\n    print(\"启动CTA策略守护父进程\")\n\n    child_process = None\n\n    while True:\n        trading = check_trading_period()\n\n        # Start child process in trading period\n        if trading and child_process is None:\n            print(\"启动子进程\")\n            child_process = multiprocessing.Process(target=run_child)\n            child_process.start()\n            print(\"子进程启动成功\")\n\n        # 非记录时间则退出子进程\n        if not trading and child_process is not None:\n            if not child_process.is_alive():\n                child_process = None\n                print(\"子进程关闭成功\")\n\n        sleep(5)",
+    "source": "github_repo:vnpy/vnpy",
+    "file": "examples/no_ui/run.py",
+    "license": "MIT",
+    "language": "python"
+}

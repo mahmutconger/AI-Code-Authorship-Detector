@@ -1,0 +1,7 @@
+{
+    "code": "def recv_sock(sock: SubSocket, wait: bool = False) -> Optional[capnp.lib.capnp._DynamicStructReader]:\n  \"\"\"Same as drain sock, but only returns latest message. Consider using conflate instead.\"\"\"\n  dat = None\n\n  while 1:\n    if wait and dat is None:\n      recv = sock.receive()\n    else:\n      recv = sock.receive(non_blocking=True)\n\n    if recv is None:  # Timeout hit\n      break\n\n    dat = recv\n\n  if dat is not None:\n    dat = log_from_bytes(dat)\n\n  return dat",
+    "source": "github_repo:commaai/openpilot",
+    "file": "cereal/messaging/__init__.py",
+    "license": "MIT",
+    "language": "python"
+}

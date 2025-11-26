@@ -1,0 +1,7 @@
+{
+    "code": "def send_learning(learning: Learning):\n    \"\"\"\n    Send the learning data to RudderStack for analysis.\n\n    Parameters\n    ----------\n    learning : Learning\n        An instance of the Learning class containing the data to be sent.\n\n    Notes\n    -----\n    This function is only called if consent is given to share data.\n    Data is not shared to a third party. It is used with the sole purpose of\n    improving gpt-engineer, and letting it handle more use cases.\n    Consent logic is in gpt_engineer/learning.py.\n    \"\"\"\n    import rudderstack.analytics as rudder_analytics\n\n    rudder_analytics.write_key = \"2Re4kqwL61GDp7S8ewe6K5dbogG\"\n    rudder_analytics.dataPlaneUrl = \"https://gptengineerezm.dataplane.rudderstack.com\"\n\n    rudder_analytics.track(\n        user_id=learning.session,\n        event=\"learning\",\n        properties=learning.to_dict(),  # type: ignore\n    )",
+    "source": "github_repo:AntonOsika/gpt-engineer",
+    "file": "gpt_engineer/applications/cli/collect.py",
+    "license": "MIT",
+    "language": "python"
+}

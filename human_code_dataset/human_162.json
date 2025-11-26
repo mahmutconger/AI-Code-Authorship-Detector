@@ -1,0 +1,7 @@
+{
+    "code": "def check_python_version(version_string, constraint_string):\n    \"\"\"Check if the given Python version matches the given constraints.\n\n    Args:\n        version_string: A string representing the Python version (e.g. \"3.8.5\").\n        constraint_string: A string representing the package's Python version\n            constraints (e.g. \">=3.6, <4.0\").\n\n    Returns:\n        True if the version matches the constraints\n    \"\"\"\n\n    # Rewrite occurrences of ^0.0.z to 0.0.z (can be anywhere in constraint string)\n    constraint_string = re.sub(r\"\\^0\\.0\\.(\\d+)\", r\"0.0.\\1\", constraint_string)\n    # Rewrite occurrences of ^0.y.z to >=0.y.z,<0.y+1.0 (can be anywhere in constraint string)\n    for y in range(1, 10):\n        constraint_string = re.sub(\n            rf\"\\^0\\.{y}\\.(\\d+)\", rf\">=0.{y}.\\1,<0.{y + 1}.0\", constraint_string\n        )\n    # Rewrite occurrences of ^x.y.z to >=x.y.z,<x+1.0.0 (can be anywhere in constraint string)\n    for x in range(1, 10):\n        constraint_string = re.sub(\n            rf\"\\^{x}\\.0\\.(\\d+)\", rf\">={x}.0.\\1,<{x + 1}.0.0\", constraint_string\n        )\n\n    try:\n        version = Version(version_string)\n        constraints = SpecifierSet(constraint_string)\n        return version in constraints\n    except Exception as e:\n        print(f\"Error: {e}\")\n        return False",
+    "source": "github_repo:langchain-ai/langchain",
+    "file": ".github/scripts/get_min_versions.py",
+    "license": "MIT",
+    "language": "python"
+}

@@ -1,0 +1,7 @@
+{
+    "code": "def forward(self, x, x_lens, y, y_lens, bert_feature):\n        \"\"\"\n        x: phoneme_ids\n        y: semantic_ids\n        \"\"\"\n\n        reject_y, reject_y_lens = make_reject_y(y, y_lens)\n\n        xy_pos, xy_attn_mask, targets = self.make_input_data(x, x_lens, y, y_lens, bert_feature)\n\n        xy_dec, _ = self.h(\n            (xy_pos, None),\n            mask=xy_attn_mask,\n        )\n        x_len = x_lens.max()\n        logits = self.ar_predict_layer(xy_dec[:, x_len-1:])\n\n        ###### DPO #############\n        reject_xy_pos, reject_xy_attn_mask, reject_targets = self.make_input_data(\n            x, x_lens, reject_y, reject_y_lens, bert_feature\n        )\n\n        reject_xy_dec, _ = self.h(\n            (reject_xy_pos, None),\n            mask=reject_xy_attn_mask,\n        )\n        x_len = x_lens.max()\n        reject_logits = self.ar_predict_layer(reject_xy_dec[:, x_len-1:])\n\n        # loss\n        # from feiteng: 每次 duration 越多, 梯度更新也应该更多, 所以用 sum\n\n        loss_1 = F.cross_entropy(logits.permute(0, 2, 1), targets, reduction=\"sum\")\n        acc = self.ar_accuracy_metric(logits.permute(0, 2, 1).detach(), targets).item()\n\n        A_logits, R_logits = get_batch_logps(logits, reject_logits, targets, reject_targets)\n        loss_2, _, _ = dpo_loss(A_logits, R_logits, 0, 0, 0.2, reference_free=True)\n\n        loss = loss_1 + loss_2\n\n        return loss, acc",
+    "source": "github_repo:RVC-Boss/GPT-SoVITS",
+    "file": "GPT_SoVITS/AR/models/t2s_model.py",
+    "license": "MIT",
+    "language": "python"
+}

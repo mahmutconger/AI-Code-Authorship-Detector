@@ -1,0 +1,7 @@
+{
+    "code": "def set_var_for_macos_issue() -> None:\n    # OBJC_DISABLE_INITIALIZE_FORK_SAFETY=YES\n    # we need to set this var is we are running on MacOS\n    # otherwise we get an error when running gunicorn\n\n    if platform.system() == \"Darwin\":\n        import os\n\n        os.environ[\"OBJC_DISABLE_INITIALIZE_FORK_SAFETY\"] = \"YES\"\n        # https://stackoverflow.com/questions/75747888/uwsgi-segmentation-fault-with-flask-python-app-behind-nginx-after-running-for-2 # noqa: E501\n        os.environ[\"no_proxy\"] = \"*\"  # to avoid error with gunicorn\n        logger.debug(\"Set OBJC_DISABLE_INITIALIZE_FORK_SAFETY to YES to avoid error\")",
+    "source": "github_repo:langflow-ai/langflow",
+    "file": "src/backend/base/langflow/__main__.py",
+    "license": "MIT",
+    "language": "python"
+}

@@ -1,0 +1,7 @@
+{
+    "code": "def request(flow):\n    # Avoid an infinite loop by not replaying already replayed requests\n    if flow.is_replay == \"request\":\n        return\n    flow = flow.copy()\n    # Only interactive tools have a view. If we have one, add a duplicate entry\n    # for our flow.\n    if \"view\" in ctx.master.addons:\n        ctx.master.commands.call(\"view.flows.duplicate\", [flow])\n    flow.request.path = \"/changed\"\n    ctx.master.commands.call(\"replay.client\", [flow])",
+    "source": "github_repo:mitmproxy/mitmproxy",
+    "file": "examples/addons/duplicate-modify-replay.py",
+    "license": "MIT",
+    "language": "python"
+}

@@ -1,0 +1,7 @@
+{
+    "code": "def write_to_file(file_name):\n    if os.path.exists(file_name):\n        print(f\"Error: {file_name} already exists.\")\n        return\n\n    with open(file_name, \"a\") as F:\n        while True:\n            text = input(\"enter any text to add in the file:- \")\n            F.write(f\"{text}\\n\")\n            choice = input(\"Do you want to enter more, y/n\").lower()\n            if choice == \"n\":\n                break",
+    "source": "github_repo:geekcomputers/Python",
+    "file": "1 File handle/File handle text/file handle 12 length of line in text file.py",
+    "license": "MIT",
+    "language": "python"
+}

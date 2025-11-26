@@ -1,0 +1,7 @@
+{
+    "code": "def sample(logits, temperature: float = 1.0):\n    \"\"\"\n    Samples a token from the logits using temperature scaling.\n\n    Args:\n        logits (torch.Tensor): The logits tensor for token predictions.\n        temperature (float, optional): Temperature for scaling logits. Defaults to 1.0.\n\n    Returns:\n        torch.Tensor: The sampled token.\n    \"\"\"\n    logits = logits / max(temperature, 1e-5)\n    probs = torch.softmax(logits, dim=-1)\n    return probs.div_(torch.empty_like(probs).exponential_(1)).argmax(dim=-1)",
+    "source": "github_repo:deepseek-ai/DeepSeek-V3",
+    "file": "inference/generate.py",
+    "license": "MIT",
+    "language": "python"
+}

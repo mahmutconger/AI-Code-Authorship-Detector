@@ -1,0 +1,7 @@
+{
+    "code": "def check_queue(self):\n        with self.lock:\n            if (\n                self.current_tasks < self.max_concurrent_tasks\n                and not self.is_queue_empty()\n            ):\n                task_info = self.dequeue()\n                func = task_info[\"func\"]\n                args = task_info.get(\"args\", ())\n                kwargs = task_info.get(\"kwargs\", {})\n                self.execute_task(func, *args, **kwargs)",
+    "source": "github_repo:harry0703/MoneyPrinterTurbo",
+    "file": "app/controllers/manager/base_manager.py",
+    "license": "MIT",
+    "language": "python"
+}

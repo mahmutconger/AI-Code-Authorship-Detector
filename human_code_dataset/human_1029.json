@@ -1,0 +1,7 @@
+{
+    "code": "class GoldenEye(HackingTool):\n    TITLE = \"GoldenEye\"\n    DESCRIPTION = (\n        \"GoldenEye is a python3 app for SECURITY TESTING PURPOSES ONLY!\\n\"\n        \"GoldenEye is a HTTP DoS Test Tool.\"\n    )\n    INSTALL_COMMANDS = [\n        \"sudo git clone https://github.com/jseidl/GoldenEye.git;\"\n        \"chmod -R 755 GoldenEye\"\n    ]\n    PROJECT_URL = \"https://github.com/jseidl/GoldenEye\"\n\n    def run(self):\n        console.print(Panel(Text(self.TITLE, justify=\"center\"), style=f\"bold {P_COLOR}\"))\n        os.system(\"cd GoldenEye ;sudo ./goldeneye.py\")\n        console.print(\"Go to Directory\\n[*] USAGE: ./goldeneye.py <url> [OPTIONS]\")",
+    "source": "github_repo:Z4nzu/hackingtool",
+    "file": "tools/ddos.py",
+    "license": "MIT",
+    "language": "python"
+}

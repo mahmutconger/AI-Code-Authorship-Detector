@@ -1,0 +1,7 @@
+{
+    "code": "def show_frequency_response(filter_type: FilterType, samplerate: int) -> None:\n    \"\"\"\n    Show frequency response of a filter\n\n    >>> from audio_filters.iir_filter import IIRFilter\n    >>> filt = IIRFilter(4)\n    >>> show_frequency_response(filt, 48000)\n    \"\"\"\n\n    size = 512\n    inputs = [1] + [0] * (size - 1)\n    outputs = [filter_type.process(item) for item in inputs]\n\n    filler = [0] * (samplerate - size)  # zero-padding\n    outputs += filler\n    fft_out = np.abs(np.fft.fft(outputs))\n    fft_db = 20 * np.log10(fft_out)\n\n    # Frequencies on log scale from 24 to nyquist frequency\n    plt.xlim(24, samplerate / 2 - 1)\n    plt.xlabel(\"Frequency (Hz)\")\n    plt.xscale(\"log\")\n\n    # Display within reasonable bounds\n    bounds = get_bounds(fft_db, samplerate)\n    plt.ylim(max([-80, bounds[0]]), min([80, bounds[1]]))\n    plt.ylabel(\"Gain (dB)\")\n\n    plt.plot(fft_db)\n    plt.show()",
+    "source": "github_repo:TheAlgorithms/Python",
+    "file": "audio_filters/show_response.py",
+    "license": "MIT",
+    "language": "python"
+}

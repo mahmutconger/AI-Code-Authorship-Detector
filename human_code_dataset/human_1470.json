@@ -1,0 +1,7 @@
+{
+    "code": "def connect(self, other: Union[\"Node\", \"Edge\", List[\"Node\"]]):\n        if isinstance(other, list):\n            for node in other:\n                self.node.connect(node, self)\n            return other\n        elif isinstance(other, Edge):\n            self._attrs = other._attrs.copy()\n            return self\n        else:\n            if self.node is not None:\n                return self.node.connect(other, self)\n            else:\n                self.node = other\n                return self",
+    "source": "github_repo:mingrammer/diagrams",
+    "file": "diagrams/__init__.py",
+    "license": "MIT",
+    "language": "python"
+}

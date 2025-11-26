@@ -1,0 +1,7 @@
+{
+    "code": "def open_with_default_editor(self, file_path: Union[str, Path]):\n        \"\"\"\n        Opens a file with the system's default text editor.\n\n        Parameters\n        ----------\n        file_path : Union[str, Path]\n            The path to the file to be opened in the text editor.\n        \"\"\"\n\n        editors = [\n            \"gedit\",\n            \"notepad\",\n            \"nvim\",\n            \"write\",\n            \"nano\",\n            \"vim\",\n            \"emacs\",\n        ]  # Putting the beginner-friendly text editor forward\n        chosen_editor = os.environ.get(\"EDITOR\")\n\n        # Try the preferred editor first, then fallback to common editors\n        if chosen_editor:\n            try:\n                subprocess.run([chosen_editor, file_path])\n                return\n            except Exception:\n                pass\n\n        for editor in editors:\n            try:\n                subprocess.run([editor, file_path])\n                return\n            except Exception:\n                continue\n        print(\"No suitable text editor found. Please edit the file manually.\")",
+    "source": "github_repo:AntonOsika/gpt-engineer",
+    "file": "gpt_engineer/applications/cli/file_selector.py",
+    "license": "MIT",
+    "language": "python"
+}

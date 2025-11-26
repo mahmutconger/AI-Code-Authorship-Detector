@@ -1,0 +1,7 @@
+{
+    "code": "class QueryStatus(Enum):\n    \"\"\"Query Status Enumeration.\n\n    Describes status of query about a given username.\n    \"\"\"\n    CLAIMED   = \"Claimed\"   # Username Detected\n    AVAILABLE = \"Available\" # Username Not Detected\n    UNKNOWN   = \"Unknown\"   # Error Occurred While Trying To Detect Username\n    ILLEGAL   = \"Illegal\"   # Username Not Allowable For This Site\n    WAF       = \"WAF\"       # Request blocked by WAF (i.e. Cloudflare)\n\n    def __str__(self):\n        \"\"\"Convert Object To String.\n\n        Keyword Arguments:\n        self                   -- This object.\n\n        Return Value:\n        Nicely formatted string to get information about this object.\n        \"\"\"\n        return self.value",
+    "source": "github_repo:sherlock-project/sherlock",
+    "file": "sherlock_project/result.py",
+    "license": "MIT",
+    "language": "python"
+}

@@ -1,0 +1,7 @@
+{
+    "code": "class Cheat(GitRepositoryAdapter):\n    \"\"\"\n    cheat/cheat adapter\n    \"\"\"\n\n    _adapter_name = \"cheat\"\n    _output_format = \"code\"\n    _cache_needed = True\n    _repository_url = \"https://github.com/cheat/cheatsheets\"\n    _cheatsheet_files_prefix = \"\"\n    _cheatsheet_file_mask = \"*\"",
+    "source": "github_repo:chubin/cheat.sh",
+    "file": "lib/adapter/cheat_cheat.py",
+    "license": "MIT",
+    "language": "python"
+}

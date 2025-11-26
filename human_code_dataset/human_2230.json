@@ -1,0 +1,7 @@
+{
+    "code": "def merge(self, config: dict[str, Any]) -> None:\n        from poetry.utils.helpers import merge_dicts\n\n        merge_dicts(self._config, config)",
+    "source": "github_repo:python-poetry/poetry",
+    "file": "src/poetry/config/config.py",
+    "license": "MIT",
+    "language": "python"
+}

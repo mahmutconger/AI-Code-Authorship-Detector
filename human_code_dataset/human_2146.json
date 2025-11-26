@@ -1,0 +1,7 @@
+{
+    "code": "def neighbors(self) -> List[\"PuzzleState\"]:\n        \"\"\"Generate all valid neighboring states by moving empty tile (0).\"\"\"\n        neighbors = []\n        x, y = next((i, j) for i in range(3) for j in range(3) if self.board[i][j] == 0)\n        for dx, dy in [(-1, 0), (1, 0), (0, -1), (0, 1)]:\n            nx, ny = x + dx, y + dy\n            if 0 <= nx < 3 and 0 <= ny < 3:\n                new_board = [row[:] for row in self.board]\n                new_board[x][y], new_board[nx][ny] = new_board[nx][ny], new_board[x][y]\n                neighbors.append(\n                    PuzzleState(new_board, self.goal, self.moves + 1, self)\n                )\n        return neighbors",
+    "source": "github_repo:geekcomputers/Python",
+    "file": "8_puzzle.py",
+    "license": "MIT",
+    "language": "python"
+}

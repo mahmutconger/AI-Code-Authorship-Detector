@@ -1,0 +1,7 @@
+{
+    "code": "def forward(self, v: torch.Tensor, labels: torch.Tensor):\n        \"\"\"\n        `v`, $\\mathbf{v}_j$ are the squashed output capsules.\n        This has shape `[batch_size, n_labels, n_features]`; that is, there is a capsule for each label.\n\n        `labels` are the labels, and has shape `[batch_size]`.\n        \"\"\"\n        # $$\\lVert \\mathbf{v}_j \\rVert$$\n        v_norm = torch.sqrt((v ** 2).sum(dim=-1))\n\n        # $$\\mathcal{L}$$\n        # `labels` is one-hot encoded labels of shape `[batch_size, n_labels]`\n        labels = torch.eye(self.n_labels, device=labels.device)[labels]\n\n        # $$\\mathcal{L}_k = T_k \\max(0, m^{+} - \\lVert\\mathbf{v}_k\\rVert)^2 +\n        # \\lambda (1 - T_k) \\max(0, \\lVert\\mathbf{v}_k\\rVert - m^{-})^2$$\n        # `loss` has shape `[batch_size, n_labels]`. We have parallelized the computation\n        # of $\\mathcal{L}_k$ for for all $k$.\n        loss = labels * F.relu(self.m_positive - v_norm) + \\\n               self.lambda_ * (1.0 - labels) * F.relu(v_norm - self.m_negative)\n\n        # $$\\sum_k \\mathcal{L}_k$$\n        return loss.sum(dim=-1).mean()",
+    "source": "github_repo:labmlai/annotated_deep_learning_paper_implementations",
+    "file": "labml_nn/capsule_networks/__init__.py",
+    "license": "MIT",
+    "language": "python"
+}

@@ -1,0 +1,7 @@
+{
+    "code": "def __init__(self, in_doc: \"InputDocument\", path_or_stream: Union[BytesIO, Path]):\n        super().__init__(in_doc, path_or_stream)\n\n        self.path_or_stream = path_or_stream\n\n        try:\n            if isinstance(self.path_or_stream, BytesIO):\n                text_stream = self.path_or_stream.getvalue().decode(\"utf-8\")\n                self.lines = text_stream.split(\"\\n\")\n            if isinstance(self.path_or_stream, Path):\n                with open(self.path_or_stream, encoding=\"utf-8\") as f:\n                    self.lines = f.readlines()\n            self.valid = True\n\n        except Exception as e:\n            raise RuntimeError(\n                f\"Could not initialize AsciiDoc backend for file with hash {self.document_hash}.\"\n            ) from e\n        return",
+    "source": "github_repo:docling-project/docling",
+    "file": "docling/backend/asciidoc_backend.py",
+    "license": "MIT",
+    "language": "python"
+}

@@ -1,0 +1,7 @@
+{
+    "code": "def setProxy(self):\n        \"\"\"\n        开启此功能的时候请确保代理ip是否可用\n        查询的时候设置代理ip,ip设置格式是ip地址+端口，推荐可用的ip代理池：https://github.com/jhao104/proxy_pool\n        :return:\n        \"\"\"\n        ip = self.get_filter_proxy()\n        setIp = ip[random.randint(0, len(ip) - 1)]\n        proxie = {\n            'http': 'http://{}'.format(setIp),\n            'https': 'http://{}'.format(setIp),\n        }\n        return proxie",
+    "source": "github_repo:testerSunshine/12306",
+    "file": "agency/agency_tools.py",
+    "license": "MIT",
+    "language": "python"
+}

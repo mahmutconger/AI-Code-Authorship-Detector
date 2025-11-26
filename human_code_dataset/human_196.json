@@ -1,0 +1,7 @@
+{
+    "code": "class TestChatParrotLinkIntegration(ChatModelIntegrationTests):\n    @property\n    def chat_model_class(self) -> Type[Chat__ModuleName__]:\n        return Chat__ModuleName__\n\n    @property\n    def chat_model_params(self) -> dict:\n        # These should be parameters used to initialize your integration for testing\n        return {\n            \"model\": \"bird-brain-001\",\n            \"temperature\": 0,\n            \"parrot_buffer_length\": 50,\n        }",
+    "source": "github_repo:langchain-ai/langchain",
+    "file": "libs/cli/langchain_cli/integration_template/tests/integration_tests/test_chat_models.py",
+    "license": "MIT",
+    "language": "python"
+}

@@ -1,0 +1,7 @@
+{
+    "code": "def autodetect_device_type():\n    # prefer to use CUDA if available, otherwise use MPS, otherwise fallback on CPU\n    if torch.cuda.is_available():\n        device_type = \"cuda\"\n    elif torch.backends.mps.is_available():\n        device_type = \"mps\"\n    else:\n        device_type = \"cpu\"\n    print0(f\"Autodetected device type: {device_type}\")\n    return device_type",
+    "source": "github_repo:karpathy/nanochat",
+    "file": "nanochat/common.py",
+    "license": "MIT",
+    "language": "python"
+}

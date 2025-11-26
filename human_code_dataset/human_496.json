@@ -1,0 +1,7 @@
+{
+    "code": "def create_starting_mobject(self) -> Mobject:\n        # Keep track of where the mobject starts\n        return self.mobject.copy()",
+    "source": "github_repo:3b1b/manim",
+    "file": "manimlib/animation/animation.py",
+    "license": "MIT",
+    "language": "python"
+}

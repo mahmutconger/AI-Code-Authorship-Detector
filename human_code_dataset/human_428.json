@@ -1,0 +1,7 @@
+{
+    "code": "def __init__(\n        self,\n        message: Optional[str] = None,\n        attempts: Optional[List[FailedConversionAttempt]] = None,\n    ):\n        self.attempts = attempts\n\n        if message is None:\n            if attempts is None:\n                message = \"File conversion failed.\"\n            else:\n                message = f\"File conversion failed after {len(attempts)} attempts:\\n\"\n                for attempt in attempts:\n                    if attempt.exc_info is None:\n                        message += f\" -  {type(attempt.converter).__name__} provided no execution info.\"\n                    else:\n                        message += f\" - {type(attempt.converter).__name__} threw {attempt.exc_info[0].__name__} with message: {attempt.exc_info[1]}\\n\"\n\n        super().__init__(message)",
+    "source": "github_repo:microsoft/markitdown",
+    "file": "packages/markitdown/src/markitdown/_exceptions.py",
+    "license": "MIT",
+    "language": "python"
+}

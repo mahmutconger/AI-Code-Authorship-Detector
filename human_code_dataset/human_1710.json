@@ -1,0 +1,7 @@
+{
+    "code": "def subscribeGroup(self, title, func, groupName):\n        self._groupDictMutex.lock()  # 上锁\n        if groupName not in self._groupDict:\n            self._groupDict[groupName] = [(title, func)]\n        else:\n            self._groupDict[groupName].append((title, func))\n        self._groupDictMutex.unlock()  # 解锁\n        self.subscribe(title, func)",
+    "source": "github_repo:hiroi-sora/Umi-OCR",
+    "file": "UmiOCR-data/py_src/event_bus/pubsub_service.py",
+    "license": "MIT",
+    "language": "python"
+}

@@ -1,0 +1,7 @@
+{
+    "code": "class UpdateAgentSessionEvent(BaseEvent):\n\t\"\"\"Event to update an existing agent session\"\"\"\n\n\t# Model fields\n\tid: str  # Session ID to update\n\tuser_id: str = Field(max_length=255)\n\tdevice_id: str | None = Field(None, max_length=255)\n\tbrowser_session_stopped: bool | None = None\n\tbrowser_session_stopped_at: datetime | None = None\n\tend_reason: str | None = Field(None, max_length=100)  # Why the session ended",
+    "source": "github_repo:browser-use/browser-use",
+    "file": "browser_use/agent/cloud_events.py",
+    "license": "MIT",
+    "language": "python"
+}

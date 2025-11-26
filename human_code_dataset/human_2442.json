@@ -1,0 +1,7 @@
+{
+    "code": "def _format_number(number: Union[int, float], ndigits: int = 2) -> str:\n    \"\"\"Formats a number (float or int) rounding to `ndigits`, without truncating trailing 0s,\n    as happens with `round(number, ndigits)`\"\"\"\n    if isinstance(number, float):\n        return f\"{number:.{ndigits}f}\"\n    else:\n        return str(number)",
+    "source": "github_repo:explosion/spaCy",
+    "file": "spacy/cli/_util.py",
+    "license": "MIT",
+    "language": "python"
+}

@@ -1,0 +1,7 @@
+{
+    "code": "def generate_uuid(self):\n        random_uuid = uuid.uuid4()\n        random_uuid_str = str(random_uuid)\n        formatted_uuid = f\"{random_uuid_str[0:8]}-{random_uuid_str[9:13]}-{random_uuid_str[14:18]}-{random_uuid_str[19:23]}-{random_uuid_str[24:]}\"\n        return formatted_uuid",
+    "source": "github_repo:zhayujie/chatgpt-on-wechat",
+    "file": "bot/claude/claude_ai_bot.py",
+    "license": "MIT",
+    "language": "python"
+}

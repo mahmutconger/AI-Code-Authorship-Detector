@@ -1,0 +1,7 @@
+{
+    "code": "class BaseResponse(BaseModel):\n    status: int = 200\n    message: Optional[str] = \"success\"\n    data: Any = None",
+    "source": "github_repo:harry0703/MoneyPrinterTurbo",
+    "file": "app/models/schema.py",
+    "license": "MIT",
+    "language": "python"
+}

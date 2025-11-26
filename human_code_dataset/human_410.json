@@ -1,0 +1,7 @@
+{
+    "code": "# SPDX-FileCopyrightText: 2024-present Adam Fourney <adamfo@microsoft.com>\n#\n# SPDX-License-Identifier: MIT\n\nfrom .__about__ import __version__\nfrom ._markitdown import (\n    MarkItDown,\n    PRIORITY_SPECIFIC_FILE_FORMAT,\n    PRIORITY_GENERIC_FILE_FORMAT,\n)\nfrom ._base_converter import DocumentConverterResult, DocumentConverter\nfrom ._stream_info import StreamInfo\nfrom ._exceptions import (\n    MarkItDownException,\n    MissingDependencyException,\n    FailedConversionAttempt,\n    FileConversionException,\n    UnsupportedFormatException,\n)\n\n__all__ = [\n    \"__version__\",\n    \"MarkItDown\",\n    \"DocumentConverter\",\n    \"DocumentConverterResult\",\n    \"MarkItDownException\",\n    \"MissingDependencyException\",\n    \"FailedConversionAttempt\",\n    \"FileConversionException\",\n    \"UnsupportedFormatException\",\n    \"StreamInfo\",\n    \"PRIORITY_SPECIFIC_FILE_FORMAT\",\n    \"PRIORITY_GENERIC_FILE_FORMAT\",\n]",
+    "source": "github_repo:microsoft/markitdown",
+    "file": "packages/markitdown/src/markitdown/__init__.py",
+    "license": "MIT",
+    "language": "python"
+}

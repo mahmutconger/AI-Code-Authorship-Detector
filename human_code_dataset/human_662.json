@@ -1,0 +1,7 @@
+{
+    "code": "def timeout_check(value):\n    \"\"\"Check Timeout Argument.\n\n    Checks timeout for validity.\n\n    Keyword Arguments:\n    value                  -- Time in seconds to wait before timing out request.\n\n    Return Value:\n    Floating point number representing the time (in seconds) that should be\n    used for the timeout.\n\n    NOTE:  Will raise an exception if the timeout in invalid.\n    \"\"\"\n\n    float_value = float(value)\n\n    if float_value <= 0:\n        raise ArgumentTypeError(\n            f\"Invalid timeout value: {value}. Timeout must be a positive number.\"\n        )\n\n    return float_value",
+    "source": "github_repo:sherlock-project/sherlock",
+    "file": "sherlock_project/sherlock.py",
+    "license": "MIT",
+    "language": "python"
+}

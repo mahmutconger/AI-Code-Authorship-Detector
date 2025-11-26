@@ -1,0 +1,7 @@
+{
+    "code": "def attrs(self) -> Dict:\n        if self.forward and self.reverse:\n            direction = \"both\"\n        elif self.forward:\n            direction = \"forward\"\n        elif self.reverse:\n            direction = \"back\"\n        else:\n            direction = \"none\"\n        return {**self._attrs, \"dir\": direction}",
+    "source": "github_repo:mingrammer/diagrams",
+    "file": "diagrams/__init__.py",
+    "license": "MIT",
+    "language": "python"
+}

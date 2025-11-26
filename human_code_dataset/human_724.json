@@ -1,0 +1,7 @@
+{
+    "code": "def forward(self, s: torch.Tensor):\n        \"\"\"\n        The shape of `s` is `[batch_size, n_capsules, n_features]`\n        \"\"\"\n\n        # ${\\lVert \\mathbf{s}_j \\rVert}^2$\n        s2 = (s ** 2).sum(dim=-1, keepdims=True)\n\n        # We add an epsilon when calculating $\\lVert \\mathbf{s}_j \\rVert$ to make sure it doesn't become zero.\n        # If this becomes zero it starts giving out `nan` values and training fails.\n        # $$\\mathbf{v}_j = \\frac{{\\lVert \\mathbf{s}_j \\rVert}^2}{1 + {\\lVert \\mathbf{s}_j \\rVert}^2}\n        # \\frac{\\mathbf{s}_j}{\\sqrt{{\\lVert \\mathbf{s}_j \\rVert}^2 + \\epsilon}}$$\n        return (s2 / (1 + s2)) * (s / torch.sqrt(s2 + self.epsilon))",
+    "source": "github_repo:labmlai/annotated_deep_learning_paper_implementations",
+    "file": "labml_nn/capsule_networks/__init__.py",
+    "license": "MIT",
+    "language": "python"
+}

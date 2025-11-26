@@ -1,0 +1,7 @@
+{
+    "code": "def test_find_link_in_text_with_invalid_argument(self):\n        with self.assertRaises(TypeError):\n            find_links_in_text()\n            find_links_in_text(1)\n            find_links_in_text(True)",
+    "source": "github_repo:public-apis/public-apis",
+    "file": "scripts/tests/test_validate_links.py",
+    "license": "MIT",
+    "language": "python"
+}

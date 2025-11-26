@@ -1,0 +1,7 @@
+{
+    "code": "def setup(self):\n        self.textbox = Textbox()\n        self.checkbox = Checkbox()\n        self.color_picker = ColorSliders()\n        self.panel = ControlPanel(\n            Text(\"Text\", font_size=24), self.textbox, Line(),\n            Text(\"Show/Hide Text\", font_size=24), self.checkbox, Line(),\n            Text(\"Color of Text\", font_size=24), self.color_picker\n        )\n        self.add(self.panel)",
+    "source": "github_repo:3b1b/manim",
+    "file": "example_scenes.py",
+    "license": "MIT",
+    "language": "python"
+}

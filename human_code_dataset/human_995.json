@@ -1,0 +1,7 @@
+{
+    "code": "def show_info(self):\n        console.rule(f\"[bold purple]{self.TITLE}[/bold purple]\", style=\"purple\")\n        console.print(f\"[italic cyan]{self.DESCRIPTION}[/italic cyan]\\n\")",
+    "source": "github_repo:Z4nzu/hackingtool",
+    "file": "core.py",
+    "license": "MIT",
+    "language": "python"
+}

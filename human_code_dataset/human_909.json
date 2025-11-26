@@ -1,0 +1,7 @@
+{
+    "code": "def __init__(\n        self, path: Union[str, Path], parent_path: \"DisplayablePath\", is_last: bool\n    ):\n        \"\"\"\n        Initializes a DisplayablePath object with a given path and parent.\n\n        Parameters\n        ----------\n        path : Union[str, Path]\n            The file system path to be displayed.\n        parent_path : DisplayablePath\n            The parent path in the tree structure.\n        is_last : bool\n            Indicates whether this is the last sibling in the tree structure.\n        \"\"\"\n        self.depth = 0\n        self.path = Path(str(path))\n        self.parent = parent_path\n        self.is_last = is_last\n        if self.parent:\n            self.depth = self.parent.depth + 1  # Increment depth if it has a parent",
+    "source": "github_repo:AntonOsika/gpt-engineer",
+    "file": "gpt_engineer/applications/cli/file_selector.py",
+    "license": "MIT",
+    "language": "python"
+}

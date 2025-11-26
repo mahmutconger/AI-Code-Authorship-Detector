@@ -1,0 +1,7 @@
+{
+    "code": "def generate_video_terms(request: Request, body: VideoTermsRequest):\n    video_terms = llm.generate_terms(\n        video_subject=body.video_subject,\n        video_script=body.video_script,\n        amount=body.amount,\n    )\n    response = {\"video_terms\": video_terms}\n    return utils.get_response(200, response)",
+    "source": "github_repo:harry0703/MoneyPrinterTurbo",
+    "file": "app/controllers/v1/llm.py",
+    "license": "MIT",
+    "language": "python"
+}

@@ -1,0 +1,7 @@
+{
+    "code": "def __init__(self, **data: Any):\n        super().__init__(**data)\n        self.set_actions([SpeakAloud])\n        self._watch([UserRequirement, SpeakAloud])",
+    "source": "github_repo:FoundationAgents/MetaGPT",
+    "file": "examples/debate.py",
+    "license": "MIT",
+    "language": "python"
+}

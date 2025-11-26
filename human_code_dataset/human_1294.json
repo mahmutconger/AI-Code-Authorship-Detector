@@ -1,0 +1,7 @@
+{
+    "code": "def _get_current_level(parents):\n        for k, v in parents.items():\n            if v is None and k > 0:\n                return k - 1\n\n        return 0",
+    "source": "github_repo:docling-project/docling",
+    "file": "docling/backend/asciidoc_backend.py",
+    "license": "MIT",
+    "language": "python"
+}

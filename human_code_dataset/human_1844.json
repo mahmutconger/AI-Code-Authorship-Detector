@@ -1,0 +1,7 @@
+{
+    "code": "def render_prompts_schema(item, continuation_delimiter, fewshot_examples=None):\n    \"\"\"Render complete prompts for a schema question\"\"\"\n    template_str = \"\"\"\n{%- for example in fewshot_examples -%}\n{{ example.context_options[example.gold] }}{{ continuation_delimiter }}{{ example.continuation }}\n\n{% endfor -%}\n{{ context }}{{ continuation_delimiter }}{{ item.continuation }}\"\"\".strip()\n    template = Template(template_str)\n    fewshot_examples = fewshot_examples or []\n    context = {\n        'fewshot_examples': fewshot_examples,\n        'continuation_delimiter': continuation_delimiter,\n        'item': item\n    }\n    prompts = [template.render(context=context_option, **context)\n               for context_option in item['context_options']]\n    return prompts",
+    "source": "github_repo:karpathy/nanochat",
+    "file": "nanochat/core_eval.py",
+    "license": "MIT",
+    "language": "python"
+}

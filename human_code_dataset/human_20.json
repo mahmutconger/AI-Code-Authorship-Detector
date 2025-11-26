@@ -1,0 +1,7 @@
+{
+    "code": "def test_check_entry_with_incorrect_segments(self):\n        incorrect_segments = ['[A API](https://www.ex.com)', 'desc.', 'yes', 'yes', 'yes']\n\n        err_msgs = check_entry(0, incorrect_segments)\n        expected_err_msgs = [\n            '(L001) Title should not end with \"... API\". Every entry is an API here!',\n            '(L001) first character of description is not capitalized',\n            '(L001) description should not end with .',\n            '(L001) auth value is not enclosed with `backticks`',\n            '(L001) yes is not a valid Auth option',\n            '(L001) yes is not a valid HTTPS option',\n            '(L001) yes is not a valid CORS option'\n        ]\n\n        self.assertIsInstance(err_msgs, list)\n        self.assertEqual(len(err_msgs), 7)\n        for err_msg in err_msgs:\n            with self.subTest():\n                self.assertIsInstance(err_msg, str)\n        self.assertEqual(err_msgs, expected_err_msgs)",
+    "source": "github_repo:public-apis/public-apis",
+    "file": "scripts/tests/test_validate_format.py",
+    "license": "MIT",
+    "language": "python"
+}

@@ -1,0 +1,7 @@
+{
+    "code": "def display_results(names, results_arr):\n    \"\"\"Display results from evaluate.\"\"\"\n\n    hit_rates = []\n    mrrs = []\n    for name, results in zip(names, results_arr):\n        results_df = pd.DataFrame(results)\n        hit_rate = results_df[\"is_hit\"].mean()\n        mrr = results_df[\"mrr\"].mean()\n        hit_rates.append(hit_rate)\n        mrrs.append(mrr)\n\n    final_df = pd.DataFrame(\n        {\"retrievers\": names, \"hit_rate\": hit_rates, \"mrr\": mrrs}\n    )\n    display(final_df)",
+    "source": "github_repo:run-llama/llama_index",
+    "file": "docs/examples/finetuning/embeddings/eval_utils.py",
+    "license": "MIT",
+    "language": "python"
+}

@@ -1,0 +1,7 @@
+{
+    "code": "def handler(signal_received, frame):\n    \"\"\"Exit gracefully without throwing errors\n\n    Source: https://www.devdungeon.com/content/python-catch-sigint-ctrl-c\n    \"\"\"\n    sys.exit(0)",
+    "source": "github_repo:sherlock-project/sherlock",
+    "file": "sherlock_project/sherlock.py",
+    "license": "MIT",
+    "language": "python"
+}

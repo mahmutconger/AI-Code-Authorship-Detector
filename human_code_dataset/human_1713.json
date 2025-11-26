@@ -1,0 +1,7 @@
+{
+    "code": "def publish(self, title, *args):\n        # 在主线程调用\n        if QThread.currentThread() == QCoreApplication.instance().thread():\n            self._publish(title, args)\n        # 在子线程调用\n        else:\n            self._eventSignal.signal.emit(title, args)",
+    "source": "github_repo:hiroi-sora/Umi-OCR",
+    "file": "UmiOCR-data/py_src/event_bus/pubsub_service.py",
+    "license": "MIT",
+    "language": "python"
+}

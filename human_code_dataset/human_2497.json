@@ -1,0 +1,7 @@
+{
+    "code": "def run_external_editor(self) -> None:\n        with self.suspend():  # (1)!\n            system(\"vim\")",
+    "source": "github_repo:Textualize/textual",
+    "file": "docs/examples/app/suspend.py",
+    "license": "MIT",
+    "language": "python"
+}

@@ -1,0 +1,7 @@
+{
+    "code": "def _write_docs_to_file(data: Any, output_file: Path, output_type: str) -> None:\n    if not output_file.parent.exists():\n        output_file.parent.mkdir(parents=True)\n    if output_type == \"json\":\n        srsly.write_json(output_file, data)\n    else:\n        with output_file.open(\"wb\") as file_:\n            file_.write(data)",
+    "source": "github_repo:explosion/spaCy",
+    "file": "spacy/cli/convert.py",
+    "license": "MIT",
+    "language": "python"
+}

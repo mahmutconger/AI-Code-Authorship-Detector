@@ -1,0 +1,7 @@
+{
+    "code": "def num_classes_per_cat_input(self):\n        \"\"\"Returns number of categories per relevant input.\n\n        This is seqeuently required for keras embedding layers.\n        \"\"\"\n        return self._num_classes_per_cat_input",
+    "source": "github_repo:microsoft/qlib",
+    "file": "examples/benchmarks/TFT/data_formatters/base.py",
+    "license": "MIT",
+    "language": "python"
+}

@@ -1,0 +1,7 @@
+{
+    "code": "def reply(self, query, context: Context = None) -> Reply:\n        if context.type == ContextType.TEXT:\n            return self._chat(query, context)\n        elif context.type == ContextType.IMAGE_CREATE:\n            ok, res = self.create_img(query, 0)\n            if ok:\n                reply = Reply(ReplyType.IMAGE_URL, res)\n            else:\n                reply = Reply(ReplyType.ERROR, res)\n            return reply\n        else:\n            reply = Reply(ReplyType.ERROR, \"Bot不支持处理{}类型的消息\".format(context.type))\n            return reply",
+    "source": "github_repo:zhayujie/chatgpt-on-wechat",
+    "file": "bot/claude/claude_ai_bot.py",
+    "license": "MIT",
+    "language": "python"
+}

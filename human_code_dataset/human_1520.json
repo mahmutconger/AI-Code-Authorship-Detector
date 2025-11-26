@@ -1,0 +1,7 @@
+{
+    "code": "def inc(self) -> None:\n        self.num += 1\n        logging.info(f\"num = {self.num}\")",
+    "source": "github_repo:mitmproxy/mitmproxy",
+    "file": "examples/addons/commands-simple.py",
+    "license": "MIT",
+    "language": "python"
+}

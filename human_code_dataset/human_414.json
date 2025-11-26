@@ -1,0 +1,7 @@
+{
+    "code": "class DocumentConverterResult:\n    \"\"\"The result of converting a document to Markdown.\"\"\"\n\n    def __init__(\n        self,\n        markdown: str,\n        *,\n        title: Optional[str] = None,\n    ):\n        \"\"\"\n        Initialize the DocumentConverterResult.\n\n        The only required parameter is the converted Markdown text.\n        The title, and any other metadata that may be added in the future, are optional.\n\n        Parameters:\n        - markdown: The converted Markdown text.\n        - title: Optional title of the document.\n        \"\"\"\n        self.markdown = markdown\n        self.title = title\n\n    @property\n    def text_content(self) -> str:\n        \"\"\"Soft-deprecated alias for `markdown`. New code should migrate to using `markdown` or __str__.\"\"\"\n        return self.markdown\n\n    @text_content.setter\n    def text_content(self, markdown: str):\n        \"\"\"Soft-deprecated alias for `markdown`. New code should migrate to using `markdown` or __str__.\"\"\"\n        self.markdown = markdown\n\n    def __str__(self) -> str:\n        \"\"\"Return the converted Markdown text.\"\"\"\n        return self.markdown",
+    "source": "github_repo:microsoft/markitdown",
+    "file": "packages/markitdown/src/markitdown/_base_converter.py",
+    "license": "MIT",
+    "language": "python"
+}

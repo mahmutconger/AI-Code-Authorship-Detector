@@ -1,0 +1,7 @@
+{
+    "code": "def __init__(self, text: str) -> None:\n        self.text = text\n\n        # Define the initial count of the lower and upper case.\n        self.count_lower = 0\n        self.count_upper = 0\n        self.count()",
+    "source": "github_repo:geekcomputers/Python",
+    "file": "1 File handle/File handle text/counter.py",
+    "license": "MIT",
+    "language": "python"
+}

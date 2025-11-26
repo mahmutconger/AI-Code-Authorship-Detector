@@ -1,0 +1,7 @@
+{
+    "code": "def validation_step(self, batch, batch_idx):\n        log_dict = self._validation_step(batch, batch_idx)\n        with self.ema_scope():\n            log_dict_ema = self._validation_step(batch, batch_idx, postfix=\"_ema\")\n        return log_dict",
+    "source": "github_repo:Stability-AI/stablediffusion",
+    "file": "ldm/models/autoencoder.py",
+    "license": "MIT",
+    "language": "python"
+}

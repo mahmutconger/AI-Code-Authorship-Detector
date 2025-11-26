@@ -1,0 +1,7 @@
+{
+    "code": "def add_feature(\n        self,\n        name: str,\n        expression: str | pl.expr.expr.Expr | None = None,\n        result: pl.DataFrame | None = None\n    ) -> None:\n        \"\"\"\n        Add a feature expression\n        \"\"\"\n        if expression is not None and result is not None:\n            raise ValueError(\"Only one of 'expression' or 'result' can be provided\")\n\n        if expression is not None:\n            self.feature_expressions[name] = expression\n        elif result is not None:\n            self.feature_results[name] = result",
+    "source": "github_repo:vnpy/vnpy",
+    "file": "vnpy/alpha/dataset/template.py",
+    "license": "MIT",
+    "language": "python"
+}

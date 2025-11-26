@@ -1,0 +1,7 @@
+{
+    "code": "def __init__(self, browser_session: 'BrowserSession', session_id: str | None = None, target_id: str | None = None):\n\t\tself._browser_session = browser_session\n\t\tself._client = browser_session.cdp_client\n\t\tself._session_id = session_id\n\t\tself._target_id = target_id",
+    "source": "github_repo:browser-use/browser-use",
+    "file": "browser_use/actor/mouse.py",
+    "license": "MIT",
+    "language": "python"
+}

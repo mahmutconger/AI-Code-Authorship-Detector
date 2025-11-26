@@ -1,0 +1,7 @@
+{
+    "code": "class DebugFileWriter:\n    def __init__(self):\n        if not IS_DEBUG_ENABLED:\n            return\n\n        try:\n            self.debug_artifacts_path = os.path.expanduser(\n                f\"{DEBUG_DIR}/{str(uuid.uuid4())}\"\n            )\n            os.makedirs(self.debug_artifacts_path, exist_ok=True)\n            print(f\"Debugging artifacts will be stored in: {self.debug_artifacts_path}\")\n        except:\n            logging.error(\"Failed to create debug directory\")\n\n    def write_to_file(self, filename: str, content: str) -> None:\n        try:\n            with open(os.path.join(self.debug_artifacts_path, filename), \"w\") as file:\n                file.write(content)\n        except Exception as e:\n            logging.error(f\"Failed to write to file: {e}\")\n\n    def extract_html_content(self, text: str) -> str:\n        return str(text.split(\"<html>\")[-1].rsplit(\"</html>\", 1)[0] + \"</html>\")",
+    "source": "github_repo:abi/screenshot-to-code",
+    "file": "backend/debug/DebugFileWriter.py",
+    "license": "MIT",
+    "language": "python"
+}

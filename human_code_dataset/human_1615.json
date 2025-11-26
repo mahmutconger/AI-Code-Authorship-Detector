@@ -1,0 +1,7 @@
+{
+    "code": "def tools(self) -> list[BaseTool]:\n        \"\"\"Get the list of tools created from enterprise actions.\"\"\"\n        if self._tools is None:\n            self._fetch_actions()\n            self._create_tools()\n        return self._tools or []",
+    "source": "github_repo:crewAIInc/crewAI",
+    "file": "lib/crewai-tools/src/crewai_tools/adapters/enterprise_adapter.py",
+    "license": "MIT",
+    "language": "python"
+}

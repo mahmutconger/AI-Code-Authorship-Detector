@@ -1,0 +1,7 @@
+{
+    "code": "# Python Program to find the area of triangle when all three side-lengths are known!\n\na = 5\nb = 6\nc = 7\n\n# Uncomment below to take inputs from the user\n# a = float(input('Enter first side: '))\n# b = float(input('Enter second side: '))\n# c = float(input('Enter third side: '))\n\n# calculate the semi-perimeter\ns = (a + b + c) / 2\n\n# calculate the area\narea = (s * (s - a) * (s - b) * (s - c)) ** 0.5\nprint(\"The area of the triangle is: \" + area)",
+    "source": "github_repo:geekcomputers/Python",
+    "file": "AreaOfTriangle.py",
+    "license": "MIT",
+    "language": "python"
+}

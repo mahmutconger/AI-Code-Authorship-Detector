@@ -1,0 +1,7 @@
+{
+    "code": "# -*- coding: utf-8 -*-\n\nimport ccxt.pro\nfrom asyncio import run\n\nasync def main():\n    exchange = ccxt.pro.coinbase()\n    method = 'watchTrades'\n    print('CCXT Pro version', ccxt.pro.__version__)\n    if exchange.has[method]:\n        last_id = ''\n        while True:\n            try:\n                trades = await exchange.watch_trades('BTC/USD')\n                for trade in trades:\n                    if trade['id'] > last_id:\n                        print(exchange.iso8601(exchange.milliseconds()), trade['symbol'], trade['datetime'], trade['price'], trade['amount'])\n                        last_id = trade['id']\n\n            except Exception as e:\n                # stop\n                await exchange.close()\n                raise e\n                # or retry\n                # pass\n    else:\n        raise Exception(exchange.id + ' ' + method + ' is not supported or not implemented yet')\n\n\nrun(main())",
+    "source": "github_repo:ccxt/ccxt",
+    "file": "examples/ccxt.pro/py/coinbase-watch-all-trades.py",
+    "license": "MIT",
+    "language": "python"
+}

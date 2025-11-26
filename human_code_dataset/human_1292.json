@@ -1,0 +1,7 @@
+{
+    "code": "def convert(self) -> DoclingDocument:\n        \"\"\"\n        Parses the ASCII into a structured document model.\n        \"\"\"\n\n        origin = DocumentOrigin(\n            filename=self.file.name or \"file\",\n            mimetype=\"text/asciidoc\",\n            binary_hash=self.document_hash,\n        )\n\n        doc = DoclingDocument(name=self.file.stem or \"file\", origin=origin)\n\n        doc = self._parse(doc)\n\n        return doc",
+    "source": "github_repo:docling-project/docling",
+    "file": "docling/backend/asciidoc_backend.py",
+    "license": "MIT",
+    "language": "python"
+}

@@ -1,0 +1,7 @@
+{
+    "code": "def prepare_install_dir():\n    if INSTALL_DIR.exists():\n        console.print(f\"[red]The directory {INSTALL_DIR} already exists.[/red]\")\n        if Confirm.ask(\"Replace it? This will remove the existing directory\", default=False):\n            run_cmd(f\"rm -rf {str(INSTALL_DIR)}\")\n        else:\n            console.print(\"[red]Installation aborted by user.[/red]\")\n            sys.exit(1)\n    INSTALL_DIR.mkdir(parents=True, exist_ok=True)",
+    "source": "github_repo:Z4nzu/hackingtool",
+    "file": "install.py",
+    "license": "MIT",
+    "language": "python"
+}

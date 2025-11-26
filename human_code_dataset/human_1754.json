@@ -1,0 +1,7 @@
+{
+    "code": "import ccxt.pro\nfrom asyncio import run\n\n\nprint('CCXT Pro version', ccxt.pro.__version__)\n\n\nasync def main():\n    exchange = ccxt.pro.bitvavo()\n    await exchange.load_markets()\n    exchange.verbose = True\n    symbol = 'BTC/EUR'\n    while True:\n        try:\n            orderbook = await exchange.watch_order_book(symbol)\n            print(orderbook['nonce'], symbol, orderbook['asks'][0], orderbook['bids'][0])\n        except Exception as e:\n            print(type(e).__name__, str(e))\n            break\n    await exchange.close()\n\n\nrun(main())",
+    "source": "github_repo:ccxt/ccxt",
+    "file": "examples/ccxt.pro/py/bitvavo-watch-order-book.py",
+    "license": "MIT",
+    "language": "python"
+}

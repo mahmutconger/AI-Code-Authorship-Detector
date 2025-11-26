@@ -1,0 +1,7 @@
+{
+    "code": "def comment_body(\n    baseline: Path, target: Path, baseline_sha: str, target_sha: str, pr_num: int\n) -> None:\n    # fmt: off\n    cmd = [\n        sys.executable, \"-m\", \"diff_shades\", \"--no-color\",\n        \"compare\", str(baseline), str(target), \"--quiet\", \"--check\"\n    ]\n    # fmt: on\n    proc = subprocess.run(cmd, stdout=subprocess.PIPE, encoding=\"utf-8\")\n    if not proc.returncode:\n        body = (\n            f\"**diff-shades** reports zero changes comparing this PR ({target_sha}) to\"\n            f\" main ({baseline_sha}).\\n\\n---\\n\\n\"\n        )\n    else:\n        body = (\n            f\"**diff-shades** results comparing this PR ({target_sha}) to main\"\n            f\" ({baseline_sha}). The full diff is [available in the logs]\"\n            f'($job-diff-url) under the \"{DIFF_STEP_NAME}\" step.'\n        )\n        body += \"\\n```text\\n\" + proc.stdout.strip() + \"\\n```\\n\"\n    body += (\n        f\"[**What is this?**]({DOCS_URL}) | [Workflow run]($workflow-run-url) |\"\n        \" [diff-shades documentation](https://github.com/ichard26/diff-shades#readme)\"\n    )\n    print(f\"[INFO]: writing comment details to {COMMENT_FILE}\")\n    with open(COMMENT_FILE, \"w\", encoding=\"utf-8\") as f:\n        json.dump({\"body\": body, \"pr-number\": pr_num}, f)",
+    "source": "github_repo:psf/black",
+    "file": "scripts/diff_shades_gha_helper.py",
+    "license": "MIT",
+    "language": "python"
+}

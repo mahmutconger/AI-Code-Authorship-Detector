@@ -1,0 +1,7 @@
+{
+    "code": "def main():\n    fun = download_with_python\n    if shutil.which(\"curl\"):\n        fun = download_with_curl\n    elif shutil.which(\"wget\"):\n        fun = download_with_wget\n\n    inf = json.loads(sys.argv[1])\n\n    if inf[\"sz\"] > 1024 * 1024 * MAX_MEGABYTES:\n        print(\"[into-the-cache] file is too large; will not download\")\n        return\n\n    file_url = \"/\"\n    if inf[\"vp\"]:\n        file_url += inf[\"vp\"] + \"/\"\n    file_url += inf[\"ap\"].replace(\"\\\\\", \"/\").split(\"/\")[-1]\n    file_url = SITE_URL.rstrip(\"/\") + quote(file_url, safe=b\"/\")\n\n    print(\"[into-the-cache] %s(%s)\" % (fun.__name__, file_url))\n    fun(file_url, PASSWORD.strip())\n\n    print(\"[into-the-cache] Download OK\")",
+    "source": "github_repo:9001/copyparty",
+    "file": "bin/hooks/into-the-cache-it-goes.py",
+    "license": "MIT",
+    "language": "python"
+}

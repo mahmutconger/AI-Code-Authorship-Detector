@@ -1,0 +1,7 @@
+{
+    "code": "def shell_config(mocker):\n    path_mock = mocker.patch('thefuck.entrypoints.not_configured.Path',\n                             new_callable=MagicMock)\n    return path_mock.return_value \\\n        .expanduser.return_value \\\n        .open.return_value \\\n        .__enter__.return_value",
+    "source": "github_repo:nvbn/thefuck",
+    "file": "tests/entrypoints/test_not_configured.py",
+    "license": "MIT",
+    "language": "python"
+}

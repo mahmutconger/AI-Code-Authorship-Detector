@@ -1,0 +1,7 @@
+{
+    "code": "def generate_conversation(idx: int):\n    \"\"\"\n    Generate a single conversation using the OpenRouter API.\n    Returns a list of message dicts with 'role' and 'content' keys.\n    \"\"\"\n\n    # pick 5 example user first messages and insert them into prompt as inspiration\n    rng = random.Random(idx) # use idx as seed to the rng\n    user_first_prompt = \"\\n\".join(rng.choice(user_first_prompts) for _ in range(5))\n    payload = copy.deepcopy(base_payload)\n    modified_prompt = prompt.replace(\"%USER_FIRST_PROMPTS%\", user_first_prompt)\n    payload['messages'] = [{\"role\": \"user\", \"content\": modified_prompt}]\n\n    response = requests.post(url, headers=headers, json=payload)\n    result = response.json()\n    content = result['choices'][0]['message']['content']\n\n    # Parse the JSON response and unpack the messages\n    conversation_data = json.loads(content)\n    messages = conversation_data['messages']\n\n    return messages",
+    "source": "github_repo:karpathy/nanochat",
+    "file": "dev/gen_synthetic_data.py",
+    "license": "MIT",
+    "language": "python"
+}

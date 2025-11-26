@@ -1,0 +1,7 @@
+{
+    "code": "def show_prediction_labels_on_image(img_path, predictions):\n    \"\"\"\n    Shows the face recognition results visually.\n\n    :param img_path: path to image to be recognized\n    :param predictions: results of the predict function\n    :return:\n    \"\"\"\n    pil_image = Image.open(img_path).convert(\"RGB\")\n    draw = ImageDraw.Draw(pil_image)\n\n    for name, (top, right, bottom, left) in predictions:\n        # Draw a box around the face using the Pillow module\n        draw.rectangle(((left, top), (right, bottom)), outline=(0, 0, 255))\n\n        # There's a bug in Pillow where it blows up with non-UTF-8 text\n        # when using the default bitmap font\n        name = name.encode(\"UTF-8\")\n\n        # Draw a label with a name below the face\n        text_width, text_height = draw.textsize(name)\n        draw.rectangle(((left, bottom - text_height - 10), (right, bottom)), fill=(0, 0, 255), outline=(0, 0, 255))\n        draw.text((left + 6, bottom - text_height - 5), name, fill=(255, 255, 255, 255))\n\n    # Remove the drawing library from memory as per the Pillow docs\n    del draw\n\n    # Display the resulting image\n    pil_image.show()",
+    "source": "github_repo:ageitgey/face_recognition",
+    "file": "examples/face_recognition_knn.py",
+    "license": "MIT",
+    "language": "python"
+}

@@ -1,0 +1,7 @@
+{
+    "code": "class Header:\n    \"\"\"Display header with clock.\"\"\"\n\n    def __rich__(self) -> Panel:\n        grid = Table.grid(expand=True)\n        grid.add_column(justify=\"center\", ratio=1)\n        grid.add_column(justify=\"right\")\n        grid.add_row(\n            \"[b]Rich[/b] Layout application\",\n            datetime.now().ctime().replace(\":\", \"[blink]:[/]\"),\n        )\n        return Panel(grid, style=\"white on blue\")",
+    "source": "github_repo:Textualize/rich",
+    "file": "examples/fullscreen.py",
+    "license": "MIT",
+    "language": "python"
+}

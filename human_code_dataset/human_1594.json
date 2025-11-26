@@ -1,0 +1,7 @@
+{
+    "code": "def save_to_json(self, output_path: str) -> None:\n        with open(output_path, \"w\", encoding=\"utf-8\") as f:\n            json.dump({\"tools\": self.tools_spec}, f, indent=2, sort_keys=True)",
+    "source": "github_repo:crewAIInc/crewAI",
+    "file": "lib/crewai-tools/generate_tool_specs.py",
+    "license": "MIT",
+    "language": "python"
+}

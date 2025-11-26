@@ -1,0 +1,7 @@
+{
+    "code": "def main() -> None:\n    if len(sys.argv) != ARGUMENT_NUMBER:\n        msg = \"New version not specified\"\n        raise ValueError(msg)\n    new_version = sys.argv[1]\n\n    # Strip \"v\" prefix from version if present\n    new_version = new_version.removeprefix(\"v\")\n\n    build_type = sys.argv[2]\n\n    verify_pep440(new_version)\n\n    if build_type == \"base\":\n        update_pyproject_version(\"src/backend/base/pyproject.toml\", new_version)\n    elif build_type == \"main\":\n        update_pyproject_version(\"pyproject.toml\", new_version)\n    else:\n        msg = f\"Invalid build type: {build_type}\"\n        raise ValueError(msg)",
+    "source": "github_repo:langflow-ai/langflow",
+    "file": "scripts/ci/update_pyproject_version.py",
+    "license": "MIT",
+    "language": "python"
+}

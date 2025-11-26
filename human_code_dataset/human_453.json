@@ -1,0 +1,7 @@
+{
+    "code": "import os\nimport sys\nsys.path.insert(0, os.path.abspath(\".\"))\nsys.path.insert(0, os.path.abspath('../../'))\n\n\nproject = 'manim'\ncopyright = '- This document has been placed in the public domain.'\nauthor = 'TonyCrane'\n\nrelease = ''\n\nextensions = [\n    'sphinx.ext.todo',\n    'sphinx.ext.githubpages',\n    'sphinx.ext.mathjax',\n    'sphinx.ext.intersphinx',\n    'sphinx.ext.autodoc', \n    'sphinx.ext.coverage',\n    'sphinx.ext.napoleon',\n    'sphinx_copybutton',\n    'manim_example_ext'\n]\n\nautoclass_content = 'both'\nmathjax_path = \"https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js\"\n\ntemplates_path = ['_templates']\nsource_suffix = '.rst'\nmaster_doc = 'index'\npygments_style = 'default'\n\nhtml_static_path = [\"_static\"]\nhtml_css_files = [\n    \"https://cdn.jsdelivr.net/gh/manim-kindergarten/CDN@master/manimgl_assets/custom.css\", \n    \"https://cdn.jsdelivr.net/gh/manim-kindergarten/CDN@master/manimgl_assets/colors.css\"\n]\nhtml_theme = 'furo'  # pip install furo==2020.10.5b9\nhtml_favicon = '_static/icon.png'\nhtml_logo = '../../logo/transparent_graph.png'\nhtml_theme_options = {\n    \"sidebar_hide_name\": True,\n}",
+    "source": "github_repo:3b1b/manim",
+    "file": "docs/source/conf.py",
+    "license": "MIT",
+    "language": "python"
+}

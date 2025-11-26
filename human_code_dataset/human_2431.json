@@ -1,0 +1,7 @@
+{
+    "code": "def link(*args, **kwargs):\n    \"\"\"As of spaCy v3.0, symlinks like \"en\" are not supported anymore. You can load trained\n    pipeline packages using their full names or from a directory path.\"\"\"\n    msg.warn(\n        \"As of spaCy v3.0, model symlinks are not supported anymore. You can load trained \"\n        \"pipeline packages using their full names or from a directory path.\"\n    )",
+    "source": "github_repo:explosion/spaCy",
+    "file": "spacy/cli/__init__.py",
+    "license": "MIT",
+    "language": "python"
+}

@@ -1,0 +1,7 @@
+{
+    "code": "def get_column_definition(self):\n        \"\"\"Returns formatted column definition in order expected by the TFT.\"\"\"\n\n        column_definition = self._column_definition\n\n        # Sanity checks first.\n        # Ensure only one ID and time column exist\n        def _check_single_column(input_type):\n            length = len([tup for tup in column_definition if tup[2] == input_type])\n\n            if length != 1:\n                raise ValueError(\"Illegal number of inputs ({}) of type {}\".format(length, input_type))\n\n        _check_single_column(InputTypes.ID)\n        _check_single_column(InputTypes.TIME)\n\n        identifier = [tup for tup in column_definition if tup[2] == InputTypes.ID]\n        time = [tup for tup in column_definition if tup[2] == InputTypes.TIME]\n        real_inputs = [\n            tup\n            for tup in column_definition\n            if tup[1] == DataTypes.REAL_VALUED and tup[2] not in {InputTypes.ID, InputTypes.TIME}\n        ]\n        categorical_inputs = [\n            tup\n            for tup in column_definition\n            if tup[1] == DataTypes.CATEGORICAL and tup[2] not in {InputTypes.ID, InputTypes.TIME}\n        ]\n\n        return identifier + time + real_inputs + categorical_inputs",
+    "source": "github_repo:microsoft/qlib",
+    "file": "examples/benchmarks/TFT/data_formatters/base.py",
+    "license": "MIT",
+    "language": "python"
+}

@@ -1,0 +1,7 @@
+{
+    "code": "def get_sample_length(self, idx: int):\n        semantic_ids = self.semantic_phoneme[idx][0]\n        sec = 1.0 * len(semantic_ids) / self.hz\n        return sec",
+    "source": "github_repo:RVC-Boss/GPT-SoVITS",
+    "file": "GPT_SoVITS/AR/data/dataset.py",
+    "license": "MIT",
+    "language": "python"
+}

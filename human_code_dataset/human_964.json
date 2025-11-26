@@ -1,0 +1,7 @@
+{
+    "code": "\"\"\"\nA very minimal `cp` clone that displays a progress bar.\n\"\"\"\nimport os\nimport shutil\nimport sys\n\nfrom rich.progress import Progress\n\nif __name__ == \"__main__\":\n    if len(sys.argv) == 3:\n        with Progress() as progress:\n            desc = os.path.basename(sys.argv[1])\n            with progress.open(sys.argv[1], \"rb\", description=desc) as src:\n                with open(sys.argv[2], \"wb\") as dst:\n                    shutil.copyfileobj(src, dst)\n    else:\n        print(\"Copy a file with a progress bar.\")\n        print(\"Usage:\\n\\tpython cp_progress.py SRC DST\")",
+    "source": "github_repo:Textualize/rich",
+    "file": "examples/cp_progress.py",
+    "license": "MIT",
+    "language": "python"
+}

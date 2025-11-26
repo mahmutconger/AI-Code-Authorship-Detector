@@ -1,0 +1,7 @@
+{
+    "code": "class _KeyTranslator:\n    # 回调函数的 KeyCode 类型 转为键名字符串\n    @staticmethod\n    def key2name(key):\n        return Platform.getKeyName(key)\n\n    # 键名字符串 转为KeyCode\n    @staticmethod\n    def name2key(char):\n        if hasattr(keyboard.Key, char):  # 控制键返回Code\n            return getattr(keyboard.Key, char).value\n        else:  # 非控制键返回自己\n            return char\n\n    # 多个键名的字符串 转为集合\n    @staticmethod\n    def names2set(char):\n        return set(char.split(\"+\"))\n\n    # 集合转键名\n    def set2names(keys):\n        keys = keys.copy()\n        # 优先级键名\n        highPriority = (\"win\", \"cmd\", \"shift\", \"ctrl\", \"alt\")\n        names = \"\"\n        # 添加高优先级键\n        for h in highPriority:\n            if h in keys:\n                if names != \"\":\n                    names += \"+\"\n                names += h\n                keys.discard(h)\n        # 添加剩下的键\n        for k in keys:\n            if names != \"\":\n                names += \"+\"\n            names += k\n        return names",
+    "source": "github_repo:hiroi-sora/Umi-OCR",
+    "file": "UmiOCR-data/py_src/event_bus/key_mouse/keyboard.py",
+    "license": "MIT",
+    "language": "python"
+}

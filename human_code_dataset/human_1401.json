@@ -1,0 +1,7 @@
+{
+    "code": "def _validation_step(self, batch, batch_idx, postfix=\"\"):\n        inputs = self.get_input(batch, self.image_key)\n        reconstructions, posterior = self(inputs)\n        aeloss, log_dict_ae = self.loss(inputs, reconstructions, posterior, 0, self.global_step,\n                                        last_layer=self.get_last_layer(), split=\"val\"+postfix)\n\n        discloss, log_dict_disc = self.loss(inputs, reconstructions, posterior, 1, self.global_step,\n                                            last_layer=self.get_last_layer(), split=\"val\"+postfix)\n\n        self.log(f\"val{postfix}/rec_loss\", log_dict_ae[f\"val{postfix}/rec_loss\"])\n        self.log_dict(log_dict_ae)\n        self.log_dict(log_dict_disc)\n        return self.log_dict",
+    "source": "github_repo:Stability-AI/stablediffusion",
+    "file": "ldm/models/autoencoder.py",
+    "license": "MIT",
+    "language": "python"
+}

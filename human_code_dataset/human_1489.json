@@ -1,0 +1,7 @@
+{
+    "code": "def __init__(self):\n        self.record_start = None\n        self.pause_between_keys = 0.2\n        self.instructions: list[InstructionSpec] = []",
+    "source": "github_repo:mitmproxy/mitmproxy",
+    "file": "docs/scripts/clirecording/clidirector.py",
+    "license": "MIT",
+    "language": "python"
+}

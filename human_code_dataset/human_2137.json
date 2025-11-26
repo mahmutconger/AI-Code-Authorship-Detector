@@ -1,0 +1,7 @@
+{
+    "code": "with open(\"happy.txt\", \"r\") as F:\r\n    # method 1\r\n    for i in F.read().split():\r\n        print(i, \"*\", end=\"\")\r\n    print(\"\\n\")\r\n\r\n    # method 2\r\n    F.seek(0)\r\n    for line in F.readlines():\r\n        for word in line.split():\r\n            print(word, \"*\", end=\"\")",
+    "source": "github_repo:geekcomputers/Python",
+    "file": "1 File handle/File handle text/special symbol after word.py",
+    "license": "MIT",
+    "language": "python"
+}

@@ -1,0 +1,7 @@
+{
+    "code": "def time_pretty_indent_guides(self):\n        pretty = Pretty(snippets.PYTHON_DICT, indent_guides=True)\n        self.console.print(pretty)",
+    "source": "github_repo:Textualize/rich",
+    "file": "benchmarks/benchmarks.py",
+    "license": "MIT",
+    "language": "python"
+}

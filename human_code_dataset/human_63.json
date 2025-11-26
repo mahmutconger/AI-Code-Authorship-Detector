@@ -1,0 +1,7 @@
+{
+    "code": "def get_bounds(\n    fft_results: np.ndarray, samplerate: int\n) -> tuple[int | float, int | float]:\n    \"\"\"\n    Get bounds for printing fft results\n\n    >>> import numpy\n    >>> array = numpy.linspace(-20.0, 20.0, 1000)\n    >>> get_bounds(array, 1000)\n    (-20, 20)\n    \"\"\"\n    lowest = min([-20, np.min(fft_results[1 : samplerate // 2 - 1])])\n    highest = max([20, np.max(fft_results[1 : samplerate // 2 - 1])])\n    return lowest, highest",
+    "source": "github_repo:TheAlgorithms/Python",
+    "file": "audio_filters/show_response.py",
+    "license": "MIT",
+    "language": "python"
+}

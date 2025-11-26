@@ -1,0 +1,7 @@
+{
+    "code": "def n_queens_solution(n: int) -> None:\n    boards: list[list[str]] = []\n    depth_first_search([], [], [], boards, n)\n\n    # Print all the boards\n    for board in boards:\n        for column in board:\n            print(column)\n        print(\"\")\n\n    print(len(boards), \"solutions were found.\")",
+    "source": "github_repo:TheAlgorithms/Python",
+    "file": "backtracking/n_queens_math.py",
+    "license": "MIT",
+    "language": "python"
+}

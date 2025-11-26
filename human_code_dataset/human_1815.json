@@ -1,0 +1,7 @@
+{
+    "code": "def conversation_share_check(self,session_id):\n        if conf().get(\"claude_uuid\") is not None and conf().get(\"claude_uuid\") != \"\":\n            con_uuid = conf().get(\"claude_uuid\")\n            return con_uuid\n        if session_id not in self.con_uuid_dic:\n            self.con_uuid_dic[session_id] = self.generate_uuid()\n            self.create_new_chat(self.con_uuid_dic[session_id])\n        return self.con_uuid_dic[session_id]",
+    "source": "github_repo:zhayujie/chatgpt-on-wechat",
+    "file": "bot/claude/claude_ai_bot.py",
+    "license": "MIT",
+    "language": "python"
+}

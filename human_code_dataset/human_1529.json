@@ -1,0 +1,7 @@
+{
+    "code": "def configure(self, updated):\n        if \"flowfilter\" in updated:\n            self.filter = flowfilter.parse(\".\")",
+    "source": "github_repo:mitmproxy/mitmproxy",
+    "file": "examples/addons/filter-flows.py",
+    "license": "MIT",
+    "language": "python"
+}

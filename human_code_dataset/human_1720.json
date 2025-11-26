@@ -1,0 +1,7 @@
+{
+    "code": "def toqpixmap(im):\n    # # This doesn't work. For now using a dumb approach.\n    # im_data = _toqclass_helper(im)\n    # result = QPixmap(im_data[\"size\"][0], im_data[\"size\"][1])\n    # result.loadFromData(im_data[\"data\"])\n    qimage = toqimage(im)\n    return QPixmap.fromImage(qimage)",
+    "source": "github_repo:hiroi-sora/Umi-OCR",
+    "file": "UmiOCR-data/py_src/image_controller/ImageQt.py",
+    "license": "MIT",
+    "language": "python"
+}

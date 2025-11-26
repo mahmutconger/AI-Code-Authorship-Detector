@@ -1,0 +1,7 @@
+{
+    "code": "def _identifying_params(self) -> Dict[str, Any]:\n        \"\"\"Return a dictionary of identifying parameters.\n\n        This information is used by the LangChain callback system, which\n        is used for tracing purposes make it possible to monitor LLMs.\n        \"\"\"\n        return {\n            # The model name allows users to specify custom token counting\n            # rules in LLM monitoring applications (e.g., in LangSmith users\n            # can provide per token pricing for their model and monitor\n            # costs for the given LLM.)\n            \"model_name\": self.model_name,\n        }",
+    "source": "github_repo:langchain-ai/langchain",
+    "file": "libs/cli/langchain_cli/integration_template/integration_template/chat_models.py",
+    "license": "MIT",
+    "language": "python"
+}

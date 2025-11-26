@@ -1,0 +1,7 @@
+{
+    "code": "def __init__(\n        self,\n        num_heads,\n        hidden_dim: int,\n        mlp: T2SMLP,\n        qkv_w,\n        qkv_b,\n        out_w,\n        out_b,\n        norm_w1,\n        norm_b1,\n        norm_eps1,\n        norm_w2,\n        norm_b2,\n        norm_eps2,\n    ):\n        self.num_heads = num_heads\n        self.mlp = mlp\n        self.hidden_dim: int = hidden_dim\n        self.qkv_w = qkv_w\n        self.qkv_b = qkv_b\n        self.out_w = out_w\n        self.out_b = out_b\n        self.norm_w1 = norm_w1\n        self.norm_b1 = norm_b1\n        self.norm_eps1 = norm_eps1\n        self.norm_w2 = norm_w2\n        self.norm_b2 = norm_b2\n        self.norm_eps2 = norm_eps2\n\n        self.false = torch.tensor(False, dtype=torch.bool)",
+    "source": "github_repo:RVC-Boss/GPT-SoVITS",
+    "file": "GPT_SoVITS/AR/models/t2s_model.py",
+    "license": "MIT",
+    "language": "python"
+}

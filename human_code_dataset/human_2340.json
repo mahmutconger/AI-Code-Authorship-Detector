@@ -1,0 +1,7 @@
+{
+    "code": "def get_num_samples_for_calibration(self):\n        \"\"\"Gets the default number of training and validation samples.\n\n        Use to sub-sample the data for network calibration and a value of -1 uses\n        all available samples.\n\n        Returns:\n          Tuple of (training samples, validation samples)\n        \"\"\"\n        return -1, -1",
+    "source": "github_repo:microsoft/qlib",
+    "file": "examples/benchmarks/TFT/data_formatters/base.py",
+    "license": "MIT",
+    "language": "python"
+}

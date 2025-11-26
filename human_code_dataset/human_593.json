@@ -1,0 +1,7 @@
+{
+    "code": "class bcolors(object):\n    HEADER = '\\033[95m'\n    OKBLUE = '\\033[94m'\n    OKGREEN = '\\033[92m'\n    WARNING = '\\033[93m'\n    FAIL = '\\033[91m'\n    ENDC = '\\033[0m'\n    BOLD = '\\033[1m'\n    UNDERLINE = '\\033[4m'",
+    "source": "github_repo:swisskyrepo/PayloadsAllTheThings",
+    "file": "CVE Exploits/Tomcat CVE-2017-12617.py",
+    "license": "MIT",
+    "language": "python"
+}

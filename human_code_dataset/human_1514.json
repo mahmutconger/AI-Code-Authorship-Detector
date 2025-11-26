@@ -1,0 +1,7 @@
+{
+    "code": "def request(self, flow):\n        self.num = self.num + 1\n        logging.info(\"We've seen %d flows\" % self.num)",
+    "source": "github_repo:mitmproxy/mitmproxy",
+    "file": "examples/addons/anatomy.py",
+    "license": "MIT",
+    "language": "python"
+}

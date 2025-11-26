@@ -1,0 +1,7 @@
+{
+    "code": "def delete(self, ids: list[str] | None = None, **kwargs: Any) -> None:\n        if ids:\n            for _id in ids:\n                self._database.pop(_id, None)",
+    "source": "github_repo:langchain-ai/langchain",
+    "file": "libs/cli/langchain_cli/integration_template/integration_template/vectorstores.py",
+    "license": "MIT",
+    "language": "python"
+}

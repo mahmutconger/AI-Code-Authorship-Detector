@@ -1,0 +1,7 @@
+{
+    "code": "def setZeroFlag(token, tmpToken):\n    \"\"\"return bool for zero flag based on the regToken\"\"\"\n    global eax, ebx, ecx, edx\n\n    # Register in string\n    registers = {\n        \"eax\": eax,\n        \"ebx\": ebx,\n        \"ecx\": ecx,\n        \"edx\": edx,\n    }\n\n    zeroFlag = False\n\n    match tmpToken:\n        case \"eax\":\n            if registers.get(token) == registers.get(tmpToken):\n                zeroFlag = True\n\n        case \"ebx\":\n            if registers.get(token) == registers.get(tmpToken):\n                zeroFlag = True\n\n        case \"ecx\":\n            if registers.get(token) == registers.get(tmpToken):\n                zeroFlag = True\n\n        case \"edx\":\n            if registers.get(token) == registers.get(tmpToken):\n                zeroFlag = True\n\n        case _:\n            print(\"Error: Not found register!\")\n            return\n\n    return zeroFlag",
+    "source": "github_repo:geekcomputers/Python",
+    "file": "Assembler/assembler.py",
+    "license": "MIT",
+    "language": "python"
+}

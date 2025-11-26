@@ -1,0 +1,7 @@
+{
+    "code": "def _onRelease(self, key):\n        keyName = _KeyTranslator.key2name(key)\n        if not keyName in self._pressSet:\n            return\n        self._checkTTL()  # 检查超时\n        if self._status == 0:  # 正常运行\n            self._checkKeyEvent(1, keyName)  # 检查抬起模式的快捷键\n        elif self._status == 1:  # 录制结束\n            self._readFinish()\n        if keyName in self._pressSet:\n            self._pressSet.discard(keyName)  # 从集合中删除\n            del self._ttlDict[keyName]  # 删除超时时间",
+    "source": "github_repo:hiroi-sora/Umi-OCR",
+    "file": "UmiOCR-data/py_src/event_bus/key_mouse/keyboard.py",
+    "license": "MIT",
+    "language": "python"
+}

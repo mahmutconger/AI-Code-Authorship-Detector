@@ -1,0 +1,7 @@
+{
+    "code": "def make_highshelf(\n    frequency: int,\n    samplerate: int,\n    gain_db: float,\n    q_factor: float = 1 / sqrt(2),\n) -> IIRFilter:\n    \"\"\"\n    Creates a high-shelf filter\n\n    >>> filter = make_highshelf(1000, 48000, 6)\n    >>> filter.a_coeffs + filter.b_coeffs  # doctest: +NORMALIZE_WHITESPACE\n    [2.2229172136088806, -3.9587208137297303, 1.7841414181566304, 4.295432981120543,\n     -7.922740859457287, 3.6756456963725253]\n    \"\"\"\n    w0 = tau * frequency / samplerate\n    _sin = sin(w0)\n    _cos = cos(w0)\n    alpha = _sin / (2 * q_factor)\n    big_a = 10 ** (gain_db / 40)\n    pmc = (big_a + 1) - (big_a - 1) * _cos\n    ppmc = (big_a + 1) + (big_a - 1) * _cos\n    mpc = (big_a - 1) - (big_a + 1) * _cos\n    pmpc = (big_a - 1) + (big_a + 1) * _cos\n    aa2 = 2 * sqrt(big_a) * alpha\n\n    b0 = big_a * (ppmc + aa2)\n    b1 = -2 * big_a * pmpc\n    b2 = big_a * (ppmc - aa2)\n    a0 = pmc + aa2\n    a1 = 2 * mpc\n    a2 = pmc - aa2\n\n    filt = IIRFilter(2)\n    filt.set_coefficients([a0, a1, a2], [b0, b1, b2])\n    return filt",
+    "source": "github_repo:TheAlgorithms/Python",
+    "file": "audio_filters/butterworth_filter.py",
+    "license": "MIT",
+    "language": "python"
+}

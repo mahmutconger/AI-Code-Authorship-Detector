@@ -1,0 +1,7 @@
+{
+    "code": "def main():\n    \"\"\"\"\"\"\n    qapp = create_qapp()\n\n    event_engine = EventEngine()\n\n    main_engine = MainEngine(event_engine)\n\n    main_engine.add_gateway(RpcGateway)\n    main_engine.add_app(CtaStrategyApp)\n\n    main_window = MainWindow(main_engine, event_engine)\n    main_window.showMaximized()\n\n    qapp.exec()",
+    "source": "github_repo:vnpy/vnpy",
+    "file": "examples/client_server/run_client.py",
+    "license": "MIT",
+    "language": "python"
+}

@@ -1,0 +1,7 @@
+{
+    "code": "def mode_decrypt():\n    ciphertext = base64.b64decode(args.ciphertext).decode()\n    key = args.key\n    print(base64.b64decode(encrypt(ciphertext, key)).decode())\n    print(\"\")",
+    "source": "github_repo:swisskyrepo/PayloadsAllTheThings",
+    "file": "CVE Exploits/Telerik CVE-2017-9248.py",
+    "license": "MIT",
+    "language": "python"
+}

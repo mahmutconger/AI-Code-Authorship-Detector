@@ -1,0 +1,7 @@
+{
+    "code": "def _main(\n    *,\n    version: bool = typer.Option(\n        False,  # noqa: FBT003\n        \"--version\",\n        \"-v\",\n        help=\"Print the current CLI version.\",\n        callback=_version_callback,\n        is_eager=True,\n    ),\n) -> None:\n    pass",
+    "source": "github_repo:langchain-ai/langchain",
+    "file": "libs/cli/langchain_cli/cli.py",
+    "license": "MIT",
+    "language": "python"
+}

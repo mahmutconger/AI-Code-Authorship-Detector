@@ -1,0 +1,7 @@
+{
+    "code": "def format_repos(repos: tuple[Path, ...], options: Namespace) -> None:\n    black_versions = tuple(\n        BlackVersion(*version.split(\":\")) for version in options.versions\n    )\n\n    for repo in repos:\n        from_branch = None\n        for black_version in black_versions:\n            from_branch = format_repo_with_version(\n                repo=repo,\n                from_branch=from_branch,\n                black_repo=options.black_repo,\n                black_version=black_version,\n                input_directory=options.input,\n            )\n        git_switch_branch(\"main\", repo=repo)\n\n    git_switch_branch(\"main\", repo=options.black_repo)",
+    "source": "github_repo:psf/black",
+    "file": "gallery/gallery.py",
+    "license": "MIT",
+    "language": "python"
+}

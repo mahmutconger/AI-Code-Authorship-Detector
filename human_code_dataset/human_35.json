@@ -1,0 +1,7 @@
+{
+    "code": "def test_has_cloudflare_protection_with_code_403_and_503_in_response(self):\n        resp_with_cloudflare_protection_code_403 = FakeResponse(\n            code=self.code_403,\n            headers=self.cloudflare_headers,\n            text=self.text_with_cloudflare_flags\n        )\n\n        resp_with_cloudflare_protection_code_503 = FakeResponse(\n            code=self.code_503,\n            headers=self.cloudflare_headers,\n            text=self.text_with_cloudflare_flags\n        )\n\n        result1 = has_cloudflare_protection(resp_with_cloudflare_protection_code_403)\n        result2 = has_cloudflare_protection(resp_with_cloudflare_protection_code_503)\n\n        self.assertTrue(result1)\n        self.assertTrue(result2)",
+    "source": "github_repo:public-apis/public-apis",
+    "file": "scripts/tests/test_validate_links.py",
+    "license": "MIT",
+    "language": "python"
+}

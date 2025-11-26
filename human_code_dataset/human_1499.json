@@ -1,0 +1,7 @@
+{
+    "code": "def focus_pane(self, pane: libtmux.Pane, set_active_pane: bool = True) -> None:\n        pane.select_pane()\n        if set_active_pane:\n            self.tmux_pane = pane",
+    "source": "github_repo:mitmproxy/mitmproxy",
+    "file": "docs/scripts/clirecording/clidirector.py",
+    "license": "MIT",
+    "language": "python"
+}

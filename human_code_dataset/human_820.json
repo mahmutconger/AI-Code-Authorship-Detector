@@ -1,0 +1,7 @@
+{
+    "code": "def test_init_state(self):\n    socks = random_socks()\n    sm = messaging.SubMaster(socks)\n    assert sm.frame == -1\n    assert not any(sm.updated.values())\n    assert not any(sm.seen.values())\n    on_demand = {s: SERVICE_LIST[s].frequency <= 1e-5 for s in sm.services}\n    assert all(sm.alive[s] == sm.valid[s] == sm.freq_ok[s] == on_demand[s] for s in sm.services)\n    assert all(t == 0. for t in sm.recv_time.values())\n    assert all(f == 0 for f in sm.recv_frame.values())\n    assert all(t == 0 for t in sm.logMonoTime.values())\n\n    for p in [sm.updated, sm.recv_time, sm.recv_frame, sm.alive,\n              sm.sock, sm.data, sm.logMonoTime, sm.valid]:\n      assert len(cast(Sized, p)) == len(socks)",
+    "source": "github_repo:commaai/openpilot",
+    "file": "cereal/messaging/tests/test_pub_sub_master.py",
+    "license": "MIT",
+    "language": "python"
+}

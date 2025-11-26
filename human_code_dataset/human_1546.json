@@ -1,0 +1,7 @@
+{
+    "code": "def get_first_archive_member(archive: ArchiveKind) -> str:\n    if isinstance(archive, tarfile.TarFile):\n        return archive.getnames()[0]\n    elif isinstance(archive, zipfile.ZipFile):\n        return archive.namelist()[0]",
+    "source": "github_repo:psf/black",
+    "file": "gallery/gallery.py",
+    "license": "MIT",
+    "language": "python"
+}

@@ -1,0 +1,7 @@
+{
+    "code": "class SuppressTokens(LogitFilter):\n    def __init__(self, suppress_tokens: Sequence[int]):\n        self.suppress_tokens = list(suppress_tokens)\n\n    def apply(self, logits: Tensor, tokens: Tensor):\n        logits[:, self.suppress_tokens] = -np.inf",
+    "source": "github_repo:openai/whisper",
+    "file": "whisper/decoding.py",
+    "license": "MIT",
+    "language": "python"
+}

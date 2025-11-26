@@ -1,0 +1,7 @@
+{
+    "code": "class SandboxSettings(BaseModel):\n    \"\"\"Configuration for the execution sandbox\"\"\"\n\n    use_sandbox: bool = Field(False, description=\"Whether to use the sandbox\")\n    image: str = Field(\"python:3.12-slim\", description=\"Base image\")\n    work_dir: str = Field(\"/workspace\", description=\"Container working directory\")\n    memory_limit: str = Field(\"512m\", description=\"Memory limit\")\n    cpu_limit: float = Field(1.0, description=\"CPU limit\")\n    timeout: int = Field(300, description=\"Default command timeout (seconds)\")\n    network_enabled: bool = Field(\n        False, description=\"Whether network access is allowed\"\n    )",
+    "source": "github_repo:FoundationAgents/OpenManus",
+    "file": "app/config.py",
+    "license": "MIT",
+    "language": "python"
+}

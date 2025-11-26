@@ -1,0 +1,7 @@
+{
+    "code": "def main() -> None:\n    members = load_members()\n    full_doc = construct_doc(members)\n    with open(WRITE_FILE, \"w\") as f:\n        f.write(full_doc)",
+    "source": "github_repo:AntonOsika/gpt-engineer",
+    "file": "docs/create_api_rst.py",
+    "license": "MIT",
+    "language": "python"
+}

@@ -1,0 +1,7 @@
+{
+    "code": "def pytest_addoption(parser):\n    parser.addoption(\n        \"--chunked-sites\",\n        action=\"store\",\n        default=None,\n        help=\"For tests utilizing chunked sites, include only the (comma-separated) site(s) specified.\",\n    )",
+    "source": "github_repo:sherlock-project/sherlock",
+    "file": "tests/conftest.py",
+    "license": "MIT",
+    "language": "python"
+}

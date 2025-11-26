@@ -1,0 +1,7 @@
+{
+    "code": "def del_word(self, word):\n        \"\"\"\n        Convenient function for deleting a word.\n        \"\"\"\n        self.add_word(word, 0)",
+    "source": "github_repo:fxsjy/jieba",
+    "file": "jieba/__init__.py",
+    "license": "MIT",
+    "language": "python"
+}

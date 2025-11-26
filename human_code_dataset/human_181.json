@@ -1,0 +1,7 @@
+{
+    "code": "def _get_relevant_documents(\n        self, query: str, *, run_manager: CallbackManagerForRetrieverRun, **kwargs: Any\n    ) -> List[Document]:\n        k = kwargs.get(\"k\", self.k)\n        return [\n            Document(page_content=f\"Result {i} for query: {query}\") for i in range(k)\n        ]",
+    "source": "github_repo:langchain-ai/langchain",
+    "file": "libs/cli/langchain_cli/integration_template/integration_template/retrievers.py",
+    "license": "MIT",
+    "language": "python"
+}

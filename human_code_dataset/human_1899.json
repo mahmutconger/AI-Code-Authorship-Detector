@@ -1,0 +1,7 @@
+{
+    "code": "def main():\n    inf = json.loads(sys.argv[1])\n    vdir, fn = os.path.split(inf[\"vp\"])\n    print(\"inf[vp] = %r\" % (inf[\"vp\"],), file=sys.stderr)\n\n    # the following is what decides if we'll accept the upload or reject it:\n    # we check if the upload-folder url matches the following regex-pattern:\n    ok = re.search(r\"(^|/)day[0-9]+$\", vdir, re.IGNORECASE)\n\n    if ok:\n        # allow the upload\n        print(\"{}\")\n        return\n\n    # the upload was rejected; display the following errortext:\n    errmsg = \"Files can only be uploaded into a folder named 'DayN' where N is a number, for example 'Day573'. This file was REJECTED: \"\n    errmsg += inf[\"vp\"]  # if you want to mention the file's url\n    print(json.dumps({\"rejectmsg\": errmsg}))",
+    "source": "github_repo:9001/copyparty",
+    "file": "bin/hooks/reject-and-explain.py",
+    "license": "MIT",
+    "language": "python"
+}

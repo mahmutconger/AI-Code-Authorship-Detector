@@ -1,0 +1,7 @@
+{
+    "code": "def write_ascending(filepath, msg_text):\n    with open(filepath, \"a\", encoding=\"utf-8\", errors=\"replace\") as outfile:\n        outfile.write(msg_text)",
+    "source": "github_repo:9001/copyparty",
+    "file": "bin/hooks/msg-log.py",
+    "license": "MIT",
+    "language": "python"
+}

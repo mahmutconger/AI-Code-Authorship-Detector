@@ -1,0 +1,7 @@
+{
+    "code": "def parse_code(rsp):\n        pattern = r\"```python(.*)```\"\n        match = re.search(pattern, rsp, re.DOTALL)\n        code_text = match.group(1) if match else rsp\n        return code_text",
+    "source": "github_repo:FoundationAgents/MetaGPT",
+    "file": "examples/build_customized_agent.py",
+    "license": "MIT",
+    "language": "python"
+}

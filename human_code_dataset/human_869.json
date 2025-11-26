@@ -1,0 +1,7 @@
+{
+    "code": "def _rect_to_css(rect):\n    \"\"\"\n    Convert a dlib 'rect' object to a plain tuple in (top, right, bottom, left) order\n\n    :param rect: a dlib 'rect' object\n    :return: a plain tuple representation of the rect in (top, right, bottom, left) order\n    \"\"\"\n    return rect.top(), rect.right(), rect.bottom(), rect.left()",
+    "source": "github_repo:ageitgey/face_recognition",
+    "file": "face_recognition/api.py",
+    "license": "MIT",
+    "language": "python"
+}

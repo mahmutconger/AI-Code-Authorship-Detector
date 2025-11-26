@@ -1,0 +1,7 @@
+{
+    "code": "def get_filter_proxy(self):\n        \"\"\"\n        读取该可用ip文件\n        :return: 可用ip文件list\n        \"\"\"\n        path = os.path.join(os.path.dirname(__file__), './proxy_list')\n        try:\n            with open(path, \"r\", encoding=\"utf-8\") as f:\n                lins = f.readlines()\n                for i in lins:\n                    p = i.strip(\"\\n\")\n                    self.proxy_filter_list.append(p)\n        except Exception:\n            with open(path, \"r\", ) as f:\n                lins = f.readlines()\n                for i in lins:\n                    p = i.strip(\"\\n\")\n                    self.proxy_filter_list.append(p)\n        return self.proxy_filter_list",
+    "source": "github_repo:testerSunshine/12306",
+    "file": "agency/agency_tools.py",
+    "license": "MIT",
+    "language": "python"
+}

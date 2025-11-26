@@ -1,0 +1,7 @@
+{
+    "code": "def similarity_search(\n        self, query: str, k: int = 4, **kwargs: Any\n    ) -> List[Document]:\n        embedding = self.embedding.embed_query(query)\n        return [\n            doc\n            for doc, _, _ in self._similarity_search_with_score_by_vector(\n                embedding=embedding, k=k, **kwargs\n            )\n        ]",
+    "source": "github_repo:langchain-ai/langchain",
+    "file": "libs/cli/langchain_cli/integration_template/integration_template/vectorstores.py",
+    "license": "MIT",
+    "language": "python"
+}

@@ -1,0 +1,7 @@
+{
+    "code": "def main():\n    inf = json.loads(sys.argv[1])\n    url = inf[\"txt\"]\n    if \"://\" not in url:\n        url = \"https://\" + url\n\n    proto = url.split(\"://\")[0].lower()\n    if proto not in (\"http\", \"https\", \"ftp\", \"ftps\"):\n        raise Exception(\"bad proto {}\".format(proto))\n\n    os.chdir(inf[\"ap\"])\n\n    name = url.split(\"?\")[0].split(\"/\")[-1]\n    tfn = \"-- DOWNLOADING \" + name\n    print(f\"{tfn}\\n\", end=\"\")\n    open(tfn, \"wb\").close()\n\n    cmd = [\"wget\", \"--trust-server-names\", \"-nv\", \"--\", url]\n\n    try:\n        sp.check_call(cmd)\n    except:\n        t = \"-- FAILED TO DOWNLOAD \" + name\n        print(f\"{t}\\n\", end=\"\")\n        open(t, \"wb\").close()\n\n    os.unlink(tfn)",
+    "source": "github_repo:9001/copyparty",
+    "file": "bin/hooks/wget.py",
+    "license": "MIT",
+    "language": "python"
+}

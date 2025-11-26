@@ -1,0 +1,7 @@
+{
+    "code": "def adapter_by_name(name):\n    \"\"\"\n    Return adapter having this name,\n    or None if nothing found\n    \"\"\"\n    return all_adapters(as_dict=True).get(name)",
+    "source": "github_repo:chubin/cheat.sh",
+    "file": "lib/adapter/adapter.py",
+    "license": "MIT",
+    "language": "python"
+}

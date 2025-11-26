@@ -1,0 +1,7 @@
+{
+    "code": "def get_size(self) -> Size:\n        with pypdfium2_lock:\n            return Size(width=self._ppage.get_width(), height=self._ppage.get_height())",
+    "source": "github_repo:docling-project/docling",
+    "file": "docling/backend/docling_parse_v2_backend.py",
+    "license": "MIT",
+    "language": "python"
+}

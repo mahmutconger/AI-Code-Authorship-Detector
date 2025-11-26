@@ -1,0 +1,7 @@
+{
+    "code": "class Saphyra(HackingTool):\n    TITLE = \"SaphyraDDoS\"\n    DESCRIPTION = \"A complex python code to DDoS any website with a very easy usage.!\\n\"\n    INSTALL_COMMANDS = [\n        \"sudo su\",\n        \"git clone https://github.com/anonymous24x7/Saphyra-DDoS.git\",\n        \"cd Saphyra-DDoS\",\n        \"chmod +x saphyra.py\",\n        \"python saphyra.py\",\n    ]\n    PROJECT_URL = \"https://github.com/anonymous24x7/Saphyra-DDoS\"\n\n    def run(self):\n        console.print(Panel(Text(self.TITLE, justify=\"center\"), style=f\"bold {P_COLOR}\"))\n        url = Prompt.ask(\"Enter url>>>\")\n        try:\n            os.system(\"python saphyra.py \" + url)\n        except Exception:\n            console.print(\"Enter a valid url.\", style=\"bold red\")",
+    "source": "github_repo:Z4nzu/hackingtool",
+    "file": "tools/ddos.py",
+    "license": "MIT",
+    "language": "python"
+}

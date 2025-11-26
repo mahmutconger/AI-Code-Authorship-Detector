@@ -1,0 +1,7 @@
+{
+    "code": "def __init__(self, channels, eps=1e-5):\n        super().__init__()\n        self.channels = channels\n        self.eps = eps\n\n        self.gamma = nn.Parameter(torch.ones(channels))\n        self.beta = nn.Parameter(torch.zeros(channels))",
+    "source": "github_repo:myshell-ai/OpenVoice",
+    "file": "openvoice/attentions.py",
+    "license": "MIT",
+    "language": "python"
+}

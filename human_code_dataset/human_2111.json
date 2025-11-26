@@ -1,0 +1,7 @@
+{
+    "code": "def set_idf_path(self, idf_path):\n        new_abs_path = _get_abs_path(idf_path)\n        if not os.path.isfile(new_abs_path):\n            raise Exception(\"jieba: file does not exist: \" + new_abs_path)\n        self.idf_loader.set_new_path(new_abs_path)\n        self.idf_freq, self.median_idf = self.idf_loader.get_idf()",
+    "source": "github_repo:fxsjy/jieba",
+    "file": "jieba/analyse/tfidf.py",
+    "license": "MIT",
+    "language": "python"
+}

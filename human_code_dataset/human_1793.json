@@ -1,0 +1,7 @@
+{
+    "code": "def __init__(self, session_id, system_prompt=None, model=\"gpt-3.5-turbo\"):\n        super().__init__(session_id, system_prompt)\n        self.model = model",
+    "source": "github_repo:zhayujie/chatgpt-on-wechat",
+    "file": "bot/baidu/baidu_wenxin_session.py",
+    "license": "MIT",
+    "language": "python"
+}

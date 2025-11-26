@@ -1,0 +1,7 @@
+{
+    "code": "def generate_formatted_prompt(self, question_id: str) -> str:\n        \"\"\"\n        Generate a formatted prompt for the specified question ID.\n\n        This method retrieves the question data and formats it using the specified\n        template. The formatted prompt includes the question, constraints, format,\n        file name, and level, allowing for a structured output.\n\n        Args:\n            question_id (str): The unique identifier for the question.\n\n        Returns:\n            str: A formatted prompt string based on the question data.\n        \"\"\"\n        temp = self.get_question(question_id)  # Retrieve the question data\n        return self.template.format(\n            question=temp[\"question\"],\n            constraints=temp[\"constraints\"],\n            format=temp[\"format\"],\n            file_name=str(DABENCH_PATH) + \"/da-dev-tables/\" + temp[\"file_name\"],\n            level=temp[\"level\"],\n        )  # Format and return the prompt",
+    "source": "github_repo:FoundationAgents/MetaGPT",
+    "file": "examples/di/InfiAgent-DABench/DABench.py",
+    "license": "MIT",
+    "language": "python"
+}

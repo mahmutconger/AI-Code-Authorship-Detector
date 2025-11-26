@@ -1,0 +1,7 @@
+{
+    "code": "def load_members() -> dict:\n    members: dict = {}\n    for py in glob.glob(str(PKG_DIR) + \"/**/*.py\", recursive=True):\n        module = py[len(str(PKG_DIR)) + 1 :].replace(\".py\", \"\").replace(\"/\", \".\")\n        top_level = module.split(\".\")[0]\n        if top_level not in members:\n            members[top_level] = {\"classes\": [], \"functions\": []}\n        with open(py, \"r\") as f:\n            for line in f.readlines():\n                cls = re.findall(r\"^class ([^_].*)\\(\", line)\n                members[top_level][\"classes\"].extend([module + \".\" + c for c in cls])\n                func = re.findall(r\"^def ([^_].*)\\(\", line)\n                afunc = re.findall(r\"^async def ([^_].*)\\(\", line)\n                func_strings = [module + \".\" + f for f in func + afunc]\n                members[top_level][\"functions\"].extend(func_strings)\n    return members",
+    "source": "github_repo:AntonOsika/gpt-engineer",
+    "file": "docs/create_api_rst.py",
+    "license": "MIT",
+    "language": "python"
+}

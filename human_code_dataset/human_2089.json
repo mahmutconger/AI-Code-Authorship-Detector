@@ -1,0 +1,7 @@
+{
+    "code": "def cutfunc(sentence, _, HMM=True):\n        for w, f in jieba.posseg.cut(sentence, HMM):\n            yield w + posdelim + f",
+    "source": "github_repo:fxsjy/jieba",
+    "file": "jieba/__main__.py",
+    "license": "MIT",
+    "language": "python"
+}

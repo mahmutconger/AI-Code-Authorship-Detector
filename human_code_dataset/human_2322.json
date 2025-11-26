@@ -1,0 +1,7 @@
+{
+    "code": "def __init__(self, hour: int, minute: int, **kwargs):\n        self.hour = hour\n        self.minute = minute",
+    "source": "github_repo:microsoft/qlib",
+    "file": "examples/benchmarks/LightGBM/features_sample.py",
+    "license": "MIT",
+    "language": "python"
+}

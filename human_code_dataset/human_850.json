@@ -1,0 +1,7 @@
+{
+    "code": "def capture(read_frame_list, Global, worker_num):\n    # Get a reference to webcam #0 (the default one)\n    video_capture = cv2.VideoCapture(0)\n    # video_capture.set(3, 640)  # Width of the frames in the video stream.\n    # video_capture.set(4, 480)  # Height of the frames in the video stream.\n    # video_capture.set(5, 30) # Frame rate.\n    print(\"Width: %d, Height: %d, FPS: %d\" % (video_capture.get(3), video_capture.get(4), video_capture.get(5)))\n\n    while not Global.is_exit:\n        # If it's time to read a frame\n        if Global.buff_num != next_id(Global.read_num, worker_num):\n            # Grab a single frame of video\n            ret, frame = video_capture.read()\n            read_frame_list[Global.buff_num] = frame\n            Global.buff_num = next_id(Global.buff_num, worker_num)\n        else:\n            time.sleep(0.01)\n\n    # Release webcam\n    video_capture.release()",
+    "source": "github_repo:ageitgey/face_recognition",
+    "file": "examples/facerec_from_webcam_multiprocessing.py",
+    "license": "MIT",
+    "language": "python"
+}

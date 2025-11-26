@@ -1,0 +1,7 @@
+{
+    "code": "class SimpleRunCode(Action):\n    name: str = \"SimpleRunCode\"\n\n    async def run(self, code_text: str):\n        result = subprocess.run([\"python3\", \"-c\", code_text], capture_output=True, text=True)\n        code_result = result.stdout\n        logger.info(f\"{code_result=}\")\n        return code_result",
+    "source": "github_repo:FoundationAgents/MetaGPT",
+    "file": "examples/build_customized_agent.py",
+    "license": "MIT",
+    "language": "python"
+}

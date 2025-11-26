@@ -1,0 +1,7 @@
+{
+    "code": "def rearrange_kv_cache(self, source_indices) -> None:\n        \"\"\"Update the key-value cache according to the updated beams\"\"\"\n        raise NotImplementedError",
+    "source": "github_repo:openai/whisper",
+    "file": "whisper/decoding.py",
+    "license": "MIT",
+    "language": "python"
+}

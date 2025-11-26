@@ -1,0 +1,7 @@
+{
+    "code": "def send_http_301_permanent_redirect(cli, new_path):\n    \"\"\"\n    replies with an HTTP 301, which is a permanent redirect;\n    otherwise identical to send_http_302_temporary_redirect\n    \"\"\"\n    cli.reply(b\"redirecting...\", 301, headers={\"Location\": new_path})",
+    "source": "github_repo:9001/copyparty",
+    "file": "bin/handlers/redirect.py",
+    "license": "MIT",
+    "language": "python"
+}

@@ -1,0 +1,7 @@
+{
+    "code": "class BrowserSettings(BaseModel):\n    headless: bool = Field(False, description=\"Whether to run browser in headless mode\")\n    disable_security: bool = Field(\n        True, description=\"Disable browser security features\"\n    )\n    extra_chromium_args: List[str] = Field(\n        default_factory=list, description=\"Extra arguments to pass to the browser\"\n    )\n    chrome_instance_path: Optional[str] = Field(\n        None, description=\"Path to a Chrome instance to use\"\n    )\n    wss_url: Optional[str] = Field(\n        None, description=\"Connect to a browser instance via WebSocket\"\n    )\n    cdp_url: Optional[str] = Field(\n        None, description=\"Connect to a browser instance via CDP\"\n    )\n    proxy: Optional[ProxySettings] = Field(\n        None, description=\"Proxy settings for the browser\"\n    )\n    max_content_length: int = Field(\n        2000, description=\"Maximum length for content retrieval operations\"\n    )",
+    "source": "github_repo:FoundationAgents/OpenManus",
+    "file": "app/config.py",
+    "license": "MIT",
+    "language": "python"
+}

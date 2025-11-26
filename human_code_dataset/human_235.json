@@ -1,0 +1,7 @@
+{
+    "code": "def __init__(self, in_features: int, out_features: int, bias: bool = False, dtype = None):\n        assert in_features % world_size == 0, f\"Input features must be divisible by world size (world_size={world_size})\"\n        self.part_in_features = in_features // world_size\n        super().__init__(self.part_in_features, out_features, bias, dtype)",
+    "source": "github_repo:deepseek-ai/DeepSeek-V3",
+    "file": "inference/model.py",
+    "license": "MIT",
+    "language": "python"
+}

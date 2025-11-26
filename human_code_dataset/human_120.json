@@ -1,0 +1,7 @@
+{
+    "code": "def update_lfx_workspace_dep(pyproject_path: str, new_project_name: str) -> None:\n    \"\"\"Update the LFX workspace dependency in pyproject.toml.\"\"\"\n    filepath = BASE_DIR / pyproject_path\n    content = filepath.read_text(encoding=\"utf-8\")\n\n    if new_project_name == \"lfx-nightly\":\n        pattern = re.compile(r\"lfx = \\{ workspace = true \\}\")\n        replacement = \"lfx-nightly = { workspace = true }\"\n    else:\n        msg = f\"Invalid LFX project name: {new_project_name}\"\n        raise ValueError(msg)\n\n    # Updates the dependency name for uv\n    if not pattern.search(content):\n        msg = f\"lfx workspace dependency not found in {filepath}\"\n        raise ValueError(msg)\n    content = pattern.sub(replacement, content)\n    filepath.write_text(content, encoding=\"utf-8\")",
+    "source": "github_repo:langflow-ai/langflow",
+    "file": "scripts/ci/update_lfx_version.py",
+    "license": "MIT",
+    "language": "python"
+}

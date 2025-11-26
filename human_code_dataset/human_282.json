@@ -1,0 +1,7 @@
+{
+    "code": "def test_when_already_configured(usage_tracker_io, shell_pid,\n                                 shell, shell_config, logs):\n    shell.get_history.return_value = ['fuck']\n    shell_pid.return_value = 12\n    _change_tracker(usage_tracker_io, 12)\n    shell_config.read.return_value = 'eval $(thefuck --alias)'\n    main()\n    logs.already_configured.assert_called_once()",
+    "source": "github_repo:nvbn/thefuck",
+    "file": "tests/entrypoints/test_not_configured.py",
+    "license": "MIT",
+    "language": "python"
+}

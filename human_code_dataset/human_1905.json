@@ -1,0 +1,7 @@
+{
+    "code": "def do_stuff(inf):\n    \"\"\"\n    worker function which is executed in another thread to\n    avoid blocking copyparty while the download is running,\n    since we cannot use the 'f,t3600' hook-flags with 'I'\n    \"\"\"\n\n    # first things first; grab the logger-function which copyparty is letting us borrow\n    log = inf[\"log\"]\n\n    url = inf[\"txt\"]\n    if \"://\" not in url:\n        url = \"https://\" + url\n\n    proto = url.split(\"://\")[0].lower()\n    if proto not in (\"http\", \"https\", \"ftp\", \"ftps\"):\n        raise Exception(\"bad proto {}\".format(proto))\n\n    dirpath = inf[\"ap\"]\n\n    name = url.split(\"?\")[0].split(\"/\")[-1]\n    msg = \"-- DOWNLOADING \" + name\n    log(msg)\n    tfn = os.path.join(dirpath, msg)\n    open(tfn, \"wb\").close()\n\n    cmd = [\"wget\", \"--trust-server-names\", \"-nv\", \"--\", url]\n\n    try:\n        # two things to note here:\n        # - cannot use the `c3` hook-flag with `I` so mute output with stdout=sp.DEVNULL instead;\n        # - MUST NOT use os.chdir with 'I' so use cwd=dirpath instead \n        sp.check_call(cmd, cwd=dirpath, stdout=sp.DEVNULL)\n    except:\n        t = \"-- FAILED TO DOWNLOAD \" + name\n        log(t, 3)  # 3=yellow=warning\n        open(os.path.join(dirpath, t), \"wb\").close()\n        raise  # have copyparty scream about the details in the log\n\n    os.unlink(tfn)",
+    "source": "github_repo:9001/copyparty",
+    "file": "bin/hooks/wget-i.py",
+    "license": "MIT",
+    "language": "python"
+}

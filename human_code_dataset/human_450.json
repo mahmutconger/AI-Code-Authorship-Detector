@@ -1,0 +1,7 @@
+{
+    "code": "class SquareToCircleEmbed(Scene):\n    def construct(self):\n        circle = Circle()\n        circle.set_fill(BLUE, opacity=0.5)\n        circle.set_stroke(BLUE_E, width=4)\n\n        self.add(circle)\n        self.wait()\n        self.play(circle.animate.stretch(4, dim=0))\n        self.wait(1.5)\n        self.play(Rotate(circle, TAU / 4))\n        self.wait(1.5)\n        self.play(circle.animate.shift(2 * RIGHT), circle.animate.scale(0.25))\n        self.wait(1.5)\n        circle.insert_n_curves(10)\n        self.play(circle.animate.apply_complex_function(lambda z: z**2))\n        self.wait(2)",
+    "source": "github_repo:3b1b/manim",
+    "file": "docs/example.py",
+    "license": "MIT",
+    "language": "python"
+}

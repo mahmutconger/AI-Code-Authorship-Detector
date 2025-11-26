@@ -1,0 +1,7 @@
+{
+    "code": "def _stream_texts(paths: Iterable[Path]) -> Iterable[str]:\n    \"\"\"\n    Yields strings from text files in paths.\n    \"\"\"\n    for path in paths:\n        with open(path, \"r\") as fin:\n            text = fin.read()\n            yield text",
+    "source": "github_repo:explosion/spaCy",
+    "file": "spacy/cli/apply.py",
+    "license": "MIT",
+    "language": "python"
+}

@@ -1,0 +1,7 @@
+{
+    "code": "def main():\n    ok = [\"image/jpeg\", \"image/png\"]\n\n    mt = magic.from_file(sys.argv[1], mime=True)\n\n    print(mt)\n\n    sys.exit(1 if mt not in ok else 0)",
+    "source": "github_repo:9001/copyparty",
+    "file": "bin/hooks/reject-mimetype.py",
+    "license": "MIT",
+    "language": "python"
+}

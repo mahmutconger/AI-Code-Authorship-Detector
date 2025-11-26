@@ -1,0 +1,7 @@
+{
+    "code": "def _update(self, key: str, status: str, detail: str):\n        for s in self.steps:\n            if s[\"key\"] == key:\n                s[\"status\"] = status\n                if detail:\n                    s[\"detail\"] = detail\n                self._maybe_refresh()\n                return\n\n        self.steps.append({\"key\": key, \"label\": key, \"status\": status, \"detail\": detail})\n        self._maybe_refresh()",
+    "source": "github_repo:github/spec-kit",
+    "file": "src/specify_cli/__init__.py",
+    "license": "MIT",
+    "language": "python"
+}

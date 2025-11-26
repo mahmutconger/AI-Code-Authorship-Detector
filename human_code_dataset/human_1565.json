@@ -1,0 +1,7 @@
+{
+    "code": "def set_output(name: str, value: str) -> None:\n    if len(value) < 200:\n        print(f\"[INFO]: setting '{name}' to '{value}'\")\n    else:\n        print(f\"[INFO]: setting '{name}' to [{len(value)} chars]\")\n\n    if \"GITHUB_OUTPUT\" in os.environ:\n        if \"\\n\" in value:\n            # https://docs.github.com/en/actions/using-workflows/workflow-commands-for-github-actions#multiline-strings\n            delimiter = b64encode(os.urandom(16)).decode()\n            value = f\"{delimiter}\\n{value}\\n{delimiter}\"\n            command = f\"{name}<<{value}\"\n        else:\n            command = f\"{name}={value}\"\n        with open(os.environ[\"GITHUB_OUTPUT\"], \"a\") as f:\n            print(command, file=f)",
+    "source": "github_repo:psf/black",
+    "file": "scripts/diff_shades_gha_helper.py",
+    "license": "MIT",
+    "language": "python"
+}

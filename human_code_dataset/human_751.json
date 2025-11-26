@@ -1,0 +1,7 @@
+{
+    "code": "class SimpleWriteCode(Action):\n    PROMPT_TEMPLATE: str = \"\"\"\n    Write a python function that can {instruction}.\n    Return ```python your_code_here ``` with NO other texts,\n    your code:\n    \"\"\"\n    name: str = \"SimpleWriteCode\"\n\n    async def run(self, instruction: str):\n        prompt = self.PROMPT_TEMPLATE.format(instruction=instruction)\n\n        rsp = await self._aask(prompt)\n\n        code_text = parse_code(rsp)\n\n        return code_text",
+    "source": "github_repo:FoundationAgents/MetaGPT",
+    "file": "examples/build_customized_multi_agents.py",
+    "license": "MIT",
+    "language": "python"
+}

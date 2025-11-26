@@ -1,0 +1,7 @@
+{
+    "code": "def test_find_link_in_text(self):\n        text = \"\"\"\n            # this is valid\n\n            http://example.com?param1=1&param2=2#anchor\n            https://www.example.com?param1=1&param2=2#anchor\n            https://www.example.com.br\n            https://www.example.com.gov.br\n            [Example](https://www.example.com?param1=1&param2=2#anchor)\n            lorem ipsum https://www.example.com?param1=1&param2=2#anchor\n            https://www.example.com?param1=1&param2=2#anchor lorem ipsum\n\n            # this not is valid\n\n            example.com\n            https:example.com\n            https:/example.com\n            https//example.com\n            https//.com\n        \"\"\"\n\n        links = find_links_in_text(text)\n\n        self.assertIsInstance(links, list)\n        self.assertEqual(len(links), 7)\n\n        for link in links:\n            with self.subTest():\n                self.assertIsInstance(link, str)",
+    "source": "github_repo:public-apis/public-apis",
+    "file": "scripts/tests/test_validate_links.py",
+    "license": "MIT",
+    "language": "python"
+}

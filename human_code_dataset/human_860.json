@@ -1,0 +1,7 @@
+{
+    "code": "from PIL import Image, ImageDraw\nimport face_recognition\n\n# Load the jpg file into a numpy array\nimage = face_recognition.load_image_file(\"two_people.jpg\")\n\n# Find all facial features in all the faces in the image\nface_landmarks_list = face_recognition.face_landmarks(image)\n\nprint(\"I found {} face(s) in this photograph.\".format(len(face_landmarks_list)))\n\n# Create a PIL imagedraw object so we can draw on the picture\npil_image = Image.fromarray(image)\nd = ImageDraw.Draw(pil_image)\n\nfor face_landmarks in face_landmarks_list:\n\n    # Print the location of each facial feature in this image\n    for facial_feature in face_landmarks.keys():\n        print(\"The {} in this face has the following points: {}\".format(facial_feature, face_landmarks[facial_feature]))\n\n    # Let's trace out each facial feature in the image with a line!\n    for facial_feature in face_landmarks.keys():\n        d.line(face_landmarks[facial_feature], width=5)\n\n# Show the picture\npil_image.show()",
+    "source": "github_repo:ageitgey/face_recognition",
+    "file": "examples/find_facial_features_in_picture.py",
+    "license": "MIT",
+    "language": "python"
+}

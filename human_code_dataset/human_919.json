@@ -1,0 +1,7 @@
+{
+    "code": "def ask_collection_consent() -> bool:\n    \"\"\"\n    Asks the user for their consent to store their data for the purpose of improving the GPT Engineer tool.\n\n    The user's response is recorded in a file for future reference. If the user consents, the function will write 'true' to the file. If the user does not consent, no data will be collected, and the function will not modify the file.\n\n    Returns\n    -------\n    bool\n        True if the user consents, False otherwise.\n    \"\"\"\n    answer = input(\n        \"Is it ok if we store your prompts to help improve GPT Engineer? (y/n)\"\n    )\n    while answer.lower() not in (\"y\", \"n\"):\n        answer = input(\"Invalid input. Please enter y or n: \")\n\n    if answer.lower() == \"y\":\n        path = Path(\".gpte_consent\")\n        path.write_text(\"true\")\n        print(colored(\"Thank you️\", \"light_green\"))\n        print()\n        print(\n            \"(If you no longer wish to participate in data collection, delete the file .gpte_consent)\"\n        )\n        return True\n    else:\n        print(\n            colored(\n                \"No worries! GPT Engineer will not collect your prompts. ❤️\",\n                \"light_green\",\n            )\n        )\n        return False",
+    "source": "github_repo:AntonOsika/gpt-engineer",
+    "file": "gpt_engineer/applications/cli/learning.py",
+    "license": "MIT",
+    "language": "python"
+}

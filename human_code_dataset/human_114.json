@@ -1,0 +1,7 @@
+{
+    "code": "def get_latest_published_version(build_type: str, *, is_nightly: bool) -> Version:\n    url = \"\"\n    if build_type == \"base\":\n        url = PYPI_LANGFLOW_BASE_NIGHTLY_URL if is_nightly else PYPI_LANGFLOW_BASE_URL\n    elif build_type == \"main\":\n        url = PYPI_LANGFLOW_NIGHTLY_URL if is_nightly else PYPI_LANGFLOW_URL\n    else:\n        msg = f\"Invalid build type: {build_type}\"\n        raise ValueError(msg)\n\n    res = requests.get(url, timeout=10)\n    try:\n        version_str = res.json()[\"info\"][\"version\"]\n    except Exception as e:\n        msg = \"Got unexpected response from PyPI\"\n        raise RuntimeError(msg) from e\n    return Version(version_str)",
+    "source": "github_repo:langflow-ai/langflow",
+    "file": "scripts/ci/pypi_nightly_tag.py",
+    "license": "MIT",
+    "language": "python"
+}

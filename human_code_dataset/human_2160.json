@@ -1,0 +1,7 @@
+{
+    "code": "class InvalidSyntax(Exception):\n    def __init__(self):\n        pass",
+    "source": "github_repo:geekcomputers/Python",
+    "file": "Assembler/assembler.py",
+    "license": "MIT",
+    "language": "python"
+}

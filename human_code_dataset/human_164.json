@@ -1,0 +1,7 @@
+{
+    "code": "def _version_callback(*, show_version: bool) -> None:\n    if show_version:\n        typer.echo(f\"langchain-cli {__version__}\")\n        raise typer.Exit",
+    "source": "github_repo:langchain-ai/langchain",
+    "file": "libs/cli/langchain_cli/cli.py",
+    "license": "MIT",
+    "language": "python"
+}

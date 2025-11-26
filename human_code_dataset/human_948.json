@@ -1,0 +1,7 @@
+{
+    "code": "def _print_table(self, width):\n        table = Table(title=\"Star Wars Movies\")\n        console = Console(\n            file=StringIO(), color_system=\"truecolor\", legacy_windows=False, width=width\n        )\n        table.add_column(\"Released\", justify=\"right\", style=\"cyan\", no_wrap=True)\n        table.add_column(\"Title\", style=\"magenta\")\n        table.add_column(\"Box Office\", justify=\"right\", style=\"green\")\n        table.add_row(\n            \"Dec 20, 2019\", \"[b]Star Wars[/]: The Rise of Skywalker\", \"$952,110,690\"\n        )\n        table.add_row(\n            \"May 25, 2018\", \"Solo: A [red][b]Star Wars[/] Story[/]\", \"$393,151,347\"\n        )\n        table.add_row(\n            \"Dec 15, 2017\",\n            \"[b red]Star Wars[/] Ep. V111: The Last Jedi\",\n            \"$1,332,539,889\",\n        )\n        table.add_row(\n            \"Dec 16, 2016\", \"Rogue One: A [blue]Star Wars[/] Story\", \"$1,332,439,889\"\n        )\n        console.print(table)",
+    "source": "github_repo:Textualize/rich",
+    "file": "benchmarks/benchmarks.py",
+    "license": "MIT",
+    "language": "python"
+}

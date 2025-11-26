@@ -1,0 +1,7 @@
+{
+    "code": "def test_recv_one_or_none(self):\n    sock = \"carState\"\n    pub_sock = messaging.pub_sock(sock)\n    sub_sock = messaging.sub_sock(sock)\n    zmq_sleep()\n\n    # no msg in queue, socket shouldn't block\n    recvd = messaging.recv_one_or_none(sub_sock)\n    assert recvd is None\n\n    # one msg in queue\n    msg = random_carstate()\n    pub_sock.send(msg.to_bytes())\n    recvd = messaging.recv_one_or_none(sub_sock)\n    assert isinstance(recvd, capnp._DynamicStructReader)\n    assert_carstate(msg.carState, recvd.carState)",
+    "source": "github_repo:commaai/openpilot",
+    "file": "cereal/messaging/tests/test_messaging.py",
+    "license": "MIT",
+    "language": "python"
+}

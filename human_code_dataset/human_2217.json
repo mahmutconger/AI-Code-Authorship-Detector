@@ -1,0 +1,7 @@
+{
+    "code": "def getUserName(self, uamtk):\n        \"\"\"\n        登录成功后,显示用户名\n        :return:\n        \"\"\"\n        if not uamtk:\n            return u\"权限校验码不能为空\"\n        else:\n            uamauthclientUrl = self.session.urls[\"uamauthclient\"]\n            data = {\"tk\": uamtk}\n            uamauthclientResult = self.session.httpClint.send(uamauthclientUrl, data)\n            if uamauthclientResult:\n                if \"result_code\" in uamauthclientResult and uamauthclientResult[\"result_code\"] == 0:\n                    print(u\"欢迎 {} 登录\".format(uamauthclientResult[\"username\"]))\n                    return True\n                else:\n                    return False\n            else:\n                self.session.httpClint.send(uamauthclientUrl, data)\n                url = self.session.urls[\"getUserInfo\"]\n                self.session.httpClint.send(url)",
+    "source": "github_repo:testerSunshine/12306",
+    "file": "init/login.py",
+    "license": "MIT",
+    "language": "python"
+}

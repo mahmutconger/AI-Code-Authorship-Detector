@@ -1,0 +1,7 @@
+{
+    "code": "def filterCdn():\n    \"\"\"\n    过滤cdn, 过滤逻辑为当前cdn响应值小于1000毫秒\n    过滤日志:\n        加入cdn: 116.77.75.146\n    :return:\n    \"\"\"\n    cdns = open_cdn_file(\"cdn_list\")\n    cdnss = [cdns[i:i + 50] for i in range(0, len(cdns), 50)]\n    cdnThread = []\n    for cdn in cdnss:\n        t = CDNProxy(cdn)\n        cdnThread.append(t)\n    for cdn_t in cdnThread:\n        cdn_t.start()\n\n    for cdn_j in cdnThread:\n        cdn_j.join()\n\n    print(f\"当前有效cdn个数为: {len(cdn_list)}\")\n    if cdn_list:\n        ips = sortCdn()\n        path = os.path.join(os.path.dirname(__file__), f'../filter_cdn_list')\n        f = open(path, \"a+\")\n        f.seek(0)\n        f.truncate()\n        f.writelines(\"\")\n        for ip in ips:\n            f.writelines(f\"{ip}\\n\")\n        f.close()",
+    "source": "github_repo:testerSunshine/12306",
+    "file": "agency/cdn_utils.py",
+    "license": "MIT",
+    "language": "python"
+}

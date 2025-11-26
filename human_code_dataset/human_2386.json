@@ -1,0 +1,7 @@
+{
+    "code": "class ConfigData(BaseModel):\n    pth_path: str\n    index_path: str\n    sg_input_device: str\n    sg_output_device: str\n    threhold: int = -60\n    pitch: int = 0\n    formant: float = 0.0\n    index_rate: float = 0.3\n    rms_mix_rate: float = 0.0\n    block_time: float = 0.25\n    crossfade_length: float = 0.05\n    extra_time: float = 2.5\n    n_cpu: int = 4\n    I_noise_reduce: bool = False\n    O_noise_reduce: bool = False\n    use_pv: bool = False\n    f0method: str = \"fcpe\"",
+    "source": "github_repo:RVC-Project/Retrieval-based-Voice-Conversion-WebUI",
+    "file": "api_240604.py",
+    "license": "MIT",
+    "language": "python"
+}

@@ -1,0 +1,7 @@
+{
+    "code": "def get_pypi_version() -> Version:\n    data = http_get(\"https://pypi.org/pypi/black/json\")\n    versions = [Version(v) for v in data[\"releases\"]]\n    sorted_versions = sorted(versions, reverse=True)\n    return sorted_versions[0]",
+    "source": "github_repo:psf/black",
+    "file": "scripts/diff_shades_gha_helper.py",
+    "license": "MIT",
+    "language": "python"
+}

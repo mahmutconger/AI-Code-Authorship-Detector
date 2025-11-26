@@ -1,0 +1,7 @@
+{
+    "code": "def to_mask(\n        self,\n        x: torch.Tensor,\n        padding_mask: Optional[torch.Tensor],\n    ):\n        if padding_mask is None:\n            return x\n\n        if padding_mask.dtype == torch.bool:\n            return x.masked_fill(padding_mask, 0)\n        else:\n            return x * padding_mask",
+    "source": "github_repo:RVC-Boss/GPT-SoVITS",
+    "file": "GPT_SoVITS/AR/models/t2s_model.py",
+    "license": "MIT",
+    "language": "python"
+}

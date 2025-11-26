@@ -1,0 +1,7 @@
+{
+    "code": "def get_proxy(self):\n        \"\"\"\n        获取未加工代理列表\n        :return: \n        \"\"\"\n        User_Agent = 'Mozilla/5.0 (Windows NT 6.3; WOW64; rv:43.0) Gecko/20100101 Firefox/43.0'\n        header = dict()\n        header['User-Agent'] = User_Agent\n\n        for i in range(1, 5):\n            time.sleep(1)\n            url = 'http://www.xicidaili.com/nn/' + str(i)\n            res = requests.get(url=url, headers=header).content\n\n            soup = BeautifulSoup(res, \"html.parser\")\n            ips = soup.findAll('tr')\n\n            for x in range(1, len(ips)):\n                ip = ips[x]\n                tds = ip.findAll(\"td\")\n                ip_temp = tds[1].contents[0] + \":\" + tds[2].contents[0]\n                print(ip_temp)\n                self.proxy_list.append(ip_temp)",
+    "source": "github_repo:testerSunshine/12306",
+    "file": "agency/agency_tools.py",
+    "license": "MIT",
+    "language": "python"
+}

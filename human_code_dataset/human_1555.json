@@ -1,0 +1,7 @@
+{
+    "code": "def format_repo_with_version(\n    repo: Path,\n    from_branch: str | None,\n    black_repo: Path,\n    black_version: BlackVersion,\n    input_directory: Path,\n) -> str:\n    current_branch = f\"black-{black_version.version}\"\n    git_switch_branch(black_version.version, repo=black_repo)\n    git_switch_branch(current_branch, repo=repo, new=True, from_branch=from_branch)\n\n    format_cmd: list[Path | str] = [\n        black_runner(black_version.version, black_repo),\n        (black_repo / \"black.py\").resolve(),\n        \".\",\n    ]\n    if black_version.config:\n        format_cmd.extend([\"--config\", input_directory / black_version.config])\n\n    subprocess.run(format_cmd, cwd=repo, check=False)  # ensure the process\n    # continuess to run even it can't format some files. Reporting those\n    # should be enough\n    git_add_and_commit(f\"Format with black:{black_version.version}\", repo=repo)\n\n    return current_branch",
+    "source": "github_repo:psf/black",
+    "file": "gallery/gallery.py",
+    "license": "MIT",
+    "language": "python"
+}

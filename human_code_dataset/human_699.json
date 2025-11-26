@@ -1,0 +1,7 @@
+{
+    "code": "def forward(self, x: torch.Tensor):\n        \"\"\"\n        :param x: are the input tokens of shape `[seq_len, batch_size]`\n        \"\"\"\n        # Create auto-regressive mask\n        if self.mask is None or self.mask.size(0) != len(x):\n            # Subsequent mask, will mask out tokens from seeing future tokens\n            self.mask = subsequent_mask(len(x)).to(x.device)\n\n        # Get the token embeddings\n        x = self.emb(x)\n        # Transformer encoder\n        for layer in self.transformer_layers:\n            x = layer(x=x, mask=self.mask)\n        # Get logits\n        x = self.readout(x)\n\n        # Return results\n        return x, None",
+    "source": "github_repo:labmlai/annotated_deep_learning_paper_implementations",
+    "file": "labml_nn/activations/fta/experiment.py",
+    "license": "MIT",
+    "language": "python"
+}

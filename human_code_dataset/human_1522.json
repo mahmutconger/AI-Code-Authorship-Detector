@@ -1,0 +1,7 @@
+{
+    "code": "def prettify(\n        self,\n        data: bytes,\n        metadata: contentviews.Metadata,\n    ) -> str:\n        return data.swapcase().decode()",
+    "source": "github_repo:mitmproxy/mitmproxy",
+    "file": "examples/addons/contentview-interactive.py",
+    "license": "MIT",
+    "language": "python"
+}

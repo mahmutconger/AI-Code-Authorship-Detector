@@ -1,0 +1,7 @@
+{
+    "code": "def extract_sidebar_bundles(frontend_path: Path) -> set[str]:\n    \"\"\"Extract component names from SIDEBAR_BUNDLES in styleUtils.ts.\"\"\"\n    style_utils_path = frontend_path / \"src/utils/styleUtils.ts\"\n\n    if not style_utils_path.exists():\n        print(f\"Warning: styleUtils.ts not found at {style_utils_path}\")\n        return set()\n\n    bundle_names = set()\n\n    with style_utils_path.open(encoding=\"utf-8\") as f:\n        content = f.read()\n\n    # Find SIDEBAR_BUNDLES array\n    sidebar_match = re.search(r\"export const SIDEBAR_BUNDLES = \\[(.*?)\\];\", content, re.DOTALL)\n    if not sidebar_match:\n        print(\"Warning: SIDEBAR_BUNDLES not found in styleUtils.ts\")\n        return set()\n\n    bundles_content = sidebar_match.group(1)\n\n    # Extract name fields using regex\n    name_matches = re.findall(r'name:\\s*[\"\\']([^\"\\']+)[\"\\']', bundles_content)\n\n    for name in name_matches:\n        bundle_names.add(name)\n\n    print(f\"Found {len(bundle_names)} bundled components from SIDEBAR_BUNDLES\")\n    return bundle_names",
+    "source": "github_repo:langflow-ai/langflow",
+    "file": "scripts/generate_coverage_config.py",
+    "license": "MIT",
+    "language": "python"
+}

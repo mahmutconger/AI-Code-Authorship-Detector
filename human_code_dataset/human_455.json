@@ -1,0 +1,7 @@
+{
+    "code": "def setup(app):\n    app.add_node(skip_manim_node, html=(visit, depart))\n\n    setup.app = app\n    setup.config = app.config\n    setup.confdir = app.confdir\n\n    app.add_directive(\"manim-example\", ManimExampleDirective)\n\n    metadata = {\"parallel_read_safe\": False, \"parallel_write_safe\": True}\n    return metadata",
+    "source": "github_repo:3b1b/manim",
+    "file": "docs/source/manim_example_ext.py",
+    "license": "MIT",
+    "language": "python"
+}

@@ -1,0 +1,7 @@
+{
+    "code": "def convert(model=\"en\", input_file=None, output_dir=None, n_texts=0):\n    # Load model with tokenizer + sentencizer only\n    nlp = spacy.load(model)\n    nlp.select_pipes(disable=nlp.pipe_names)\n    sentencizer = nlp.create_pipe(\"sentencizer\")\n    nlp.add_pipe(sentencizer, first=True)\n\n    texts = []\n    cats = []\n    count = 0\n\n    if not input_file.exists():\n        print(\"Input file not found:\", input_file)\n        sys.exit(1)\n    else:\n        with open(input_file) as fileh:\n            for line in fileh:\n                data = srsly.json_loads(line)\n                texts.append(data[\"text\"])\n                cats.append(data[\"cats\"])\n\n    if output_dir is not None:\n        output_dir = Path(output_dir)\n        if not output_dir.exists():\n            output_dir.mkdir()\n    else:\n        output_dir = Path(\".\")\n\n    docs = []\n    for i, doc in enumerate(nlp.pipe(texts)):\n        doc.cats = cats[i]\n        docs.append(doc)\n        if n_texts > 0 and count == n_texts:\n            break\n        count += 1\n\n    srsly.write_json(output_dir / input_file.with_suffix(\".json\"), [docs_to_json(docs)])",
+    "source": "github_repo:explosion/spaCy",
+    "file": "extra/example_data/textcat_example_data/textcatjsonl_to_trainjson.py",
+    "license": "MIT",
+    "language": "python"
+}

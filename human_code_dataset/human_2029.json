@@ -1,0 +1,7 @@
+{
+    "code": "def detect_watermark(self, audio, n_repeat):\n        bits = []\n        K = 16000\n        coeff = 2\n        for n in range(n_repeat):\n            trunck = audio[(coeff * n) * K: (coeff * n + 1) * K]\n            if len(trunck) != K:\n                print('Audio too short, fail to detect watermark')\n                return 'Fail'\n            with torch.no_grad():\n                signal = torch.FloatTensor(trunck).to(self.device).unsqueeze(0)\n                message_decoded_npy = (self.watermark_model.decode(signal) >= 0.5).int().detach().cpu().numpy().squeeze()\n            bits.append(message_decoded_npy)\n        bits = np.stack(bits).reshape(-1, 8)\n        message = utils.bits_to_string(bits)\n        return message",
+    "source": "github_repo:myshell-ai/OpenVoice",
+    "file": "openvoice/api.py",
+    "license": "MIT",
+    "language": "python"
+}

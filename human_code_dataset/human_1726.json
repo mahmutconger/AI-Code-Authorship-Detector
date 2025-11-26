@@ -1,0 +1,7 @@
+{
+    "code": "def openImage(path):\n    im = _imread(path)\n    typ, data = im[\"type\"], im[\"data\"]\n    if typ == \"error\":\n        return data\n    # 若原本为本地图片，则直接打开\n    if \"path\" in im:\n        path = im[\"path\"]\n    # 若为内存数据，则创建缓存文件\n    else:\n        path = \"umi_temp_image.png\"\n        try:\n            if typ == \"pixmap\":\n                data = data.toImage()\n            data.save(path)\n            logger.debug(f\"用系统默认应用打开图片时，缓存临时图片到 {path}\")\n        except Exception as e:\n            logger.error(\n                f\"用系统默认应用打开图片时，无法缓存临时图片到 {path}\",\n                exc_info=True,\n                stack_info=True,\n            )\n            return f\"[Error] can't save to temp file: {e}\\n{path}\"\n    # 打开文件\n    try:\n        Platform.startfile(path)\n        return \"[Success]\"\n    except Exception as e:\n        logger.error(\n            f\"无法用系统默认应用打开图片 {path}\",\n            exc_info=True,\n            stack_info=True,\n        )\n        return f\"[Error] can't open image: {e}\\n{path}\"",
+    "source": "github_repo:hiroi-sora/Umi-OCR",
+    "file": "UmiOCR-data/py_src/image_controller/image_provider.py",
+    "license": "MIT",
+    "language": "python"
+}

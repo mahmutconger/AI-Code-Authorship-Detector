@@ -1,0 +1,7 @@
+{
+    "code": "def get_latest_published_version(*, is_nightly: bool) -> Version:\n    url = PYPI_LFX_NIGHTLY_URL if is_nightly else PYPI_LFX_URL\n\n    res = requests.get(url, timeout=10)\n    if res.status_code == requests.codes.not_found:\n        msg = \"Package not found on PyPI\"\n        raise requests.RequestException(msg)\n\n    try:\n        version_str = res.json()[\"info\"][\"version\"]\n    except (KeyError, ValueError) as e:\n        msg = \"Got unexpected response from PyPI\"\n        raise requests.RequestException(msg) from e\n    return Version(version_str)",
+    "source": "github_repo:langflow-ai/langflow",
+    "file": "scripts/ci/lfx_nightly_tag.py",
+    "license": "MIT",
+    "language": "python"
+}

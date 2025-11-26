@@ -1,0 +1,7 @@
+{
+    "code": "def add_processor(self, task: str, processor: Callable[[pl.DataFrame], None]) -> None:\n        \"\"\"\n        Add a feature preprocessor\n        \"\"\"\n        if task == \"infer\":\n            self.infer_processors.append(processor)\n        else:\n            self.learn_processors.append(processor)",
+    "source": "github_repo:vnpy/vnpy",
+    "file": "vnpy/alpha/dataset/template.py",
+    "license": "MIT",
+    "language": "python"
+}

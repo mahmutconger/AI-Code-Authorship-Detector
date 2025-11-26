@@ -1,0 +1,7 @@
+{
+    "code": "def codeCheck(self):\n        \"\"\"\n        验证码校验\n        :return:\n        \"\"\"\n        codeCheckUrl = copy.deepcopy(self.session.urls[\"codeCheck1\"])\n        codeCheckUrl[\"req_url\"] = codeCheckUrl[\"req_url\"].format(self.randCode, int(time.time() * 1000))\n        fresult = self.session.httpClint.send(codeCheckUrl)\n        if not isinstance(fresult, str):\n            print(\"登录失败\")\n            return\n        fresult = eval(fresult.split(\"(\")[1].split(\")\")[0])\n        if \"result_code\" in fresult and fresult[\"result_code\"] == \"4\":\n            print(u\"验证码通过,开始登录..\")\n            return True\n        else:\n            if \"result_message\" in fresult:\n                print(fresult[\"result_message\"])\n            sleep(1)\n            self.session.httpClint.del_cookies()",
+    "source": "github_repo:testerSunshine/12306",
+    "file": "init/login.py",
+    "license": "MIT",
+    "language": "python"
+}

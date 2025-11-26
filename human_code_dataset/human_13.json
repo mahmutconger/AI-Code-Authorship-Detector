@@ -1,0 +1,7 @@
+{
+    "code": "def test_check_auth_without_backtick(self):\n        auth_without_backtick = [auth for auth in auth_keys if auth != 'No']\n\n        for auth in auth_without_backtick:\n            with self.subTest():\n                err_msgs = check_auth(0, auth)\n                self.assertIsInstance(err_msgs, list)\n                self.assertEqual(len(err_msgs), 1)\n\n                err_msg = err_msgs[0]\n                expected_err_msg = '(L001) auth value is not enclosed with `backticks`'\n\n                self.assertIsInstance(err_msg, str)\n                self.assertEqual(err_msg, expected_err_msg)",
+    "source": "github_repo:public-apis/public-apis",
+    "file": "scripts/tests/test_validate_format.py",
+    "license": "MIT",
+    "language": "python"
+}

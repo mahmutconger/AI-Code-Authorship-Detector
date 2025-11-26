@@ -1,0 +1,7 @@
+{
+    "code": "class CDNProxy(threading.Thread):\n    def __init__(self, cdns):\n        super().__init__()\n        self.cdns = cdns\n        self.urlConf = urlConf.urls\n        self.httpClint = requests\n        self.city_list = []\n        self.timeout = 5\n\n    def run(self):\n        for cdn in self.cdns:\n            http = HTTPClient(0)\n            url = urls[\"loginInitCdn\"]\n            http._cdn = cdn.replace(\"\\n\", \"\")\n            start_time = datetime.datetime.now()\n            rep = http.send(url)\n            retTime = (datetime.datetime.now() - start_time).microseconds / 1000\n            if rep and \"message\" not in rep and retTime < 3000:\n                if cdn.replace(\"\\n\", \"\") not in cdn_list:  # 如果有重复的cdn，则放弃加入\n                    print(f\"加入cdn: {cdn}\")\n                    cdn_list.append({\"ip\": cdn.replace(\"\\n\", \"\"), \"time\": retTime})",
+    "source": "github_repo:testerSunshine/12306",
+    "file": "agency/cdn_utils.py",
+    "license": "MIT",
+    "language": "python"
+}

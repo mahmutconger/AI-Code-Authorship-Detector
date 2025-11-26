@@ -1,0 +1,7 @@
+{
+    "code": "def slice(tf):\n    dur = get_duration()\n    dur = min(dur, 600)  # max 10min\n    segs = get_segs(dur)\n\n    # fmt: off\n    cmd = [\n        \"ffmpeg\",\n        \"-nostdin\",\n        \"-hide_banner\",\n        \"-v\", \"fatal\",\n        \"-y\"\n    ]\n\n    for seg in segs:\n        cmd.extend([\n            \"-ss\", str(seg[0]),\n            \"-i\", fsenc(sys.argv[1])\n        ])\n    \n    filt = \"\"\n    for n, seg in enumerate(segs):\n        filt += \"[{}:a:0]atrim=duration={}[a{}]; \".format(n, seg[1], n)\n    \n    prev = \"a0\"\n    for n in range(1, len(segs)):\n        nxt = \"b{}\".format(n)\n        filt += \"[{}][a{}]acrossfade=d=0.5[{}]; \".format(prev, n, nxt)\n        prev = nxt\n\n    cmd.extend([\n        \"-filter_complex\", filt[:-2],\n        \"-map\", \"[{}]\".format(nxt),\n        \"-sample_fmt\", \"s16\",\n        tf\n    ])\n    # fmt: on\n\n    # print(cmd)\n    sp.check_call(cmd)",
+    "source": "github_repo:9001/copyparty",
+    "file": "bin/mtag/audio-key-slicing.py",
+    "license": "MIT",
+    "language": "python"
+}

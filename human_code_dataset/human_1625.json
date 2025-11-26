@@ -1,0 +1,7 @@
+{
+    "code": "def add(\n        self,\n        *args: Any,\n        **kwargs: Any,\n    ) -> None:\n        self._table.add(*args, **kwargs)",
+    "source": "github_repo:crewAIInc/crewAI",
+    "file": "lib/crewai-tools/src/crewai_tools/adapters/lancedb_adapter.py",
+    "license": "MIT",
+    "language": "python"
+}

@@ -1,0 +1,7 @@
+{
+    "code": "class UFONet(HackingTool):\n    TITLE = \"UFOnet\"\n    DESCRIPTION = (\n        \"UFONet - is a free software, P2P and cryptographic \"\n        \"-disruptive \\n toolkit- that allows to perform DoS and \"\n        \"DDoS attacks\\n\\b \"\n        \"More Usage Visit\"\n    )\n    INSTALL_COMMANDS = [\n        \"sudo git clone https://github.com/epsylon/ufonet.git\",\n        \"cd ufonet;sudo python3 setup.py install;sudo pip3 install GeoIP;sudo pip3 install python-geoip;sudo pip3 install pygeoip;sudo pip3 install requests;sudo pip3 install pycrypto;sudo pip3 install pycurl;sudo pip3 install whois;sudo pip3 install scapy-python3\",\n    ]\n    RUN_COMMANDS = [\"sudo python3 ufonet --gui\"]\n    PROJECT_URL = \"https://github.com/epsylon/ufonet\"",
+    "source": "github_repo:Z4nzu/hackingtool",
+    "file": "tools/ddos.py",
+    "license": "MIT",
+    "language": "python"
+}

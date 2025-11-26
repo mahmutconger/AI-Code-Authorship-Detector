@@ -1,0 +1,7 @@
+{
+    "code": "def configure_optimizers(self):\n        model_parameters = self.model.parameters()\n        parameters_names = []\n        parameters_names.append([name_param_pair[0] for name_param_pair in self.model.named_parameters()])\n        lm_opt = ScaledAdam(\n            model_parameters,\n            lr=0.01,\n            betas=(0.9, 0.95),\n            clipping_scale=2.0,\n            parameters_names=parameters_names,\n            show_dominant_parameters=False,\n            clipping_update_period=1000,\n        )\n\n        return {\n            \"optimizer\": lm_opt,\n            \"lr_scheduler\": {\n                \"scheduler\": WarmupCosineLRSchedule(\n                    lm_opt,\n                    init_lr=self.config[\"optimizer\"][\"lr_init\"],\n                    peak_lr=self.config[\"optimizer\"][\"lr\"],\n                    end_lr=self.config[\"optimizer\"][\"lr_end\"],\n                    warmup_steps=self.config[\"optimizer\"][\"warmup_steps\"],\n                    total_steps=self.config[\"optimizer\"][\"decay_steps\"],\n                )\n            },\n        }",
+    "source": "github_repo:RVC-Boss/GPT-SoVITS",
+    "file": "GPT_SoVITS/AR/models/t2s_lightning_module.py",
+    "license": "MIT",
+    "language": "python"
+}

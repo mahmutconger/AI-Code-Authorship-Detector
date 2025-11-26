@@ -1,0 +1,7 @@
+{
+    "code": "def send_errorpage_with_redirect_link(cli, new_path):\n    \"\"\"\n    replies with a website explaining that the page has moved;\n    \"new_path\" must be an absolute location on the same server\n    but without a leading '/', so for example \"foo/bar\"\n    would redirect to \"/foo/bar\"\n    \"\"\"\n    cli.redirect(new_path, click=False, msg=\"this page has moved\")",
+    "source": "github_repo:9001/copyparty",
+    "file": "bin/handlers/redirect.py",
+    "license": "MIT",
+    "language": "python"
+}

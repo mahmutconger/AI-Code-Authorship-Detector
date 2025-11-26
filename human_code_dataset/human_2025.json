@@ -1,0 +1,7 @@
+{
+    "code": "def __init__(self, *args, **kwargs):\n        super().__init__(*args, **kwargs)\n\n        if kwargs.get('enable_watermark', True):\n            import wavmark\n            self.watermark_model = wavmark.load_model().to(self.device)\n        else:\n            self.watermark_model = None\n        self.version = getattr(self.hps, '_version_', \"v1\")",
+    "source": "github_repo:myshell-ai/OpenVoice",
+    "file": "openvoice/api.py",
+    "license": "MIT",
+    "language": "python"
+}

@@ -1,0 +1,7 @@
+{
+    "code": "def build_config_setting_validator(val: str) -> bool:\n    try:\n        value = build_config_setting_normalizer(val)\n    except JSONDecodeError:\n        return False\n\n    if not isinstance(value, dict):\n        return False\n\n    for key, item in value.items():\n        # keys should be string\n        if not isinstance(key, str):\n            return False\n\n        # items are allowed to be a string\n        if isinstance(item, str):\n            continue\n\n        # list items should only contain strings\n        is_valid_list = isinstance(item, list) and all(isinstance(i, str) for i in item)\n        if not is_valid_list:\n            return False\n\n    return True",
+    "source": "github_repo:python-poetry/poetry",
+    "file": "src/poetry/config/config.py",
+    "license": "MIT",
+    "language": "python"
+}

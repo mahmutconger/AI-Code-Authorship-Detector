@@ -1,0 +1,7 @@
+{
+    "code": "def validation_exception_handler(request: Request, e: RequestValidationError):\n    return JSONResponse(\n        status_code=400,\n        content=utils.get_response(\n            status=400, data=e.errors(), message=\"field required\"\n        ),\n    )",
+    "source": "github_repo:harry0703/MoneyPrinterTurbo",
+    "file": "app/asgi.py",
+    "license": "MIT",
+    "language": "python"
+}

@@ -1,0 +1,7 @@
+{
+    "code": "def _sanitize_dirnames(filename, restore=False):\n    \"\"\"\n    Remove (or add) leading _ in the directories names in `filename`\n    The `restore` param means that the path name should be restored from the queryname,\n    i.e. conversion should be done in the opposite direction\n    \"\"\"\n    parts = filename.split(\"/\")\n    newparts = []\n    for part in parts[:-1]:\n        if restore:\n            newparts.append(\"_\" + part)\n            continue\n        if part.startswith(\"_\"):\n            newparts.append(part[1:])\n        else:\n            newparts.append(part)\n    newparts.append(parts[-1])\n\n    return \"/\".join(newparts)",
+    "source": "github_repo:chubin/cheat.sh",
+    "file": "lib/adapter/cheat_sheets.py",
+    "license": "MIT",
+    "language": "python"
+}

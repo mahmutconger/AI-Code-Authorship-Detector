@@ -1,0 +1,7 @@
+{
+    "code": "def __cut_all(self, sentence):\n        dag = self.get_DAG(sentence)\n        old_j = -1\n        eng_scan = 0\n        eng_buf = u''\n        for k, L in iteritems(dag):\n            if eng_scan == 1 and not re_eng.match(sentence[k]):\n                eng_scan = 0\n                yield eng_buf\n            if len(L) == 1 and k > old_j:\n                word = sentence[k:L[0] + 1]\n                if re_eng.match(word):\n                    if eng_scan == 0:\n                        eng_scan = 1\n                        eng_buf = word\n                    else:\n                        eng_buf += word\n                if eng_scan == 0:\n                    yield word\n                old_j = L[0]\n            else:\n                for j in L:\n                    if j > k:\n                        yield sentence[k:j + 1]\n                        old_j = j\n        if eng_scan == 1:\n            yield eng_buf",
+    "source": "github_repo:fxsjy/jieba",
+    "file": "jieba/__init__.py",
+    "license": "MIT",
+    "language": "python"
+}

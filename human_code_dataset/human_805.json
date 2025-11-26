@@ -1,0 +1,7 @@
+{
+    "code": "def random_carstate():\n  fields = [\"vEgo\", \"aEgo\", \"brake\", \"steeringAngleDeg\"]\n  msg = messaging.new_message(\"carState\")\n  cs = msg.carState\n  for f in fields:\n    setattr(cs, f, random.random() * 10)\n  return msg",
+    "source": "github_repo:commaai/openpilot",
+    "file": "cereal/messaging/tests/test_messaging.py",
+    "license": "MIT",
+    "language": "python"
+}

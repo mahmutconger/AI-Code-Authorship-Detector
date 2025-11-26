@@ -1,0 +1,7 @@
+{
+    "code": "def determine_version_specifier() -> str:\n    \"\"\"Determine the version of Black to install.\n\n    The version can be specified either via the `with.version` input or via the\n    pyproject.toml file if `with.use_pyproject` is set to `true`.\n    \"\"\"\n    if USE_PYPROJECT and VERSION:\n        print(\n            \"::error::'with.version' and 'with.use_pyproject' inputs are \"\n            \"mutually exclusive.\",\n            file=sys.stderr,\n            flush=True,\n        )\n        sys.exit(1)\n    if USE_PYPROJECT:\n        return read_version_specifier_from_pyproject()\n    elif VERSION and VERSION[0] in \"0123456789\":\n        return f\"=={VERSION}\"\n    else:\n        return VERSION",
+    "source": "github_repo:psf/black",
+    "file": "action/main.py",
+    "license": "MIT",
+    "language": "python"
+}

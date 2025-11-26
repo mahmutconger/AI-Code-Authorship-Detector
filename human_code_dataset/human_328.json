@@ -1,0 +1,7 @@
+{
+    "code": "def test_read_item():\n    response = client.get(\"/items/foo\", headers={\"X-Token\": \"coneofsilence\"})\n    assert response.status_code == 200\n    assert response.json() == {\n        \"id\": \"foo\",\n        \"title\": \"Foo\",\n        \"description\": \"There goes my hero\",\n    }",
+    "source": "github_repo:fastapi/fastapi",
+    "file": "docs_src/app_testing/app_b_an_py310/test_main.py",
+    "license": "MIT",
+    "language": "python"
+}

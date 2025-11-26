@@ -1,0 +1,7 @@
+{
+    "code": "def color(graph: list[list[int]], max_colors: int) -> list[int]:\n    \"\"\"\n    Wrapper function to call subroutine called util_color\n    which will either return True or False.\n    If True is returned colored_vertices list is filled with correct colorings\n\n    >>> graph = [[0, 1, 0, 0, 0],\n    ...          [1, 0, 1, 0, 1],\n    ...          [0, 1, 0, 1, 0],\n    ...          [0, 1, 1, 0, 0],\n    ...          [0, 1, 0, 0, 0]]\n\n    >>> max_colors = 3\n    >>> color(graph, max_colors)\n    [0, 1, 0, 2, 0]\n\n    >>> max_colors = 2\n    >>> color(graph, max_colors)\n    []\n    \"\"\"\n    colored_vertices = [-1] * len(graph)\n\n    if util_color(graph, max_colors, colored_vertices, 0):\n        return colored_vertices\n\n    return []",
+    "source": "github_repo:TheAlgorithms/Python",
+    "file": "backtracking/coloring.py",
+    "license": "MIT",
+    "language": "python"
+}

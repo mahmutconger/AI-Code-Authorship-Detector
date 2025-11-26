@@ -1,0 +1,7 @@
+{
+    "code": "def send_malformed():\n    \"\"\"\n    Return static file `malformed-response.html`.\n    Can be served by the HTTP frontend.\n    \"\"\"\n    dirname, filename = os.path.split(CONFIG[\"path.internal.malformed\"])\n    return send_from_directory(dirname, filename)",
+    "source": "github_repo:chubin/cheat.sh",
+    "file": "bin/app.py",
+    "license": "MIT",
+    "language": "python"
+}

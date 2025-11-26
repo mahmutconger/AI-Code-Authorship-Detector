@@ -1,0 +1,7 @@
+{
+    "code": "class PubMaster:\n  def __init__(self, services: List[str]):\n    self.sock = {}\n    for s in services:\n      self.sock[s] = pub_sock(s)\n\n  def send(self, s: str, dat: Union[bytes, capnp.lib.capnp._DynamicStructBuilder]) -> None:\n    if not isinstance(dat, bytes):\n      dat = dat.to_bytes()\n    self.sock[s].send(dat)\n\n  def wait_for_readers_to_update(self, s: str, timeout: int, dt: float = 0.05) -> bool:\n    for _ in range(int(timeout*(1./dt))):\n      if self.sock[s].all_readers_updated():\n        return True\n      time.sleep(dt)\n    return False\n\n  def all_readers_updated(self, s: str) -> bool:\n    return self.sock[s].all_readers_updated()  # type: ignore",
+    "source": "github_repo:commaai/openpilot",
+    "file": "cereal/messaging/__init__.py",
+    "license": "MIT",
+    "language": "python"
+}

@@ -1,0 +1,7 @@
+{
+    "code": "def stop(self):\n        \"\"\"Stop the MCP server.\"\"\"\n        self._adapter.__exit__(None, None, None)",
+    "source": "github_repo:crewAIInc/crewAI",
+    "file": "lib/crewai-tools/src/crewai_tools/adapters/mcp_adapter.py",
+    "license": "MIT",
+    "language": "python"
+}

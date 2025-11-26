@@ -1,0 +1,7 @@
+{
+    "code": "def fetch_learn(self, segment: Segment) -> pl.DataFrame:\n        \"\"\"\n        Get learning data for a specific segment\n        \"\"\"\n        start, end = self.data_periods[segment]\n        return query_by_time(self.learn_df, start, end)",
+    "source": "github_repo:vnpy/vnpy",
+    "file": "vnpy/alpha/dataset/template.py",
+    "license": "MIT",
+    "language": "python"
+}

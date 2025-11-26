@@ -1,0 +1,7 @@
+{
+    "code": "def main(cli: \"HttpCli\", vn, rem):\n    url = \"https://mirrors.edge.kernel.org/alpine/\" + rem\n    abspath = os.path.join(vn.realpath, rem)\n\n    # sneaky trick to preserve a requests-session between downloads\n    # so it doesn't have to spend ages reopening https connections;\n    # luckily we can stash it inside the copyparty client session,\n    # name just has to be definitely unused so \"hacapo_req_s\" it is\n    req_s = getattr(cli.conn, \"hacapo_req_s\", None) or requests.Session()\n    setattr(cli.conn, \"hacapo_req_s\", req_s)\n\n    try:\n        os.makedirs(os.path.dirname(abspath), exist_ok=True)\n        with req_s.get(url, stream=True, timeout=69) as r:\n            r.raise_for_status()\n            with open(abspath, \"wb\", 64 * 1024) as f:\n                for buf in r.iter_content(chunk_size=64 * 1024):\n                    f.write(buf)\n    except:\n        os.unlink(abspath)\n        return \"false\"\n\n    return \"retry\"",
+    "source": "github_repo:9001/copyparty",
+    "file": "bin/handlers/caching-proxy.py",
+    "license": "MIT",
+    "language": "python"
+}

@@ -1,0 +1,7 @@
+{
+    "code": "def fp8_gemm(a: torch.Tensor, a_s: torch.Tensor, b: torch.Tensor, b_s: torch.Tensor):\n    \"\"\"\n    Perform a matrix multiplication using FP8 precision.\n\n    Args:\n        a (torch.Tensor): The first input matrix, must be contiguous.\n        a_s (torch.Tensor): The scaling factor for the first input matrix, must be contiguous.\n        b (torch.Tensor): The second input matrix, must be contiguous.\n        b_s (torch.Tensor): The scaling factor for the second input matrix, must be contiguous.\n\n    Returns:\n        torch.Tensor: The result of the matrix multiplication.\n    \"\"\"\n    assert a.is_contiguous() and b.is_contiguous(), 'Input tensors must be contiguous'\n    assert a_s.is_contiguous() and b_s.is_contiguous(), 'Scaling factor tensors must be contiguous'\n    K = a.size(-1)\n    M = a.numel() // K\n    N = b.size(0)\n    c = a.new_empty(*a.size()[:-1], N, dtype=torch.get_default_dtype())\n    grid = lambda META: (triton.cdiv(M, META['BLOCK_SIZE_M']), triton.cdiv(N, META['BLOCK_SIZE_N']))\n    fp8_gemm_kernel[grid](a, b, c, a_s, b_s, M, N, K)\n    return c",
+    "source": "github_repo:deepseek-ai/DeepSeek-V3",
+    "file": "inference/kernel.py",
+    "license": "MIT",
+    "language": "python"
+}

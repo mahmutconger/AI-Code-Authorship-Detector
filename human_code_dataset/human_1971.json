@@ -1,0 +1,7 @@
+{
+    "code": "def set_env_var_gha(name: str, value: str) -> None:\n    if not is_ci():\n        return\n    env_file = os.getenv(\"GITHUB_ENV\", None)\n    if env_file is None:\n        return\n    with open(env_file, \"a\") as file:\n        file.write(f\"{name}={value}\\n\")\n    stdout.flush()",
+    "source": "github_repo:ManimCommunity/manim",
+    "file": ".github/scripts/ci_build_cairo.py",
+    "license": "MIT",
+    "language": "python"
+}

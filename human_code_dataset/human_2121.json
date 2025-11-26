@@ -1,0 +1,7 @@
+{
+    "code": "def remcount():\n    with open(student_record, \"rb\") as F:\n        val = pickle.load(F)\n        count = 0\n        weak_students = []\n\n        for student in val:\n            if student[2] <= 40:\n                print(f\"{student} eligible for remedial\")\n                weak_students.append(student)\n                count += 1\n        print(f\"the total number of weak students are {count}\")\n        print(f\"The weak students are {weak_students}\")",
+    "source": "github_repo:geekcomputers/Python",
+    "file": "1 File handle/File handle binary/question 1 (elegible for remedial, top marks).py",
+    "license": "MIT",
+    "language": "python"
+}

@@ -1,0 +1,7 @@
+{
+    "code": "def pad_y_eos(self, y, y_mask_int, eos_id):\n        targets = F.pad(y, (0, 1), value=0) + eos_id * F.pad(y_mask_int, (0, 1), value=1)\n        # 错位\n        return targets[:, :-1], targets",
+    "source": "github_repo:RVC-Boss/GPT-SoVITS",
+    "file": "GPT_SoVITS/AR/models/t2s_model.py",
+    "license": "MIT",
+    "language": "python"
+}

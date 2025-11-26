@@ -1,0 +1,7 @@
+{
+    "code": "def rank(\n        self, tokens: List[List[Tensor]], sum_logprobs: List[List[float]]\n    ) -> List[int]:\n        \"\"\"\n        Given a list of groups of samples and their cumulative log probabilities,\n        return the indices of the samples in each group to select as the final result\n        \"\"\"\n        raise NotImplementedError",
+    "source": "github_repo:openai/whisper",
+    "file": "whisper/decoding.py",
+    "license": "MIT",
+    "language": "python"
+}

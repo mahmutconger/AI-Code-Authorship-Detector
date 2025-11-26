@@ -1,0 +1,7 @@
+{
+    "code": "def main():\n    \"\"\"Main function to update GitHub Pages deployment.\"\"\"\n\n    print(\"🔧 GitHub Pages Update Script\")\n    print(\"=\" * 50)\n\n    # Step 1: Update timestamps\n    print(\"\\n📅 Updating timestamps...\")\n    update_html_timestamp('docs/index.html')\n    update_api_timestamp('docs/api')\n\n    # Step 2: Create GitHub Pages configuration\n    print(\"\\n⚙️  Creating GitHub Pages configuration...\")\n    create_github_pages_config()\n\n    # Step 3: Fix URL references\n    print(\"\\n🔗 Fixing URL references...\")\n    fix_base_url_references()\n\n    # Step 4: Verify structure\n    print(\"\\n✔️  Verifying deployment structure...\")\n    if verify_github_pages_structure():\n        print(\"\\n✨ GitHub Pages setup complete!\")\n        print(\"\\nDeployment will be available at:\")\n        print(\"   https://zie619.github.io/n8n-workflows/\")\n        print(\"\\nNote: It may take a few minutes for changes to appear after pushing to GitHub.\")\n    else:\n        print(\"\\n⚠️  Some files are missing. Please generate them first.\")",
+    "source": "github_repo:Zie619/n8n-workflows",
+    "file": "scripts/update_github_pages.py",
+    "license": "MIT",
+    "language": "python"
+}

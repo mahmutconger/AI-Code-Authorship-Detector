@@ -1,0 +1,7 @@
+{
+    "code": "def evaluate_task(model, tokenizer, data, device, task_meta):\n    \"\"\"\n    This function is responsible for evaluating one task across many examples.\n    It also handles dispatch to all processes if the script is run with torchrun.\n    \"\"\"\n    rank = dist.get_rank() if dist.is_initialized() else 0\n    world_size = dist.get_world_size() if dist.is_initialized() else 1\n    correct = torch.zeros(len(data), dtype=torch.float32, device=device)\n    # stride the examples to each rank\n    for idx in range(rank, len(data), world_size):\n        is_correct = evaluate_example(idx, model, tokenizer, data, device, task_meta)\n        correct[idx] = float(is_correct)\n    # sync results across all the processes if running distributed\n    if world_size > 1:\n        dist.barrier()\n        dist.all_reduce(correct, op=dist.ReduceOp.SUM)\n    # compute the mean\n    mean_correct = correct.mean().item()\n    return mean_correct",
+    "source": "github_repo:karpathy/nanochat",
+    "file": "nanochat/core_eval.py",
+    "license": "MIT",
+    "language": "python"
+}

@@ -1,0 +1,7 @@
+{
+    "code": "class SubtitleRequest(BaseModel):\n    video_script: str\n    video_language: Optional[str] = \"\"\n    voice_name: Optional[str] = \"zh-CN-XiaoxiaoNeural-Female\"\n    voice_volume: Optional[float] = 1.0\n    voice_rate: Optional[float] = 1.2\n    bgm_type: Optional[str] = \"random\"\n    bgm_file: Optional[str] = \"\"\n    bgm_volume: Optional[float] = 0.2\n    subtitle_position: Optional[str] = \"bottom\"\n    font_name: Optional[str] = \"STHeitiMedium.ttc\"\n    text_fore_color: Optional[str] = \"#FFFFFF\"\n    text_background_color: Union[bool, str] = True\n    font_size: int = 60\n    stroke_color: Optional[str] = \"#000000\"\n    stroke_width: float = 1.5\n    video_source: Optional[str] = \"local\"\n    subtitle_enabled: Optional[str] = \"true\"",
+    "source": "github_repo:harry0703/MoneyPrinterTurbo",
+    "file": "app/models/schema.py",
+    "license": "MIT",
+    "language": "python"
+}

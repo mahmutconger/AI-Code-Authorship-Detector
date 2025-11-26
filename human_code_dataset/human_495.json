@@ -1,0 +1,7 @@
+{
+    "code": "def clean_up_from_scene(self, scene: Scene) -> None:\n        if self.is_remover():\n            scene.remove(self.mobject)",
+    "source": "github_repo:3b1b/manim",
+    "file": "manimlib/animation/animation.py",
+    "license": "MIT",
+    "language": "python"
+}

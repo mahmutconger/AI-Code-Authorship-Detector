@@ -1,0 +1,7 @@
+{
+    "code": "class SimpleWriteTest(Action):\n    PROMPT_TEMPLATE: str = \"\"\"\n    Context: {context}\n    Write {k} unit tests using pytest for the given function, assuming you have imported it.\n    Return ```python your_code_here ``` with NO other texts,\n    your code:\n    \"\"\"\n\n    name: str = \"SimpleWriteTest\"\n\n    async def run(self, context: str, k: int = 3):\n        prompt = self.PROMPT_TEMPLATE.format(context=context, k=k)\n\n        rsp = await self._aask(prompt)\n\n        code_text = parse_code(rsp)\n\n        return code_text",
+    "source": "github_repo:FoundationAgents/MetaGPT",
+    "file": "examples/build_customized_multi_agents.py",
+    "license": "MIT",
+    "language": "python"
+}

@@ -1,0 +1,7 @@
+{
+    "code": "# config for training GPT-2 (124M) down to very nice loss of ~2.85 on 1 node of 8X A100 40GB\n# launch as the following (e.g. in a screen session) and wait ~5 days:\n# $ torchrun --standalone --nproc_per_node=8 train.py config/train_gpt2.py\n\nwandb_log = True\nwandb_project = 'owt'\nwandb_run_name='gpt2-124M'\n\n# these make the total batch size be ~0.5M\n# 12 batch size * 1024 block size * 5 gradaccum * 8 GPUs = 491,520\nbatch_size = 12\nblock_size = 1024\ngradient_accumulation_steps = 5 * 8\n\n# this makes total number of tokens be 300B\nmax_iters = 600000\nlr_decay_iters = 600000\n\n# eval stuff\neval_interval = 1000\neval_iters = 200\nlog_interval = 10\n\n# weight decay\nweight_decay = 1e-1",
+    "source": "github_repo:karpathy/nanoGPT",
+    "file": "config/train_gpt2.py",
+    "license": "MIT",
+    "language": "python"
+}

@@ -1,0 +1,7 @@
+{
+    "code": "def is_goal(self) -> bool:\n        \"\"\"Check if current state matches goal.\"\"\"\n        return self.board == self.goal",
+    "source": "github_repo:geekcomputers/Python",
+    "file": "8_puzzle.py",
+    "license": "MIT",
+    "language": "python"
+}

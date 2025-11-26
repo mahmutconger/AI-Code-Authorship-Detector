@@ -1,0 +1,7 @@
+{
+    "code": "def _default_embedding_function():\n    client = OpenAIClient()\n\n    def _embedding_function(input):\n        rs = client.embeddings.create(input=input, model=\"text-embedding-ada-002\")\n        return [record.embedding for record in rs.data]\n\n    return _embedding_function",
+    "source": "github_repo:crewAIInc/crewAI",
+    "file": "lib/crewai-tools/src/crewai_tools/adapters/lancedb_adapter.py",
+    "license": "MIT",
+    "language": "python"
+}

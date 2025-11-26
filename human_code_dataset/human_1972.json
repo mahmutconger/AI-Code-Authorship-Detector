@@ -1,0 +1,7 @@
+{
+    "code": "def get_ld_library_path(prefix: Path) -> str:\n    # given a prefix, the ld library path can be found at\n    # <prefix>/lib/* or sometimes just <prefix>/lib\n    # this function returns the path to the ld library path\n\n    # first, check if the ld library path exists at <prefix>/lib/*\n    ld_library_paths = list(prefix.glob(\"lib/*\"))\n    if len(ld_library_paths) == 1:\n        return ld_library_paths[0].absolute().as_posix()\n\n    # if the ld library path does not exist at <prefix>/lib/*,\n    # return <prefix>/lib\n    ld_library_path = prefix / \"lib\"\n    if ld_library_path.exists():\n        return ld_library_path.absolute().as_posix()\n    return \"\"",
+    "source": "github_repo:ManimCommunity/manim",
+    "file": ".github/scripts/ci_build_cairo.py",
+    "license": "MIT",
+    "language": "python"
+}

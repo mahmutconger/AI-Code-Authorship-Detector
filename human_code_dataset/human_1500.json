@@ -1,0 +1,7 @@
+{
+    "code": "def message(\n        self,\n        msg: str,\n        duration: int | None = None,\n        add_instruction: bool = True,\n        instruction_html: str = \"\",\n    ) -> None:\n        if duration is None:\n            duration = len(msg) * 0.08  # seconds\n        self.tmux_session.set_option(\n            \"display-time\", int(duration * 1000)\n        )  # milliseconds\n        self.tmux_pane.display_message(\" \" + msg)\n\n        if add_instruction or instruction_html:\n            if not instruction_html:\n                instruction_html = msg\n            self.instruction(instruction=instruction_html, duration=duration)\n        self.pause(duration + 0.5)",
+    "source": "github_repo:mitmproxy/mitmproxy",
+    "file": "docs/scripts/clirecording/clidirector.py",
+    "license": "MIT",
+    "language": "python"
+}

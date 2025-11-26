@@ -1,0 +1,7 @@
+{
+    "code": "def update(self, timeout: int = 100) -> None:\n    msgs = []\n    for sock in self.poller.poll(timeout):\n      msgs.append(recv_one_or_none(sock))\n\n    # non-blocking receive for non-polled sockets\n    for s in self.non_polled_services:\n      msgs.append(recv_one_or_none(self.sock[s]))\n    self.update_msgs(time.monotonic(), msgs)",
+    "source": "github_repo:commaai/openpilot",
+    "file": "cereal/messaging/__init__.py",
+    "license": "MIT",
+    "language": "python"
+}

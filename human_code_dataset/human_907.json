@@ -1,0 +1,7 @@
+{
+    "code": "def should_filter_file(self, file_path: Path, filters: List[str]) -> bool:\n        \"\"\"\n        Determines if a file should be ignored based on .gitignore rules.\n        \"\"\"\n        for f in filters:\n            if fnmatch.fnmatchcase(str(file_path), f):\n                return True\n        return False",
+    "source": "github_repo:AntonOsika/gpt-engineer",
+    "file": "gpt_engineer/applications/cli/file_selector.py",
+    "license": "MIT",
+    "language": "python"
+}

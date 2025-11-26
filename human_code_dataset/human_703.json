@@ -1,0 +1,7 @@
+{
+    "code": "class ParityDataset(Dataset):\n    \"\"\"\n    ### Parity dataset\n    \"\"\"\n\n    def __init__(self, n_samples: int, n_elems: int = 64):\n        \"\"\"\n        * `n_samples` is the number of samples\n        * `n_elems` is the number of elements in the input vector\n        \"\"\"\n        self.n_samples = n_samples\n        self.n_elems = n_elems\n\n    def __len__(self):\n        \"\"\"\n        Size of the dataset\n        \"\"\"\n        return self.n_samples\n\n    def __getitem__(self, idx: int) -> Tuple[torch.Tensor, torch.Tensor]:\n        \"\"\"\n        Generate a sample\n        \"\"\"\n\n        # Empty vector\n        x = torch.zeros((self.n_elems,))\n        # Number of non-zero elements - a random number between $1$ and total number of elements\n        n_non_zero = torch.randint(1, self.n_elems + 1, (1,)).item()\n        # Fill non-zero elements with $1$'s and $-1$'s\n        x[:n_non_zero] = torch.randint(0, 2, (n_non_zero,)) * 2 - 1\n        # Randomly permute the elements\n        x = x[torch.randperm(self.n_elems)]\n\n        # The parity\n        y = (x == 1.).sum() % 2\n\n        #\n        return x, y",
+    "source": "github_repo:labmlai/annotated_deep_learning_paper_implementations",
+    "file": "labml_nn/adaptive_computation/parity.py",
+    "license": "MIT",
+    "language": "python"
+}

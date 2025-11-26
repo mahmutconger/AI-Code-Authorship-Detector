@@ -1,0 +1,7 @@
+{
+    "code": "def get_text_in_rect(self, bbox: BoundingBox) -> str:\n        self._ensure_parsed()\n        assert self._dpage is not None\n\n        # Find intersecting cells on the page\n        text_piece = \"\"\n        page_size = self.get_size()\n\n        scale = (\n            1  # FIX - Replace with param in get_text_in_rect across backends (optional)\n        )\n\n        for i, cell in enumerate(self._dpage.textline_cells):\n            cell_bbox = (\n                cell.rect.to_bounding_box()\n                .to_top_left_origin(page_height=page_size.height)\n                .scaled(scale)\n            )\n\n            overlap_frac = cell_bbox.intersection_over_self(bbox)\n\n            if overlap_frac > 0.5:\n                if len(text_piece) > 0:\n                    text_piece += \" \"\n                text_piece += cell.text\n\n        return text_piece",
+    "source": "github_repo:docling-project/docling",
+    "file": "docling/backend/docling_parse_v4_backend.py",
+    "license": "MIT",
+    "language": "python"
+}

@@ -1,0 +1,7 @@
+{
+    "code": "def message():\n    global body, to\n    account_sid = \"Your_account_sid\"  # Your account sid\n    auth_token = \"Your_auth_token\"  # Your auth token\n    client = Client(account_sid, auth_token)\n    msg = client.messages.create(\n        from_=\"Twilio_number\",  # Twilio number\n        body=body,\n        to=to,\n    )\n    print(msg.sid)\n    confirmation_label.config(text=\"Message Sent!\")",
+    "source": "github_repo:geekcomputers/Python",
+    "file": "Anonymous_TextApp.py",
+    "license": "MIT",
+    "language": "python"
+}

@@ -1,0 +1,7 @@
+{
+    "code": "def run_command_in_thread(command: list) -> Thread:\n    thread = Thread(target=run_command, args=(command,))\n    thread.start()\n    return thread",
+    "source": "github_repo:roboflow/supervision",
+    "file": "examples/time_in_zone/scripts/stream_from_file.py",
+    "license": "MIT",
+    "language": "python"
+}

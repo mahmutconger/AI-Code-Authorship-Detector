@@ -1,0 +1,7 @@
+{
+    "code": "def initialize_agent(self) -> \"BaseAgent\":\n        \"\"\"Initialize agent with default settings if not provided.\"\"\"\n        if self.llm is None or not isinstance(self.llm, LLM):\n            self.llm = LLM(config_name=self.name.lower())\n        if not isinstance(self.memory, Memory):\n            self.memory = Memory()\n        return self",
+    "source": "github_repo:FoundationAgents/OpenManus",
+    "file": "app/agent/base.py",
+    "license": "MIT",
+    "language": "python"
+}

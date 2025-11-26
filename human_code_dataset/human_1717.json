@@ -1,0 +1,7 @@
+{
+    "code": "def align8to32(bytes, width, mode):\n    \"\"\"\n    converts each scanline of data from 8 bit to 32 bit aligned\n    \"\"\"\n\n    bits_per_pixel = {\"1\": 1, \"L\": 8, \"P\": 8, \"I;16\": 16}[mode]\n\n    # calculate bytes per line and the extra padding if needed\n    bits_per_line = bits_per_pixel * width\n    full_bytes_per_line, remaining_bits_per_line = divmod(bits_per_line, 8)\n    bytes_per_line = full_bytes_per_line + (1 if remaining_bits_per_line else 0)\n\n    extra_padding = -bytes_per_line % 4\n\n    # already 32 bit aligned by luck\n    if not extra_padding:\n        return bytes\n\n    new_data = []\n    for i in range(len(bytes) // bytes_per_line):\n        new_data.append(\n            bytes[i * bytes_per_line : (i + 1) * bytes_per_line]\n            + b\"\\x00\" * extra_padding\n        )\n\n    return b\"\".join(new_data)",
+    "source": "github_repo:hiroi-sora/Umi-OCR",
+    "file": "UmiOCR-data/py_src/image_controller/ImageQt.py",
+    "license": "MIT",
+    "language": "python"
+}

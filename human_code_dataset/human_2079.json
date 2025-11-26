@@ -1,0 +1,7 @@
+{
+    "code": "def __cut_DAG(self, sentence):\n        DAG = self.get_DAG(sentence)\n        route = {}\n        self.calc(sentence, DAG, route)\n        x = 0\n        buf = ''\n        N = len(sentence)\n        while x < N:\n            y = route[x][1] + 1\n            l_word = sentence[x:y]\n            if y - x == 1:\n                buf += l_word\n            else:\n                if buf:\n                    if len(buf) == 1:\n                        yield buf\n                        buf = ''\n                    else:\n                        if not self.FREQ.get(buf):\n                            recognized = finalseg.cut(buf)\n                            for t in recognized:\n                                yield t\n                        else:\n                            for elem in buf:\n                                yield elem\n                        buf = ''\n                yield l_word\n            x = y\n\n        if buf:\n            if len(buf) == 1:\n                yield buf\n            elif not self.FREQ.get(buf):\n                recognized = finalseg.cut(buf)\n                for t in recognized:\n                    yield t\n            else:\n                for elem in buf:\n                    yield elem",
+    "source": "github_repo:fxsjy/jieba",
+    "file": "jieba/__init__.py",
+    "license": "MIT",
+    "language": "python"
+}

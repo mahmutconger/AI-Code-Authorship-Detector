@@ -1,0 +1,7 @@
+{
+    "code": "class Configs(NLPAutoRegressionConfigs):\n    \"\"\"\n    ## Configurations\n\n    This inherits from\n    [`NLPAutoRegressionConfigs`](../../experiments/nlp_autoregression.html#NLPAutoRegressionConfigs)\n    \"\"\"\n\n    # Model\n    model: AutoregressiveTransformer\n\n    # Number of layers\n    n_layers: int = 4\n\n    # $\\alpha$ and $\\beta$ for DeepNorm\n    deep_norm_alpha: float\n    deep_norm_beta: float\n\n    # Number of heads in the attention\n    n_heads: int = 4\n    # Embedding size\n    d_model: int = 256\n    # Size of each attention head\n    d_k: int = 16\n    # Feed forward layer size\n    d_ff: int = 256\n\n    # FTA\n    fta_lower_limit: float = -1.\n    fta_upper_limit: float = +1.\n    fta_delta: float = 0.2\n    fta_eta: float = 0.05",
+    "source": "github_repo:labmlai/annotated_deep_learning_paper_implementations",
+    "file": "labml_nn/activations/fta/experiment.py",
+    "license": "MIT",
+    "language": "python"
+}

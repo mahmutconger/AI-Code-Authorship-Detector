@@ -1,0 +1,7 @@
+{
+    "code": "def _check_params(self, params):\n        \"\"\"Checks that parameter map is properly defined.\"\"\"\n\n        valid_fields = list(self.param_ranges.keys()) + list(self.fixed_params.keys())\n        invalid_fields = [k for k in params if k not in valid_fields]\n        missing_fields = [k for k in valid_fields if k not in params]\n\n        if invalid_fields:\n            raise ValueError(\"Invalid Fields Found {} - Valid ones are {}\".format(invalid_fields, valid_fields))\n        if missing_fields:\n            raise ValueError(\"Missing Fields Found {} - Valid ones are {}\".format(missing_fields, valid_fields))",
+    "source": "github_repo:microsoft/qlib",
+    "file": "examples/benchmarks/TFT/libs/hyperparam_opt.py",
+    "license": "MIT",
+    "language": "python"
+}

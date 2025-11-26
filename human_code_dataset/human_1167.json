@@ -1,0 +1,7 @@
+{
+    "code": "import time\n\nout_dir = 'out-shakespeare'\neval_interval = 5\neval_iters = 40\nwandb_log = False # feel free to turn on\nwandb_project = 'shakespeare'\nwandb_run_name = 'ft-' + str(time.time())\n\ndataset = 'shakespeare'\ninit_from = 'gpt2-xl' # this is the largest GPT-2 model\n\n# only save checkpoints if the validation loss improves\nalways_save_checkpoint = False\n\n# the number of examples per iter:\n# 1 batch_size * 32 grad_accum * 1024 tokens = 32,768 tokens/iter\n# shakespeare has 301,966 tokens, so 1 epoch ~= 9.2 iters\nbatch_size = 1\ngradient_accumulation_steps = 32\nmax_iters = 20\n\n# finetune at constant LR\nlearning_rate = 3e-5\ndecay_lr = False",
+    "source": "github_repo:karpathy/nanoGPT",
+    "file": "config/finetune_shakespeare.py",
+    "license": "MIT",
+    "language": "python"
+}

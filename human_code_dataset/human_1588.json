@@ -1,0 +1,7 @@
+{
+    "code": "def extract_tool_info(self, tool_class: type[BaseTool]) -> None:\n        try:\n            core_schema = tool_class.__pydantic_core_schema__\n            if not core_schema:\n                return\n\n            schema = self._unwrap_schema(core_schema)\n            fields = schema.get(\"schema\", {}).get(\"fields\", {})\n\n            tool_info = {\n                \"name\": tool_class.__name__,\n                \"humanized_name\": self._extract_field_default(\n                    fields.get(\"name\"), fallback=tool_class.__name__\n                ),\n                \"description\": str(\n                    self._extract_field_default(fields.get(\"description\"))\n                ).strip(),\n                \"run_params_schema\": self._extract_params(fields.get(\"args_schema\")),\n                \"init_params_schema\": self._extract_init_params(tool_class),\n                \"env_vars\": self._extract_env_vars(fields.get(\"env_vars\")),\n                \"package_dependencies\": self._extract_field_default(\n                    fields.get(\"package_dependencies\"), fallback=[]\n                ),\n            }\n\n            self.tools_spec.append(tool_info)\n\n        except Exception:  # noqa: S110\n            pass",
+    "source": "github_repo:crewAIInc/crewAI",
+    "file": "lib/crewai-tools/generate_tool_specs.py",
+    "license": "MIT",
+    "language": "python"
+}

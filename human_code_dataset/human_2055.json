@@ -1,0 +1,7 @@
+{
+    "code": "def init_weights(m, mean=0.0, std=0.01):\n    classname = m.__class__.__name__\n    if classname.find(\"Conv\") != -1:\n        m.weight.data.normal_(mean, std)",
+    "source": "github_repo:myshell-ai/OpenVoice",
+    "file": "openvoice/commons.py",
+    "license": "MIT",
+    "language": "python"
+}

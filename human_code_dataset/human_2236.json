@@ -1,0 +1,7 @@
+{
+    "code": "def installer_max_workers(self) -> int:\n        # This should be directly handled by ThreadPoolExecutor\n        # however, on some systems the number of CPUs cannot be determined\n        # (it raises a NotImplementedError), so, in this case, we assume\n        # that the system only has one CPU.\n        try:\n            default_max_workers = (os.cpu_count() or 1) + 4\n        except NotImplementedError:\n            default_max_workers = 5\n\n        desired_max_workers = self.get(\"installer.max-workers\")\n        if desired_max_workers is None:\n            return default_max_workers\n        return min(default_max_workers, int(desired_max_workers))",
+    "source": "github_repo:python-poetry/poetry",
+    "file": "src/poetry/config/config.py",
+    "license": "MIT",
+    "language": "python"
+}

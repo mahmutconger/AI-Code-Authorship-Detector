@@ -1,0 +1,7 @@
+{
+    "code": "def main():\n\topts, args = options.parse_args()\n\tif len(args) < 1:\n\t\toptions.print_help()\n\t\treturn\n\n\tprint('Scanning ' + args[0] + ' on port ' + str(opts.port))\n\tfor i in range(0,opts.num):\n\t\tcheck(args[0], opts.port, opts.file, opts.quiet, opts.starttls)",
+    "source": "github_repo:swisskyrepo/PayloadsAllTheThings",
+    "file": "CVE Exploits/Heartbleed CVE-2014-0160.py",
+    "license": "MIT",
+    "language": "python"
+}

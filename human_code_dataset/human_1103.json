@@ -1,0 +1,7 @@
+{
+    "code": "class ReActAgent(BaseAgent, ABC):\n    name: str\n    description: Optional[str] = None\n\n    system_prompt: Optional[str] = None\n    next_step_prompt: Optional[str] = None\n\n    llm: Optional[LLM] = Field(default_factory=LLM)\n    memory: Memory = Field(default_factory=Memory)\n    state: AgentState = AgentState.IDLE\n\n    max_steps: int = 10\n    current_step: int = 0\n\n    @abstractmethod\n    async def think(self) -> bool:\n        \"\"\"Process current state and decide next action\"\"\"\n\n    @abstractmethod\n    async def act(self) -> str:\n        \"\"\"Execute decided actions\"\"\"\n\n    async def step(self) -> str:\n        \"\"\"Execute a single step: think and act.\"\"\"\n        should_act = await self.think()\n        if not should_act:\n            return \"Thinking complete - no action needed\"\n        return await self.act()",
+    "source": "github_repo:FoundationAgents/OpenManus",
+    "file": "app/agent/react.py",
+    "license": "MIT",
+    "language": "python"
+}

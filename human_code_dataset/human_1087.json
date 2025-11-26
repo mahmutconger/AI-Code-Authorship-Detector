@@ -1,0 +1,7 @@
+{
+    "code": "class Config:\n        arbitrary_types_allowed = True\n        extra = \"allow\"  # Allow extra fields for flexibility in subclasses",
+    "source": "github_repo:FoundationAgents/OpenManus",
+    "file": "app/agent/base.py",
+    "license": "MIT",
+    "language": "python"
+}

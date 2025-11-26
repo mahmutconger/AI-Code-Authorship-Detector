@@ -1,0 +1,7 @@
+{
+    "code": "def add_dependents(dirs_to_eval: Set[str], dependents: dict) -> List[str]:\n    updated = set()\n    for dir_ in dirs_to_eval:\n        # handle core manually because it has so many dependents\n        if \"core\" in dir_:\n            updated.add(dir_)\n            continue\n        pkg = \"langchain-\" + dir_.split(\"/\")[-1]\n        updated.update(dependents[pkg])\n        updated.add(dir_)\n    return list(updated)",
+    "source": "github_repo:langchain-ai/langchain",
+    "file": ".github/scripts/check_diff.py",
+    "license": "MIT",
+    "language": "python"
+}

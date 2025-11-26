@@ -1,0 +1,7 @@
+{
+    "code": "def time_align_center_unicode_heavy(self):\n        Text(snippets.UNICODE_HEAVY_TEXT).align(\n            \"center\", width=self.len_lorem_ipsum * 3\n        )",
+    "source": "github_repo:Textualize/rich",
+    "file": "benchmarks/benchmarks.py",
+    "license": "MIT",
+    "language": "python"
+}

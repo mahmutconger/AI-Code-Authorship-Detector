@@ -1,0 +1,7 @@
+{
+    "code": "def __str__(self):\n        \"\"\"Convert Object To String.\n\n        Keyword Arguments:\n        self                   -- This object.\n\n        Return Value:\n        Nicely formatted string to get information about this object.\n        \"\"\"\n        return self.value",
+    "source": "github_repo:sherlock-project/sherlock",
+    "file": "sherlock_project/result.py",
+    "license": "MIT",
+    "language": "python"
+}

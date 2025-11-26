@@ -1,0 +1,7 @@
+{
+    "code": "def get_git_tags(versions_only: bool = True) -> list[str]:\n    \"\"\"Pull out all tags or calvers only\"\"\"\n    cp = run([\"git\", \"tag\"], capture_output=True, check=True, encoding=\"utf8\")\n    if not cp.stdout:\n        LOG.error(f\"Returned no git tags stdout: {cp.stderr}\")\n        raise NoGitTagsError\n    git_tags = cp.stdout.splitlines()\n    if versions_only:\n        return [t for t in git_tags if t[0].isdigit()]\n    return git_tags",
+    "source": "github_repo:psf/black",
+    "file": "scripts/release.py",
+    "license": "MIT",
+    "language": "python"
+}

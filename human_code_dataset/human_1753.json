@@ -1,0 +1,7 @@
+{
+    "code": "def table(values):\n    first = values[0]\n    keys = list(first.keys()) if isinstance(first, dict) else range(0, len(first))\n    widths = [max([len(str(v[k])) for v in values]) for k in keys]\n    string = ' | '.join(['{:<' + str(w) + '}' for w in widths])\n    return \"\\n\".join([string.format(*[str(v[k]) for k in keys]) for v in values])",
+    "source": "github_repo:ccxt/ccxt",
+    "file": "examples/ccxt.pro/py/bitmex_watch_ticker_and_ohlcv.py",
+    "license": "MIT",
+    "language": "python"
+}

@@ -1,0 +1,7 @@
+{
+    "code": "#! /usr/bin/env python3\n\n\"\"\"\nSherlock: Find Usernames Across Social Networks Module\n\nThis module contains the main logic to search for usernames at social\nnetworks.\n\"\"\"\n\nimport sys\n\n\nif __name__ == \"__main__\":\n    # Check if the user is using the correct version of Python\n    python_version = sys.version.split()[0]\n\n    if sys.version_info < (3, 9):\n        print(f\"Sherlock requires Python 3.9+\\nYou are using Python {python_version}, which is not supported by Sherlock.\")\n        sys.exit(1)\n\n    from sherlock_project import sherlock\n    sherlock.main()",
+    "source": "github_repo:sherlock-project/sherlock",
+    "file": "sherlock_project/__main__.py",
+    "license": "MIT",
+    "language": "python"
+}

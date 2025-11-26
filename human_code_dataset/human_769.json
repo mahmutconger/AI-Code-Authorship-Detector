@@ -1,0 +1,7 @@
+{
+    "code": "def evaluate_accuracy_by_question(results: dict) -> float:\n    \"\"\"\n    Calculate the accuracy of results based on complete correctness of each question.\n    This function is referenced from https://github.com/InfiAgent/InfiAgent/blob/main/examples/DA-Agent/eval_closed_form.py\n    This function checks whether each result is entirely correct, meaning all sub-questions\n    within that result are answered correctly. It computes the proportion of correct results\n    by dividing the number of fully correct results by the total number of results.\n\n    Args:\n        results (dict): A collection of results where each result may contain a 'correctness' field.\n\n    Returns:\n        float: The proportion of correct results, rounded to four decimal places.\n               Returns 0 if there are no results.\n    \"\"\"\n    correct = sum(\"correctness\" in result and all(result[\"correctness\"].values()) for result in results)\n    total = len(results)\n    return round(correct / total, 4) if total > 0 else 0",
+    "source": "github_repo:FoundationAgents/MetaGPT",
+    "file": "examples/di/InfiAgent-DABench/DABench.py",
+    "license": "MIT",
+    "language": "python"
+}

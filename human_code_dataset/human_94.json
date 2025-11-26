@@ -1,0 +1,7 @@
+{
+    "code": "def main() -> None:\n    # Sample scores and height calculation\n    scores = [90, 23, 6, 33, 21, 65, 123, 34423]\n    height = math.log(len(scores), 2)\n\n    # Calculate and print the optimal value using the minimax algorithm\n    print(\"Optimal value : \", end=\"\")\n    print(minimax(0, 0, True, scores, height))",
+    "source": "github_repo:TheAlgorithms/Python",
+    "file": "backtracking/minimax.py",
+    "license": "MIT",
+    "language": "python"
+}

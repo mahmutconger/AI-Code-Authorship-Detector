@@ -1,0 +1,7 @@
+{
+    "code": "def get_panels():\n    yield Panel(\"Hello\", style=\"on blue\")\n    yield Panel(\"World\", style=\"on red\")",
+    "source": "github_repo:Textualize/rich",
+    "file": "examples/group2.py",
+    "license": "MIT",
+    "language": "python"
+}

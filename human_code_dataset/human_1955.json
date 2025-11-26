@@ -1,0 +1,7 @@
+{
+    "code": "def run_rtsp_server(config_path: str) -> None:\n    command = (\n        \"docker run --rm --name rtsp_server -d -v \"\n        f\"{config_path}:/rtsp-simple-server.yml -p 8554:8554 \"\n        \"aler9/rtsp-simple-server:v1.3.0\"\n    )\n    if run_command(command.split()) != 0:\n        raise RuntimeError(\"Could not start the RTSP server!\")",
+    "source": "github_repo:roboflow/supervision",
+    "file": "examples/time_in_zone/scripts/stream_from_file.py",
+    "license": "MIT",
+    "language": "python"
+}

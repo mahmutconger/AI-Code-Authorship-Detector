@@ -1,0 +1,7 @@
+{
+    "code": "def verify_cli_args(\n    msg: Printer,\n    input_path: Path,\n    output_dir: Union[str, Path],\n    file_type: str,\n    converter: str,\n    ner_map: Optional[Path],\n):\n    if file_type not in FILE_TYPES_STDOUT and output_dir == \"-\":\n        msg.fail(\n            f\"Can't write .{file_type} data to stdout. Please specify an output directory.\",\n            exits=1,\n        )\n    if not input_path.exists():\n        msg.fail(\"Input file not found\", input_path, exits=1)\n    if output_dir != \"-\" and not Path(output_dir).exists():\n        msg.fail(\"Output directory not found\", output_dir, exits=1)\n    if ner_map is not None and not Path(ner_map).exists():\n        msg.fail(\"NER map not found\", ner_map, exits=1)\n    if input_path.is_dir():\n        input_locs = walk_directory(input_path, converter)\n        if len(input_locs) == 0:\n            msg.fail(\"No input files in directory\", input_path, exits=1)\n    if converter not in CONVERTERS:\n        msg.fail(f\"Can't find converter for {converter}\", exits=1)",
+    "source": "github_repo:explosion/spaCy",
+    "file": "spacy/cli/convert.py",
+    "license": "MIT",
+    "language": "python"
+}

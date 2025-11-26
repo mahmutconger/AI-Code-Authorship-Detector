@@ -1,0 +1,7 @@
+{
+    "code": "def __init__(\n        self,\n        board: List[List[int]],\n        goal: List[List[int]],\n        moves: int = 0,\n        previous: Optional[\"PuzzleState\"] = None,\n    ) -> None:\n        self.board = board  # Current 3x3 board configuration\n        self.goal = goal  # Target 3x3 configuration\n        self.moves = moves  # Number of moves taken to reach here\n        self.previous = previous  # Previous state in solution path",
+    "source": "github_repo:geekcomputers/Python",
+    "file": "8_puzzle.py",
+    "license": "MIT",
+    "language": "python"
+}

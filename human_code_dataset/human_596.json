@@ -1,0 +1,7 @@
+{
+    "code": "def getContent(url,f):\n    headers = {'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/39.0.2171.95 Safari/537.36'}\n    re=requests.get(str(url)+\"/\"+str(f), headers=headers)\n    return re.content",
+    "source": "github_repo:swisskyrepo/PayloadsAllTheThings",
+    "file": "CVE Exploits/Tomcat CVE-2017-12617.py",
+    "license": "MIT",
+    "language": "python"
+}

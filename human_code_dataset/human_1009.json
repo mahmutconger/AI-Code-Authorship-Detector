@@ -1,0 +1,7 @@
+{
+    "code": "def check_internet():\n    console.print(\"[yellow]* Checking internet connectivity...[/yellow]\")\n    try:\n        run_cmd(\"curl -sSf --max-time 10 https://www.google.com > /dev/null\", check=True)\n        console.print(\"[green][✔] Internet connection OK[/green]\")\n        return True\n    except Exception:\n        try:\n            run_cmd(\"curl -sSf --max-time 10 https://github.com > /dev/null\", check=True)\n            console.print(\"[green][✔] Internet connection OK[/green]\")\n            return True\n        except Exception:\n            console.print(\"[red][✘] Internet connection not available[/red]\")\n            return False",
+    "source": "github_repo:Z4nzu/hackingtool",
+    "file": "install.py",
+    "license": "MIT",
+    "language": "python"
+}

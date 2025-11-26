@@ -1,0 +1,7 @@
+{
+    "code": "def to_pd_series(feature: DataProxy) -> pd.Series:\n    \"\"\"Convert to pandas.Series data structure\"\"\"\n    series: pd.Series = feature.df.to_pandas().set_index([\"datetime\", \"vt_symbol\"])[\"data\"]\n    return series",
+    "source": "github_repo:vnpy/vnpy",
+    "file": "vnpy/alpha/dataset/ta_function.py",
+    "license": "MIT",
+    "language": "python"
+}

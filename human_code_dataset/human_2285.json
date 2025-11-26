@@ -1,0 +1,7 @@
+{
+    "code": "def add(self, a, b):\n        \"\"\"\n        Test function\n        \"\"\"\n        print(f\"receiving:{a} {b}\")\n        return a + b",
+    "source": "github_repo:vnpy/vnpy",
+    "file": "examples/simple_rpc/test_server.py",
+    "license": "MIT",
+    "language": "python"
+}

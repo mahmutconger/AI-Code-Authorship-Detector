@@ -1,0 +1,7 @@
+{
+    "code": "def valid_connection(\n    graph: list[list[int]], next_ver: int, curr_ind: int, path: list[int]\n) -> bool:\n    \"\"\"\n    Checks whether it is possible to add next into path by validating 2 statements\n    1. There should be path between current and next vertex\n    2. Next vertex should not be in path\n    If both validations succeed we return True, saying that it is possible to connect\n    this vertices, otherwise we return False\n\n    Case 1:Use exact graph as in main function, with initialized values\n    >>> graph = [[0, 1, 0, 1, 0],\n    ...          [1, 0, 1, 1, 1],\n    ...          [0, 1, 0, 0, 1],\n    ...          [1, 1, 0, 0, 1],\n    ...          [0, 1, 1, 1, 0]]\n    >>> path = [0, -1, -1, -1, -1, 0]\n    >>> curr_ind = 1\n    >>> next_ver = 1\n    >>> valid_connection(graph, next_ver, curr_ind, path)\n    True\n\n    Case 2: Same graph, but trying to connect to node that is already in path\n    >>> path = [0, 1, 2, 4, -1, 0]\n    >>> curr_ind = 4\n    >>> next_ver = 1\n    >>> valid_connection(graph, next_ver, curr_ind, path)\n    False\n    \"\"\"\n\n    # 1. Validate that path exists between current and next vertices\n    if graph[path[curr_ind - 1]][next_ver] == 0:\n        return False\n\n    # 2. Validate that next vertex is not already in path\n    return not any(vertex == next_ver for vertex in path)",
+    "source": "github_repo:TheAlgorithms/Python",
+    "file": "backtracking/hamiltonian_cycle.py",
+    "license": "MIT",
+    "language": "python"
+}

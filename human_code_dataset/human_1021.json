@@ -1,0 +1,7 @@
+{
+    "code": "def __init__(self):\n        # keep original behavior (non-runnable) while still initializing\n        super(Multitor, self).__init__(runnable=False)",
+    "source": "github_repo:Z4nzu/hackingtool",
+    "file": "tools/anonsurf.py",
+    "license": "MIT",
+    "language": "python"
+}

@@ -1,0 +1,7 @@
+{
+    "code": "def test_services(self, s):\n    service = SERVICE_LIST[s]\n    assert service.frequency <= 104\n    assert service.decimation != 0",
+    "source": "github_repo:commaai/openpilot",
+    "file": "cereal/messaging/tests/test_services.py",
+    "license": "MIT",
+    "language": "python"
+}

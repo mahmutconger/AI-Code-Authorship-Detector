@@ -1,0 +1,7 @@
+{
+    "code": "def reply(self, query, context: Context = None) -> Reply:\n        \"\"\"\n        bot auto-reply content\n        :param req: received message\n        :return: reply content\n        \"\"\"\n        raise NotImplementedError",
+    "source": "github_repo:zhayujie/chatgpt-on-wechat",
+    "file": "bot/bot.py",
+    "license": "MIT",
+    "language": "python"
+}

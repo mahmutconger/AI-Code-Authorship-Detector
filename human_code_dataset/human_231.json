@@ -1,0 +1,7 @@
+{
+    "code": "def __init__(self, in_features: int, out_features: int, bias: bool = False, dtype = None):\n        super().__init__()\n        self.in_features = in_features\n        self.out_features = out_features\n        self.weight = nn.Parameter(torch.empty(out_features, in_features, dtype=dtype or Linear.dtype))\n        if self.weight.element_size() == 1:\n            scale_out_features = (out_features + block_size - 1) // block_size\n            scale_in_features = (in_features + block_size - 1) // block_size\n            self.weight.scale = self.scale = nn.Parameter(torch.empty(scale_out_features, scale_in_features, dtype=torch.float32))\n        else:\n            self.register_parameter(\"scale\", None)\n        if bias:\n            self.bias = nn.Parameter(torch.empty(out_features))\n        else:\n            self.register_parameter(\"bias\", None)",
+    "source": "github_repo:deepseek-ai/DeepSeek-V3",
+    "file": "inference/model.py",
+    "license": "MIT",
+    "language": "python"
+}

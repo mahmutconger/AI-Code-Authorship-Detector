@@ -1,0 +1,7 @@
+{
+    "code": "def initialize_helper(self) -> \"BrowserAgent\":\n        self.browser_context_helper = BrowserContextHelper(self)\n        return self",
+    "source": "github_repo:FoundationAgents/OpenManus",
+    "file": "app/agent/browser.py",
+    "license": "MIT",
+    "language": "python"
+}

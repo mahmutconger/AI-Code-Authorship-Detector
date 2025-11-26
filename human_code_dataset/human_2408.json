@@ -1,0 +1,7 @@
+{
+    "code": "def wrapper(*args, **kwargs):\n        if not wrapper.instance:\n            wrapper.instance = func(*args, **kwargs)\n        return wrapper.instance",
+    "source": "github_repo:RVC-Project/Retrieval-based-Voice-Conversion-WebUI",
+    "file": "configs/config.py",
+    "license": "MIT",
+    "language": "python"
+}

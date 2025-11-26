@@ -1,0 +1,7 @@
+{
+    "code": "def main(url: str, output_path: str | None, file_name: str | None) -> None:\n    yt = YouTube(url)\n    stream = yt.streams.get_highest_resolution()\n\n    if not os.path.exists(output_path):\n        os.makedirs(output_path)\n\n    stream.download(output_path=output_path, filename=file_name)\n    final_name = file_name if file_name else yt.title\n    final_path = output_path if output_path else \"current directory\"\n    print(f\"Download completed! Video saved as '{final_name}' in '{final_path}'.\")",
+    "source": "github_repo:roboflow/supervision",
+    "file": "examples/time_in_zone/scripts/download_from_youtube.py",
+    "license": "MIT",
+    "language": "python"
+}

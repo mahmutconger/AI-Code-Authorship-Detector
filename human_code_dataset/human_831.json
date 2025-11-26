@@ -1,0 +1,7 @@
+{
+    "code": "class Service:\n  def __init__(self, should_log: bool, frequency: float, decimation: Optional[int] = None):\n    self.should_log = should_log\n    self.frequency = frequency\n    self.decimation = decimation",
+    "source": "github_repo:commaai/openpilot",
+    "file": "cereal/services.py",
+    "license": "MIT",
+    "language": "python"
+}

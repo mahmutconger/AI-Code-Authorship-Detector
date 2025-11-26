@@ -1,0 +1,7 @@
+{
+    "code": "#!/usr/bin/env python3\nimport shutil\nimport subprocess\nfrom pathlib import Path\n\nhere = Path(__file__).parent\n\nfor script in sorted((here / \"scripts\").glob(\"*.py\")):\n    print(f\"Generating output for {script.name}...\")\n    out = subprocess.check_output([\"python3\", script.absolute()], cwd=here, text=True)\n    if out:\n        (here / \"src\" / \"generated\" / f\"{script.stem}.html\").write_text(\n            out, encoding=\"utf8\"\n        )\n\nif (here / \"public\").exists():\n    shutil.rmtree(here / \"public\")\nsubprocess.run([\"hugo\"], cwd=here / \"src\", check=True)",
+    "source": "github_repo:mitmproxy/mitmproxy",
+    "file": "docs/build.py",
+    "license": "MIT",
+    "language": "python"
+}

@@ -1,0 +1,7 @@
+{
+    "code": "def test_create_item():\n    response = client.post(\n        \"/items/\",\n        headers={\"X-Token\": \"coneofsilence\"},\n        json={\"id\": \"foobar\", \"title\": \"Foo Bar\", \"description\": \"The Foo Barters\"},\n    )\n    assert response.status_code == 200\n    assert response.json() == {\n        \"id\": \"foobar\",\n        \"title\": \"Foo Bar\",\n        \"description\": \"The Foo Barters\",\n    }",
+    "source": "github_repo:fastapi/fastapi",
+    "file": "docs_src/app_testing/app_b_an/test_main.py",
+    "license": "MIT",
+    "language": "python"
+}

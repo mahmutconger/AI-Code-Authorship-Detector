@@ -1,0 +1,7 @@
+{
+    "code": "class AIResponse(BaseModel):\n    response: str\n    workflows: List[Dict] = []\n    suggestions: List[str] = []\n    confidence: float = 0.0",
+    "source": "github_repo:Zie619/n8n-workflows",
+    "file": "src/ai_assistant.py",
+    "license": "MIT",
+    "language": "python"
+}

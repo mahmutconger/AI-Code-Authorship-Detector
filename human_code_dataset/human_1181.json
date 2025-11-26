@@ -1,0 +1,7 @@
+{
+    "code": "def __init__(self, config):\n        super().__init__()\n        assert config.n_embd % config.n_head == 0\n        # key, query, value projections for all heads, but in a batch\n        self.c_attn = nn.Linear(config.n_embd, 3 * config.n_embd, bias=config.bias)\n        # output projection\n        self.c_proj = nn.Linear(config.n_embd, config.n_embd, bias=config.bias)\n        # regularization\n        self.attn_dropout = nn.Dropout(config.dropout)\n        self.resid_dropout = nn.Dropout(config.dropout)\n        self.n_head = config.n_head\n        self.n_embd = config.n_embd\n        self.dropout = config.dropout\n        # flash attention make GPU go brrrrr but support is only in PyTorch >= 2.0\n        self.flash = hasattr(torch.nn.functional, 'scaled_dot_product_attention')\n        if not self.flash:\n            print(\"WARNING: using slow attention. Flash Attention requires PyTorch >= 2.0\")\n            # causal mask to ensure that attention is only applied to the left in the input sequence\n            self.register_buffer(\"bias\", torch.tril(torch.ones(config.block_size, config.block_size))\n                                        .view(1, 1, config.block_size, config.block_size))",
+    "source": "github_repo:karpathy/nanoGPT",
+    "file": "model.py",
+    "license": "MIT",
+    "language": "python"
+}

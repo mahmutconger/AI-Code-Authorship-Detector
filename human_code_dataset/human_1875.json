@@ -1,0 +1,7 @@
+{
+    "code": "def main(cli, vn, rem):\n    if cli.ip == \"1.2.3.4\":\n        return \"allow\"",
+    "source": "github_repo:9001/copyparty",
+    "file": "bin/handlers/ip-ok.py",
+    "license": "MIT",
+    "language": "python"
+}

@@ -1,0 +1,7 @@
+{
+    "code": "class ReconstructionLoss(nn.Module):\n    \"\"\"\n    ## Reconstruction loss\n\n    $$L_{Rec} = \\sum_{n=1}^N p_n \\mathcal{L}(y, \\hat{y}_n)$$\n\n    $\\mathcal{L}$ is the normal loss function between target $y$ and prediction $\\hat{y}_n$.\n    \"\"\"\n\n    def __init__(self, loss_func: nn.Module):\n        \"\"\"\n        * `loss_func` is the loss function $\\mathcal{L}$\n        \"\"\"\n        super().__init__()\n        self.loss_func = loss_func\n\n    def forward(self, p: torch.Tensor, y_hat: torch.Tensor, y: torch.Tensor):\n        \"\"\"\n        * `p` is $p_1 \\dots p_N$ in a tensor of shape `[N, batch_size]`\n        * `y_hat` is $\\hat{y}_1 \\dots \\hat{y}_N$ in a tensor of shape `[N, batch_size, ...]`\n        * `y` is the target of shape `[batch_size, ...]`\n        \"\"\"\n\n        # The total $\\sum_{n=1}^N p_n \\mathcal{L}(y, \\hat{y}_n)$\n        total_loss = p.new_tensor(0.)\n        # Iterate upto $N$\n        for n in range(p.shape[0]):\n            # $p_n \\mathcal{L}(y, \\hat{y}_n)$ for each sample and the mean of them\n            loss = (p[n] * self.loss_func(y_hat[n], y)).mean()\n            # Add to total loss\n            total_loss = total_loss + loss\n\n        #\n        return total_loss",
+    "source": "github_repo:labmlai/annotated_deep_learning_paper_implementations",
+    "file": "labml_nn/adaptive_computation/ponder_net/__init__.py",
+    "license": "MIT",
+    "language": "python"
+}

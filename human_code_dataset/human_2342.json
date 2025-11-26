@@ -1,0 +1,7 @@
+{
+    "code": "def _get_input_columns(self):\n        \"\"\"Returns names of all input columns.\"\"\"\n        return [tup[0] for tup in self.get_column_definition() if tup[2] not in {InputTypes.ID, InputTypes.TIME}]",
+    "source": "github_repo:microsoft/qlib",
+    "file": "examples/benchmarks/TFT/data_formatters/base.py",
+    "license": "MIT",
+    "language": "python"
+}

@@ -1,0 +1,7 @@
+{
+    "code": "def __init__(self, zone_configuration_path: str, classes: list[int]):\n        self.classes = classes\n        self.tracker = sv.ByteTrack(minimum_matching_threshold=0.8)\n        self.fps_monitor = sv.FPSMonitor()\n        self.polygons = load_zones_config(file_path=zone_configuration_path)\n        self.timers = [ClockBasedTimer() for _ in self.polygons]\n        self.zones = [\n            sv.PolygonZone(\n                polygon=polygon,\n                triggering_anchors=(sv.Position.CENTER,),\n            )\n            for polygon in self.polygons\n        ]",
+    "source": "github_repo:roboflow/supervision",
+    "file": "examples/time_in_zone/ultralytics_stream_example.py",
+    "license": "MIT",
+    "language": "python"
+}

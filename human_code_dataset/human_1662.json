@@ -1,0 +1,7 @@
+{
+    "code": "def _get_filetype(topic):\n        \"\"\"\n        Return language name (filetype) for `topic`\n        \"\"\"\n        return None",
+    "source": "github_repo:chubin/cheat.sh",
+    "file": "lib/adapter/adapter.py",
+    "license": "MIT",
+    "language": "python"
+}

@@ -1,0 +1,7 @@
+{
+    "code": "def MessageBox(msg, type_=\"error\"):\n    # 软件中如遇到错误，会优先用QT弹窗来警示。\n    # 但一些异常可能触发太早或导致QT事件循环崩溃。\n    # 因此 os.MessageBox() 是用于报告错误的最后防线。\n    info = \"Umi-OCR Message\"\n    if type_ == \"error\":\n        info = \"【错误】 Umi-OCR Error\"\n    elif type_ == \"warning\":\n        info = \"【警告】 Umi-OCR Warning\"\n    try:\n        # 通过 ctypes 发起弹窗\n        import ctypes\n\n        ctypes.windll.user32.MessageBoxW(None, str(msg), str(info), 0)\n    except Exception:\n        # 部分系统，连ctypes也用不了。转为在新的控制台窗口中打印信息。\n        msg_cmd = (\n            msg.replace(\"^\", \"^^\")\n            .replace(\"&\", \"^&\")\n            .replace(\"<\", \"^<\")\n            .replace(\">\", \"^>\")\n            .replace(\"|\", \"^|\")\n            .replace(\"\\n\\n\", \"___\")\n            .replace(\"\\n\", \"___\")\n        )\n        subprocess.Popen([\"start\", \"cmd\", \"/k\", f\"echo {info}: {msg_cmd}\"], shell=True)\n    return 0",
+    "source": "github_repo:hiroi-sora/Umi-OCR",
+    "file": "UmiOCR-data/main.py",
+    "license": "MIT",
+    "language": "python"
+}

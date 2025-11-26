@@ -1,0 +1,7 @@
+{
+    "code": "class VideoScriptParams:\n    \"\"\"\n    {\n      \"video_subject\": \"春天的花海\",\n      \"video_language\": \"\",\n      \"paragraph_number\": 1\n    }\n    \"\"\"\n\n    video_subject: Optional[str] = \"春天的花海\"\n    video_language: Optional[str] = \"\"\n    paragraph_number: Optional[int] = 1",
+    "source": "github_repo:harry0703/MoneyPrinterTurbo",
+    "file": "app/models/schema.py",
+    "license": "MIT",
+    "language": "python"
+}

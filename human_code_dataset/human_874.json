@@ -1,0 +1,7 @@
+{
+    "code": "def _raw_face_locations(img, number_of_times_to_upsample=1, model=\"hog\"):\n    \"\"\"\n    Returns an array of bounding boxes of human faces in a image\n\n    :param img: An image (as a numpy array)\n    :param number_of_times_to_upsample: How many times to upsample the image looking for faces. Higher numbers find smaller faces.\n    :param model: Which face detection model to use. \"hog\" is less accurate but faster on CPUs. \"cnn\" is a more accurate\n                  deep-learning model which is GPU/CUDA accelerated (if available). The default is \"hog\".\n    :return: A list of dlib 'rect' objects of found face locations\n    \"\"\"\n    if model == \"cnn\":\n        return cnn_face_detector(img, number_of_times_to_upsample)\n    else:\n        return face_detector(img, number_of_times_to_upsample)",
+    "source": "github_repo:ageitgey/face_recognition",
+    "file": "face_recognition/api.py",
+    "license": "MIT",
+    "language": "python"
+}

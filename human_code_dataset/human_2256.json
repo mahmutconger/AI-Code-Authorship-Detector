@@ -1,0 +1,7 @@
+{
+    "code": "def secure(self) -> Iterator[TOMLDocument]:\n        if self.file.exists():\n            initial_config = self.file.read()\n            config = self.file.read()\n        else:\n            initial_config = document()\n            config = document()\n\n        new_file = not self.file.exists()\n\n        yield config\n\n        try:\n            # Ensuring the file is only readable and writable\n            # by the current user\n            mode = 0o600\n\n            if new_file:\n                self.file.path.touch(mode=mode)\n\n            self.file.write(config)\n        except Exception:\n            self.file.write(initial_config)\n\n            raise",
+    "source": "github_repo:python-poetry/poetry",
+    "file": "src/poetry/config/file_config_source.py",
+    "license": "MIT",
+    "language": "python"
+}

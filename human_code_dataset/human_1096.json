@@ -1,0 +1,7 @@
+{
+    "code": "def __init__(self, agent: \"BaseAgent\"):\n        self.agent = agent\n        self._current_base64_image: Optional[str] = None",
+    "source": "github_repo:FoundationAgents/OpenManus",
+    "file": "app/agent/browser.py",
+    "license": "MIT",
+    "language": "python"
+}

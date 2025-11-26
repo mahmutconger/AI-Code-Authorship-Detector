@@ -1,0 +1,7 @@
+{
+    "code": "def clear(self):\n        \"\"\"Clears all previous results and saved parameters.\"\"\"\n        shutil.rmtree(self.hyperparam_folder)\n        os.makedirs(self.hyperparam_folder)\n        self.results = pd.DataFrame()\n        self.saved_params = pd.DataFrame()",
+    "source": "github_repo:microsoft/qlib",
+    "file": "examples/benchmarks/TFT/libs/hyperparam_opt.py",
+    "license": "MIT",
+    "language": "python"
+}

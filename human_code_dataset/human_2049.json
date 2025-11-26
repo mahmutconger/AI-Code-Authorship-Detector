@@ -1,0 +1,7 @@
+{
+    "code": "def _absolute_position_to_relative_position(self, x):\n        \"\"\"\n        x: [b, h, l, l]\n        ret: [b, h, l, 2*l-1]\n        \"\"\"\n        batch, heads, length, _ = x.size()\n        # pad along column\n        x = F.pad(\n            x, commons.convert_pad_shape([[0, 0], [0, 0], [0, 0], [0, length - 1]])\n        )\n        x_flat = x.view([batch, heads, length**2 + length * (length - 1)])\n        # add 0's in the beginning that will skew the elements after reshape\n        x_flat = F.pad(x_flat, commons.convert_pad_shape([[0, 0], [0, 0], [length, 0]]))\n        x_final = x_flat.view([batch, heads, length, 2 * length])[:, :, :, 1:]\n        return x_final",
+    "source": "github_repo:myshell-ai/OpenVoice",
+    "file": "openvoice/attentions.py",
+    "license": "MIT",
+    "language": "python"
+}

@@ -1,0 +1,7 @@
+{
+    "code": "def main(cli, vn, rem):\n    print(\"hello\", cli.ip)\n\n    abspath = vn.canonical(rem)\n    with open(abspath, \"wb\") as f:\n        f.write(b\"404? not on MY watch!\")\n\n    return \"retry\"",
+    "source": "github_repo:9001/copyparty",
+    "file": "bin/handlers/never404.py",
+    "license": "MIT",
+    "language": "python"
+}

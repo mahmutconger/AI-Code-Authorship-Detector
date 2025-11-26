@@ -1,0 +1,7 @@
+{
+    "code": "class KeywordExtractor(object):\n\n    STOP_WORDS = set((\n        \"the\", \"of\", \"is\", \"and\", \"to\", \"in\", \"that\", \"we\", \"for\", \"an\", \"are\",\n        \"by\", \"be\", \"as\", \"on\", \"with\", \"can\", \"if\", \"from\", \"which\", \"you\", \"it\",\n        \"this\", \"then\", \"at\", \"have\", \"all\", \"not\", \"one\", \"has\", \"or\", \"that\"\n    ))\n\n    def set_stop_words(self, stop_words_path):\n        abs_path = _get_abs_path(stop_words_path)\n        if not os.path.isfile(abs_path):\n            raise Exception(\"jieba: file does not exist: \" + abs_path)\n        content = open(abs_path, 'rb').read().decode('utf-8')\n        for line in content.splitlines():\n            self.stop_words.add(line)\n\n    def extract_tags(self, *args, **kwargs):\n        raise NotImplementedError",
+    "source": "github_repo:fxsjy/jieba",
+    "file": "jieba/analyse/tfidf.py",
+    "license": "MIT",
+    "language": "python"
+}

@@ -1,0 +1,7 @@
+{
+    "code": "def get_workflow_category(filename: str, existing_categories: Dict[str, str],\n                         integrations: List[str], service_categories: Dict[str, List[str]]) -> str:\n    \"\"\"Get category for workflow, preferring existing assignment over integration-based.\"\"\"\n\n    # First priority: Use existing category from create_categories.py system\n    if filename in existing_categories:\n        return existing_categories[filename]\n\n    # Fallback: Use integration-based categorization\n    return determine_category(integrations, service_categories)",
+    "source": "github_repo:Zie619/n8n-workflows",
+    "file": "scripts/generate_search_index.py",
+    "license": "MIT",
+    "language": "python"
+}

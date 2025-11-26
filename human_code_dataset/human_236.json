@@ -1,0 +1,7 @@
+{
+    "code": "def forward(self, x: torch.Tensor) -> torch.Tensor:\n        \"\"\"\n        Forward pass for row parallel linear layer.\n\n        Args:\n            x (torch.Tensor): Input tensor.\n\n        Returns:\n            torch.Tensor: Transformed tensor with row-parallel computation.\n        \"\"\"\n        y = linear(x, self.weight)\n        if world_size > 1:\n            dist.all_reduce(y)\n        if self.bias is not None:\n            y += self.bias\n        return y",
+    "source": "github_repo:deepseek-ai/DeepSeek-V3",
+    "file": "inference/model.py",
+    "license": "MIT",
+    "language": "python"
+}

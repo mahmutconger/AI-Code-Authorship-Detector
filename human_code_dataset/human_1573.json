@@ -1,0 +1,7 @@
+{
+    "code": "def test_idempotent_any_syntatically_valid_python(\n    src_contents: str, mode: black.FileMode\n) -> None:\n    if (\n        \"#\\r\" in src_contents or \"\\\\\\n\" in src_contents\n    ) and black.Preview.normalize_cr_newlines not in mode:\n        return\n\n    # Before starting, let's confirm that the input string is valid Python:\n    compile(src_contents, \"<string>\", \"exec\")  # else the bug is in hypothesmith\n\n    # Then format the code...\n    dst_contents = black.format_str(src_contents, mode=mode)\n\n    # And check that we got equivalent and stable output.\n    black.assert_equivalent(src_contents, dst_contents)\n    black.assert_stable(src_contents, dst_contents, mode=mode)",
+    "source": "github_repo:psf/black",
+    "file": "scripts/fuzz.py",
+    "license": "MIT",
+    "language": "python"
+}

@@ -1,0 +1,7 @@
+{
+    "code": "def copyImage(path):\n    im = _imread(path)\n    typ, data = im[\"type\"], im[\"data\"]\n    if typ == \"error\":\n        return data\n    try:\n        if typ == \"pixmap\":\n            Clipboard.setPixmap(data)\n        elif typ == \"qimage\":\n            Clipboard.setImage(data)\n        return \"[Success]\"\n    except Exception as e:\n        return f\"[Error] can't copy: {e}\\n{path}\"",
+    "source": "github_repo:hiroi-sora/Umi-OCR",
+    "file": "UmiOCR-data/py_src/image_controller/image_provider.py",
+    "license": "MIT",
+    "language": "python"
+}

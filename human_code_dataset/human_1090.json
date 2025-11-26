@@ -1,0 +1,7 @@
+{
+    "code": "def handle_stuck_state(self):\n        \"\"\"Handle stuck state by adding a prompt to change strategy\"\"\"\n        stuck_prompt = \"\\\n        Observed duplicate responses. Consider new strategies and avoid repeating ineffective paths already attempted.\"\n        self.next_step_prompt = f\"{stuck_prompt}\\n{self.next_step_prompt}\"\n        logger.warning(f\"Agent detected stuck state. Added prompt: {stuck_prompt}\")",
+    "source": "github_repo:FoundationAgents/OpenManus",
+    "file": "app/agent/base.py",
+    "license": "MIT",
+    "language": "python"
+}

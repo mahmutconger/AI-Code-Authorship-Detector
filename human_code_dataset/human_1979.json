@@ -1,0 +1,7 @@
+{
+    "code": "def write_one_line(template):\n            x = Tex(template.description, tex_template=template).shift(UP)\n            self.play(Create(x))\n            self.wait(1)\n            self.play(FadeOut(x))",
+    "source": "github_repo:ManimCommunity/manim",
+    "file": "example_scenes/advanced_tex_fonts.py",
+    "license": "MIT",
+    "language": "python"
+}

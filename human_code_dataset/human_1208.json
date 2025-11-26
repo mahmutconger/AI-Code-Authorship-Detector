@@ -1,0 +1,7 @@
+{
+    "code": "def get_application() -> FastAPI:\n    \"\"\"Initialize FastAPI application.\n\n    Returns:\n       FastAPI: Application object instance.\n\n    \"\"\"\n    instance = FastAPI(\n        title=config.project_name,\n        description=config.project_description,\n        version=config.project_version,\n        debug=False,\n    )\n    instance.include_router(root_api_router)\n    instance.add_exception_handler(HttpException, exception_handler)\n    instance.add_exception_handler(RequestValidationError, validation_exception_handler)\n    return instance",
+    "source": "github_repo:harry0703/MoneyPrinterTurbo",
+    "file": "app/asgi.py",
+    "license": "MIT",
+    "language": "python"
+}

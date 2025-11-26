@@ -1,0 +1,7 @@
+{
+    "code": "class InteractiveSwapCase(contentviews.InteractiveContentview):\n    def prettify(\n        self,\n        data: bytes,\n        metadata: contentviews.Metadata,\n    ) -> str:\n        return data.swapcase().decode()\n\n    def reencode(\n        self,\n        prettified: str,\n        metadata: contentviews.Metadata,\n    ) -> bytes:\n        return prettified.encode().swapcase()",
+    "source": "github_repo:mitmproxy/mitmproxy",
+    "file": "examples/addons/contentview-interactive.py",
+    "license": "MIT",
+    "language": "python"
+}

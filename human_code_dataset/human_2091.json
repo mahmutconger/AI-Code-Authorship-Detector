@@ -1,0 +1,7 @@
+{
+    "code": "def strdecode(sentence):\n    if not isinstance(sentence, text_type):\n        try:\n            sentence = sentence.decode('utf-8')\n        except UnicodeDecodeError:\n            sentence = sentence.decode('gbk', 'ignore')\n    return sentence",
+    "source": "github_repo:fxsjy/jieba",
+    "file": "jieba/_compat.py",
+    "license": "MIT",
+    "language": "python"
+}

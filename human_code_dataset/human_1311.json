@@ -1,0 +1,7 @@
+{
+    "code": "def get_segmented_page(self) -> Optional[SegmentedPdfPage]:\n        if not self.valid:\n            return None\n\n        text_cells = self._compute_text_cells()\n\n        # Get the PDF page geometry from pypdfium2\n        dimension = get_pdf_page_geometry(self._ppage)\n\n        # Create SegmentedPdfPage\n        return SegmentedPdfPage(\n            dimension=dimension,\n            textline_cells=text_cells,\n            char_cells=[],\n            word_cells=[],\n            has_textlines=len(text_cells) > 0,\n            has_words=False,\n            has_chars=False,\n        )",
+    "source": "github_repo:docling-project/docling",
+    "file": "docling/backend/docling_parse_v2_backend.py",
+    "license": "MIT",
+    "language": "python"
+}

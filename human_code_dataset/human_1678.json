@@ -1,0 +1,7 @@
+{
+    "code": "class CheatSheetsDir(CheatSheets):\n    \"\"\"\n    Adapter for the cheat sheets directories.\n    Provides pages named according to subdirectories:\n        _dir => dir/\n\n    (currently only _get_list() is used; _get_page is shadowed\n    by the CheatSheets adapter)\n    \"\"\"\n\n    _adapter_name = \"cheat.sheets dir\"\n    _output_format = \"text\"\n\n    def _get_list(self, prefix=None):\n\n        template = os.path.join(\n            self.local_repository_location(), self._cheatsheet_files_prefix, \"*\"\n        )\n\n        answer = sorted(\n            [\n                _remove_initial_underscore(os.path.basename(f_name)) + \"/\"\n                for f_name in glob.glob(template)\n                if os.path.isdir(f_name)\n            ]\n        )\n\n        return answer\n\n    def _get_page(self, topic, request_options=None):\n        \"\"\"\n        Content of the `topic` dir is the list of the pages in the dir\n        \"\"\"\n\n        template = os.path.join(\n            self.local_repository_location(),\n            self._cheatsheet_files_prefix,\n            topic.rstrip(\"/\"),\n            \"*\",\n        )\n\n        answer = sorted([os.path.basename(f_name) for f_name in glob.glob(template)])\n        return \"\\n\".join(answer) + \"\\n\"\n\n    def is_found(self, topic):\n        return CheatSheets.is_found(self, topic.rstrip(\"/\"))",
+    "source": "github_repo:chubin/cheat.sh",
+    "file": "lib/adapter/cheat_sheets.py",
+    "license": "MIT",
+    "language": "python"
+}

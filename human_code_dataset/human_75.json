@@ -1,0 +1,7 @@
+{
+    "code": "def backtrack(\n    candidates: list, path: list, answer: list, target: int, previous_index: int\n) -> None:\n    \"\"\"\n    A recursive function that searches for possible combinations. Backtracks in case\n    of a bigger current combination value than the target value.\n\n    Parameters\n    ----------\n    previous_index: Last index from the previous search\n    target: The value we need to obtain by summing our integers in the path list.\n    answer: A list of possible combinations\n    path: Current combination\n    candidates: A list of integers we can use.\n    \"\"\"\n    if target == 0:\n        answer.append(path.copy())\n    else:\n        for index in range(previous_index, len(candidates)):\n            if target >= candidates[index]:\n                path.append(candidates[index])\n                backtrack(candidates, path, answer, target - candidates[index], index)\n                path.pop(len(path) - 1)",
+    "source": "github_repo:TheAlgorithms/Python",
+    "file": "backtracking/combination_sum.py",
+    "license": "MIT",
+    "language": "python"
+}

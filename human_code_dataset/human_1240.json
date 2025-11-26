@@ -1,0 +1,7 @@
+{
+    "code": "def upload_bgm_file(request: Request, file: UploadFile = File(...)):\n    request_id = base.get_task_id(request)\n    # check file ext\n    if file.filename.endswith(\"mp3\"):\n        song_dir = utils.song_dir()\n        save_path = os.path.join(song_dir, file.filename)\n        # save file\n        with open(save_path, \"wb+\") as buffer:\n            # If the file already exists, it will be overwritten\n            file.file.seek(0)\n            buffer.write(file.file.read())\n        response = {\"file\": save_path}\n        return utils.get_response(200, response)\n\n    raise HttpException(\n        \"\", status_code=400, message=f\"{request_id}: Only *.mp3 files can be uploaded\"\n    )",
+    "source": "github_repo:harry0703/MoneyPrinterTurbo",
+    "file": "app/controllers/v1/video.py",
+    "license": "MIT",
+    "language": "python"
+}

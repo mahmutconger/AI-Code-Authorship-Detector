@@ -1,0 +1,7 @@
+{
+    "code": "def gen_pfdict(f):\n        lfreq = {}\n        ltotal = 0\n        f_name = resolve_filename(f)\n        for lineno, line in enumerate(f, 1):\n            try:\n                line = line.strip().decode('utf-8')\n                word, freq = line.split(' ')[:2]\n                freq = int(freq)\n                lfreq[word] = freq\n                ltotal += freq\n                for ch in xrange(len(word)):\n                    wfrag = word[:ch + 1]\n                    if wfrag not in lfreq:\n                        lfreq[wfrag] = 0\n            except ValueError:\n                raise ValueError(\n                    'invalid dictionary entry in %s at Line %s: %s' % (f_name, lineno, line))\n        f.close()\n        return lfreq, ltotal",
+    "source": "github_repo:fxsjy/jieba",
+    "file": "jieba/__init__.py",
+    "license": "MIT",
+    "language": "python"
+}

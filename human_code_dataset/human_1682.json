@@ -1,0 +1,7 @@
+{
+    "code": "def _get_page(self, topic, request_options=None):\n        \"\"\"\n        Content of the `topic` dir is the list of the pages in the dir\n        \"\"\"\n\n        template = os.path.join(\n            self.local_repository_location(),\n            self._cheatsheet_files_prefix,\n            topic.rstrip(\"/\"),\n            \"*\",\n        )\n\n        answer = sorted([os.path.basename(f_name) for f_name in glob.glob(template)])\n        return \"\\n\".join(answer) + \"\\n\"",
+    "source": "github_repo:chubin/cheat.sh",
+    "file": "lib/adapter/cheat_sheets.py",
+    "license": "MIT",
+    "language": "python"
+}

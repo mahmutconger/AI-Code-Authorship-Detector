@@ -1,0 +1,7 @@
+{
+    "code": "def __init__(\n\t\tself,\n\t\tbrowser_session: 'BrowserSession',\n\t\tbackend_node_id: int,\n\t\tsession_id: str | None = None,\n\t):\n\t\tself._browser_session = browser_session\n\t\tself._client = browser_session.cdp_client\n\t\tself._backend_node_id = backend_node_id\n\t\tself._session_id = session_id",
+    "source": "github_repo:browser-use/browser-use",
+    "file": "browser_use/actor/element.py",
+    "license": "MIT",
+    "language": "python"
+}

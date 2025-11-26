@@ -1,0 +1,7 @@
+{
+    "code": "def num_tokens_from_messages(messages, model):\n    \"\"\"Returns the number of tokens used by a list of messages.\"\"\"\n    # 官方token计算规则：\"对于中文文本来说，1个token通常对应一个汉字；对于英文文本来说，1个token通常对应3至4个字母或1个单词\"\n    # 详情请产看文档：https://help.aliyun.com/document_detail/2586397.html\n    # 目前根据字符串长度粗略估计token数，不影响正常使用\n    tokens = 0\n    for msg in messages:\n        tokens += len(msg[\"content\"])\n    return tokens",
+    "source": "github_repo:zhayujie/chatgpt-on-wechat",
+    "file": "bot/ali/ali_qwen_session.py",
+    "license": "MIT",
+    "language": "python"
+}

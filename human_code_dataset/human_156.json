@@ -1,0 +1,7 @@
+{
+    "code": "def _get_configs_for_multi_dirs(\n    job: str, dirs_to_run: Dict[str, Set[str]], dependents: dict\n) -> List[Dict[str, str]]:\n    if job == \"lint\":\n        dirs = add_dependents(\n            dirs_to_run[\"lint\"] | dirs_to_run[\"test\"] | dirs_to_run[\"extended-test\"],\n            dependents,\n        )\n    elif job in [\"test\", \"compile-integration-tests\", \"dependencies\", \"test-pydantic\"]:\n        dirs = add_dependents(\n            dirs_to_run[\"test\"] | dirs_to_run[\"extended-test\"], dependents\n        )\n    elif job == \"extended-tests\":\n        dirs = list(dirs_to_run[\"extended-test\"])\n    elif job == \"codspeed\":\n        dirs = list(dirs_to_run[\"codspeed\"])\n    else:\n        raise ValueError(f\"Unknown job: {job}\")\n\n    return [\n        config for dir_ in dirs for config in _get_configs_for_single_dir(job, dir_)\n    ]",
+    "source": "github_repo:langchain-ai/langchain",
+    "file": ".github/scripts/check_diff.py",
+    "license": "MIT",
+    "language": "python"
+}

@@ -1,0 +1,7 @@
+{
+    "code": "\"\"\"Check that no dependencies allow prereleases unless we're releasing a prerelease.\"\"\"\n\nimport sys\n\nimport tomllib\n\nif __name__ == \"__main__\":\n    # Get the TOML file path from the command line argument\n    toml_file = sys.argv[1]\n\n    with open(toml_file, \"rb\") as file:\n        toml_data = tomllib.load(file)\n\n    # See if we're releasing an rc or dev version\n    version = toml_data[\"project\"][\"version\"]\n    releasing_rc = \"rc\" in version or \"dev\" in version\n\n    # If not, iterate through dependencies and make sure none allow prereleases\n    if not releasing_rc:\n        dependencies = toml_data[\"project\"][\"dependencies\"]\n        for dep_version in dependencies:\n            dep_version_string = (\n                dep_version[\"version\"] if isinstance(dep_version, dict) else dep_version\n            )\n\n            if \"rc\" in dep_version_string:\n                raise ValueError(\n                    f\"Dependency {dep_version} has a prerelease version. Please remove this.\"\n                )\n\n            if isinstance(dep_version, dict) and dep_version.get(\n                \"allow-prereleases\", False\n            ):\n                raise ValueError(\n                    f\"Dependency {dep_version} has allow-prereleases set to true. Please remove this.\"\n                )",
+    "source": "github_repo:langchain-ai/langchain",
+    "file": ".github/scripts/check_prerelease_dependencies.py",
+    "license": "MIT",
+    "language": "python"
+}

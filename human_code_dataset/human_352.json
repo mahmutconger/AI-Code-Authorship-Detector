@@ -1,0 +1,7 @@
+{
+    "code": "def test_spelling_normalizer():\n    std = EnglishSpellingNormalizer()\n\n    assert std(\"mobilisation\") == \"mobilization\"\n    assert std(\"cancelation\") == \"cancellation\"",
+    "source": "github_repo:openai/whisper",
+    "file": "tests/test_normalizer.py",
+    "license": "MIT",
+    "language": "python"
+}

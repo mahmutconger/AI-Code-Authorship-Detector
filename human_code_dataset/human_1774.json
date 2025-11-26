@@ -1,0 +1,7 @@
+{
+    "code": "def set_api_key(self):\n        api_key, expired_time = self.api_key_client().create_token(agent_key=self.agent_key())\n        broadscope_bailian.api_key = api_key\n        return expired_time",
+    "source": "github_repo:zhayujie/chatgpt-on-wechat",
+    "file": "bot/ali/ali_qwen_bot.py",
+    "license": "MIT",
+    "language": "python"
+}

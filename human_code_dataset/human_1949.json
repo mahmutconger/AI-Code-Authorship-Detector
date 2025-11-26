@@ -1,0 +1,7 @@
+{
+    "code": "def redraw_polygons(image: np.ndarray) -> None:\n    for idx, polygon in enumerate(POLYGONS[:-1]):\n        if len(polygon) > 1:\n            color = COLORS.by_idx(idx).as_bgr()\n            for i in range(len(polygon) - 1):\n                cv2.line(\n                    img=image,\n                    pt1=polygon[i],\n                    pt2=polygon[i + 1],\n                    color=color,\n                    thickness=THICKNESS,\n                )\n            cv2.line(\n                img=image,\n                pt1=polygon[-1],\n                pt2=polygon[0],\n                color=color,\n                thickness=THICKNESS,\n            )",
+    "source": "github_repo:roboflow/supervision",
+    "file": "examples/time_in_zone/scripts/draw_zones.py",
+    "license": "MIT",
+    "language": "python"
+}

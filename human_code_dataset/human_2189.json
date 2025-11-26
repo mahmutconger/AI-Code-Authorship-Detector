@@ -1,0 +1,7 @@
+{
+    "code": "def __init__(self, cdns):\n        super().__init__()\n        self.cdns = cdns\n        self.urlConf = urlConf.urls\n        self.httpClint = requests\n        self.city_list = []\n        self.timeout = 5",
+    "source": "github_repo:testerSunshine/12306",
+    "file": "agency/cdn_utils.py",
+    "license": "MIT",
+    "language": "python"
+}

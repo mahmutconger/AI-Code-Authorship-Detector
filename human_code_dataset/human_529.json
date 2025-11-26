@@ -1,0 +1,7 @@
+{
+    "code": "def validate_file_size(cls, v: str | None) -> str | None:\n\t\t\"\"\"Validate base64 file content size.\"\"\"\n\t\tif v is None:\n\t\t\treturn v\n\t\t# Remove data URL prefix if present\n\t\tif ',' in v:\n\t\t\tv = v.split(',')[1]\n\t\t# Estimate decoded size (base64 is ~33% larger)\n\t\testimated_size = len(v) * 3 / 4\n\t\tif estimated_size > MAX_FILE_CONTENT_SIZE:\n\t\t\traise ValueError(f'File content exceeds maximum size of {MAX_FILE_CONTENT_SIZE / 1024 / 1024}MB')\n\t\treturn v",
+    "source": "github_repo:browser-use/browser-use",
+    "file": "browser_use/agent/cloud_events.py",
+    "license": "MIT",
+    "language": "python"
+}

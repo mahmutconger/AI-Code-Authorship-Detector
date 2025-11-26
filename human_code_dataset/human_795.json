@@ -1,0 +1,7 @@
+{
+    "code": "def __init__(self, service_freq: float, update_freq: float, is_poll: bool):\n    freq = max(min(service_freq, update_freq), 1.)\n    if is_poll:\n      min_freq = max_freq = freq\n    else:\n      max_freq = min(freq, update_freq)\n      if service_freq >= 2 * update_freq:\n        min_freq = update_freq\n      elif update_freq >= 2* service_freq:\n        min_freq = freq\n      else:\n        min_freq = min(freq, freq / 2.)\n\n    self.min_freq = min_freq * 0.8\n    self.max_freq = max_freq * 1.2\n    self.avg_dt = MovingAverage(int(10 * freq))\n    self.recent_avg_dt = MovingAverage(int(freq))\n    self.prev_time = 0.0",
+    "source": "github_repo:commaai/openpilot",
+    "file": "cereal/messaging/__init__.py",
+    "license": "MIT",
+    "language": "python"
+}

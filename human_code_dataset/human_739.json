@@ -1,0 +1,7 @@
+{
+    "code": "def parse_code(rsp):\n        pattern = r\"```python(.*)```\"\n        match = re.search(pattern, rsp, re.DOTALL)\n        code_text = match.group(1) if match else \"\"\n        config.workspace.path.mkdir(parents=True, exist_ok=True)\n        new_file = config.workspace.path / \"agent_created_agent.py\"\n        new_file.write_text(code_text)\n        return code_text",
+    "source": "github_repo:FoundationAgents/MetaGPT",
+    "file": "examples/agent_creator.py",
+    "license": "MIT",
+    "language": "python"
+}

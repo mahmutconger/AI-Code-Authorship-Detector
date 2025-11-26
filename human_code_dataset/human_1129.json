@@ -1,0 +1,7 @@
+{
+    "code": "class MCPServerConfig(BaseModel):\n    \"\"\"Configuration for a single MCP server\"\"\"\n\n    type: str = Field(..., description=\"Server connection type (sse or stdio)\")\n    url: Optional[str] = Field(None, description=\"Server URL for SSE connections\")\n    command: Optional[str] = Field(None, description=\"Command for stdio connections\")\n    args: List[str] = Field(\n        default_factory=list, description=\"Arguments for stdio command\"\n    )",
+    "source": "github_repo:FoundationAgents/OpenManus",
+    "file": "app/config.py",
+    "license": "MIT",
+    "language": "python"
+}

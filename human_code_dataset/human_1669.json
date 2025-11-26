@@ -1,0 +1,7 @@
+{
+    "code": "def save_state(cls, state):\n        \"\"\"\n        Save state `state` of the repository.\n        Must be called after the cache clean up.\n        \"\"\"\n        local_repository_dir = cls.local_repository_location()\n        state_filename = os.path.join(local_repository_dir, \".cached_revision\")\n        open(state_filename, \"w\").write(state)",
+    "source": "github_repo:chubin/cheat.sh",
+    "file": "lib/adapter/adapter.py",
+    "license": "MIT",
+    "language": "python"
+}

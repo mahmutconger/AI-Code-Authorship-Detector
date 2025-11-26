@@ -1,0 +1,7 @@
+{
+    "code": "def main_terminal() -> None:\n    \"\"\"\"\"\"\n    event_engine: EventEngine = EventEngine()\n    event_engine.register(EVENT_LOG, process_log_event)\n    event_engine.register(EVENT_RPC_LOG, process_log_event)\n\n    main_engine: MainEngine = MainEngine(event_engine)\n    main_engine.add_gateway(CtpGateway)\n    rpc_engine: RpcEngine = main_engine.add_app(RpcServiceApp)\n\n    setting: dict[str, str] = {\n        \"用户名\": \"\",\n        \"密码\": \"\",\n        \"经纪商代码\": \"9999\",\n        \"交易服务器\": \"180.168.146.187:10101\",\n        \"行情服务器\": \"180.168.146.187:10111\",\n        \"产品名称\": \"simnow_client_test\",\n        \"授权编码\": \"0000000000000000\",\n        \"产品信息\": \"\"\n    }\n    main_engine.connect(setting, \"CTP\")\n    sleep(10)\n\n    rep_address: str = \"tcp://127.0.0.1:2014\"\n    pub_address: str = \"tcp://127.0.0.1:4102\"\n    rpc_engine.start(rep_address, pub_address)\n\n    while True:\n        sleep(1)",
+    "source": "github_repo:vnpy/vnpy",
+    "file": "examples/client_server/run_server.py",
+    "license": "MIT",
+    "language": "python"
+}

@@ -1,0 +1,7 @@
+{
+    "code": "def get_tensor(tensor_name):\n        \"\"\"\n        Retrieves a tensor from the cached safetensor files or loads it from disk if not cached.\n\n        Args:\n            tensor_name (str): The name of the tensor to retrieve.\n\n        Returns:\n            torch.Tensor: The retrieved tensor.\n\n        Raises:\n            KeyError: If the tensor does not exist in the safetensor file.\n        \"\"\"\n        file_name = weight_map[tensor_name]\n        if file_name not in loaded_files:\n            file_path = os.path.join(fp8_path, file_name)\n            loaded_files[file_name] = load_file(file_path, device=\"cuda\")\n        return loaded_files[file_name][tensor_name]",
+    "source": "github_repo:deepseek-ai/DeepSeek-V3",
+    "file": "inference/fp8_cast_bf16.py",
+    "license": "MIT",
+    "language": "python"
+}

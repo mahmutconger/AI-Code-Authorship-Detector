@@ -1,0 +1,7 @@
+{
+    "code": "class RowState:\n    # Per-row state tracking during generation\n    def __init__(self, current_tokens=None):\n        self.current_tokens = current_tokens or [] # Current token sequence for this row\n        self.forced_tokens = deque() # Queue of tokens to force inject\n        self.in_python_block = False # Whether we are inside a python block\n        self.python_expr_tokens = [] # Tokens of the current python expression\n        self.completed = False # Whether this row has completed generation",
+    "source": "github_repo:karpathy/nanochat",
+    "file": "nanochat/engine.py",
+    "license": "MIT",
+    "language": "python"
+}

@@ -1,0 +1,7 @@
+{
+    "code": "def set_stop_words(stop_words_path):\n    default_tfidf.set_stop_words(stop_words_path)\n    default_textrank.set_stop_words(stop_words_path)",
+    "source": "github_repo:fxsjy/jieba",
+    "file": "jieba/analyse/__init__.py",
+    "license": "MIT",
+    "language": "python"
+}

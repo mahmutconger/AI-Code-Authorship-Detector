@@ -1,0 +1,7 @@
+{
+    "code": "def multiple_usernames(username):\n    \"\"\"replace the parameter with with symbols and return a list of usernames\"\"\"\n    allUsernames = []\n    for i in checksymbols:\n        allUsernames.append(username.replace(\"{?}\", i))\n    return allUsernames",
+    "source": "github_repo:sherlock-project/sherlock",
+    "file": "sherlock_project/sherlock.py",
+    "license": "MIT",
+    "language": "python"
+}

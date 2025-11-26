@@ -1,0 +1,7 @@
+{
+    "code": "def get_tools_toc(tools, indentation = \"##\"):\n    md = \"\"\n    for tool in tools:\n        if isinstance(tool, HackingToolsCollection):\n            md += (indentation + \"# {}\\n\".format(tool.TITLE))\n            md += get_tools_toc(tool.TOOLS, indentation = indentation + '#')\n        elif isinstance(tool, HackingTool):\n            if tool.PROJECT_URL:\n                md += (\"- [{}]({})\\n\".format(tool.TITLE, tool.PROJECT_URL))\n            else:\n                md += (\"- {}\\n\".format(tool.TITLE))\n    return md",
+    "source": "github_repo:Z4nzu/hackingtool",
+    "file": "generate_readme.py",
+    "license": "MIT",
+    "language": "python"
+}

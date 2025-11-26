@@ -1,0 +1,7 @@
+{
+    "code": "def linear_ramp_factor(min, max, dim):\n        \"\"\"\n        Computes a linear ramp function used to smooth values between a minimum and maximum range.\n\n        Args:\n            min (float): Minimum value for the ramp function.\n            max (float): Maximum value for the ramp function.\n            dim (int): Dimensionality of the ramp tensor.\n\n        Returns:\n            torch.Tensor: A tensor of shape (dim,) with values linearly interpolated between 0 and 1,\n                clamped to the range [0, 1].\n        \"\"\"\n        if min == max:\n            max += 0.001\n        linear_func = (torch.arange(dim, dtype=torch.float32) - min) / (max - min)\n        ramp_func = torch.clamp(linear_func, 0, 1)\n        return ramp_func",
+    "source": "github_repo:deepseek-ai/DeepSeek-V3",
+    "file": "inference/model.py",
+    "license": "MIT",
+    "language": "python"
+}

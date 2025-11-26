@@ -1,0 +1,7 @@
+{
+    "code": "def mel_filters(device, n_mels: int) -> torch.Tensor:\n    \"\"\"\n    load the mel filterbank matrix for projecting STFT into a Mel spectrogram.\n    Allows decoupling librosa dependency; saved using:\n\n        np.savez_compressed(\n            \"mel_filters.npz\",\n            mel_80=librosa.filters.mel(sr=16000, n_fft=400, n_mels=80),\n            mel_128=librosa.filters.mel(sr=16000, n_fft=400, n_mels=128),\n        )\n    \"\"\"\n    assert n_mels in {80, 128}, f\"Unsupported n_mels: {n_mels}\"\n\n    filters_path = os.path.join(os.path.dirname(__file__), \"assets\", \"mel_filters.npz\")\n    with np.load(filters_path, allow_pickle=False) as f:\n        return torch.from_numpy(f[f\"mel_{n_mels}\"]).to(device)",
+    "source": "github_repo:openai/whisper",
+    "file": "whisper/audio.py",
+    "license": "MIT",
+    "language": "python"
+}

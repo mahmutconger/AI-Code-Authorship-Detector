@@ -1,0 +1,7 @@
+{
+    "code": "def end(self) -> None:\n        self.end_recording()\n        self.end_session()",
+    "source": "github_repo:mitmproxy/mitmproxy",
+    "file": "docs/scripts/clirecording/clidirector.py",
+    "license": "MIT",
+    "language": "python"
+}

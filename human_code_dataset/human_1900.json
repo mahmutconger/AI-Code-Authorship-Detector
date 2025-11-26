@@ -1,0 +1,7 @@
+{
+    "code": "def main():\n    bad = \"exe scr com pif bat ps1 jar msi\"\n\n    ext = sys.argv[1].split(\".\")[-1]\n\n    sys.exit(1 if ext in bad.split() else 0)",
+    "source": "github_repo:9001/copyparty",
+    "file": "bin/hooks/reject-extension.py",
+    "license": "MIT",
+    "language": "python"
+}

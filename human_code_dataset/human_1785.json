@@ -1,0 +1,7 @@
+{
+    "code": "def get_token(self):\n        access_key = \"YOUR_ACCESS_KEY\"\n        secret_key = \"YOUR_SECRET_KEY\"\n        host = \"https://aip.baidubce.com/oauth/2.0/token?grant_type=client_credentials&client_id=\" + access_key + \"&client_secret=\" + secret_key\n        response = requests.get(host)\n        if response:\n            print(response.json())\n            return response.json()[\"access_token\"]",
+    "source": "github_repo:zhayujie/chatgpt-on-wechat",
+    "file": "bot/baidu/baidu_unit_bot.py",
+    "license": "MIT",
+    "language": "python"
+}

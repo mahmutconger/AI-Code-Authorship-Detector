@@ -1,0 +1,7 @@
+{
+    "code": "def download_and_extract(package: str, version: str | None, directory: Path) -> Path:\n    source = get_package_source(package, version)\n\n    local_file, _ = urlretrieve(source, directory / f\"{package}-src\")\n    with get_archive_manager(local_file) as archive:\n        archive.extractall(path=directory)\n        result_dir = get_first_archive_member(archive)\n    return directory / result_dir",
+    "source": "github_repo:psf/black",
+    "file": "gallery/gallery.py",
+    "license": "MIT",
+    "language": "python"
+}

@@ -1,0 +1,7 @@
+{
+    "code": "###\tQuick Python Script to convert the Big List of Naughty Strings into a JSON file\n### \n###\tBy Max Woolf\n\nimport json\n\nwith open('../blns.txt', 'r') as f:\n\n    # put all lines in the file into a Python list\n    content = f.readlines()\n    \n    # above line leaves trailing newline characters; strip them out\n    content = [x.strip('\\n') for x in content]\n    \n    # remove empty-lines and comments\n    content = [x for x in content if x and not x.startswith('#')]\n    \n    # insert empty string since all are being removed\n    content.insert(0, \"\")\n    \n    # special case: convert \"\\\" to \"\\\\\" for valid JSON\n    #content = map(lambda x: x.replace('\\','\\\\'), content)\n    \nwith open('../blns.json', 'wb') as f:\n\n\t# write JSON to file; note the ensure_ascii parameter\n\tjson.dump(content, f, indent=2, ensure_ascii=False)",
+    "source": "github_repo:minimaxir/big-list-of-naughty-strings",
+    "file": "scripts/txt_to_json.py",
+    "license": "MIT",
+    "language": "python"
+}

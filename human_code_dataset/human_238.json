@@ -1,0 +1,7 @@
+{
+    "code": "def forward(self, x: torch.Tensor):\n        \"\"\"\n        Forward pass for RMSNorm.\n\n        Args:\n            x (torch.Tensor): Input tensor.\n\n        Returns:\n            torch.Tensor: Normalized tensor with the same shape as input.\n        \"\"\"\n        return F.rms_norm(x, (self.dim,), self.weight, self.eps)",
+    "source": "github_repo:deepseek-ai/DeepSeek-V3",
+    "file": "inference/model.py",
+    "license": "MIT",
+    "language": "python"
+}

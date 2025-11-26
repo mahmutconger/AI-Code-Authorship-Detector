@@ -1,0 +1,7 @@
+{
+    "code": "def get_package(\n    package: str, version: str | None, directory: Path\n) -> Path | None:\n    try:\n        return download_and_extract(package, version, directory)\n    except Exception:\n        print(f\"Caught an exception while downloading {package}.\")\n        traceback.print_exc()\n        return None",
+    "source": "github_repo:psf/black",
+    "file": "gallery/gallery.py",
+    "license": "MIT",
+    "language": "python"
+}

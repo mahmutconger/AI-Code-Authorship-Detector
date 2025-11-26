@@ -1,0 +1,7 @@
+{
+    "code": "def log_images(self, batch, only_inputs=False, log_ema=False, **kwargs):\n        log = dict()\n        x = self.get_input(batch, self.image_key)\n        x = x.to(self.device)\n        if not only_inputs:\n            xrec, posterior = self(x)\n            if x.shape[1] > 3:\n                # colorize with random projection\n                assert xrec.shape[1] > 3\n                x = self.to_rgb(x)\n                xrec = self.to_rgb(xrec)\n            log[\"samples\"] = self.decode(torch.randn_like(posterior.sample()))\n            log[\"reconstructions\"] = xrec\n            if log_ema or self.use_ema:\n                with self.ema_scope():\n                    xrec_ema, posterior_ema = self(x)\n                    if x.shape[1] > 3:\n                        # colorize with random projection\n                        assert xrec_ema.shape[1] > 3\n                        xrec_ema = self.to_rgb(xrec_ema)\n                    log[\"samples_ema\"] = self.decode(torch.randn_like(posterior_ema.sample()))\n                    log[\"reconstructions_ema\"] = xrec_ema\n        log[\"inputs\"] = x\n        return log",
+    "source": "github_repo:Stability-AI/stablediffusion",
+    "file": "ldm/models/autoencoder.py",
+    "license": "MIT",
+    "language": "python"
+}

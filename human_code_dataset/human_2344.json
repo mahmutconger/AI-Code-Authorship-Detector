@@ -1,0 +1,7 @@
+{
+    "code": "def get_experiment_params(self):\n        \"\"\"Returns fixed model parameters for experiments.\"\"\"\n\n        required_keys = [\n            \"total_time_steps\",\n            \"num_encoder_steps\",\n            \"num_epochs\",\n            \"early_stopping_patience\",\n            \"multiprocessing_workers\",\n        ]\n\n        fixed_params = self.get_fixed_params()\n\n        for k in required_keys:\n            if k not in fixed_params:\n                raise ValueError(\"Field {}\".format(k) + \" missing from fixed parameter definitions!\")\n\n        fixed_params[\"column_definition\"] = self.get_column_definition()\n\n        fixed_params.update(self._get_tft_input_indices())\n\n        return fixed_params",
+    "source": "github_repo:microsoft/qlib",
+    "file": "examples/benchmarks/TFT/data_formatters/base.py",
+    "license": "MIT",
+    "language": "python"
+}

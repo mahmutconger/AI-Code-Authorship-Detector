@@ -1,0 +1,7 @@
+{
+    "code": "def add_new_task(self, new_task: str) -> None:\n\t\tnew_task = '<follow_up_user_request> ' + new_task.strip() + ' </follow_up_user_request>'\n\t\tif '<initial_user_request>' not in self.task:\n\t\t\tself.task = '<initial_user_request>' + self.task + '</initial_user_request>'\n\t\tself.task += '\\n' + new_task\n\t\ttask_update_item = HistoryItem(system_message=new_task)\n\t\tself.state.agent_history_items.append(task_update_item)",
+    "source": "github_repo:browser-use/browser-use",
+    "file": "browser_use/agent/message_manager/service.py",
+    "license": "MIT",
+    "language": "python"
+}

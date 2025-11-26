@@ -1,0 +1,7 @@
+{
+    "code": "def remove_property(self, key: str) -> None:\n        with self.secure() as toml:\n            config: dict[str, Any] = toml\n            keys = key.split(\".\")\n\n            current_config = config\n            for i, key in enumerate(keys):\n                if key not in current_config:\n                    return\n\n                if i == len(keys) - 1:\n                    del current_config[key]\n\n                    break\n\n                current_config = current_config[key]\n\n            current_config = drop_empty_config_category(keys=keys[:-1], config=config)\n            config.clear()\n            config.update(current_config)",
+    "source": "github_repo:python-poetry/poetry",
+    "file": "src/poetry/config/file_config_source.py",
+    "license": "MIT",
+    "language": "python"
+}

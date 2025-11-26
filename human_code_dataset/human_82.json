@@ -1,0 +1,7 @@
+{
+    "code": "def generate_parenthesis(n: int) -> list[str]:\n    \"\"\"\n    Generate valid combinations of balanced parentheses for a given n.\n\n    :param n: An integer representing the number of pairs of parentheses.\n    :return: A list of strings with valid combinations.\n\n    This function uses a recursive approach to generate the combinations.\n\n    Time Complexity: O(2^(2n)) - In the worst case, we have 2^(2n) combinations.\n    Space Complexity: O(n) - where 'n' is the number of pairs.\n\n    Example 1:\n    >>> generate_parenthesis(3)\n    ['((()))', '(()())', '(())()', '()(())', '()()()']\n\n    Example 2:\n    >>> generate_parenthesis(1)\n    ['()']\n    \"\"\"\n\n    result: list[str] = []\n    backtrack(\"\", 0, 0, n, result)\n    return result",
+    "source": "github_repo:TheAlgorithms/Python",
+    "file": "backtracking/generate_parentheses.py",
+    "license": "MIT",
+    "language": "python"
+}

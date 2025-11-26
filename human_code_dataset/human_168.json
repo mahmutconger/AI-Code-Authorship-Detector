@@ -1,0 +1,7 @@
+{
+    "code": "def create_demo_server_configurable() -> FastAPI:\n    \"\"\"Create a configurable demo server.\n\n    Returns:\n        The configurable demo server.\n    \"\"\"\n    return create_demo_server(config_keys=[\"configurable\"])",
+    "source": "github_repo:langchain-ai/langchain",
+    "file": "libs/cli/langchain_cli/dev_scripts.py",
+    "license": "MIT",
+    "language": "python"
+}

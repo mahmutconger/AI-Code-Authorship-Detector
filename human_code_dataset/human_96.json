@@ -1,0 +1,7 @@
+{
+    "code": "def solve(board: list[list[int]], row: int) -> bool:\n    \"\"\"\n    This function creates a state space tree and calls the safe function until it\n    receives a False Boolean and terminates that branch and backtracks to the next\n    possible solution branch.\n    \"\"\"\n    if row >= len(board):\n        \"\"\"\n        If the row number exceeds N, we have a board with a successful combination\n        and that combination is appended to the solution list and the board is printed.\n        \"\"\"\n        solution.append(board)\n        printboard(board)\n        print()\n        return True\n    for i in range(len(board)):\n        \"\"\"\n        For every row, it iterates through each column to check if it is feasible to\n        place a queen there.\n        If all the combinations for that particular branch are successful, the board is\n        reinitialized for the next possible combination.\n        \"\"\"\n        if is_safe(board, row, i):\n            board[row][i] = 1\n            solve(board, row + 1)\n            board[row][i] = 0\n    return False",
+    "source": "github_repo:TheAlgorithms/Python",
+    "file": "backtracking/n_queens.py",
+    "license": "MIT",
+    "language": "python"
+}

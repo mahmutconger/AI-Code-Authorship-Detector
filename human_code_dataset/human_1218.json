@@ -1,0 +1,7 @@
+{
+    "code": "def add_task(self, func: Callable, *args: Any, **kwargs: Any):\n        with self.lock:\n            if self.current_tasks < self.max_concurrent_tasks:\n                print(f\"add task: {func.__name__}, current_tasks: {self.current_tasks}\")\n                self.execute_task(func, *args, **kwargs)\n            else:\n                print(\n                    f\"enqueue task: {func.__name__}, current_tasks: {self.current_tasks}\"\n                )\n                self.enqueue({\"func\": func, \"args\": args, \"kwargs\": kwargs})",
+    "source": "github_repo:harry0703/MoneyPrinterTurbo",
+    "file": "app/controllers/manager/base_manager.py",
+    "license": "MIT",
+    "language": "python"
+}

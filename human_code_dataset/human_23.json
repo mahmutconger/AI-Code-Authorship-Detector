@@ -1,0 +1,7 @@
+{
+    "code": "def test_check_file_format_with_category_without_min_entries(self):\n        incorrect_format = [\n            '## Index',\n            '* [A](#a)',\n            '* [B](#b)',\n            '',\n            '### A',\n            'API | Description | Auth | HTTPS | CORS |',\n            '|---|---|---|---|---|',\n            '| [AA](https://www.ex.com) | Desc | `apiKey` | Yes | Yes |',\n            '',\n            '### B',\n            'API | Description | Auth | HTTPS | CORS |',\n            '|---|---|---|---|---|',\n            '| [BA](https://www.ex.com) | Desc | `apiKey` | Yes | Yes |',\n            '| [BB](https://www.ex.com) | Desc | `apiKey` | Yes | Yes |',\n            '| [BC](https://www.ex.com) | Desc | `apiKey` | Yes | Yes |'\n        ]\n\n        category_with_err = 'A'\n        num_in_category = 1\n\n        err_msgs = check_file_format(lines=incorrect_format)\n        expected_err_msg = f'(L005) {category_with_err} category does not have the minimum {min_entries_per_category} entries (only has {num_in_category})'\n\n        self.assertIsInstance(err_msgs, list)\n        self.assertEqual(len(err_msgs), 1)\n        err_msg = err_msgs[0]\n        self.assertEqual(err_msg, expected_err_msg)",
+    "source": "github_repo:public-apis/public-apis",
+    "file": "scripts/tests/test_validate_format.py",
+    "license": "MIT",
+    "language": "python"
+}

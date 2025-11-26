@@ -1,0 +1,7 @@
+{
+    "code": "def get_project_root() -> Path:\n    \"\"\"Get the project root directory\"\"\"\n    return Path(__file__).resolve().parent.parent",
+    "source": "github_repo:FoundationAgents/OpenManus",
+    "file": "app/config.py",
+    "license": "MIT",
+    "language": "python"
+}

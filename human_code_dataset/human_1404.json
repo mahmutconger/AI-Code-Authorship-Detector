@@ -1,0 +1,7 @@
+{
+    "code": "def to_rgb(self, x):\n        assert self.image_key == \"segmentation\"\n        if not hasattr(self, \"colorize\"):\n            self.register_buffer(\"colorize\", torch.randn(3, x.shape[1], 1, 1).to(x))\n        x = F.conv2d(x, weight=self.colorize)\n        x = 2.*(x-x.min())/(x.max()-x.min()) - 1.\n        return x",
+    "source": "github_repo:Stability-AI/stablediffusion",
+    "file": "ldm/models/autoencoder.py",
+    "license": "MIT",
+    "language": "python"
+}

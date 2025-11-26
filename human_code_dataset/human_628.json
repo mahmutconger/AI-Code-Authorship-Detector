@@ -1,0 +1,7 @@
+{
+    "code": "def assemble_imported_code_prompt(\n    code: str, stack: Stack\n) -> list[ChatCompletionMessageParam]:\n    system_content = IMPORTED_CODE_SYSTEM_PROMPTS[stack]\n\n    user_content = (\n        \"Here is the code of the app: \" + code\n        if stack != \"svg\"\n        else \"Here is the code of the SVG: \" + code\n    )\n\n    return [\n        {\n            \"role\": \"system\",\n            \"content\": system_content + \"\\n \" + user_content,\n        }\n    ]",
+    "source": "github_repo:abi/screenshot-to-code",
+    "file": "backend/prompts/__init__.py",
+    "license": "MIT",
+    "language": "python"
+}

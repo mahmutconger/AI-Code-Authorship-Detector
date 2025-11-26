@@ -1,0 +1,7 @@
+{
+    "code": "def download_with_curl(url, pw):\n    cmd = [\"curl\"]\n\n    if pw:\n        cmd += [\"-HPW:%s\" % (pw,)]\n\n    nah = sp.DEVNULL\n    sp.check_call(cmd + [url], stdout=nah, stderr=nah)",
+    "source": "github_repo:9001/copyparty",
+    "file": "bin/hooks/into-the-cache-it-goes.py",
+    "license": "MIT",
+    "language": "python"
+}

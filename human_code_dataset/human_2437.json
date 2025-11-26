@@ -1,0 +1,7 @@
+{
+    "code": "def import_code(code_path: Optional[Union[Path, str]]) -> None:\n    \"\"\"Helper to import Python file provided in training commands / commands\n    using the config. This makes custom registered functions available.\n    \"\"\"\n    if code_path is not None:\n        if not Path(code_path).exists():\n            msg.fail(\"Path to Python code not found\", code_path, exits=1)\n        try:\n            import_file(\"python_code\", code_path)\n        except Exception as e:\n            msg.fail(f\"Couldn't load Python code: {code_path}\", e, exits=1)",
+    "source": "github_repo:explosion/spaCy",
+    "file": "spacy/cli/_util.py",
+    "license": "MIT",
+    "language": "python"
+}

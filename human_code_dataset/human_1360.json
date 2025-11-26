@@ -1,0 +1,7 @@
+{
+    "code": "def main():\n    \"\"\"Main function to generate search index.\"\"\"\n\n    # Paths\n    db_path = \"database/workflows.db\"\n    output_dir = \"docs/api\"\n\n    # Check if database exists\n    if not os.path.exists(db_path):\n        print(f\"Database not found: {db_path}\")\n        print(\"Run 'python run.py --reindex' first to create the database\")\n        sys.exit(1)\n\n    try:\n        print(\"Generating static search index...\")\n        search_index = generate_static_search_index(db_path, output_dir)\n        save_search_index(search_index, output_dir)\n\n        print(\"Static search index ready for GitHub Pages!\")\n\n    except Exception as e:\n        print(f\"Error generating search index: {e}\")\n        sys.exit(1)",
+    "source": "github_repo:Zie619/n8n-workflows",
+    "file": "scripts/generate_search_index.py",
+    "license": "MIT",
+    "language": "python"
+}

@@ -1,0 +1,7 @@
+{
+    "code": "def load_image_file(file, mode='RGB'):\n    \"\"\"\n    Loads an image file (.jpg, .png, etc) into a numpy array\n\n    :param file: image file name or file object to load\n    :param mode: format to convert the image to. Only 'RGB' (8-bit RGB, 3 channels) and 'L' (black and white) are supported.\n    :return: image contents as numpy array\n    \"\"\"\n    im = PIL.Image.open(file)\n    if mode:\n        im = im.convert(mode)\n    return np.array(im)",
+    "source": "github_repo:ageitgey/face_recognition",
+    "file": "face_recognition/api.py",
+    "license": "MIT",
+    "language": "python"
+}

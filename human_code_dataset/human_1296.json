@@ -1,0 +1,7 @@
+{
+    "code": "def _parse_section_header(line):\n        match = re.match(r\"^(=+)\\s+(.*)\", line)\n\n        marker = match.group(1)  # The list marker (e.g., \"*\", \"-\", \"1.\")\n        text = match.group(2)  # The actual text of the list item\n\n        header_level = marker.count(\"=\")  # number of '=' represents level\n        return {\n            \"type\": \"header\",\n            \"level\": header_level - 1,\n            \"text\": text.strip(),\n        }",
+    "source": "github_repo:docling-project/docling",
+    "file": "docling/backend/asciidoc_backend.py",
+    "license": "MIT",
+    "language": "python"
+}

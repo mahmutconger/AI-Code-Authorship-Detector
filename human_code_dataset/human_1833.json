@@ -1,0 +1,7 @@
+{
+    "code": "def print0(s=\"\",**kwargs):\n    ddp_rank = int(os.environ.get('RANK', 0))\n    if ddp_rank == 0:\n        print(s, **kwargs)",
+    "source": "github_repo:karpathy/nanochat",
+    "file": "nanochat/common.py",
+    "license": "MIT",
+    "language": "python"
+}

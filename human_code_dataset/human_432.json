@@ -1,0 +1,7 @@
+{
+    "code": "def __init__(\n        self,\n        *,\n        enable_builtins: Union[None, bool] = None,\n        enable_plugins: Union[None, bool] = None,\n        **kwargs,\n    ):\n        self._builtins_enabled = False\n        self._plugins_enabled = False\n\n        requests_session = kwargs.get(\"requests_session\")\n        if requests_session is None:\n            self._requests_session = requests.Session()\n        else:\n            self._requests_session = requests_session\n\n        self._magika = magika.Magika()\n\n        # TODO - remove these (see enable_builtins)\n        self._llm_client: Any = None\n        self._llm_model: Union[str | None] = None\n        self._llm_prompt: Union[str | None] = None\n        self._exiftool_path: Union[str | None] = None\n        self._style_map: Union[str | None] = None\n\n        # Register the converters\n        self._converters: List[ConverterRegistration] = []\n\n        if (\n            enable_builtins is None or enable_builtins\n        ):  # Default to True when not specified\n            self.enable_builtins(**kwargs)\n\n        if enable_plugins:\n            self.enable_plugins(**kwargs)",
+    "source": "github_repo:microsoft/markitdown",
+    "file": "packages/markitdown/src/markitdown/_markitdown.py",
+    "license": "MIT",
+    "language": "python"
+}

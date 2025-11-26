@@ -1,0 +1,7 @@
+{
+    "code": "def new_router(dependencies=None):\n    router = APIRouter()\n    router.tags = [\"V1\"]\n    router.prefix = \"/api/v1\"\n    # 将认证依赖项应用于所有路由\n    if dependencies:\n        router.dependencies = dependencies\n    return router",
+    "source": "github_repo:harry0703/MoneyPrinterTurbo",
+    "file": "app/controllers/v1/base.py",
+    "license": "MIT",
+    "language": "python"
+}

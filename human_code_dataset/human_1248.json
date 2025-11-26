@@ -1,0 +1,7 @@
+{
+    "code": "class VideoAspect(str, Enum):\n    landscape = \"16:9\"\n    portrait = \"9:16\"\n    square = \"1:1\"\n\n    def to_resolution(self):\n        if self == VideoAspect.landscape.value:\n            return 1920, 1080\n        elif self == VideoAspect.portrait.value:\n            return 1080, 1920\n        elif self == VideoAspect.square.value:\n            return 1080, 1080\n        return 1080, 1920",
+    "source": "github_repo:harry0703/MoneyPrinterTurbo",
+    "file": "app/models/schema.py",
+    "license": "MIT",
+    "language": "python"
+}

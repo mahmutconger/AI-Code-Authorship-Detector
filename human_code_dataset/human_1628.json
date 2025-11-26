@@ -1,0 +1,7 @@
+{
+    "code": "def start(self):\n        \"\"\"Start the MCP server and initialize the tools.\"\"\"\n        self._tools = self._adapter.__enter__()",
+    "source": "github_repo:crewAIInc/crewAI",
+    "file": "lib/crewai-tools/src/crewai_tools/adapters/mcp_adapter.py",
+    "license": "MIT",
+    "language": "python"
+}

@@ -1,0 +1,7 @@
+{
+    "code": "def val_dataloader(self):\n        return DataLoader(\n            self._dev_dataset,\n            batch_size=1,\n            shuffle=False,\n            collate_fn=self._train_dataset.collate,\n            num_workers=max(self.num_workers, 12),\n            persistent_workers=True,\n            prefetch_factor=16,\n        )",
+    "source": "github_repo:RVC-Boss/GPT-SoVITS",
+    "file": "GPT_SoVITS/AR/data/data_module.py",
+    "license": "MIT",
+    "language": "python"
+}

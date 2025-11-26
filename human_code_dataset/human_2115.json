@@ -1,0 +1,7 @@
+{
+    "code": "def __cut(sentence):\n    global emit_P\n    prob, pos_list = viterbi(sentence, 'BMES', start_P, trans_P, emit_P)\n    begin, nexti = 0, 0\n    # print pos_list, sentence\n    for i, char in enumerate(sentence):\n        pos = pos_list[i]\n        if pos == 'B':\n            begin = i\n        elif pos == 'E':\n            yield sentence[begin:i + 1]\n            nexti = i + 1\n        elif pos == 'S':\n            yield char\n            nexti = i + 1\n    if nexti < len(sentence):\n        yield sentence[nexti:]",
+    "source": "github_repo:fxsjy/jieba",
+    "file": "jieba/finalseg/__init__.py",
+    "license": "MIT",
+    "language": "python"
+}

@@ -1,0 +1,7 @@
+{
+    "code": "def stop_conversion():\n    try:\n        if audio_api.flag_vc:\n            audio_api.flag_vc = False\n            global stream_latency\n            stream_latency = -1\n            return {\"message\": \"Audio conversion stopped\"}\n        else:\n            logger.warning(\"Audio conversion not running\")\n            raise HTTPException(status_code=400, detail=\"Audio conversion not running\")\n    except HTTPException as e:\n        logger.error(f\"Stop conversion error: {e.detail}\")\n        raise\n    except Exception as e:\n        logger.error(f\"Failed to stop conversion: {e}\")\n        raise HTTPException(status_code=500, detail=f\"Failed to stop conversion: {e}\")",
+    "source": "github_repo:RVC-Project/Retrieval-based-Voice-Conversion-WebUI",
+    "file": "api_231006.py",
+    "license": "MIT",
+    "language": "python"
+}

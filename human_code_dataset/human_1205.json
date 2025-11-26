@@ -1,0 +1,7 @@
+{
+    "code": "def main():\n    Base.metadata.create_all(engine)\n\n    toaster_exists_bad(1)\n    toaster_exists_good(2)",
+    "source": "github_repo:charlax/professional-programming",
+    "file": "antipatterns/sqlalchemy-examples/exists.py",
+    "license": "MIT",
+    "language": "python"
+}

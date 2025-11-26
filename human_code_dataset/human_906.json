@@ -1,0 +1,7 @@
+{
+    "code": "def merge_file_lists(\n        self, existing_files: Dict[str, Any], new_files: Dict[str, Any]\n    ) -> Dict[str, Any]:\n        \"\"\"\n        Merges two lists of files, preserving the selection status.\n\n        Parameters\n        ----------\n        existing_files : Dict[str, Any]\n            The dictionary of existing files with their properties.\n        new_files : Dict[str, Any]\n            The dictionary of new files with their properties.\n\n        Returns\n        -------\n        Dict[str, Any]\n            The updated dictionary of files after merging.\n        \"\"\"\n        # Update the existing files with any new files or changes\n        for file, properties in new_files.items():\n            if file not in existing_files:\n                existing_files[file] = properties  # Add new files as unselected\n            # If you want to update other properties of existing files, you can do so here\n\n        return existing_files",
+    "source": "github_repo:AntonOsika/gpt-engineer",
+    "file": "gpt_engineer/applications/cli/file_selector.py",
+    "license": "MIT",
+    "language": "python"
+}

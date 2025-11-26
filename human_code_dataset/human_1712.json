@@ -1,0 +1,7 @@
+{
+    "code": "def unsubscribeGroup(self, groupName):\n        self._groupDictMutex.lock()  # 上锁\n        if groupName in self._groupDict:\n            l = self._groupDict[groupName]\n            for i in l:\n                self.unsubscribe(i[0], i[1])\n            self._groupDict[groupName] = []\n        self._groupDictMutex.unlock()  # 解锁",
+    "source": "github_repo:hiroi-sora/Umi-OCR",
+    "file": "UmiOCR-data/py_src/event_bus/pubsub_service.py",
+    "license": "MIT",
+    "language": "python"
+}

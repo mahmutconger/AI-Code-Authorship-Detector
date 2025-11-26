@@ -1,0 +1,7 @@
+{
+    "code": "def is_port_in_use(port, host=\"localhost\"):\n    \"\"\"Check if a port is in use.\n\n    Args:\n        port (int): The port number to check.\n        host (str): The host to check the port on. Defaults to 'localhost'.\n\n    Returns:\n        bool: True if the port is in use, False otherwise.\n    \"\"\"\n    with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:\n        return s.connect_ex((host, port)) == 0",
+    "source": "github_repo:langflow-ai/langflow",
+    "file": "src/backend/base/langflow/__main__.py",
+    "license": "MIT",
+    "language": "python"
+}

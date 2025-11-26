@@ -1,0 +1,7 @@
+{
+    "code": "def type(self, keys: str, pause: float | None = None, target=None) -> None:\n        if pause is None:\n            pause = self.pause_between_keys\n        if target is None:\n            target = self.tmux_pane\n        target.select_pane()\n        for key in keys:\n            self.press_key(key, pause=pause, target=target)",
+    "source": "github_repo:mitmproxy/mitmproxy",
+    "file": "docs/scripts/clirecording/clidirector.py",
+    "license": "MIT",
+    "language": "python"
+}

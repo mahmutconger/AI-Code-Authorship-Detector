@@ -1,0 +1,7 @@
+{
+    "code": "def convert(\n        self,\n        file_stream: BinaryIO,\n        stream_info: StreamInfo,\n        **kwargs: Any,  # Options to pass to the converter\n    ) -> DocumentConverterResult:\n        \"\"\"\n        Convert a document to Markdown text.\n\n        Parameters:\n        - file_stream: The file-like object to convert. Must support seek(), tell(), and read() methods.\n        - stream_info: The StreamInfo object containing metadata about the file (mimetype, extension, charset, set)\n        - kwargs: Additional keyword arguments for the converter.\n\n        Returns:\n        - DocumentConverterResult: The result of the conversion, which includes the title and markdown content.\n\n        Raises:\n        - FileConversionException: If the mimetype is recognized, but the conversion fails for some other reason.\n        - MissingDependencyException: If the converter requires a dependency that is not installed.\n        \"\"\"\n        raise NotImplementedError(\"Subclasses must implement this method\")",
+    "source": "github_repo:microsoft/markitdown",
+    "file": "packages/markitdown/src/markitdown/_base_converter.py",
+    "license": "MIT",
+    "language": "python"
+}

@@ -1,0 +1,7 @@
+{
+    "code": "def current_time(self) -> float:\n        now = time.time()\n        return round(now - self.record_start, 1)",
+    "source": "github_repo:mitmproxy/mitmproxy",
+    "file": "docs/scripts/clirecording/clidirector.py",
+    "license": "MIT",
+    "language": "python"
+}

@@ -1,0 +1,7 @@
+{
+    "code": "def create_selection_panel():\n        \"\"\"Create the selection panel with current selection highlighted.\"\"\"\n        table = Table.grid(padding=(0, 2))\n        table.add_column(style=\"cyan\", justify=\"left\", width=3)\n        table.add_column(style=\"white\", justify=\"left\")\n\n        for i, key in enumerate(option_keys):\n            if i == selected_index:\n                table.add_row(\"▶\", f\"[cyan]{key}[/cyan] [dim]({options[key]})[/dim]\")\n            else:\n                table.add_row(\" \", f\"[cyan]{key}[/cyan] [dim]({options[key]})[/dim]\")\n\n        table.add_row(\"\", \"\")\n        table.add_row(\"\", \"[dim]Use ↑/↓ to navigate, Enter to select, Esc to cancel[/dim]\")\n\n        return Panel(\n            table,\n            title=f\"[bold]{prompt_text}[/bold]\",\n            border_style=\"cyan\",\n            padding=(1, 2)\n        )",
+    "source": "github_repo:github/spec-kit",
+    "file": "src/specify_cli/__init__.py",
+    "license": "MIT",
+    "language": "python"
+}

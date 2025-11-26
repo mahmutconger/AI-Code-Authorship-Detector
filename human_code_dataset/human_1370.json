@@ -1,0 +1,7 @@
+{
+    "code": "def main():\n    \"\"\"Main function to update README statistics.\"\"\"\n    try:\n        print(\"Getting current workflow statistics...\")\n        stats = get_current_stats()\n\n        if not stats:\n            print(\"Failed to get statistics\")\n            sys.exit(1)\n\n        print(\"Updating README.md...\")\n        success = update_readme_stats(stats)\n\n        if success:\n            print(\"README.md successfully updated with latest statistics!\")\n        else:\n            print(\"Failed to update README.md\")\n            sys.exit(1)\n\n    except Exception as e:\n        print(f\"Error updating README stats: {e}\")\n        sys.exit(1)",
+    "source": "github_repo:Zie619/n8n-workflows",
+    "file": "scripts/update_readme_stats.py",
+    "license": "MIT",
+    "language": "python"
+}

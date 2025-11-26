@@ -1,0 +1,7 @@
+{
+    "code": "def _encode_image(image_path: str) -> str | None:\n\t\"\"\"Encode image to base64 string.\"\"\"\n\ttry:\n\t\tpath = Path(image_path)\n\t\tif not path.exists():\n\t\t\treturn None\n\t\twith open(path, 'rb') as f:\n\t\t\treturn base64.b64encode(f.read()).decode('utf-8')\n\texcept Exception as e:\n\t\tlogger.warning(f'Failed to encode image {image_path}: {e}')\n\t\treturn None",
+    "source": "github_repo:browser-use/browser-use",
+    "file": "browser_use/agent/judge.py",
+    "license": "MIT",
+    "language": "python"
+}

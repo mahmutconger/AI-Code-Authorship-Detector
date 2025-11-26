@@ -1,0 +1,7 @@
+{
+    "code": "def setup_method(self):\n    # ZMQ pub socket takes too long to die\n    # sleep to prevent multiple publishers error between tests\n    zmq_sleep(3)",
+    "source": "github_repo:commaai/openpilot",
+    "file": "cereal/messaging/tests/test_pub_sub_master.py",
+    "license": "MIT",
+    "language": "python"
+}

@@ -1,0 +1,7 @@
+{
+    "code": "def model_post_init(self, __context: Any) -> None:\n        self._db = lancedb_connect(self.uri)\n        self._table = self._db.open_table(self.table_name)\n\n        super().model_post_init(__context)",
+    "source": "github_repo:crewAIInc/crewAI",
+    "file": "lib/crewai-tools/src/crewai_tools/adapters/lancedb_adapter.py",
+    "license": "MIT",
+    "language": "python"
+}

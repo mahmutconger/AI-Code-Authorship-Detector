@@ -1,0 +1,7 @@
+{
+    "code": "def build_menu():\n    table = Table.grid(expand=True)\n    table.add_column(\"idx\", width=6, justify=\"right\")\n    table.add_column(\"name\", justify=\"left\")\n\n    for idx, (title, icon) in enumerate(tool_definitions):\n        if idx == 17:\n            label = \"[bold magenta]99[/bold magenta]\"\n            name = f\"[bold magenta]{icon} {title}[/bold magenta]\"\n        else:\n            label = f\"[bold magenta]{idx}[/bold magenta]\"\n            name = f\"[white]{icon}[/white]  [magenta]{title}[/magenta]\"\n        table.add_row(label, name)\n\n    top_panel = Panel(\n        Align.center(Text(\"HackingTool — Main Menu\", style=\"bold white on magenta\"), vertical=\"middle\"),\n        style=\"magenta\",\n        padding=(0, 1),\n        box=box.ROUNDED\n    )\n    menu_panel = Panel.fit(\n        table,\n        title=\"[bold magenta]Select a tool[/bold magenta]\",\n        border_style=\"bright_magenta\",\n        box=box.SQUARE\n    )\n    footer = Align.center(Text(\"Choose number and press Enter — 99 to exit\", style=\"italic bright_black\"))\n    console.print(top_panel)\n    console.print(menu_panel)\n    console.print(Rule(style=\"bright_black\"))\n    console.print(footer)\n    console.print(\"\")",
+    "source": "github_repo:Z4nzu/hackingtool",
+    "file": "hackingtool.py",
+    "license": "MIT",
+    "language": "python"
+}

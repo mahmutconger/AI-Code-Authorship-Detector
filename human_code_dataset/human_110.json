@@ -1,0 +1,7 @@
+{
+    "code": "def check_file_coverage(changed_files: list[str], filter_patterns: dict[str, list[str]]) -> tuple[list[str], list[str]]:\n    \"\"\"Check which files are covered by at least one pattern.\n\n    Returns: (covered_files, uncovered_files)\n    \"\"\"\n    # Flatten all patterns from all categories\n    all_patterns = []\n    for category_patterns in filter_patterns.values():\n        all_patterns.extend(category_patterns)\n\n    covered = []\n    uncovered = []\n\n    for file_path in changed_files:\n        is_covered = False\n        for pattern in all_patterns:\n            if matches_pattern(file_path, pattern):\n                is_covered = True\n                break\n\n        if is_covered:\n            covered.append(file_path)\n        else:\n            uncovered.append(file_path)\n\n    return covered, uncovered",
+    "source": "github_repo:langflow-ai/langflow",
+    "file": "scripts/check_changes_filter.py",
+    "license": "MIT",
+    "language": "python"
+}

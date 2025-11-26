@@ -1,0 +1,7 @@
+{
+    "code": "def testUserAgent(self):\n        \"\"\"\n        测试UserAgent\n        :return:\n        \"\"\"\n        from fake_useragent import UserAgent\n        for i in range(10000):\n            ua = UserAgent(verify_ssl=False)\n            print(ua.random)",
+    "source": "github_repo:testerSunshine/12306",
+    "file": "UnitTest/TestAll.py",
+    "license": "MIT",
+    "language": "python"
+}

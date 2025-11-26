@@ -1,0 +1,7 @@
+{
+    "code": "def git_switch_branch(\n    branch: str, repo: Path, new: bool = False, from_branch: str | None = None\n) -> None:\n    args = [\"git\", \"checkout\"]\n    if new:\n        args.append(\"-b\")\n    args.append(branch)\n    if from_branch:\n        args.append(from_branch)\n    subprocess.run(args, cwd=repo)",
+    "source": "github_repo:psf/black",
+    "file": "gallery/gallery.py",
+    "license": "MIT",
+    "language": "python"
+}

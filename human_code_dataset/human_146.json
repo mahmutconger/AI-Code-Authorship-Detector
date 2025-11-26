@@ -1,0 +1,7 @@
+{
+    "code": "def display_results(results) -> None:\n    \"\"\"Display the results of the migration.\"\"\"\n    for table_results in results:\n        table = Table(title=f\"Migration {table_results.table_name}\")\n        table.add_column(\"Name\")\n        table.add_column(\"Type\")\n        table.add_column(\"Status\")\n\n        for result in table_results.results:\n            status = \"Success\" if result.success else \"Failure\"\n            color = \"green\" if result.success else \"red\"\n            table.add_row(result.name, result.type, f\"[{color}]{status}[/{color}]\")\n\n        console.print(table)\n        console.print()  # Print a new line",
+    "source": "github_repo:langflow-ai/langflow",
+    "file": "src/backend/base/langflow/__main__.py",
+    "license": "MIT",
+    "language": "python"
+}

@@ -1,0 +1,7 @@
+{
+    "code": "def __enter__(self):\n        \"\"\"Enter the context manager. Note that `__init__()` already starts the MCP server.\n        So tools should already be available.\n        \"\"\"\n        return self.tools",
+    "source": "github_repo:crewAIInc/crewAI",
+    "file": "lib/crewai-tools/src/crewai_tools/adapters/mcp_adapter.py",
+    "license": "MIT",
+    "language": "python"
+}

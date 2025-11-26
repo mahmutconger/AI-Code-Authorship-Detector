@@ -1,0 +1,7 @@
+{
+    "code": "def set_new_path(self, new_idf_path):\n        if self.path != new_idf_path:\n            self.path = new_idf_path\n            content = open(new_idf_path, 'rb').read().decode('utf-8')\n            self.idf_freq = {}\n            for line in content.splitlines():\n                word, freq = line.strip().split(' ')\n                self.idf_freq[word] = float(freq)\n            self.median_idf = sorted(\n                self.idf_freq.values())[len(self.idf_freq) // 2]",
+    "source": "github_repo:fxsjy/jieba",
+    "file": "jieba/analyse/tfidf.py",
+    "license": "MIT",
+    "language": "python"
+}

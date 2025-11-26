@@ -1,0 +1,7 @@
+{
+    "code": "def longlines():\n    with open(file_name, encoding=\"utf-8\") as F:\n        lines = F.readlines()\n        lines_less_than_50 = list(filter(lambda line: len(line) < 50, lines))\n\n        if not lines_less_than_50:\n            print(\"There is no line which is less than 50\")\n        else:\n            for i in lines_less_than_50:\n                print(i, end=\"\\t\")",
+    "source": "github_repo:geekcomputers/Python",
+    "file": "1 File handle/File handle text/file handle 12 length of line in text file.py",
+    "license": "MIT",
+    "language": "python"
+}

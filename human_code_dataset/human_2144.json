@@ -1,0 +1,7 @@
+{
+    "code": "def manhattan(self) -> int:\n        \"\"\"Calculate Manhattan distance using actual goal positions.\"\"\"\n        distance = 0\n        # Create a lookup table for goal tile positions\n        goal_pos = {self.goal[i][j]: (i, j) for i in range(3) for j in range(3)}\n\n        for i in range(3):\n            for j in range(3):\n                value = self.board[i][j]\n                if value != 0:  # skip the empty tile\n                    x, y = goal_pos[value]\n                    distance += abs(x - i) + abs(y - j)\n        return distance",
+    "source": "github_repo:geekcomputers/Python",
+    "file": "8_puzzle.py",
+    "license": "MIT",
+    "language": "python"
+}

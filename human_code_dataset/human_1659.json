@@ -1,0 +1,7 @@
+{
+    "code": "def _format_page(text):\n        \"\"\"\n        Preformatting page hook.\n        Converts `text` (as in the initial repository)\n        to text (as to be displayed).\n        \"\"\"\n\n        return text",
+    "source": "github_repo:chubin/cheat.sh",
+    "file": "lib/adapter/adapter.py",
+    "license": "MIT",
+    "language": "python"
+}

@@ -1,0 +1,7 @@
+{
+    "code": "def _get_converter(msg, converter, input_path: Path):\n    if input_path.is_dir():\n        if converter == AUTO:\n            input_locs = walk_directory(input_path, suffix=None)\n            file_types = list(set([loc.suffix[1:] for loc in input_locs]))\n            if len(file_types) >= 2:\n                file_types_str = \",\".join(file_types)\n                msg.fail(\"All input files must be same type\", file_types_str, exits=1)\n            input_path = input_locs[0]\n        else:\n            input_path = walk_directory(input_path, suffix=converter)[0]\n    if converter == AUTO:\n        converter = input_path.suffix[1:]\n    if converter == \"ner\" or converter == \"iob\":\n        with input_path.open(encoding=\"utf8\") as file_:\n            input_data = file_.read()\n        converter_autodetect = autodetect_ner_format(input_data)\n        if converter_autodetect == \"ner\":\n            msg.info(\"Auto-detected token-per-line NER format\")\n            converter = converter_autodetect\n        elif converter_autodetect == \"iob\":\n            msg.info(\"Auto-detected sentence-per-line NER format\")\n            converter = converter_autodetect\n        else:\n            msg.warn(\n                \"Can't automatically detect NER format. \"\n                \"Conversion may not succeed. \"\n                \"See https://spacy.io/api/cli#convert\"\n            )\n    return converter",
+    "source": "github_repo:explosion/spaCy",
+    "file": "spacy/cli/convert.py",
+    "license": "MIT",
+    "language": "python"
+}

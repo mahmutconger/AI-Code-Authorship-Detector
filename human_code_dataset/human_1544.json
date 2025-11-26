@@ -1,0 +1,7 @@
+{
+    "code": "def get_package_source(package: str, version: str | None) -> str:\n    if package == \"cpython\":\n        if version is None:\n            version = \"main\"\n        return f\"https://github.com/python/cpython/archive/{version}.zip\"\n    elif package == \"pypy\":\n        if version is None:\n            version = \"branch/default\"\n        return (\n            f\"https://foss.heptapod.net/pypy/pypy/repository/{version}/archive.tar.bz2\"\n        )\n    else:\n        return get_pypi_download_url(package, version)",
+    "source": "github_repo:psf/black",
+    "file": "gallery/gallery.py",
+    "license": "MIT",
+    "language": "python"
+}

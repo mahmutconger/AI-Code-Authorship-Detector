@@ -1,0 +1,7 @@
+{
+    "code": "def main(msg=\"write a function that calculates the product of a list and run it\"):\n    # role = SimpleCoder()\n    role = RunnableCoder()\n    logger.info(msg)\n    result = asyncio.run(role.run(msg))\n    logger.info(result)",
+    "source": "github_repo:FoundationAgents/MetaGPT",
+    "file": "examples/build_customized_agent.py",
+    "license": "MIT",
+    "language": "python"
+}

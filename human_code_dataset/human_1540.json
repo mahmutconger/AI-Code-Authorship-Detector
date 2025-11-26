@@ -1,0 +1,7 @@
+{
+    "code": "def setup(app: Sphinx) -> None:\n    \"\"\"Sets up a minimal sphinx extension.\"\"\"\n    app.connect(\"include-read\", handle_include_read)",
+    "source": "github_repo:psf/black",
+    "file": "docs/conf.py",
+    "license": "MIT",
+    "language": "python"
+}

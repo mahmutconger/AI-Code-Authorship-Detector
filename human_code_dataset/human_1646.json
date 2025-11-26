@@ -1,0 +1,7 @@
+{
+    "code": "def _find_supported_language(accepted_languages):\n        for lang_tuple in accepted_languages:\n            lang = lang_tuple[0]\n            if \"-\" in lang:\n                lang = lang.split(\"-\", 1)[0]\n            return lang\n        return None",
+    "source": "github_repo:chubin/cheat.sh",
+    "file": "bin/app.py",
+    "license": "MIT",
+    "language": "python"
+}

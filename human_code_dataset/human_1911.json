@@ -1,0 +1,7 @@
+{
+    "code": "def main():\n    with tempfile.NamedTemporaryFile(suffix=\".pcm\", delete=False) as f:\n        f.write(b\"h\")\n        tf = f.name\n\n    try:\n        det(tf)\n    except:\n        pass  # mute\n    finally:\n        os.unlink(tf)",
+    "source": "github_repo:9001/copyparty",
+    "file": "bin/mtag/audio-bpm.py",
+    "license": "MIT",
+    "language": "python"
+}

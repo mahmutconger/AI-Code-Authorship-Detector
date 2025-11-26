@@ -1,0 +1,7 @@
+{
+    "code": "def extract_all_tools(self) -> list[dict[str, Any]]:\n        for name in dir(tools):\n            if name.endswith(\"Tool\") and name not in self.processed_tools:\n                obj = getattr(tools, name, None)\n                if inspect.isclass(obj) and issubclass(obj, BaseTool):\n                    self.extract_tool_info(obj)\n                    self.processed_tools.add(name)\n        return self.tools_spec",
+    "source": "github_repo:crewAIInc/crewAI",
+    "file": "lib/crewai-tools/generate_tool_specs.py",
+    "license": "MIT",
+    "language": "python"
+}

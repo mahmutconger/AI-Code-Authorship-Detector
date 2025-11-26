@@ -1,0 +1,7 @@
+{
+    "code": "def get_page_image(\n        self, scale: float = 1, cropbox: Optional[BoundingBox] = None\n    ) -> Image.Image:\n        page_size = self.get_size()\n\n        if not cropbox:\n            cropbox = BoundingBox(\n                l=0,\n                r=page_size.width,\n                t=0,\n                b=page_size.height,\n                coord_origin=CoordOrigin.TOPLEFT,\n            )\n            padbox = BoundingBox(\n                l=0, r=0, t=0, b=0, coord_origin=CoordOrigin.BOTTOMLEFT\n            )\n        else:\n            padbox = cropbox.to_bottom_left_origin(page_size.height).model_copy()\n            padbox.r = page_size.width - padbox.r\n            padbox.t = page_size.height - padbox.t\n\n        with pypdfium2_lock:\n            image = (\n                self._ppage.render(\n                    scale=scale * 1.5,\n                    rotation=0,  # no additional rotation\n                    crop=padbox.as_tuple(),\n                )\n                .to_pil()\n                .resize(\n                    size=(round(cropbox.width * scale), round(cropbox.height * scale))\n                )\n            )  # We resize the image from 1.5x the given scale to make it sharper.\n\n        return image",
+    "source": "github_repo:docling-project/docling",
+    "file": "docling/backend/docling_parse_v2_backend.py",
+    "license": "MIT",
+    "language": "python"
+}

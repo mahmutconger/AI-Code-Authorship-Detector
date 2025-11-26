@@ -1,0 +1,7 @@
+{
+    "code": "def tokenizing_distributed_data_loader(*args, **kwargs):\n    # helper function that only emits the inputs/targets and not the state_dict\n    for inputs, targets, state_dict in tokenizing_distributed_data_loader_with_state(*args, **kwargs):\n        yield inputs, targets",
+    "source": "github_repo:karpathy/nanochat",
+    "file": "nanochat/dataloader.py",
+    "license": "MIT",
+    "language": "python"
+}

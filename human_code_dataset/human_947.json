@@ -1,0 +1,7 @@
+{
+    "code": "def setup(self):\n        self.console = Console(\n            file=StringIO(), color_system=\"truecolor\", legacy_windows=False\n        )\n        self.syntax = Syntax(\n            code=snippets.PYTHON_SNIPPET, lexer=\"python\", word_wrap=True\n        )",
+    "source": "github_repo:Textualize/rich",
+    "file": "benchmarks/benchmarks.py",
+    "license": "MIT",
+    "language": "python"
+}

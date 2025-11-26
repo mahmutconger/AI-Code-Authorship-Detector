@@ -1,0 +1,7 @@
+{
+    "code": "class ElementInfo(TypedDict):\n\t\"\"\"Basic information about a DOM element.\"\"\"\n\n\tbackendNodeId: int\n\tnodeId: int | None\n\tnodeName: str\n\tnodeType: int\n\tnodeValue: str | None\n\tattributes: dict[str, str]\n\tboundingBox: BoundingBox | None\n\terror: str | None",
+    "source": "github_repo:browser-use/browser-use",
+    "file": "browser_use/actor/element.py",
+    "license": "MIT",
+    "language": "python"
+}

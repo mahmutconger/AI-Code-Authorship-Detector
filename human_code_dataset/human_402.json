@@ -1,0 +1,7 @@
+{
+    "code": "def main():\n    import argparse\n\n    mcp_server = mcp._mcp_server\n\n    parser = argparse.ArgumentParser(description=\"Run a MarkItDown MCP server\")\n\n    parser.add_argument(\n        \"--http\",\n        action=\"store_true\",\n        help=\"Run the server with Streamable HTTP and SSE transport rather than STDIO (default: False)\",\n    )\n    parser.add_argument(\n        \"--sse\",\n        action=\"store_true\",\n        help=\"(Deprecated) An alias for --http (default: False)\",\n    )\n    parser.add_argument(\n        \"--host\", default=None, help=\"Host to bind to (default: 127.0.0.1)\"\n    )\n    parser.add_argument(\n        \"--port\", type=int, default=None, help=\"Port to listen on (default: 3001)\"\n    )\n    args = parser.parse_args()\n\n    use_http = args.http or args.sse\n\n    if not use_http and (args.host or args.port):\n        parser.error(\n            \"Host and port arguments are only valid when using streamable HTTP or SSE transport (see: --http).\"\n        )\n        sys.exit(1)\n\n    if use_http:\n        starlette_app = create_starlette_app(mcp_server, debug=True)\n        uvicorn.run(\n            starlette_app,\n            host=args.host if args.host else \"127.0.0.1\",\n            port=args.port if args.port else 3001,\n        )\n    else:\n        mcp.run()",
+    "source": "github_repo:microsoft/markitdown",
+    "file": "packages/markitdown-mcp/src/markitdown_mcp/__main__.py",
+    "license": "MIT",
+    "language": "python"
+}

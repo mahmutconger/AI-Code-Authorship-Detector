@@ -1,0 +1,7 @@
+{
+    "code": "class BedrockClient:\n    def __init__(self):\n        # Initialize Bedrock client, you need to configure AWS env first\n        try:\n            self.client = boto3.client(\"bedrock-runtime\")\n            self.chat = Chat(self.client)\n        except Exception as e:\n            print(f\"Error initializing Bedrock client: {e}\")\n            sys.exit(1)",
+    "source": "github_repo:FoundationAgents/OpenManus",
+    "file": "app/bedrock.py",
+    "license": "MIT",
+    "language": "python"
+}

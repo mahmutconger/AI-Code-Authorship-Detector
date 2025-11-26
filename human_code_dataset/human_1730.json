@@ -1,0 +1,7 @@
+{
+    "code": "def addPixmap(self, pixmap):\n        imgID = str(uuid4())\n        self.pixmapDict[imgID] = pixmap\n        return imgID",
+    "source": "github_repo:hiroi-sora/Umi-OCR",
+    "file": "UmiOCR-data/py_src/image_controller/image_provider.py",
+    "license": "MIT",
+    "language": "python"
+}

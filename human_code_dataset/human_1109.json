@@ -1,0 +1,7 @@
+{
+    "code": "def _is_special_tool(self, name: str) -> bool:\n        \"\"\"Check if tool name is in special tools list\"\"\"\n        return name.lower() in [n.lower() for n in self.special_tool_names]",
+    "source": "github_repo:FoundationAgents/OpenManus",
+    "file": "app/agent/toolcall.py",
+    "license": "MIT",
+    "language": "python"
+}

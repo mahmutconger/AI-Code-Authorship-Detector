@@ -1,0 +1,7 @@
+{
+    "code": "def decode_unicode_escapes_to_utf8(text: str) -> str:\n\t\"\"\"Handle decoding any unicode escape sequences embedded in a string (needed to render non-ASCII languages like chinese or arabic in the GIF overlay text)\"\"\"\n\n\tif r'\\u' not in text:\n\t\t# doesn't have any escape sequences that need to be decoded\n\t\treturn text\n\n\ttry:\n\t\t# Try to decode Unicode escape sequences\n\t\treturn text.encode('latin1').decode('unicode_escape')\n\texcept (UnicodeEncodeError, UnicodeDecodeError):\n\t\t# logger.debug(f\"Failed to decode unicode escape sequences while generating gif text: {text}\")\n\t\treturn text",
+    "source": "github_repo:browser-use/browser-use",
+    "file": "browser_use/agent/gif.py",
+    "license": "MIT",
+    "language": "python"
+}

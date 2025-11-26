@@ -1,0 +1,7 @@
+{
+    "code": "def save_checkpoint(checkpoint_dir, step, model_data, optimizer_data, meta_data, rank=0):\n    if rank == 0:\n        os.makedirs(checkpoint_dir, exist_ok=True)\n        # Save the model state parameters\n        model_path = os.path.join(checkpoint_dir, f\"model_{step:06d}.pt\")\n        torch.save(model_data, model_path)\n        logger.info(f\"Saved model parameters to: {model_path}\")\n        # Save the metadata dict as json\n        meta_path = os.path.join(checkpoint_dir, f\"meta_{step:06d}.json\")\n        with open(meta_path, \"w\", encoding=\"utf-8\") as f:\n            json.dump(meta_data, f, indent=2)\n        logger.info(f\"Saved metadata to: {meta_path}\")\n    # Note that optimizer state is sharded across ranks, so each rank must save its own.\n    if optimizer_data is not None:\n        optimizer_path = os.path.join(checkpoint_dir, f\"optim_{step:06d}_rank{rank:d}.pt\")\n        torch.save(optimizer_data, optimizer_path)\n        logger.info(f\"Saved optimizer state to: {optimizer_path}\")",
+    "source": "github_repo:karpathy/nanochat",
+    "file": "nanochat/checkpoint_manager.py",
+    "license": "MIT",
+    "language": "python"
+}

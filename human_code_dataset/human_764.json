@@ -1,0 +1,7 @@
+{
+    "code": "class SpeakAloud(Action):\n    \"\"\"Action: Speak out aloud in a debate (quarrel)\"\"\"\n\n    PROMPT_TEMPLATE: str = \"\"\"\n    ## BACKGROUND\n    Suppose you are {name}, you are in a debate with {opponent_name}.\n    ## DEBATE HISTORY\n    Previous rounds:\n    {context}\n    ## YOUR TURN\n    Now it's your turn, you should closely respond to your opponent's latest argument, state your position, defend your arguments, and attack your opponent's arguments,\n    craft a strong and emotional response in 80 words, in {name}'s rhetoric and viewpoints, your will argue:\n    \"\"\"\n    name: str = \"SpeakAloud\"\n\n    async def run(self, context: str, name: str, opponent_name: str):\n        prompt = self.PROMPT_TEMPLATE.format(context=context, name=name, opponent_name=opponent_name)\n        # logger.info(prompt)\n\n        rsp = await self._aask(prompt)\n\n        return rsp",
+    "source": "github_repo:FoundationAgents/MetaGPT",
+    "file": "examples/debate.py",
+    "license": "MIT",
+    "language": "python"
+}

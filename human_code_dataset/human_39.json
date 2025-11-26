@@ -1,0 +1,7 @@
+{
+    "code": "def check_alphabetical_order(lines: List[str]) -> List[str]:\n\n    err_msgs = []\n\n    categories, category_line_num = get_categories_content(contents=lines)\n\n    for category, api_list in categories.items():\n        if sorted(api_list) != api_list:\n            err_msg = error_message(\n                category_line_num[category], \n                f'{category} category is not alphabetical order'\n            )\n            err_msgs.append(err_msg)\n    \n    return err_msgs",
+    "source": "github_repo:public-apis/public-apis",
+    "file": "scripts/validate/format.py",
+    "license": "MIT",
+    "language": "python"
+}

@@ -1,0 +1,7 @@
+{
+    "code": "def _maybe_refresh(self):\n        if self._refresh_cb:\n            try:\n                self._refresh_cb()\n            except Exception:\n                pass",
+    "source": "github_repo:github/spec-kit",
+    "file": "src/specify_cli/__init__.py",
+    "license": "MIT",
+    "language": "python"
+}

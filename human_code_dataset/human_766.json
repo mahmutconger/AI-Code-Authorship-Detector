@@ -1,0 +1,7 @@
+{
+    "code": "def main(idea: str, investment: float = 3.0, n_round: int = 10):\n    \"\"\"\n    :param idea: Debate topic, such as \"Topic: The U.S. should commit more in climate change fighting\"\n                 or \"Trump: Climate change is a hoax\"\n    :param investment: contribute a certain dollar amount to watch the debate\n    :param n_round: maximum rounds of the debate\n    :return:\n    \"\"\"\n    if platform.system() == \"Windows\":\n        asyncio.set_event_loop_policy(asyncio.WindowsSelectorEventLoopPolicy())\n    asyncio.run(debate(idea, investment, n_round))",
+    "source": "github_repo:FoundationAgents/MetaGPT",
+    "file": "examples/debate.py",
+    "license": "MIT",
+    "language": "python"
+}

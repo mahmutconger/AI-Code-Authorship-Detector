@@ -1,0 +1,7 @@
+{
+    "code": "def create_venv_and_install(choice):\n    venv_path = INSTALL_DIR / VENV_DIR_NAME\n    console.print(\"[yellow]* Creating virtual environment...[/yellow]\")\n    run_cmd(f\"python3 -m venv {str(venv_path)}\")\n    activate = venv_path / \"bin\" / \"activate\"\n    pip = str(venv_path / \"bin\" / \"pip\")\n    if (INSTALL_DIR / REQUIREMENTS).exists():\n        console.print(\"[yellow]* Installing Python requirements...[/yellow]\")\n        run_cmd(f\"{pip} install -r {str(INSTALL_DIR / REQUIREMENTS)}\")\n    else:\n        console.print(\"[yellow]requirements.txt not found, skipping pip install.[/yellow]\")\n    if choice == 1:\n        run_cmd(\"apt install figlet -y\")\n    elif choice == 2:\n        # try pacman and fallback to AUR instructions\n        try:\n            run_cmd(\"pacman -S --noconfirm figlet\")\n        except Exception:\n            console.print(\"[yellow]figlet not available in pacman automatically. Consider installing from AUR.[/yellow]\")",
+    "source": "github_repo:Z4nzu/hackingtool",
+    "file": "install.py",
+    "license": "MIT",
+    "language": "python"
+}

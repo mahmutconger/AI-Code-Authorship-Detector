@@ -1,0 +1,7 @@
+{
+    "code": "def recvmsg(s):\n\thdr = recvall(s, 5)\n\tif hdr is None:\n\t\tprint('Unexpected EOF receiving record header - server closed connection')\n\t\treturn None, None, None\n\ttyp, ver, ln = struct.unpack('>BHH', hdr)\n\tpay = recvall(s, ln, 10)\n\tif pay is None:\n\t\tprint('Unexpected EOF receiving record payload - server closed connection')\n\t\treturn None, None, None\n\tprint(' ... received message: type = %d, ver = %04x, length = %d' % (typ, ver, len(pay)))\n\treturn typ, ver, pay",
+    "source": "github_repo:swisskyrepo/PayloadsAllTheThings",
+    "file": "CVE Exploits/Heartbleed CVE-2014-0160.py",
+    "license": "MIT",
+    "language": "python"
+}

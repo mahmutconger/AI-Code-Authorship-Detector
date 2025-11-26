@@ -1,0 +1,7 @@
+{
+    "code": "def _is_html_needed(user_agent):\n    \"\"\"\n    Basing on `user_agent`, return whether it needs HTML or ANSI\n    \"\"\"\n    return all([x not in user_agent for x in PLAIN_TEXT_AGENTS])",
+    "source": "github_repo:chubin/cheat.sh",
+    "file": "bin/app.py",
+    "license": "MIT",
+    "language": "python"
+}

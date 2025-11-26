@@ -1,0 +1,7 @@
+{
+    "code": "def print_outliers(sample: numpy.ndarray):\n    quartiles = Quartiles(sample)\n\n    n_outliers = numpy.sum(\n        (sample < (quartiles.q1 - 1.5 * quartiles.iqr))\n        | (sample > (quartiles.q3 + 1.5 * quartiles.iqr))\n    )\n    n_extreme_outliers = numpy.sum(\n        (sample < (quartiles.q1 - 3.0 * quartiles.iqr))\n        | (sample > (quartiles.q3 + 3.0 * quartiles.iqr))\n    )\n    print(\n        f\"Outliers: {(100 * n_outliers) / len(sample):.1f}%, extreme outliers: {(100 * n_extreme_outliers) / len(sample)}%\"\n    )",
+    "source": "github_repo:explosion/spaCy",
+    "file": "spacy/cli/benchmark_speed.py",
+    "license": "MIT",
+    "language": "python"
+}

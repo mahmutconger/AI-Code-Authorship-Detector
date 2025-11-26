@@ -1,0 +1,7 @@
+{
+    "code": "def test_extract_html_content_some_explanation_before(self):\n        text = \"\"\"Got it! You want the song list to be displayed horizontally. I'll update the code to ensure that the song list is displayed in a horizontal layout.\n\n        Here's the updated code:\n\n        <html lang=\"en\"><head></head><body class=\"bg-black text-white\"></body></html>\"\"\"\n        expected = '<html lang=\"en\"><head></head><body class=\"bg-black text-white\"></body></html>'\n        result = extract_html_content(text)\n        self.assertEqual(result, expected)",
+    "source": "github_repo:abi/screenshot-to-code",
+    "file": "backend/codegen/test_utils.py",
+    "license": "MIT",
+    "language": "python"
+}

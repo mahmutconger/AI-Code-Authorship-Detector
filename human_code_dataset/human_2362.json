@@ -1,0 +1,7 @@
+{
+    "code": "def __init__(self, param_ranges, fixed_params, model_folder, override_w_fixed_params=True):\n        \"\"\"Instantiates model.\n\n        Args:\n          param_ranges: Discrete hyperparameter range for random search.\n          fixed_params: Fixed model parameters per experiment.\n          model_folder: Folder to store optimisation artifacts.\n          override_w_fixed_params: Whether to override serialsed fixed model\n            parameters with new supplied values.\n        \"\"\"\n\n        self.param_ranges = param_ranges\n\n        self._max_tries = 1000\n        self.results = pd.DataFrame()\n        self.fixed_params = fixed_params\n        self.saved_params = pd.DataFrame()\n\n        self.best_score = np.Inf\n        self.optimal_name = \"\"\n\n        # Setup\n        # Create folder for saving if its not there\n        self.hyperparam_folder = model_folder\n        utils.create_folder_if_not_exist(self.hyperparam_folder)\n\n        self._override_w_fixed_params = override_w_fixed_params",
+    "source": "github_repo:microsoft/qlib",
+    "file": "examples/benchmarks/TFT/libs/hyperparam_opt.py",
+    "license": "MIT",
+    "language": "python"
+}

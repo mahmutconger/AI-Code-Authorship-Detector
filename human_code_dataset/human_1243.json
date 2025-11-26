@@ -1,0 +1,7 @@
+{
+    "code": "PUNCTUATIONS = [\n    \"?\",\n    \",\",\n    \".\",\n    \"、\",\n    \";\",\n    \":\",\n    \"!\",\n    \"…\",\n    \"？\",\n    \"，\",\n    \"。\",\n    \"、\",\n    \"；\",\n    \"：\",\n    \"！\",\n    \"...\",\n]\n\nTASK_STATE_FAILED = -1\nTASK_STATE_COMPLETE = 1\nTASK_STATE_PROCESSING = 4\n\nFILE_TYPE_VIDEOS = [\"mp4\", \"mov\", \"mkv\", \"webm\"]\nFILE_TYPE_IMAGES = [\"jpg\", \"jpeg\", \"png\", \"bmp\"]",
+    "source": "github_repo:harry0703/MoneyPrinterTurbo",
+    "file": "app/models/const.py",
+    "license": "MIT",
+    "language": "python"
+}

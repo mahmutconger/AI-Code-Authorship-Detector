@@ -1,0 +1,7 @@
+{
+    "code": "import ccxt.pro\nfrom asyncio import run\n\n\nasync def consume_all_trades(exchange, symbol):\n    await exchange.load_markets()\n    while True:\n        try:\n            trades = await exchange.watch_trades(symbol)\n            print('----------------------------------------------------------------------')\n            print(exchange.iso8601(exchange.milliseconds()), 'received', len(trades), 'new', symbol, 'trades:')\n            for trade in trades:\n                print(exchange.id, symbol, trade['id'], trade['datetime'], trade['amount'], trade['price'])\n            exchange.trades[symbol].clear()\n        except Exception as e:\n            print(type(e).__name__, str(e))\n    await exchange.close()\n\n\nexchange = ccxt.pro.bitmex()\nsymbol = 'BTC/USD'\nrun(consume_all_trades(exchange, symbol))",
+    "source": "github_repo:ccxt/ccxt",
+    "file": "examples/ccxt.pro/py/consume-all-trades.py",
+    "license": "MIT",
+    "language": "python"
+}

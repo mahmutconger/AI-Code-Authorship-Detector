@@ -1,0 +1,7 @@
+{
+    "code": "def kl_divergence(m_p, logs_p, m_q, logs_q):\n    \"\"\"KL(P||Q)\"\"\"\n    kl = (logs_q - logs_p) - 0.5\n    kl += (\n        0.5 * (torch.exp(2.0 * logs_p) + ((m_p - m_q) ** 2)) * torch.exp(-2.0 * logs_q)\n    )\n    return kl",
+    "source": "github_repo:myshell-ai/OpenVoice",
+    "file": "openvoice/commons.py",
+    "license": "MIT",
+    "language": "python"
+}

@@ -1,0 +1,7 @@
+{
+    "code": "def test_drain_sock(self, func, expected_type):\n    sock = \"carState\"\n    pub_sock = messaging.pub_sock(sock)\n    sub_sock = messaging.sub_sock(sock, timeout=1000)\n    zmq_sleep()\n\n    # no wait and no msgs in queue\n    msgs = func(sub_sock)\n    assert isinstance(msgs, list)\n    assert len(msgs) == 0\n\n    # no wait but msgs are queued up\n    num_msgs = random.randrange(3, 10)\n    for _ in range(num_msgs):\n      pub_sock.send(messaging.new_message(sock).to_bytes())\n    time.sleep(0.1)\n    msgs = func(sub_sock)\n    assert isinstance(msgs, list)\n    assert all(isinstance(msg, expected_type) for msg in msgs)\n    assert len(msgs) == num_msgs",
+    "source": "github_repo:commaai/openpilot",
+    "file": "cereal/messaging/tests/test_messaging.py",
+    "license": "MIT",
+    "language": "python"
+}

@@ -1,0 +1,7 @@
+{
+    "code": "def encode(self, x):\n        h = self.encoder(x)\n        moments = self.quant_conv(h)\n        posterior = DiagonalGaussianDistribution(moments)\n        return posterior",
+    "source": "github_repo:Stability-AI/stablediffusion",
+    "file": "ldm/models/autoencoder.py",
+    "license": "MIT",
+    "language": "python"
+}

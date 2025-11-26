@@ -1,0 +1,7 @@
+{
+    "code": "class Learning:\n    \"\"\"\n    A dataclass that encapsulates the learning data collected during a GPT Engineer session.\n\n    Attributes\n    ----------\n    prompt : str\n        A JSON string representing the prompt provided to GPT Engineer.\n    model : str\n        The name of the model used during the session.\n    temperature : float\n        The temperature setting used for the model's responses.\n    config : str\n        A JSON string representing the configuration settings for the session.\n    logs : str\n        A JSON string representing the logs of the session.\n    session : str\n        A unique identifier for the user session.\n    review : Optional[Review]\n        The user's review of the generated code.\n    timestamp : str\n        The UTC timestamp when the learning data was created.\n    version : str\n        The version of the learning data schema.\n    \"\"\"\n\n    prompt: str\n    model: str\n    temperature: float\n    config: str\n    logs: str\n    session: str\n    review: Optional[Review]\n    timestamp: str = field(default_factory=lambda: datetime.utcnow().isoformat())\n    version: str = \"0.3\"",
+    "source": "github_repo:AntonOsika/gpt-engineer",
+    "file": "gpt_engineer/applications/cli/learning.py",
+    "license": "MIT",
+    "language": "python"
+}

@@ -1,0 +1,7 @@
+{
+    "code": "def model_post_init(self, __context: Any) -> None:\n        \"\"\"Initialize the CrewAI RAG client after model initialization.\"\"\"\n        if self.config is not None:\n            self._client = create_client(self.config)\n        else:\n            self._client = get_rag_client()\n        collection_params: dict[str, Any] = {\"collection_name\": self.collection_name}\n        if isinstance(self.config, QdrantConfig) and self.config.vectors_config:\n            if isinstance(self.config.vectors_config, VectorParams):\n                collection_params[\"vectors_config\"] = self.config.vectors_config\n        self._client.get_or_create_collection(**collection_params)",
+    "source": "github_repo:crewAIInc/crewAI",
+    "file": "lib/crewai-tools/src/crewai_tools/adapters/crewai_rag_adapter.py",
+    "license": "MIT",
+    "language": "python"
+}

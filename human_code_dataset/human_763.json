@@ -1,0 +1,7 @@
+{
+    "code": "def __init__(self, **data):\n        super().__init__(**data)\n\n        self.set_actions([GenAndImproveImageAction])",
+    "source": "github_repo:FoundationAgents/MetaGPT",
+    "file": "examples/dalle_gpt4v_agent.py",
+    "license": "MIT",
+    "language": "python"
+}

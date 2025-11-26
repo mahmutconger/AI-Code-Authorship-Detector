@@ -1,0 +1,7 @@
+{
+    "code": "def download_video() -> str:\n    download_assets(VideoAssets.PEOPLE_WALKING)\n    return VideoAssets.PEOPLE_WALKING.value",
+    "source": "github_repo:roboflow/supervision",
+    "file": "examples/heatmap_and_track/script.py",
+    "license": "MIT",
+    "language": "python"
+}

@@ -1,0 +1,7 @@
+{
+    "code": "class AppConfig(BaseModel):\n    llm: Dict[str, LLMSettings]\n    sandbox: Optional[SandboxSettings] = Field(\n        None, description=\"Sandbox configuration\"\n    )\n    browser_config: Optional[BrowserSettings] = Field(\n        None, description=\"Browser configuration\"\n    )\n    search_config: Optional[SearchSettings] = Field(\n        None, description=\"Search configuration\"\n    )\n    mcp_config: Optional[MCPSettings] = Field(None, description=\"MCP configuration\")\n    run_flow_config: Optional[RunflowSettings] = Field(\n        None, description=\"Run flow configuration\"\n    )\n    daytona_config: Optional[DaytonaSettings] = Field(\n        None, description=\"Daytona configuration\"\n    )\n\n    class Config:\n        arbitrary_types_allowed = True",
+    "source": "github_repo:FoundationAgents/OpenManus",
+    "file": "app/config.py",
+    "license": "MIT",
+    "language": "python"
+}

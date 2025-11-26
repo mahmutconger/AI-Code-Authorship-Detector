@@ -1,0 +1,7 @@
+{
+    "code": "def get_version() -> str:\n    \"\"\"Fetch the version number of the installed package.\"\"\"\n    try:\n        return pkg_version(\"sherlock_project\")\n    except PackageNotFoundError:\n        pyproject_path: pathlib.Path = pathlib.Path(__file__).resolve().parent.parent / \"pyproject.toml\"\n        with pyproject_path.open(\"rb\") as f:\n            pyproject_data = tomli.load(f)\n        return pyproject_data[\"tool\"][\"poetry\"][\"version\"]",
+    "source": "github_repo:sherlock-project/sherlock",
+    "file": "sherlock_project/__init__.py",
+    "license": "MIT",
+    "language": "python"
+}

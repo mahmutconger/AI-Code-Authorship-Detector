@@ -1,0 +1,7 @@
+{
+    "code": "def test_check_description_that_exceeds_the_character_limit(self):\n        long_desc = 'Desc' * max_description_length\n        long_desc_length = len(long_desc)\n\n        err_msgs = check_description(0, long_desc)\n\n        self.assertIsInstance(err_msgs, list)\n        self.assertEqual(len(err_msgs), 1)\n\n        err_msg = err_msgs[0]\n        expected_err_msg = f'(L001) description should not exceed {max_description_length} characters (currently {long_desc_length})'\n\n        self.assertIsInstance(err_msg, str)\n        self.assertEqual(err_msg, expected_err_msg)",
+    "source": "github_repo:public-apis/public-apis",
+    "file": "scripts/tests/test_validate_format.py",
+    "license": "MIT",
+    "language": "python"
+}

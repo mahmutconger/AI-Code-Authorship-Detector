@@ -1,0 +1,7 @@
+{
+    "code": "def is_utf8(self, file_path: Union[str, Path]) -> bool:\n        \"\"\"\n        Checks if the file at the given path is UTF-8 encoded.\n\n        Parameters\n        ----------\n        file_path : Union[str, Path]\n            The path to the file to be checked.\n\n        Returns\n        -------\n        bool\n            True if the file is UTF-8 encoded, False otherwise.\n        \"\"\"\n\n        try:\n            with open(file_path, \"rb\") as file:\n                file.read().decode(\"utf-8\")\n                return True\n        except UnicodeDecodeError:\n            return False",
+    "source": "github_repo:AntonOsika/gpt-engineer",
+    "file": "gpt_engineer/applications/cli/file_selector.py",
+    "license": "MIT",
+    "language": "python"
+}

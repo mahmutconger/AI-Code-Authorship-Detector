@@ -1,0 +1,7 @@
+{
+    "code": "class Point3D:\n    x: float\n    y: float\n    z: float = 0",
+    "source": "github_repo:Textualize/rich",
+    "file": "examples/attrs.py",
+    "license": "MIT",
+    "language": "python"
+}

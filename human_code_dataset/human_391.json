@@ -1,0 +1,7 @@
+{
+    "code": "def rearrange_kv_cache(self, source_indices):\n        if source_indices != list(range(len(source_indices))):\n            for module in self.kv_modules:\n                # update the key/value cache to contain the selected sequences\n                self.kv_cache[module] = self.kv_cache[module][source_indices].detach()",
+    "source": "github_repo:openai/whisper",
+    "file": "whisper/decoding.py",
+    "license": "MIT",
+    "language": "python"
+}

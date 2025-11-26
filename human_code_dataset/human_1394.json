@@ -1,0 +1,7 @@
+{
+    "code": "def on_train_batch_end(self, *args, **kwargs):\n        if self.use_ema:\n            self.model_ema(self)",
+    "source": "github_repo:Stability-AI/stablediffusion",
+    "file": "ldm/models/autoencoder.py",
+    "license": "MIT",
+    "language": "python"
+}

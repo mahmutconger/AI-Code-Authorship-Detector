@@ -1,0 +1,7 @@
+{
+    "code": "class Model:\n    name: str\n    triangles: List[Triangle] = attr.Factory(list)",
+    "source": "github_repo:Textualize/rich",
+    "file": "examples/attrs.py",
+    "license": "MIT",
+    "language": "python"
+}

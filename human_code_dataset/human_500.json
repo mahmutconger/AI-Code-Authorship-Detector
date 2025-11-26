@@ -1,0 +1,7 @@
+{
+    "code": "def __getattr__(name: str):\n\t\"\"\"Lazy import mechanism - only import modules when they're actually accessed.\"\"\"\n\tif name in _LAZY_IMPORTS:\n\t\tmodule_path, attr_name = _LAZY_IMPORTS[name]\n\t\ttry:\n\t\t\tfrom importlib import import_module\n\n\t\t\tmodule = import_module(module_path)\n\t\t\tif attr_name is None:\n\t\t\t\t# For modules like 'models', return the module itself\n\t\t\t\tattr = module\n\t\t\telse:\n\t\t\t\tattr = getattr(module, attr_name)\n\t\t\t# Cache the imported attribute in the module's globals\n\t\t\tglobals()[name] = attr\n\t\t\treturn attr\n\t\texcept ImportError as e:\n\t\t\traise ImportError(f'Failed to import {name} from {module_path}: {e}') from e\n\n\traise AttributeError(f\"module '{__name__}' has no attribute '{name}'\")",
+    "source": "github_repo:browser-use/browser-use",
+    "file": "browser_use/__init__.py",
+    "license": "MIT",
+    "language": "python"
+}

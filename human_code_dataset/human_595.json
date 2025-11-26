@@ -1,0 +1,7 @@
+{
+    "code": "def removetags(tags):\n    remove = re.compile('<.*?>')\n    txt = re.sub(remove, '\\n', tags)\n    return txt.replace(\"\\n\\n\\n\",\"\\n\")",
+    "source": "github_repo:swisskyrepo/PayloadsAllTheThings",
+    "file": "CVE Exploits/Tomcat CVE-2017-12617.py",
+    "license": "MIT",
+    "language": "python"
+}

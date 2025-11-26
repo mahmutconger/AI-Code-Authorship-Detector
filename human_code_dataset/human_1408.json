@@ -1,0 +1,7 @@
+{
+    "code": "def __init__(self, model, schedule=\"linear\", device=torch.device(\"cuda\"), **kwargs):\n        super().__init__()\n        self.model = model\n        self.ddpm_num_timesteps = model.num_timesteps\n        self.schedule = schedule\n        self.device = device",
+    "source": "github_repo:Stability-AI/stablediffusion",
+    "file": "ldm/models/diffusion/ddim.py",
+    "license": "MIT",
+    "language": "python"
+}

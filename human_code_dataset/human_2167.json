@@ -1,0 +1,7 @@
+{
+    "code": "def registerLabels():\n    \"\"\"\n    This function search for labels / subprogram-labels and registers this in the 'jumps' list.\n    \"\"\"\n    for i in range(len(tokens)):\n        if tokens[i].t == \"label\":\n            jumps[tokens[i].token] = i\n        elif tokens[i].t == \"subprogram\":\n            jumps[tokens[i].token] = i",
+    "source": "github_repo:geekcomputers/Python",
+    "file": "Assembler/assembler.py",
+    "license": "MIT",
+    "language": "python"
+}

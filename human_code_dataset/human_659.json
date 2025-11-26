@@ -1,0 +1,7 @@
+{
+    "code": "def check_for_parameter(username):\n    \"\"\"checks if {?} exists in the username\n    if exist it means that sherlock is looking for more multiple username\"\"\"\n    return \"{?}\" in username",
+    "source": "github_repo:sherlock-project/sherlock",
+    "file": "sherlock_project/sherlock.py",
+    "license": "MIT",
+    "language": "python"
+}

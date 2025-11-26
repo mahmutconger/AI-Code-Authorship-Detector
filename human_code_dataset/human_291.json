@@ -1,0 +1,7 @@
+{
+    "code": "def without_confirmation(proc, TIMEOUT):\n    \"\"\"Ensures that command can be fixed when confirmation disabled.\"\"\"\n    _set_confirmation(proc, False)\n\n    proc.sendline(u'ehco test')\n\n    proc.sendline(u'fuck')\n    assert proc.expect([TIMEOUT, u'echo test'])\n    assert proc.expect([TIMEOUT, u'test'])",
+    "source": "github_repo:nvbn/thefuck",
+    "file": "tests/functional/plots.py",
+    "license": "MIT",
+    "language": "python"
+}

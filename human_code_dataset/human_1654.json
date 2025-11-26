@@ -1,0 +1,7 @@
+{
+    "code": "def __repr__(cls):\n        if hasattr(cls, \"_class_repr\"):\n            return getattr(cls, \"_class_repr\")()\n        return super(AdapterMC, cls).__repr__()",
+    "source": "github_repo:chubin/cheat.sh",
+    "file": "lib/adapter/adapter.py",
+    "license": "MIT",
+    "language": "python"
+}

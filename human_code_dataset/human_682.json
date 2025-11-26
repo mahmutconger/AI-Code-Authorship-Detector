@@ -1,0 +1,7 @@
+{
+    "code": "def run_cli(args:str = \"\") -> str:\n        \"\"\"Pass arguments to Sherlock as a normal user on the command line\"\"\"\n        # Adapt for platform differences (Windows likes to be special)\n        if platform.system() == \"Windows\":\n            command:str = f\"py -m sherlock_project {args}\"\n        else:\n            command:str = f\"sherlock {args}\"\n\n        proc_out:str = \"\"\n        try:\n            proc_out = subprocess.check_output(command, shell=True, stderr=subprocess.STDOUT)\n            return proc_out.decode()\n        except subprocess.CalledProcessError as e:\n            raise InteractivesSubprocessError(e.output.decode())",
+    "source": "github_repo:sherlock-project/sherlock",
+    "file": "tests/sherlock_interactives.py",
+    "license": "MIT",
+    "language": "python"
+}

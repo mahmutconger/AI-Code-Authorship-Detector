@@ -1,0 +1,7 @@
+{
+    "code": "def _encode_string(str):\n    import hashlib\n    import base64\n    result = base64.b64encode(hashlib.sha256(str.encode()).digest()).decode()\n    return result.replace('+', '-').replace('/', '_').replace('=', '')",
+    "source": "github_repo:testerSunshine/12306",
+    "file": "config/getCookie.py",
+    "license": "MIT",
+    "language": "python"
+}

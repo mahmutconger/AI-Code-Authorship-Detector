@@ -1,0 +1,7 @@
+{
+    "code": "def __init__(self):\n        self.proxy_list = []\n        self.proxy_filter_list = []",
+    "source": "github_repo:testerSunshine/12306",
+    "file": "agency/agency_tools.py",
+    "license": "MIT",
+    "language": "python"
+}

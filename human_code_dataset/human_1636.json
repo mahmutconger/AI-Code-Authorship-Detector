@@ -1,0 +1,7 @@
+{
+    "code": "def send_static(path):\n    \"\"\"\n    Return static file `path`.\n    Can be served by the HTTP frontend.\n    \"\"\"\n    return send_from_directory(CONFIG[\"path.internal.static\"], path)",
+    "source": "github_repo:chubin/cheat.sh",
+    "file": "bin/app.py",
+    "license": "MIT",
+    "language": "python"
+}

@@ -1,0 +1,7 @@
+{
+    "code": "class AddHeader:\n    def __init__(self):\n        self.num = 0\n\n    def response(self, flow):\n        self.num = self.num + 1\n        flow.response.headers[\"count\"] = str(self.num)",
+    "source": "github_repo:mitmproxy/mitmproxy",
+    "file": "examples/addons/http-add-header.py",
+    "license": "MIT",
+    "language": "python"
+}

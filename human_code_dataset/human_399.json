@@ -1,0 +1,7 @@
+{
+    "code": "# SPDX-FileCopyrightText: 2024-present Adam Fourney <adamfo@microsoft.com>\n#\n# SPDX-License-Identifier: MIT\n\nfrom .__about__ import __version__\n\n__all__ = [\n    \"__version__\",\n]",
+    "source": "github_repo:microsoft/markitdown",
+    "file": "packages/markitdown-mcp/src/markitdown_mcp/__init__.py",
+    "license": "MIT",
+    "language": "python"
+}

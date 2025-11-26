@@ -1,0 +1,7 @@
+{
+    "code": "def task_done(self):\n        with self.lock:\n            self.current_tasks -= 1\n        self.check_queue()",
+    "source": "github_repo:harry0703/MoneyPrinterTurbo",
+    "file": "app/controllers/manager/base_manager.py",
+    "license": "MIT",
+    "language": "python"
+}

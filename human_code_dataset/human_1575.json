@@ -1,0 +1,7 @@
+{
+    "code": "def main(schemastore: bool, outfile: IO[str]) -> None:\n    properties = generate_schema_from_click(black.main)\n    del properties[\"line-ranges\"]\n\n    schema: dict[str, Any] = {\n        \"$schema\": \"http://json-schema.org/draft-07/schema#\",\n        \"$id\": (\n            \"https://github.com/psf/black/blob/main/src/black/resources/black.schema.json\"\n        ),\n        \"$comment\": \"tool.black table in pyproject.toml\",\n        \"type\": \"object\",\n        \"additionalProperties\": False,\n        \"properties\": properties,\n    }\n\n    if schemastore:\n        schema[\"$id\"] = \"https://json.schemastore.org/partial-black.json\"\n        # The precise list of unstable features may change frequently, so don't\n        # bother putting it in SchemaStore\n        schema[\"properties\"][\"enable-unstable-feature\"][\"items\"] = {\"type\": \"string\"}\n\n    print(json.dumps(schema, indent=2), file=outfile)",
+    "source": "github_repo:psf/black",
+    "file": "scripts/generate_schema.py",
+    "license": "MIT",
+    "language": "python"
+}

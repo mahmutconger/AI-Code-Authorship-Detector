@@ -1,0 +1,7 @@
+{
+    "code": "def messages(self) -> List[Message]:\n        \"\"\"Retrieve a list of messages from the agent's memory.\"\"\"\n        return self.memory.messages",
+    "source": "github_repo:FoundationAgents/OpenManus",
+    "file": "app/agent/base.py",
+    "license": "MIT",
+    "language": "python"
+}

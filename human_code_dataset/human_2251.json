@@ -1,0 +1,7 @@
+{
+    "code": "def remove_property(self, key: str) -> None:\n        keys = key.split(\".\")\n\n        config = self._config\n        for i, key in enumerate(keys):\n            if key not in config:\n                return\n\n            if i == len(keys) - 1:\n                del config[key]\n\n                break\n\n            config = config[key]",
+    "source": "github_repo:python-poetry/poetry",
+    "file": "src/poetry/config/dict_config_source.py",
+    "license": "MIT",
+    "language": "python"
+}

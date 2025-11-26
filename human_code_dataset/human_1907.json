@@ -1,0 +1,7 @@
+{
+    "code": "def find_files_root(inf):\n    di = 9000\n    for f1, f2 in zip(inf, inf[1:]):\n        p1 = f1[\"ap\"].replace(\"\\\\\", \"/\").rsplit(\"/\", 1)[0]\n        p2 = f2[\"ap\"].replace(\"\\\\\", \"/\").rsplit(\"/\", 1)[0]\n        di = min(len(p1), len(p2), di)\n        di = next((i for i in range(di) if p1[i] != p2[i]), di)\n\n    return di + 1",
+    "source": "github_repo:9001/copyparty",
+    "file": "bin/hooks/xiu-sha.py",
+    "license": "MIT",
+    "language": "python"
+}

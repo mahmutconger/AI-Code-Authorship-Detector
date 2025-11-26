@@ -1,0 +1,7 @@
+{
+    "code": "def messages(self, value: List[Message]):\n        \"\"\"Set the list of messages in the agent's memory.\"\"\"\n        self.memory.messages = value",
+    "source": "github_repo:FoundationAgents/OpenManus",
+    "file": "app/agent/base.py",
+    "license": "MIT",
+    "language": "python"
+}

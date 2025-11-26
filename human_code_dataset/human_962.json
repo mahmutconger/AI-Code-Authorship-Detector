@@ -1,0 +1,7 @@
+{
+    "code": "\"\"\"\n\nUse Bar to renderer a sort-of circle.\n\n\"\"\"\nimport math\n\nfrom rich.align import Align\nfrom rich.bar import Bar\nfrom rich.color import Color\nfrom rich import print\n\n\nSIZE = 40\n\nfor row in range(SIZE):\n    y = (row / (SIZE - 1)) * 2 - 1\n    x = math.sqrt(1 - y * y)\n    color = Color.from_rgb((1 + y) * 127.5, 0, 0)\n    bar = Bar(2, width=SIZE * 2, begin=1 - x, end=1 + x, color=color)\n    print(Align.center(bar))",
+    "source": "github_repo:Textualize/rich",
+    "file": "examples/bars.py",
+    "license": "MIT",
+    "language": "python"
+}

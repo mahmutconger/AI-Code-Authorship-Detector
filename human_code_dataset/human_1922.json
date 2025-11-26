@@ -1,0 +1,7 @@
+{
+    "code": "def detect(\n    frame: np.ndarray, model: YOLO, confidence_threshold: float = 0.5\n) -> sv.Detections:\n    \"\"\"\n    Detect objects in a frame using a YOLO model, filtering detections by class ID and\n        confidence threshold.\n\n    Args:\n        frame (np.ndarray): The frame to process, expected to be a NumPy array.\n        model (YOLO): The YOLO model used for processing the frame.\n        confidence_threshold (float): The confidence threshold for filtering\n            detections. Default is 0.5.\n\n    Returns:\n        sv.Detections: Filtered detections after processing the frame with the YOLO\n            model.\n\n    Note:\n        This function is specifically tailored for a YOLO model and assumes class ID 0\n            for filtering.\n    \"\"\"\n    results = model(frame, imgsz=1280, verbose=False)[0]\n    detections = sv.Detections.from_ultralytics(results)\n    filter_by_class = detections.class_id == 0\n    filter_by_confidence = detections.confidence > confidence_threshold\n    return detections[filter_by_class & filter_by_confidence]",
+    "source": "github_repo:roboflow/supervision",
+    "file": "examples/count_people_in_zone/ultralytics_example.py",
+    "license": "MIT",
+    "language": "python"
+}

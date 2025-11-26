@@ -1,0 +1,7 @@
+{
+    "code": "def unload(self):\n        if isinstance(self.path_or_stream, BytesIO):\n            self.path_or_stream.close()\n\n        self.path_or_stream = None",
+    "source": "github_repo:docling-project/docling",
+    "file": "docling/backend/abstract_backend.py",
+    "license": "MIT",
+    "language": "python"
+}

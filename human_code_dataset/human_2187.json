@@ -1,0 +1,7 @@
+{
+    "code": "def sortCdn():\n    \"\"\"\n    对cdn进行排序\n    :return:\n    \"\"\"\n    ips = []\n    cs = sorted(cdn_list, key=operator.itemgetter('time'))\n    for c in cs:\n        print(f\"当前ip: {c['ip']}, 延时: {c['time']}\")\n        ips.append(c[\"ip\"])\n    return ips",
+    "source": "github_repo:testerSunshine/12306",
+    "file": "agency/cdn_utils.py",
+    "license": "MIT",
+    "language": "python"
+}

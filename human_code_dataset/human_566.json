@@ -1,0 +1,7 @@
+{
+    "code": "def recvall(s, length, timeout=5):\n\tendtime = time.time() + timeout\n\trdata = ''\n\tremain = length\n\twhile remain > 0:\n\t\trtime = endtime - time.time()\n\t\tif rtime < 0:\n\t\t\tif not rdata:\n\t\t\t\treturn None\n\t\t\telse:\n\t\t\t\treturn rdata\n\t\tr, w, e = select.select([s], [], [], 5)\n\t\tif s in r:\n\t\t\tdata = s.recv(remain)\n\t\t\t# EOF?\n\t\t\tif not data:\n\t\t\t\treturn None\n\t\t\trdata += data\n\t\t\tremain -= len(data)\n\treturn rdata",
+    "source": "github_repo:swisskyrepo/PayloadsAllTheThings",
+    "file": "CVE Exploits/Heartbleed CVE-2014-0160.py",
+    "license": "MIT",
+    "language": "python"
+}

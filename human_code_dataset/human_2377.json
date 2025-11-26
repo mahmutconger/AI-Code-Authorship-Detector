@@ -1,0 +1,7 @@
+{
+    "code": "def __init__(self) -> None:\n        self.gui_config = GUIConfig()\n        self.config = None  # Initialize Config object as None\n        self.flag_vc = False\n        self.function = \"vc\"\n        self.delay_time = 0\n        self.rvc = None  # Initialize RVC object as None",
+    "source": "github_repo:RVC-Project/Retrieval-based-Voice-Conversion-WebUI",
+    "file": "api_231006.py",
+    "license": "MIT",
+    "language": "python"
+}

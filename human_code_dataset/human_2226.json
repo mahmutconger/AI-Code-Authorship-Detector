@@ -1,0 +1,7 @@
+{
+    "code": "def validator(cls, policy: str) -> bool:\n        if boolean_validator(policy):\n            return True\n\n        names = policy.strip().split(\",\")\n\n        for name in names:\n            if (\n                not name\n                or (cls.is_reserved(name) and len(names) == 1)\n                or re.match(r\"^[a-zA-Z\\d_-]+$\", name)\n            ):\n                continue\n            return False\n\n        return True",
+    "source": "github_repo:python-poetry/poetry",
+    "file": "src/poetry/config/config.py",
+    "license": "MIT",
+    "language": "python"
+}

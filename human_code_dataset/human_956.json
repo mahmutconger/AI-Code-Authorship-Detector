@@ -1,0 +1,7 @@
+{
+    "code": "def setup(self):\n        self.line = [\n            Segment(\"foo\"),\n            Segment(\"bar\"),\n            Segment(\"egg\"),\n            Segment(\"Where there is a Will\"),\n            Segment(\"There is a way\"),\n        ] * 2",
+    "source": "github_repo:Textualize/rich",
+    "file": "benchmarks/benchmarks.py",
+    "license": "MIT",
+    "language": "python"
+}

@@ -1,0 +1,7 @@
+{
+    "code": "def to_dict(self) -> dict[str, str | bool]:\n        return dataclasses.asdict(\n            self,\n            dict_factory=lambda x: {\n                k: v if not isinstance(v, Priority) else v.name.lower()\n                for (k, v) in x\n                if v\n            },\n        )",
+    "source": "github_repo:python-poetry/poetry",
+    "file": "src/poetry/config/source.py",
+    "license": "MIT",
+    "language": "python"
+}

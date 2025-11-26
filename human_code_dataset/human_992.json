@@ -1,0 +1,7 @@
+{
+    "code": "def run(self):\n        self.before_run()\n        if isinstance(self.RUN_COMMANDS, (list, tuple)):\n            for RUN_COMMAND in self.RUN_COMMANDS:\n                console.print(f\"[cyan]⚙ Running:[/cyan] [bold]{RUN_COMMAND}[/bold]\")\n                os.system(RUN_COMMAND)\n            self.after_run()",
+    "source": "github_repo:Z4nzu/hackingtool",
+    "file": "core.py",
+    "license": "MIT",
+    "language": "python"
+}

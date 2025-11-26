@@ -1,0 +1,7 @@
+{
+    "code": "def _default_criteria(cls, path: Path) -> bool:\n        \"\"\"\n        The default criteria function to filter the paths.\n        \"\"\"\n        return True",
+    "source": "github_repo:AntonOsika/gpt-engineer",
+    "file": "gpt_engineer/applications/cli/file_selector.py",
+    "license": "MIT",
+    "language": "python"
+}

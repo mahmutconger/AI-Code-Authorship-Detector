@@ -1,0 +1,7 @@
+{
+    "code": "def request_alg_id(session):\n    response = session.httpClint.send(urls.get(\"GetJS\"))\n    result = re.search(r'algID\\\\x3d(.*?)\\\\x26', response)\n    try:\n        return result.group(1)\n    except (IndexError, AttributeError) as e:\n        pass\n    return \"\"",
+    "source": "github_repo:testerSunshine/12306",
+    "file": "config/getCookie.py",
+    "license": "MIT",
+    "language": "python"
+}

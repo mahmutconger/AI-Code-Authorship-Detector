@@ -1,0 +1,7 @@
+{
+    "code": "def load_zones_config(file_path: str) -> list[np.ndarray]:\n    \"\"\"\n    Load polygon zone configurations from a JSON file.\n\n    This function reads a JSON file which contains polygon coordinates, and\n    converts them into a list of NumPy arrays. Each polygon is represented as\n    a NumPy array of coordinates.\n\n    Args:\n    file_path (str): The path to the JSON configuration file.\n\n    Returns:\n    List[np.ndarray]: A list of polygons, each represented as a NumPy array.\n    \"\"\"\n    with open(file_path) as file:\n        data = json.load(file)\n        return [np.array(polygon, np.int32) for polygon in data[\"polygons\"]]",
+    "source": "github_repo:roboflow/supervision",
+    "file": "examples/count_people_in_zone/ultralytics_example.py",
+    "license": "MIT",
+    "language": "python"
+}

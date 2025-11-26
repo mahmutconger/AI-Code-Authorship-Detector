@@ -1,0 +1,7 @@
+{
+    "code": "def generate_schema_from_click(\n    cmd: click.Command,\n) -> dict[str, Any]:\n    result: dict[str, dict[str, Any]] = {}\n    for param in cmd.params:\n        if not isinstance(param, click.Option) or param.is_eager:\n            continue\n\n        assert param.name\n        name = param.name.replace(\"_\", \"-\")\n\n        result[name] = {}\n\n        match param.type:\n            case click.types.IntParamType():\n                result[name][\"type\"] = \"integer\"\n            case click.types.StringParamType() | click.types.Path():\n                result[name][\"type\"] = \"string\"\n            case click.types.Choice(choices=choices):\n                result[name][\"enum\"] = choices\n            case click.types.BoolParamType():\n                result[name][\"type\"] = \"boolean\"\n            case _:\n                msg = f\"{param.type!r} not a known type for {param}\"\n                raise TypeError(msg)\n\n        if param.multiple:\n            result[name] = {\"type\": \"array\", \"items\": result[name]}\n\n        result[name][\"description\"] = param.help\n\n        default = param.to_info_dict()[\"default\"]\n        if default is not None and not param.multiple:\n            result[name][\"default\"] = default\n\n    return result",
+    "source": "github_repo:psf/black",
+    "file": "scripts/generate_schema.py",
+    "license": "MIT",
+    "language": "python"
+}

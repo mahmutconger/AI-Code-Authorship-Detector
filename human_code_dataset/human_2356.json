@@ -1,0 +1,7 @@
+{
+    "code": "def __init__(self, experiment=\"volatility\", root_folder=None):\n        \"\"\"Creates configs based on default experiment chosen.\n\n        Args:\n          experiment: Name of experiment.\n          root_folder: Root folder to save all outputs of training.\n        \"\"\"\n\n        if experiment not in self.default_experiments:\n            raise ValueError(\"Unrecognised experiment={}\".format(experiment))\n\n        # Defines all relevant paths\n        if root_folder is None:\n            root_folder = os.path.join(os.path.dirname(os.path.realpath(__file__)), \"..\", \"outputs\")\n            print(\"Using root folder {}\".format(root_folder))\n\n        self.root_folder = root_folder\n        self.experiment = experiment\n        self.data_folder = os.path.join(root_folder, \"data\", experiment)\n        self.model_folder = os.path.join(root_folder, \"saved_models\", experiment)\n        self.results_folder = os.path.join(root_folder, \"results\", experiment)\n\n        # Creates folders if they don't exist\n        for relevant_directory in [self.root_folder, self.data_folder, self.model_folder, self.results_folder]:\n            if not os.path.exists(relevant_directory):\n                os.makedirs(relevant_directory)",
+    "source": "github_repo:microsoft/qlib",
+    "file": "examples/benchmarks/TFT/expt_settings/configs.py",
+    "license": "MIT",
+    "language": "python"
+}

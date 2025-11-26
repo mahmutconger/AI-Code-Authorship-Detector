@@ -1,0 +1,7 @@
+{
+    "code": "def test_check_https_with_invalid_https(self):\n        invalid_https_keys = ['yes', 'no', 'Unknown', 'https', 'http']\n\n        for https in invalid_https_keys:\n            with self.subTest():\n                err_msgs = check_https(0, https)\n                self.assertIsInstance(err_msgs, list)\n                self.assertEqual(len(err_msgs), 1)\n\n                err_msg = err_msgs[0]\n                expected_err_msg = f'(L001) {https} is not a valid HTTPS option'\n\n                self.assertIsInstance(err_msg, str)\n                self.assertEqual(err_msg, expected_err_msg)",
+    "source": "github_repo:public-apis/public-apis",
+    "file": "scripts/tests/test_validate_format.py",
+    "license": "MIT",
+    "language": "python"
+}

@@ -1,0 +1,7 @@
+{
+    "code": "def batch_sequences_lm(tokenizer, prompts):\n    # In LM tasks, we have two prompts: without and with continuation\n    tokens = tokenizer(prompts, prepend=tokenizer.get_bos_token_id())\n    tokens_without, tokens_with = tokens\n    start_idx, end_idx = len(tokens_without), len(tokens_with)\n    assert start_idx < end_idx, \"prompt without is supposed to be a prefix of prompt with\"\n    assert tokens_without == tokens_with[:start_idx], \"prompt without is supposed to be a prefix of prompt with\"\n    # we only need the with continuation prompt in the LM task, i.e. batch size of 1\n    return [tokens_with], [start_idx], [end_idx]",
+    "source": "github_repo:karpathy/nanochat",
+    "file": "nanochat/core_eval.py",
+    "license": "MIT",
+    "language": "python"
+}

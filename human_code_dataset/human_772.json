@@ -1,0 +1,7 @@
+{
+    "code": "def load_jsonl(file_path: Union[Path, str]) -> List[Dict[str, Any]]:\n    \"\"\"\n    Load data from a JSONL file into a list of dictionaries.\n\n    Args:\n        file_path (Union[Path, str]): The path to the JSONL file to be loaded.\n\n    Returns:\n        List[Dict[str, Any]]: A list of dictionaries containing the data from the JSONL file.\n    \"\"\"\n    # Convert file_path to Path if it's a string\n    if isinstance(file_path, str):\n        file_path = Path(file_path)\n\n    data = []\n    with open(file_path, \"r\", encoding=\"utf-8\") as file:\n        for line in file:\n            data.append(json.loads(line))\n    return data",
+    "source": "github_repo:FoundationAgents/MetaGPT",
+    "file": "examples/di/InfiAgent-DABench/DABench.py",
+    "license": "MIT",
+    "language": "python"
+}

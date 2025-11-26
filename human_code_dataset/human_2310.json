@@ -1,0 +1,7 @@
+{
+    "code": "def set_label(self, expression: str) -> None:\n        \"\"\"\n        Set the label expression\n        \"\"\"\n        self.label_expression = expression",
+    "source": "github_repo:vnpy/vnpy",
+    "file": "vnpy/alpha/dataset/template.py",
+    "license": "MIT",
+    "language": "python"
+}

@@ -1,0 +1,7 @@
+{
+    "code": "def get_current_stats():\n    \"\"\"Get current workflow statistics from the database.\"\"\"\n    db_path = \"database/workflows.db\"\n\n    if not os.path.exists(db_path):\n        print(\"Database not found. Run workflow indexing first.\")\n        return None\n\n    db = WorkflowDatabase(db_path)\n    stats = db.get_stats()\n\n    # Get categories count\n    categories = db.get_service_categories()\n\n    return {\n        'total_workflows': stats['total'],\n        'active_workflows': stats['active'],\n        'inactive_workflows': stats['inactive'],\n        'total_nodes': stats['total_nodes'],\n        'unique_integrations': stats['unique_integrations'],\n        'categories_count': len(get_category_list(categories)),\n        'triggers': stats['triggers'],\n        'complexity': stats['complexity'],\n        'last_updated': datetime.now().strftime('%Y-%m-%d')\n    }",
+    "source": "github_repo:Zie619/n8n-workflows",
+    "file": "scripts/update_readme_stats.py",
+    "license": "MIT",
+    "language": "python"
+}

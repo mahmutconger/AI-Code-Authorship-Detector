@@ -1,0 +1,7 @@
+{
+    "code": "class GuiTest(Scene):\n    def construct(self):\n        mesh = get_plane_mesh(self.renderer.context)\n        # mesh.attributes[\"in_vert\"][:, 0]\n        self.add(mesh)\n\n        def update_mesh(mesh, dt):\n            mesh.model_matrix = np.matmul(\n                opengl.rotation_matrix(z=dt),\n                mesh.model_matrix,\n            )\n\n        mesh.add_updater(update_mesh)\n\n        self.interactive_embed()",
+    "source": "github_repo:ManimCommunity/manim",
+    "file": "example_scenes/opengl.py",
+    "license": "MIT",
+    "language": "python"
+}

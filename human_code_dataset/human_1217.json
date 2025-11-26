@@ -1,0 +1,7 @@
+{
+    "code": "def __init__(self, max_concurrent_tasks: int):\n        self.max_concurrent_tasks = max_concurrent_tasks\n        self.current_tasks = 0\n        self.lock = threading.Lock()\n        self.queue = self.create_queue()",
+    "source": "github_repo:harry0703/MoneyPrinterTurbo",
+    "file": "app/controllers/manager/base_manager.py",
+    "license": "MIT",
+    "language": "python"
+}

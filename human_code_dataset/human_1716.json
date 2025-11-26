@@ -1,0 +1,7 @@
+{
+    "code": "def fromqimage(im):\n    \"\"\"\n    :param im: QImage or PIL ImageQt object\n    \"\"\"\n    buffer = QBuffer()\n    qt_openmode = QIODevice\n    buffer.open(qt_openmode.ReadWrite)\n    # preserve alpha channel with png\n    # otherwise ppm is more friendly with Image.open\n    if im.hasAlphaChannel():\n        im.save(buffer, \"png\")\n    else:\n        im.save(buffer, \"ppm\")\n\n    b = BytesIO()\n    b.write(buffer.data())\n    buffer.close()\n    b.seek(0)\n\n    return Image.open(b)",
+    "source": "github_repo:hiroi-sora/Umi-OCR",
+    "file": "UmiOCR-data/py_src/image_controller/ImageQt.py",
+    "license": "MIT",
+    "language": "python"
+}

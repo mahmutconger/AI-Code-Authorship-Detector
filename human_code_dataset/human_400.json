@@ -1,0 +1,7 @@
+{
+    "code": "def check_plugins_enabled() -> bool:\n    return os.getenv(\"MARKITDOWN_ENABLE_PLUGINS\", \"false\").strip().lower() in (\n        \"true\",\n        \"1\",\n        \"yes\",\n    )",
+    "source": "github_repo:microsoft/markitdown",
+    "file": "packages/markitdown-mcp/src/markitdown_mcp/__main__.py",
+    "license": "MIT",
+    "language": "python"
+}

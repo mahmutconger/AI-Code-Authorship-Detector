@@ -1,0 +1,7 @@
+{
+    "code": "def get_task_id(request: Request):\n    task_id = request.headers.get(\"x-task-id\")\n    if not task_id:\n        task_id = uuid4()\n    return str(task_id)",
+    "source": "github_repo:harry0703/MoneyPrinterTurbo",
+    "file": "app/controllers/base.py",
+    "license": "MIT",
+    "language": "python"
+}

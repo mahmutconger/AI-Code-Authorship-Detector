@@ -1,0 +1,7 @@
+{
+    "code": "def _get_page(self, topic, request_options=None):\n        \"\"\"\n        Return page for `topic`\n        \"\"\"\n        pass",
+    "source": "github_repo:chubin/cheat.sh",
+    "file": "lib/adapter/adapter.py",
+    "license": "MIT",
+    "language": "python"
+}

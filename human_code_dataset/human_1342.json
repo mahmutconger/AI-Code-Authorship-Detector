@@ -1,0 +1,7 @@
+{
+    "code": "class Config:\n        # Allow conversion of int to bool for active field\n        validate_assignment = True",
+    "source": "github_repo:Zie619/n8n-workflows",
+    "file": "api_server.py",
+    "license": "MIT",
+    "language": "python"
+}

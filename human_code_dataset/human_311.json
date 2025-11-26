@@ -1,0 +1,7 @@
+{
+    "code": "from fastapi import FastAPI\nfrom fastapi.middleware.trustedhost import TrustedHostMiddleware\n\napp = FastAPI()\n\napp.add_middleware(\n    TrustedHostMiddleware, allowed_hosts=[\"example.com\", \"*.example.com\"]\n)\n\n\n@app.get(\"/\")\nasync def main():\n    return {\"message\": \"Hello World\"}",
+    "source": "github_repo:fastapi/fastapi",
+    "file": "docs_src/advanced_middleware/tutorial002.py",
+    "license": "MIT",
+    "language": "python"
+}

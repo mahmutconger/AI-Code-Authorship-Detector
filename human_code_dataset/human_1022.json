@@ -1,0 +1,7 @@
+{
+    "code": "def _get_attr(self, obj, *names, default=\"\"):\n        for n in names:\n            if hasattr(obj, n):\n                return getattr(obj, n)\n        return default",
+    "source": "github_repo:Z4nzu/hackingtool",
+    "file": "tools/anonsurf.py",
+    "license": "MIT",
+    "language": "python"
+}

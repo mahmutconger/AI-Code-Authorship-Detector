@@ -1,0 +1,7 @@
+{
+    "code": "class ConfigSource(ABC):\n    @abstractmethod\n    def get_property(self, key: str) -> Any: ...\n\n    @abstractmethod\n    def add_property(self, key: str, value: Any) -> None: ...\n\n    @abstractmethod\n    def remove_property(self, key: str) -> None: ...",
+    "source": "github_repo:python-poetry/poetry",
+    "file": "src/poetry/config/config_source.py",
+    "license": "MIT",
+    "language": "python"
+}

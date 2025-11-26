@@ -1,0 +1,7 @@
+{
+    "code": "def pytest_generate_tests(metafunc):\n    if \"chunked_sites\" in metafunc.fixturenames:\n        sites_info = fetch_local_manifest(honor_exclusions=False)\n\n        # Ingest and apply site selections\n        site_filter: str | None = metafunc.config.getoption(\"--chunked-sites\")\n        if site_filter:\n            selected_sites: list[str] = [site.strip() for site in site_filter.split(\",\")]\n            sites_info = {\n                site: data for site, data in sites_info.items()\n                if site in selected_sites\n            }\n\n        params = [{name: data} for name, data in sites_info.items()]\n        ids = list(sites_info.keys())\n        metafunc.parametrize(\"chunked_sites\", params, ids=ids)",
+    "source": "github_repo:sherlock-project/sherlock",
+    "file": "tests/conftest.py",
+    "license": "MIT",
+    "language": "python"
+}

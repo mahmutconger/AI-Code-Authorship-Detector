@@ -1,0 +1,7 @@
+{
+    "code": "def _get_page(self, topic, request_options=None):\n\n        filename = os.path.join(\n            self.local_repository_location(),\n            self._cheatsheet_files_prefix,\n            _sanitize_dirnames(topic, restore=True),\n        )\n\n        if os.path.exists(filename):\n            answer = self._format_page(open(filename, \"r\").read())\n        else:\n            # though it should not happen\n            answer = \"%s:%s not found\" % (str(self.__class__), topic)\n\n        return answer",
+    "source": "github_repo:chubin/cheat.sh",
+    "file": "lib/adapter/cheat_sheets.py",
+    "license": "MIT",
+    "language": "python"
+}

@@ -1,0 +1,7 @@
+{
+    "code": "def place_word(\n    puzzle: list[list[str]], word: str, row: int, col: int, vertical: bool\n) -> None:\n    \"\"\"\n    Place a word at the given position.\n\n    >>> puzzle = [\n    ...     ['', '', '', ''],\n    ...     ['', '', '', ''],\n    ...     ['', '', '', ''],\n    ...     ['', '', '', '']\n    ... ]\n    >>> place_word(puzzle, 'word', 0, 0, True)\n    >>> puzzle\n    [['w', '', '', ''], ['o', '', '', ''], ['r', '', '', ''], ['d', '', '', '']]\n    \"\"\"\n    for i, char in enumerate(word):\n        if vertical:\n            puzzle[row + i][col] = char\n        else:\n            puzzle[row][col + i] = char",
+    "source": "github_repo:TheAlgorithms/Python",
+    "file": "backtracking/crossword_puzzle_solver.py",
+    "license": "MIT",
+    "language": "python"
+}

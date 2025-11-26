@@ -1,0 +1,7 @@
+{
+    "code": "def weight_dequant_kernel(x_ptr, s_ptr, y_ptr, M, N, BLOCK_SIZE: tl.constexpr):\n    \"\"\"\n    Dequantizes weights using the provided scaling factors and stores the result.\n\n    Args:\n        x_ptr (tl.pointer): Pointer to the quantized weights.\n        s_ptr (tl.pointer): Pointer to the scaling factors.\n        y_ptr (tl.pointer): Pointer to the output buffer for dequantized weights.\n        M (int): Number of rows in the weight matrix.\n        N (int): Number of columns in the weight matrix.\n        BLOCK_SIZE (tl.constexpr): Size of the block for tiling.\n\n    Returns:\n        None\n    \"\"\"\n    pid_m = tl.program_id(axis=0)\n    pid_n = tl.program_id(axis=1)\n    n = tl.cdiv(N, BLOCK_SIZE)\n    offs_m = pid_m * BLOCK_SIZE + tl.arange(0, BLOCK_SIZE)\n    offs_n = pid_n * BLOCK_SIZE + tl.arange(0, BLOCK_SIZE)\n    offs = offs_m[:, None] * N + offs_n[None, :]\n    mask = (offs_m[:, None] < M) & (offs_n[None, :] < N)\n    x = tl.load(x_ptr + offs, mask=mask).to(tl.float32)\n    s = tl.load(s_ptr + pid_m * n + pid_n)\n    y = x * s\n    tl.store(y_ptr + offs, y, mask=mask)",
+    "source": "github_repo:deepseek-ai/DeepSeek-V3",
+    "file": "inference/kernel.py",
+    "license": "MIT",
+    "language": "python"
+}

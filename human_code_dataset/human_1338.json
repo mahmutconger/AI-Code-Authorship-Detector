@@ -1,0 +1,7 @@
+{
+    "code": "class StatsResponse(BaseModel):\n    total: int\n    active: int\n    inactive: int\n    triggers: Dict[str, int]\n    complexity: Dict[str, int]\n    total_nodes: int\n    unique_integrations: int\n    last_indexed: str",
+    "source": "github_repo:Zie619/n8n-workflows",
+    "file": "api_server.py",
+    "license": "MIT",
+    "language": "python"
+}

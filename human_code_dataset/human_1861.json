@@ -1,0 +1,7 @@
+{
+    "code": "def eval_with_timeout(formula, max_time=3):\n    try:\n        with timeout(max_time, formula):\n            with warnings.catch_warnings():\n                warnings.simplefilter(\"ignore\", SyntaxWarning)\n                return eval(formula, {\"__builtins__\": {}}, {})\n    except Exception as e:\n        signal.alarm(0)\n        # print(f\"Warning: Failed to eval {formula}, exception: {e}\") # it's ok ignore wrong calculator usage\n        return None",
+    "source": "github_repo:karpathy/nanochat",
+    "file": "nanochat/engine.py",
+    "license": "MIT",
+    "language": "python"
+}

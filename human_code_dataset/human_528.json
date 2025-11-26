@@ -1,0 +1,7 @@
+{
+    "code": "def from_agent(cls, agent) -> 'UpdateAgentTaskEvent':\n\t\t\"\"\"Create an UpdateAgentTaskEvent from an Agent instance\"\"\"\n\t\tif not hasattr(agent, '_task_start_time'):\n\t\t\traise ValueError('Agent must have _task_start_time attribute')\n\n\t\tdone_output = agent.history.final_result() if agent.history else None\n\t\treturn cls(\n\t\t\tid=str(agent.task_id),\n\t\t\tuser_id='',  # To be filled by cloud handler\n\t\t\tdevice_id=agent.cloud_sync.auth_client.device_id\n\t\t\tif hasattr(agent, 'cloud_sync') and agent.cloud_sync and agent.cloud_sync.auth_client\n\t\t\telse None,\n\t\t\tstopped=agent.state.stopped if hasattr(agent.state, 'stopped') else False,\n\t\t\tpaused=agent.state.paused if hasattr(agent.state, 'paused') else False,\n\t\t\tdone_output=done_output,\n\t\t\tfinished_at=datetime.now(timezone.utc) if agent.history and agent.history.is_done() else None,\n\t\t\tagent_state=agent.state.model_dump() if hasattr(agent.state, 'model_dump') else {},\n\t\t\tuser_feedback_type=None,\n\t\t\tuser_comment=None,\n\t\t\tgif_url=None,\n\t\t\t# user_feedback_type and user_comment would be set by the API/frontend\n\t\t\t# gif_url would be set after GIF generation if needed\n\t\t)",
+    "source": "github_repo:browser-use/browser-use",
+    "file": "browser_use/agent/cloud_events.py",
+    "license": "MIT",
+    "language": "python"
+}

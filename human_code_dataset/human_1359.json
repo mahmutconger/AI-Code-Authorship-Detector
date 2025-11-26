@@ -1,0 +1,7 @@
+{
+    "code": "def save_search_index(search_index: Dict[str, Any], output_dir: str):\n    \"\"\"Save the search index to multiple formats for different uses.\"\"\"\n\n    # Ensure output directory exists\n    os.makedirs(output_dir, exist_ok=True)\n\n    # Save complete index\n    with open(os.path.join(output_dir, 'search-index.json'), 'w', encoding='utf-8') as f:\n        json.dump(search_index, f, indent=2, ensure_ascii=False)\n\n    # Save stats only (for quick loading)\n    with open(os.path.join(output_dir, 'stats.json'), 'w', encoding='utf-8') as f:\n        json.dump(search_index['stats'], f, indent=2, ensure_ascii=False)\n\n    # Save categories only\n    with open(os.path.join(output_dir, 'categories.json'), 'w', encoding='utf-8') as f:\n        json.dump(search_index['categories'], f, indent=2, ensure_ascii=False)\n\n    # Save integrations only\n    with open(os.path.join(output_dir, 'integrations.json'), 'w', encoding='utf-8') as f:\n        json.dump(search_index['integrations'], f, indent=2, ensure_ascii=False)\n\n    print(f\"Search index generated successfully:\")\n    print(f\"   {search_index['stats']['total_workflows']} workflows indexed\")\n    print(f\"   {len(search_index['categories'])} categories\")\n    print(f\"   {len(search_index['integrations'])} popular integrations\")\n    print(f\"   Files saved to: {output_dir}\")",
+    "source": "github_repo:Zie619/n8n-workflows",
+    "file": "scripts/generate_search_index.py",
+    "license": "MIT",
+    "language": "python"
+}

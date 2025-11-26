@@ -1,0 +1,7 @@
+{
+    "code": "def apply_rotary_emb(x: torch.Tensor, freqs_cis: torch.Tensor) -> torch.Tensor:\n    \"\"\"\n    Applies rotary positional embeddings to the input tensor.\n\n    Args:\n        x (torch.Tensor): Input tensor with positional embeddings to be applied.\n        freqs_cis (torch.Tensor): Precomputed complex exponential values for positional embeddings.\n\n    Returns:\n        torch.Tensor: Tensor with rotary embeddings applied.\n    \"\"\"\n    dtype = x.dtype\n    x = torch.view_as_complex(x.float().view(*x.shape[:-1], -1, 2))\n    freqs_cis = freqs_cis.view(1, x.size(1), 1, x.size(-1))\n    y = torch.view_as_real(x * freqs_cis).flatten(3)\n    return y.to(dtype)",
+    "source": "github_repo:deepseek-ai/DeepSeek-V3",
+    "file": "inference/model.py",
+    "license": "MIT",
+    "language": "python"
+}

@@ -1,0 +1,7 @@
+{
+    "code": "def estimate_loss():\n    out = {}\n    model.eval()\n    for split in ['train', 'val']:\n        losses = torch.zeros(eval_iters)\n        for k in range(eval_iters):\n            X, Y = get_batch(split)\n            with ctx:\n                logits, loss = model(X, Y)\n            losses[k] = loss.item()\n        out[split] = losses.mean()\n    model.train()\n    return out",
+    "source": "github_repo:karpathy/nanoGPT",
+    "file": "train.py",
+    "license": "MIT",
+    "language": "python"
+}

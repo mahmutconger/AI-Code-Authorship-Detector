@@ -1,0 +1,7 @@
+{
+    "code": "def finish(self) -> None:\n        self.interpolate(self.final_alpha_value)\n        self.mobject.set_animating_status(False)\n        if self.suspend_mobject_updating and self.mobject_was_updating:\n            self.mobject.resume_updating()",
+    "source": "github_repo:3b1b/manim",
+    "file": "manimlib/animation/animation.py",
+    "license": "MIT",
+    "language": "python"
+}

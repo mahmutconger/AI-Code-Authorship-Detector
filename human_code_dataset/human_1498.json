@@ -1,0 +1,7 @@
+{
+    "code": "def exec(self, keys: str, target=None) -> None:\n        if target is None:\n            target = self.tmux_pane\n        self.type(keys, target=target)\n        self.pause(1.25)\n        self.press_key(\"Enter\", target=target)\n        self.pause(0.5)",
+    "source": "github_repo:mitmproxy/mitmproxy",
+    "file": "docs/scripts/clirecording/clidirector.py",
+    "license": "MIT",
+    "language": "python"
+}

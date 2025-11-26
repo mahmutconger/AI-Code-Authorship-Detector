@@ -1,0 +1,7 @@
+{
+    "code": "def add_two_no(self, first, second):\n        prev = None\n        temp = None\n        carry = 0\n        while first is not None or second is not None:\n            first_data = 0 if first is None else first.data\n            second_data = 0 if second is None else second.data\n            Sum = carry + first_data + second_data\n            carry = 1 if Sum >= 10 else 0\n            Sum = Sum if Sum < 10 else Sum % 10\n            temp = Node(Sum)\n            if self.head is None:\n                self.head = temp\n            else:\n                prev.next = temp\n            prev = temp\n            if first is not None:\n                first = first.next\n            if second is not None:\n                second = second.next\n        if carry > 0:\n            temp.next = Node(carry)",
+    "source": "github_repo:geekcomputers/Python",
+    "file": "Add_two_Linked_List.py",
+    "license": "MIT",
+    "language": "python"
+}

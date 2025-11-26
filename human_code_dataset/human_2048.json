@@ -1,0 +1,7 @@
+{
+    "code": "def _relative_position_to_absolute_position(self, x):\n        \"\"\"\n        x: [b, h, l, 2*l-1]\n        ret: [b, h, l, l]\n        \"\"\"\n        batch, heads, length, _ = x.size()\n        # Concat columns of pad to shift from relative to absolute indexing.\n        x = F.pad(x, commons.convert_pad_shape([[0, 0], [0, 0], [0, 0], [0, 1]]))\n\n        # Concat extra elements so to add up to shape (len+1, 2*len-1).\n        x_flat = x.view([batch, heads, length * 2 * length])\n        x_flat = F.pad(\n            x_flat, commons.convert_pad_shape([[0, 0], [0, 0], [0, length - 1]])\n        )\n\n        # Reshape and slice out the padded elements.\n        x_final = x_flat.view([batch, heads, length + 1, 2 * length - 1])[\n            :, :, :length, length - 1 :\n        ]\n        return x_final",
+    "source": "github_repo:myshell-ai/OpenVoice",
+    "file": "openvoice/attentions.py",
+    "license": "MIT",
+    "language": "python"
+}

@@ -1,0 +1,7 @@
+{
+    "code": "def _is_nullable_type(self, schema: dict[str, Any]) -> bool:\n        \"\"\"Check if a schema represents a nullable type.\"\"\"\n        if \"anyOf\" in schema:\n            return any(t.get(\"type\") == \"null\" for t in schema[\"anyOf\"])\n        return schema.get(\"type\") == \"null\"",
+    "source": "github_repo:crewAIInc/crewAI",
+    "file": "lib/crewai-tools/src/crewai_tools/adapters/enterprise_adapter.py",
+    "license": "MIT",
+    "language": "python"
+}

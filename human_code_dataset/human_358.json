@@ -1,0 +1,7 @@
+{
+    "code": "def test_tokenizer(multilingual):\n    tokenizer = get_tokenizer(multilingual=False)\n    assert tokenizer.sot in tokenizer.sot_sequence\n    assert len(tokenizer.all_language_codes) == len(tokenizer.all_language_tokens)\n    assert all(c < tokenizer.timestamp_begin for c in tokenizer.all_language_tokens)",
+    "source": "github_repo:openai/whisper",
+    "file": "tests/test_tokenizer.py",
+    "license": "MIT",
+    "language": "python"
+}

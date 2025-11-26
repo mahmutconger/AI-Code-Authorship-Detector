@@ -1,0 +1,7 @@
+{
+    "code": "def filter_proxy(self):\n        \"\"\"\n        将不可用IP剔除\n        :return: \n        \"\"\"\n        socket.setdefaulttimeout(1)\n        path = os.path.join(os.path.dirname(__file__), './proxy_list')\n        f = open(path, \"w\")\n        head = {\n            'User-Agent': 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/50.0.2661.102 Safari/537.36',\n            'Connection': 'keep-alive'}\n        url = \"http://icanhazip.com\"\n        proxy_num = 0\n        for proxy in self.proxy_list:\n            proxy_temp = {\"https\": \"https://{}\".format(proxy)}\n            try:\n                req = requests.get(url, proxies=proxy_temp, timeout=2, headers=head).content\n                print(req)\n                write_proxy = proxy + \"\\n\"\n                f.write(write_proxy)\n                proxy_num += 1\n            except Exception:\n                print (\"代理链接超时，去除此IP：{0}\".format(proxy))\n                continue\n        print(\"总共可使用ip量为{}个\".format(proxy_num))",
+    "source": "github_repo:testerSunshine/12306",
+    "file": "agency/agency_tools.py",
+    "license": "MIT",
+    "language": "python"
+}

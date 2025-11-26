@@ -1,0 +1,7 @@
+{
+    "code": "def saveImage(fromPath, toPath):\n    if toPath.startswith(\"file:///\"):\n        toPath = toPath[8:]\n    im = _imread(fromPath)\n    typ, data = im[\"type\"], im[\"data\"]\n    if typ == \"error\":\n        return data\n    try:\n        if typ == \"pixmap\":\n            data.save(toPath)\n        elif typ == \"qimage\":\n            data.save(toPath)\n        return f\"[Success] {toPath}\"\n    except Exception as e:\n        return f\"[Error] can't save: {e}\\n{fromPath}\\n{toPath}\"",
+    "source": "github_repo:hiroi-sora/Umi-OCR",
+    "file": "UmiOCR-data/py_src/image_controller/image_provider.py",
+    "license": "MIT",
+    "language": "python"
+}

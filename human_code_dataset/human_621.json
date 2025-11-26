@@ -1,0 +1,7 @@
+{
+    "code": "# Load environment variables first\nfrom dotenv import load_dotenv\n\nload_dotenv()\n\n\nfrom fastapi import FastAPI\nfrom fastapi.middleware.cors import CORSMiddleware\nfrom routes import screenshot, generate_code, home, evals\n\napp = FastAPI(openapi_url=None, docs_url=None, redoc_url=None)\n\n# Configure CORS settings\napp.add_middleware(\n    CORSMiddleware,\n    allow_origins=[\"*\"],\n    allow_credentials=True,\n    allow_methods=[\"*\"],\n    allow_headers=[\"*\"],\n)\n\n# Add routes\napp.include_router(generate_code.router)\napp.include_router(screenshot.router)\napp.include_router(home.router)\napp.include_router(evals.router)",
+    "source": "github_repo:abi/screenshot-to-code",
+    "file": "backend/main.py",
+    "license": "MIT",
+    "language": "python"
+}

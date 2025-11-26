@@ -1,0 +1,7 @@
+{
+    "code": "def check_trading_period() -> bool:\n    \"\"\"\"\"\"\n    current_time = datetime.now().time()\n\n    trading = False\n    if (\n        (current_time >= DAY_START and current_time <= DAY_END)\n        or (current_time >= NIGHT_START)\n        or (current_time <= NIGHT_END)\n    ):\n        trading = True\n\n    return trading",
+    "source": "github_repo:vnpy/vnpy",
+    "file": "examples/no_ui/run.py",
+    "license": "MIT",
+    "language": "python"
+}

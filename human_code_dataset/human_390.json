@@ -1,0 +1,7 @@
+{
+    "code": "def cleanup_caching(self):\n        for hook in self.hooks:\n            hook.remove()\n\n        self.kv_cache = {}\n        self.hooks = []",
+    "source": "github_repo:openai/whisper",
+    "file": "whisper/decoding.py",
+    "license": "MIT",
+    "language": "python"
+}

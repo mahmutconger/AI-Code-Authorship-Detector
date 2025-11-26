@@ -1,0 +1,7 @@
+{
+    "code": "def get_devices(self, update: bool = True):\n        if update:\n            sd._terminate()\n            sd._initialize()\n        devices = sd.query_devices()\n        hostapis = sd.query_hostapis()\n        for hostapi in hostapis:\n            for device_idx in hostapi[\"devices\"]:\n                devices[device_idx][\"hostapi_name\"] = hostapi[\"name\"]\n        input_devices = [\n            f\"{d['name']} ({d['hostapi_name']})\"\n            for d in devices\n            if d[\"max_input_channels\"] > 0\n        ]\n        output_devices = [\n            f\"{d['name']} ({d['hostapi_name']})\"\n            for d in devices\n            if d[\"max_output_channels\"] > 0\n        ]\n        input_devices_indices = [\n            d[\"index\"] if \"index\" in d else d[\"name\"]\n            for d in devices\n            if d[\"max_input_channels\"] > 0\n        ]\n        output_devices_indices = [\n            d[\"index\"] if \"index\" in d else d[\"name\"]\n            for d in devices\n            if d[\"max_output_channels\"] > 0\n        ]\n        return (\n            input_devices,\n            output_devices,\n            input_devices_indices,\n            output_devices_indices,\n        )",
+    "source": "github_repo:RVC-Project/Retrieval-based-Voice-Conversion-WebUI",
+    "file": "api_231006.py",
+    "license": "MIT",
+    "language": "python"
+}

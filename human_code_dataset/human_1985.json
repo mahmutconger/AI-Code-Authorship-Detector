@@ -1,0 +1,7 @@
+{
+    "code": "class SpiralInExample(Scene):\n    def construct(self):\n        logo_green = \"#81b29a\"\n        logo_blue = \"#454866\"\n        logo_red = \"#e07a5f\"\n\n        font_color = \"#ece6e2\"\n\n        pi = MathTex(r\"\\pi\").scale(7).set_color(font_color)\n        pi.shift(2.25 * LEFT + 1.5 * UP)\n\n        circle = Circle(color=logo_green, fill_opacity=0.7, stroke_width=0).shift(LEFT)\n        square = Square(color=logo_blue, fill_opacity=0.8, stroke_width=0).shift(UP)\n        triangle = Triangle(color=logo_red, fill_opacity=0.9, stroke_width=0).shift(\n            RIGHT\n        )\n        pentagon = Polygon(\n            *[\n                [np.cos(2 * np.pi / 5 * i), np.sin(2 * np.pi / 5 * i), 0]\n                for i in range(5)\n            ],\n            color=PURPLE_B,\n            fill_opacity=1,\n            stroke_width=0,\n        ).shift(UP + 2 * RIGHT)\n        shapes = VGroup(triangle, square, circle, pentagon, pi)\n        self.play(SpiralIn(shapes, fade_in_fraction=0.9))\n        self.wait()\n        self.play(FadeOut(shapes))",
+    "source": "github_repo:ManimCommunity/manim",
+    "file": "example_scenes/basic.py",
+    "license": "MIT",
+    "language": "python"
+}

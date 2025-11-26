@@ -1,0 +1,7 @@
+{
+    "code": "def log(msg, func = \"info\"):\n\tglobal logger\n\tif not logger:\n\t\tlogger = logging.getLogger()\n\t\tlogger.setLevel(logging.INFO)\n\n\ttodayStr = getTodayDateStr()\n\tif isAnotherDay(todayStr):\n\t\tsetDateStr(todayStr)\n\t\tlogger.removeHandler(loggerHandler)\n\t\t\n\t\tfh = logging.FileHandler(getLogFile())\n\t\tfm = logging.Formatter(u'[%(asctime)s][%(levelname)8s] --- %(message)s (%(filename)s:%(lineno)s)')\n\t\tfh.setFormatter(fm)\n\n\t\tlogger.addHandler(fh)\n\n\tlevels = {\n\t\t\"debug\": logger.debug,\n\t\t\"info\": logger.info,\n\t\t\"warning\": logger.warning,\n\t\t\"error\": logger.error,\n\t\t\"critical\": logger.critical\n\t}\n\n\tlevels[func](msg)",
+    "source": "github_repo:testerSunshine/12306",
+    "file": "config/logger.py",
+    "license": "MIT",
+    "language": "python"
+}

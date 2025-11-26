@@ -1,0 +1,7 @@
+{
+    "code": "def get_suggestions(self, query: str) -> List[str]:\n        \"\"\"Generate helpful suggestions based on query.\"\"\"\n        suggestions = []\n        \n        if 'email' in query.lower():\n            suggestions.extend([\n                \"Email automation workflows\",\n                \"Gmail integration examples\",\n                \"Email notification systems\"\n            ])\n        elif 'ai' in query.lower() or 'openai' in query.lower():\n            suggestions.extend([\n                \"AI-powered workflows\",\n                \"OpenAI integration examples\",\n                \"Chatbot automation\"\n            ])\n        elif 'social' in query.lower():\n            suggestions.extend([\n                \"Social media automation\",\n                \"Twitter integration workflows\",\n                \"LinkedIn automation\"\n            ])\n        else:\n            suggestions.extend([\n                \"Popular automation patterns\",\n                \"Webhook-triggered workflows\",\n                \"Scheduled automation examples\"\n            ])\n        \n        return suggestions[:3]",
+    "source": "github_repo:Zie619/n8n-workflows",
+    "file": "src/ai_assistant.py",
+    "license": "MIT",
+    "language": "python"
+}

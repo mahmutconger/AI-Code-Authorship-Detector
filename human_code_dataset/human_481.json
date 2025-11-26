@@ -1,0 +1,7 @@
+{
+    "code": "def construct(self):\n        text = Text(\"text\", font_size=96)\n\n        def text_updater(old_text):\n            assert(isinstance(old_text, Text))\n            new_text = Text(self.textbox.get_value(), font_size=old_text.font_size)\n            # new_text.align_data_and_family(old_text)\n            new_text.move_to(old_text)\n            if self.checkbox.get_value():\n                new_text.set_fill(\n                    color=self.color_picker.get_picked_color(),\n                    opacity=self.color_picker.get_picked_opacity()\n                )\n            else:\n                new_text.set_opacity(0)\n            old_text.become(new_text)\n\n        text.add_updater(text_updater)\n\n        self.add(MotionMobject(text))\n\n        self.textbox.set_value(\"Manim\")",
+    "source": "github_repo:3b1b/manim",
+    "file": "example_scenes.py",
+    "license": "MIT",
+    "language": "python"
+}

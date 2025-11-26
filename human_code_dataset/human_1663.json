@@ -1,0 +1,7 @@
+{
+    "code": "def get_page_dict(self, topic, request_options=None):\n        \"\"\"\n        Return page dict for `topic`\n        \"\"\"\n\n        #\n        # if _get_page() returns a dict, use the dictionary\n        # for the answer. It is possible to specify some\n        # useful properties as the part of the answer\n        # (e.g. \"cache\")\n        # answer by _get_page() always overrides all default properties\n        #\n        answer = self._get_page(topic, request_options=request_options)\n        if not isinstance(answer, dict):\n            answer = {\"answer\": answer}\n\n        answer_dict = {\n            \"topic\": topic,\n            \"topic_type\": self._adapter_name,\n            \"format\": self._get_output_format(topic),\n            \"cache\": self._cache_needed,\n        }\n        answer_dict.update(answer)\n\n        # pylint: disable=assignment-from-none\n        filetype = self._get_filetype(topic)\n        if filetype:\n            answer_dict[\"filetype\"] = filetype\n        return answer_dict",
+    "source": "github_repo:chubin/cheat.sh",
+    "file": "lib/adapter/adapter.py",
+    "license": "MIT",
+    "language": "python"
+}

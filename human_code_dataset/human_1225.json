@@ -1,0 +1,7 @@
+{
+    "code": "def __init__(self, max_concurrent_tasks: int, redis_url: str):\n        self.redis_client = redis.Redis.from_url(redis_url)\n        super().__init__(max_concurrent_tasks)",
+    "source": "github_repo:harry0703/MoneyPrinterTurbo",
+    "file": "app/controllers/manager/redis_manager.py",
+    "license": "MIT",
+    "language": "python"
+}

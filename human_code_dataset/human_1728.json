@@ -1,0 +1,7 @@
+{
+    "code": "def __init__(self):\n        super().__init__(QQuickImageProvider.Pixmap)\n        self.pixmapDict = {}  # 缓存所有pixmap的字典\n        self.compDict = {}  # 缓存所有组件的字典\n        # 空图占位符\n        self._noneImg = None",
+    "source": "github_repo:hiroi-sora/Umi-OCR",
+    "file": "UmiOCR-data/py_src/image_controller/image_provider.py",
+    "license": "MIT",
+    "language": "python"
+}

@@ -1,0 +1,7 @@
+{
+    "code": "def _attention_bias_proximal(self, length):\n        \"\"\"Bias for self-attention to encourage attention to close positions.\n        Args:\n          length: an integer scalar.\n        Returns:\n          a Tensor with shape [1, 1, length, length]\n        \"\"\"\n        r = torch.arange(length, dtype=torch.float32)\n        diff = torch.unsqueeze(r, 0) - torch.unsqueeze(r, 1)\n        return torch.unsqueeze(torch.unsqueeze(-torch.log1p(torch.abs(diff)), 0), 0)",
+    "source": "github_repo:myshell-ai/OpenVoice",
+    "file": "openvoice/attentions.py",
+    "license": "MIT",
+    "language": "python"
+}

@@ -1,0 +1,7 @@
+{
+    "code": "from app.agent.base import BaseAgent\nfrom app.agent.browser import BrowserAgent\nfrom app.agent.mcp import MCPAgent\nfrom app.agent.react import ReActAgent\nfrom app.agent.swe import SWEAgent\nfrom app.agent.toolcall import ToolCallAgent\n\n\n__all__ = [\n    \"BaseAgent\",\n    \"BrowserAgent\",\n    \"ReActAgent\",\n    \"SWEAgent\",\n    \"ToolCallAgent\",\n    \"MCPAgent\",\n]",
+    "source": "github_repo:FoundationAgents/OpenManus",
+    "file": "app/agent/__init__.py",
+    "license": "MIT",
+    "language": "python"
+}

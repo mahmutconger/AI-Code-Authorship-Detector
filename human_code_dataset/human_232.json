@@ -1,0 +1,7 @@
+{
+    "code": "def forward(self, x: torch.Tensor) -> torch.Tensor:\n        \"\"\"\n        Forward pass for the custom linear layer.\n\n        Args:\n            x (torch.Tensor): Input tensor.\n\n        Returns:\n            torch.Tensor: Transformed tensor after linear computation.\n        \"\"\"\n        return linear(x, self.weight, self.bias, self.scale_fmt)",
+    "source": "github_repo:deepseek-ai/DeepSeek-V3",
+    "file": "inference/model.py",
+    "license": "MIT",
+    "language": "python"
+}

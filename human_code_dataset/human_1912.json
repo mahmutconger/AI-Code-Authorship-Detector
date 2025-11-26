@@ -1,0 +1,7 @@
+{
+    "code": "def get_duration():\n    # TODO provide ffprobe tags to mtp as json\n\n    # fmt: off\n    dur = sp.check_output([\n        \"ffprobe\",\n        \"-hide_banner\",\n        \"-v\", \"fatal\",\n        \"-show_streams\",\n        \"-show_format\",\n        fsenc(sys.argv[1])\n    ])\n    # fmt: on\n\n    dur = dur.decode(\"ascii\", \"replace\").split(\"\\n\")\n    dur = [x.split(\"=\")[1] for x in dur if x.startswith(\"duration=\")]\n    dur = [float(x) for x in dur if re.match(r\"^[0-9\\.,]+$\", x)]\n    return list(sorted(dur))[-1] if dur else None",
+    "source": "github_repo:9001/copyparty",
+    "file": "bin/mtag/audio-key-slicing.py",
+    "license": "MIT",
+    "language": "python"
+}

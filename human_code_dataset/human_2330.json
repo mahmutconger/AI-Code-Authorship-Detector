@@ -1,0 +1,7 @@
+{
+    "code": "class DataTypes(enum.IntEnum):\n    \"\"\"Defines numerical types of each column.\"\"\"\n\n    REAL_VALUED = 0\n    CATEGORICAL = 1\n    DATE = 2",
+    "source": "github_repo:microsoft/qlib",
+    "file": "examples/benchmarks/TFT/data_formatters/base.py",
+    "license": "MIT",
+    "language": "python"
+}

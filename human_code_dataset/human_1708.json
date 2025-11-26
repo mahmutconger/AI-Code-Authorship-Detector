@@ -1,0 +1,7 @@
+{
+    "code": "def __init__(self):\n        # 事件字典，元素为 回调函数列表\n        self._eventDict = {}\n        self._eventDictMutex = QMutex()  # 事件字典的锁\n        # 组字典，元素为 组列表。可以成组取消订阅，方便管理。\n        self._groupDict = {}\n        self._groupDictMutex = QMutex()  # 组字典的锁\n        # 信号\n        self._eventSignal = self._EventSignal()\n        self._eventSignal.signal.connect(self._publish)",
+    "source": "github_repo:hiroi-sora/Umi-OCR",
+    "file": "UmiOCR-data/py_src/event_bus/pubsub_service.py",
+    "license": "MIT",
+    "language": "python"
+}

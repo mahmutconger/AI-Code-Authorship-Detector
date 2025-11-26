@@ -1,0 +1,7 @@
+{
+    "code": "def main():\n    try:\n        label = sys.argv[1].split(\":usb-eject:\")[1].split(\":\")[0]\n        mp = MOUNT_BASE + unquote(label)\n        # print(\"ejecting [%s]... \" % (mp,), end=\"\")\n        mp = os.path.abspath(os.path.realpath(mp))\n        st = os.lstat(mp)\n        if not stat.S_ISDIR(st.st_mode) or not mp.startswith(MOUNT_BASE):\n            raise Exception(\"not a regular directory\")\n\n        # if you're running copyparty as root (thx for the faith)\n        # you'll need something like this to make dbus talkative\n        cmd = b\"sudo -u egon DBUS_SESSION_BUS_ADDRESS=unix:path=/run/user/1000/bus gio mount -e\"\n\n        # but if copyparty and the ui-session is running\n        # as the same user (good) then this is plenty\n        cmd = b\"gio mount -e\"\n\n        cmd = cmd.split(b\" \") + [mp]\n        ret = sp.check_output(cmd).decode(\"utf-8\", \"replace\")\n        print(ret.strip() or (label + \" can be safely unplugged\"))\n\n    except Exception as ex:\n        print(\"unmount failed: %r\" % (ex,))",
+    "source": "github_repo:9001/copyparty",
+    "file": "bin/hooks/usb-eject.py",
+    "license": "MIT",
+    "language": "python"
+}

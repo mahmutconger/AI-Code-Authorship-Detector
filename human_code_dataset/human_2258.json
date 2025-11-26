@@ -1,0 +1,7 @@
+{
+    "code": "def __post_init__(self) -> None:\n        if isinstance(self.priority, str):\n            self.priority = Priority[self.priority.upper()]",
+    "source": "github_repo:python-poetry/poetry",
+    "file": "src/poetry/config/source.py",
+    "license": "MIT",
+    "language": "python"
+}

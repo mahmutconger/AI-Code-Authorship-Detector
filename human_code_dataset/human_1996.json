@@ -1,0 +1,7 @@
+{
+    "code": "def construct(self):\n        text = MathTex(r\"\\vv{vb}\")\n        self.play(Write(text))\n        self.wait(1)",
+    "source": "github_repo:ManimCommunity/manim",
+    "file": "example_scenes/customtex.py",
+    "license": "MIT",
+    "language": "python"
+}
